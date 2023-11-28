@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  web:
+    image: store-web
+    environment:
+      - DB_DATABASE=contosostore
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_HOST=db
+      - DB_PORT=3306
+    ports:
+      - "8080:80" 
+      - "2222:22" 
+  db:
+    image: store-db
+    restart: always
+    environment:
+      - PostgreSQL_ROOT_PASSWORD=root
+      - PostgreSQL_DATABASE=contosostore
+    ports:
+      - "3306:3306"
+      - "2223:22" 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8081:80'
+        - "2224:22" 
+    restart: always
+    environment:
+        PMA_HOST: db
+    depends_on:
+        - db

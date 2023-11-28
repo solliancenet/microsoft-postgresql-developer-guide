@@ -1,0 +1,595 @@
+[
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-journey.png",
+        "for": "media/PostgreSQL-journey.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/ISV-Tech-Builders-tools-white.png",
+        "for": "media/ISV-Tech-Builders-tools-white.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/cloud-adoption-strategies.png",
+        "for": "media/cloud-adoption-strategies.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/azure-services.png",
+        "for": "./media/azure-services.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/scope-levels.png",
+        "for": "./media/scope-levels.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/landing-zone-accelerator.png",
+        "for": "./media/landing-zone-accelerator.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/consistent-management-layer.png",
+        "for": "media/consistent-management-layer.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-management-tool-maturity.png",
+        "for": "media/azure-management-tool-maturity.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-portal-services.png",
+        "for": "media/azure-portal-services.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-marketplace-search-results.png",
+        "for": "media/azure-marketplace-search-results.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-cli-example.png",
+        "for": "media/azure-cli-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-template-json-example.png",
+        "for": "media/azure-template-json-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/sample-bicep-template.png",
+        "for": "./media/sample-bicep-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/sample-terraform-template.png",
+        "for": "./media/sample-terraform-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/PostgreSQL-conceptual-diagram.png",
+        "for": "./media/PostgreSQL-conceptual-diagram.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/note.png",
+        "for": "media/note.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-database-for-PostgreSQL-for-beginners.png",
+        "for": "media/azure-database-for-PostgreSQL-for-beginners.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/watch.png",
+        "for": "media/watch.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/flexible-server.png",
+        "for": "./media/flexible-server.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/custom_maintenance_schedule.png",
+        "for": "media/custom_maintenance_schedule.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL_backup_configuration.png",
+        "for": "media/PostgreSQL_backup_configuration.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL_iops_configuration.png",
+        "for": "media/PostgreSQL_iops_configuration.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/VSCode_screenshot.png",
+        "for": "media/VSCode_screenshot.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/PostgreSQL-flex-params.png",
+        "for": "./media/PostgreSQL-flex-params.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/new-ssl-connection-with-ca-file.png",
+        "for": "./media/new-ssl-connection-with-ca-file.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/analyst-query.png",
+        "for": "./media/analyst-query.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/tip.png",
+        "for": "media/tip.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/develop-app-faster-youtube.png",
+        "for": "media/develop-app-faster-youtube.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/end-to-end-deployment-chapter-steps.png",
+        "for": "media/end-to-end-deployment-chapter-steps.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/read-more.png",
+        "for": "media/read-more.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/sample-app-level-1-architecture.png",
+        "for": "media/sample-app-level-1-architecture.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/sample-app-site-map.png",
+        "for": "media/sample-app-site-map.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/classic-deployment-diagram.png",
+        "for": "media/classic-deployment-diagram.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/azure-vm-deployment.png",
+        "for": "./media/azure-vm-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/app-svc-flex-server.png",
+        "for": "./media/app-svc-flex-server.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/in-app-deployment.png",
+        "for": "./media/in-app-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/cicd-deployment.png",
+        "for": "./media/cicd-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/containerized-deployment.png",
+        "for": "./media/containerized-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/aci-deployment.png",
+        "for": "./media/aci-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/app-service-containers-deployment.png",
+        "for": "./media/app-service-containers-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/aks-deployment.png",
+        "for": "./media/aks-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/aks-flexible-server-deployment.png",
+        "for": "./media/aks-flexible-server-deployment.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/search-for-custom-template.png",
+        "for": "media/search-for-custom-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/build-your-own-custom-template.png",
+        "for": "media/build-your-own-custom-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/load-local-arm-template.png",
+        "for": "media/load-local-arm-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/save-the-template.png",
+        "for": "media/save-the-template.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-monitor-overview-topics.png",
+        "for": "media/azure-monitor-overview-topics.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/how-azure-monitor-works.png",
+        "for": "media/how-azure-monitor-works.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-metric-icon.png",
+        "for": "media/azure-metric-icon.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/activity-logs.png",
+        "for": "media/activity-logs.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/log-analytics-icon.png",
+        "for": "media/log-analytics-icon.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/workbooks-icon.png",
+        "for": "media/workbooks-icon.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/resource-health.png",
+        "for": "media/resource-health.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/application-insights-overview.png",
+        "for": "media/application-insights-overview.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-metrics-workflow.png",
+        "for": "media/azure-metrics-workflow.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-metric-time-range.png",
+        "for": "media/azure-metric-time-range.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-guide-metric-counters.png",
+        "for": "media/PostgreSQL-guide-metric-counters.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-guide-request-count-metric.png",
+        "for": "media/PostgreSQL-guide-request-count-metric.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-metric-new-alert-rule.png",
+        "for": "media/azure-metric-new-alert-rule.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-portal-PostgreSQL-overview.png",
+        "for": "media/azure-portal-PostgreSQL-overview.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-azure-portal-metrics.png",
+        "for": "media/PostgreSQL-azure-portal-metrics.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-diagnostic-settings.png",
+        "for": "media/PostgreSQL-diagnostic-settings.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-diagnostic-query.png",
+        "for": "media/azure-diagnostic-query.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-diagnostic-query-result.png",
+        "for": "media/azure-diagnostic-query-result.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/PostgreSQL-log-analytics-audit-log-query.png",
+        "for": "media/PostgreSQL-log-analytics-audit-log-query.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/workbook-example.png",
+        "for": "media/workbook-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/query-performance-insight.png",
+        "for": "media/query-performance-insight.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/warning.png",
+        "for": "media/warning.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/resource-health-example.png",
+        "for": "media/resource-health-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/activity-logs-example.png",
+        "for": "media/activity-logs-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/activity-log-example-detail.png",
+        "for": "media/activity-log-example-detail.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/create-alert.png",
+        "for": "media/create-alert.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/configure-alert-example.png",
+        "for": "media/configure-alert-example.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/firewall-rule-diagram.png",
+        "for": "media/firewall-rule-diagram.png"
+    },
+    {
+        "type": "InlineNotRendered",
+        "verbosity": "INFO",
+        "contents": {
+            "t": "RawInline",
+            "c": [
+                "html",
+                "<servername>"
+            ]
+        }
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/selenium-test-azure-devops.png",
+        "for": "./media/selenium-test-azure-devops.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/azure-traffic-manager-blue-green.png",
+        "for": "media/azure-traffic-manager-blue-green.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/load-testing-pipeline-jmeter.png",
+        "for": "./media/load-testing-pipeline-jmeter.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/container-logs-in-log-analytics.png",
+        "for": "./media/container-logs-in-log-analytics.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/metric-visualization.png",
+        "for": "./media/metric-visualization.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/grafana-dashboard.png",
+        "for": "./media/grafana-dashboard.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/server_parameters.png",
+        "for": "media/server_parameters.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/employee-query-full-table-scan.png",
+        "for": "media/employee-query-full-table-scan.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/thread-pooling-performance.png",
+        "for": "./media/thread-pooling-performance.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/cdn-overview.png",
+        "for": "./media/cdn-overview.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/troubleshoot-problems-portal.png",
+        "for": "./media/troubleshoot-problems-portal.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/resource-health-integration.png",
+        "for": "./media/resource-health-integration.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/open-a-support ticket.png",
+        "for": "media/open-a-support ticket.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/1-flexible-server-overview-zone-redundant-ha.png",
+        "for": "media/1-flexible-server-overview-zone-redundant-ha.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/flexible-server-overview-same-zone-ha.png",
+        "for": "./media/flexible-server-overview-same-zone-ha.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/cross-region-ha.png",
+        "for": "./media/cross-region-ha.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/microservices-with-replication.png",
+        "for": "./media/microservices-with-replication.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/minecraft-logo.png",
+        "for": "media/minecraft-logo.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "./media/realms-migration.png",
+        "for": "./media/realms-migration.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/linked-brain-logo.png",
+        "for": "media/linked-brain-logo.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/t-systems-logo.png",
+        "for": "media/t-systems-logo.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/children-mercy-logo.png",
+        "for": "media/children-mercy-logo.png"
+    },
+    {
+        "type": "LoadedResource",
+        "verbosity": "INFO",
+        "from": "media/geekwire.png",
+        "for": "media/geekwire.png"
+    }
+]

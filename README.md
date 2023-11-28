@@ -1,2 +1,1 @@
-# microsoft-postgresql-developer-guide
-microsoft-postgresql-developer-guide
+# microsoft-PostgreSQL-developer-guide

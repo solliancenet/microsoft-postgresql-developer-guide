@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: store-db
+  namespace: PostgreSQLdev
+  labels:
+        app: store-db
+spec:
+  containers:
+    - name: store-db
+      image: <REGISTRY_NAME>.azurecr.io/store-db:latest
+      volumeMounts:
+        - mountPath: "/var/lib/PostgreSQL/"
+          name: PostgreSQL-data
+      imagePullPolicy: IfNotPresent
+      ports:
+      - containerPort: 3306
+        name: PostgreSQL
+      env:
+      - name: PostgreSQL_DATABASE
+        value: "ContosoStore"
+      - name: PostgreSQL_ROOT_PASSWORD
+        value: "root"
+  imagePullSecrets:
+    - name: acr-secret

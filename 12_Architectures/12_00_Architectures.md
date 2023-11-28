@@ -1,0 +1,38 @@
+# 12 / PostgreSQL architectures
+
+By progressing through this guide, there have been various ways presented to build and deploy applications using many different services in Azure.  Although we covered many topics, there are many other creative and different ways to build and deploy PostgreSQL-based services.
+
+The [Azure Architecture center](https://docs.microsoft.com/azure/architecture/) provides many different examples of how to create different architectures.  Although some of them utilize other database persistence technologies, these could easily be substituted with Azure Database for PostgreSQL Flexible Server - Flexible Server.  
+
+## Sample architectures
+
+The following are a few examples of architectures using different patterns and focused on various industries from the Azure Architecture Center.
+
+### Digital marketing using Azure Database for PostgreSQL Flexible Server
+
+- [Digital marketing using Azure Database for PostgreSQL Flexible Server:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-PostgreSQL) In this architecture, corporations serve digital marketing campaigns through content management systems, like WordPress or Drupal, running on Azure App Service. These CMS offerings access user data in Azure Database for PostgreSQL Flexible Server. Azure Cache for Redis caches data and sessions, while Azure Application Insights monitors the CMS app for issues and performance.
+
+### Finance management apps using Azure Database for PostgreSQL Flexible Server
+
+- [Finance management apps using Azure Database for PostgreSQL Flexible Server:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-PostgreSQL) This architecture demonstrates a three-tier app, coupled with advanced analytics served by Power BI. Tier-3 clients, like mobile applications, access tier-2 APIs, which reference tier-1 Azure Database for PostgreSQL Flexible Server. To offer additional value, [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) accesses Azure Database for PostgreSQL Flexible Server (possibly read replicas) through its PostgreSQL connector.
+
+### Intelligent apps using Azure Database for PostgreSQL Flexible Server
+
+- [Intelligent apps using Azure Database for PostgreSQL Flexible Server:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-PostgreSQL) This solution demonstrates an innovative app that utilizes serverless computing (Azure Function Apps), machine learning (Azure Machine Learning Studio & Cognitive Services APIs), Azure Database for PostgreSQL Flexible Server, and Power BI.
+
+### Gaming using Azure Database for PostgreSQL Flexible Server
+
+- [Gaming using Azure Database for PostgreSQL Flexible Server:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-PostgreSQL) This architecture demonstrates how to develop apps that must process API requests at scale, such as gaming backends.
+- The architecture utilizes:
+  - Azure Traffic Manager to geographically distribute traffic.
+  - Azure API Management to provide rate limiting.
+  - Azure App Service to host gaming APIs and Azure Database for PostgreSQL Flexible Server. Firms can perform analysis on gaming data in Azure Database for PostgreSQL Flexible Server using Azure HDInsight.
+  - Power BI to visualize the data.
+
+### Retail and e-commerce using Azure PostgreSQL
+
+- [Retail and e-commerce using Azure PostgreSQL:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-PostgreSQL) This application architecture focuses on processing transactions quickly and creating tailored customer experiences. It consists of Azure App Service, Azure Database for PostgreSQL Flexible Server (for storing product and session information), and Azure Search (for full-text search capability).
+
+### Scalable web and mobile applications using Azure Database for PostgreSQL Flexible Server
+
+- [Scalable web and mobile applications using Azure Database for PostgreSQL Flexible Server:](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-PostgreSQL) This generic architecture utilizes the scaling capabilities (vertical and horizontal) of Azure App Service and PostgreSQL Flexible Server.
