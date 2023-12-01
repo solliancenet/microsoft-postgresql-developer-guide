@@ -2,7 +2,9 @@ Outline (Combined)
 
 Introduction
 
-	Target Audience (L200-L300)
+	Overall Target Audience (L200-L300)
+
+	AI Target Audience (L100-L400) - Zero to Hero
 	
 		Azure PostgreSQL application development topics.
 		
@@ -61,6 +63,8 @@ Getting Started
 	SDKs
 	
 		Language Support
+
+			Python
 		
 			NodeJS
 			
@@ -107,8 +111,6 @@ Getting Started
 		Security
 		
 		Business Continuity
-
-	DB Server Monitoring and tuning
 
 End to end development
 
@@ -176,37 +178,49 @@ End to end development
 		
 		Configurations / Key Vault 
 
-Monitoring
+Developing AI Solutions
+
+	Intro to AI
+
+	AI Models
+
+	Common Patterns (React, RAG)
+
+	Vectors and Vector Stores
+
+	PostgreSQL AI Features
+
+	Building a PostgreSQL-based AI application
+
+Application Telemetry
 
 	Azure Monitor / Log Analytics
-	
+
 	App Insights
-	
+
+	OpenTelemetry
+
 	Debugging
+
+	Reporting / Read Replicas
 	
-Networking + Securing
+Application Security / Secure Coding
 
 	Managed Service Identities
-	
-	Virtual Networks
-	
-	Private Endpoints
-	
-	Azure Firewall
-	
-	Application Gateway
-	
+
 	Security Baselines
-	
+
 	Azure Defender
-	
-	Azure Sentinel / Log Analytics
 
 Testing
 
+	Unit Tests (xUnit)
+
 	JMeter
-	
+
 Performance
+
+	Tools (pgbench)
 
 	Load Balancers
 	
@@ -218,29 +232,17 @@ Performance
 	
 	Scaling
 
-Troubleshooting 
+Troubleshooting
 	
 	Connection Errors / Networking
 
 	Configuration errors
 
-Business Conntinutity and Disaster Recovery
-
-	Backups
-
-	Maintence
-
-	Upgrades
-	
-	Replicas
-
 Best Practices
 
 	Well architected framework (WAF)
 
-	Networking
-
-Architecting with Azure Database for PostgreSQL Flexible Server
+Sample Architectures with Azure Database for PostgreSQL Flexible Server
 
 	Industry focused (gaming, ecommerce, etc)
 	
@@ -255,7 +257,7 @@ Case Studies
 Zero To Hero
 
 	Determining the evolutionary waypoint
-	
+
 Resources
 
 	All links / accounts
