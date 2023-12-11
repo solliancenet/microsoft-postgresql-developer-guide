@@ -1,6 +1,6 @@
 ### Java
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server Flexible Server through Java.
+This section describes tools to interact with Azure Database for PostgreSQL Flexible Server through Java.
 
 #### Connect and query
 

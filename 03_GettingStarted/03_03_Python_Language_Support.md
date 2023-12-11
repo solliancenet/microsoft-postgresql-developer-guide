@@ -6,7 +6,7 @@ This section describes tools to interact with Azure Database for PostgreSQL Flex
 
 ##### Setup
 
-This section will demonstrate how to query Azure Database for PostgreSQL Flexible Server Flexible Server using the `PostgreSQL-connector-python` library on Python 3.
+This section will demonstrate how to query Azure Database for PostgreSQL Flexible Server using the `PostgreSQL-connector-python` library on Python 3.
 
 Follow one of the methods in the [Create a Flexible Server database] document to create a Flexible Server instance with a database.
 

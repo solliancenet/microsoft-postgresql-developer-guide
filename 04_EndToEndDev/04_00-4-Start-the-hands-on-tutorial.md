@@ -76,7 +76,7 @@ Click the links to complete each journey before going to the next.
 
 1. [Classic deployment](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy)
 2. [Azure VM Deployment](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm)
-3. [Simple App Service Deployment with Azure Database for PostgreSQL Flexible Server Flexible Server](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc)
+3. [Simple App Service Deployment with Azure Database for PostgreSQL Flexible Server](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc)
 4. [App Service with InApp PostgreSQL](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-InApp)
 5. [Continuous Integration / Continuous Delivery](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-04-CloudDeploy-CICD)
 6. [Containerizing layers with Docker](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker)

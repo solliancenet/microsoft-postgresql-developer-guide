@@ -4,10 +4,6 @@ The previous chapters provided some basic Azure hands-on experience. It is impor
 
 With a configured development environment available, it is time to explore the various architecture and deployment options available when deploying an application and its corresponding PostgreSQL database.
 
-![This image shows a Data Exposed video explaining the benefits that Flexible Server offers for application development.](media/develop-app-faster-youtube.png "Data Exposed Flexible Server app development video")
-
->![Watch icon](media/watch.png "Watch") **Watch:** [Develop applications faster with Azure Database for PostgreSQL Flexible Server – Flexible Server | Data Exposed](https://www.youtube.com/watch?v=RZXbwscC9FU&t=266s)
-
 This chapter focuses on these subjects:
 
 ![This image explains the progression of topics in this chapter.](media/end-to-end-deployment-chapter-steps.png "Chapter topics list")

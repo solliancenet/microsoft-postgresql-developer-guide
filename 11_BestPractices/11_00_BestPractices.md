@@ -2,7 +2,7 @@
 
 ## Best practices for PostgreSQL Flexible Server apps
 
-Organizations developing cloud apps backed by Azure Database for PostgreSQL Flexible Server Flexible Server should consider implementing the following best practices. Note, that this list is not comprehensive.
+Organizations developing cloud apps backed by Azure Database for PostgreSQL Flexible Server should consider implementing the following best practices. Note, that this list is not comprehensive.
 
 Readers should review additional guide chapters for a more comprehensive understanding.
 

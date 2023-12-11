@@ -16,7 +16,7 @@ For more specific metrics, navigate to the **Monitoring** section. Select **Metr
 
 ![This image shows Metrics on the Monitoring tab in the Azure portal.](media/PostgreSQL-azure-portal-metrics.png "Monitoring tab in the Azure portal")
 
-![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server Flexible Servers with built-in metrics](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-monitoring)
+![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Servers with built-in metrics](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-monitoring)
 
 ### Diagnostic settings
 
@@ -63,7 +63,7 @@ In addition to the query performance insight tool, `Wait statistics` provides a 
 
 Finally, the `slow_query_log` can be set to show slow queries in the PostgreSQL log files (default is OFF). The `long_query_time` server parameter can be used to log long-running queries (default long query time is 10 sec).
 
-![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-workbooks)
+![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-workbooks)
 
 ### Resource health
 

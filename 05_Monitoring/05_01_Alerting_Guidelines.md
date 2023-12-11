@@ -61,7 +61,7 @@ Webhook action groups send POST requests to configured webhook endpoints. Action
 Azure CLI provides the `az monitor` series of commands to manipulate action groups (`az monitor action-group`), alert rules and metrics (`az monitor metrics`), and more.
 
 - [Azure CLI reference commands for Azure Monitor](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-monitor)
-- [Monitor and scale an Azure Database for PostgreSQL Flexible Server Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale)
+- [Monitor and scale an Azure Database for PostgreSQL Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale)
 
 #### Azure Portal
 

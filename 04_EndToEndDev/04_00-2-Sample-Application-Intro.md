@@ -1,6 +1,6 @@
 ## Introduction to the Sample Application
 
-Instead of learning multiple sample applications, the guide focused on evolving architecture and deployment strategies. Readers should learn the sample application structure once and focus on how the application will need to be modified to fit the deployment model and architecture evolution.
+Instead of learning multiple sample applications, the guide focuses on evolving an architecture and deployment strategies. Readers should learn the sample application structure once and focus on how the application will need to be modified to fit the deployment model and architecture evolution.
 
 ### Sample Application overview and story
 
@@ -23,4 +23,3 @@ The web application is simple, but covers the fundamentals.
 ### Running the sample lab
 
 You will find the steps to run the lab in the artifacts repo here: [Sample application tutorial](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps)
-

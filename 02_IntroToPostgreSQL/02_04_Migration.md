@@ -2,14 +2,24 @@
 
 ### From Single Server to Flexible Server
 
-Data-in replication, which replays log events from the source system to the target system, is the preferred approach for migrating from Single Server to Flexible Server. Typically, teams generate a dump of the source Single Server through a utility like `mydumper`. Then, they restore the dump to the target Flexible Server using `myloader`. Lastly, they configure data-in replication on the target Flexible Server, modify their applications to target Flexible Server, and end replication.
+As Single Server will be retired in the future, you will at some point need to move your instances to Flexible Server.  There are several ways to do this including:
 
-Consult the [Azure documentation](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-migrate-single-flexible-minimum-downtime) for more information.
+- Database tools
+  - [Azure Database Migration Service (DMS)](https://learn.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online)
+  - [pgcopydb](https://github.com/dimitri/pgcopydb)
+  - [pg_export and pg_import](https://learn.microsoft.com/en-us/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore)
+  - pg_dump and dp_restore
+- [Azure Portal](https://learn.microsoft.com/en-us/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal)
+- [Azure CLI](https://learn.microsoft.com/en-us/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli)
+
+When migrating, to Flexible Server, you will need to ensure you have met all the [migration prerequisites](https://learn.microsoft.com/en-us/azure/postgresql/migrate/concepts-single-to-flexible#migration-prerequisites).
 
 ### From on-premises to Flexible Server
 
-Like the migration from Single Server, migrations from sources running on-premises utilize data-in replication. The source databases should be PostgreSQL 5.7, or higher. Adequate network connectivity should be available.
+Like the migration from Single Server, migrations from sources running on-premises will require the movement of database artifacts and data.
 
-Verify that the source system meets the migration requirements listed in the [Azure documentation.](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-data-in-replication)
+Again, verify that the source system meets the migration requirements listed in the [Azure documentation](https://learn.microsoft.com/en-us/azure/postgresql/migrate/concepts-single-to-flexible#migration-prerequisites).
 
-Reference the [Migrating to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/01-PostgreSQL-migration-guide-intro) guide for in-depth information and examples on how to successfully migrate to Microsoft Azure.
+### Offline vs Online migrations
+
+TODO

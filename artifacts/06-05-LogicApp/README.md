@@ -1,6 +1,6 @@
 # Logic Apps with PostgreSQL
 
-Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE.  However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events.  In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway.  This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
+Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE.  However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events.  In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway.  This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
 
 ## Create a Private Endpoint Flexible Server
 
@@ -12,7 +12,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 - Select **Create**
 - Under **Flexible Server**, select **Create**
 
-  ![This image demonstrates the first provisioning screen for Azure Database for PostgreSQL Flexible Server Flexible Server.](./media/az-PostgreSQL-db-create.png "First provisioning screen for Flexible Server")
+  ![This image demonstrates the first provisioning screen for Azure Database for PostgreSQL Flexible Server.](./media/az-PostgreSQL-db-create.png "First provisioning screen for Flexible Server")
 
 - Select the target subscription and resource group
 - For the name, type **PostgreSQLdevSUFFIXflexpriv**
@@ -38,7 +38,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 - Select the **private.PostgreSQL.database.azure.com** private DNS zone
 - Select **Review + create**
 - Select **Create**
-- Navigate to the new Azure Database for PostgreSQL Flexible Server Flexible Server instance
+- Navigate to the new Azure Database for PostgreSQL Flexible Server instance
 - Under **Settings** select **Server parameters**
 - Search for the `require_secure_transport` setting
 - Change the value to **OFF**

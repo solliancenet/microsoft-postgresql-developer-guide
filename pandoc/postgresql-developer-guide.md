@@ -784,7 +784,7 @@ tools (like the Azure CLI and Azure PowerShell) and declarative tools
 (like ARM templates and Terraform).
 
 The emphasis of this guide will continue to be on the advantages of
-Azure Database for PostgreSQL Flexible Server Flexible Server versus the single server
+Azure Database for PostgreSQL Flexible Server versus the single server
 offering. Flexible Server is the preferred Azure Database for PostgreSQL Flexible Server
 offering. This guide will continue to reiterate the unique benefits of
 Flexible Server throughout the remainder of this guide but also provide
@@ -1907,7 +1907,7 @@ Azure VM] article.
 
 ![This image demonstrates the Azure VM deployment.]
 
-## Simple App Service deployment with Azure Database for PostgreSQL Flexible Server Flexible Server
+## Simple App Service deployment with Azure Database for PostgreSQL Flexible Server
 
 If supporting the operating system and the various other software is not
 a preferred approach, the next evolutionary path is to remove the
@@ -2184,7 +2184,7 @@ Click the links to complete each journey before going to the next.
 9.  [Azure Kubernetes Service
     (AKS)][Migrate to Azure Kubernetes Services (AKS)]
 10. [AKS with PostgreSQL Flexible
-    Server][Utilize AKS and Azure Database for PostgreSQL Flexible Server Flexible Server]
+    Server][Utilize AKS and Azure Database for PostgreSQL Flexible Server]
 
 ##### Compute and orchestration tutorial lab links
 
@@ -2650,7 +2650,7 @@ displayed.
 
 ![This image shows Metrics on the Monitoring tab in the Azure portal.]
 
-![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Server Flexible Servers
+![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Servers
 with built-in metrics]
 
 ### Diagnostic settings
@@ -2718,7 +2718,7 @@ PostgreSQL log files (default is OFF). The `long_query_time` server parameter
 can be used to log long-running queries (default long query time is 10
 sec).
 
-![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Server Flexible Server by
+![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Server by
 using Azure Monitor workbooks]
 
 ### Resource health
@@ -2918,7 +2918,7 @@ action groups (`az monitor action-group`), alert rules and metrics
 (`az monitor metrics`), and more.
 
 -   [Azure CLI reference commands for Azure Monitor]
--   [Monitor and scale an Azure Database for PostgreSQL Flexible Server Flexible Server using
+-   [Monitor and scale an Azure Database for PostgreSQL Flexible Server using
     Azure CLI]
 
 #### Azure Portal
@@ -3600,7 +3600,7 @@ continual maxing out of CPU or memory, scale up to meet demand.
 
 You can also adjust the IOPS for better transactions per second (TPS)
 performance. You can use an [Azure CLI
-script][Monitor and scale an Azure Database for PostgreSQL Flexible Server Flexible Server using Azure CLI]
+script][Monitor and scale an Azure Database for PostgreSQL Flexible Server using Azure CLI]
 to monitor relevant metrics and scale the server.
 
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
@@ -3641,7 +3641,7 @@ intact.
 
 As part of the migration, the on-premises [server parameters][18] were
 likely modified to support a fast egress. Also, modifications were made
-to the Azure Database for PostgreSQL Flexible Server Flexible Server parameters to support a
+to the Azure Database for PostgreSQL Flexible Server parameters to support a
 fast ingress. The Azure server parameters should be set back to their
 original on-premises workload-optimized values after the migration.
 
@@ -3651,7 +3651,7 @@ great for an on-premises environment may not be optimal for a
 cloud-based environment. When migrating the current on-premises
 parameters to Azure, verify that they can be set.
 
-Some Azure Database for PostgreSQL Flexible Server Flexible Server parameters cannot be
+Some Azure Database for PostgreSQL Flexible Server parameters cannot be
 modified. Verify the strategy before making environment assumptions.
 
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
@@ -5021,7 +5021,7 @@ real-world information:
   [Deployment evolution options]: #deployment-evolution-options
   [Classic deployment]: #classic-deployment
   [Azure VM deployment]: #azure-vm-deployment
-  [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server Flexible Server]:
+  [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server]:
     #simple-app-service-deployment-with-azure-database-for-PostgreSQL-flexible-server
   [App Service with In-App PostgreSQL]: #app-service-with-in-app-PostgreSQL
   [Continuous Integration (CI) and Continuous Delivery (CD)]: #continuous-integration-ci-and-continuous-delivery-cd
@@ -5252,7 +5252,7 @@ real-world information:
     ./media/PostgreSQL-flex-params.png "CLI provisioning"
   [8]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-arm-template#review-the-template
   [PostgreSQL Downloads.]: https://dev.PostgreSQL.com/downloads/workbench/
-  [Use PostgreSQL Workbench with Azure Database for PostgreSQL Flexible Server Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-workbench
+  [Use PostgreSQL Workbench with Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-workbench
   [SSL public certificate]: https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
   [Add the SSL CA file on the SSL tab of the Setup New Connection dialog box.]:
     ./media/new-ssl-connection-with-ca-file.png "Add SSL CA file"
@@ -5365,7 +5365,7 @@ real-world information:
   [Migrate to Azure Kubernetes Services (AKS)]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
   [This image demonstrates a deployment to Azure Kubernetes Service (AKS).]:
     ./media/aks-deployment.png "AKS deployment"
-  [Utilize AKS and Azure Database for PostgreSQL Flexible Server Flexible Server]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
+  [Utilize AKS and Azure Database for PostgreSQL Flexible Server]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
   [This image demonstrates an AKS deployment that references Flexible Server.]:
     ./media/aks-flexible-server-deployment.png
     "AKS with Flexible Server deployment"
@@ -5448,7 +5448,7 @@ real-world information:
   [This image shows Metrics on the Monitoring tab in the Azure portal.]:
     media/PostgreSQL-azure-portal-metrics.png
     "Monitoring tab in the Azure portal"
-  [Monitor Azure Database for PostgreSQL Flexible Server Flexible Servers with built-in metrics]:
+  [Monitor Azure Database for PostgreSQL Flexible Servers with built-in metrics]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-monitoring
   [This image shows how to graph metrics in the Azure portal Monitoring tab.]:
     media/PostgreSQL-diagnostic-settings.png
@@ -5467,7 +5467,7 @@ real-world information:
     "Azure portal QPI configuration"
   [Query Performance Insight tool]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-query-performance-insights
   [Warning]: media/warning.png "Warning"
-  [Monitor Azure Database for PostgreSQL Flexible Server Flexible Server by using Azure Monitor workbooks]:
+  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-workbooks
   [This image shows Azure Resource Health.]: media/resource-health-example.png
     "Azure Resource Health"
@@ -5493,7 +5493,7 @@ real-world information:
   [call Logic Apps]: https://docs.microsoft.com/azure/connectors/connectors-native-webhook
   [execute Azure Automation runbooks]: https://docs.microsoft.com/azure/automation/automation-webhooks
   [Azure CLI reference commands for Azure Monitor]: https://docs.microsoft.com/cli/azure/azure-cli-reference-for-monitor
-  [Monitor and scale an Azure Database for PostgreSQL Flexible Server Flexible Server using Azure CLI]:
+  [Monitor and scale an Azure Database for PostgreSQL Flexible Server using Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale
   [Tutorial: Analyze metrics for an Azure resource]: https://docs.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics
   [REST API Walkthrough]: https://docs.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough

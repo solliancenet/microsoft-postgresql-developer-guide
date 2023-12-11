@@ -33,7 +33,7 @@ This chapter will be focused on these monitoring concepts:
 
 Azure Monitor is the Azure native platform service that provides a centralized area for monitoring your Azure resources. It monitors all layers of the Azure stack, starting with tenant services, such as Microsoft Entra, subscription-level events, and Azure Service Health.
 
-At the lower levels, it monitors infrastructure resources, such as VMs, storage, and network resources. Administrators and developers employ Azure Monitor to consolidate metrics about the performance and reliability of their various cloud layers, including Azure Database for PostgreSQL Flexible Server Flexible Server instances. Management tools, such as Microsoft Defender for Cloud and Azure Automation, also push log data to Azure Monitor. The service aggregates and stores this telemetry in a log data store optimized for cost and performance.
+At the lower levels, it monitors infrastructure resources, such as VMs, storage, and network resources. Administrators and developers employ Azure Monitor to consolidate metrics about the performance and reliability of their various cloud layers, including Azure Database for PostgreSQL Flexible Server instances. Management tools, such as Microsoft Defender for Cloud and Azure Automation, also push log data to Azure Monitor. The service aggregates and stores this telemetry in a log data store optimized for cost and performance.
 
 ![This image clarifies how Azure Monitor integrates with various Azure data sources and management tools.](media/how-azure-monitor-works.png "Azure Monitor integrations")
 

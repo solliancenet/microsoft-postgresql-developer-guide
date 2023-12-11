@@ -69,11 +69,11 @@ To minimize downtime, Flexible Server configuration settings can be kept intact.
 
 ![This image shows PostgreSQL server parameters in the Azure portal.](media/server_parameters.png "PostgreSQL server parameters")
 
-As part of the migration, the on-premises [server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters) were likely modified to support a fast egress. Also, modifications were made to the Azure Database for PostgreSQL Flexible Server Flexible Server parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload-optimized values after the migration.
+As part of the migration, the on-premises [server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters) were likely modified to support a fast egress. Also, modifications were made to the Azure Database for PostgreSQL Flexible Server parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload-optimized values after the migration.
 
 However, be sure to review and make server parameter changes that are appropriate for the workload and the environment. Some values that were great for an on-premises environment may not be optimal for a cloud-based environment. When migrating the current on-premises parameters to Azure, verify that they can be set.
 
-Some Azure Database for PostgreSQL Flexible Server Flexible Server parameters cannot be modified. Verify the strategy before making environment assumptions.
+Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified. Verify the strategy before making environment assumptions.
 
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
 

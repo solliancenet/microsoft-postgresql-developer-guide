@@ -13,7 +13,6 @@ Data stored in the Azure Database for PostgreSQL Flexible Server instances are e
 In addition to be encrypted at rest, data can be encrypted during transit using SSL/TLS. SSL/TLS is enabled by default. As previously discussed, it may be necessary to [modify the applications](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-ssl) to support this change and configure the appropriate TLS validation settings. It is possible to allow insecure connections for legacy applications or enforce a minimum TLS version for connections, **but this should be used sparingly and in highly network-protected environments**. Flexible Server's TLS enforcement status can be set through the `require_secure_transport` PostgreSQL server parameter. Consult the guides below.
 
 - [Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-connect-tls-ssl)
-- [Single Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-ssl-connection-security)
 
 ### Microsoft Sentinel
 
