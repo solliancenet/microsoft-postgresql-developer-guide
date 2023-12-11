@@ -83,7 +83,7 @@
 | - | Debugging Apps | -  | - | - | - | - | - |
 | - | Azure Service Health | -  | - | - | - | - | - |
 | Security and Compliance | - | -  | - | - | - | - | - |
-| - | Azure Active Directory | -  | - | - | - | - | - |
+| - | Microsoft Entra | -  | - | - | - | - | - |
 | - | Azure Key Vault | -  | - | - | - | - | - |
 | - | Managed Service Identities | -  | - | - | - | - | - |
 | - | Virtual Networks | -  | - | - | - | - | - |

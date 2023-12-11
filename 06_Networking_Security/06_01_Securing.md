@@ -17,7 +17,7 @@ In addition to be encrypted at rest, data can be encrypted during transit using 
 
 ### Microsoft Sentinel
 
-Many of the items discussed thus far operate in their sphere of influence and are not designed to work directly with each other. Every secure feature provided by Microsoft Azure and corresponding applications, like Azure Active Directory, contains a piece of the security puzzle.  
+Many of the items discussed thus far operate in their sphere of influence and are not designed to work directly with each other. Every secure feature provided by Microsoft Azure and corresponding applications, like Microsoft Entra, contains a piece of the security puzzle.  
 
 Disparate components require a holistic solution to provide a complete picture of the security posture and the automated event remediation options.  
 

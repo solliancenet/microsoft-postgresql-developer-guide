@@ -32,7 +32,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     git push -f origin main
     ```
 
-6. In the dialog, login using the Azure Active Directory credentials for the repo.  The files will get pushed to the repo.
+6. In the dialog, login using the Microsoft Entra credentials for the repo.  The files will get pushed to the repo.
 7. Switch back to Azure Dev Ops, refresh the repo, all the repo files should be visible.
 
 ### Create Service Connection

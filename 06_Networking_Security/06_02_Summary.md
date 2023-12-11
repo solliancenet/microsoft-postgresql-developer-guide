@@ -10,7 +10,7 @@ This section discussed many tools Microsoft Azure provided to give an organizati
 
 ## Security checklist
 
-- Utilize the most robust possible authentication mechanisms such as Azure Active Directory.
+- Utilize the most robust possible authentication mechanisms such as Microsoft Entra.
 - Enable Advanced Threat Protection and Microsoft Defender for Cloud.
 - Enable all auditing features.
 - Enable encryption at every layer that supports it.

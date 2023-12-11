@@ -4,7 +4,7 @@ In the previous function apps the connection information was embedded into the f
 
 > **NOTE** This is currently only supported on Azure Database for Single Server.
 
-## Enable PostgreSQL Azure AD Authentication
+## Enable PostgreSQL Microsoft Entra Authentication
 
 - Switch to the Azure Portal
 - Browse to the **PostgreSQLdevSUFFIX** Azure Database for PostgreSQL Flexible Server Single Server instance
@@ -20,12 +20,12 @@ In the previous function apps the connection information was embedded into the f
 - Under **Settings**, select **Identity**
 - For the **System assigned** identity, toggle to **On**
 - Select **Save**, then select **Yes**
-- Browse to the **Azure Active Directory** blade
+- Browse to the **Microsoft Entra** blade
 - Select **Enterprise Applications**
 - Search for the **PostgreSQLdevSUFFIX-addcustomerfunction** function application name, then select it.
 - Copy the **Application ID** for later use
 
-## Login to the Azure Database with Azure AD credentials
+## Login to the Azure Database with Microsoft Entra credentials
 
 - Create a login token
 - Open a PowerShell window, run the following:

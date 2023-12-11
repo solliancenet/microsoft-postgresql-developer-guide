@@ -74,7 +74,7 @@ While the Azure Portal does not provide automation capabilities like the CLI or 
 
 The REST API allows applications to access metric values for integration with other monitoring systems like external SIEM systems. It also allows applications to manipulate alert rules externally.
 
-To interact with the REST API, applications first need to obtain an authentication token from Azure Active Directory and then use that token in API requests.
+To interact with the REST API, applications first need to obtain an authentication token from Microsoft Entra and then use that token in API requests.
 
 - [REST API Walkthrough](https://docs.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough)
 - [Azure Monitor REST API Reference](https://docs.microsoft.com/rest/api/monitor/)
