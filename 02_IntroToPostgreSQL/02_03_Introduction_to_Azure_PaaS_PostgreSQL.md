@@ -16,7 +16,7 @@ For managing database objects and access controls at the server and database lev
 
 Azure Database for PostgreSQL Flexible Server provides two options for deployment: Single Server and Flexible Server. Below is a summary of these offerings. For a more comprehensive comparison table, please consult the article [Choose the right PostgreSQL Server option in Azure](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
 
->![Note](media/note.png "Note") **Note:** This guide will be focused on Flexible Server and will not explore Single Server.
+>![Note](media/note.png "Note") **Note:** This guide will be focused on Flexible Server and will not explore Single Server or the Cosmos database for PostgresSQL.
 
 ##### Flexible Server video introduction
 
