@@ -32,6 +32,8 @@ Introduction to Azure Database for PostgreSQL Flexible Server
 		
 		Unsupported features
 
+	PostgreSQL on docker containers
+
 Getting Started
 
 	Environment setup
@@ -123,6 +125,34 @@ End to end development
 		Microservices
 		
 		Batch
+
+	Querying Data ???  (L100?) - should we go this simple?
+
+		PL/pgSQL
+
+		DDL / DML
+
+		Tables and Data types
+
+		Primary / Foreign keys
+
+		Schemas
+
+		Joins
+
+		Functions
+
+		User Defined Types
+
+		Functions and Operators
+
+		Transations
+
+		Indexes
+	
+	Data Access Patterns
+
+	Data Security
 		
 	Guide to choose the right service to host the application
 	
@@ -233,6 +263,8 @@ Performance
 	Scaling
 
 Troubleshooting
+
+	Helpful tools (pgadmin)
 	
 	Connection Errors / Networking
 

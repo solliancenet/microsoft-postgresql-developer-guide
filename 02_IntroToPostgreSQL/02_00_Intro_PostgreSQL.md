@@ -1,20 +1,16 @@
 # 02 / Introduction to Azure Database for PostgreSQL Flexible Server
 
-Before jumping into Azure Database for PostgreSQL Flexible Server, it is important to understand some PostgreSQL history. Also, it is important the PostgreSQL hosting option pros and cons.
+Before jumping into Azure Database for PostgreSQL Flexible Server, it is important to understand some PostgreSQL history. Also, it is important to cover the various PostgreSQL hosting options and their pros and cons.  As part of this guide, we will cover Artificial Intelligence (AI) and how Azure Database for PostgreSQL Flexible Server plays in this exciting space.
 
 ## What is PostgreSQL?
 
-PostgreSQL is a relational database management system based on [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL). PostgreSQL supports a rich set of SQL query capabilities and offers excellent performance through storage engines optimized for transactional and non-transactional workloads, in-memory processing, and robust server configuration through modules. Its low total cost of ownership (TCO) makes it extremely popular with many organizations. Customers can use existing frameworks and languages to connect easily with PostgreSQL databases. Reference the latest [PostgreSQL Documentation](https://dev.PostgreSQL.com/doc/refman/8.0/en/features.html) for a more in-depth review of PostgreSQL's features.  
-
-One of PostgreSQL databases' common use cases is the data store for web applications. Due to PostgreSQL's scalability, popular content management systems (CMS), such as [WordPress](https://wordpress.org/) and [Drupal](https://www.drupal.org/), utilize it for their data persistence needs. More broadly, [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) apps, which integrate Linux, Apache, PostgreSQL, and PHP, leverage scalable web servers, languages, and database engines to serve many global web services.
+[PostgreSQL](https://www.postgresql.org/) is an open source object-relational database management system based on [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL). PostgreSQL supports a rich set of SQL query capabilities and offers excellent performance and security for multiple data workloads. Its ability to run on all major operating systems combined with the abilty to extend via addons have made PostgreSQL a popular option with many organizations. Customers can use existing programming frameworks and languages to connect easily with PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix](https://www.postgresql.org/about/featurematrix/) for a more in-depth review of PostgreSQL's features.
 
 ## Comparison with other RDBMS offerings
 
-Though PostgreSQL has a distinct set of advantages, it does compete with other typical relational database offerings. Though the emphasis of this guide is operating PostgreSQL on Azure to architect scalable applications, it is important to be aware of other potential offerings such as [MariaDB](https://mariadb.org/). MariaDB is a fork from the original PostgreSQL code base that occurred when [Oracle purchased Sun Microsystems](https://www.oracle.com/webfolder/college-recruiting/projects/PostgreSQL.html#.YexR-P7ML8o). Organizations can easily host MariaDB in Azure through [Azure Database for MariaDB.](https://azure.microsoft.com/services/mariadb/)
+Though PostgreSQL has a distinct set of advantages, it does compete with other typical relational database offerings. Though the emphasis of this guide is operating PostgreSQL on Azure to architect scalable applications, it is important to be aware of other potential offerings such as [MySQL](https://www.mysql.com/) and [MariaDB](https://mariadb.org/).
 
-While MariaDB is compatible with the PostgreSQL protocol, the project is not managed by Oracle, and its maintainers claim that this allows them to better compete with other proprietary databases. Although there are several different options to choose from, PostgreSQL has over twenty years of development experience backing it, and businesses appreciate the platform's maturity.
-
-Another popular open-source PostgreSQL competitor is [PostgreSQL](https://www.postgresql.org/). PostgreSQL supports many of the advanced features of PostgreSQL, such as JSON storage, replication and failover, and partitioning, in an easy-to-use manner. Microsoft offers a cloud-hosted [Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/overview), which can be compared with cloud-hosted PostgreSQL [in Microsoft Learn.](https://docs.microsoft.com/learn/modules/deploy-mariadb-PostgreSQL-postgresql-azure/2-describe-open-source-offerings)
+In addition to the most popular relational database systems, new products have emerged to support vector-based systems for AI purposes.  Because PostgresSQL also has this capability, it will be important to review these other offerings and how PostgreSQL compares to them.
 
 ## PostgreSQL hosting options
 
@@ -22,7 +18,7 @@ Like other DBMS systems, PostgreSQL has multiple deployment options for developm
 
 ### On-premises
 
-PostgreSQL is a cross-platform offering, and corporations can utilize their on-premises hardware to deploy highly-available PostgreSQL configurations. PostgreSQL on-premises deployments are highly configurable, but they require significant upfront hardware capital expenditure and have the disadvantages of hardware/OS maintenance.
+PostgreSQL is a cross-platform offering, and corporations can utilize their on-premises hardware to deploy highly-available PostgreSQL configurations. PostgreSQL on-premises deployments are highly configurable, but they require upfront hardware capital expenditure and have the disadvantages of hardware/OS maintenance.
 
 One benefit to choosing a cloud-hosted environment over on-premises configurations is there are no significant upfront costs. Organizations can choose to pay monthly subscription fees as pay-as-you-go or to commit to a certain usage level for discounts. Maintenance, OS software updates, security, and support all fall into the responsibility of the cloud provider so IT staff are not required to utilize precious time troubleshooting hardware or software issues.
 
@@ -57,7 +53,7 @@ IaaS lets organizations bypass the cost and complexity of buying and managing ph
 
 While much more lightweight, containers are similar to VMs and can be started and stopped in a few seconds. Containers also offer tremendous portability, making them ideal for developing an application locally on a development machine and then hosting it in the cloud, in test, and later in production. Containers can even run  on-premises or in other clouds. This flexibility is possible because the development environment machine travels with the container. The application runs in a consistent manner. Containerized applications are flexible, cost-effective, and deploy quickly.
 
-PostgreSQL offers a [Docker image](https://hub.docker.com/_/PostgreSQL) to operate PostgreSQL in customized and containerized applications. A container-based PostgreSQL instance can persist data to the hosting environment via the container runtime, allowing for high availability across container instances and environments.
+PostgreSQL offers a [Docker image](https://hub.docker.com/_/postgres) to operate PostgreSQL in customized and containerized applications. A container-based PostgreSQL instance can persist data to the hosting environment via the container runtime, allowing for high availability across container instances and environments.
 
 **Pros**
 

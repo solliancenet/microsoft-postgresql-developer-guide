@@ -96,7 +96,7 @@ Launch the Cloud Shell in a browser at [https://shell.azure.com](https://shell.a
 
 #### PowerShell Module
 
-The Azure portal and Windows PowerShell can be used for managing the Azure Database for PostgreSQL Flexible Server. To get started with Azure PowerShell, install the [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/?view=azps-7.3.0)  for PostgreSQL with the following PowerShell command:
+The Azure portal and Windows PowerShell can be used for managing the Azure Database for PostgreSQL Flexible Server. To get started with Azure PowerShell, install the [Azure PowerShell cmdlets](https://learn.microsoft.com/en-us/powershell/module/az.postgresql/?view=azps-11.0.0) for PostgreSQL with the following PowerShell command in an administrator-level PowerShell window:
 
 ```PowerShell
 Install-Module -Name Az.PostgreSQL
@@ -161,4 +161,3 @@ Azure provides [multiple support plans for businesses](https://azure.microsoft.c
 - [Azure Certifications and Exams](https://docs.microsoft.com/learn/certifications/browse/?products=azure)
 - [Microsoft Learn](https://docs.microsoft.com/learn/)
   - [Azure Fundamentals (AZ-900) Learning Path](https://docs.microsoft.com/learn/paths/az-900-describe-cloud-concepts/)
-

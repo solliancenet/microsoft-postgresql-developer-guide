@@ -4,7 +4,7 @@ With a firm understanding of PostgreSQL and other offerings available in Azure, 
 
 ## Azure free account
 
-Azure offers a [$200 free credit for developers to trial Azure](https://azure.microsoft.com/free) or jump right into a Pay-as-you-go subscription. The free account includes credits for 750 compute hours of Azure Database for PostgreSQL Flexible Server - Flexible Server. [Innovate faster with fully managed PostgreSQL and an Azure free account.](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-deploy-on-azure-free-account/)
+Azure offers a [$200 free credit for developers to trial Azure](https://azure.microsoft.com/free) or jump right into a Pay-as-you-go subscription. The free account includes credits for 750 compute hours of Azure Database for PostgreSQL Flexible Server - Flexible Server. [Innovate faster with fully managed PostgreSQL and an Azure free account.](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-deploy-on-azure-free-account)
 
 ## Azure subscriptions and limits
 
@@ -30,7 +30,16 @@ Developers have various code editor tools to choose from to complete their IT pr
 
 ![A simple screenshot of Visual Studio Code.](media/VSCode_screenshot.png "Visual Studio Code")
 
-The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-PostgreSQL) extension allows developers to organize their database connections, administer databases, and query databases. Consider adding it to Visual Studio Code environment to make working with PostgreSQL instances more efficient.
+The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql) extension allows developers to:
+
+- Connect to PostgreSQL instances
+- Manage connection profiles
+- Connect to a different Postgres instance or database in each tab
+- View object DDL with 'Go to Definition' and 'Peek Definition'
+- Write queries with IntelliSense
+- Run queries and save results as JSON, csv, or Excel
+
+Consider adding it to Visual Studio Code environment to make working with PostgreSQL instances more efficient.
 
 When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
 

@@ -11,3 +11,5 @@ Consult the [Azure documentation](https://learn.microsoft.com/azure/postgresql/f
 Like the migration from Single Server, migrations from sources running on-premises utilize data-in replication. The source databases should be PostgreSQL 5.7, or higher. Adequate network connectivity should be available.
 
 Verify that the source system meets the migration requirements listed in the [Azure documentation.](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-data-in-replication)
+
+Reference the [Migrating to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/01-PostgreSQL-migration-guide-intro) guide for in-depth information and examples on how to successfully migrate to Microsoft Azure.
