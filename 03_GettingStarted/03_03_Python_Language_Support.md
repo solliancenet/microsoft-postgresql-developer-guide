@@ -1,6 +1,6 @@
 ### Python
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server (Single Server and Flexible Server) through Python.
+This section describes tools to interact with Azure Database for PostgreSQL Flexible Server through Python.
 
 #### Connect and query
 

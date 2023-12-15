@@ -87,7 +87,7 @@ Click the links to complete each journey before going to the next.
 
 ##### Compute and orchestration tutorial lab links
 
-Additionally, some applications are more than just a web application with a database backend.  Microsoft Azure provides several  compute engines with varying degrees of features and administrative abilities.
+Additionally, some applications are more than just a web application with a database backend.  Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities.
 
 It is recommended that each of the above scenarios is executed in the order shown so that a full picture of the steps involved in the development evolution is understood.  This will also ensure the necessary pre-requisite Azure services and resources are available for the reader to progress to the more complex deployment examples.
 

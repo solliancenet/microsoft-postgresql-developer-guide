@@ -12,7 +12,7 @@ Once an editor is selected, the next step is to pick a development language or p
 
 ### PHP
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server (Single Server and Flexible Server) through PHP.
+This section describes tools to interact with Azure Database for PostgreSQL Flexible Server through PHP.
 
 #### Connect and query
 

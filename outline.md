@@ -210,15 +210,65 @@ End to end development
 
 Developing AI Solutions
 
-	Intro to AI
+	Intro to ML/AI
 
-	AI Models
+		ML vs AI
 
-	Common Patterns (React, RAG)
+		Vectors (Dim, mag, direction, dot product)
 
-	Vectors and Vector Stores
+		Vector similarity
+
+		Embedding Types
+
+			Test, Voice, Image
+
+	Generative AI
+	
+		RAG
+
+		CoT
+
+		ReAct
+
+		Prompt Engineering
+
+	Exploring LMs / AI Models
+
+		Large Language Models
+
+		Small Language Models
+
+	Responsible AI
+
+		What is it?
+
+	Prompt Engineering
+
+		What is prompt/prompt engineering
+
+		Anatomy of a prompt
+
+		Zero-shot, few-shot
+	
+	Types of Applications
+
+		Chat apps
+
+		image generation
+
+		low code applications
+
+		External applications with function calling
 
 	PostgreSQL AI Features
+
+		pgVector
+
+		Azure extension (openai)
+
+		Embedding performance
+
+		Other Vector Stores
 
 	Building a PostgreSQL-based AI application
 
