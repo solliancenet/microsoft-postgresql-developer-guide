@@ -146,12 +146,6 @@ choco install openssl
 
 InstallPgAdmin
 
-#setup the sql database.
-#get the database server name
-$serverName = Get-AzSqlServer -ResourceGroupName "PREFIX-rg-flex-eastus-16" -ServerName "PREFIX-pg-flex-eastus-16" | select -ExpandProperty FullyQualifiedDomainName;
-
-.\psql -h PREFIX-pg-flex-eastus-16.postgres.database.azure.com -U s2admin -d postgres -e "CREATE DATABASE contosostore;"
-
 $extensions = @("ms-vscode-deploy-azure.azure-deploy", "ms-azuretools.vscode-docker", "ms-python.python", "ms-azuretools.vscode-azurefunctions");
 
 InstallVisualStudioCode $extensions;
@@ -171,7 +165,7 @@ InstallDockerDesktop $global:localusername;
 
 Uninstall-AzureRm -ea SilentlyContinue
 
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";C:\Program Files\PostgreSQL\16\bin"
 
 InstallGithubDesktop
 
@@ -186,6 +180,28 @@ Write-Host "Download Git repo." -ForegroundColor Green -Verbose
 git clone https://github.com/solliancenet/$workshopName.git $workshopName
 
 ConfigurePhp "c:\tools\php80\php.ini";
+
+#setup the sql database.
+#get the database server name
+$servers = Get-AzPostgreSqlFlexibleServer -SubscriptionId $subscriptionId
+
+foreach($server in $servers)
+{
+  set PGPASSWORD="Solliance123"
+  $server = "$($server.name).postgres.database.azure.com"
+  psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
+}
+
+$ipAddress = (Invoke-WebRequest -uri "http://ifconfig.me/ip" -UseBasicParsing).Content 
+
+$resourceGroups = Get-AzResourceGroup
+$ResourceGroupName = $resourceGroups[0].ResourceGroupName
+
+#add the VM ip address
+foreach($server in $servers)
+{
+  New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+}
 
 $path = "C:\labfiles\$workshopName\sample-php-app";
 $port = "8080";

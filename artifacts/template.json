@@ -15,6 +15,9 @@
       "vmSize": { "defaultValue": "Standard_E2s_v3", "type": "string" }
     },
     "variables": {
+      "Owner":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+      "Contributor":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+      "Reader":  "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
       "dnsPrefix": "[uniqueString(resourceGroup().id)]",
       "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
       "resourceName": "[concat('pgsqldev',substring(variables('uniqueSuffix'),0,8))]",
@@ -1476,6 +1479,33 @@
         }
       },
       {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[guid(concat(resourceGroup().id, 'win10'))]",
+            "properties": {
+                "roleDefinitionId": "[variables('Owner')]",
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-win10')), '2016-08-01', 'Full').identity.principalId]"
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[guid(concat(resourceGroup().id, 'paw-1'))]",
+            "properties": {
+                "roleDefinitionId": "[variables('Owner')]",
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-paw-1')), '2016-08-01', 'Full').identity.principalId]"
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[guid(concat(resourceGroup().id, 'linux-1'))]",
+            "properties": {
+                "roleDefinitionId": "[variables('Owner')]",
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-linux-1')), '2016-08-01', 'Full').identity.principalId]"
+            }
+        },
+      {
         "type": "Microsoft.Compute/virtualMachines",
         "apiVersion": "2021-04-01",
         "name": "[concat(variables('resourceName'),'-win10')]",
@@ -1484,6 +1514,9 @@
           "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('resourceName'),'-win10-nic'))]",
           "[resourceId('Microsoft.Storage/StorageAccounts', variables('resourceName'))]"
         ],
+        "identity": {
+            "type": "SystemAssigned"
+        },
         "resources": [
           {
             "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -1592,6 +1625,9 @@
           "[concat('Microsoft.Network/networkInterfaces/', concat(variables('resourceName'), '-linux-1-nic'))]",
           "[concat('Microsoft.Storage/storageAccounts/', variables('resourceName'))]"
         ],
+        "identity": {
+            "type": "SystemAssigned"
+        },
         "resources": [
           {
             "name": "config-linxu-01",
@@ -1700,6 +1736,9 @@
           "[concat('Microsoft.Network/networkInterfaces/', variables('resourceName'),'-paw-1-nic')]",
           "[concat('Microsoft.Storage/storageAccounts/', variables('resourceName'))]"
         ],
+        "identity": {
+            "type": "SystemAssigned"
+        },
         "properties": {
           "osProfile": {
             "computerName": "paw-1",
