@@ -10,7 +10,7 @@ Instead of learning multiple sample applications, the guide focused on evolving 
 
 - Azure subscription
 - Git
-- PostgreSQL Workbench
+- pgAdmin
 
 ### Quick start: manual Azure set up instructions
 
@@ -252,13 +252,13 @@ The application should now be available and show some sample data, however the w
 
    ![Seeded database.](media/seeded-database.png)
 
-   - Using PostgreSQL Workbench, verify the tables have the seed data.
+   - Using pgAdmin, verify the tables have the seed data.
 
 7. Navigate back to the web app and enter a sample order.
 
    ![This image shows how to create a sample order from the Laravel app.](media/sample-order.png "Creating a sample order from the Laravel app")
 
-8. Using PostgreSQL Workbench, verify the order was saved to the Flexible Server database.
+8. Using pgAdmin, verify the order was saved to the Flexible Server database.
 
    ![This image shows the output of a SQL query that demonstrates the new order.](media/verify-order-data.png "New order in SQL query results")
 

@@ -68,8 +68,7 @@ D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\00-Sample-App-01
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\01-ClassicDeploy\README.md
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\02-01-CloudDeploy-Vm\README.md
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\02-02-CloudDeploy-AppSvc\README.md
-D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\02-03-CloudDeploy-InApp\README.md
-D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\02-04-CloudDeploy-CICD\README.md
+D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\02-03-CloudDeploy-CICD\README.md
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\03-00-Docker\README.md
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\03-01-CloudDeploy-ACI\README.md
 D:\data\projects\microsoft-PostgreSQL-developer-guide\Artifacts\03-02-CloudDeploy-AppService-Container\README.md

@@ -36,7 +36,7 @@ $accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.wind
 $password = $accessToken.Token;
 ```
 
-- Open the PostgreSQL Workbench, create a new connection
+- Open the pgAdmin, create a new connection
 - For the name, type **azureadPostgreSQL**
 - For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (`PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com`)
 - For the username, type your user UPN (ex `user@tenant.onmicrosoft.com@mydb`)
@@ -60,7 +60,7 @@ FLUSH PRIVILEGES;
 
 ## Modify the code
 
-- Open the `C:\labfiles\microsoft-PostgreSQL-developer-guide\Artifacts\06-04-FunctionApp-MSI` function app folder in Visual Studio Code
+- Open the `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\06-04-FunctionApp-MSI` function app folder in Visual Studio Code
 - Add the following code to get an access token \ password for the managed identity:
 
 ```python

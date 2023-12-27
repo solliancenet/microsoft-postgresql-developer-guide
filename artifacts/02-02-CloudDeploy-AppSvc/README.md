@@ -6,7 +6,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ### Update env
 
-1. Open the `C:\labfiles\microsoft-PostgreSQL-developer-guide` folder in Visual Studio code
+1. Open the `C:\labfiles\microsoft-postgresql-developer-guide` folder in Visual Studio code
 2. If prompted, select **Yes, I trust the authors**
 3. Switch to the browser, browse to the **PostgreSQLdevSUFFIX** app service
 4. Select the **Overview** link, copy the **URL** for use later
@@ -16,7 +16,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 1. Open a terminal window, run the following to deploy the zip to Azure, be sure to replace the `SUFFIX`:
 
     ```PowerShell
-    cd "C:\labfiles\microsoft-PostgreSQL-developer-guide"
+    cd "C:\labfiles\microsoft-postgresql-developer-guide"
 
     Connect-AzAccount
 
@@ -34,7 +34,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
     7z a -r ./site.zip ./sample-php-app/*
     
-    #Publish-AzWebApp -WebApp $app -ArchivePath "C:\labfiles\microsoft-PostgreSQL-developer-guide\site.zip" -force
+    #Publish-AzWebApp -WebApp $app -ArchivePath "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" -force
 
     #Reference - https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
 
@@ -62,12 +62,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     git config --global http.postBuffer 524288000
 
     #do the deployment
-    cd "C:\labfiles\microsoft-PostgreSQL-developer-guide"
+    cd "C:\labfiles\microsoft-postgresql-developer-guide"
 
     #remove current git setup
     remove-item .git -force -Recurse
 
-    cd "C:\labfiles\microsoft-PostgreSQL-developer-guide\sample-php-app"
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app"
 
     git init
     git remote rm origin
@@ -78,7 +78,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     git push azure main
 
     #only works with 7.4 PHP / Apache
-    #az webapp deploy --resource-group $resourceGroupName --name $appName --src-path "C:\labfiles\microsoft-PostgreSQL-developer-guide\site.zip" --type zip
+    #az webapp deploy --resource-group $resourceGroupName --name $appName --src-path "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" --type zip
 
     ```
 
@@ -350,7 +350,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 3. Update the connection variables to the following:
 
     ```php
-    $password = getenv("APPSETTING_PostgreSQL_PASSWORD");
+    $password = getenv("APPSETTING_POSTGRESQL_PASSWORD");
     ```
 
     > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables
@@ -364,7 +364,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 5. Update the PostgreSQL connection to utilize the environment variables:
 
     ```php
-    'password' => getenv('APPSETTING_PostgreSQL_PASSWORD')
+    'password' => getenv('APPSETTING_POSTGRESQL_PASSWORD')
     ```
 
 ## Test new settings #4

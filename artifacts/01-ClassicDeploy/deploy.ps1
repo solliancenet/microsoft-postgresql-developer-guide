@@ -1,4 +1,4 @@
-$sourcePath = "c:\labfiles\microsoft-PostgreSQL-developer-guide\artifacts\sample-php-app";
+$sourcePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\sample-php-app";
 $targetPath = "c:\inetpub\wwwroot\";
 
 # create a new IIS directory

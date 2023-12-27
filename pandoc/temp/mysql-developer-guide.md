@@ -607,7 +607,7 @@ still applicable. This is commonly referred to as the *control plane*.
 
 **Data Plane** For managing database objects and access controls at the
 server and database levels, standard PostgreSQL management tools, such as
-[PostgreSQL Workbench], still apply. This is known as the *data plane*.
+[pgAdmin], still apply. This is known as the *data plane*.
 
 ![This image demonstrates the control and data plane for Azure Database
 for PostgreSQL.]
@@ -931,31 +931,31 @@ The Azure sample template requires additional parameters to run. It can
 be deployed with the `New-AzResourceGroupDeployment` PowerShell command
 in the Quickstart or the `az deployment group create` CLI command.
 
-## Connect and query Azure Database for PostgreSQL Flexible Server using PostgreSQL Workbench
+## Connect and query Azure Database for PostgreSQL Flexible Server using pgAdmin
 
 This section explains how to perform queries against Azure Database for
-PostgreSQL Flexible Server using PostgreSQL Workbench, a UI-based management tool.
+PostgreSQL Flexible Server using pgAdmin, a UI-based management tool.
 
 ### Setup
 
 Follow one of the methods in the [Create a Flexible Server database]
 document to create a Flexible Server instance with a database.
 
-Download PostgreSQL Workbench from the [PostgreSQL Downloads.]
+Download pgAdmin from the [PostgreSQL Downloads.]
 
 ### Instructions
 
-Explore the [Use PostgreSQL Workbench with Azure Database for PostgreSQL Flexible Server Flexible
+Explore the [Use pgAdmin with Azure Database for PostgreSQL Flexible Server Flexible
 Server] article to perform the following activities:
 
 -   Create a new database in the Flexible Server instance
 -   Create, query, and update data in a table (inventory)
 -   Delete records from the table
 
-> ![Note icon][Note] **Note:** PostgreSQL Workbench can automatically
+> ![Note icon][Note] **Note:** pgAdmin can automatically
 > initiate an SSL-secured connection to Azure Database for PostgreSQL Flexible Server.
 > However, it is recommended to use the [SSL public certificate] in the
-> connections. To bind the SSL public certificate to PostgreSQL Workbench,
+> connections. To bind the SSL public certificate to pgAdmin,
 > choose the downloaded certificate file as the **SSL CA File** on the
 > **SSL** tab.
 
@@ -1873,7 +1873,7 @@ Once the software is installed and configured, it is up to the developer
 to deploy the application and database on the system. Classical
 deployments tend to be manual such that the files are copied to the
 target production web server and then deploy the database schema and
-supported data via PostgreSQL tools or the PostgreSQL Workbench.
+supported data via PostgreSQL tools or the pgAdmin.
 
 The biggest advantage of a classic on-premises deployment is the
 infrastructure team will have full control of the environment. The
@@ -5011,7 +5011,7 @@ real-world information:
   [Development editor tools]: #development-editor-tools
   [Resources]: #resources
   [Create a Flexible Server database]: #create-a-flexible-server-database
-  [Connect and query Azure Database for PostgreSQL Flexible Server using PostgreSQL Workbench]: #connect-and-query-azure-database-for-PostgreSQL-using-PostgreSQL-workbench
+  [Connect and query Azure Database for PostgreSQL Flexible Server using pgAdmin]: #connect-and-query-azure-database-for-PostgreSQL-using-PostgreSQL-workbench
   [Connect and query Azure Database for PostgreSQL Flexible Server using the Azure CLI]: #connect-and-query-azure-database-for-PostgreSQL-using-the-azure-cli
   [Language support]: #language-support
   [03 / Summary]: #summary-1
@@ -5197,7 +5197,7 @@ real-world information:
   [Microsoft Learn]: https://docs.microsoft.com/learn/
   [Azure Fundamentals (AZ-900) Learning Path]: https://docs.microsoft.com/learn/paths/az-900-describe-cloud-concepts/
   [Migrating to Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/01-PostgreSQL-migration-guide-intro
-  [PostgreSQL Workbench]: https://www.PostgreSQL.com/products/workbench/
+  [pgAdmin]: https://www.PostgreSQL.com/products/workbench/
   [This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.]:
     ./media/PostgreSQL-conceptual-diagram.png
     "Control plane for Azure Database for PostgreSQL Flexible Server"
@@ -5252,7 +5252,7 @@ real-world information:
     ./media/PostgreSQL-flex-params.png "CLI provisioning"
   [8]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-arm-template#review-the-template
   [PostgreSQL Downloads.]: https://dev.PostgreSQL.com/downloads/workbench/
-  [Use PostgreSQL Workbench with Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-workbench
+  [Use pgAdmin with Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-workbench
   [SSL public certificate]: https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
   [Add the SSL CA file on the SSL tab of the Setup New Connection dialog box.]:
     ./media/new-ssl-connection-with-ca-file.png "Add SSL CA file"

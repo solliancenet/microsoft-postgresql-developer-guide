@@ -64,7 +64,7 @@ As part of the deployment, a **PostgreSQLdevSUFFIX-paw1** virtual machine has be
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **PostgreSQLdevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-PostgreSQL-developer-guide` folder.  
+Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **PostgreSQLdevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-guide` folder.  
 
 #### Step 3 - Start your journey
 
@@ -77,13 +77,12 @@ Click the links to complete each journey before going to the next.
 1. [Classic deployment](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy)
 2. [Azure VM Deployment](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm)
 3. [Simple App Service Deployment with Azure Database for PostgreSQL Flexible Server](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc)
-4. [App Service with InApp PostgreSQL](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-InApp)
-5. [Continuous Integration / Continuous Delivery](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-04-CloudDeploy-CICD)
-6. [Containerizing layers with Docker](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker)
-7. [Azure Container Instances (ACI)](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI)
-8. [App Service Containers](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container)
-9. [Azure Kubernetes Service (AKS)](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS)
-10. [AKS with PostgreSQL Flexible Server](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
+4. [Continuous Integration / Continuous Delivery](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD)
+5. [Containerizing layers with Docker](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker)
+6. [Azure Container Instances (ACI)](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI)
+7. [App Service Containers](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container)
+8. [Azure Kubernetes Service (AKS)](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS)
+9. [AKS with PostgreSQL Flexible Server](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
 
 ##### Compute and orchestration tutorial lab links
 

@@ -27,7 +27,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker run -d php:8.0-apache
     ```
 
-5. In the `c:\labfiles\microsoft-PostgreSQL-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
+5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
 
     ```text
     # Dockerfile
@@ -39,9 +39,6 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     RUN apt-get install -y libcurl4-openssl-dev
     RUN docker-php-ext-install fileinfo
     RUN docker-php-ext-install curl
-    RUN docker-php-ext-install PostgreSQLi
-    RUN docker-php-ext-enable PostgreSQLi
-    RUN docker-php-ext-install pdo_PostgreSQL
     
     COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
     COPY ./start-apache.sh /usr/local/bin
@@ -61,7 +58,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 6. Run the following to create the image:
 
     ```PowerShell
-    $sourcePath = "c:\labfiles\microsoft-PostgreSQL-developer-guide";
+    $sourcePath = "c:\labfiles\microsoft-postgresql-developer-guide";
 
     cd $sourcePath;
 
@@ -73,7 +70,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. Run the following to export the database:
 
     ```powershell
-    cd "c:\labfiles\microsoft-PostgreSQL-developer-guide";
+    cd "c:\labfiles\microsoft-postgresql-developer-guide";
 
     $username = "root";
     $password = "";
@@ -90,7 +87,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     set-content data.sql $data
     ```
 
-2. In the `c:\labfiles\microsoft-PostgreSQL-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
+2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
 
     ```text
     FROM PostgreSQL:8.0

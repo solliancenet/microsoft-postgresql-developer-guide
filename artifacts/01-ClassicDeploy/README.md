@@ -8,7 +8,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 2. Run the following commands to create the database (type `yes` when prompted):
 
     ```PowerShell
-    cd C:\labfiles\microsoft-PostgreSQL-developer-guide\artifacts\sample-php-app
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\sample-php-app
 
     composer update 
 
@@ -42,7 +42,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ## Manual Deployment
 
-The above resources were deployed as part of the ARM template and supporting scripts.  In order to setup a developer machine, do the following in order to get the machine setup:
+The above resources were deployed as part of the ARM template and supporting scripts.  In order to setup a developer machine manually, do the following:
 
 ### Windows Setup
 

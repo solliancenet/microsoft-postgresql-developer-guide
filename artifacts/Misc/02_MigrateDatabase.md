@@ -2,7 +2,7 @@
 
 ## Export the data
 
-1. In the virtual machine, open **PostgreSQL Workbench**
+1. In the virtual machine, open **pgAdmin**
 2. Connect to the local instance using `root` with no password
 3. Export the `ContosoStore` database
    1. Select **Server->Data Export**
@@ -17,7 +17,7 @@
 
 ## Import the data
 
-### PostgreSQL Workbench
+### pgAdmin
 
 1. Connect to the target PostgreSQL instance
    1. Select **Database->Connect to database**
@@ -34,9 +34,3 @@
    2. Select **Import from Self-Contained File**
    3. Select the `C:\temp\ContosoStore\export.sql` file
    4. Select **Start Import**, after a few momemts, the database will be imported into Azure PostgreSQL
-
-### Using PhpMyAdmin (InApp)
-
-1. Browse to the **PostgreSQLdevSUFFIX** web app service
-2. Under **blah** select **Inapp PostgreSQL**
-3. 

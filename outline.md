@@ -90,7 +90,7 @@ Getting Started
 
 	Connect & query databases
 		
-		PostgreSQL Workbench
+		pgAdmin
 		
 		Azure CLI
 

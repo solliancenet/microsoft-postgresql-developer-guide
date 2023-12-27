@@ -19,7 +19,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 4. In the terminal window, run the following:
 
     ```powershell
-    cd c:\labfiles\microsoft-PostgreSQL-developer-guide\sample-php-app
+    cd c:\labfiles\microsoft-postgresql-developer-guide\sample-php-app
 
     git remote remove origin
     git remote remove azure

@@ -8,7 +8,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 
 ## Run images in Azure Kubernetes Service (AKS)
 
-1. Open the `C:\labfiles\microsoft-PostgreSQL-developer-guide\Artifacts\04-AKS` directory with Visual Studio Code
+1. Open the `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\04-AKS` directory with Visual Studio Code
 2. Open a new terminal window, ensure kubectl is installed:
 
     ```powershell
