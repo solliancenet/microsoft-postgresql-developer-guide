@@ -1479,6 +1479,84 @@
         }
       },
       {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex16'), '/', concat(variables('resourceName'), '-win10'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex16'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex16'), '/', concat(variables('resourceName'), '-paw-1'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses', concat(variables('resourceName'), '-paw-1-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-paw-1-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex16'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-paw-1-pip'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex16'), '/', concat(variables('resourceName'), '-linux-1'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex16'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip'))]"
+        ]
+      },,
+      {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex14'), '/', concat(variables('resourceName'), '-win10'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex14'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex14'), '/', concat(variables('resourceName'), '-paw-1'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses', concat(variables('resourceName'), '-paw-1-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-paw-1-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex14'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-paw-1-pip'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+        "apiVersion": "2021-06-01",
+        "name": "[concat(concat(variables('resourceName'),'flex14'), '/', concat(variables('resourceName'), '-linux-1'))]",
+        "properties": {
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip')),'2021-02-01').IpAddress]"
+        },
+        "dependsOn" : [
+          "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex14'))]",
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip'))]"
+        ]
+      },
+      {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2022-04-01",
             "name": "[guid(concat(resourceGroup().id, 'win10'))]",
@@ -1618,7 +1696,7 @@
       },
       {
         "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2021-04-01",
+        "apiVersion": "2023-09-01",
         "name": "[concat(variables('resourceName'),'-linux-1')]",
         "location": "[variables('location')]",
         "dependsOn": [
@@ -1717,7 +1795,10 @@
                 "subnet": {
                   "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(variables('resourceName'), '-hub'), 'default')]"
                 },
-                "privateIPAllocationMethod": "Dynamic"
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIpAddress": {
+                  "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', concat(variables('resourceName'), '-linux-1-pip'))]"
+                }
               }
             }
           ],
@@ -1836,6 +1917,16 @@
       },
       {
         "name": "[concat(variables('resourceName'),'-win10-pip')]",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "apiVersion": "2021-02-01",
+        "location": "[variables('location')]",
+        "properties": {
+          "publicIPAddressVersion": "IPv4",
+          "publicIPAllocationMethod": "Dynamic"
+        }
+      },
+      {
+        "name": "[concat(variables('resourceName'),'-linux-1-pip')]",
         "type": "Microsoft.Network/publicIPAddresses",
         "apiVersion": "2021-02-01",
         "location": "[variables('location')]",
