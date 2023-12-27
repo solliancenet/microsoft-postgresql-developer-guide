@@ -17,7 +17,7 @@
     "variables": {
       "dnsPrefix": "[uniqueString(resourceGroup().id)]",
       "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
-      "resourceName": "[concat('PostgreSQLdev',substring(variables('uniqueSuffix'),0,8))]",
+      "resourceName": "[concat('pgsqldev',substring(variables('uniqueSuffix'),0,8))]",
       "domainJoinOptions": 3,
       "ouPath": "",
       "postInstallParameters": "[concat(' -azureTenantID ', variables('azureTenantID'), ' -azureSubscriptionID ', variables('azureSubscriptionID'))]",
@@ -49,7 +49,7 @@
       "imageSKU": "2016-Datacenter",
       "virtualNetworkAddressRange": "10.2.0.0/16",
       "kubernetesClusterName": "[variables('resourceName')]",
-      "kubernetesVersion": "1.22.6",
+      "kubernetesVersion": "1.28.3",
       "kubernetesDnsPrefix": "[concat(variables('resourceName'), '-dns')]",
       "kubernetesAgentOsType": "Linux",
       "kubernetesAgentOsDiskSizeGB": 0,
@@ -472,65 +472,62 @@
         },
         "identity": { "type": "SystemAssigned" }
       },
-      {        
-        "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-        "apiVersion": "2021-05-01",
-        "name": "[concat(variables('resourceName'),'flex')]",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "administratorLogin": "[parameters('administratorLogin')]",
-            "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-            "createMode": "Default",
-            "storage": {
-                "storageSizeGB": 20,
-                "iops": 360,
-                "autoGrow": "Enabled"
-            },
-            "sku": {
-                "name": "Standard_B1ms",
-                "tier": "Burstable"
-            },
-            "version": "8.0.21"
-        },
-        "resources": [
-            {
-                "type": "databases",
-                "apiVersion": "2021-05-01",
-                "name": "[variables('databaseName')]",
-                "dependsOn": [
-                    "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex'))]"
-                ],
-                "properties": {}
-            }
-        ]
-    },
       {
-        "type": "Microsoft.DBforPostgreSQL/servers",
-        "apiVersion": "2017-12-01",
-        "name": "[variables('resourceName')]",
-        "location": "[resourceGroup().location]",
-        "sku": {
-            "name": "GP_Gen5_4",
-            "tier": "GeneralPurpose",
-            "family": "Gen5",
-            "capacity": 4
-        },
-        "properties": {
-            "storageProfile": {
-                "storageMB": 102400,
-                "backupRetentionDays": 7,
-                "geoRedundantBackup": "Disabled",
-                "storageAutogrow": "Enabled"
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+            "apiVersion": "2020-02-14-preview",
+            "name": "[concat(variables('resourceName'),'flex14')]",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard_D2s_v3",
+                "tier": "GeneralPurpose",
+                "capacity": 2
             },
-            "version": "8.0",
-            "administratorLogin": "[parameters('administratorLogin')]",
-            "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-            "sslEnforcement": "Enabled",
-            "minimalTlsVersion": "TLSEnforcementDisabled",
-            "infrastructureEncryption": "Disabled",
-            "publicNetworkAccess": "Enabled"
-        }
-    },
+            "properties": {
+                "version": "14",
+                "haEnabled": "Disabled",
+                "createMode": "Default",
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "storageProfile": {
+                    "storageMB": 131072,
+                    "backupRetentionDays": 7
+                },
+                "maintenanceWindow": {
+                    "customWindow": "Disabled",
+                    "dayOfWeek": 0,
+                    "startHour": 0,
+                    "startMinute": 0
+                }
+            }
+        },
+        {
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+            "apiVersion": "2020-02-14-preview",
+            "name": "[concat(variables('resourceName'),'flex16')]",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard_D2s_v3",
+                "tier": "GeneralPurpose",
+                "capacity": 2
+            },
+            "properties": {
+                "version": "16",
+                "haEnabled": "Disabled",
+                "createMode": "Default",
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "storageProfile": {
+                    "storageMB": 131072,
+                    "backupRetentionDays": 7
+                },
+                "maintenanceWindow": {
+                    "customWindow": "Disabled",
+                    "dayOfWeek": 0,
+                    "startHour": 0,
+                    "startMinute": 0
+                }
+            }
+        },
     {
       "type": "Microsoft.Synapse/workspaces",
       "apiVersion": "2021-06-01",
@@ -565,7 +562,7 @@
         "apiVersion": "2021-04-01",
         "location": "[resourceGroup().location]",
         "properties": {
-          "isHnsEnabled": true,
+          "isHnsEnabled": false,
           "supportsHttpsTrafficOnly": "false",
           "encryption": {
             "services": {
@@ -1505,7 +1502,7 @@
               "autoUpgradeMinorVersion": true,
               "settings": {
                 "fileUris": [
-                    "https://raw.githubusercontent.com/solliancenet/microsoft-PostgreSQL-developer-guide/main/Artifacts/post-install-script01.ps1"
+                    "https://raw.githubusercontent.com/solliancenet/specktra-install-scripts/main/postgres-sql-dev-guide/post-install-script01.ps1"
                 ]
               },
               "protectedSettings": {
@@ -1615,7 +1612,7 @@
               "protectedSettings": {
                 "commandToExecute": "[concat('sh post-install-script01.sh ', variables('shPostInstallParameters'))]",
                 "fileUris": [
-                  "https://raw.githubusercontent.com/solliancenet/microsoft-PostgreSQL-developer-guide/main/Artifacts/post-install-script01.sh"
+                  "https://raw.githubusercontent.com/solliancenet/specktra-install-scripts/main/postgres-sql-dev-guide/post-install-script01.sh"
                 ],
                 "managedIdentity": {}
               }
@@ -1753,11 +1750,11 @@
             "properties": {
               "publisher": "Microsoft.Compute",
               "type": "CustomScriptExtension",
-              "typeHandlerVersion": "1.8",
+              "typeHandlerVersion": "1.10",
               "autoUpgradeMinorVersion": true,
               "settings": {
                 "fileUris": [
-                  "https://raw.githubusercontent.com/solliancenet/microsoft-PostgreSQL-developer-guide/main/Artifacts/post-install-script01.ps1"
+                  "https://raw.githubusercontent.com/solliancenet/specktra-install-scripts/main/postgres-sql-dev-guide/post-install-script01.ps1"
                 ]
               },
               "protectedSettings": {
