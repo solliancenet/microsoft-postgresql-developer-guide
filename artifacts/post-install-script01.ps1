@@ -98,14 +98,12 @@ InstallIIs
 
 Install7z
 
-InstallGithubDesktop
-
 InstallWebPI
 
 $version = "8.0.13"
 InstallPhp $version;
 
-InstallWebPIPhp "PHP80x64,PostgreSQLConnector,UrlRewrite2,ARRv3_0"
+InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
 
 ConfigurePhp "C:\tools\php80\php.ini";
 ConfigurePhp "C:\tools\php81\php.ini";
@@ -133,20 +131,24 @@ $configPath = "system.webServer/fastCgi/application[@fullPath='$phpPath']"
 Set-WebConfigurationProperty $configPath -Name instanceMaxRequests -Value 10000
 Set-WebConfigurationProperty $configPath -Name monitorChangesTo -Value '$phpDirectory\php.ini'
 
-InstallPostgreSQL14
+InstallPostgres14
 
-InstallPostgreSQL16
+InstallPostgres16
 
 InstallPython "3.11";
 
 #install composer globally
+Write-Host "Install composer." -ForegroundColor Green -Verbose
 choco install composer
 
+Write-Host "Install opensll." -ForegroundColor Green -Verbose
 choco install openssl
 
 InstallPgAdmin
 
 #setup the sql database.
+#get the database server name
+$serverName = Get-AzSqlServer -ResourceGroupName "PREFIX-rg-flex-eastus-16" -ServerName "PREFIX-pg-flex-eastus-16" | select -ExpandProperty FullyQualifiedDomainName;
 
 .\psql -h PREFIX-pg-flex-eastus-16.postgres.database.azure.com -U s2admin -d postgres -e "CREATE DATABASE contosostore;"
 
@@ -154,9 +156,9 @@ $extensions = @("ms-vscode-deploy-azure.azure-deploy", "ms-azuretools.vscode-doc
 
 InstallVisualStudioCode $extensions;
 
-InstallVisualStudio "community";
+InstallVisualStudio "community" "2022";
 
-Install7Zip;
+Install7z;
 
 InstallFiddler;
 
@@ -170,6 +172,8 @@ InstallDockerDesktop $global:localusername;
 Uninstall-AzureRm -ea SilentlyContinue
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+InstallGithubDesktop
 
 cd "c:\labfiles";
 

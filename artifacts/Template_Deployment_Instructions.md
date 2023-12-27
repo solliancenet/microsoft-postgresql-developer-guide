@@ -46,7 +46,9 @@
 4. If deploying the secure ARM template, issue the following command from the repository root.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\Artifacts\template-secure.json -TemplateParameterFile .\Artifacts\template-secure.parameters.json
+    cd "C:\labfiles\microsoft-postgres-docs-project"
+
+    New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\artifacts\template-secure.json -TemplateParameterFile .\artifacts\template-secure.parameters.json
     ```
 
     Use `template.json` and `template.parameters.json` for the insecure ARM template deployment.
