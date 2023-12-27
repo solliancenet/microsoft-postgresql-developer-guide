@@ -12,8 +12,8 @@ sudo apt-get install docker-compose -y
 
 sudo apt-get install make -y
 
-sudo apt install PostgreSQL-server
+sudo apt install postgresql
 
 apt-get install git
 
-git clone https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git
+git clone https://github.com/solliancenet/microsoft-postgresql-developer-guide.git

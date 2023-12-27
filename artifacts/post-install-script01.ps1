@@ -133,24 +133,22 @@ $configPath = "system.webServer/fastCgi/application[@fullPath='$phpPath']"
 Set-WebConfigurationProperty $configPath -Name instanceMaxRequests -Value 10000
 Set-WebConfigurationProperty $configPath -Name monitorChangesTo -Value '$phpDirectory\php.ini'
 
-InstallPostgreSQL
+InstallPostgreSQL14
 
-InstallPython "3.9";
+InstallPostgreSQL16
+
+InstallPython "3.11";
 
 #install composer globally
 choco install composer
 
 choco install openssl
 
-$version = "8.0.26";
-InstallPostgreSQLWorkbench $version;
-
-cd "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE"
+InstallPgAdmin
 
 #setup the sql database.
 
-.\PostgreSQL -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'wsuser'@'localhost' IDENTIFIED BY 'P@s`$w0rd123!';"
-.\PostgreSQL -u root -e "CREATE DATABASE contosostore;"
+.\psql -h PREFIX-pg-flex-eastus-16.postgres.database.azure.com -U s2admin -d postgres -e "CREATE DATABASE contosostore;"
 
 $extensions = @("ms-vscode-deploy-azure.azure-deploy", "ms-azuretools.vscode-docker", "ms-python.python", "ms-azuretools.vscode-azurefunctions");
 
@@ -176,7 +174,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 cd "c:\labfiles";
 
 $branchName = "main";
-$workshopName = "microsoft-PostgreSQL-developer-guide";
+$workshopName = "microsoft-postgresql-developer-guide";
 $repoUrl = "solliancenet/$workshopName";
 
 #download the git repo...
