@@ -13,7 +13,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ### Deploy the Application
 
-1. Switch to the **Paw-1** virtual machine.
+1. Switch to the **Paw-1** virtual machine remote desktop.
 2. Open a terminal window, run the following to deploy the zip to Azure, be sure to replace the `SUFFIX`:
 
     > NOTE: The virtual machine is running under a Managed Identity with `owner` access to the resource group.
@@ -46,7 +46,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     az webapp deployment source config-local-git --name $appName --resource-group $resourceGroupName;
 
     #set the username and password
-    az webapp deployment user set --user-name "pgsqldev$suffix" --password "Solliance123"
+    az webapp deployment user set --user-name "pgsqldev$suffix" --password "Solliance123";
 
     #get the github link to the azure app service
     #$url = az webapp deployment list-publishing-profiles --resource-group $resourceGroupName --name $appName
@@ -69,13 +69,18 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
     cd "C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app"
 
+    #remove current git setup
+    remove-item .git -force -Recurse
+
     git init
     git remote rm origin
     git remote rm azure
-    git remote add azure $url
     git add .
     git commit -m "init commit"
-    git push azure main
+    git remote add azure $url
+    git branch -m azure main
+    git pull --allow-unrelated-histories
+    git push -u azure main
 
     #only works with 7.4 PHP / Apache
     #az webapp deploy --resource-group $resourceGroupName --name $appName --src-path "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" --type zip
@@ -84,8 +89,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ### Update Application Settings
 
-1. Open the Azure Portal
-2. Browse to the **pgsqldevSUFFIX** app service
+1. Switch to the Azure Portal, browse to the **pgsqldevSUFFIXlinux** app service
 3. Under **Development tools**, select **SSH**, then select **Go**
 4. Login using your lab credentials (ex: Azure Entra)
 5. Run the following:
@@ -115,7 +119,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     ![This image demonstrates the changes made to the /home/site/default file in the SSH session.](./media/web-server-config.png "Web server configuration file changes")
 
 9. Press **Ctrl-X**, then select **Y** to save the file
-10. Add a startup.sh file:
+10. Run the following command to add a startup.sh file:
 
    ```bash
     nano /home/site/startup.sh
@@ -130,22 +134,32 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     service nginx reload
     ```
 
-12. Open the `.env` file in the text editor.
+12. Press **Ctrl-X**, then select **Y** to save the file
+13. Open the `.env` file in the text editor.
 
     ```bash
     nano /home/site/wwwroot/.env
     ```
 
-13. Update the `APP_URL` parameter to the App Service URL (found on the **Overview** tab of the Azure portal). Then, set `ASSET_URL` to `APP_URL`.
+14. Update the `APP_URL` parameter to the App Service URL (found on the **Overview** tab of the Azure portal). Then, set `ASSET_URL` to `APP_URL`.
 
     ```bash
     APP_URL=https://[APP SERVICE NAME].azurewebsites.net
     ASSET_URL = "${APP_URL}"
     ```
 
-14. Run the following commands to setup the Larvael application:
+15. Press **Ctrl-X**, then select **Y** to save the file
+16. Run the following commands to setup the Larvael application:
 
     ```powershell
+    mkdir /home/site/ext 
+    cd /home/site/ext 
+    curl -sS https://getcomposer.org/installer | php
+
+    cp /home/site/ext/composer.phar /usr/local/bin/composer
+
+    cd /home/site/wwwroot
+
     composer.phar update
 
     php artisan config:clear
@@ -156,7 +170,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 15. Switch back the Azure Portal and the app service, under **Settings**, select **Configuration**
 16. Select **General settings**
 17. In the startup command textbox, type `/home/site/startup.sh`
-18. Select **Save**
+18. Select **Save**, then select **Continue**
 
 ### Test the Application
 
@@ -165,7 +179,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 ### Add Firewall IP Rule and Azure Access
 
 1. Switch to the Azure Portal
-2. Browse to the `pgsqldevSUFFIX` Azure Database for PostgreSQL Flexible Server
+2. Browse to the `pgsqldevSUFFIXflex16` Azure Database for PostgreSQL Flexible Server
 3. Under **Settings**, select **Connection security**
 4. Select **Add current client IP address (...)**
 <!--
@@ -191,7 +205,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     nano /home/site/wwwroot/pubic/database.php
     ```
 
-7. Set the servername variable to `pgsqldevSUFFIX.postgres.database.azure.com`
+7. Set the servername variable to `pgsqldevSUFFIXflex16.postgres.database.azure.com`
 8. Set the username to `wsuser`
 9. Set the password to `Solliance123`
 10. Press **Ctrl-X**, then **Y** to save the file
