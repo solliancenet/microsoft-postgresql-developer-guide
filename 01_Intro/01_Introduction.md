@@ -1,8 +1,8 @@
 # 01 / Azure PostgreSQL Developer Guide
 
-Welcome to THE comprehensive guide to developing [PostgreSQL](https://www.PostgreSQL.com/)-based applications on [Microsoft Azure](https://portal.azure.com/)! Whether  creating a production application or improving an existing enterprise system, this guide will take developers and architects through the fundamentals of PostgreSQL application development to more advanced architecture and design. From beginning to end, it is a content journey designed to help ensure current or future PostgreSQL systems are performing at their best even as their usage grows and expands.
+Welcome to THE comprehensive guide to developing [PostgreSQL](https://www.postgresql.org/)-based applications on [Microsoft Azure](https://portal.azure.com/)! Whether  creating a production application or improving an existing enterprise system, this guide will take developers and architects through the fundamentals of PostgreSQL application development to more advanced architecture and design. From beginning to end, it is a content journey designed to help ensure current or future PostgreSQL systems are performing at their best even as their usage grows and expands.
 
-![The diagram shows the progression of development evolution in the guide.](media/PostgreSQL-journey.png "PostgreSQL Journey")
+![The diagram shows the progression of development evolution in the guide.](media/postgresql-journey.png "PostgreSQL Journey")
 
 The topics and flow contained in this guide cover the advantages of migrating to or leveraging various simple to use, valuable Azure cloud services in PostgreSQL architectures. Be prepared to learn how easy and quick it is to create applications backed by [Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/). In addition to building customized services, developers will also be able to leverage the vast number of value-add services available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Throughout this developer journey, strive to leverage the vast number of resources presented rather than going at it alone!
 
