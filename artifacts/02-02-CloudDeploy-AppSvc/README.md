@@ -202,7 +202,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 6. Edit the **/home/site/wwwroot/pubic/database.php**:
 
     ```bash
-    nano /home/site/wwwroot/pubic/database.php
+    nano /home/site/wwwroot/public/database.php
     ```
 
 7. Set the servername variable to `pgsqldevSUFFIXflex16.postgres.database.azure.com`

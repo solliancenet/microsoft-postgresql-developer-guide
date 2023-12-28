@@ -4,30 +4,39 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ContosoStore";
+$port = "5432"
 
-$conn = PostgreSQLi_init();
+// connection string with SSL certificate files
+$conn_str  = 'host=' . $servername . ' ';
+$conn_str .= 'port=' . $port . ' ';
+$conn_str .= 'dbname=' . $dbName . ' ';
+$conn_str .= 'user=' . $username . ' ';
+$conn_str .= 'password=' . $password . ' ';
+//$conn_str .= 'sslmode=verify-full ';
+//$conn_str .= 'sslcert=etc/apache/ssl/postgresql.crt ';
+//$conn_str .= 'sslkey=etc/apache/ssl/postgresql.key ';
+//$conn_str .= 'sslrootcert=etc/apache/ssl/root.key ';
 
-//PostgreSQLi_ssl_set($conn,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-
-PostgreSQLi_real_connect($conn, $servername, $username, $password, $dbname);
+// attempt connection
+$conn = pg_connect($conn_str); //or die('Cannot connect to database.');
 
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT count(*) FROM contosostore.users";
+$sql = "SELECT count(*) FROM users";
 
 $result = $conn->query($sql);
 
 if ($result !== false && $result->num_rows > 0) {
-  
+
   echo $result->num_rows . " results";
-  
+
 } else {
   echo "0 results";
 }
 
 $conn->close();
 
-?> 
+?>
