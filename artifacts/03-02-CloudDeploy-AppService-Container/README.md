@@ -37,7 +37,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 
     az webapp create --resource-group $resourceGroupName --plan $appPlan --name $name --deployment-container-image-name $image
     az webapp config set --resource-group $resourceGroupName --name $name --linux-fx-version "DOCKER|$image:latest"
-    az webapp config appsettings set --resource-group $resourceGroupName --name $name --settings WEBSITES_PORT=3306
+    az webapp config appsettings set --resource-group $resourceGroupName --name $name --settings WEBSITES_PORT=5432
     ```
 
 ## Test the containers
@@ -52,7 +52,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 8. Under **Settings**, select **Configuration**
 9. Select **New application setting**, add the following, replace the `DB_URL` with the one recorded previously from the database container, replace the `APP_URL` with the one  recorded for the application web:
      - `PostgreSQL_ROOT_PASSWORD` = `Solliance123`
-     - `WEBSITES_PORT` = `3306`
+     - `WEBSITES_PORT` = `5432`
 10. Select **Save**, then select **Continue**
 11. Select the **pgsqldevSUFFIX-app-web** app service
 12. On the **Overview** tabe, record the **URL**
@@ -66,7 +66,7 @@ Now that a containerized version of the applications exists, it can now be hoste
      - `DB_USERNAME` = `root`
      - `DB_PASSWORD` = `Solliance123`
      - `DB_DATABASE` = `contosostore`
-     - `DB_PORT` = `3306`
+     - `DB_PORT` = `5432`
      - `APP_URL` = {APP_URL}
 
     > **NOTE** It is possible to edit multiple by selecting  **Advanced edit** and then copying the below values in, be sure to replace the `SUFFIX`
@@ -94,7 +94,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     },
     {
         "name": "DB_PORT",
-        "value": "3306",
+        "value": "5432",
         "slotSetting": false
     },
     {
@@ -112,6 +112,6 @@ Now that a containerized version of the applications exists, it can now be hoste
 1. If no results are displayed, review the logs for each container instance
    1. Browse to the app service
    2. Under **Monitoring**, select **Log stream**
-   3. Review the startup logs, notice that the database instance did not respond to an HTTP request on port 3306.  This is because an app service container will only work with HTTP based container images unless it is a multicontainer deployment.
+   3. Review the startup logs, notice that the database instance did not respond to an HTTP request on port 5432.  This is because an app service container will only work with HTTP based container images unless it is a multicontainer deployment.
 2. Change the application settings for the web container to point to the Azure Database for PostgreSQL Flexible Server Single Server instance
 3. Refresh the web site, it should now load successfully.

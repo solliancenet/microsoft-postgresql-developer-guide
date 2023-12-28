@@ -2018,8 +2018,8 @@
                   "id": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('resourceName'), variables('resourceName'))]"
                 },
                 "protocol": "Tcp",
-                "frontendPort": 3306,
-                "backendPort": 3306,
+                "frontendPort": 5432,
+                "backendPort": 5432,
                 "enableFloatingIP": false
               }
             }

@@ -5,4 +5,4 @@ ADD Artifacts/data.sql /etc/PostgreSQL/data.sql
 
 RUN cp /etc/PostgreSQL/data.sql /docker-entrypoint-initdb.d
 
-EXPOSE 3306 22
+EXPOSE 5432 22

@@ -44,7 +44,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -81,7 +81,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -116,7 +116,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -147,7 +147,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -183,7 +183,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }

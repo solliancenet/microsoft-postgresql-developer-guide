@@ -1,36 +1,33 @@
 # Migrate the on-premises database
 
-## Export the data
+## pgAdmin
 
-1. In the virtual machine, open **pgAdmin**
-2. Connect to the local instance using `root` with no password
-3. Export the `ContosoStore` database
-   1. Select **Server->Data Export**
-   2. Select the **contosostore** schema
-   3. Select the following:
-      1. Dump Stored Procedures and Functions
-      2. Dump Events
-      3. Dump Triggers
-   4. Select **Export to Self-contained File**
-   5. For the project folder, type `C:\temp\ContosoStore\export.sql`
-   6. Select **Start Export**, a single sql file should show in the directory.
+### Export the data
 
-## Import the data
+1. In the **paw-1** virtual machine, open **pgAdmin**
+2. Connect to the local Postgres 16 instance using `wsuser` with `Solliance123` password
+3. Expand **Databases->ContosoStore**
+4. Export the `ContosoStore` database
+   1. Right-click the `ContosoStore` database, select **Backup...**
+   2. For the filename, select the folder icon
+   3. Type `ContosoStore.backup`, select **Save**
+   4. On the **Objects** tab, select the `public` schema
+   5. Select **Backup**
 
-### pgAdmin
+### Import the data
 
 1. Connect to the target PostgreSQL instance
-   1. Select **Database->Connect to database**
-   2. For the hostname, type the dns of the Azure Database for PostgreSQL Flexible Server single server (ex `pgsqldevSUFFIX.postgres.database.azure.com`)
-   3. For the username, type **wsuser@pgsqldevSUFFIX**
-   4. For the password type **Solliance123**
-   5. Select **OK**, an error should occur
-   6. Browse to the Azure Portal, select the Azure Database for PostgreSQL Flexible Server single server
-   7. Select **Add client IP**
-   8. Select **Save**
-   9. Retry to test the connection
+   1. Right-click **Servers**, select **Register->Server**
+   2. For the hostname, type the dns of the Azure Database for PostgreSQL Flexible Server single server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
+   3. Switch to the `Connection` tab
+      1. For the username, type **wsuser**
+      2. For the password type **Solliance123**
+      3. Toggle the **Save password?** button
+      4. Select **Save**
 2. Import the backup
-   1. Select **Server->Data Import**
-   2. Select **Import from Self-Contained File**
-   3. Select the `C:\temp\ContosoStore\export.sql` file
-   4. Select **Start Import**, after a few momemts, the database will be imported into Azure PostgreSQL
+   1. Expand the **pgsqldevSUFFIXflex16.postgres.database.azure.com->Databases->contosostore** nodes
+   2. Right-click the **contosostore** node, select **Restore...**
+   3. For format, select **Custom or tar**
+   4. For the filename, select the folder icon.
+   5. Select the `C:\temp\ContosoStore\ContosoStore.backup` file, then select **Open**
+   6. Select **Restore**, after a few momemts, the database will be imported into Azure PostgreSQL

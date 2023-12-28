@@ -1073,7 +1073,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -1112,7 +1112,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -1150,7 +1150,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -1183,7 +1183,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -1222,7 +1222,7 @@ $db_name = 'newdatabase';
 //Establishes the connection
 $conn = PostgreSQLi_init();
 PostgreSQLi_ssl_set($conn, NULL, NULL, "C:\Tools\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 3306, PostgreSQLI_CLIENT_SSL);
+PostgreSQLi_real_connect($conn, $host, $username, $password, $db_name, 5432, PostgreSQLI_CLIENT_SSL);
 if (PostgreSQLi_connect_errno()) {
 die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
@@ -3953,7 +3953,7 @@ errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]
     firewall ACLs permit access from the client.
 
 -   Ensure that corporate firewalls do not block outbound connections to
-    port 3306.
+    port 5432.
 
 -   Use a fully qualified domain name instead of an IP address in
     connection strings. This type of configuration is especially

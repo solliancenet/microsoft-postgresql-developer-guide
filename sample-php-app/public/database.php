@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "postgres";
+$password = "Solliance123";
 $dbname = "ContosoStore";
 $port = "5432"
 

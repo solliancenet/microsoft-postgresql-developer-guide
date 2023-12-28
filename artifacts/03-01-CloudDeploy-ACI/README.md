@@ -32,7 +32,7 @@ Now that containerized versions of the application exists, they can now be hoste
     $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_DATABASE" -Value "contosostore";
     $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_PASSWORD" -Value "root";
     $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_HOST" -Value "%";
-    $port1 = New-AzContainerInstancePortObject -Port 3306 -Protocol TCP;
+    $port1 = New-AzContainerInstancePortObject -Port 5432 -Protocol TCP;
     $volume = New-AzContainerGroupVolumeObject -Name "db-volume" -AzureFileShareName "db-volume" -AzureFileStorageAccountName $resourceName -AzureFileStorageAccountKey (ConvertTo-SecureString $storageKey -AsPlainText -Force);
     $vMount = @{};
     $vMount.MountPath = "/var/lib/PostgreSQL";
@@ -80,7 +80,7 @@ In the previous steps, a container instance was created for each of the containe
         - DB_USERNAME=root
         - DB_PASSWORD=root
         - DB_HOST=db
-        - DB_PORT=3306
+        - DB_PORT=5432
         ports:
         - "8080:80" 
         depends_on:
@@ -94,7 +94,7 @@ In the previous steps, a container instance was created for each of the containe
         - PostgreSQL_ROOT_PASSWORD=root
         - PostgreSQL_DATABASE=contosostore
         ports:
-        - "3306:3306"
+        - "5432:5432"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
@@ -134,7 +134,7 @@ In the previous steps, a container instance was created for each of the containe
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_DATABASE="ContosoStore"
 
-    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PORT="3306"
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PORT="5432"
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 

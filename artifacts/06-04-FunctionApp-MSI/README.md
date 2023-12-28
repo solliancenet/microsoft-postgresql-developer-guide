@@ -79,7 +79,7 @@ access_token = token.token
         user="mymsiuser@pgsqldevSUFFIX", 
         password=access_token, 
         host="pgsqldevSUFFIX.postgres.database.azure.com", 
-        port=3306,
+        port=5432,
         ssl_ca=crtpath,
         tls_versions=['TLSv1.2']
     )

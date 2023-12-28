@@ -24,7 +24,7 @@ Both server misconfiguration issues and network access issues can prevent client
 
 - If connecting to Flexible Server via public access, ensure that firewall ACLs permit access from the client.
 
-- Ensure that corporate firewalls do not block outbound connections to port 3306.
+- Ensure that corporate firewalls do not block outbound connections to port 5432.
 
 - Use a fully qualified domain name instead of an IP address in connection strings. This type of configuration is especially important with Azure Database for PostgreSQL Flexible Server Single Server instances, which use gateways to route incoming requests to database servers. It is possible to use the gateway public IP address in your applications.
   

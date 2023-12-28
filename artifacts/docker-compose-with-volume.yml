@@ -7,7 +7,7 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=root
       - DB_HOST=db
-      - DB_PORT=3306
+      - DB_PORT=5432
     ports:
       - "8080:80" 
   db:
@@ -19,7 +19,7 @@ services:
     volumes:
       - "db-volume:/var/lib/PostgreSQL"
     ports:
-      - "3306:3306"
+      - "5432:5432"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
