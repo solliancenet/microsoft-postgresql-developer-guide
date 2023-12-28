@@ -216,4 +216,11 @@ AddPhpApplication $path $port;
 cd "$path";
 composer install;
 
+#for windows server 2019
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+
+Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
+
+Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windos-Subsystem-Linux") 
+
 Stop-Transcript

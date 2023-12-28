@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "postgres";
 $password = "Solliance123";
-$dbname = "ContosoStore";
+$dbname = "contosostore";
 $port = "5432"
 
 // connection string with SSL certificate files
@@ -13,30 +13,28 @@ $conn_str .= 'dbname=' . $dbName . ' ';
 $conn_str .= 'user=' . $username . ' ';
 $conn_str .= 'password=' . $password . ' ';
 //$conn_str .= 'sslmode=verify-full ';
-//$conn_str .= 'sslcert=etc/apache/ssl/postgresql.crt ';
-//$conn_str .= 'sslkey=etc/apache/ssl/postgresql.key ';
-//$conn_str .= 'sslrootcert=etc/apache/ssl/root.key ';
+//$conn_str .= 'sslrootcert=/home/site/wwwroot/public/DigiCertGlobalRootCA.crt.pem ';
 
 // attempt connection
 $conn = pg_connect($conn_str); //or die('Cannot connect to database.');
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+  die("Connection failed: " . pg_last_error());
 }
 
 $sql = "SELECT count(*) FROM users";
 
-$result = $conn->query($sql);
+$result = pg_query($conn, $sql);
 
-if ($result !== false && $result->num_rows > 0) {
-
-  echo $result->num_rows . " results";
-
-} else {
-  echo "0 results";
+if  (!$result) {
+    echo "query did not execute";
 }
 
-$conn->close();
+while ($row = pg_fetch_array($result)) {
+    echo $row[0] . " records" ;
+}
+
+pg_close();
 
 ?>
