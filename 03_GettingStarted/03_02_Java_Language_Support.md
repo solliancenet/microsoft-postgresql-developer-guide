@@ -4,7 +4,7 @@ This section describes tools to interact with Azure Database for PostgreSQL Flex
 
 #### Connect and query
 
-Refer to the [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](https://docs.microsoft.com/en-us/azure/PostgreSQL/flexible-server/connect-java)
+Refer to the [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](https://docs.microsoft.com/azure/PostgreSQL/flexible-server/connect-java)
 
 #### Application connectors
 

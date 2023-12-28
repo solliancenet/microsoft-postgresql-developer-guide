@@ -12,7 +12,7 @@ Download pgAdmin tool from the [pgAdmin Downloads.](https://www.pgadmin.org/down
 
 TODO - Cleanup/create
 
-Explore the [Use pgAdmin tool with Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin) article to perform the following activities:
+Explore the [Use pgAdmin tool with Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin) article to perform the following activities:
 
 - Create a new database in the Flexible Server instance
 - Create, query, and update data in a table (inventory)

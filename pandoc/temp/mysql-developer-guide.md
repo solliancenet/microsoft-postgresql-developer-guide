@@ -5275,7 +5275,7 @@ real-world information:
   [PDO_PostgreSQL Reference]: https://www.php.net/manual/en/ref.pdo-PostgreSQL.php
   [Configure a PHP app for Azure App Service]: https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
   [php.ini directives]: https://www.php.net/manual/en/ini.list.php
-  [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]: https://docs.microsoft.com/en-us/azure/PostgreSQL/flexible-server/connect-java
+  [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]: https://docs.microsoft.com/azure/PostgreSQL/flexible-server/connect-java
   [PostgreSQL drivers and management tools compatible with Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compatibility
   [PostgreSQL Connector/J Introduction]: https://dev.PostgreSQL.com/doc/connector-j/8.0/en/connector-j-overview.html
