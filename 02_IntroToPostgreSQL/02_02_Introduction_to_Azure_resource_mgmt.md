@@ -102,10 +102,6 @@ The Azure portal and Windows PowerShell can be used for managing the Azure Datab
 Install-Module -Name Az.PostgreSQL
 ```
 
-After the modules are installed, reference tutorials to learn how to take advantage of scripting management activities:
-
-- [Tutorial: Design an Azure Database for PostgreSQL Flexible Server using PowerShell](https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-design-database-using-powershell)
-
 #### Infrastructure as Code
 
 [Infrastructure as Code (IaC)](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) provides a way to describe or declare what infrastructure looks like using descriptive code. The infrastructure code is the desired state. The environment will be built when the code runs and completes. One of the main benefits of IaC is that it is human readable. Once the environment code is proven and tested, it can be versioned and saved into source code control. Developers can review the environment changes over time.

@@ -10,23 +10,21 @@ As the image below demonstrates, Azure Resource Manager handles resource configu
 **Data Plane**
 For managing database objects and access controls at the server and database levels, standard PostgreSQL management tools, such as [pgAdmin](https://www.pgadmin.org/), still apply. This is known as the *data plane*.
 
-![This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.](./media/PostgreSQL-conceptual-diagram.png "Control plane for Azure Database for PostgreSQL Flexible Server")
+![This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.](./media/postgresql-conceptual-diagram.png "Control plane for Azure Database for PostgreSQL Flexible Server")
 
 ### Azure Database for PostgreSQL Flexible Server deployment options
 
-Azure Database for PostgreSQL Flexible Server provides two options for deployment: Single Server and Flexible Server. Below is a summary of these offerings. For a more comprehensive comparison table, please consult the article [Choose the right PostgreSQL Server option in Azure](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
+Azure Database for PostgreSQL Flexible Server provides two options for deployment: Single Server and Flexible Server. Below is a summary of these offerings. For a more comprehensive comparison table, please consult the article [Choose the right PostgreSQL Server option in Azure](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
 
->![Note](media/note.png "Note") **Note:** This guide will be focused on Flexible Server and will not explore Single Server or the Cosmos database for PostgresSQL.
+>![Note](media/note.png "Note") **Note:** This guide will be focused on Flexible Server and will not explore Single Server or the Cosmos DB database for PostgresSQL.
 
 ##### Flexible Server video introduction
 
-![The picture displays the logo for Azure Database for PostgreSQL Flexible Server](media/azure-database-for-PostgreSQL-for-beginners.png "Azure Database for PostgreSQL Flexible Server YouTube logo")
+>![Watch icon](media/watch.png "Watch") **Watch:** [Azure Data Academy - Introduction to Azure Database for PostgreSQL Flexible Server](https://www.youtube.com/watch?v=fzVROh-xgto)
 
->![Watch icon](media/watch.png "Watch") **Watch:** [Introduction to the Beginners Series [1 of 16] | Azure Database for PostgreSQL Flexible Server - Beginners Series](https://www.youtube.com/watch?v=TcPpNu45p78)
+### Cost management
 
->![Watch icon](media/watch.png "Watch") **Watch:** [Top 3 Reasons to consider Azure Database for PostgreSQL Flexible Server](https://docs.microsoft.com/shows/data-exposed/top-3-reasons-to-consider-azure-database-for-PostgreSQL-flexible-server/) to learn more about Flexible Server's advantages.
-
-Cost management is one of the advantages of Flexible Server: it supports a *burstable* tier, which is based on the B-series Azure VM tier and is optimized for workloads that do not continually use the CPU. [Flexible Server instances can also be paused](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-restart-stop-start-server-cli). The image below shows how Flexible Server works for a non-high availability arrangement.
+Cost management is one of the advantages of Flexible Server: it supports a [*burstable* tier](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage), which is based on the B-series Azure VM tier and is optimized for workloads that do not continually use the CPU. [Flexible Server instances can also be paused](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-stop-start-server-portal). The image below shows how Flexible Server works for a non-high availability arrangement.
 
 > *Locally-redundant storage* replicates data within a single [availability zone](https://docs.microsoft.com/azure/availability-zones/az-overview). *Availability zones* are present within a single Azure region (such as East US) and are geographically isolated. All Azure regions that support availability zones have at least three zones.
 
@@ -34,21 +32,21 @@ Cost management is one of the advantages of Flexible Server: it supports a *burs
 
 Here are a few other notable advantages of Flexible Server.
 
-- [User-scheduled service maintenance:](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-maintenance) Flexible Server allows database administrators to set a day of the week and a time for Azure to perform service maintenance and upgrades, **per server**. Providing notifications five days before a planned maintenance event, Flexible Server caters to the needs of IT operations personnel.
+- [User-scheduled service maintenance:](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-maintenance) Flexible Server allows database administrators to set a day of the week and a time for Azure to perform service maintenance and upgrades, **per server**. Providing notifications five days before a planned maintenance event, Flexible Server caters to the needs of IT operations personnel.
 
   ![This image demonstrates how to set a custom maintenance schedule in Flexible Server.](media/custom_maintenance_schedule.png "Setting a custom maintenance schedule")
 
-- [Network security:](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-networking) Applications access Flexible Server through the public Internet (though access is governed by firewall ACLs), or through private IP addresses in an Azure Virtual Network. Moreover, TLS support keeps traffic encrypted, irrespective of the chosen network access model.
+- [Network security:](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-security) Applications access Flexible Server through the public Internet (though access is governed by firewall ACLs), or through private IP addresses in an Azure Virtual Network. Moreover, TLS support keeps traffic encrypted, irrespective of the chosen network access model.
 
-- [Automatic backups:](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/overview) Azure automates database backups, encrypts them, and stores them for a configurable period.
+- [Automatic backups:](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-backup-restore) Azure automates database backups, encrypts them, and stores them for a configurable period.
 
-  ![This image demonstrates how to configure Flexible Server automatic backups.](media/PostgreSQL_backup_configuration.png "Configuring automatic backups")
+  ![This image demonstrates how to configure Flexible Server automatic backups.](media/postgresql_backup_configuration.png "Configuring automatic backups")
 
-- [Read replicas:](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-read-replicas) Read replicas help teams scale their applications by providing read-only copies of the data updated on the master node. Often, applications that run on elastic, autoscaling services, like Azure App Service, couple well with read replicas.
+- [Read replicas:](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-read-replicas) Read replicas help teams scale their applications by providing read-only copies of the data updated on the master node. Often, applications that run on elastic, autoscaling services, like Azure App Service, couple well with read replicas.
   
-- [Input-output operations per second (IOPS):](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-compute-storage#iops) IOPS can be configured based on your performance needs.
+- [Input-output operations per second (IOPS):](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#iops) IOPS can be configured based on your performance needs.
 
-  ![This image demonstrates server IOPS configuration.](media/PostgreSQL_iops_configuration.png "Configuring server IOPS")
+  ![This image demonstrates server IOPS configuration.](media/postgresql_iops_configuration.png "Configuring server IOPS")
 
 ##### Flexible Server pricing & TCO
 

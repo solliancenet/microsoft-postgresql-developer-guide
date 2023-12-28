@@ -4,4 +4,4 @@ This module explained everyday use cases for PostgreSQL and illustrated the typi
 
 Using one or more of the various tools presented, will assist in getting the database instance(s) migrated to Azure Database for PostgreSQL in the most efficient manner possible.
 
-The emphasis of this guide will continue to be on the advantages of Azure Database for PostgreSQL Flexible Server. Flexible Server is the most commanly recommend Azure Database for PostgreSQL offering.
+The emphasis of this guide will continue to be on the advantages of Azure Database for PostgreSQL Flexible Server. Flexible Server is the most commonly recommended Azure Database for PostgreSQL offering.
