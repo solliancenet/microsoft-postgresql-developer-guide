@@ -153,7 +153,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     name: store-db
   spec:
     ports:
-    - port: 3306
+    - port: 5432
     selector:
       app: store-db
   ```

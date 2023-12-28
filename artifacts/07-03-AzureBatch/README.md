@@ -30,7 +30,7 @@
 - Add the following environment variables:
   - DB_HOST = {DB_IP} or {DB_DNS}
   - DB_DATABASE = contosostore
-  - DB_PORT = 3306
+  - DB_PORT = 5432
   - DB_USER = wsuser
   - DB_PASSWORD = Solliance123
 - Select **OK**

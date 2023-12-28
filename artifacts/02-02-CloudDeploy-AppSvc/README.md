@@ -181,12 +181,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 1. Switch to the Azure Portal
 2. Browse to the `pgsqldevSUFFIXflex16` Azure Database for PostgreSQL Flexible Server
 3. Under **Settings**, select **Connection security**
-4. Select **Add current client IP address (...)**
-<!--
-5. Select the **Allow public access from any Azure Service within Azure to this server** checkbox
--->
-5. Select the **Allow access to Azure services** toggle to **Yes**
-6. Select **Save**
+4. Select the **Allow access to Azure services** toggle to **Yes**
+5. Select **Save**
 
 ### Migrate the Database
 
@@ -287,11 +283,11 @@ Putting credential in the PHP files is not a best practice, it is better to util
    - Under **Settings**, select **Configuration**
    - Select **New application setting**
    - Add the following:
-     - `DB_HOST` = `pgsqldevSUFFIX.postgres.database.azure.com`
-     - `DB_USERNAME` = `wsuser@pgsqldevSUFFIX`
+     - `DB_HOST` = `pgsqldevSUFFIXflex16.postgres.database.azure.com`
+     - `DB_USERNAME` = `wsuser`
      - `DB_PASSWORD` = `Solliance123`
      - `DB_DATABASE` = `contosostore`
-     - `DB_PORT` = `3306`
+     - `DB_PORT` = `5432`
      - `APP_URL` = `https://pgsqldevSUFFIX.azurewebsites.net`
     - Select **Save**, then select **Continue**
 
@@ -318,7 +314,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 ## Create Managed Service Identity
 
 1. Switch to the Azure Portal
-2. Browse to the **pgsqldevSUFFIX** app service
+2. Browse to the **pgsqldevSUFFIXlinux** app service
 3. Under **Settings**, select **Identity**
 4. For the system assigned identity, toggle to **On**
 5. Select **Save**, in the dialog, select **Yes**
@@ -338,7 +334,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 ## Configure Environment Variables
 
 1. Browse to the Azure Portal
-2. Select the **pgsqldevSUFFIX** app service
+2. Select the **pgsqldevSUFFIXlinux** app service
 3. Under **Settings**, select **Configuration**
 4. Select **New application setting**
 5. For the name, type **PostgreSQL_PASSWORD**

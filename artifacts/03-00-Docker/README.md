@@ -97,7 +97,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
     RUN cp /etc/PostgreSQL/data.sql /docker-entrypoint-initdb.d
 
-    EXPOSE 3306
+    EXPOSE 5432
     ```
 
 3. Build the container:
@@ -119,7 +119,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
           - DB_DATABASE=contosostore
           - DB_USER=root
           - DB_PASSWORD=root
-          - DB_PORT=3306
+          - DB_PORT=5432
           - DB_SERVERNAME=db
         ports:
           - "8080:80"
@@ -129,7 +129,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         environment:
           - PostgreSQL_ROOT_PASSWORD=root
         ports:
-          - "3306:3306"
+          - "5432:5432"
       phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
@@ -227,7 +227,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         - DB_USERNAME=root
         - DB_PASSWORD=root
         - DB_HOST=db
-        - DB_PORT=3306
+        - DB_PORT=5432
         - PostgreSQL_ATTR_SSL_CA=
       ports:
         - "8080:80" 
@@ -240,7 +240,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
       volumes:
         - "db-volume:/var/lib/PostgreSQL"
       ports:
-        - "3336:3306"
+        - "3336:5432"
     phpmyadmin:
       image: phpmyadmin/phpmyadmin
       ports:

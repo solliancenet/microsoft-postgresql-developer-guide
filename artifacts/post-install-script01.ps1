@@ -134,9 +134,11 @@ ConfigurePhp "C:\tools\php82\php.ini";
 ConfigurePhp "C:\tools\php83\php.ini";
 ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
 
-InstallPostgres14
-
+#will get port 5432
 InstallPostgres16
+
+#will get port 5433
+InstallPostgres14
 
 InstallPython "3.11";
 

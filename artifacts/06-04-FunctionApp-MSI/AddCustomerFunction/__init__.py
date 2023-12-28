@@ -21,7 +21,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         user="mymsiuser", 
         password=access_token, 
         host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
-        port=3306,
+        port=5432,
         ssl_ca=crtpath,
         tls_versions=['TLSv1.2']
     )

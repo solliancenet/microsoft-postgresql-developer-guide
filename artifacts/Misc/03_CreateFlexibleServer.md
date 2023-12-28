@@ -21,7 +21,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
 - Select **Create**
 - Select your lab subscription and resource group
 - For the name, type **pgsqldevSUFFIXflex**
-- For the PostgreSQL version, select **8.0.x**
+- For the PostgreSQL version, select **16**
 - For the admin username, type **wsuser**
 - For the password and confirm password, type **Solliance123**
 - Select **Next: Networking>**

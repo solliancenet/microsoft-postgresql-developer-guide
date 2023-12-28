@@ -14,7 +14,7 @@ spec:
           name: PostgreSQL-data
       imagePullPolicy: IfNotPresent
       ports:
-      - containerPort: 3306
+      - containerPort: 5432
         name: PostgreSQL
       env:
       - name: PostgreSQL_DATABASE
