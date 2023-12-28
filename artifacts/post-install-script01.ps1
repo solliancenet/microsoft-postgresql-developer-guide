@@ -130,17 +130,6 @@ InstallPhp $version;
 
 InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
 
-#must be done before configure php
-$path = "C:\labfiles\$workshopName\sample-php-app";
-$port = "8080";
-AddPhpApplication $path $port;
-
-ConfigurePhp "C:\tools\php80\php.ini";
-ConfigurePhp "C:\tools\php81\php.ini";
-ConfigurePhp "C:\tools\php82\php.ini";
-ConfigurePhp "C:\tools\php83\php.ini";
-ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
-
 #will get port 5432
 InstallPostgres16
 
@@ -182,11 +171,21 @@ $branchName = "main";
 $workshopName = "microsoft-postgresql-developer-guide";
 $repoUrl = "solliancenet/$workshopName";
 
+#must be done before configure php
+$path = "C:\labfiles\$workshopName\sample-php-app";
+mkdir $path -ea SilentlyContinue;
+$port = "8080";
+AddPhpApplication $path $port;
+
+ConfigurePhp "C:\tools\php80\php.ini";
+ConfigurePhp "C:\tools\php81\php.ini";
+ConfigurePhp "C:\tools\php82\php.ini";
+ConfigurePhp "C:\tools\php83\php.ini";
+ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
+
 #download the git repo...
 Write-Host "Download Git repo." -ForegroundColor Green -Verbose
 git clone https://github.com/solliancenet/$workshopName.git $workshopName
-
-ConfigurePhp "c:\tools\php80\php.ini";
 
 #setup the sql database.
 #get the database server name

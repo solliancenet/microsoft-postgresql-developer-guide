@@ -1190,7 +1190,13 @@
                 "alwaysOn": false,
                 "http20Enabled": false,
                 "functionAppScaleLimit": 200,
-                "minimumElasticInstanceCount": 1
+                "minimumElasticInstanceCount": 1,
+                "appSettings" : [
+                  {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                  }
+                ]
             },
             "scmSiteAlsoStopped": false,
             "clientAffinityEnabled": false,
@@ -1233,7 +1239,14 @@
           "reserved": false,
           "isXenon": false,
           "hyperV": false,
-          "siteConfig": {},
+          "siteConfig": {
+            "appSettings" : [
+                  {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                  }
+                ]
+          },
           "scmSiteAlsoStopped": false,
           "clientAffinityEnabled": true,
           "clientCertEnabled": false,
@@ -1271,7 +1284,12 @@
           "reserved": false,
           "isXenon": false,
           "hyperV": false,
-          "siteConfig": {},
+          "siteConfig": {"appSettings" : [
+                  {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                  }
+                ]},
           "scmSiteAlsoStopped": false,
           "clientAffinityEnabled": true,
           "clientCertEnabled": false,
