@@ -222,7 +222,7 @@ if ($windowsVersion -like "*Windows Server 2019*")
 
   Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
 
-  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windos-Subsystem-Linux") 
+  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") 
 
   #set experminetal...
   $content = '{
@@ -239,6 +239,7 @@ if ($windowsVersion -like "*Windows Server 2019*")
 else
 {
   #for windows 10/11...
+  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") 
 
   #to add the user to docker group
   $global:localusername = "wsuser";
