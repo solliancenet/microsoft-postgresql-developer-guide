@@ -8,9 +8,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  phpVersion: 8.0
+  phpVersion: 8.2
 
 steps:
+- script: |
+    sudo apt-get install php$(phpVersion)
+  displayName: 'Install php $(phpVersion)'
+
 - script: |
     sudo update-alternatives --set php /usr/bin/php$(phpVersion)
     sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)

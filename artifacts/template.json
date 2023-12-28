@@ -1481,14 +1481,14 @@
       {
         "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
         "apiVersion": "2021-06-01",
-        "name": "[concat(concat(variables('resourceName'),'flex16'), '/', concat(variables('resourceName'), '-win10'))]",
+        "name": "[concat(concat(variables('resourceName'),'flex16'), '/', concat(variables('resourceName'), '-win11'))]",
         "properties": {
-          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]",
-          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]"
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip')),'2021-02-01').IpAddress]"
         },
         "dependsOn" : [
           "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex16'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip'))]"
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip'))]"
         ]
       },
       {
@@ -1520,14 +1520,14 @@
       {
         "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
         "apiVersion": "2021-06-01",
-        "name": "[concat(concat(variables('resourceName'),'flex14'), '/', concat(variables('resourceName'), '-win10'))]",
+        "name": "[concat(concat(variables('resourceName'),'flex14'), '/', concat(variables('resourceName'), '-win11'))]",
         "properties": {
-          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]",
-          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip')),'2021-02-01').IpAddress]"
+          "endIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip')),'2021-02-01').IpAddress]",
+          "startIpAddress": "[reference(resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip')),'2021-02-01').IpAddress]"
         },
         "dependsOn" : [
           "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex14'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win10-pip'))]"
+          "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-win11-pip'))]"
         ]
       },
       {
@@ -1559,10 +1559,10 @@
       {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2022-04-01",
-            "name": "[guid(concat(resourceGroup().id, 'win10'))]",
+            "name": "[guid(concat(resourceGroup().id, 'win11'))]",
             "properties": {
                 "roleDefinitionId": "[variables('Owner')]",
-                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-win10')), '2023-09-01', 'Full').identity.principalId]"
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-win11')), '2023-09-01', 'Full').identity.principalId]"
             }
         },
         {
@@ -1586,10 +1586,10 @@
       {
         "type": "Microsoft.Compute/virtualMachines",
         "apiVersion": "2023-09-01",
-        "name": "[concat(variables('resourceName'),'-win10')]",
+        "name": "[concat(variables('resourceName'),'-win11')]",
         "location": "[resourceGroup().location]",
         "dependsOn": [
-          "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('resourceName'),'-win10-nic'))]",
+          "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('resourceName'),'-win11-nic'))]",
           "[resourceId('Microsoft.Storage/StorageAccounts', variables('resourceName'))]"
         ],
         "identity": {
@@ -1598,18 +1598,18 @@
         "resources": [
           {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('resourceName'),'-win10','/', 'winExtension')]",
+            "name": "[concat(variables('resourceName'),'-win11','/', 'winExtension')]",
             "apiVersion": "2015-06-15",
             "location": "[resourceGroup().location]",
             "comments": "Script",
             "tags": { "displayName": "VM Extension" },
             "dependsOn": [
-              "[concat('Microsoft.Compute/virtualMachines/', variables('resourceName'),'-win10')]"
+              "[concat('Microsoft.Compute/virtualMachines/', variables('resourceName'),'-win11')]"
             ],
             "properties": {
               "publisher": "Microsoft.Compute",
               "type": "CustomScriptExtension",
-              "typeHandlerVersion": "1.8",
+              "typeHandlerVersion": "1.10",
               "autoUpgradeMinorVersion": true,
               "settings": {
                 "fileUris": [
@@ -1627,13 +1627,13 @@
           "storageProfile": {
             "imageReference": {
               "publisher": "MicrosoftWindowsDesktop",
-              "offer": "Windows-10",
-              "sku": "20h1-pro-g2",
+              "offer": "Windows-11",
+              "sku": "win11-23h2-pro",
               "version": "latest"
             },
             "osDisk": {
               "osType": "Windows",
-              "name": "[concat(variables('resourceName'),'-win10', '_OsDisk')]",
+              "name": "[concat(variables('resourceName'),'-win11', '_OsDisk')]",
               "createOption": "FromImage",
               "caching": "ReadWrite",
               "managedDisk": { "storageAccountType": "Premium_LRS" },
@@ -1642,7 +1642,7 @@
             "dataDisks": []
           },
           "osProfile": {
-            "computerName": "win10",
+            "computerName": "win11",
             "adminUsername": "[parameters('administratorLogin')]",
             "adminPassword": "[parameters('administratorLoginPassword')]",
             "secrets": [],
@@ -1651,7 +1651,7 @@
           "networkProfile": {
             "networkInterfaces": [
               {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('resourceName'),'-win10','-nic'))]"
+                "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('resourceName'),'-win11','-nic'))]"
               }
             ]
           },
@@ -1664,14 +1664,14 @@
         }
       },
       {
-        "name": "[concat(variables('resourceName'),'-win10-nic')]",
+        "name": "[concat(variables('resourceName'),'-win11-nic')]",
         "type": "Microsoft.Network/networkInterfaces",
         "apiVersion": "2021-02-01",
         "location": "[variables('location')]",
         "dependsOn": [
           "[concat('Microsoft.Network/virtualNetworks/', concat(variables('resourceName'), '-hub'))]",
           "[concat('Microsoft.Network/networkSecurityGroups/', concat(variables('resourceName'), '-paw-1-nsg'))]",
-          "[concat('Microsoft.Network/publicIpAddresses/', concat(variables('resourceName'), '-win10-pip'))]"
+          "[concat('Microsoft.Network/publicIpAddresses/', concat(variables('resourceName'), '-win11-pip'))]"
         ],
         "properties": {
           "ipConfigurations": [
@@ -1683,7 +1683,7 @@
                 },
                 "privateIPAllocationMethod": "Dynamic",
                 "publicIpAddress": {
-                  "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', concat(variables('resourceName'), '-win10-pip'))]"
+                  "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', concat(variables('resourceName'), '-win11-pip'))]"
                 }
               }
             }
@@ -1832,7 +1832,7 @@
             "imageReference": {
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
-                "sku": "2019-datacenter-gensecond",
+                "sku": "2022-datacenter-g2",
                 "version": "latest"
             },
             "osDisk": {
@@ -1916,7 +1916,7 @@
         }
       },
       {
-        "name": "[concat(variables('resourceName'),'-win10-pip')]",
+        "name": "[concat(variables('resourceName'),'-win11-pip')]",
         "type": "Microsoft.Network/publicIPAddresses",
         "apiVersion": "2021-02-01",
         "location": "[variables('location')]",

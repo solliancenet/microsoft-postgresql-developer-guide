@@ -21,6 +21,8 @@ function EnableIEFileDownload
 
 function ConfigurePhp($iniPath)
 {
+    write-host "Configuring PHP ($iniPath)" -ForegroundColor Green -Verbose
+
     $content = get-content $iniPath -ea SilentlyContinue;
 
     if ($content)
@@ -128,6 +130,11 @@ InstallPhp $version;
 
 InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
 
+#must be done before configure php
+$path = "C:\labfiles\$workshopName\sample-php-app";
+$port = "8080";
+AddPhpApplication $path $port;
+
 ConfigurePhp "C:\tools\php80\php.ini";
 ConfigurePhp "C:\tools\php81\php.ini";
 ConfigurePhp "C:\tools\php82\php.ini";
@@ -202,10 +209,6 @@ foreach($server in $servers)
 {
   New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
 }
-
-$path = "C:\labfiles\$workshopName\sample-php-app";
-$port = "8080";
-AddPhpApplication $path $port;
 
 #run composer on app path
 cd "$path";

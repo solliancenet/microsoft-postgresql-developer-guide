@@ -32,6 +32,7 @@ The application here is based on an Http Trigger that will then make a call into
 - Select **Next**
 - For the name, type **AddCustomerFunction**
 - Select the project path
+- Select **Next**
 - Select **Create**
 
     ![This image demonstrates how to create a new Azure Function from VS 2022.](./media/vs-new-function.png "New Azure Function")
@@ -41,7 +42,7 @@ The application here is based on an Http Trigger that will then make a call into
 - For the authorization level, select **Function**
 - Select **Create**
 - Update the function class (in `Function1.cs`) to the following. Be sure to replace the connection information. This Function completes the following tasks when its HTTP endpoint receives a request:
-  - Connecting to the PostgreSQL Flexible Server instance provisioned in the ARM template
+  - Connecting to the Azure Database for PostgreSQL Flexible Server instance provisioned in the ARM template
   - Generating a list of databases on the PostgreSQL instance
   - Building a formatted response
   - Returning the formatted response to the caller
@@ -54,24 +55,24 @@ The application here is based on an Http Trigger that will then make a call into
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            PostgreSQLConnectionStringBuilder builder = new PostgreSQLConnectionStringBuilder
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder
             {
-                Server = "pgsqldevSUFFIX.postgres.database.azure.com",
-                UserID = "wsuser@pgsqldevSUFFIX",
+                Host = "pgsqldevSUFFIXflex16.postgres.database.azure.com",
+                Username = "wsuser",
                 Password = "Solliance123",
-                SslMode = PostgreSQLSslMode.Required
+                SslMode = SslMode.Require
             };
 
             string responseMessage = "";
 
-            using (var conn = new PostgreSQLConnection(builder.ConnectionString))
+            using (var conn = new NpgsqlConnection(builder.ConnectionString))
             {
                 conn.Open();
 
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = "SHOW DATABASES;";
-                    PostgreSQLDataReader r = command.ExecuteReader();
+                    NpgsqlDataReader r = command.ExecuteReader();
 
                     while (r.Read())
                     {
@@ -86,15 +87,15 @@ The application here is based on an Http Trigger that will then make a call into
 ```
 
 - Right-click the project, select **Manage Nuget Packages**, and select **Browse**
-- Search for **PostgreSQLConnector**, select **Install**
-
-    ![This image demonstrates how to install the PostgreSQLConnector NuGet package.](./media/nuget-package-install.png "PostgreSQLConnector package")
-
+- Search for **Npgsql**, select **Install**
+- Select **Apply**
 - Select **Ok** if prompted
-- At the top of `Function1.cs` file, add a using reference to `PostgreSQLConnector` by adding the following statement.
+- Search for **Microsoft.Extensions.Logging.Abstractions**, select **Install**
+- Select **Apply**
+- At the top of `Function1.cs` file, add a using reference to `Npgsql` by adding the following statement.
 
     ```csharp
-    using PostgreSQLConnector;
+    using Npgsql;
     ```
 
 - Press **F5** to start the function
@@ -118,8 +119,9 @@ Now that the function app is created and working locally, the next step is to pu
 - Select the account, subscription and resource group
 - Select the **pgsqldevSUFFIX-AddCustomerFunction** function app
 - Select **Finish**
-- Select **Publish**, and if prompted, select **OK** to update the runtime version.
-- Navigate to the Azure portal and select **AddCustomerFunction** from the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
+- Select **Publish**, and if prompted, select **Yes** to update the runtime version.
+- Switch to the Azure portal, browse to your lab resource group
+- Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
 - Under **Functions**, select **App keys**
 - Copy the function app code
 
@@ -131,11 +133,11 @@ https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunc
 
 ## Test the Function App in the Azure portal
 
-- Navigate to the Azure portal and select **AddCustomerFunction** from the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
-
-    ![This image demonstrates how to select the AddCustomerFunction from the Function App instance.](./media/select-function-from-portal.png "Selecting the Function")
-
+- Switch to the Azure portal, browse to your lab resource group
+- Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
+- On the **Overview** page, select the **AddCustomerFunction** link
 - On the **AddCustomerFunction** page, select **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
+- On the testing dialog, select the warning to enable CORS
 - Issue a simple GET request to the Function App endpoint.
 
     > **NOTE** It is possible to use a *function key*, which is scoped to an individual Function App, or a *host key*, which is scoped to an Azure Functions instance.
