@@ -20,7 +20,7 @@ Azure Database for PostgreSQL Flexible Server provides two options for deploymen
 
 ##### Flexible Server video introduction
 
->![Watch icon](media/watch.png "Watch") **Watch:** [Azure Data Academy - Introduction to Azure Database for PostgreSQL Flexible Server](https://www.youtube.com/watch?v=fzVROh-xgto)
+>![Watch icon](media/watch.png "Watch") **Watch:** [Introduction to Azure Database for PostgreSQL Flexible Server](https://youtu.be/NSEmJfUgNzE)
 
 ### Cost management
 
