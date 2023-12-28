@@ -20,7 +20,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     cnx = PostgreSQL.connector.connect(
         user="mymsiuser", 
         password=access_token, 
-        host="PostgreSQLdevSUFFIXflex.PostgreSQL.database.azure.com", 
+        host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
         port=3306,
         ssl_ca=crtpath,
         tls_versions=['TLSv1.2']

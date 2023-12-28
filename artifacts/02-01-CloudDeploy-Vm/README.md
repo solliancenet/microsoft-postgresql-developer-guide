@@ -41,49 +41,42 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 
 ## Edit .env file
 
-1. Open the .env file
-2. Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine.  Note that the url must change to `https` in order to properly load the application over SSL.
-3. Save the file, refresh the browser window
+1. Open the `c:\labfiles\microsoft-postgres-developer-guide\artifacts\sample-php-app\.env` file
+2. Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine and remove the port `8080`.  
+3. Change the http protocol to `https` in order to properly load the application over SSL.
+4. Save the file, refresh the browser window
 
 ## Enable Port 443
 
 As part of any secured web application, SSL/TLS should be enabled.
 
-1. Setup certificate on web machine
+1. Create a certificate on web machine by running the following command in PowerShell:
+
+    ```powershell
+    New-SelfSignedCertificate -FriendlyName ContosoNow -DnsName ContosoNow -CertStoreLocation Cert:\LocalMachine\My -KeyUsage DigitalSignature
+    ```
+
+2. Set the certificate on the site:
    - Open Internet Information Services (IIS) Manager
    - Select the server node
    - Select **Server certificates**
 
       ![This image demonstrates the Server Certificates tab in IIS Manager.](./media/server-certificates-iis-manager.png "Server Certificates in IIS Manager")
 
-   - Select **Create self-signed certificate**
-     - For the friendly name, type **paw-1**
-     - For the certificate store, select **Web Hosting**
-     - Select **OK**
-<!--
-   - For the friendly name, type **paw-1**
-   - For the certificate store, select **Web Hosting**
-   - For Common name, type **PHP Dev**
-   - For Organization, type **PHP Dev**
-   - For Organizational unit, type **Dev**
-   - For City/locality, type **Redmond**
-   - For State/province, type **WA**
-   - Click **Next**
--->
-1. Setup SSL
+3. Setup SSL
    - Expand the **Sites** node
    - Select the **ContosoStore** web site
    - In the actions, select **Bindings**
    - Select **Add**
    - For the type, select **https**
-   - For the SSL certificate, select **paw-1**
+   - For the SSL certificate, select **ContosoNow**
    - Select **OK**
 
    ![This image demonstrates an HTTPS binding in IIS.](./media/site-binding-iis.png "IIS HTTPS binding")
 
 ## Open Port 443
 
-1. Navigate to the **Paw-1** machine, select it
+1. In the Azure Portal, navigate to the **Paw-1** machine, select it
 2. Under **Settings**, select **Networking**
 3. Select **Add inbound port rule**
 4. For the destination port, type **443**

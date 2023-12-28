@@ -3,7 +3,7 @@
 1. If they haven't already, push the images to the Azure Container Registry.
 
     ```Powershell
-    $acrName = "PostgreSQLdevSUFFIX";
+    $acrName = "pgsqldevSUFFIX";
     $resourceGroupName = "";
     $subscriptionName = "";
 

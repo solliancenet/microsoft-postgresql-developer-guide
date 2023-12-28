@@ -53,18 +53,18 @@ This is an optional step if you have your development environment already set up
 
 Once the template has been deployed, several resources will be deployed to support the developer journey.  Not all of these will be used but are provided in case other paths would like to be explored.
 
-As part of the deployment, a **PostgreSQLdevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities.  Login to this virtual machine by doing the following:
+As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities.  Login to this virtual machine by doing the following:
 
 - Open Azure Portal
 - Browse to your resource group
-- Select the **PostgreSQLdevSUFFIX-paw1** virtual machine
+- Select the **pgsqldevSUFFIX-paw1** virtual machine
 - Select **Connect->RDP**
 - Select **Download RDP file**
 - Open the downloaded file, select **Connect**
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **PostgreSQLdevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-guide` folder.  
+Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-guide` folder.  
 
 #### Step 3 - Start your journey
 

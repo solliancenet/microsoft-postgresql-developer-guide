@@ -15,7 +15,7 @@ function AddJob($jobName, $poolName)
     New-AzureBatchJob -Id $jobName -PoolInformation $PoolInformation -BatchContext $Context
 }
 
-$batchAccountName = "PostgreSQLdevSUFFIX";
+$batchAccountName = "pgsqldevSUFFIX";
 $batchResourceGroupName = "RG_NAME";
 
 $context = Get-AzBatchAccount -ResourceGroupName $batchResourceGroupName -AccountName $batchAccountName
@@ -30,9 +30,9 @@ $userIdentity = New-Object Microsoft.Azure.Commands.Batch.Models.PSUserIdentity 
 $userIdentity = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoUserSpecification -ArgumentList @("Pool", "Admin") 
 
 $envVariables = @{};
-$envVariables.Batch_VaultName = "PostgreSQLdevSUFFIX";
-$envVariables.Batch_Thumbprint = "PostgreSQLdevSUFFIX";
-$envVariables.Batch_AppId = "PostgreSQLdevSUFFIX";
-$envVariables.Batch_TenantId = "PostgreSQLdevSUFFIX";
+$envVariables.Batch_VaultName = "pgsqldevSUFFIX";
+$envVariables.Batch_Thumbprint = "pgsqldevSUFFIX";
+$envVariables.Batch_AppId = "pgsqldevSUFFIX";
+$envVariables.Batch_TenantId = "pgsqldevSUFFIX";
 
 AddTask $jobId "task01" $command $userIdentity $envVariables;

@@ -12,22 +12,22 @@ Now that a containerized version of the applications exists, it can now be hoste
 
     ```powershell
     $suffix = "SUFFIX"
-    $acrName = "PostgreSQLdev$suffix";
-    $appPlan = "PostgreSQLdev$suffix-linux";
+    $acrName = "pgsqldev$suffix";
+    $appPlan = "pgsqldev$suffix-linux";
     $image = "$acrName.azure.io/store-web";
     $resourceGroupName = "{RESOURCE_GROUP_NAME}";
 
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
     $creds = $acr | Get-AzContainerRegistryCredential;
 
-    $name = "PostgreSQLdev$suffix-app-web";
+    $name = "pgsqldev$suffix-app-web";
     New-AzWebApp -Name $name -ResourceGroupName $resourceGroupName -AppServicePlan $appPlan -ContainerImageName $image -ContainerRegistryUrl $acr.loginserver -ContainerRegistryUser $creds.username -ContainerRegistryPassword (ConvertTo-SecureString $creds.password -AsPlainText -Force) -Location $acr.location;
 
     $config = Get-AzResource -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Web/sites/config -ResourceName $name -ApiVersion 2018-02-01
     $config.Properties.linuxFxVersion = "DOCKER|$($image):latest"
     $config | Set-AzResource -ApiVersion 2018-02-01 -Debug -Force
 
-    $name = "PostgreSQLdev$suffix-app-db";
+    $name = "pgsqldev$suffix-app-db";
     $image = "$acrName.azure.io/store-db";
     New-AzWebApp -Name $name -ResourceGroupName $resourceGroupName -AppServicePlan $appPlan -ContainerImageName $image -ContainerRegistryUrl $acr.loginserver -ContainerRegistryUser $creds.username -ContainerRegistryPassword (ConvertTo-SecureString $creds.password -AsPlainText -Force) -Location $acr.location;
 
@@ -43,7 +43,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 ## Test the containers
 
 1. Browse to the Azure Portal
-2. Select the **PostgreSQLdevSUFFIX-app-db** app service
+2. Select the **pgsqldevSUFFIX-app-db** app service
 3. On the **Overview** tabe, record the **URL**
 4. Under **Monitoring**, select **App Service Logs**
 5. Select **File System**
@@ -54,7 +54,7 @@ Now that a containerized version of the applications exists, it can now be hoste
      - `PostgreSQL_ROOT_PASSWORD` = `Solliance123`
      - `WEBSITES_PORT` = `3306`
 10. Select **Save**, then select **Continue**
-11. Select the **PostgreSQLdevSUFFIX-app-web** app service
+11. Select the **pgsqldevSUFFIX-app-web** app service
 12. On the **Overview** tabe, record the **URL**
 13. Under **Monitoring**, select **App Service Logs**
 14. Select **File System**
@@ -74,7 +74,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     ```text
     {
         "name": "DB_HOST",
-        "value": "PostgreSQLdevSUFFIX-app-db.azurewebsites.net",
+        "value": "pgsqldevSUFFIX-app-db.azurewebsites.net",
         "slotSetting": false
     },
     {
@@ -99,13 +99,13 @@ Now that a containerized version of the applications exists, it can now be hoste
     },
     {
         "name": "APP_URL",
-        "value": "https://PostgreSQLdevSUFFIX-app-web.azurewebsites.net/",
+        "value": "https://pgsqldevSUFFIX-app-web.azurewebsites.net/",
         "slotSetting": false
     }
     ```
 
 19.  Select **Save**
-20.  Browse to the **PostgreSQLdevSUFFIX-app-web** app service url, the web site will load but it has database errors.
+20.  Browse to the **pgsqldevSUFFIX-app-web** app service url, the web site will load but it has database errors.
 
 ## Troubleshooting
 

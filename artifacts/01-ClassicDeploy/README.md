@@ -54,8 +54,8 @@ The above resources were deployed as part of the ARM template and supporting scr
 6. Install IIS
 7. Install the WebPI extensions
 8. Install PHP Extensions
-9. Install PHP 8.0
-10. Configure PHP 8.0
+9. Install PHP 8.x
+10. Configure PHP 8.x
 11. Copy the web application files to the `c:\inetpub\wwwroot` folder
 12. Create an IIS web application that points to the web app directory
 13. Install PostgreSQL and create the `contosostore` database
@@ -64,7 +64,7 @@ The above resources were deployed as part of the ARM template and supporting scr
 
 1. Update the operating system
 2. Install nginx
-3. Install PHP 8.0
+3. Install PHP 8.x
 4. Install Composer
 5. Install OpenSSL
 6. Install Docker

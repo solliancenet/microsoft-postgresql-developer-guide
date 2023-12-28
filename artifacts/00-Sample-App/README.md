@@ -211,7 +211,7 @@ The application should now be available and show some sample data, however the w
    Alternative commands:
 
    ```bash
-   PostgreSQL --host=<hostname>-server.PostgreSQL.database.azure.com --user=<user name> --password=<password> --ssl=true
+   PostgreSQL --host=<hostname>-server.postgres.database.azure.com --user=<user name> --password=<password> --ssl=true
    ```
 
    ```sql

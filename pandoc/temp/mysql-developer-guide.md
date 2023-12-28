@@ -1065,7 +1065,7 @@ certificate path in the `PostgreSQLi_ssl_set()` method.
 
 ``` php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -1104,7 +1104,7 @@ statement with bound parameters.
 
 ``` php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -1142,7 +1142,7 @@ the first code snippet. However, it also utilizes the
 
 ``` php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -1175,7 +1175,7 @@ It modifies the `Price` column of the record.
 
 ``` php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -1214,7 +1214,7 @@ bound parameters.
 
 ``` php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -1421,7 +1421,7 @@ as the value.
 
 ``` python
 config = {
-  'host':'[SERVER].PostgreSQL.database.azure.com',
+  'host':'[SERVER].postgres.database.azure.com',
   'user':'sqlroot',
   'password':'[PASSWORD]',
   'database':'newdatabase',
@@ -2141,13 +2141,13 @@ Once the template has been deployed, several resources will be deployed
 to support the developer journey. Not all of these will be used but are
 provided in case other paths would like to be explored.
 
-As part of the deployment, a **PostgreSQLdevSUFFIX-paw1** virtual machine has
+As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has
 been deployed that will be used to perform all the activities. Login to
 this virtual machine by doing the following:
 
 -   Open Azure Portal
 -   Browse to your resource group
--   Select the **PostgreSQLdevSUFFIX-paw1** virtual machine
+-   Select the **pgsqldevSUFFIX-paw1** virtual machine
 -   Select **Connect-\>RDP**
 -   Select **Download RDP file**
 -   Open the downloaded file, select **Connect**
@@ -2158,7 +2158,7 @@ Once in the virtual machine, notice that all the necessary development
 tools have already been installed. Additionally, the supporting GitHub
 repository has been downloaded that includes all the artifacts needed to
 start the developer journey. These files can be found on the
-**PostgreSQLdevSUFFIX-paw1** machine in the
+**pgsqldevSUFFIX-paw1** machine in the
 `C:\labfiles\microsoft-PostgreSQL-developer-guide` folder.
 
 #### Step 3 - Start your journey
@@ -3147,7 +3147,7 @@ the Flexible Server instances.
 > PostgreSQL.database.azure.com. If you are connecting to the Azure Database
 > for PostgreSQL - Flexible sever with SSL and are using an option to perform
 > full verification (sslmode=VERIFY_IDENTITY) with certificate subject
-> name, use `<servername>`{=html}.PostgreSQL.database.azure.com in your
+> name, use `<servername>`{=html}.postgres.database.azure.com in your
 > connection string.
 
 ![Read more icon] [Private DNS zone overview]

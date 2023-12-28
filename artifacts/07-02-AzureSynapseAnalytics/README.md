@@ -3,7 +3,7 @@
 ## Create PostgreSQL Linked Service
 
 - Create a new Azure Synapse Analytics workspace
-- Navigate to the **PostgreSQLdevSUFFIX** Azure Synapce Analytics Workspace
+- Navigate to the **pgsqldevSUFFIX** Azure Synapce Analytics Workspace
 - Select the **Open Synapse Studio** link
 - Select the **Manage** tab
 - Under **External connections** select **Linked services**
@@ -12,9 +12,9 @@
 - For the name, type **ContosoStore**
 - For the account selection, select **From Azure Subscription**
 - Select the subscription
-- Select the **PostgreSQLdevSUFFIX** Azure Database for PostgreSQL Flexible Server server
+- Select the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible Server server
 - For the database name, type **ContosoStore**
-- For the username, type **wsuser@PostgreSQLdevSUFFIX**
+- For the username, type **wsuser@pgsqldevSUFFIX**
 - For the password, type **Solliance123**
 - Select **Test connection**, ensure a success message is displayed.
 - Select **Create**
@@ -56,11 +56,11 @@
 - Select **Get data**
 - Select **PostgreSQL database**
 - Select **Connect**
-- For the servername, enter **PostgreSQLdevSUFFIX**
+- For the servername, enter **pgsqldevSUFFIX**
 - For the database, select **contosostore**
 - Select **OK**
 - Select the **Database** tab
-- For the user name, type **wsuser@PostgreSQLdevSUFFIX**
+- For the user name, type **wsuser@pgsqldevSUFFIX**
 - For the password, type **Solliance123**
 - Select **Connect**
 - Check all the checkboxes

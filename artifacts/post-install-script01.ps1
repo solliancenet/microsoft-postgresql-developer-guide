@@ -29,9 +29,32 @@ function ConfigurePhp($iniPath)
       $content = $content.replace(";extension=fileinfo","extension=fileinfo");
       $content = $content.replace(";extension=mbstring","extension=mbstring");
       $content = $content.replace(";extension=openssl","extension=openssl");
-      $content = $content.replace(";extension=pdo_PostgreSQL","extension=pdo_PostgreSQL");
+      $content = $content.replace(";extension=pdo_pgsql","extension=pdo_pgsql");
+      $content = $content.replace(";extension=pdo_mysql","extension=pdo_mysql");
 
       set-content $iniPath $content;
+
+      $phpDirectory = $iniPath.replace("\php.ini","");
+      $phpPath = "$phpDirectory\php-cgi.exe";
+
+      New-WebHandler -Name "PHP_via_FastCGI" -Path "*.php" -ScriptProcessor "$phpPath" -Module FastCgiModule
+
+      # Set the max request environment variable for PHP
+      $configPath = "system.webServer/fastCgi/application[@fullPath='$php']/environmentVariables/environmentVariable"
+      $config = Get-WebConfiguration $configPath
+      if (!$config) {
+          $configPath = "system.webServer/fastCgi/application[@fullPath='$php']/environmentVariables"
+          Add-WebConfiguration $configPath -Value @{ 'Name' = 'PHP_FCGI_MAX_REQUESTS'; Value = 10050 }
+      }
+
+      # Configure the settings
+      # Available settings: 
+      #     instanceMaxRequests, monitorChangesTo, stderrMode, signalBeforeTerminateSeconds
+      #     activityTimeout, requestTimeout, queueLength, rapidFailsPerMinute, 
+      #     flushNamedPipe, protocol   
+      $configPath = "system.webServer/fastCgi/application[@fullPath='$phpPath']"
+      Set-WebConfigurationProperty $configPath -Name instanceMaxRequests -Value 10000
+      Set-WebConfigurationProperty $configPath -Name monitorChangesTo -Value '$phpDirectory\php.ini'
     }
 }
 
@@ -107,29 +130,9 @@ InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
 
 ConfigurePhp "C:\tools\php80\php.ini";
 ConfigurePhp "C:\tools\php81\php.ini";
+ConfigurePhp "C:\tools\php82\php.ini";
+ConfigurePhp "C:\tools\php83\php.ini";
 ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
-
-$phpDirectory = "C:\tools\php80\";
-$phpPath = "$phpDirectory\php-cgi.exe";
-
-Set-WebHandler -Name "PHP_via_FastCGI" -Path "*.php" -ScriptProcessor "$phpPath"
-
-# Set the max request environment variable for PHP
-$configPath = "system.webServer/fastCgi/application[@fullPath='$php']/environmentVariables/environmentVariable"
-$config = Get-WebConfiguration $configPath
-if (!$config) {
-    $configPath = "system.webServer/fastCgi/application[@fullPath='$php']/environmentVariables"
-    Add-WebConfiguration $configPath -Value @{ 'Name' = 'PHP_FCGI_MAX_REQUESTS'; Value = 10050 }
-}
-
-# Configure the settings
-# Available settings: 
-#     instanceMaxRequests, monitorChangesTo, stderrMode, signalBeforeTerminateSeconds
-#     activityTimeout, requestTimeout, queueLength, rapidFailsPerMinute, 
-#     flushNamedPipe, protocol   
-$configPath = "system.webServer/fastCgi/application[@fullPath='$phpPath']"
-Set-WebConfigurationProperty $configPath -Name instanceMaxRequests -Value 10000
-Set-WebConfigurationProperty $configPath -Name monitorChangesTo -Value '$phpDirectory\php.ini'
 
 InstallPostgres14
 

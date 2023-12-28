@@ -56,8 +56,8 @@ The application here is based on an Http Trigger that will then make a call into
         {
             PostgreSQLConnectionStringBuilder builder = new PostgreSQLConnectionStringBuilder
             {
-                Server = "PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com",
-                UserID = "wsuser@PostgreSQLdevSUFFIX",
+                Server = "pgsqldevSUFFIX.postgres.database.azure.com",
+                UserID = "wsuser@pgsqldevSUFFIX",
                 Password = "Solliance123",
                 SslMode = PostgreSQLSslMode.Required
             };
@@ -116,22 +116,22 @@ Now that the function app is created and working locally, the next step is to pu
 
 - Select **Next**
 - Select the account, subscription and resource group
-- Select the **PostgreSQLdevSUFFIX-AddCustomerFunction** function app
+- Select the **pgsqldevSUFFIX-AddCustomerFunction** function app
 - Select **Finish**
 - Select **Publish**, and if prompted, select **OK** to update the runtime version.
-- Navigate to the Azure portal and select **AddCustomerFunction** from the **PostgreSQLdevSUFFIX-addcustomerfunction** Function App instance
+- Navigate to the Azure portal and select **AddCustomerFunction** from the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
 - Under **Functions**, select **App keys**
 - Copy the function app code
 
 It should now be possible to browse to the function endpoint and see data:
 
 ```text
-https://PostgreSQLdevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
 ```
 
 ## Test the Function App in the Azure portal
 
-- Navigate to the Azure portal and select **AddCustomerFunction** from the **PostgreSQLdevSUFFIX-addcustomerfunction** Function App instance
+- Navigate to the Azure portal and select **AddCustomerFunction** from the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
 
     ![This image demonstrates how to select the AddCustomerFunction from the Function App instance.](./media/select-function-from-portal.png "Selecting the Function")
 

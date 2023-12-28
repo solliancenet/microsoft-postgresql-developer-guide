@@ -6,7 +6,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
 - Open the Azure Portal
 - Browse to the lab resource group
-- Find the **PostgreSQLdevSUFFIX-db** virtual network, take note of its region location
+- Find the **pgsqldevSUFFIX-db** virtual network, take note of its region location
 - In the top navigation menu, select **+Create**
 - Search for **Azure Database for PostgreSQL Flexible Server**
 - Select **Create**
@@ -15,7 +15,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
   ![This image demonstrates the first provisioning screen for Azure Database for PostgreSQL Flexible Server.](./media/az-PostgreSQL-db-create.png "First provisioning screen for Flexible Server")
 
 - Select the target subscription and resource group
-- For the name, type **PostgreSQLdevSUFFIXflexpriv**
+- For the name, type **pgsqldevSUFFIXflexpriv**
 - Select the resource group region (it must be in the region that the VNet is in)
 - For **Workload type**, select **Development** to save costs
 - For **Availability zone**, select **No preference**
@@ -35,7 +35,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
   ![This image demonstrates the Azure VNet integration.](./media/vnet-integration.png "Flexible Server VNet integration")
 
-- Select the **private.PostgreSQL.database.azure.com** private DNS zone
+- Select the **private.postgres.database.azure.com** private DNS zone
 - Select **Review + create**
 - Select **Create**
 - Navigate to the new Azure Database for PostgreSQL Flexible Server instance
@@ -54,7 +54,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
 Several private DNS Zones were created as part of the ARM template deployment, here it will be necessary to link those to the virtual networks so DNS resolution of private vnet and private endpoint resources become resolvable by other resources (such as virtual machines).
 
-- Browse to the **private.PostgreSQL.database.azure.com** private dns zone
+- Browse to the **private.postgres.database.azure.com** private dns zone
 - Under **Settings**, select **Virtual network links**, notice an auto-created link (from the resource creation above)
 - Select the **Overview** link
 - Record the database IP Address for later use
@@ -63,7 +63,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - Add the following to the file:
 
 ```text
-10.4.0.6 PostgreSQLdevSUFFIXflexpriv.private.PostgreSQL.database.azure.com
+10.4.0.6 pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com
 ```
 
 ## Configure the new Flexible Server instance
@@ -72,7 +72,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - Open a command prompt window and enter the following command to initiate a connection to the Flexible Server instance. Provide `Solliance123` as the password, when prompted. Be sure to replace the `SUFFIX`:
 
   ```cmd
-  "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE\PostgreSQL.exe" -h PostgreSQLdevSUFFIXflexpriv.private.PostgreSQL.database.azure.com -u wsuser -p
+  "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE\PostgreSQL.exe" -h pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com -u wsuser -p
   ```
 
 - Create a new database, titled `noshnowapp`. Then, create a new table for orders. It is a simplified version of the table used by the Contoso NoshNow application.
@@ -90,7 +90,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 
 ## Install the PostgreSQL .NET Connector
 
-- Log in to the **PostgreSQLdevSUFFIX-paw-1** virtual machine using **wsuser** and **Solliance123**
+- Log in to the **pgsqldevSUFFIX-paw-1** virtual machine using **wsuser** and **Solliance123**
 - [Download](https://go.microsoft.com/fwlink/?LinkId=278885) the connector
 - Run the **PostgreSQL-installer...** installer
 - Click through all the default values of all dialogs
@@ -132,7 +132,7 @@ We have already created a Logic App that uses a timer trigger to check for new O
 
 ### Configure deployed Logic App
 
-- Browse to the **PostgreSQLdevSUFFIX-logic-app**
+- Browse to the **pgsqldevSUFFIX-logic-app**
 - Under **Development Tools**, select **API connections**
 - Select **office365**
 - Under **General**, select **Edit API Connection**
@@ -141,11 +141,11 @@ We have already created a Logic App that uses a timer trigger to check for new O
 - Select **Save**
 - Select the **azureblob** connection
 - Under **General**, select **Edit API Connection**
-- Enter the **PostgreSQLdevSUFFIX**, azure storage account name and access key
+- Enter the **pgsqldevSUFFIX**, azure storage account name and access key
 - Select the **PostgreSQL** connection
 - Under **General**, select **Edit API Connection**
 - Enter the following information:
-  - Server : `PostgreSQLdevSUFFIXflexpriv.private.PostgreSQL.database.azure.com`
+  - Server : `pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com`
   - Database name : `contosostore`
   - Username : `wsuser`
   - Password : `Solliance123`
@@ -165,7 +165,7 @@ This step has already been done for you, but if you'd like to create the logic a
 - Select **Get Rows**
 - Update the step variables:
   - For the name, type **PostgreSQLflex**
-  - For the server, type **PostgreSQLdevSUFFIXflexpriv.PostgreSQL.database.azure.com**.  
+  - For the server, type **pgsqldevSUFFIXflexpriv.postgres.database.azure.com**.  
 
   > **Note** It may be necessary to put the private IP address if DNS resolution does not kick in in a reasonable amount of time.
 
@@ -191,7 +191,7 @@ This step has already been done for you, but if you'd like to create the logic a
 
 ### Add private endpoint to App Service
 
-- Browse to the **PostgreSQLdevSUFFIX-web** app service
+- Browse to the **pgsqldevSUFFIX-web** app service
 - Under **App Service plan**, select **App Service plan**
 - Under **Settings**, select **Scale up (App Service plan)**
 - Select **Production** tab
@@ -201,11 +201,11 @@ This step has already been done for you, but if you'd like to create the logic a
 - Under **Settings**, select **Networking**
 - In the **Inbound Traffic** section, select **Private endpoints**
 - Select **Add**
-- For the name, type **PostgreSQLdevSUFFIX-web-pe**
-- For the virtual network, select **PostgreSQLdevSUFFIX-web**
+- For the name, type **pgsqldevSUFFIX-web-pe**
+- For the virtual network, select **pgsqldevSUFFIX-web**
 - Select the **default** subnet
 - Select **OK**
-- Browse to the **PostgreSQLdevSUFFIX-web** virtual network, record the new IP Address of the private endpoint.
+- Browse to the **pgsqldevSUFFIX-web** virtual network, record the new IP Address of the private endpoint.
 
 ### Set the Database Host
 
@@ -216,12 +216,12 @@ This step has already been done for you, but if you'd like to create the logic a
 
 ### Add virtual network peering
 
-- Browse to the **PostgreSQLdevSUFFIX-web** virtual network
+- Browse to the **pgsqldevSUFFIX-web** virtual network
 - Under **Settings**, select **Peerings**
 - Select **+Add**
 - For the name, type **web-to-db**
 - For the peering link name, type **db-to-web**
-- For the virtual network, select **PostgreSQLdevSUFFIX-db**
+- For the virtual network, select **pgsqldevSUFFIX-db**
 - Select **Add**, after a couple minutes the link should to **Connected**
 - Under **Settings**, select **Subnets**, ensure that a virtual network called **vnet-web-int**, if not create it
   - Select **+Subnet**
@@ -234,13 +234,13 @@ This step has already been done for you, but if you'd like to create the logic a
 - Under **Settings**, select **Networking**
 - Under **Outbound Traffic**, select **VNet integration**
 - Select **Add VNet**
-- Select the **PostgreSQLdevSUFFIX-web** virtual network
+- Select the **pgsqldevSUFFIX-web** virtual network
 - Select the **vnet-web-int** subnet
 - Select **OK**
 
 ### Add the lastOrder.txt file
 
-- Browse to the **PostgreSQLdevSUFFIX** storage account
+- Browse to the **pgsqldevSUFFIX** storage account
 - Select **Containers**, then select **logicapp**
 - Upload the **lastOrder.txt** file
 

@@ -7,14 +7,14 @@ name: Deploy Laravel PHP app to App Service
 on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: PostgreSQLdevSUFFIX    # replace the SUFFIX part
+  AZURE_WEBAPP_NAME: pgsqldevSUFFIX    # replace the SUFFIX part
   AZURE_WEBAPP_PACKAGE_PATH: './sample-php-app'   # set this to the path to the web app project, defaults to the repository root
 
 jobs:
   build-and-deploy:
     name: Contoso Store
     runs-on: ubuntu-latest
-    steps:  
+    steps:
     - name: 'Checkout'
       uses: actions/checkout@main
 
@@ -71,7 +71,7 @@ jobs:
 
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
-      with: 
+      with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       continue-on-error: true

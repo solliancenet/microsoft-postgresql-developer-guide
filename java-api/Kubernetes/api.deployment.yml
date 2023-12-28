@@ -18,7 +18,7 @@ spec:
         image: appacr[SUFFIX].azurecr.io/noshnowapi:0.0.1-SNAPSHOT
         env:
           - name: DB_CONNECTION_URL
-            value: jdbc:PostgreSQL://PostgreSQLflexapp[SUFFIX].PostgreSQL.database.azure.com/app
+            value: jdbc:PostgreSQL://PostgreSQLflexapp[SUFFIX].postgres.database.azure.com/app
           - name: DB_USERNAME
             value: AppUser
           - name: DB_PASSWORD

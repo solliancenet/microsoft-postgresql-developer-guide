@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   web:
-      image: PostgreSQLdevSUFFIX.azurecr.io/store-web:latest
+      image: pgsqldevSUFFIX.azurecr.io/store-web:latest
       environment:
       - DB_DATABASE=contosostore
       - DB_USERNAME=root
@@ -13,7 +13,7 @@ services:
       depends_on:
       - db 
   db:
-      image: PostgreSQLdevSUFFIX.azurecr.io/store-db:latest
+      image: pgsqldevSUFFIX.azurecr.io/store-db:latest
       volumes:
       - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/PostgreSQL
       restart: always

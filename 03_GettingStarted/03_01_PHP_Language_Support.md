@@ -36,7 +36,7 @@ The first code snippet creates a table called `Products` with four columns, incl
 
 ```php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -73,7 +73,7 @@ The second code snippet uses the same logic to start and close an SSL-secured co
 
 ```php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -108,7 +108,7 @@ The third code snippet utilizes the `PostgreSQLi_query()` method, just like the 
 
 ```php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -139,7 +139,7 @@ The next snippet uses a prepared update statement with bound parameters. It modi
 
 ```php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
@@ -175,7 +175,7 @@ The final code snippet deletes a row from the table using the `ProductName` colu
 
 ```php
 <?php
-$host = '[SERVER NAME].PostgreSQL.database.azure.com';
+$host = '[SERVER NAME].postgres.database.azure.com';
 $username = 'sqlroot';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';

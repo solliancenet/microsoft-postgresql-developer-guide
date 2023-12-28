@@ -50,7 +50,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     cnx = PostgreSQL.connector.connect(
         user="wsuser", 
         password='Solliance123', 
-        host="PostgreSQLdevSUFFIXflex.PostgreSQL.database.azure.com", 
+        host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
         port=3306
     )
     logging.info(cnx)
@@ -93,7 +93,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     http://localhost:7071/api/AddCustomerFunction
     ```
 
-- An error should occur. Browse to the Azure Portal and the PostgreSQLdevSUFFIXflex flexible server
+- An error should occur. Browse to the Azure Portal and the pgsqldevSUFFIXflex flexible server
 - Under **Settings**, select **Networking**
 - Select **Add current IP address (x.x.x.x)**
 - Select **Save**
@@ -108,7 +108,7 @@ crtpath = '../BaltimoreCyberTrustRoot.crt.pem'
 cnx = PostgreSQL.connector.connect(
     user="wsuser", 
     password='Solliance123', 
-    host="PostgreSQLdevSUFFIXflex.PostgreSQL.database.azure.com", 
+    host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
     port=3306,
     ssl_ca=crtpath,
     tls_versions=['TLSv1.2']
@@ -159,13 +159,13 @@ az account set --subscription 'SUBSCRIPTION NAME'
 - Switch to the terminal window and run the following from the repository root:
 
 ```PowerShell
-func azure functionapp publish PostgreSQLdevSUFFIX-addcustomerfunction
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction
 ```
 
 Browse to the function endpoint and see the data (the output of the previous command will include this information):
 
 ```text
-https://PostgreSQLdevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
 ```
 
 ## Test the Function App in the Azure portal

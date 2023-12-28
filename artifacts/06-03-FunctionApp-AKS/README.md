@@ -16,7 +16,7 @@ $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
 
 az aks install-cli
 
-az aks get-credentials --name "PostgreSQLdevSUFFIX" --resource-group $resourceGroupName
+az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
 ```
 
 - Run the following command to install KEDA on the AKS cluster:
@@ -30,7 +30,7 @@ func kubernetes install
 ## Ensure Docker Connection
 
 1. Open the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX** Azure Container Registry
+2. Browse to the **pgsqldevSUFFIX** Azure Container Registry
 3. Under **Settings**, select **Access keys**
 4. Copy the username and password
 5. In the terminal windows, run the following:
@@ -50,7 +50,7 @@ func init --docker-only --python
 - Deploy the function app using the following, be sure to replace the function name and `SUFFIX` value:
 
 ```PowerShell
-func kubernetes deploy --name "addcustomerfunction" --registry "PostgreSQLdevSUFFIX.azurecr.io"
+func kubernetes deploy --name "addcustomerfunction" --registry "pgsqldevSUFFIX.azurecr.io"
 ```
 
 - After following the above steps, the function app has been turned into a container and pushed to the target registry.  It should also now be deployed to the AKS cluster in the `keda` namespace.

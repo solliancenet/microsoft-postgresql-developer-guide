@@ -270,7 +270,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 ## Save the images to Azure Container Registry (ACR)
 
 1. Open the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX** Azure Container Registry
+2. Browse to the **pgsqldevSUFFIX** Azure Container Registry
 3. Under **Settings**, select **Access keys**
 4. Copy the username and password
 5. In the **paw-1** virtual machine, switch to a powershell window and run the following:

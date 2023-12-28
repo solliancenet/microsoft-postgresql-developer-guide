@@ -16,14 +16,14 @@ Now that a containerized version of the applications exists, it can now be hoste
 
     az aks install-cli
 
-    az aks get-credentials --name "PostgreSQLdevSUFFIX" --resource-group $resourceGroupName
+    az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
     ```
 
 3. Run the following commands to deploy the containers (be sure to update the variable values):
 
     ```powershell
-    $acrName = "PostgreSQLdevSUFFIX";
-    $resourceName = "PostgreSQLdevSUFFIX";
+    $acrName = "pgsqldevSUFFIX";
+    $resourceName = "pgsqldevSUFFIX";
     $resourceGroupName = "RESOURCEGROUPNAME";
 
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;

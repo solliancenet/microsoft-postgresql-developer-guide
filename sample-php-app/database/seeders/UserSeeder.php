@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
 	{
 		// DB::table('users')->truncate();
 		User::query()->delete();
-		DB::statement("ALTER TABLE `users` AUTO_INCREMENT = 1");
+		DB::statement("ALTER SEQUENCE users_id_seq RESTART WITH 1");
 
 		$users = [
 			[

@@ -18,7 +18,7 @@ class ItemSeeder extends Seeder
 	{
 		// DB::table('items')->truncate();
 		Item::query()->delete();
-		DB::statement("ALTER TABLE `items` AUTO_INCREMENT = 1");
+		DB::statement("ALTER SEQUENCE items_id_seq RESTART WITH 1");
 
 		$items = [
 			// breakfast

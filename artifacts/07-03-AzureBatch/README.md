@@ -8,7 +8,7 @@
 ## Configure Batch Service
 
 - Browse to the Azure Portal
-- Select the `PostgreSQLdevSUFFIX` batch service
+- Select the `pgsqldevSUFFIX` batch service
 - Under **Features** select **Pools**
 - Ensure a pool called **main** is displayed, if not create it.
 - Under **Settings**, select **Scale**
@@ -129,7 +129,7 @@ $newAzureAdPrincipal = New-AzADServicePrincipal -DisplayName $newAdApplication.A
 - Run the following to grant permission to the new service principal:
 
 ```PowerShell
-Set-AzKeyVaultAccessPolicy -VaultName 'PostgreSQLdevSUFFIX-kv' -ServicePrincipalName $newAzureAdPrincipal.AppId -PermissionsToSecrets 'Get'
+Set-AzKeyVaultAccessPolicy -VaultName 'pgsqldevSUFFIX-kv' -ServicePrincipalName $newAzureAdPrincipal.AppId -PermissionsToSecrets 'Get'
 ```
 
 - Get the needed information for the environment variables:
@@ -165,7 +165,7 @@ write-host "AppId: $appId"
 
 ### Create Key Vault values
 
-- Browse to the `PostgreSQLdevSUFFIX` key vault
+- Browse to the `pgsqldevSUFFIX` key vault
 - Under **Settings**, select **Access Policies**
 - Select **Add Access Policy**
 - For **Key permissions**, select **Get** and **List**
@@ -204,7 +204,7 @@ write-host "AppId: $appId"
   - Batch_Thumbprint = {THUMBPRINT}
   - Batch_TenantId = {TENANT_ID}
   - Batch_AppId = {APP_ID}
-  - Batch_VaultName = {PostgreSQLdevSUFFIX-kv}
+  - Batch_VaultName = {pgsqldevSUFFIX-kv}
 - Select **Submit**
 - Select the **main_02** task
 - Review the results in the `stdout.txt` file, data should be present, if there is no data, review the `stderr.txt` and fix any issues

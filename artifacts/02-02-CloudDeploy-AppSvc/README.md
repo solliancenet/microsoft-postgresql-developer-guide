@@ -8,25 +8,27 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 1. Open the `C:\labfiles\microsoft-postgresql-developer-guide` folder in Visual Studio code
 2. If prompted, select **Yes, I trust the authors**
-3. Switch to the browser, browse to the **PostgreSQLdevSUFFIX** app service
+3. Switch to the browser, browse to the **pgsqldevSUFFIX** app service
 4. Select the **Overview** link, copy the **URL** for use later
 
 ### Deploy the Application
 
-1. Open a terminal window, run the following to deploy the zip to Azure, be sure to replace the `SUFFIX`:
+1. Switch to the **Paw-1** virtual machine.
+2. Open a terminal window, run the following to deploy the zip to Azure, be sure to replace the `SUFFIX`:
+
+    > NOTE: The virtual machine is running under a Managed Identity with `owner` access to the resource group.
 
     ```PowerShell
     cd "C:\labfiles\microsoft-postgresql-developer-guide"
 
-    Connect-AzAccount
+    Connect-AzAccount -identity
 
-    #if more than on subscription
-    Select-AzSubscription "SUBSCRIPTION_NAME";
+    $resourceGroups = Get-AzResourceGroup
+    
+    $resourceGroupName = $resourceGroups[0].ResourceGroupName
+    $suffix = $resourceGroups[0].tags['Suffix']
 
-    $suffix = "SUFFIX";
-    $resourceGroupName = "RESOURCE_GROUP_NAME";
-
-    $appName = "PostgreSQLdev$suffix-linux";
+    $appName = "pgsqldev$($suffix)linux";
     $app = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 
     #NOTE: This can't be used this for linux based deployments
@@ -38,15 +40,13 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
     #Reference - https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
 
-    az login --scope https://management.core.windows.net//.default
-
-    az account set --name "SUBSCRIPTION_NAME"
+    az login --scope https://management.core.windows.net//.default --identity
 
     #setup local git
     az webapp deployment source config-local-git --name $appName --resource-group $resourceGroupName;
 
     #set the username and password
-    az webapp deployment user set --user-name "PostgreSQLdev$suffix" --password "Solliance123"
+    az webapp deployment user set --user-name "pgsqldev$suffix" --password "Solliance123"
 
     #get the github link to the azure app service
     #$url = az webapp deployment list-publishing-profiles --resource-group $resourceGroupName --name $appName
@@ -85,9 +85,9 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 ### Update Application Settings
 
 1. Open the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX** app service
+2. Browse to the **pgsqldevSUFFIX** app service
 3. Under **Development tools**, select **SSH**, then select **Go**
-4. Login using your lab credentials
+4. Login using your lab credentials (ex: Azure Entra)
 5. Run the following:
 
     ```bash
@@ -121,7 +121,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     nano /home/site/startup.sh
     ```
 
-10. Copy and paste the following:
+11. Copy and paste the following:
 
     ```bash
     #!/bin/bash
@@ -160,12 +160,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ### Test the Application
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/` to see the app load with SSL
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/` to see the app load with SSL
 
 ### Add Firewall IP Rule and Azure Access
 
 1. Switch to the Azure Portal
-2. Browse to the `PostgreSQLdevSUFFIX` Azure Database for PostgreSQL Flexible Server Single server
+2. Browse to the `pgsqldevSUFFIX` Azure Database for PostgreSQL Flexible Server
 3. Under **Settings**, select **Connection security**
 4. Select **Add current client IP address (...)**
 <!--
@@ -181,7 +181,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 ## Update the connection string
 
 1. Switch to the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX** web application
+2. Browse to the **pgsqldevSUFFIX** web application
 3. Under **Development Tools**, select **SSH**
 4. Select **Go->**
 5. Select **Debug console->CMD**
@@ -191,14 +191,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     nano /home/site/wwwroot/pubic/database.php
     ```
 
-7. Set the servername variable to `PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com`
+7. Set the servername variable to `pgsqldevSUFFIX.postgres.database.azure.com`
 8. Set the username to `wsuser`
 9. Set the password to `Solliance123`
 10. Press **Ctrl-X**, then **Y** to save the file
 
 ## Test new settings #1
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, an error about SSL settings should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, an error about SSL settings should display.
 
 ## Fix SSL error
 
@@ -227,7 +227,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ## Test new settings #2
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, results should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.
 
 ## Update to use Environment Variables
 
@@ -269,26 +269,26 @@ Putting credential in the PHP files is not a best practice, it is better to util
 
 6. Add the environment variables to the App Service:
    - Browse to the Azure Portal
-   - Select the **PostgreSQLdevSUFFIX** app service
+   - Select the **pgsqldevSUFFIX** app service
    - Under **Settings**, select **Configuration**
    - Select **New application setting**
    - Add the following:
-     - `DB_HOST` = `PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com`
-     - `DB_USERNAME` = `wsuser@PostgreSQLdevSUFFIX`
+     - `DB_HOST` = `pgsqldevSUFFIX.postgres.database.azure.com`
+     - `DB_USERNAME` = `wsuser@pgsqldevSUFFIX`
      - `DB_PASSWORD` = `Solliance123`
      - `DB_DATABASE` = `contosostore`
      - `DB_PORT` = `3306`
-     - `APP_URL` = `https://PostgreSQLdevSUFFIX.azurewebsites.net`
+     - `APP_URL` = `https://pgsqldevSUFFIX.azurewebsites.net`
     - Select **Save**, then select **Continue**
 
 ## Test new settings #3
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, results should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.
 
 ## Create Azure Key Vault values
 
 1. Switch to the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX-kv** Key Vault
+2. Browse to the **pgsqldevSUFFIX-kv** Key Vault
 3. Under **Settings** select **Access Policies**
 4. Select **Add Access Policy**
 5. For the secret permission, select the dropdown, then select **All**
@@ -304,12 +304,12 @@ Putting credential in the PHP files is not a best practice, it is better to util
 ## Create Managed Service Identity
 
 1. Switch to the Azure Portal
-2. Browse to the **PostgreSQLdevSUFFIX** app service
+2. Browse to the **pgsqldevSUFFIX** app service
 3. Under **Settings**, select **Identity**
 4. For the system assigned identity, toggle to **On**
 5. Select **Save**, in the dialog, select **Yes**
 6. Copy the **Object ID** for later user
-7. Browse to the **PostgreSQLdevSUFFIX-kv** Key Vault
+7. Browse to the **pgsqldevSUFFIX-kv** Key Vault
 8. Under **Settings** select **Access Policies**
 9. Select **Add Access Policy**
 10. For the secret permission, select the dropdown, then select **All**
@@ -324,14 +324,14 @@ Putting credential in the PHP files is not a best practice, it is better to util
 ## Configure Environment Variables
 
 1. Browse to the Azure Portal
-2. Select the **PostgreSQLdevSUFFIX** app service
+2. Select the **pgsqldevSUFFIX** app service
 3. Under **Settings**, select **Configuration**
 4. Select **New application setting**
 5. For the name, type **PostgreSQL_PASSWORD**
 6. Update it to the following, replace the `SUFFIX` value:
 
       ```text
-      @Microsoft.KeyVault(SecretUri=https://PostgreSQLdevSUFFIX-kv.vault.azure.net/secrets/PostgreSQLPassword/)
+      @Microsoft.KeyVault(SecretUri=https://pgsqldevSUFFIX-kv.vault.azure.net/secrets/PostgreSQLPassword/)
       ```
 
 7. Select **OK**
@@ -369,4 +369,4 @@ Putting credential in the PHP files is not a best practice, it is better to util
 
 ## Test new settings #4
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, results should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.

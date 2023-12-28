@@ -66,7 +66,7 @@ Flexible Server supports deployment into a virtual network for secure access. Wh
 
 >![Note icon](media/note.png "Note") **Note:** If the Flexible Server client, such as a VM, is located in a peered virtual network, then the private DNS zone created for the Flexible Server must also be integrated with the peered virtual network.
 
->![Note icon](media/note.png "Note") **Note:** Private DNS zone names must end with PostgreSQL.database.azure.com. If you are connecting to the Azure Database for PostgreSQL Flexible Server - Flexible sever with SSL and are using an option to perform full verification (sslmode=VERIFY_IDENTITY) with certificate subject name, use <servername>.PostgreSQL.database.azure.com in your connection string.
+>![Note icon](media/note.png "Note") **Note:** Private DNS zone names must end with PostgreSQL.database.azure.com. If you are connecting to the Azure Database for PostgreSQL Flexible Server - Flexible sever with SSL and are using an option to perform full verification (sslmode=VERIFY_IDENTITY) with certificate subject name, use <servername>.postgres.database.azure.com in your connection string.
 
 ![Read more icon](media/read-more.png "Read more")  [Private DNS zone overview](https://docs.microsoft.com/azure/dns/private-dns-overview)
 

@@ -79,7 +79,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 10. Select **Enabled** for the `Creates a release every time a new build is avaiable`
 11. Select the **1 job, 1 task** link
 12. Select the **My SQL Dev** connection
-13. Select the **PostgreSQLdevSUFFIX** app service
+13. Select the **pgsqldevSUFFIX** app service
 14. Select **Save**, in the dialog, select **OK**
 
 ### Commit changes
@@ -103,8 +103,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Test the DevOps deployment
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/default.php`, the site should be displayed.
-2. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, the results should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/default.php`, the site should be displayed.
+2. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, the results should display.
 
 ## GitHub Option
 
@@ -143,7 +143,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```PowerShell
     az login
 
-    az ad sp create-for-rbac --name "PostgreSQLDevSUFFIX" --sdk-auth --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group}
+    az ad sp create-for-rbac --name "pgsqldevSUFFIX" --sdk-auth --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group}
     ```
 
 2. Copy the json that is outputted
@@ -158,7 +158,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. In the GitHub browser window, select **Actions**
 2. Select **set up a workflow yourself**
 3. Copy and paste the `github-pipelines.yaml` into the `main.yml` file
-4. Update the `AZURE_WEBAPP_NAME: PostgreSQLdevSUFFIX` line to replace the SUFFIX
+4. Update the `AZURE_WEBAPP_NAME: pgsqldevSUFFIX` line to replace the SUFFIX
 5. Select **Start commit**
 6. Select **Commit new file**
 7. Select **Actions**, then select the `Create main.yml` workflow instance, the `Contoso Store` job should be displayed, select it
@@ -166,8 +166,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Test the GitHub deployment
 
-1. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/default.php`, the application should be displayed.
-2. Browse to `https://PostgreSQLdevSUFFIX.azurewebsites.net/database.php`, results should be displayed.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/default.php`, the application should be displayed.
+2. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should be displayed.
 
 <!--
 ## Terraform

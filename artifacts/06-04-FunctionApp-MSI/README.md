@@ -7,7 +7,7 @@ In the previous function apps the connection information was embedded into the f
 ## Enable PostgreSQL Microsoft Entra Authentication
 
 - Switch to the Azure Portal
-- Browse to the **PostgreSQLdevSUFFIX** Azure Database for PostgreSQL Flexible Server Single Server instance
+- Browse to the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible Server Single Server instance
 - Under **Settings**, select **Active Directory admin**
 - Select **Set admin**
 - For the administrator, select your lab credentials
@@ -16,13 +16,13 @@ In the previous function apps the connection information was embedded into the f
 
 ## Create Managed Identity
 
-- Browse to the **PostgreSQLdevSUFFIX-addcustomerfunction** Function App
+- Browse to the **pgsqldevSUFFIX-addcustomerfunction** Function App
 - Under **Settings**, select **Identity**
 - For the **System assigned** identity, toggle to **On**
 - Select **Save**, then select **Yes**
 - Browse to the **Microsoft Entra** blade
 - Select **Enterprise Applications**
-- Search for the **PostgreSQLdevSUFFIX-addcustomerfunction** function application name, then select it.
+- Search for the **pgsqldevSUFFIX-addcustomerfunction** function application name, then select it.
 - Copy the **Application ID** for later use
 
 ## Login to the Azure Database with Microsoft Entra credentials
@@ -38,7 +38,7 @@ $password = $accessToken.Token;
 
 - Open the pgAdmin, create a new connection
 - For the name, type **azureadPostgreSQL**
-- For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (`PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com`)
+- For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (`pgsqldevSUFFIX.postgres.database.azure.com`)
 - For the username, type your user UPN (ex `user@tenant.onmicrosoft.com@mydb`)
 - Select the **Advanced** tab, check the **Enable Cleartext Authentication Plugin**
 - Select **OK**
@@ -76,9 +76,9 @@ access_token = token.token
 ```python
 # Connect to PostgreSQL
     cnx = PostgreSQL.connector.connect(
-        user="mymsiuser@PostgreSQLdevSUFFIX", 
+        user="mymsiuser@pgsqldevSUFFIX", 
         password=access_token, 
-        host="PostgreSQLdevSUFFIX.PostgreSQL.database.azure.com", 
+        host="pgsqldevSUFFIX.postgres.database.azure.com", 
         port=3306,
         ssl_ca=crtpath,
         tls_versions=['TLSv1.2']
@@ -88,11 +88,11 @@ access_token = token.token
 - Run the following to deploy the updated Azure Function App:
 
 ```powershell
-func azure functionapp publish PostgreSQLdevSUFFIX-addcustomerfunction --force --python
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force --python
 ```
 
 Browse to the function endpoint and see the data (the output of the previous command will include this information).  The function app is now running as a managed identity and connecting to the database using that identity:
 
 ```text
-https://PostgreSQLdevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
 ```

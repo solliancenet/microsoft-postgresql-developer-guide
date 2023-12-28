@@ -4,7 +4,7 @@
 
 ## Create Linked Services
 
-- Switch to the Azure Portal, browse to the **PostgreSQLdevSUFFIX** Azure Data Factory instance
+- Switch to the Azure Portal, browse to the **pgsqldevSUFFIX** Azure Data Factory instance
 - Select **Open Azure Data Factory Studio**
 - In the left navigation, select the **Manage** tab
 - Select **Linked servics**, select the **+ New** button
@@ -12,9 +12,9 @@
 - For the name, type **ContosoStore**
 - For the account selection, select **From Azure Subscription**
 - Select the subscription
-- Select the **PostgreSQLdevSUFFIX** Azure Database for PostgreSQL Flexible Server server
+- Select the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible Server server
 - For the database name, type **ContosoStore**
-- For the username, type **wsuser@PostgreSQLdevSUFFIX**
+- For the username, type **wsuser@pgsqldevSUFFIX**
 - For the password, type **Solliance123**
 - Select **Test connection**, ensure that a success message is displayed.
 - Select **Create**
@@ -23,7 +23,7 @@
 - Select **Continue**
 - For the name type **AzStorage**
 - Select the subscription
-- Select the **PostgreSQLdevSUFFIXdl** storage account
+- Select the **pgsqldevSUFFIXdl** storage account
 - Select **Create**
 
 ## Create Dataset (PostgreSQL)

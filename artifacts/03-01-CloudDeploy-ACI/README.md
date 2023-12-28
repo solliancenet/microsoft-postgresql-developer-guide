@@ -11,7 +11,7 @@ Now that containerized versions of the application exists, they can now be hoste
 1. Run the following commands to create two new container instances:
 
     ```PowerShell
-    $acrName = "PostgreSQLdevSUFFIX";
+    $acrName = "pgsqldevSUFFIX";
     $resourceName = $acrName;
     $resourceGroupName = "{RESOURCE_GROUP_NAME}";
 
@@ -74,7 +74,7 @@ In the previous steps, a container instance was created for each of the containe
     version: '3.8'
     services:
     web:
-        image: PostgreSQLdevSUFFIX.azurecr.io/store-web:latest
+        image: pgsqldevSUFFIX.azurecr.io/store-web:latest
         environment:
         - DB_DATABASE=contosostore
         - DB_USERNAME=root
@@ -86,7 +86,7 @@ In the previous steps, a container instance was created for each of the containe
         depends_on:
         - db 
     db:
-        image: PostgreSQLdevSUFFIX.azurecr.io/store-db:latest
+        image: pgsqldevSUFFIX.azurecr.io/store-db:latest
         volumes:
         - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/PostgreSQL
         restart: always
@@ -109,7 +109,7 @@ In the previous steps, a container instance was created for each of the containe
 2. In a PowerShell window, run the following command, be sure to replace the `SUFFIX` and other variable values:
 
     ```powershell
-    $acrName = "PostgreSQLdevSUFFIX";
+    $acrName = "pgsqldevSUFFIX";
     $resourceName = $acrName;
     $resourceGroupName = "{RESOURCE_GROUP_NAME}";
 
@@ -141,4 +141,4 @@ In the previous steps, a container instance was created for each of the containe
     az webapp config container set --resource-group $resourceGroupName --name $resourceName --multicontainer-config-type compose --multicontainer-config-file docker-compose-contoso.yml
     ```
 
-3. Switch back to the Azure Portal, browse to the Azure App Service. If troubleshooting is needed, view the container logs by browsing to `https://PostgreSQLdevSUFFIX.scm.azurewebsites.net/api/logs/docker`.  Copy the path to the docker file and paste it into a new window, review the logs and fix any errors.
+3. Switch back to the Azure Portal, browse to the Azure App Service. If troubleshooting is needed, view the container logs by browsing to `https://pgsqldevSUFFIX.scm.azurewebsites.net/api/logs/docker`.  Copy the path to the docker file and paste it into a new window, review the logs and fix any errors.

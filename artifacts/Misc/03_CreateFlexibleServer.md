@@ -20,15 +20,15 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
 - In the drop down, select **Flexible Server**
 - Select **Create**
 - Select your lab subscription and resource group
-- For the name, type **PostgreSQLdevSUFFIXflex**
+- For the name, type **pgsqldevSUFFIXflex**
 - For the PostgreSQL version, select **8.0.x**
 - For the admin username, type **wsuser**
 - For the password and confirm password, type **Solliance123**
 - Select **Next: Networking>**
 - Select **Private Network access**
 - Select the lab subscription
-- Select the **PostgreSQLdevSUFFIX-db** virtual network
+- Select the **pgsqldevSUFFIX-db** virtual network
 - Select the **default** subnet
-- For the private dns zone, select **private.PostgreSQL.database.azure.com**
+- For the private dns zone, select **private.postgres.database.azure.com**
 - Select **Review + create**
 - Select **Create**

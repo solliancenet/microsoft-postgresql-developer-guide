@@ -110,7 +110,7 @@
     {
       "type": "Microsoft.Network/privateDnsZones",
       "apiVersion": "2018-09-01",
-      "name": "private.PostgreSQL.database.azure.com",
+      "name": "private.postgres.database.azure.com",
       "location": "global",
       "tags": {
       },
@@ -123,9 +123,9 @@
   {
       "type": "Microsoft.Network/privateDnsZones/SOA",
       "apiVersion": "2018-09-01",
-      "name": "private.PostgreSQL.database.azure.com/@",
+      "name": "private.postgres.database.azure.com/@",
       "dependsOn": [
-          "[resourceId('Microsoft.Network/privateDnsZones', 'private.PostgreSQL.database.azure.com')]"
+          "[resourceId('Microsoft.Network/privateDnsZones', 'private.postgres.database.azure.com')]"
       ],
       "properties": {
           "ttl": 3600,
@@ -1516,7 +1516,7 @@
           "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', concat(variables('resourceName'),'flex16'))]",
           "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('resourceName'), '-linux-1-pip'))]"
         ]
-      },,
+      },
       {
         "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
         "apiVersion": "2021-06-01",
@@ -1562,7 +1562,7 @@
             "name": "[guid(concat(resourceGroup().id, 'win10'))]",
             "properties": {
                 "roleDefinitionId": "[variables('Owner')]",
-                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-win10')), '2016-08-01', 'Full').identity.principalId]"
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-win10')), '2023-09-01', 'Full').identity.principalId]"
             }
         },
         {
@@ -1571,7 +1571,7 @@
             "name": "[guid(concat(resourceGroup().id, 'paw-1'))]",
             "properties": {
                 "roleDefinitionId": "[variables('Owner')]",
-                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-paw-1')), '2016-08-01', 'Full').identity.principalId]"
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-paw-1')), '2023-09-01', 'Full').identity.principalId]"
             }
         },
         {
@@ -1580,12 +1580,12 @@
             "name": "[guid(concat(resourceGroup().id, 'linux-1'))]",
             "properties": {
                 "roleDefinitionId": "[variables('Owner')]",
-                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-linux-1')), '2016-08-01', 'Full').identity.principalId]"
+                "principalId": "[reference(resourceId('Microsoft.Compute/virtualMachines', concat(variables('resourceName'),'-linux-1')), '2023-09-01', 'Full').identity.principalId]"
             }
         },
       {
         "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2021-04-01",
+        "apiVersion": "2023-09-01",
         "name": "[concat(variables('resourceName'),'-win10')]",
         "location": "[resourceGroup().location]",
         "dependsOn": [
@@ -1811,7 +1811,7 @@
       {
         "name": "[concat(variables('resourceName'),'-paw-1')]",
         "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2021-04-01",
+        "apiVersion": "2023-09-01",
         "location": "[variables('location')]",
         "dependsOn": [
           "[concat('Microsoft.Network/networkInterfaces/', variables('resourceName'),'-paw-1-nic')]",
