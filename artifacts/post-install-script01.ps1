@@ -163,11 +163,6 @@ InstallFiddler;
 
 InstallPowerBI;
 
-#to add the user to docker group
-$global:localusername = "wsuser";
-
-InstallDockerDesktop $global:localusername;
-
 Uninstall-AzureRm -ea SilentlyContinue
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";C:\Program Files\PostgreSQL\16\bin"
@@ -215,5 +210,38 @@ AddPhpApplication $path $port;
 #run composer on app path
 cd "$path";
 composer install;
+
+$windowsVersion = (Get-WmiObject -class Win32_OperatingSystem).Caption
+
+if ($windowsVersion -like "*Windows Server 2019*")
+{
+    #for windows server 2019
+  Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+
+  Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
+
+  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windos-Subsystem-Linux") 
+
+  #set experminetal...
+  $content = '{
+    "experimental": true,
+    "debug": true,
+      "hosts":  [
+                    "npipe://"
+                ]
+  }'
+
+  set-content "C:\ProgramData\docker\config\daemon.json" $content;
+  restart-service docker;
+}
+else
+{
+  #for windows 10/11...
+
+  #to add the user to docker group
+  $global:localusername = "wsuser";
+
+  InstallDockerDesktop $global:localusername;
+}
 
 Stop-Transcript

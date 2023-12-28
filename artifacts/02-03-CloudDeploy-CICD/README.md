@@ -9,13 +9,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. Login to Azure Dev Ops (https://dev.azure.com)
 2. Select **New project**
 3. For the name, type **contosostore**
-4. Select **Create**
+4. For the visibiilty, select **Private**
+5. Select **Create**
 
 ### Setup Git Origin and push code
 
-1. Select **Repos**
+1. In the new project, select **Repos**
 2. In the **Push an existing repository from command line** section, select the **Copy** button
-3. Switch to Visual Studio code
+3. In the **Paw-1** virtual machine, switch to Visual Studio code
 4. In the terminal window, run the following:
 
     ```powershell
@@ -25,19 +26,23 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     git remote remove azure
     ```
 
-5. In the terminal window, paste the code copied above, press **ENTER** (be sure to replace ORG_NAME)
+5. In the terminal window, paste the repo url copied from above (it will look something like the following):
 
     ```powershell
     git remote add origin https://ORG_NAME@dev.azure.com/ORG_NAME/contosostore/_git/contosostore
     git push -f origin main
     ```
 
-6. In the dialog, login using the Microsoft Entra credentials for the repo.  The files will get pushed to the repo.
-7. Switch back to Azure Dev Ops, refresh the repo, all the repo files should be visible.
+6. Press **ENTER** (be sure to replace ORG_NAME)
+7. In the dialog, login using the Microsoft Entra credentials for the repo.  The files will get pushed to the repo.
+
+   > NOTE:  If using sensitive credentials, be sure you remove them or delete the virtual machine when you are finished with the developer guide content.
+
+8. Switch back to Azure Dev Ops, refresh the repo, all the repo files should be visible.
 
 ### Create Service Connection
 
-1. Select **Project Settings**
+1. In the lower left, select **Project Settings**
 2. Under **Pipelines**, select **Service Connections**
 3. Select **Create service connection**
 4. Select **Azure Resource Manager**
@@ -48,13 +53,13 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
     > **NOTE** If no subscriptions are displayed, open Azure Dev Ops in a in-private window and try again
 
-9. For the service connection name, type **PostgreSQL Dev**
+9. For the service connection name, type **PostgreSQLDev**
 10. Select **Grant access permission to all pipelines**
 10.Select **Save**
 
 ### Create Pipeline
 
-1. Select **Pipelines**
+1. In the left navigation, select **Pipelines**
 2. Select **Create Pipeline**
 3. Select **Azure Repos Git**
 4. Select the **ContosoStore** repo
@@ -67,7 +72,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Create Release
 
-1. Select **Releases**
+1. In the left navigation, select **Releases**
 2. Select **New pipeline**
 3. Select the **Azure App Service Deployment**
 4. Select **Apply**
@@ -78,13 +83,15 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 9. Select the **Lighting** icon to add an trigger
 10. Select **Enabled** for the `Creates a release every time a new build is avaiable`
 11. Select the **1 job, 1 task** link
-12. Select the **My SQL Dev** connection
-13. Select the **pgsqldevSUFFIX** app service
-14. Select **Save**, in the dialog, select **OK**
+12. Select the **PostgreSQLDev** connection
+13. For **App type**, select **Web App on Linux**
+14. Select the **pgsqldevSUFFIXlinux** app service
+15. Select **Save**, in the dialog, select **OK**
 
-### Commit changes
+### Commit some changes
 
-1. Run the following:
+1. Switch back to the **paw-1** virtual machine
+2. Run the following:
 
     ```powershell
     git add -A
@@ -103,8 +110,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Test the DevOps deployment
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/default.php`, the site should be displayed.
-2. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, the results should display.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/default.php`, the site should be displayed.
+2. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, the results should display.
 
 ## GitHub Option
 
@@ -166,8 +173,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Test the GitHub deployment
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/default.php`, the application should be displayed.
-2. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should be displayed.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/default.php`, the application should be displayed.
+2. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should be displayed.
 
 <!--
 ## Terraform

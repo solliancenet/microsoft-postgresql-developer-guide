@@ -184,7 +184,9 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 4. Select the **Allow access to Azure services** toggle to **Yes**
 5. Select **Save**
 
-### Migrate the Database
+### Migrate the Database Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
+
+## Update the connection string
 
 1. Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
 
@@ -194,7 +196,6 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 2. Browse to the **pgsqldevSUFFIX** web application
 3. Under **Development Tools**, select **SSH**
 4. Select **Go->**
-5. Select **Debug console->CMD**
 6. Edit the **/home/site/wwwroot/pubic/database.php**:
 
     ```bash
@@ -208,12 +209,11 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 ## Test new settings #1
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, an error about SSL settings should display.
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, you should get results, but the connection is not secured over SSL.
 
-## Fix SSL error
+## Enable SSL support
 
-1. Download the `https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem` certificate
-2. Switch back to the SSH window, run the following:
+1. Download the `https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem` certificate by switching back to the SSH window, run the following:
 
     ```bash
     cd /home/site/wwwroot/public
@@ -227,13 +227,18 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     nano /home/site/wwwroot/public/database.php
     ```
 
-4. Update the database connection to use ssl by uncommenting the `PostgreSQLi_ssl_set` method before the `PostgreSQLi_real_connect` method:
+4. Update the database connection to use ssl by uncommenting the `sslmode=verify_full` line:
 
     ```php
-    PostgreSQLi_ssl_set($conn,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+    $conn_str .= 'sslmode=verify-full ';
+    ```
+5. Also uncomment the `sslrootcert` line:
+
+    ```php
+    //$conn_str .= 'sslrootcert=/home/site/wwwroot/public/DigiCertGlobalRootCA.crt.pem ';
     ```
 
-5. Press Ctrl-X, then Y to save the file
+6. Press Ctrl-X, then Y to save the file
 
 ## Test new settings #2
 
@@ -259,9 +264,9 @@ Putting credential in the PHP files is not a best practice, it is better to util
     $dbname = getenv("APPSETTING_DB_DATABASE");
     ```
 
-    > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables
+    > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables. You can see this by navigating to the `info.php` page and review the server variables.
 
-4. Edit the **/home/site/wwwroot/config/database.php**:
+4. Edit the **/home/site/wwwroot/config/database.php** (note that this is in the `config` directory):
 
     ```bash
     nano /home/site/wwwroot/config/database.php
@@ -270,16 +275,16 @@ Putting credential in the PHP files is not a best practice, it is better to util
 5. Update the PostgreSQL connection to utilize the environment variables:
 
     ```php
-    'host' => getenv('APPSETTING_DB_HOST'),
-    'port' => getenv('APPSETTING_DB_PORT'),
-    'database' => getenv('APPSETTING_DB_DATABASE'),
-    'username' => getenv('APPSETTING_DB_USERNAME'),
-    'password' => getenv('APPSETTING_DB_PASSWORD'),
+    'host' => env('APPSETTING_DB_HOST', '127.0.0.1'),
+    'port' => env('APPSETTING_DB_PORT', '5432'),
+    'database' => env('APPSETTING_DB_DATABASE', 'postgres'),
+    'username' => env('APPSETTING_DB_USERNAME', 'postgres'),
+    'password' => env('APPSETTING_DB_PASSWORD', ''),
     ```
 
 6. Add the environment variables to the App Service:
    - Browse to the Azure Portal
-   - Select the **pgsqldevSUFFIX** app service
+   - Select the **pgsqldevSUFFIXlinux** app service
    - Under **Settings**, select **Configuration**
    - Select **New application setting**
    - Add the following:
@@ -288,28 +293,28 @@ Putting credential in the PHP files is not a best practice, it is better to util
      - `DB_PASSWORD` = `Solliance123`
      - `DB_DATABASE` = `contosostore`
      - `DB_PORT` = `5432`
-     - `APP_URL` = `https://pgsqldevSUFFIX.azurewebsites.net`
+     - `APP_URL` = `https://pgsqldevSUFFIXlinux.azurewebsites.net`
     - Select **Save**, then select **Continue**
 
 ## Test new settings #3
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display.
 
 ## Create Azure Key Vault values
 
 1. Switch to the Azure Portal
 2. Browse to the **pgsqldevSUFFIX-kv** Key Vault
 3. Under **Settings** select **Access Policies**
-4. Select **Add Access Policy**
-5. For the secret permission, select the dropdown, then select **All**
-6. For the principal, select the lab guide user account
-7. Select **Add**
-8. Select **Save**
-9. Under **Settings**, select **Secrets**
-10. Select **Generate/Import**
-11. For the name, type **PostgreSQLPassword**
-12. For the value, type **Solliance123**
-13. Select **Create**
+4. Select **Create**
+5. For the secret permissions, select **Select all**, then select **Next**
+6. For the principal, select the lab guide user account, select **Next**
+1. On application, select **Next**
+1. Select **Create**
+1. Under **Settings**, select **Secrets**
+1. Select **Generate/Import**
+1. For the name, type **PostgreSQLPassword**
+1. For the value, type **Solliance123**
+1. Select **Create**
 
 ## Create Managed Service Identity
 
@@ -321,11 +326,11 @@ Putting credential in the PHP files is not a best practice, it is better to util
 6. Copy the **Object ID** for later user
 7. Browse to the **pgsqldevSUFFIX-kv** Key Vault
 8. Under **Settings** select **Access Policies**
-9. Select **Add Access Policy**
-10. For the secret permission, select the dropdown, then select **All**
-11. For the principal, select the new managed identity for the app service (use the copied object ID)
-12. Select **Add**
-13. Select **Save**
+9. Select **Create**
+10. For the secret permission, select **Select all**, then select **Next**
+11. For the principal, paste the **Object ID** you copied above, select **Next**
+12. For application, select **Next**
+13. Select **Create**
 14. Under **Settings**, select **Secrets**
 15. Select the **PostgreSQLPassword**
 16. Select the current version
@@ -345,8 +350,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
       ```
 
 7. Select **OK**
-8. Select **Save**, then select **Continue**. Ensure a green check mark appears
-9. Select **Save**, ensure a green check mark appears.
+8. Select **Save**, then select **Continue**. Ensure a green check mark appears in the Source field.
 
 ## Update the files
 
@@ -379,4 +383,4 @@ Putting credential in the PHP files is not a best practice, it is better to util
 
 ## Test new settings #4
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display.

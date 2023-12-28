@@ -72,14 +72,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```powershell
     cd "c:\labfiles\microsoft-postgresql-developer-guide";
 
-    $username = "root";
-    $password = "";
+    $username = "postgres";
+    $password = "Solliance123";
     $server = "localhost";
     $database = "ContosoStore";
 
-    $PostgreSQLPath = "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE"
-
-    & "$PostgreSQLPath\PostgreSQLdump" -h $server -u $username $database > data.sql
+    pgsql -h $server -u $username $database > data.sql
 
     #remove the weird encoding...
     $data = get-content data.sql
@@ -117,7 +115,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         image: store-web
         environment:
           - DB_DATABASE=contosostore
-          - DB_USER=root
+          - DB_USER=postgres
           - DB_PASSWORD=root
           - DB_PORT=5432
           - DB_SERVERNAME=db
@@ -175,7 +173,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 6. Select the **SQL** tab, copy and then run the following query by selecting **Go**, record the count
 
   ```sql
-  select count(*) from `orders`
+  select count(*) from orders
   ```
 
 ## Test the Docker images
@@ -224,7 +222,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
       image: store-web
       environment:
         - DB_DATABASE=contosostore
-        - DB_USERNAME=root
+        - DB_USERNAME=postgres
         - DB_PASSWORD=root
         - DB_HOST=db
         - DB_PORT=5432
@@ -240,9 +238,9 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
       volumes:
         - "db-volume:/var/lib/PostgreSQL"
       ports:
-        - "3336:5432"
-    phpmyadmin:
-      image: phpmyadmin/phpmyadmin
+        - "5432:5432"
+    pgadmin:
+      image: dpage/pgadmin4
       ports:
           - '8081:80'
       restart: always
@@ -278,7 +276,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```powershell
     docker login {acrName}.azurecr.io -u {username} -p {password}
 
-    docker tag phpmyadmin/phpmyadmin {acrName}.azurecr.io/phpmyadmin/phpmyadmin
+    docker tag dpage/pgadmin4 {acrName}.azurecr.io/dpage/pgadmin4
 
     docker tag store-db {acrName}.azurecr.io/store-db
 
@@ -288,7 +286,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
     docker push {acrName}.azurecr.io/store-web
 
-    docker push {acrName}.azurecr.io/phpmyadmin/phpmyadmin
+    docker push {acrName}.azurecr.io/dpage/pgadmin4
     ```
 
 6. Three images should display in the Azure Container Registry that we will use later for deployment to other container based runtimes.
