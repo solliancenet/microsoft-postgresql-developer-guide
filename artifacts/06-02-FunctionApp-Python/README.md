@@ -11,7 +11,7 @@ It is possible to utilize several different tools including Visual Studio or Vis
 > **Note** that these steps have already been performed in the virtual machine environment.
 
 - Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extensions
-- Install [Python 3.9.x](https://www.python.org/downloads/)
+- Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
 
 ## Create the Function Application
@@ -25,15 +25,16 @@ The application here is based on an HTTP Trigger that will then make a call into
 
 - Select the project path (ex `c:\temp\python-function`)
 - For the language, select **Python**
-- Select the **python 3.9.x** option
+- For the model, select **Model V2**
+- Select the **python 3.11.x** option
 - Select the **HTTP trigger**
 
     ![This image demonstrates configuring the HTTP Trigger for the new Function App.](./media/http-trigger-vscode.png "Configuring HTTP Trigger")
 
 - For the name, type **AddCustomerFunction**, press **ENTER**
-- For the authorization level, select **Function**
+- For the authorization level, select **FUNCTION**
 - Select **Open in current window**
-- Update the function code in `__init__.py` to the following, ensuring that the connection information is replaced. This Function completes the following tasks when its HTTP endpoint receives a request:
+- Update the function code in `function_app.py` to the following, ensuring that the connection information is replaced. This Function completes the following tasks when its HTTP endpoint receives a request:
   - Connecting to the PostgreSQL Flexible Server instance provisioned in the ARM template
   - Generating a list of databases on the PostgreSQL instance
   - Building a formatted response
@@ -45,7 +46,10 @@ import azure.functions as func
 import psycopg2
 import ssl
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="AddCustomerFunction")
+def AddCustomerFunction(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     crtpath = 'BaltimoreCyberTrustRoot.crt.pem'
@@ -58,9 +62,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
         user="wsuser",
         password="Solliance123",
-        port="5432",
-        sslmode='require',
-        sslrootcert=crtpath)
+        port="5432")
 
     logging.info(cnx)
     # Show databases
@@ -79,9 +81,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     )
 ```
 
-- Open a terminal window (Select **Terminal->New Terminal window**)
-  - Verify that the virtual environment created by the Azure Functions extension (the command prompt will be prefaced by `(.venv)`) is being used.
-    - If the virtual environment is not active, open the command palette, select `Python: Select Interpreter`, and choose the virtual environment
+- Open a terminal window (Select **Terminal->New Terminal**)
   - Install the PostgreSQL connector:
 
     ```powershell
@@ -90,28 +90,27 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     ![This image demonstrates the Virtual Environment and PostgreSQL connector installation in the PowerShell terminal.](./media/terminal-set-up.png "Virtual environment and connector installation")
 
-  - Run the function app:
+  - Run the function app (your can also press `F5`):
 
     ```powershell
     func start run
     ```
 
+- In the dialog, select **Allow**
 - Open a browser window to the following. A list of databases should load:
 
     ```text
     http://localhost:7071/api/AddCustomerFunction
     ```
 
-- An error should occur. Browse to the Azure Portal and the pgsqldevSUFFIXflex flexible server
-- Under **Settings**, select **Networking**
-- Select **Add current IP address (x.x.x.x)**
-- Select **Save**
-- Retry the above url, the data will be displayed, however it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
+- The data will be displayed, however it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
 - Add the following lines to the Python code to utilize the Flexible Server public certificate and support connections over TLS 1.2:
 
 ```python
 crtpath = '../BaltimoreCyberTrustRoot.crt.pem'
 #crtpath = '../DigiCertGlobalRootCA.crt.pem' #THIS IS THE OLD CERT, USE THE BALTIMORE CERT
+
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 
 # Connect to PostgreSQL
 cnx = psycopg2.connect(database="postgres",
@@ -170,10 +169,16 @@ az account set --subscription 'SUBSCRIPTION NAME'
 func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction
 ```
 
-Browse to the function endpoint and see the data (the output of the previous command will include this information):
+- If you previously deployed the dotnet version, you should get an error about the function runtime.  Run the following to force the deployment and change the runtime to python:
 
-```text
-https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
+```PowerShell
+az functionapp config set --name pgsqldevSUFFIX-addcustomerfunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
+```
+
+- Retry the deployment:
+
+```PowerShell
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force
 ```
 
 ## Test the Function App in the Azure portal
