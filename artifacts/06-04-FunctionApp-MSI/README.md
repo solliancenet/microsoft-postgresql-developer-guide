@@ -32,33 +32,52 @@ az ad sp list --display-name pgsqldevSUFFIX-addcustomerfunction --query [*].appI
 ## Login to the Azure Database with Microsoft Entra credentials
 
 - Switch to the **paw-1** virtual machine
-- Open a PowerShell window, run the following to create a login token using your lab credentials (not the MSI of the virtual machine):
+- Create a file called `c:\temp\GetAzADTOken.ps1` and paste the following into it:
 
 ```PowerShell
-Connect-AzAccount
-
-$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
-
-$password = $accessToken.Token;
+If ($null -eq (Get-AzContext)) {
+    # User Account
+    Connect-AzAccount -WarningAction SilentlyContinue | Out-Null
+}
+ 
+$AzAccessTokenSplat = $null
+$AzAccessTokenSplat = @{
+    ResourceUrl = "https://ossrdbms-aad.database.windows.net"
+}
+  
+$AzAccessToken = $null
+$AzAccessToken = Get-AzAccessToken @AzAccessTokenSplat
+  
+$AzAccessToken.Token
 ```
 
 - Open the pgAdmin
 - Create a new server connection, right click **Servers**, select **Register**
 - For the name, type **azureadPostgreSQL**
 - For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
-- For the username, type your user UPN (ex `user@tenant.onmicrosoft.com@mydb`)
-  - `user` is your alias
-  - `tenant` is your Azure AD Tenant name
-  - `mydb` is the database to connect too
-- Select **OK**
-- Select the new connection, type the password from above
+- For the username, type your user UPN (aka your email address for your lab account)
+- Select the **Advanced** tab, for the password exec command, type:
 
-## Add Users to Database
+```cmd
+powershell -file "C:\temp\GetAzADToken.ps1"
+```
 
-- Run the following, replace the `APP_ID` with the one copied from above:
+- For the password exec expiration, type `3480`
+- Select **Save**
+- Right click the new server, select **Connect**
+
+## Add MSI to Database
+
+- Switch to the Azure Portal
+- Browse to the `` Azure Database for PostgreSQL Flexible Server
+- Under **Security**, select **Authentication**
+- Select **Add Microsoft Entra Admin**
+- Search for the `APP_ID` from above.  Select it and the select **Select**
+- Select **Save**
+- The same could be performed using psql. From a psql connection, run the following, replace the `APP_ID` with the one copied from above:
 
     ```sql
-    SET aad_validate_oids_in_tenant = off;    
+    SET aad_validate_oids_in_tenant = off;
 
     CREATE ROLE funcuser WITH LOGIN PASSWORD 'APP_ID' IN ROLE azure_ad_user;
     ```
@@ -82,7 +101,7 @@ $password = $accessToken.Token;
     # Connect to PostgreSQL
         cnx = psycopg2.connect(database="postgres",
             host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
-            user="funcuser",
+            user="APP_ID",
             password=access_token,
             port="5432",
             sslmode='require',

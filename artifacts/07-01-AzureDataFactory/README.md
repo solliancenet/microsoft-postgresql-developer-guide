@@ -89,6 +89,7 @@
 
 - In the middle top area, select the **Trigger (1)** button
 - Select **Trigger now**
+- For the `LastCreateDate`, type the begining of the current year (ex. `1/1/2024`)
 - Select **OK**
 - Open a new browser window to the Azure Portal
 - Browse to the **pgsqldevSUFFIX** storage account
