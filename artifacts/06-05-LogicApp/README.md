@@ -20,10 +20,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 - For **Workload type**, select **Development** to save costs
 - For **Availability zone**, select **No preference**
   - Co-locating the VM and the Flexible Server instance will improve network performance, but it is not strictly necessary
-- For the **PostgreSQL Version**, select **8.0.x**
-
-  ![This image demonstrates the server parameters provided to the Flexible Server instance in the Azure portal.](./media/server-details-port.png "Server parameters")
-
+- For the **PostgreSQL Version**, select **16**
 - Do not enable high availability
 - For the admin username, type **wsuser**
 - For the password, type **Solliance123**

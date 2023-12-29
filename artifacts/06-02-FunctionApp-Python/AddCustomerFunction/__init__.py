@@ -1,6 +1,6 @@
 import logging
 import azure.functions as func
-import PostgreSQL.connector
+import psycopg2
 import ssl
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -12,14 +12,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 
     # Connect to PostgreSQL
-    cnx = PostgreSQL.connector.connect(
-        user="wsuser", 
-        password='Solliance123', 
-        host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
-        port=5432,
-        ssl_ca=crtpath,
-        tls_versions=['TLSv1.2']
-    )
+    cnx = psycopg2.connect(database="contosostore",
+        host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+        user="wsuser",
+        password="Solliance123",
+        port="5432",
+        sslmode='require',
+        sslrootcert=crtpath,)
 
     logging.info(cnx)
     # Show databases
