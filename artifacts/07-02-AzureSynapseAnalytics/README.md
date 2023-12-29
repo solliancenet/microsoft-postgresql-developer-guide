@@ -4,7 +4,11 @@
 
 - Create a new Azure Synapse Analytics workspace
 - Navigate to the **pgsqldevSUFFIX** Azure Synapce Analytics Workspace
-- In the **Getting started** area, select the **Open** link for Synapse Studio
+- Under **Security**, select **Networking**
+- Check the **Allow Azure services and resources to access this workspace** checkbox
+- Select the **+ Add client IP**
+- Select **Save**
+- Select **Overview**, then n the **Getting started** area, select the **Open** link for Synapse Studio
 - Login if prompted.
 - Select the **Manage** tab
 - Under **External connections** select **Linked services**
@@ -48,17 +52,18 @@
 - Select **Integration Dataset**
 - For the type, select **Azure Database for PostgreSQL**, select **Continue**
 - For the name, type **ContosoStore_Orders**
-- For the linked service **Contoso**
+- For the linked service **ContosoStore**
 - Select **OK**
 - Select **Publish all**, then select **Publish**
 
 ## Create PowerBI Desktop Report (Dataset)
 
+- Switch to the **paw-1** virtual machine
 - Open **Power BI Desktop**
 - Select **Get data**
 - Select **PostgreSQL database**
 - Select **Connect**
-- For the servername, enter **pgsqldevSUFFIX**
+- For the servername, enter **pgsqldevSUFFIXflex16**
 - For the database, select **contosostore**
 - Select **OK**
 - Select the **Database** tab
@@ -70,22 +75,31 @@
 - Select **File->Save as**, save the report to the desktop as **PostgreSQL**
 - Select **Save**
 
-## Publish the PowerBI report
+## Publish the PowerBI report to Power BI Online
 
 - Select **File->Publish**
 - Select **Publish to Power BI**
+- When prompted, login with your lab credentials
 - Select the **PostgreSQL** workspace
 - Select **Select**
+- Select the **Open 'PostgreSQL.pbix' in Power BI** link
+- Login using your lab credentials.
+- Ensure the **PostgreSQL** workspace is selected
+- Select the **PostgreSQL** semantic model
+- In the **Tables** window, select the **public users** table
+- Select **Create paginated report**
+- Select **File->Save**, save the report as **Contoso Users**
+- Select **Save**, the report should load in the synapse workspace.
 
-## Create PowerBI Report
+## Create PowerBI Report in Azure Synapse
 
 - Select the **Develop** tab
 - Select the **+** button
 - Select **Power BI report**
 - Select the **PostgreSQL** data set
 - Select **Create**
-- In the **Fields** window, expand the **contosostore users** table
-- Drag the name into the report window.
+- In the **Data** window, expand the **contosostore categories** table
+- Select the `id`, `name` and `img` fields.
 - Select **File->Save as**
-- Save the report as **Contoso Users**
+- Save the report as **Contoso Categories**
 - Select **Save**, the report should load in the synapse workspace.

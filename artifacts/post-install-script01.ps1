@@ -85,6 +85,7 @@ Start-Transcript -Path C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt -
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls" 
 
 mkdir "c:\temp" -ea SilentlyContinue;
+mkdir "c:\temp\python-function" -ea SilentlyContinue;
 mkdir "c:\labfiles" -ea SilentlyContinue;
 
 #download the solliance pacakage
@@ -145,9 +146,16 @@ choco install composer
 Write-Host "Install opensll." -ForegroundColor Green -Verbose
 choco install openssl
 
+Write-Host "Install Azure Functions core tools." -ForegroundColor Green -Verbose
+choco install azure-functions-core-tools
+
 InstallPgAdmin
 
-$extensions = @("ms-vscode-deploy-azure.azure-deploy", "ms-azuretools.vscode-docker", "ms-python.python", "ms-azuretools.vscode-azurefunctions");
+$extensions = @("ms-vscode-deploy-azure.azure-deploy", 
+  "ms-azuretools.vscode-docker", 
+  "ms-python.python", 
+  "ms-azuretools.vscode-azurefunctions",
+  "ms-vscode-remote.remote-wsl");
 
 InstallVisualStudioCode $extensions;
 

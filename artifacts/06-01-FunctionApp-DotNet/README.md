@@ -33,19 +33,17 @@ The application here is based on an Http Trigger that will then make a call into
 - For the name, type **AddCustomerFunction**
 - Select the project path
 - Select **Next**
-- Select **Create**
-
-    ![This image demonstrates how to create a new Azure Function from VS 2022.](./media/vs-new-function.png "New Azure Function")
-
-- Select the **HTTP trigger**
+- For the functions works, select **.NET 8.0 Isloated**
+- For the function type, select **Http Trigger**
 - For the Storage account, select **Storage Emulator**
 - For the authorization level, select **Function**
 - Select **Create**
-- Update the function class (in `Function1.cs`) to the following. Be sure to replace the connection information. This Function completes the following tasks when its HTTP endpoint receives a request:
+- Open the **Function1.cs** file, update the function class (in `Function1.cs`) to the following. This Function completes the following tasks when its HTTP endpoint receives a request:
   - Connecting to the Azure Database for PostgreSQL Flexible Server instance provisioned in the ARM template
   - Generating a list of databases on the PostgreSQL instance
   - Building a formatted response
   - Returning the formatted response to the caller
+- Be sure to replace the `SUFFIX` connection information:
 
 ```csharp
     public static class AddCustomerFunction
@@ -87,12 +85,11 @@ The application here is based on an Http Trigger that will then make a call into
     }
 ```
 
-- Right-click the project, select **Manage Nuget Packages**, and select **Browse**
-- Search for **Npgsql**, select **Install**
+- Right-click the project, select **Manage Nuget Packages**
+- Select the **Browse** tab
+- Search for **Npgsql**, select it, then select **Install**
 - Select **Apply**
 - Select **Ok** if prompted
-- Search for **Microsoft.Extensions.Logging.Abstractions**, select **Install**
-- Select **Apply**
 - At the top of `Function1.cs` file, add a using reference to `Npgsql` by adding the following statement.
 
     ```csharp
@@ -100,11 +97,14 @@ The application here is based on an Http Trigger that will then make a call into
     ```
 
 - Press **F5** to start the function
-- Open a browser window to the following. A list of databases should be displayed:
+- When prompted, select **Allow**
+- Open a browser window to the function endpoint, it will be similar to the following:
 
 ```text
 http://localhost:7071/api/AddCustomerFunction
 ```
+
+- You should see a list of databases displayed.
 
 ## Deploy the Function Application
 
@@ -117,6 +117,7 @@ Now that the function app is created and working locally, the next step is to pu
     ![This image demonstrates choosing the Azure Function App Linux deployment option.](./media/choose-linux-function-app.png "Azure Function App Linux")
 
 - Select **Next**
+- Select the **Sign in** button, login using your lab credentials
 - Select the account, subscription and resource group
 - Select the **pgsqldevSUFFIX-AddCustomerFunction** function app
 - Select **Finish**
@@ -124,12 +125,11 @@ Now that the function app is created and working locally, the next step is to pu
 - Switch to the Azure portal, browse to your lab resource group
 - Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
 - Under **Functions**, select **App keys**
-- Copy the function app code
-
-It should now be possible to browse to the function endpoint and see data:
+- Copy the function `default` app key value
+- It should now be possible to browse to the function endpoint and see data, replace the `APPKEY` with the one you copied:
 
 ```text
-https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=SOMECODE
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=APPKEY
 ```
 
 ## Test the Function App in the Azure portal
@@ -138,14 +138,14 @@ https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunc
 - Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
 - On the **Overview** page, select the **AddCustomerFunction** link
 - On the **AddCustomerFunction** page, select **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
-- On the testing dialog, select the warning to enable CORS
-- Issue a simple GET request to the Function App endpoint.
+- If prompted, select the warning to enable CORS
+- Issue a simple GET request to the Function App endpoint using the `master` key.
 
     > **NOTE** It is possible to use a *function key*, which is scoped to an individual Function App, or a *host key*, which is scoped to an Azure Functions instance.
 
     ![This image demonstrates how to configure a GET request to the Function App endpoint from the Azure portal.](./media/azure-portal-function-test.png "GET request test")
 
-- The Function App should execute successfully
+- The Function App should execute successfully and a list of items should display
 
 ## Troubleshooting
 
