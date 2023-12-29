@@ -42,21 +42,30 @@ The application here is based on an HTTP Trigger that will then make a call into
 ```python
 import logging
 import azure.functions as func
-import PostgreSQL.connector
+import psycopg2
+import ssl
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
+
+    crtpath = 'BaltimoreCyberTrustRoot.crt.pem'
+    #crtpath = 'DigiCertGlobalRootCA.crt.pem'
+
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+
     # Connect to PostgreSQL
-    cnx = PostgreSQL.connector.connect(
-        user="wsuser", 
-        password='Solliance123', 
-        host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
-        port=5432
-    )
+    cnx = psycopg2.connect(database="postgres",
+        host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+        user="wsuser",
+        password="Solliance123",
+        port="5432",
+        sslmode='require',
+        sslrootcert=crtpath)
+
     logging.info(cnx)
     # Show databases
     cursor = cnx.cursor()
-    cursor.execute("SHOW DATABASES")
+    cursor.execute("SELECT datname FROM pg_catalog.pg_database;")
     result_list = cursor.fetchall()
     # Build result response text
     result_str_list = []
@@ -76,7 +85,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
   - Install the PostgreSQL connector:
 
     ```powershell
-    pip install PostgreSQL-connector-python
+    pip install psycopg2
     ```
 
     ![This image demonstrates the Virtual Environment and PostgreSQL connector installation in the PowerShell terminal.](./media/terminal-set-up.png "Virtual environment and connector installation")
@@ -105,14 +114,13 @@ crtpath = '../BaltimoreCyberTrustRoot.crt.pem'
 #crtpath = '../DigiCertGlobalRootCA.crt.pem' #THIS IS THE OLD CERT, USE THE BALTIMORE CERT
 
 # Connect to PostgreSQL
-cnx = PostgreSQL.connector.connect(
-    user="wsuser", 
-    password='Solliance123', 
-    host="pgsqldevSUFFIXflex.postgres.database.azure.com", 
-    port=5432,
-    ssl_ca=crtpath,
-    tls_versions=['TLSv1.2']
-)
+cnx = psycopg2.connect(database="postgres",
+        host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+        user="wsuser",
+        password="Solliance123",
+        port="5432",
+        sslmode='require',
+        sslrootcert=crtpath)
 ```
 
 - Call the endpoint again in a browser. The Function App should still operate
@@ -141,7 +149,7 @@ ssl_ca=get_ssl_cert(),
 
 ```text
 azure-functions
-PostgreSQL-connector-python
+psycopg2
 ```
 
 - Switch to the terminal window and run the following. Follow the instructions to log in to the Azure subscription:

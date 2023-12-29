@@ -50,7 +50,7 @@ $myconnection.Open()
 
 $mycommand = New-Object PostgreSQL.Data.PostgreSQLClient.PostgreSQLCommand
 $mycommand.Connection = $myconnection
-$mycommand.CommandText = "SHOW DATABASES"
+$mycommand.CommandText = "SELECT datname FROM pg_catalog.pg_database;"
 $myreader = $mycommand.ExecuteReader();
 
 $res = "";

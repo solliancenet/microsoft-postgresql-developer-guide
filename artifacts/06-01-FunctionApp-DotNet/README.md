@@ -60,6 +60,7 @@ The application here is based on an Http Trigger that will then make a call into
                 Host = "pgsqldevSUFFIXflex16.postgres.database.azure.com",
                 Username = "wsuser",
                 Password = "Solliance123",
+                Database = "postgres",
                 SslMode = SslMode.Require
             };
 
@@ -71,12 +72,12 @@ The application here is based on an Http Trigger that will then make a call into
 
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText = "SHOW DATABASES;";
+                    command.CommandText = "SELECT datname FROM pg_catalog.pg_database;";
                     NpgsqlDataReader r = command.ExecuteReader();
 
                     while (r.Read())
                     {
-                        responseMessage += r["Database"] + "\r\n";
+                        responseMessage += r["datname"] + "\r\n";
                     }
                 }
             }

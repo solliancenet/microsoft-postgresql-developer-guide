@@ -12,18 +12,18 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 
     # Connect to PostgreSQL
-    cnx = psycopg2.connect(database="contosostore",
+    cnx = psycopg2.connect(database="postgres",
         host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
         user="wsuser",
         password="Solliance123",
         port="5432",
         sslmode='require',
-        sslrootcert=crtpath,)
+        sslrootcert=crtpath)
 
     logging.info(cnx)
     # Show databases
     cursor = cnx.cursor()
-    cursor.execute("SHOW DATABASES")
+    cursor.execute("SELECT datname FROM pg_catalog.pg_database;")
     result_list = cursor.fetchall()
     # Build result response text
     result_str_list = []

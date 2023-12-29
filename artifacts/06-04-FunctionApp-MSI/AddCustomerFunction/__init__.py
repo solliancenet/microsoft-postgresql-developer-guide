@@ -17,7 +17,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     #crtpath = 'DigiCertGlobalRootCA.crt.pem'
 
     # Connect to PostgreSQL
-    cnx = psycopg2.connect(database="contosostore",
+    cnx = psycopg2.connect(database="postgres",
         host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
         user="wsuser",
         password=access_token,
@@ -28,7 +28,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(cnx)
     # Show databases
     cursor = cnx.cursor()
-    cursor.execute("SHOW DATABASES")
+    cursor.execute("SELECT datname FROM pg_catalog.pg_database;")
     result_list = cursor.fetchall()
     # Build result response text
     result_str_list = []

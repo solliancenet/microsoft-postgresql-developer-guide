@@ -23,35 +23,33 @@ choco install psqlodbc
 
 Connect-AzAccount -identity
 
-[void][System.Reflection.Assembly]::LoadWithPartialName("PostgreSQL.Data") 
-
 $server = $env:DB_HOST;
 $database = $env:DB_DATABASE;
 $user = $env:DB_USER;
 $password = $env:DB_PASSWORD;
 
-$server = "";
-$database = "contosostore";
+$server = "pgsqldevSUFFIXflex16.postgres.database.azure.com";
+$database = "postgres";
 $user = "wsuser";
 $password = "Solliance123";
 
 #run the queries...
 $myconnection = New-Object System.Data.Odbc.OdbcConnection;
 
-$myconnection.ConnectionString = "DRIVER={PostgreSQL Unicode};server=$server;user id=$user;password=$password;database=$database;pooling=false"
+$myconnection.ConnectionString = "DRIVER={PostgreSQL Unicode};server=$server;user id=$user;password=$password;database=$database;pooling=false;sslmode=required"
 
 $myconnection.Open()
 
-$mycommand = New-Object PostgreSQL.Data.PostgreSQLClient.PostgreSQLCommand
+$mycommand = New-Object System.Data.Odbc.OdbcCommand
 $mycommand.Connection = $myconnection
-$mycommand.CommandText = "SHOW DATABASES"
+$mycommand.CommandText = "SELECT datname FROM pg_catalog.pg_database;"
 $myreader = $mycommand.ExecuteReader();
 
 $res = "";
 
 while($myreader.Read())
 { 
-    $res += $myreader.GetString(0) 
+    $res += $myreader.GetString(0) + "`n";
 }
 
 $myconnection.Close()
