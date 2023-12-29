@@ -4,17 +4,18 @@
 
 - Create a new Azure Synapse Analytics workspace
 - Navigate to the **pgsqldevSUFFIX** Azure Synapce Analytics Workspace
-- Select the **Open Synapse Studio** link
+- In the **Getting started** area, select the **Open** link for Synapse Studio
+- Login if prompted.
 - Select the **Manage** tab
 - Under **External connections** select **Linked services**
 - Select **+ New**
-- For the type, select **Azure Database for PostgreSQL Flexible Server**, select **Continue**
+- For the type, select **Azure Database for PostgreSQL**, select **Continue**
 - For the name, type **ContosoStore**
 - For the account selection, select **From Azure Subscription**
 - Select the subscription
 - Select the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible Server server
 - For the database name, type **ContosoStore**
-- For the username, type **wsuser@pgsqldevSUFFIX**
+- For the username, type **wsuser**
 - For the password, type **Solliance123**
 - Select **Test connection**, ensure a success message is displayed.
 - Select **Create**
@@ -26,10 +27,11 @@
 - In the left navigation, expand **Workspaces**
 - Select **Create a workspace**
 - For the name, type **PostgreSQL**
-- Select **Save**
+- Select **Apply**
 
 ## Create PowerBI Linked Service
 
+- Switch back to Azure Synapse
 - Select the **Manage** tab
 - Under **External connections** select **Linked services**
 - Select **+ New**
@@ -44,7 +46,7 @@
 - Select the **Data** tab
 - Select the **+** button
 - Select **Integration Dataset**
-- For the type, select **Azure Database for PostgreSQL Flexible Server**, select **Continue**
+- For the type, select **Azure Database for PostgreSQL**, select **Continue**
 - For the name, type **ContosoStore_Orders**
 - For the linked service **Contoso**
 - Select **OK**
@@ -60,7 +62,7 @@
 - For the database, select **contosostore**
 - Select **OK**
 - Select the **Database** tab
-- For the user name, type **wsuser@pgsqldevSUFFIX**
+- For the user name, type **wsuser**
 - For the password, type **Solliance123**
 - Select **Connect**
 - Check all the checkboxes

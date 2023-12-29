@@ -18,34 +18,27 @@ choco feature enable -n allowGlobalConfirmation
 #install azure powershell
 choco install az.powershell
 
-#install PostgreSQL
-choco install PostgreSQL-cli
-
-#install .net connector
-choco install PostgreSQL-connector -y
-#Install-package PostgreSQL.Data
+#install psqlodbc
+choco install psqlodbc
 
 Connect-AzAccount -identity
 
 [void][System.Reflection.Assembly]::LoadWithPartialName("PostgreSQL.Data") 
-
-#$path = "C:\Program Files (x86)\PostgreSQL\PostgreSQL Connector Net 8.0.28\Assemblies\v4.8\PostgreSQL.Data.dll";
-#[void][System.Reflection.Assembly]::Load($path) 
 
 $server = $env:DB_HOST;
 $database = $env:DB_DATABASE;
 $user = $env:DB_USER;
 $password = $env:DB_PASSWORD;
 
-#$server = "server_name";
-#$database = "contosostore";
-#$user = "wsuser";
-#$password = "Solliance123";
+$server = "";
+$database = "contosostore";
+$user = "wsuser";
+$password = "Solliance123";
 
 #run the queries...
-$myconnection = New-Object PostgreSQL.Data.PostgreSQLClient.PostgreSQLConnection
+$myconnection = New-Object System.Data.Odbc.OdbcConnection;
 
-$myconnection.ConnectionString = "server=$server;user id=$user;password=$password;database=$database;pooling=false"
+$myconnection.ConnectionString = "DRIVER={PostgreSQL Unicode};server=$server;user id=$user;password=$password;database=$database;pooling=false"
 
 $myconnection.Open()
 

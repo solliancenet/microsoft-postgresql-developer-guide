@@ -11,6 +11,7 @@
 - Select the `pgsqldevSUFFIX` batch service
 - Under **Features** select **Pools**
 - Ensure a pool called **main** is displayed, if not create it.
+- Select the **main** pool
 - Under **Settings**, select **Scale**
 - Modify the `Target Spot/low-priority nodes` to **1**
 - Select **Save**
@@ -24,15 +25,16 @@
 - Under **Features**, select **Jobs**
 - Select **+ Add**
 - For the name, type **PostgreSQL_job**
-- Select the **main** pool
+- For the current pool, select the **main** pool
 - For **ADVANCED SETTINGS**, select **Custom**
-- Select **Environment Settings**
+- Select the **Environment Settings** link
 - Add the following environment variables:
-  - DB_HOST = {DB_IP} or {DB_DNS}
+  - DB_HOST = pgsqldevSUFFIXflex16.postgres.database.azure.com
   - DB_DATABASE = contosostore
   - DB_PORT = 5432
   - DB_USER = wsuser
   - DB_PASSWORD = Solliance123
+- Select **Select**
 - Select **OK**
 
 ## Create an application
