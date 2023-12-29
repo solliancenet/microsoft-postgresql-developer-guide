@@ -6,21 +6,21 @@ application or improving an existing enterprise system, this guide will
 take developers and architects through the fundamentals of PostgreSQL
 application development to more advanced architecture and design. From
 beginning to end, it is a content journey designed to help ensure
-current or future PostgreSQL systems are performing at their best even as
-their usage grows and expands.
+current or future PostgreSQL systems are performing at their best even
+as their usage grows and expands.
 
 ![The diagram shows the progression of development evolution in the
 guide.]
 
 The topics and flow contained in this guide cover the advantages of
 migrating to or leveraging various simple to use, valuable Azure cloud
-services in PostgreSQL architectures. Be prepared to learn how easy and quick
-it is to create applications backed by [Azure Database for PostgreSQL Flexible Server]. In
-addition to building customized services, developers will also be able
-to leverage the vast number of value-add services available in the
-[Azure Marketplace]. Throughout this developer journey, strive to
-leverage the vast number of resources presented rather than going at it
-alone!
+services in PostgreSQL architectures. Be prepared to learn how easy and
+quick it is to create applications backed by [Azure Database for
+PostgreSQL Flexible Server]. In addition to building customized
+services, developers will also be able to leverage the vast number of
+value-add services available in the [Azure Marketplace]. Throughout this
+developer journey, strive to leverage the vast number of resources
+presented rather than going at it alone!
 
 Because every company and project is unique, this guide provides
 insightful service descriptions and tool comparisons to allow the reader
@@ -44,57 +44,43 @@ Administrators will appreciate the realistic and straightforward
 troubleshooting tips that help keep downtime to a minimum and users
 happy.
 
-The ultimate goal is to successfully deploy a stable, performant PostgreSQL
-application running securely in Microsoft Azure using cloud best
-practices. Let's start the journey!
+The ultimate goal is to successfully deploy a stable, performant
+PostgreSQL application running securely in Microsoft Azure using cloud
+best practices. Let's start the journey!
 
 # 02 / Introduction to Azure Database for PostgreSQL Flexible Server
 
-Before jumping into Azure Database for PostgreSQL Flexible Server, it is important to
-understand some PostgreSQL history. Also, it is important the PostgreSQL hosting
-option pros and cons.
+Before jumping into Azure Database for PostgreSQL Flexible Server, it is
+important to understand some PostgreSQL history. Also, it is important
+to cover the various PostgreSQL hosting options and their pros and cons.
+As part of this guide, we will cover Artificial Intelligence (AI) and
+how Azure Database for PostgreSQL Flexible Server plays in this exciting
+space.
 
 ## What is PostgreSQL?
 
-PostgreSQL is a relational database management system based on [Structured
-Query Language (SQL)]. PostgreSQL supports a rich set of SQL query
-capabilities and offers excellent performance through storage engines
-optimized for transactional and non-transactional workloads, in-memory
-processing, and robust server configuration through modules. Its low
-total cost of ownership (TCO) makes it extremely popular with many
-organizations. Customers can use existing frameworks and languages to
-connect easily with PostgreSQL databases. Reference the latest [PostgreSQL
-Documentation] for a more in-depth review of PostgreSQL's features.
-
-One of PostgreSQL databases' common use cases is the data store for web
-applications. Due to PostgreSQL's scalability, popular content management
-systems (CMS), such as [WordPress] and [Drupal], utilize it for their
-data persistence needs. More broadly, [LAMP] apps, which integrate
-Linux, Apache, PostgreSQL, and PHP, leverage scalable web servers, languages,
-and database engines to serve many global web services.
+[PostgreSQL] is an open source object-relational database management
+system based on [Structured Query Language (SQL)]. PostgreSQL supports a
+rich set of SQL query capabilities and offers excellent performance and
+security for multiple data workloads. Its ability to run on all major
+operating systems combined with the abilty to extend via addons have
+made PostgreSQL a popular option with many organizations. Customers can
+use existing programming frameworks and languages to connect easily with
+PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix]
+for a more in-depth review of PostgreSQL's features.
 
 ## Comparison with other RDBMS offerings
 
 Though PostgreSQL has a distinct set of advantages, it does compete with
 other typical relational database offerings. Though the emphasis of this
-guide is operating PostgreSQL on Azure to architect scalable applications, it
-is important to be aware of other potential offerings such as [MariaDB].
-MariaDB is a fork from the original PostgreSQL code base that occurred when
-[Oracle purchased Sun Microsystems]. Organizations can easily host
-MariaDB in Azure through [Azure Database for MariaDB.]
+guide is operating PostgreSQL on Azure to architect scalable
+applications, it is important to be aware of other potential offerings
+such as [MySQL] and [MariaDB].
 
-While MariaDB is compatible with the PostgreSQL protocol, the project is not
-managed by Oracle, and its maintainers claim that this allows them to
-better compete with other proprietary databases. Although there are
-several different options to choose from, PostgreSQL has over twenty years of
-development experience backing it, and businesses appreciate the
-platform's maturity.
-
-Another popular open-source PostgreSQL competitor is [PostgreSQL]. PostgreSQL
-supports many of the advanced features of PostgreSQL, such as JSON
-storage, replication and failover, and partitioning, in an easy-to-use
-manner. Microsoft offers a cloud-hosted [Azure Database for PostgreSQL Flexible Server],
-which can be compared with cloud-hosted PostgreSQL [in Microsoft Learn.]
+In addition to the most popular relational database systems, new
+products have emerged to support vector-based systems for AI purposes.
+Because PostgresSQL also has this capability, it will be important to
+review these other offerings and how PostgreSQL compares to them.
 
 ## PostgreSQL hosting options
 
@@ -103,11 +89,11 @@ development and production environments.
 
 ### On-premises
 
-PostgreSQL is a cross-platform offering, and corporations can utilize their
-on-premises hardware to deploy highly-available PostgreSQL configurations.
-PostgreSQL on-premises deployments are highly configurable, but they require
-significant upfront hardware capital expenditure and have the
-disadvantages of hardware/OS maintenance.
+PostgreSQL is a cross-platform offering, and corporations can utilize
+their on-premises hardware to deploy highly-available PostgreSQL
+configurations. PostgreSQL on-premises deployments are highly
+configurable, but they require upfront hardware capital expenditure and
+have the disadvantages of hardware/OS maintenance.
 
 One benefit to choosing a cloud-hosted environment over on-premises
 configurations is there are no significant upfront costs. Organizations
@@ -167,10 +153,11 @@ machine travels with the container. The application runs in a consistent
 manner. Containerized applications are flexible, cost-effective, and
 deploy quickly.
 
-PostgreSQL offers a [Docker image] to operate PostgreSQL in customized and
-containerized applications. A container-based PostgreSQL instance can persist
-data to the hosting environment via the container runtime, allowing for
-high availability across container instances and environments.
+PostgreSQL offers a [Docker image] to operate PostgreSQL in customized
+and containerized applications. A container-based PostgreSQL instance
+can persist data to the hosting environment via the container runtime,
+allowing for high availability across container instances and
+environments.
 
 **Pros**
 
@@ -186,19 +173,20 @@ high availability across container instances and environments.
 
 ### Cloud PaaS
 
-PostgreSQL databases can be deployed on public cloud platforms by utilizing
-VMs, container runtimes, and Kubernetes. However, these platforms
-require a middle ground of customer management. If a fully managed
-environment is required, cloud providers offer their own managed PostgreSQL
-products, such as Amazon RDS for PostgreSQL and Google Cloud SQL for PostgreSQL.
-Microsoft Azure offers Azure Database for PostgreSQL Flexible Server.
+PostgreSQL databases can be deployed on public cloud platforms by
+utilizing VMs, container runtimes, and Kubernetes. However, these
+platforms require a middle ground of customer management. If a fully
+managed environment is required, cloud providers offer their own managed
+PostgreSQL products, such as Amazon RDS for PostgreSQL and Google Cloud
+SQL for PostgreSQL. Microsoft Azure offers Azure Database for PostgreSQL
+Flexible Server.
 
 ## Hosting PostgreSQL on Azure - benefits and options
 
-Now that the benefits of PostgreSQL and a few common deployment models have
-been presented, this section explains approaches to hosting PostgreSQL
-specifically on Microsoft Azure and the many advantages of the Microsoft
-Azure platform.
+Now that the benefits of PostgreSQL and a few common deployment models
+have been presented, this section explains approaches to hosting
+PostgreSQL specifically on Microsoft Azure and the many advantages of
+the Microsoft Azure platform.
 
 ### Advantages of choosing Azure
 
@@ -228,9 +216,10 @@ cloud platform to expedite application development.]
 To facilitate developers' adoption of Azure, Microsoft offers a [free
 subscription] with \$200 credit, applicable for thirty days; year-long
 access to free quotas for popular services, including Azure Database for
-PostgreSQL; and access to always free Azure service tiers. Create an Azure
-free account and get 750 hours of Azure Database for PostgreSQL Flexible Server Flexible
-Server free.
+PostgreSQL Flexible Server; and access to always free Azure service
+tiers. Create an Azure free account and get access to [750 hours of
+Azure Database for PostgreSQL Flexible Server on a Burstable B1MS
+instance with 32GB storage for free].
 
 ### PostgreSQL on Azure hosting options
 
@@ -243,26 +232,26 @@ common ways to host PostgreSQL on Azure.
 
 #### IaaS (VMs)
 
-In the IaaS model, organizations deploy PostgreSQL on Azure Virtual Machines.
-This model allows the customer to choose when to patch the VM OS, the
-PostgreSQL engine, and install other software such as antivirus utilities
-when required. Microsoft is responsible for the underlying VM hardware
-that constitutes the Azure infrastructure. Customers are responsible for
-all other maintenance.
+In the IaaS model, organizations deploy PostgreSQL on Azure Virtual
+Machines. This model allows the customer to choose when to patch the VM
+OS, the PostgreSQL engine, and install other software such as antivirus
+utilities when required. Microsoft is responsible for the underlying VM
+hardware that constitutes the Azure infrastructure. Customers are
+responsible for all other maintenance.
 
-Because IaaS PostgreSQL hosting gives greater control over the PostgreSQL database
-engine and the OS, many organizations choose to lift and shift
-on-premises solutions while minimizing capital expenditure.
+Because IaaS PostgreSQL hosting gives greater control over the
+PostgreSQL database engine and the OS, many organizations choose to lift
+and shift on-premises solutions while minimizing capital expenditure.
 
 #### IaaS (Containers)
 
 Although VMs are typically considered the primary IaaS approach,
-containerizing PostgreSQL instances and applications can also be included in
-this approach. Modernizing applications allows for more opportunities
-for deployment and management with Kubernetes and container hosting
-environments coming into the picture. Azure provides Azure Kubernetes
-Service (AKS) and, as explored below, several other PaaS-based
-approaches to hosting PostgreSQL and application containers.
+containerizing PostgreSQL instances and applications can also be
+included in this approach. Modernizing applications allows for more
+opportunities for deployment and management with Kubernetes and
+container hosting environments coming into the picture. Azure provides
+Azure Kubernetes Service (AKS) and, as explored below, several other
+PaaS-based approaches to hosting PostgreSQL and application containers.
 
 #### PaaS (DBaaS)
 
@@ -274,12 +263,12 @@ protecting data.
 
 Like IaaS, customers are still responsible for managing query
 performance, database access, and database objects, such as indexes.
-PaaS is suitable for applications where the PostgreSQL configuration exposed
-by Azure is sufficient, and access to the OS and filesystem is
+PaaS is suitable for applications where the PostgreSQL configuration
+exposed by Azure is sufficient, and access to the OS and filesystem is
 unnecessary.
 
-The Azure DBaaS PostgreSQL offering is [Azure Database for PostgreSQL Flexible Server][3], which
-is based on PostgreSQL community edition and supports common administration
+The Azure DBaaS PostgreSQL offering is [Azure Database for PostgreSQL
+Flexible Server][17]. It supports many of the common administration
 tools and programming languages.
 
 #### PaaS (Containers)
@@ -421,7 +410,7 @@ create, modify, or delete resources.
 
 ##### Azure Marketplace
 
-[Azure Marketplace][4] is an online store that contains thousands of IT
+[Azure Marketplace][18] is an online store that contains thousands of IT
 software applications and services built by industry-leading technology
 companies. In Azure Marketplace, it is possible to find, try, buy, and
 deploy the software and services needed to build new solutions and
@@ -478,18 +467,14 @@ Launch the Cloud Shell in a browser at <https://shell.azure.com>.
 #### PowerShell Module
 
 The Azure portal and Windows PowerShell can be used for managing the
-Azure Database for PostgreSQL Flexible Server. To get started with Azure PowerShell, install
-the [Azure PowerShell cmdlets] for PostgreSQL with the following PowerShell
-command:
+Azure Database for PostgreSQL Flexible Server. To get started with Azure
+PowerShell, install the [Azure PowerShell cmdlets] for PostgreSQL with
+the following PowerShell command in an administrator-level PowerShell
+window:
 
 ``` powershell
 Install-Module -Name Az.PostgreSQL
 ```
-
-After the modules are installed, reference tutorials to learn how to
-take advantage of scripting management activities:
-
--   [Tutorial: Design an Azure Database for PostgreSQL Flexible Server using PowerShell]
 
 #### Infrastructure as Code
 
@@ -586,19 +571,19 @@ community:
 
 ## Introduction to Azure Database for PostgreSQL Flexible Server
 
-Developers can deploy PostgreSQL on Azure through Virtual Machines (IaaS) or
-Azure Database for PostgreSQL Flexible Server (PaaS). Azure Database for PostgreSQL Flexible Server offers high
-availability, automated backups, and meets compliance requirements.
-Operational administrators do not have the operational overhead of
-managing the OS and the DB engine. They do not need to worry about OS
-patching, database backups, or server security. Administrators only need
-to manage the applications and data. Developers can focus on schema
-design, building queries, and optimizing query performance.
+Developers can deploy PostgreSQL on Azure through Virtual Machines
+(IaaS) or Azure Database for PostgreSQL Flexible Server (PaaS). Azure
+Database for PostgreSQL Flexible Server offers high availability,
+automated backups, and meets compliance requirements. Operational
+administrators do not have the operational overhead of managing the OS
+and the DB engine. They do not need to worry about OS patching, database
+backups, or server security. Administrators only need to manage the
+applications and data. Developers can focus on schema design, building
+queries, and optimizing query performance.
 
-Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Editions 5.6, 5.7, and
-8.0, making it flexible for most migrations. Reference the [Migrating to
-Azure Database for PostgreSQL Flexible Server] guide for in-depth information and examples on
-how to successfully migrate to Microsoft Azure.
+Azure Database for PostgreSQL Flexible Server supports PostgreSQL
+Community Editions 11 through 16, making it flexible for most
+migrations.
 
 **Control Plane** As the image below demonstrates, Azure Resource
 Manager handles resource configuration, meaning that standard Azure
@@ -606,50 +591,45 @@ management tools, such as the CLI, PowerShell, and ARM templates, are
 still applicable. This is commonly referred to as the *control plane*.
 
 **Data Plane** For managing database objects and access controls at the
-server and database levels, standard PostgreSQL management tools, such as
-[pgAdmin], still apply. This is known as the *data plane*.
+server and database levels, standard PostgreSQL management tools, such
+as [pgAdmin][19], still apply. This is known as the *data plane*.
 
 ![This image demonstrates the control and data plane for Azure Database
-for PostgreSQL.]
+for PostgreSQL Flexible Server.]
 
 ### Azure Database for PostgreSQL Flexible Server deployment options
 
-Azure Database for PostgreSQL Flexible Server provides two options for deployment: Single
-Server and Flexible Server. Below is a summary of these offerings. For a
-more comprehensive comparison table, please consult the article [Choose
-the right PostgreSQL Server option in Azure].
+Azure Database for PostgreSQL Flexible Server provides two options for
+deployment: Single Server and Flexible Server. Below is a summary of
+these offerings. For a more comprehensive comparison table, please
+consult the article [Choose the right PostgreSQL Server option in
+Azure].
 
 > ![Note] **Note:** This guide will be focused on Flexible Server and
-> will not explore Single Server.
-
-#### Flexible Server
-
-Flexible Server is also a PaaS service fully managed by the Azure
-platform, but it exposes more control to the user than Single Server.
+> will not explore Single Server or the Cosmos DB database for
+> PostgresSQL.
 
 ##### Flexible Server video introduction
 
-![The picture displays the logo for Azure Database for PostgreSQL Flexible Server]
+> ![Watch icon] **Watch:** [Introduction to Azure Database for
+> PostgreSQL Flexible Server][20]
 
-> ![Watch icon] **Watch:** [Introduction to the Beginners Series \[1 of
-> 16\] \| Azure Database for PostgreSQL Flexible Server - Beginners Series][5]
-
-> ![Watch icon] **Watch:** [Top 3 Reasons to consider Azure Database for
-> PostgreSQL] to learn more about Flexible Server's advantages.
+### Cost management
 
 Cost management is one of the advantages of Flexible Server: it supports
-a *burstable* tier, which is based on the B-series Azure VM tier and is
-optimized for workloads that do not continually use the CPU. [Flexible
-Server instances can also be paused]. The image below shows how Flexible
-Server works for a non-high availability arrangement.
+a [*burstable* tier], which is based on the B-series Azure VM tier and
+is optimized for workloads that do not continually use the CPU.
+[Flexible Server instances can also be paused]. The image below shows
+how Flexible Server works for a non-high availability arrangement.
 
 > *Locally-redundant storage* replicates data within a single
 > [availability zone]. *Availability zones* are present within a single
 > Azure region (such as East US) and are geographically isolated. All
-> Azure regions that support availability zones have at least three.
+> Azure regions that support availability zones have at least three
+> zones.
 
-![This image demonstrates how PostgreSQL Flexible Server works, with compute,
-storage, and backup storage.]
+![This image demonstrates how PostgreSQL Flexible Server works, with
+compute, storage, and backup storage.]
 
 Here are a few other notable advantages of Flexible Server.
 
@@ -685,27 +665,22 @@ Here are a few other notable advantages of Flexible Server.
 
     ![This image demonstrates server IOPS configuration.]
 
-**Some of these features are not exclusive to Flexible Server. Further
-guide sections demonstrate Flexible Server exposes far more versatility
-and is the preferred Azure Database for PostgreSQL Flexible Server choice in Azure for new
-and existing apps.**
-
 ##### Flexible Server pricing & TCO
 
-The PostgreSQL Flexible Server tiers offer a storage range between 20 GiB and
-16 TiB and the same backup retention period range of 1-35 days. However,
-they differ in core count and memory per vCore. Choosing a compute tier
-affects the database IOPS and pricing.
+The PostgreSQL Flexible Server tiers offer a storage range between 32
+GiB and 32 TiB and the same backup retention period range of 1-35 days.
+However, they differ in core count and memory per vCore. Choosing a
+compute tier affects the database IOPS and pricing.
 
 -   **Burstable**: This tier corresponds to a B-series Azure VM.
-    Instances provisioned in this tier have 1-2 vCores. It is ideal for
+    Instances provisioned in this tier have 1-20 vCores. It is ideal for
     applications that do not utilize the CPU consistently.
 -   **General Purpose**: This tier corresponds to a Ddsv4-series Azure
-    VM. Instances provisioned in this tier have 2-64 vCores and 4 GiB
+    VM. Instances provisioned in this tier have 2-96 vCores and 4 GiB
     memory per vCore. It is ideal for most enterprise applications
     requiring a strong balance between memory and vCore count.
 -   **Memory Optimized**: This tier corresponds to an Edsv4-series Azure
-    VM. Instances provisioned in this tier have 2-64 vCores and 8 GiB
+    VM. Instances provisioned in this tier have 2-96 vCores and 8 GiB
     memory per vCore. It is ideal for high-performance or real-time
     workloads that depend on in-memory processing.
 
@@ -714,8 +689,8 @@ To estimate the TCO for Azure Database for PostgreSQL Flexible Server:
 1.  Use the [Azure Pricing Calculator].
 
     > ![Note icon][Note] **Note:** The [Azure TCO Calculator] can be
-    > used to estimate the cost savings of deploying PaaS Azure PostgreSQL
-    > over the same deployment in an on-premises data center.
+    > used to estimate the cost savings of deploying PaaS Azure
+    > PostgreSQL over the same deployment in an on-premises data center.
 
 2.  Indicate the configuration of on-premises hardware and the Azure
     landing zone, adjust calculation parameters, like the cost of
@@ -726,69 +701,81 @@ To estimate the TCO for Azure Database for PostgreSQL Flexible Server:
 Azure provides a [detailed list of the limitations of Flexible Server].
 Here are a few notable ones.
 
--   Support for only the InnoDB and MEMORY storage engines; MyISAM is
-    unsupported
--   The DBA role and the `SUPER` privilege are unsupported
--   `SELECT ... INTO OUTFILE` statements to write query results to files
-    are unsupported, as the filesystem is not directly exposed by the
-    service
+-   Users are not provided host or OS access to view or modify
+    configuration files such as postgresql.conf
+-   You can't create or load your own extension in Azure Database for
+    PostgreSQL.
 
-#### Single Server
-
-Single Server is suitable when apps do not need extensive database
-customization. Single Server will manage patching, high availability,
-and backups on a predetermined schedule (though developers can set the
-backup retention times between a week and 35 days). To reduce compute
-costs, developers can [pause the Single Server offering]. Single Server
-offers an [SLA of 99.99%]. For a refresher on how the SLAs of individual
-Azure services affect the SLA of the total deployment, review the
-associated [Microsoft Learn Module.]
-
-> ![Note icon][Note] **Note:** Single servers are best suited for
-> existing applications already leveraging Single Server. For all new
-> developments or migrations, Flexible Server is the recommended
-> deployment option. This guide will focus primarily on Flexible Server
-> and will not explore Single Server in depth.
-
-## Migrate to Flexible Server
+## Migrate to Azure Database for Flexible Server
 
 ### From Single Server to Flexible Server
 
-Data-in replication, which replays log events from the source system to
-the target system, is the preferred approach for migrating from Single
-Server to Flexible Server. Typically, teams generate a dump of the
-source Single Server through a utility like `mydumper`. Then, they
-restore the dump to the target Flexible Server using `myloader`. Lastly,
-they configure data-in replication on the target Flexible Server, modify
-their applications to target Flexible Server, and end replication.
+As Single Server will be retired in the future, you will at some point
+need to move your instances to Flexible Server. There are several ways
+to do this including:
 
-Consult the [Azure documentation] for more information.
+-   Database tools
+    -   [Azure Database Migration Service (DMS)]
+    -   [pgcopydb]
+    -   [pg_dump and dp_restore]
+-   [Azure Portal]
+-   [Azure CLI][21]
+
+When migrating, to Flexible Server, you will need to ensure you have met
+all the [migration prerequisites].
 
 ### From on-premises to Flexible Server
 
 Like the migration from Single Server, migrations from sources running
-on-premises utilize data-in replication. The source databases should be
-PostgreSQL 5.7, or higher. Adequate network connectivity should be available.
+on-premises will require the movement of database artifacts and data.
 
-Verify that the source system meets the migration requirements listed in
-the [Azure documentation.]
+Again, verify that the source system meets the migration requirements
+listed in the [Azure documentation][migration prerequisites].
+
+In addition to the migration pre-requisities, you must also ensure that
+a network path exists between the on-premises instance/tool and the
+remote Azure Database for PostgreSQL instance. This can be more
+complicated than at first glance depending on a number of different
+network topology possibilies.
+
+### Offline vs Online migrations
+
+For smaller and less used databases, the migration process is likely to
+be quick and effortless. However, in larger and more heavily used
+environments, the choice of how you migrate will be a vital decision to
+ensure applications and end users are not subject to lengty downtime and
+productivity loss.
+
+You can choose between the two following paths:
+
+-   **Offline Migration** -- In an offline migration, all applications
+    connecting to your single server are stopped and the database(s) is
+    copied to flexible server.
+
+-   **Online Migration** - In an online migration, applications
+    connecting to your single server aren't stopped while database(s)
+    are copied to flexible server. The initial copy of the databases is
+    followed by replication to keep flexible server in sync with the
+    single server. A cutover is performed when the flexible server is in
+    complete sync with the single server resulting in minimal downtime.
 
 ## 02 / Summary
 
-This module explained everyday use cases for PostgreSQL and illustrated the
-typical IaaS and PaaS deployment approaches. Additional hybrid
+This module explained everyday use cases for PostgreSQL and illustrated
+the typical IaaS and PaaS deployment approaches. Additional hybrid
 approaches to hosting PostgreSQL applications and databases on Microsoft
 Azure were discussed as well. The reader was introduced to the core
 approaches to managing Microsoft Azure resources, including imperative
 tools (like the Azure CLI and Azure PowerShell) and declarative tools
 (like ARM templates and Terraform).
 
+Using one or more of the various tools presented, will assist in getting
+the database instance(s) migrated to Azure Database for PostgreSQL in
+the most efficient manner possible.
+
 The emphasis of this guide will continue to be on the advantages of
-Azure Database for PostgreSQL Flexible Server versus the single server
-offering. Flexible Server is the preferred Azure Database for PostgreSQL Flexible Server
-offering. This guide will continue to reiterate the unique benefits of
-Flexible Server throughout the remainder of this guide but also provide
-references to Single Server where necessary and appropriate.
+Azure Database for PostgreSQL Flexible Server. Flexible Server is the
+most commonly recommended Azure Database for PostgreSQL offering.
 
 # 03 / Getting Started - Setup and Tools
 
@@ -804,13 +791,14 @@ understand high-level concepts.
 
 Azure offers a [\$200 free credit for developers to trial Azure] or jump
 right into a Pay-as-you-go subscription. The free account includes
-credits for 750 compute hours of Azure Database for PostgreSQL Flexible Server - Flexible
-Server. [Innovate faster with fully managed PostgreSQL and an Azure free
-account.]
+credits for 750 compute hours of Azure Database for PostgreSQL Flexible
+Server - Flexible Server. [Innovate faster with fully managed PostgreSQL
+and an Azure free
+account.][750 hours of Azure Database for PostgreSQL Flexible Server on a Burstable B1MS instance with 32GB storage for free]
 
 ## Azure subscriptions and limits
 
-As explained in the [Introduction to Azure resource management],
+As explained in the [Introduction to Azure resource management][22],
 subscriptions are a critical component of the Azure hierarchy: resources
 cannot be provisioned without an Azure subscription, and although the
 cloud is highly scalable, it is not possible to provision an unlimited
@@ -831,26 +819,23 @@ for more details.
 
 ## Azure authentication
 
-As mentioned previously, Azure Database for PostgreSQL Flexible Server consists of a data
-plane (data storage and data manipulation) and a control plane
-(management of the Azure resource). Authentication is separated between
-the control plane and the data plane as well.
+As mentioned previously, Azure Database for PostgreSQL Flexible Server
+consists of a data plane (data storage and data manipulation) and a
+control plane (management of the Azure resource). Authentication is
+separated between the control plane and the data plane as well.
 
-In the control plane, Microsoft Entra authenticates users and
-determines whether users are authorized to operate against an Azure
-resource. Review Azure RBAC in the [Introduction to Azure resource
-management] section for more information.
+In the control plane, Microsoft Entra authenticates users and determines
+whether users are authorized to operate against an Azure resource.
+Review Azure RBAC in the [Introduction to Azure resource management][22]
+section for more information.
 
 The built-in PostgreSQL account management system governs access for
 administrator and non-administrator users in the data plane. Moreover,
-Single Server supports security principals in Microsoft Entra,
-like users and groups, for data-plane access management. Using AAD
-data-plane access management allows organizations to enforce credential
-policies, specify authentication modes, and more. Refer to the
-[Microsoft docs] for more information.
-
-> **Note:** Flexible Server does not support Microsoft Entra
-> principal authentication.
+Azure Database for PostgreSQL supports security principals in Microsoft
+Entra, like users and groups, for data-plane access management. Using
+AAD data-plane access management allows organizations to enforce
+credential policies, specify authentication modes, and more. Refer to
+the [Microsoft docs] for more information.
 
 ## Development editor tools
 
@@ -864,10 +849,17 @@ Code from the [Microsoft download page.]
 
 ![A simple screenshot of Visual Studio Code.]
 
-The [PostgreSQL][6] extension allows developers to organize their database
-connections, administer databases, and query databases. Consider adding
-it to Visual Studio Code environment to make working with PostgreSQL
-instances more efficient.
+The [PostgreSQL][23] extension allows developers to:
+
+-   Connect to PostgreSQL instances
+-   Manage connection profiles
+-   Connect to a different Postgres instance or database in each tab
+-   View object DDL with 'Go to Definition' and 'Peek Definition'
+-   Write queries with IntelliSense
+-   Run queries and save results as JSON, csv, or Excel
+
+Consider adding it to Visual Studio Code environment to make working
+with PostgreSQL instances more efficient.
 
 When you are done developing for the day, you can stop Flexible Server.
 This feature helps keep the organizational costs low.
@@ -884,29 +876,26 @@ This feature helps keep the organizational costs low.
 
 The focus of this guide is on demonstrating practical uses of PostgreSQL
 Flexible Server, such as querying Flexible Server with common languages
-and administrative tools. This section illustrates how to deploy PostgreSQL
-Flexible Server using various Azure management tools in preparation to
-follow the guide language samples.
-
-> ![Watch icon] **Watch:** [Demo: Getting Started \[4 of 16\] \| Azure
-> Database for PostgreSQL - Beginners Series][7]
+and administrative tools. This section illustrates how to deploy
+PostgreSQL Flexible Server using various Azure management tools in
+preparation to follow the guide application samples.
 
 ### Azure portal
 
 Azure provides a [Quickstart document] for users who want to use the
 Azure portal to provision Flexible Server. While this is a great
-opportunity to explore the configuration parameters of Flexible Server,
-IaC approaches, like the imperative Azure CLI or the declarative ARM
-template, are preferable to create deployments that can easily be
-replicated in other environments.
+opportunity to explore the configuration parameters of Azure Database
+for Flexible Server, IaC approaches, like the imperative Azure CLI or
+the declarative ARM template, are preferable to create deployments that
+can easily be replicated in other environments.
 
 ### Azure CLI
 
-The Azure CLI `az PostgreSQL flexible-server` set of commands is very robust.
-[Azure's quickstart guide] demonstrates how the
-`az PostgreSQL flexible-server create` and
-`az PostgreSQL flexible-server db create` commands can automatically populate
-server parameters.
+The Azure CLI `az postgresql flexible-server` set of commands is very
+robust. [Azure's quickstart guide] demonstrates how the
+`az postgresql flexible-server create` and
+`az postgresql flexible-server db create` commands can automatically
+populate server parameters.
 
 > ![Note icon][Note] **Note:** It is possible to exercise greater
 > control over these commands by reviewing the documentation for the
@@ -915,17 +904,11 @@ server parameters.
 Running the CLI commands from [Azure Cloud Shell] is preferable, as the
 context is already authenticated with Azure.
 
-The image below, from a successful CLI provisioning attempt for Flexible
-Server, maps CLI flags to various Flexible Server parameters.
-
-![This image demonstrates the PostgreSQL Flexible Server provisioned through
-Bash CLI commands.]
-
 ### ARM template
 
-Azure provides a [Quickstart document][8] with a comprehensive ARM
-template for a Flexible Server deployment. We have also provided a
-straightforward
+Azure provides a [Quickstart document][24] with a basic ARM template for
+a Flexible Server deployment. We have also provided an ARM template to
+support the applications explored in this guide
 (https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json).
 The Azure sample template requires additional parameters to run. It can
 be deployed with the `New-AzResourceGroupDeployment` PowerShell command
@@ -934,28 +917,31 @@ in the Quickstart or the `az deployment group create` CLI command.
 ## Connect and query Azure Database for PostgreSQL Flexible Server using pgAdmin
 
 This section explains how to perform queries against Azure Database for
-PostgreSQL Flexible Server using pgAdmin, a UI-based management tool.
+PostgreSQL Flexible Server using PostgreSQL pgAdmin, a UI-based
+management tool.
 
 ### Setup
 
-Follow one of the methods in the [Create a Flexible Server database]
+Follow one of the methods in the [Create a Flexible Server database][25]
 document to create a Flexible Server instance with a database.
 
-Download pgAdmin from the [PostgreSQL Downloads.]
+Download pgAdmin tool from the [pgAdmin Downloads.]
 
 ### Instructions
 
-Explore the [Use pgAdmin with Azure Database for PostgreSQL Flexible Server Flexible
-Server] article to perform the following activities:
+TODO - Cleanup/create
+
+Explore the [Use pgAdmin tool with Azure Database for PostgreSQL
+Flexible Server] article to perform the following activities:
 
 -   Create a new database in the Flexible Server instance
 -   Create, query, and update data in a table (inventory)
 -   Delete records from the table
 
-> ![Note icon][Note] **Note:** pgAdmin can automatically
-> initiate an SSL-secured connection to Azure Database for PostgreSQL Flexible Server.
-> However, it is recommended to use the [SSL public certificate] in the
-> connections. To bind the SSL public certificate to pgAdmin,
+> ![Note icon][Note] **Note:** pgAdmin can automatically initiate an
+> SSL-secured connection to Azure Database for PostgreSQL Flexible
+> Server. However, it is recommended to use the [SSL public certificate]
+> in the connections. To bind the SSL public certificate to pgAdmin,
 > choose the downloaded certificate file as the **SSL CA File** on the
 > **SSL** tab.
 
@@ -964,26 +950,26 @@ box.]
 
 ## Connect and query Azure Database for PostgreSQL Flexible Server using the Azure CLI
 
-Workbench is not the only method of running queries against your PostgreSQL
-database. This section explains how to perform queries against Azure
-Database for PostgreSQL Flexible Server using the Azure CLI and the
-`az PostgreSQL flexible-server` utilities and references the steps in the
-[Quickstart: Connect and query with Azure CLI with Azure Database for
-PostgreSQL - Flexible Server] article.
+pgAdmin is not the only method of running queries against your
+PostgreSQL database. This section explains how to perform queries
+against Azure Database for PostgreSQL Flexible Server using the Azure
+CLI and the `az postgresql flexible-server` utilities and references the
+steps in the [Quickstart: Connect and query with Azure CLI with Azure
+Database for PostgreSQL Flexible Server - Flexible Server] article.
 
 ### Setup
 
 While the Azure article demonstrates how to provision a Flexible Server
 instance using the CLI, any of the presented provisioning methods in the
-[Create a Flexible Server database] section are possible.
+[Create a Flexible Server database][25] section are possible.
 
 ### Instructions
 
 The Azure CLI supports running queries interactively, via the
-`az PostgreSQL flexible-server connect` command, which is similar to running
-queries interactively against a PostgreSQL instance through the PostgreSQL CLI. It
-is also possible to run an individual SQL query or a SQL file using the
-`az PostgreSQL flexible-server execute` command.
+`az postgresql flexible-server connect` command, which is similar to
+running queries interactively against a PostgreSQL instance through the
+PostgreSQL CLI. It is also possible to run an individual SQL query or a
+SQL file using the `az postgresql flexible-server execute` command.
 
 > ![Note icon][Note] **Note:** These commands require the
 > `rdbms-connect` CLI extension, which is automatically installed if it
@@ -1008,9 +994,8 @@ Server instance. The new user can only query tables in `newdatabase`.
 ![This image demonstrates running queries against the Flexible Server
 instance using the Azure CLI.]
 
-> For more details on creating databases and users in Single Server and
-> Flexible Server, consult [this document.] Note that it uses the
-> `PostgreSQL` CLI.
+> For more details on creating databases and users in Flexible Server,
+> consult [this document.] Note that it uses the `PostgreSQL` CLI.
 
 ## Language support
 
@@ -1027,14 +1012,14 @@ language or platform. Below are some quick links:
 
 ### PHP
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server
-(Single Server and Flexible Server) through PHP.
+This section describes tools to interact with Azure Database for
+PostgreSQL Flexible Server through PHP.
 
 #### Connect and query
 
 ##### Setup
 
-Follow one of the methods in the [Create a Flexible Server database]
+Follow one of the methods in the [Create a Flexible Server database][25]
 document to create a Flexible Server instance with a database.
 
 Moreover, install PHP from the [downloads page.] These instructions were
@@ -1053,8 +1038,8 @@ Windows. Adjust this if necessary.
 ##### Instructions
 
 Microsoft's [Quickstart guide] performs standard CRUD operations against
-the PostgreSQL instance from a console app. This document modifies the code
-segments from the guide to provide an encrypted connection to the
+the PostgreSQL instance from a console app. This document modifies the
+code segments from the guide to provide an encrypted connection to the
 Flexible Server instance.
 
 The first code snippet creates a table called `Products` with four
@@ -1079,7 +1064,7 @@ die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
 
 // Run the create table query
-if (PostgreSQLi_query($conn, '
+if (pg_query($conn, '
 CREATE TABLE Products (
 `Id` INT NOT NULL AUTO_INCREMENT ,
 `ProductName` VARCHAR(200) NOT NULL ,
@@ -1136,8 +1121,8 @@ PostgreSQLi_close($conn);
 The console output message `Insert: Affected 1 rows` should be
 displayed.
 
-The third code snippet utilizes the `PostgreSQLi_query()` method, just like
-the first code snippet. However, it also utilizes the
+The third code snippet utilizes the `pg_queryd, just
+like the first code snippet. However, it also utilizes the
 `PostgreSQLi_fetch_assoc()` method to parse the result set.
 
 ``` php
@@ -1157,7 +1142,7 @@ die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 
 //Run the Select query
 printf("Reading data from table: \n");
-$res = PostgreSQLi_query($conn, 'SELECT * FROM Products');
+$res = pg_query($conn, 'SELECT * FROM Products');
 while ($row = PostgreSQLi_fetch_assoc($res)) {
 var_dump($row);
 }
@@ -1249,17 +1234,19 @@ performed against that table (DML).
 
 There are two major APIs to interact with PostgreSQL in PHP:
 
--   *PostgreSQLi*, *PostgreSQLi* is an improvement over the earlier *PostgreSQL* API,
-    which does not meet the security needs of modern applications.
+-   *PostgreSQLi*, *PostgreSQLi* is an improvement over the earlier
+    *PostgreSQL* API, which does not meet the security needs of modern
+    applications.
 -   *PDO*, or *PHP Data Objects*, allows applications to access
     databases in PHP through abstractions, standardizing data access for
     different databases. PDO works with a database-specific driver, like
     *PDO_PostgreSQL*.
 
-> ![Tip] **Tip:** *PostgreSQLi* and *PDO* are wrappers over the *PostgreSQLnd* or
-> *libPostgreSQLclient* C libraries: it is highly recommended to use
-> *PostgreSQLnd* as the default backend library due to its more advanced
-> features. *PostgreSQLnd* is the default backend provided with PHP.
+> ![Tip] **Tip:** *PostgreSQLi* and *PDO* are wrappers over the
+> *PostgreSQLnd* or *libPostgreSQLclient* C libraries: it is highly
+> recommended to use *PostgreSQLnd* as the default backend library due
+> to its more advanced features. *PostgreSQLnd* is the default backend
+> provided with PHP.
 
 Flexible Server and Single Server are compatible with all PHP client
 utilities for PostgreSQL Community Edition.
@@ -1276,20 +1263,21 @@ utilities for PostgreSQL Community Edition.
 
 ### Java
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server
-Flexible Server through Java.
+This section describes tools to interact with Azure Database for
+PostgreSQL Flexible Server through Java.
 
 #### Connect and query
 
 Refer to the [Quickstart: Use Java and JDBC with Azure Database for
-PostgreSQL]
+PostgreSQL Flexible Server]
 
 #### Application connectors
 
-*PostgreSQL Connector/J* is a JDBC-compatible API that natively implements
-the PostgreSQL protocol in Java, rather than utilizing client libraries. The
-Connect and Query sample does not directly utilize *PostgreSQL Connector/J*,
-but Microsoft provides a sample that uses this technology.
+*PostgreSQL Connector/J* is a JDBC-compatible API that natively
+implements the PostgreSQL protocol in Java, rather than utilizing client
+libraries. The Connect and Query sample does not directly utilize
+*PostgreSQL Connector/J*, but Microsoft provides a sample that uses this
+technology.
 
 Developers use persistence frameworks like Spring Data JPA to accelerate
 development. They can focus on the application business logic, not basic
@@ -1297,15 +1285,16 @@ database communication. Spring Data JPA extends the JPA specification,
 which governs *object-relational mapping* (ORM) technologies in Java. It
 functions on top of JPA implementations, like the Hibernate ORM. The
 Connect and Query sample leverages Spring Data JPA and *PostgreSQL
-Connector/J* to access the Azure PostgreSQL instance and expose data through
-a web API.
+Connector/J* to access the Azure PostgreSQL instance and expose data
+through a web API.
 
-Flexible Server is compatible with all Java client utilities for PostgreSQL
-Community Edition. However, Microsoft has only validated *PostgreSQL
-Connector/J* for use with Single Server due to its network connectivity
-setup. Refer to the [PostgreSQL drivers and management tools compatible with
-Azure Database for PostgreSQL Flexible Server] article for more information about drivers
-compatible with Single Server.
+Flexible Server is compatible with all Java client utilities for
+PostgreSQL Community Edition. However, Microsoft has only validated
+*PostgreSQL Connector/J* for use with Single Server due to its network
+connectivity setup. Refer to the [PostgreSQL drivers and management
+tools compatible with Azure Database for PostgreSQL Flexible Server]
+article for more information about drivers compatible with Single
+Server.
 
 #### Resources
 
@@ -1345,7 +1334,7 @@ and Azure Spring Cloud from their Maven workflows.
 
 > ![Note icon][Note] **Note:** Application patterns with Azure
 > Functions, Azure App Service, and Azure Spring Cloud are addressed in
-> the [04 / End to End application development] story.
+> the [04 / End to End application development][26] story.
 
 **Tool-Specific Resources**
 
@@ -1357,17 +1346,18 @@ and Azure Spring Cloud from their Maven workflows.
 
 ### Python
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server
-(Single Server and Flexible Server) through Python.
+This section describes tools to interact with Azure Database for
+PostgreSQL Flexible Server through Python.
 
 #### Connect and query
 
 ##### Setup
 
-This section will demonstrate how to query Azure Database for PostgreSQL Flexible Server
-Flexible Server using the `PostgreSQL-connector-python` library on Python 3.
+This section will demonstrate how to query Azure Database for PostgreSQL
+Flexible Server using the `PostgreSQL-connector-python` library on
+Python 3.
 
-Follow one of the methods in the [Create a Flexible Server database]
+Follow one of the methods in the [Create a Flexible Server database][25]
 document to create a Flexible Server instance with a database.
 
 Moreover, install Python 3.7 or above from the [Downloads page]. This
@@ -1429,8 +1419,8 @@ config = {
 }
 ```
 
-The second code snippet connects to the PostgreSQL instance and executes a
-raw query to SELECT all rows from the `inventory` table. This time, it
+The second code snippet connects to the PostgreSQL instance and executes
+a raw query to SELECT all rows from the `inventory` table. This time, it
 uses the `fetchall()` method to parse the result set into a Python
 iterable. An output like the one below should display:
 
@@ -1473,21 +1463,23 @@ into the console to remove it. .
 #### Application connectors
 
 *PostgreSQL Connector/Python* offers a Python Database API
-specification-compatible driver for PostgreSQL database access (PEP 249). It
-does not depend on a PostgreSQL client library. The Python Connect and Query
-sample utilizes *PostgreSQL Connector/Python*.
+specification-compatible driver for PostgreSQL database access (PEP
+249). It does not depend on a PostgreSQL client library. The Python
+Connect and Query sample utilizes *PostgreSQL Connector/Python*.
 
-An alternative connector is *PyPostgreSQL*. It is also PEP 249-compliant.
+An alternative connector is *PyPostgreSQL*. It is also PEP
+249-compliant.
 
 Django is a popular web application framework for Python. The Django ORM
-officially supports PostgreSQL through (1) the *PostgreSQLclient* Python wrapper
-for the native PostgreSQL driver or (2) the *PostgreSQL Connector/Python* API.
-*PostgreSQLclient* is recommended for use with the Django ORM.
+officially supports PostgreSQL through (1) the *PostgreSQLclient* Python
+wrapper for the native PostgreSQL driver or (2) the *PostgreSQL
+Connector/Python* API. *PostgreSQLclient* is recommended for use with
+the Django ORM.
 
-Flexible Server is compatible with all Python client utilities for PostgreSQL
-Community Edition. However, Microsoft has only validated *PostgreSQL
-Connector/Python* and *PyPostgreSQL* for use with Single Server due to its
-network connectivity setup. Refer to
+Flexible Server is compatible with all Python client utilities for
+PostgreSQL Community Edition. However, Microsoft has only validated
+*PostgreSQL Connector/Python* and *PyPostgreSQL* for use with Single
+Server due to its network connectivity setup. Refer to
 [this][PostgreSQL drivers and management tools compatible with Azure Database for PostgreSQL Flexible Server]
 document for more information about drivers compatible with Single
 Server.
@@ -1502,8 +1494,9 @@ Server.
 ### Other notable languages for PostgreSQL apps
 
 Like the other language support guides, Flexible Server is compatible
-with all PostgreSQL clients that support PostgreSQL Community Edition. Microsoft
-provides a [curated list of compatible clients for PostgreSQL Single
+with all PostgreSQL clients that support PostgreSQL Community Edition.
+Microsoft provides a [curated list of compatible clients for PostgreSQL
+Single
 Server][PostgreSQL drivers and management tools compatible with Azure Database for PostgreSQL Flexible Server].
 
 #### .NET
@@ -1512,33 +1505,33 @@ Server][PostgreSQL drivers and management tools compatible with Azure Database f
 portability: two of the most popular ORMs are Entity Framework (Core)
 and Dapper.
 
-Using PostgreSQL with Entity Framework (Core) requires [PostgreSQL Connector/NET],
-which is compatible with Single Server. Learn more [from the PostgreSQL
-documentation] about support for Entity Framework (Core).
+Using PostgreSQL with Entity Framework (Core) requires [PostgreSQL
+Connector/NET], which is compatible with Single Server. Learn more [from
+the PostgreSQL documentation] about support for Entity Framework (Core).
 
-Microsoft has also validated that PostgreSQL Single Server is compatible with
-the [Async PostgreSQL Connector for .NET]. This connector works with both
-Dapper and Entity Framework (Core).
+Microsoft has also validated that PostgreSQL Single Server is compatible
+with the [Async PostgreSQL Connector for .NET]. This connector works
+with both Dapper and Entity Framework (Core).
 
 #### Ruby
 
-The [*PostgreSQL2*] library, compatible with Single Server, provides PostgreSQL
-connectivity in Ruby by referencing C implementations of the PostgreSQL
-connector.
+The [*PostgreSQL2*] library, compatible with Single Server, provides
+PostgreSQL connectivity in Ruby by referencing C implementations of the
+PostgreSQL connector.
 
 ## 03 / Summary
 
 This module augmented an understanding of Flexible Server through
 practical examples of how modern applications access Flexible Server.
-Flexible Server, unlike Single Server, supports all standard PostgreSQL
-clients. Previously presented information Microsoft Azure deployment
-tools and concepts were utilized to provision a Flexible Server instance
-to run the included code examples.
+Flexible Server supports all standard PostgreSQL clients. Previously
+presented information Microsoft Azure deployment tools and concepts were
+utilized to provision a Flexible Server instance to run the included
+code examples.
 
 In the next section, the Contoso NoshNow Sample Application provides a
 starting point for the entire developer journey. It provides high-level
-concepts and shows how PostgreSQL apps can be evolved into a scalable modern
-applications.
+concepts and shows how PostgreSQL apps can be evolved into a scalable
+modern applications.
 
 # 04 / End to End application development
 
@@ -1554,12 +1547,6 @@ With a configured development environment available, it is time to
 explore the various architecture and deployment options available when
 deploying an application and its corresponding PostgreSQL database.
 
-![This image shows a Data Exposed video explaining the benefits that
-Flexible Server offers for application development.]
-
-> ![Watch icon] **Watch:** [Develop applications faster with Azure
-> Database for PostgreSQL -- Flexible Server \| Data Exposed]
-
 This chapter focuses on these subjects:
 
 ![This image explains the progression of topics in this chapter.]
@@ -1567,19 +1554,19 @@ This chapter focuses on these subjects:
 ## Common Azure development services overview
 
 This section explains common cloud application architectures and Azure
-services. While these services are not directly related to PostgreSQL, they
-are often used in modern Azure applications. This content provides a
-fundamental understanding of the common Azure development resources.
+services. While these services are not directly related to PostgreSQL,
+they are often used in modern Azure applications. This content provides
+a fundamental understanding of the common Azure development resources.
 Subsequent material will reference these Azure services heavily.
 
 ### Web Apps
 
-Developers can deploy PostgreSQL-backed apps to Azure on a Windows or Linux
-environment through [Azure App Service,][Azure App Service (PaaS)] a
-PaaS platform that supports popular frameworks, including PHP, Java,
-Python, Docker containers, and more. App Service is compatible with
-manual deployment mechanisms, including ZIP files, FTP, and local Git
-repositories. It also supports automated mechanisms, like GitHub
+Developers can deploy PostgreSQL-backed apps to Azure on a Windows or
+Linux environment through [Azure App Service,][Azure App Service (PaaS)]
+a PaaS platform that supports popular frameworks, including .NET, PHP,
+Java, Python, Docker containers, and more. App Service is compatible
+with manual deployment mechanisms, including ZIP files, FTP, and local
+Git repositories. It also supports automated mechanisms, like GitHub
 Actions, to deploy faster and minimize issues. Coupled with powerful
 management tools, like the Kudu console, App Service is suitable for
 many enterprise apps.
@@ -1588,8 +1575,8 @@ many enterprise apps.
 
 -   [App Service overview][Azure App Service (PaaS)]
 -   PHP and PostgreSQL Flexible Server sample app:
-    -   Manual deployment: [Running the sample application]
-    -   Scripted deployment: [Cloud Deployment to Azure App Service]
+    -   Manual deployment: [Running the sample application][27]
+    -   Scripted deployment: [Cloud Deployment to Azure App Service][28]
 
 ### Serverless Compute
 
@@ -1604,8 +1591,8 @@ An Azure Functions instance consists of individual functions that
 execute in response to a *trigger*, like a cron job or an HTTP request.
 These functions interface with other Azure resources, like Cosmos DB,
 through bindings, though resources without default bindings, like Azure
-Database for PostgreSQL, can be accessed through language-specific
-connectors.
+Database for PostgreSQL Flexible Server, can be accessed through
+language-specific connectors.
 
 Like Azure App Service, Function Apps support multiple programming
 languages. Developers can extend support to unsupported languages
@@ -1621,8 +1608,8 @@ architectures with Durable Functions.
 -   [Introduction to Azure Functions][Azure Functions]
 -   [Azure Functions hosting options]
 -   Azure Functions with PostgreSQL Flexible Server samples:
-    -   .NET: [Azure Function with PostgreSQL (.NET)]
-    -   Python: [Azure Function with PostgreSQL (Python)]
+    -   .NET: [Azure Function with PostgreSQL (.NET)][29]
+    -   Python: [Azure Function with PostgreSQL (Python)][30]
 
 ### Azure Logic Apps
 
@@ -1631,16 +1618,16 @@ connecting applications that reside on-premises and in the cloud. Azure
 Logic Apps *workflows* execute *actions* after a *trigger* is fired.
 
 Azure Logic Apps interface with external systems through *managed
-connectors*. Microsoft provides a managed connector for PostgreSQL databases,
-but this connector cannot easily be used for Azure Database for PostgreSQL Flexible Server,
-as the PostgreSQL managed connector accesses local PostgreSQL databases through a
-data gateway.
+connectors*. Microsoft provides a managed connector for PostgreSQL
+databases, but this connector cannot easily be used for Azure Database
+for PostgreSQL Flexible Server, as the PostgreSQL managed connector
+accesses local PostgreSQL databases through a data gateway.
 
 #### Resources
 
 -   [What is a Azure Logic App?][Azure Logic Apps]
 -   [Compare Azure Functions and Azure Logic Apps]
--   [Logic Apps with PostgreSQL]
+-   [Logic Apps with PostgreSQL][31]
 
 ### Microservices
 
@@ -1662,7 +1649,7 @@ Service through CI/CD platforms, such as GitHub Actions.
 
 -   [Build microservices on Azure]
 -   [Using domain analysis to model microservices]
--   [Deploying a Laravel app backed by a Java REST API to AKS]
+-   [Deploying a Laravel app backed by a Java REST API to AKS][32]
 
 ### API Management
 
@@ -1771,8 +1758,8 @@ or in response to Azure events through the Event Grid integration.
 
 ## Introduction to the Sample Application
 
-Instead of learning multiple sample applications, the guide focused on
-evolving architecture and deployment strategies. Readers should learn
+Instead of learning multiple sample applications, the guide focuses on
+evolving an architecture and deployment strategies. Readers should learn
 the sample application structure once and focus on how the application
 will need to be modified to fit the deployment model and architecture
 evolution.
@@ -1819,53 +1806,48 @@ You will find the steps to run the lab in the artifacts repo here:
 
 ## Deployment evolution options
 
-Let us discuss a journey overview. The journey will start with a classic
-deployment to a typical web and database server on a `physical` or
-`virtualized` host operating system. Next, explore the evolution of the
-potential deployment options from a simple web app deployed to App
+Let us discuss the journey overview. The journey will start with a
+classic deployment to a typical web and database server on a `physical`
+or `virtualized` host operating system. Next, explore the evolution of
+the potential deployment options from a simple web app deployed to App
 Service through a complex progression ending with the application
 running as containers in Azure Kubernetes Service (AKS) with Azure
-Database for PostgreSQL hosting the database.
+Database for PostgreSQL Flexible Server hosting the database.
 
 The following scenarios will be discussed and demonstrated as part of
-this Azure PostgreSQL developer's guide. All of the following deployments
-will utilize the same application and database backend and what is
-needed to modify the application to support the targets. Topics will be
-discussed in the following simple to complex architecture order.
+this Azure PostgreSQL developer's guide. All of the following
+deployments will utilize the same application and database backend and
+what is needed to modify the application to support the targets. Topics
+will be discussed in the following simple to complex architecture order.
 
 ### Deployment option TOC
 
-1.  [Classic deployment]
-2.  [Azure VM Deployment]
-3.  [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server
-    Flexible Server]
-4.  [App Service with In-App PostgreSQL]
-5.  [Continuous Integration (CI) and Continuous Delivery (CD)]
-6.  [Containerizing layers with Docker]
-7.  [Azure Container Instances (ACI)]
-8.  [App Service Containers]
-9.  [Azure Kubernetes Service (AKS)]
-10. [AKS with PostgreSQL Flexible Server]
+1.  [Classic deployment][33]
+2.  [Azure VM Deployment][34]
+3.  [Simple App Service deployment with Azure Database for PostgreSQL
+    Flexible Server][35]
+4.  \[App Service with In-App PostgreSQL\]
+5.  [Continuous Integration (CI) and Continuous Delivery (CD)][36]
+6.  [Containerizing layers with Docker][37]
+7.  [Azure Container Instances (ACI)][38]
+8.  [App Service Containers][39]
+9.  [Azure Kubernetes Service (AKS)][40]
+10. [AKS with PostgreSQL Flexible Server][41]
 
 ## Classic deployment
 
 In a classic deployment, development and operations staff will typically
 set up a web server (such as Internet Information Services (IIS),
 Apache, or NGINX) on physical or virtualized **on-premises** hardware.
-Most applications using PostgreSQL as the backend are using PHP as the
-frontend (which is the case for the sample application in this guide);
-as such, the web server must be configured to support PHP. This includes
-configuring and enabling any PHP extensions and installing the required
-software to support those extensions.
 
 Some web servers are relatively easier to set up than others. The
 complexity depends on what the target operating system is and what
 features the application and database are using, for example, SSL/TLS.
 
 In addition to the web server, it is also necessary to install and
-configure the physical PostgreSQL database server. This includes creating the
-schema and the application users that will be used to access the target
-database(s).
+configure the physical PostgreSQL database server. This includes
+creating the schema and the application users that will be used to
+access the target database(s).
 
 As part of our sample application and supporting Azure Landing zone
 created by the ARM templates, most of this gets set up automatically.
@@ -1873,17 +1855,12 @@ Once the software is installed and configured, it is up to the developer
 to deploy the application and database on the system. Classical
 deployments tend to be manual such that the files are copied to the
 target production web server and then deploy the database schema and
-supported data via PostgreSQL tools or the pgAdmin.
+supported data via PostgreSQL tools or the pgAdmin tool.
 
 The biggest advantage of a classic on-premises deployment is the
 infrastructure team will have full control of the environment. The
 biggest weakness is they must also maintain every aspect of the
 environment as well.
-
-To perform a simulated classical deployment in Azure, go to the [Classic
-Deployment to PHP-enabled IIS server] article.
-
-![This image demonstrates the classic deployment.]
 
 ## Azure VM deployment
 
@@ -1902,56 +1879,18 @@ configuration options with just a few clicks of the mouse. This is in
 contrast to the relatively complex and extra work needed to enable these
 types of services on-premises.
 
-To perform an Azure VM deployment, reference the [Cloud Deployment to
-Azure VM] article.
-
-![This image demonstrates the Azure VM deployment.]
-
 ## Simple App Service deployment with Azure Database for PostgreSQL Flexible Server
 
 If supporting the operating system and the various other software is not
 a preferred approach, the next evolutionary path is to remove the
 operating system and web server from the list of setup and configuration
 steps. This can be accomplished by utilizing the Platform as a Service
-(PaaS) offerings of Azure App Service and Azure Database for PostgreSQL Flexible Server.
+(PaaS) offerings of Azure App Service and Azure Database for PostgreSQL
+Flexible Server.
 
 However, modernizing an application and migrating them to these
 aforementioned services may introduce some relatively small application
 changes.
-
-To implement this deployment, reference the [Cloud Deployment to Azure
-App
-Service][](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc)
-article.
-
-![This image demonstrates an App Service deployment that references
-Flexible Server.]
-
-## App Service with In-App PostgreSQL
-
-If the target database is relatively small, it can be integrated with
-the application-hosting environment. Azure App Service provides for this
-integrated hosting and allows for the deployment of the database to the
-same App Service and connectivity is provided through the `localhost`
-server name.
-
-Administration and integration are accomplished through a built-in
-**myphpadmin** interface in the Azure Portal. From this admin portal, it
-is possible to run any supported SQL commands to import or export the
-database.
-
-The limits of the PostgreSQL instance are primarily driven by the size of the
-corresponding [App Service Plan]. The biggest factor about limits is
-normally the disk space allocated to any App Services in the Plan. App
-Service Plan storage sizes range from 1GB to 1TB; therefore, if a
-database will grow past 1TB, it cannot be hosted as InApp and it will
-need to be hosted in Flexible Server. For a list of other limitations,
-reference [Announcing Azure App Service PostgreSQL in-app].
-
-To implement this deployment, reference the [Cloud Deployment to Azure
-App Service with PostgreSQL InApp] article.
-
-![This image demonstrates an App Service deployment with in-app PostgreSQL.]
 
 ## Continuous Integration (CI) and Continuous Delivery (CD)
 
@@ -1965,11 +1904,6 @@ Whether using Azure DevOps or Github, there will be some setup work to
 support the deployments. This typically includes creating credentials
 that can connect to the target environment and deploy the release
 artifacts.
-
-To perform deployments using Azure DevOps and GitHub Actions, reference
-the [Deployment via CI/CD] article.
-
-![This image demonstrates an App Service deployment with CI/CD.]
 
 ## Containerizing layers with Docker
 
@@ -1989,13 +1923,6 @@ but once the build environment is set up and working, it is possible to
 push container updates very quickly to multi-region load-balanced
 environments.
 
-To perform deployments using Docker, reference the [Migrate to Docker
-Containers] article. This article containerizes the Laravel sample
-application and its PostgreSQL database as separate containers that
-communicate through the Docker runtime on the VM instance.
-
-![This image demonstrates a containerized deployment.]
-
 ## Azure Container Instances (ACI)
 
 After application and data layers are migrated to containers, a hosting
@@ -2006,13 +1933,6 @@ Azure Container Instances can deploy one container at a time or multiple
 containers to keep the application, API, and data contained in the same
 resource.
 
-To implement this deployment, reference the [Migrate to Azure Container
-Instances (ACI)] article. This article serves the Laravel app and PostgreSQL
-database containers on ACI. It also utilizes an Azure File Share to
-persist data.
-
-![This image demonstrates a deployment to Azure Container Instances.]
-
 ## App Service Containers
 
 Developers can extend the benefits of App Service, like scalability,
@@ -2021,12 +1941,6 @@ using App Service for Containers. This offering supports individual
 containers and multi-container apps through Docker Compose files.
 Containers give teams added flexibility beyond the platforms supported
 directly by App Service.
-
-To perform deployments using Azure App Service containers, reference the
-[Migrate to Azure App Service Containers] article. This example deploys
-both the database and web app containers to App Service for Containers.
-
-![This image demonstrates a deployment to App Service for Containers.]
 
 ## Azure Kubernetes Service (AKS)
 
@@ -2042,30 +1956,12 @@ numerous benefits:
 
 -   In supported regions, co-locating Flexible Server and AKS nodes in
     the same availability zone minimizes latency.
--   Applications can host database proxies, like ProxySQL for PostgreSQL, [on
-    the same infrastructure as their apps].
--   Teams can manage Flexible Server instances directly from AKS through
-    the [Azure Service Operator].
-
-To perform deployments using AKS, reference the [Migrate to Azure
-Kubernetes Services (AKS)] article to host the database and web app
-containers on an enterprise-ready AKS instance.
-
-![This image demonstrates a deployment to Azure Kubernetes Service
-(AKS).]
 
 ## AKS with PostgreSQL Flexible Server
 
 Running the database layer in a container is better than running it in a
 VM, but not as great as removing all the operating system and software
 management components.
-
-To implement this deployment, reference the [Utilize AKS and Azure
-Database for PostgreSQL Flexible Server] article. This article extends the
-benefits of a PaaS database to the Contoso NoshNow application.
-
-![This image demonstrates an AKS deployment that references Flexible
-Server.]
 
 ## Start the hands-on-tutorial developer journey
 
@@ -2159,7 +2055,7 @@ tools have already been installed. Additionally, the supporting GitHub
 repository has been downloaded that includes all the artifacts needed to
 start the developer journey. These files can be found on the
 **pgsqldevSUFFIX-paw1** machine in the
-`C:\labfiles\microsoft-PostgreSQL-developer-guide` folder.
+`C:\labfiles\microsoft-postgresql-developer-guide` folder.
 
 #### Step 3 - Start your journey
 
@@ -2170,21 +2066,16 @@ start to finish in the following order:
 
 Click the links to complete each journey before going to the next.
 
-1.  [Classic deployment][Classic Deployment to PHP-enabled IIS server]
-2.  [Azure VM Deployment][Cloud Deployment to Azure VM]
-3.  [Simple App Service Deployment with Azure Database for PostgreSQL Flexible Server
-    Flexible Server][Cloud Deployment to Azure App Service]
-4.  [App Service with InApp
-    PostgreSQL][Cloud Deployment to Azure App Service with PostgreSQL InApp]
-5.  [Continuous Integration / Continuous Delivery][Deployment via CI/CD]
-6.  [Containerizing layers with Docker][Migrate to Docker Containers]
-7.  [Azure Container Instances
-    (ACI)][Migrate to Azure Container Instances (ACI)]
-8.  [App Service Containers][Migrate to Azure App Service Containers]
-9.  [Azure Kubernetes Service
-    (AKS)][Migrate to Azure Kubernetes Services (AKS)]
-10. [AKS with PostgreSQL Flexible
-    Server][Utilize AKS and Azure Database for PostgreSQL Flexible Server]
+1.  [Classic deployment][42]
+2.  [Azure VM Deployment][43]
+3.  [Simple App Service Deployment with Azure Database for PostgreSQL
+    Flexible Server][28]
+4.  [Continuous Integration / Continuous Delivery]
+5.  [Containerizing layers with Docker][44]
+6.  [Azure Container Instances (ACI)][45]
+7.  [App Service Containers][46]
+8.  [Azure Kubernetes Service (AKS)][47]
+9.  [AKS with PostgreSQL Flexible Server][48]
 
 ##### Compute and orchestration tutorial lab links
 
@@ -2199,11 +2090,11 @@ pre-requisite Azure services and resources are available for the reader
 to progress to the more complex deployment examples.
 
 -   [Azure Functions]
-    -   [Dotnet][Azure Function with PostgreSQL (.NET)]
-    -   [Python][Azure Function with PostgreSQL (Python)]
+    -   [Dotnet][29]
+    -   [Python][30]
     -   [AKS]
     -   [Secured with MSI]
--   [Logic Apps][Logic Apps with PostgreSQL]
+-   [Logic Apps][31]
 -   [Azure Data Factory]
 -   [Azure Synapse Analytics]
 -   [Azure Batch]
@@ -2223,7 +2114,7 @@ design patterns, you can see how the Sample Application architecture
 changed when it utilizes a Java REST microservice architecture.
 
 ![Read more icon] [Deploying a Laravel app backed by a Java REST API to
-AKS][9].
+AKS][49].
 
 ## Application continuous integration and deployment
 
@@ -2269,8 +2160,9 @@ parallel test execution.
 
 Azure App Service supports automated deployments from local Git
 repositories: developers simply need to push their code to an App
-Service remote repository. Consult the [Running the sample application]
-for a step-by-step App Service deployment from a local Git repository.
+Service remote repository. Consult the [Running the sample
+application][27] for a step-by-step App Service deployment from a local
+Git repository.
 
 #### App Service Deployment Slots
 
@@ -2389,7 +2281,132 @@ microservices.
     to the next state.
 -   Utilize modern development and deployment methodologies.
 
-# 05 / Monitoring
+## Vectors
+
+Dimension: The dimension of a vector is the number of elements that it
+contains. In the example above, vector1 and vector2 are both
+two-dimensional since they each have two elements. You can only
+visualize vectors with three dimensions or less, but generally, vectors
+can have any number of dimensions. In fact, as you'll see later, vectors
+that encode words and text tend to have hundreds or thousands of
+dimensions.
+
+Magnitude: The magnitude of a vector is a non-negative number that
+represents the vector's size or length. You can also refer to the
+magnitude of a vector as the norm, and you can denote it with \|\|v\|\|
+or \|v\|. There are many different definitions of magnitude or norm, but
+the most common is the Euclidean norm or 2-norm. You'll learn how to
+compute this later.
+
+Unit vector: A unit vector is a vector with a magnitude of one. In the
+example above, vector1 and vector2 are unit vectors.
+
+Direction: The direction of a vector specifies the line along which the
+vector points. You can represent direction using angles, unit vectors,
+or coordinates in different coordinate systems.
+
+Dot product (scalar product): The dot product of two vectors, u and v,
+is a number given by u ⋅ v = \|\|u\|\| \|\|v\|\| cos(θ), where θ is the
+angle between the two vectors. Another way to compute the dot product is
+to do an element-wise multiplication of u and v and sum the results. The
+dot product is one of the most important and widely used vector
+operations because it measures the similarity between two vectors.
+You'll see more of this later on.
+
+Orthogonal vectors: Vectors are orthogonal if their dot product is zero,
+meaning that they're at a 90 degree angle to each other. You can think
+of orthogonal vectors as being completely unrelated to each other.
+
+Dense vector: A vector is considered dense if most of its elements are
+non-zero. Later on, you'll see that words and text are most usefully
+represented with dense vectors because each dimension encodes meaningful
+information.
+
+## Vector Similarity
+
+Euclidean distance -- The straight-line distance between points. L1
+(Manhattan) distance -- The sum of the differences of all of the vector
+components. L1 distance measures how many orthogonal city blocks you
+need to traverse from point A to point B. L-infinity (chessboard)
+distance -- The number of moves a King would make on an n-dimensional
+chessboard. It's different than Euclidean distance on the diagonals---a
+diagonal step on a 2-dimensional chessboard is 1.41 Euclidean units
+away, but 2 L-infinity units away. Inner product -- The product of the
+magnitudes of two vectors and the cosine of the angle between them.
+Usually used for natural language processing (NLP) vector similarity.
+Cosine similarity -- The cosine of the angle between two vectors in a
+vector space. Hamming distance -- For binary-coded vectors, the number
+of bits that differ between the two vectors.
+
+## Embeddings
+
+### Text
+
+### Voice
+
+### Image
+
+# References - DELETE
+
+https://realpython.com/chromadb-vector-database/
+
+## Standard Patterns
+
+### RAG
+
+### CoT
+
+### ReAct
+
+### Prompt Engineering
+
+## Large Languange Models (LLMs)
+
+## Small Language Models (SLMs)
+
+## Responsible AI
+
+TODO \## Prompt Engineering
+
+TODO
+
+### What is a prompt
+
+### What is prompt engineering
+
+### Anatomy of a prompt
+
+### Zero-shot
+
+### Few-shot
+
+# Generative AI
+
+# Chat Applications
+
+# Image Generation
+
+# Low Code Applciations
+
+# External Applications with function calling
+
+# Azure Database for PostgreSQL AI
+
+## pgvector
+
+TODO
+
+## Azure extension
+
+TODO
+
+## embedding performance
+
+TODO
+
+## Other vector databases
+
+TODO \# 05 / Monitoring
 
 Once the application and database are deployed, the next phase is to
 manage the new cloud-based data workload and supporting resources.
@@ -2434,17 +2451,17 @@ This chapter will be focused on these monitoring concepts:
 
 Azure Monitor is the Azure native platform service that provides a
 centralized area for monitoring your Azure resources. It monitors all
-layers of the Azure stack, starting with tenant services, such as Azure
-Active Directory, subscription-level events, and Azure Service Health.
+layers of the Azure stack, starting with tenant services, such as
+Microsoft Entra, subscription-level events, and Azure Service Health.
 
 At the lower levels, it monitors infrastructure resources, such as VMs,
 storage, and network resources. Administrators and developers employ
 Azure Monitor to consolidate metrics about the performance and
 reliability of their various cloud layers, including Azure Database for
-PostgreSQL Flexible Server instances. Management tools, such as Microsoft
-Defender for Cloud and Azure Automation, also push log data to Azure
-Monitor. The service aggregates and stores this telemetry in a log data
-store optimized for cost and performance.
+PostgreSQL Flexible Server instances. Management tools, such as
+Microsoft Defender for Cloud and Azure Automation, also push log data to
+Azure Monitor. The service aggregates and stores this telemetry in a log
+data store optimized for cost and performance.
 
 ![This image clarifies how Azure Monitor integrates with various Azure
 data sources and management tools.]
@@ -2560,7 +2577,7 @@ Using Application Insights:
 -   Or enable Application Insights by using the Application Insights
     agent in Azure.
 
-![][10]
+![][50]
 
 The instrumentation code directs telemetry data to an Application
 Insights resource by using a unique instrumentation key and URL.
@@ -2632,7 +2649,7 @@ Application Insights]
 Azure can be configured to monitor the Flexible server database as well.
 
 > ![Watch icon] **Watch:** [Monitoring \[7 of 16\] \| Azure Database for
-> PostgreSQL - Beginners Series][11]
+> PostgreSQL Flexible Server - Beginners Series][51]
 
 ### Azure Database for PostgreSQL Flexible Server overview
 
@@ -2650,8 +2667,8 @@ displayed.
 
 ![This image shows Metrics on the Monitoring tab in the Azure portal.]
 
-![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Servers
-with built-in metrics]
+![Read more icon] [Monitor Azure Database for PostgreSQL Flexible
+Servers with built-in metrics]
 
 ### Diagnostic settings
 
@@ -2714,17 +2731,17 @@ specific query.
 > troubleshooting purposes.
 
 Finally, the `slow_query_log` can be set to show slow queries in the
-PostgreSQL log files (default is OFF). The `long_query_time` server parameter
-can be used to log long-running queries (default long query time is 10
-sec).
+PostgreSQL log files (default is OFF). The `long_query_time` server
+parameter can be used to log long-running queries (default long query
+time is 10 sec).
 
-![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Server by
-using Azure Monitor workbooks]
+![Read more icon] [Monitor Azure Database for PostgreSQL Flexible Server
+by using Azure Monitor workbooks]
 
 ### Resource health
 
-It is essential to know if the PostgreSQL service has experienced a downtime
-and the related details. Resource health can assist with this
+It is essential to know if the PostgreSQL service has experienced a
+downtime and the related details. Resource health can assist with this
 information. If you need additional assistance, a helpful contact
 support link available.
 
@@ -2758,34 +2775,34 @@ Once the alert has been configured, you can create an action group to
 send a notification to the operations team.
 
 ![Read more icon] [Set up alerts on metrics for Azure Database for
-PostgreSQL-Flexible Server]
+PostgreSQL Flexible Server-Flexible Server]
 
 ### Server Logs
 
-Server logs from Azure Database for PostgreSQL Flexible Server can also be extracted through
-the Azure platform *resource logs*, which track data plane events. Azure
-can route these logs to Log Analytics workspaces for manipulation and
-visualization through KQL.
+Server logs from Azure Database for PostgreSQL Flexible Server can also
+be extracted through the Azure platform *resource logs*, which track
+data plane events. Azure can route these logs to Log Analytics
+workspaces for manipulation and visualization through KQL.
 
 In addition to Log Analytics, the data can also be routed to Event Hubs
 for third-party integrations and Azure storage for long-term backup.
 
 ### PostgreSQL audit logs
 
-PostgreSQL has a robust built-in audit log feature. This [audit log feature
-is disabled] in Azure Database for PostgreSQL Flexible Server by default. Server level
-logging can be enabled by changing the `audit_log_enabled` server
-parameter. Once enabled, logs can be accessed through [Azure Monitor]
-and [Log Analytics] by turning on [diagnostic
+PostgreSQL has a robust built-in audit log feature. This [audit log
+feature is disabled] in Azure Database for PostgreSQL Flexible Server by
+default. Server level logging can be enabled by changing the
+`audit_log_enabled` server parameter. Once enabled, logs can be accessed
+through [Azure Monitor] and [Log Analytics] by turning on [diagnostic
 logging][Set up diagnostics].
 
-In addition to metrics, it is also possible to enable PostgreSQL logs to be
-ingested into Azure Monitor. While metrics are better suited for
+In addition to metrics, it is also possible to enable PostgreSQL logs to
+be ingested into Azure Monitor. While metrics are better suited for
 real-time decision-making, logs are also useful for deriving insights.
-One source of logs generated by Flexible Server is PostgreSQL *audit logs*,
-which indicate connections, DDL and DML operations, and more. Many
-businesses utilize audit logs to meet compliance requirements, but they
-can impact performance.
+One source of logs generated by Flexible Server is PostgreSQL *audit
+logs*, which indicate connections, DDL and DML operations, and more.
+Many businesses utilize audit logs to meet compliance requirements, but
+they can impact performance.
 
 > ![Warning] **Warning**: Excessive audit logging can degrade server
 > performance, so be mindful of the events and users configured for
@@ -2918,8 +2935,8 @@ action groups (`az monitor action-group`), alert rules and metrics
 (`az monitor metrics`), and more.
 
 -   [Azure CLI reference commands for Azure Monitor]
--   [Monitor and scale an Azure Database for PostgreSQL Flexible Server using
-    Azure CLI]
+-   [Monitor and scale an Azure Database for PostgreSQL Flexible Server
+    using Azure CLI]
 
 #### Azure Portal
 
@@ -2927,8 +2944,8 @@ While the Azure Portal does not provide automation capabilities like the
 CLI or the REST API, it does support configurable dashboards and
 provides a strong introduction to monitoring metrics in PostgreSQL.
 
--   [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible
-    Server]
+-   [Set up alerts on metrics for Azure Database for PostgreSQL Flexible
+    Server-Flexible Server]
 -   [Tutorial: Analyze metrics for an Azure resource]
 
 #### Azure Monitor REST API
@@ -2938,8 +2955,8 @@ with other monitoring systems like external SIEM systems. It also allows
 applications to manipulate alert rules externally.
 
 To interact with the REST API, applications first need to obtain an
-authentication token from Azure Active Directory and then use that token
-in API requests.
+authentication token from Microsoft Entra and then use that token in API
+requests.
 
 -   [REST API Walkthrough]
 -   [Azure Monitor REST API Reference]
@@ -2972,8 +2989,8 @@ being reactive.
     For example, storing slow query logs on Flexible Server instances
     without proper management consumes storage space, affects database
     performance.
--   Configure your Azure resources to emit strategic logs (like PostgreSQL
-    Flexible Server slow query logs) and route them to Azure
+-   Configure your Azure resources to emit strategic logs (like
+    PostgreSQL Flexible Server slow query logs) and route them to Azure
     destinations, like Log Analytics workspaces.
 -   Develop KQL queries to record database performance, query
     performance, and DDL/DML activity.
@@ -2985,7 +3002,7 @@ being reactive.
 ## Recommended content
 
 -   [Best practices for alerting on metrics with Azure Database for
-    PostgreSQL monitoring][Microsoft blog]
+    PostgreSQL Flexible Server monitoring][Microsoft blog]
 
 -   [Configure audit logs (Azure portal)]
 
@@ -3001,8 +3018,8 @@ being reactive.
 
 -   [Application Monitoring for Azure App Service Overview]
 
--   [Configure and access audit logs for Azure Database for PostgreSQL Flexible Server in the
-    Azure Portal]
+-   [Configure and access audit logs for Azure Database for PostgreSQL
+    Flexible Server in the Azure Portal]
 
 -   [Kusto Query Language (KQL)]
 
@@ -3010,22 +3027,22 @@ being reactive.
 
 -   [Get started with log queries in Azure Monitor]
 
--   [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and
-    Management (PMM)]
+-   [Monitor Azure Database for PostgreSQL Flexible Server using Percona
+    Monitoring and Management (PMM)]
 
 # 06 / Networking and Security
 
-The Azure Database for PostgreSQL Flexible Server network configuration can adversely affect
-security, application performance (latency), and compliance. This
-section explains the fundamentals of Azure Database for PostgreSQL Flexible Server networking
-concepts.
+The Azure Database for PostgreSQL Flexible Server network configuration
+can adversely affect security, application performance (latency), and
+compliance. This section explains the fundamentals of Azure Database for
+PostgreSQL Flexible Server networking concepts.
 
-Azure Database for PostgreSQL Flexible Server provides several mechanisms to secure the
-networking layers by limiting access to only authorized users,
-applications, and devices.
+Azure Database for PostgreSQL Flexible Server provides several
+mechanisms to secure the networking layers by limiting access to only
+authorized users, applications, and devices.
 
 > ![Watch icon] **Watch:** [Networking and Security \[6 of 16\] \| Azure
-> Database for PostgreSQL - Beginners Series][12]
+> Database for PostgreSQL Flexible Server - Beginners Series][52]
 
 ## Public vs. Private Access
 
@@ -3034,23 +3051,24 @@ be locked down to only be accessible by Azure connections resources.
 However, it does not have to be just Azure-based resources. VPNs and
 Express route circuits can be used to provide access to Azure resources
 from on-premises environments. The following section describes how to
-configure Azure Database for PostgreSQL Flexible Server instances for network connectivity.
+configure Azure Database for PostgreSQL Flexible Server instances for
+network connectivity.
 
 ### Public Access
 
-By default, Azure Database for PostgreSQL Flexible Server allows access to internet-based
-clients, including other Azure services. If this is an undesirable
-state, firewall access control lists (ACLs) can limit access to hosts
-that fall within the allowed trusted IP address ranges.
+By default, Azure Database for PostgreSQL Flexible Server allows access
+to internet-based clients, including other Azure services. If this is an
+undesirable state, firewall access control lists (ACLs) can limit access
+to hosts that fall within the allowed trusted IP address ranges.
 
-The first line of defense for protecting a PostgreSQL instance access is to
-implement [firewall rules]. IP addresses can be limited to only valid
+The first line of defense for protecting a PostgreSQL instance access is
+to implement [firewall rules]. IP addresses can be limited to only valid
 locations when accessing the instance via internal or external IPs. If a
 PostgreSQL instance's purpose is to serve internal applications, then
 [restrict public access].
 
-![This image shows how PostgreSQL Flexible Server instances evaluate firewall
-rules.]
+![This image shows how PostgreSQL Flexible Server instances evaluate
+firewall rules.]
 
 Firewall rules are set at the server level, meaning that they govern
 network access to all databases on the server instance. While it is best
@@ -3065,23 +3083,24 @@ to access the server and databases.
 > owned by other Azure customers.
 
 -   Flexible Server
-    -   [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible
-        Server using the Azure portal]
-    -   [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible
-        Server using Azure CLI]
+    -   [Manage firewall rules for Azure Database for PostgreSQL
+        Flexible Server - Flexible Server using the Azure portal]
+    -   [Manage firewall rules for Azure Database for PostgreSQL
+        Flexible Server - Flexible Server using Azure CLI]
     -   [ARM Reference for Firewall Rules]
 -   Single Server
-    -   [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by
-        using the Azure portal]
-    -   [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by
-        using the Azure CLI]
-    -   [ARM Reference for Firewall Rules][13]
+    -   [Create and manage Azure Database for PostgreSQL Flexible Server
+        firewall rules by using the Azure portal]
+    -   [Create and manage Azure Database for PostgreSQL Flexible Server
+        firewall rules by using the Azure CLI]
+    -   [ARM Reference for Firewall Rules][53]
 
 ### Private Access
 
-As mentioned, Azure Database for PostgreSQL Flexible Server supports public connectivity by
-default. However, most organizations will utilize private connectivity
-to limit access to Azure virtual networks and resources.
+As mentioned, Azure Database for PostgreSQL Flexible Server supports
+public connectivity by default. However, most organizations will utilize
+private connectivity to limit access to Azure virtual networks and
+resources.
 
 > **Note:** There are many other [basic Azure Networking considerations]
 > that must be taken into account that are not the focus of this guide.
@@ -3094,7 +3113,7 @@ private IP allocation block. Choosing an allocation block is an
 important consideration, especially if the environment requires multiple
 virtual networks to be joined.
 
-> ![Warning][14] **Warning:** The allocation blocks of the virtual
+> ![Warning][54] **Warning:** The allocation blocks of the virtual
 > networks cannot overlap. It is best practice to choose allocation
 > blocks from [RFC 1918.]
 
@@ -3106,11 +3125,11 @@ virtual networks to be joined.
 Each virtual network is further segmented into subnets. Subnets improve
 virtual network organization and security, just as they do on-premises.
 
-When moving an application to Azure along with the PostgreSQL workload, there
-will likely multiple virtual networks set up in a hub and spoke pattern
-that will require [Virtual Network Peering] to be configured. Virtual
-networks are joined through *peering*. The peered virtual networks can
-reside in the same or different Azure regions.
+When moving an application to Azure along with the PostgreSQL workload,
+there will likely multiple virtual networks set up in a hub and spoke
+pattern that will require [Virtual Network Peering] to be configured.
+Virtual networks are joined through *peering*. The peered virtual
+networks can reside in the same or different Azure regions.
 
 Lastly, it is possible to access resources in a virtual network from
 on-premises. Some organizations opt to use VPN connections through
@@ -3134,9 +3153,9 @@ access. When enabling virtual network integration, the target virtual
 network subnet must be *delegated*, meaning that it can only contain
 Flexible Server instances. Because Flexible Server is deployed in a
 subnet, it will receive a private IP address. To resolve the DNS names
-of Azure Database for PostgreSQL Flexible Server instances, the virtual networks are
-integrated with a private DNS zone to support domain name resolution for
-the Flexible Server instances.
+of Azure Database for PostgreSQL Flexible Server instances, the virtual
+networks are integrated with a private DNS zone to support domain name
+resolution for the Flexible Server instances.
 
 > ![Note icon][Note] **Note:** If the Flexible Server client, such as a
 > VM, is located in a peered virtual network, then the private DNS zone
@@ -3144,19 +3163,20 @@ the Flexible Server instances.
 > peered virtual network.
 
 > ![Note icon][Note] **Note:** Private DNS zone names must end with
-> PostgreSQL.database.azure.com. If you are connecting to the Azure Database
-> for PostgreSQL - Flexible sever with SSL and are using an option to perform
-> full verification (sslmode=VERIFY_IDENTITY) with certificate subject
-> name, use `<servername>`{=html}.postgres.database.azure.com in your
-> connection string.
+> PostgreSQL.database.azure.com. If you are connecting to the Azure
+> Database for PostgreSQL Flexible Server - Flexible sever with SSL and
+> are using an option to perform full verification
+> (sslmode=VERIFY_IDENTITY) with certificate subject name, use
+> `<servername>`{=html}.postgres.database.azure.com in your connection
+> string.
 
 ![Read more icon] [Private DNS zone overview]
 
 For more information on configuring Private Access for Flexible Server,
 reference the following:
 
--   [Azure Portal]
--   [Azure CLI][15]
+-   [Azure Portal][55]
+-   [Azure CLI][56]
 
 ## Networking best practices for Flexible Server
 
@@ -3165,7 +3185,7 @@ reference the following:
     instance in the same zone to minimize latency.
 
 > For a review of availability zones, consult the [Introduction to Azure
-> Database for PostgreSQL] document.
+> Database for PostgreSQL Flexible Server][57] document.
 
 -   Organize the components of the application into multiple virtual
     networks, such as in a [hub and spoke configuration.] Employ virtual
@@ -3199,15 +3219,16 @@ many of these tools.
 
 ### Encryption
 
-Azure Database for PostgreSQL Flexible Server offers various encryption features, including
-encryption for data, backups, and temporary files created during query
-execution.
+Azure Database for PostgreSQL Flexible Server offers various encryption
+features, including encryption for data, backups, and temporary files
+created during query execution.
 
-Data stored in the Azure Database for PostgreSQL Flexible Server instances are encrypted at
-rest by default. Any automated backups are also encrypted to prevent
-potential leakage of data to unauthorized parties. This encryption is
-typically performed with a key generated when the Azure Database for
-PostgreSQL instance is created.
+Data stored in the Azure Database for PostgreSQL Flexible Server
+instances are encrypted at rest by default. Any automated backups are
+also encrypted to prevent potential leakage of data to unauthorized
+parties. This encryption is typically performed with a key generated
+when the Azure Database for PostgreSQL Flexible Server instance is
+created.
 
 In addition to be encrypted at rest, data can be encrypted during
 transit using SSL/TLS. SSL/TLS is enabled by default. As previously
@@ -3217,19 +3238,18 @@ possible to allow insecure connections for legacy applications or
 enforce a minimum TLS version for connections, **but this should be used
 sparingly and in highly network-protected environments**. Flexible
 Server's TLS enforcement status can be set through the
-`require_secure_transport` PostgreSQL server parameter. Consult the guides
-below.
+`require_secure_transport` PostgreSQL server parameter. Consult the
+guides below.
 
--   [Flexible Server][16]
--   [Single Server][17]
+-   [Flexible Server][58]
 
 ### Microsoft Sentinel
 
 Many of the items discussed thus far operate in their sphere of
 influence and are not designed to work directly with each other. Every
 secure feature provided by Microsoft Azure and corresponding
-applications, like Azure Active Directory, contains a piece of the
-security puzzle.
+applications, like Microsoft Entra, contains a piece of the security
+puzzle.
 
 Disparate components require a holistic solution to provide a complete
 picture of the security posture and the automated event remediation
@@ -3253,17 +3273,18 @@ few years. Determining where sensitive information lives across your
 data estate is a requirement in today's privacy-centered society.
 
 [Microsoft Purview] can scan your data estate, including your Azure
-Database for PostgreSQL instances, to find personally identifiable
-information or other sensitive information types. This data can then be
-analyzed, classified and lineage defined across your cloud-based
-resources.
+Database for PostgreSQL Flexible Server instances, to find personally
+identifiable information or other sensitive information types. This data
+can then be analyzed, classified and lineage defined across your
+cloud-based resources.
 
 ### Security baselines
 
 In addition to all the topics discussed above, the Azure Database for
-PostgreSQL [security baseline] is a basic set of potential tasks that can be
-implemented on your Azure Database for PostgreSQL Flexible Server instances to further
-solidify your security posture.
+PostgreSQL Flexible Server [security baseline] is a basic set of
+potential tasks that can be implemented on your Azure Database for
+PostgreSQL Flexible Server instances to further solidify your security
+posture.
 
 ## 06 / Summary
 
@@ -3285,7 +3306,7 @@ secure as if running it on-premises.
 ## Security checklist
 
 -   Utilize the most robust possible authentication mechanisms such as
-    Azure Active Directory.
+    Microsoft Entra.
 -   Enable Advanced Threat Protection and Microsoft Defender for Cloud.
 -   Enable all auditing features.
 -   Enable encryption at every layer that supports it.
@@ -3308,8 +3329,9 @@ errors in the process or setup. Tests can be run in the application
 build or deployment process.
 
 This chapter discusses the various types of tests you can run against
-Azure Database for PostgreSQL Flexible Server application and database. Running tests ensures
-the optimal performance of your application and database deployments.
+Azure Database for PostgreSQL Flexible Server application and database.
+Running tests ensures the optimal performance of your application and
+database deployments.
 
 ## Approaches
 
@@ -3516,14 +3538,14 @@ prevent unwanted downtime or lost of application functionality.
 
 # 08 / Performance and Optimization
 
-After organizations migrate their PostgreSQL workloads to Azure, they unlock
-turnkey performance monitoring solutions, scalability, and the benefits
-of Azure's global footprint. Operation teams must establish performance
-baselines before fine-tuning their PostgreSQL instances to ensure that
-changes, especially those that require application downtime, are worth
-doing. If you can, **simulate your workload in a test environment** and
-make adjustments in test before implementing changes in a production
-environment.
+After organizations migrate their PostgreSQL workloads to Azure, they
+unlock turnkey performance monitoring solutions, scalability, and the
+benefits of Azure's global footprint. Operation teams must establish
+performance baselines before fine-tuning their PostgreSQL instances to
+ensure that changes, especially those that require application downtime,
+are worth doing. If you can, **simulate your workload in a test
+environment** and make adjustments in test before implementing changes
+in a production environment.
 
 Before jumping into specific and time consuming performance
 enhancements/investigation, there are some general tips that can improve
@@ -3532,8 +3554,8 @@ performance in your environment that this section will explore.
 ## General performance tips
 
 The following are some basic tips for how to increase or ensure the
-performance of your Azure Database for PostgreSQL Flexible Server applications and database
-workloads:
+performance of your Azure Database for PostgreSQL Flexible Server
+applications and database workloads:
 
 -   Ensure the input/output operations per second (IOPS) are sufficient
     for the application needs. Keep the IO latency low.
@@ -3553,11 +3575,12 @@ workloads:
 -   Consider using query caching solution like Heimdall Data Proxy.
     Limit connections based on per user and per database. Protect the
     database from being overwhelmed by a single application or feature.
--   Temporarily scale your Azure Database for PostgreSQL Flexible Server resources for taxing
-    tasks. Once your task is complete, scale it down.
+-   Temporarily scale your Azure Database for PostgreSQL Flexible Server
+    resources for taxing tasks. Once your task is complete, scale it
+    down.
 
 See [Best practices for optimal performance of your Azure Database for
-PostgreSQL]
+PostgreSQL Flexible Server]
 
 ## Monitoring hardware and query performance
 
@@ -3588,9 +3611,10 @@ between the `Burstable`, `General Purpose`, and `Memory Optimized`
 tiers. Tier scaling requires restarting the Flexible Server instance,
 causing 60-120 seconds of downtime. If your application does not require
 a significant compute, use the `Burstable` SKU. When your application
-requires more performance during certain times, Azure Database for PostgreSQL Flexible Server
-can increase performance automatically and reduce when you do not need
-it. Organizations can save operational costs.
+requires more performance during certain times, Azure Database for
+PostgreSQL Flexible Server can increase performance automatically and
+reduce when you do not need it. Organizations can save operational
+costs.
 
 ## Scaling the server
 
@@ -3605,9 +3629,10 @@ to monitor relevant metrics and scale the server.
 
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
 
-An Azure Database for PostgreSQL Flexible Server performance best practice is to allocate
-enough RAM so that your working set resides almost completely in memory.
-Check if the memory percentage used is reaching the limits.
+An Azure Database for PostgreSQL Flexible Server performance best
+practice is to allocate enough RAM so that your working set resides
+almost completely in memory. Check if the memory percentage used is
+reaching the limits.
 
 Do not be surprised. Set up alerts on thresholds to ensure that
 notifications can be sent to administrators before servers reach limits.
@@ -3615,8 +3640,8 @@ Based on the defined limits, check if scaling the database SKU to a
 higher compute size or to a better pricing tier increases performance
 enough to meet the workload requirements.
 
-For information on monitoring a DB instance's metrics, see [PostgreSQL DB
-Metrics].
+For information on monitoring a DB instance's metrics, see [PostgreSQL
+DB Metrics].
 
 ## Moving regions
 
@@ -3639,11 +3664,12 @@ intact.
 
 ![This image shows PostgreSQL server parameters in the Azure portal.]
 
-As part of the migration, the on-premises [server parameters][18] were
+As part of the migration, the on-premises [server parameters][59] were
 likely modified to support a fast egress. Also, modifications were made
-to the Azure Database for PostgreSQL Flexible Server parameters to support a
-fast ingress. The Azure server parameters should be set back to their
-original on-premises workload-optimized values after the migration.
+to the Azure Database for PostgreSQL Flexible Server parameters to
+support a fast ingress. The Azure server parameters should be set back
+to their original on-premises workload-optimized values after the
+migration.
 
 However, be sure to review and make server parameter changes that are
 appropriate for the workload and the environment. Some values that were
@@ -3658,20 +3684,20 @@ modified. Verify the strategy before making environment assumptions.
 
 Sometimes, just upgrading versions may be the solution to an issue.
 Flexible Server supports PostgreSQL versions 5.7 and 8.0. Migrating from
-on-premises PostgreSQL 5.x to PostgreSQL Flexible Server 5.7 or 8.0 delivers major
-performance improvements. Consult the [Microsoft documentation] for more
-information regarding PostgreSQL Azure migrations, including major version
-changes.
+on-premises PostgreSQL 5.x to PostgreSQL Flexible Server 5.7 or 8.0
+delivers major performance improvements. Consult the [Microsoft
+documentation] for more information regarding PostgreSQL Azure
+migrations, including major version changes.
 
 ## Customizing the container runtime
 
-When using containers for your PostgreSQL and PHP application, the platform
-choice has a huge impact on your performance limits. In most cases,
-creating a custom PHP container can improve performance up to 6x over
-the out-of-the-box official PHP containers. It is important to determine
-if the effort of building a custom image will be worth the performance
-gain from the work. Also, keep in mind recent versions of PHP tend to
-perform better than older versions.
+When using containers for your PostgreSQL and PHP application, the
+platform choice has a huge impact on your performance limits. In most
+cases, creating a custom PHP container can improve performance up to 6x
+over the out-of-the-box official PHP containers. It is important to
+determine if the effort of building a custom image will be worth the
+performance gain from the work. Also, keep in mind recent versions of
+PHP tend to perform better than older versions.
 
 Custom environments can be tested against standard workloads by running
 various benchmarks using the [PHPBench tool].
@@ -3694,12 +3720,13 @@ instance is performing:
 
 More Common sets of tests typically utilize TPC benchmarks such as
 [TPC-H] but there are many more [types of tests] that can be run against
-the PostgreSQL environment to test against specific workloads and patterns.
+the PostgreSQL environment to test against specific workloads and
+patterns.
 
 ## Instrumenting vital server resources
 
-The [PostgreSQL Performance Schema] **sys_schema** provides a way to inspect
-internal server execution events at runtime. The PostgreSQL
+The [PostgreSQL Performance Schema] **sys_schema** provides a way to
+inspect internal server execution events at runtime. The PostgreSQL
 performance_schema provides instrumentation for many vital server
 resources such as memory allocation, stored programs, metadata locking,
 etc. However, the performance_schema contains more than 80 tables and
@@ -3707,10 +3734,11 @@ getting the necessary information often requires joining tables within
 the performance_schema, and tables from the information_schema. Building
 on both performance_schema and information_schema, the sys_schema
 provides a powerful collection of user-friendly views in a read-only
-database and is fully enabled in Azure Database for PostgreSQL Flexible Server version 5.7.
+database and is fully enabled in Azure Database for PostgreSQL Flexible
+Server version 5.7.
 
-![This image shows how to use tables in the sys schema to optimize PostgreSQL
-queries.]
+![This image shows how to use tables in the sys schema to optimize
+PostgreSQL queries.]
 
 > ![Warning] **Warning**: The Performance Schema avoids using mutexes to
 > collect or produce data, so there are no guarantees of consistency and
@@ -3720,11 +3748,11 @@ queries.]
 ## Server Parameters
 
 PostgreSQL server parameters allow database architects and developers to
-optimize the PostgreSQL engine for their specific application workloads. One
-of the advantages of Flexible Server is the large number of server
+optimize the PostgreSQL engine for their specific application workloads.
+One of the advantages of Flexible Server is the large number of server
 parameters exposed by the service. Some important exposed parameters are
 listed below, but storage and compute tiers affect the possible
-parameter values. Consult the [Microsoft documentation][18] for more
+parameter values. Consult the [Microsoft documentation][59] for more
 information.
 
 Some parameters that cannot be configured at the server level can be
@@ -3738,7 +3766,7 @@ parameters warrants a restart.
 -   [innodb_buffer_pool_size] indicates the size of the buffer pool, a
     cache for tables and indexes
 
-    > For this parameter, consult the [Microsoft documentation][18], as
+    > For this parameter, consult the [Microsoft documentation][59], as
     > the database compute tier affects the parameter value range
 
 -   [innodb_file_per_table] affects where table and index data are
@@ -3874,15 +3902,15 @@ images and scripts, and more.
 ### Using Azure CDN in Web Apps
 
 Azure App Service natively supports integrating with Azure CDN. Refer to
-the digital marketing sample in the [12 / PostgreSQL architectures] section
-for a practical example involving Azure CDN and a content management
-system. For non-App Service workloads, Azure CDN is compatible with any
-public web server.
+the digital marketing sample in the [12 / PostgreSQL architectures][60]
+section for a practical example involving Azure CDN and a content
+management system. For non-App Service workloads, Azure CDN is
+compatible with any public web server.
 
 ## 08 / Summary
 
-After developers benchmark their PostgreSQL Flexible Server workloads, they
-can tune server parameters, scale compute tiers, and optimize their
+After developers benchmark their PostgreSQL Flexible Server workloads,
+they can tune server parameters, scale compute tiers, and optimize their
 application containers to improve performance. Through Azure Monitor and
 KQL queries, teams monitor the performance of their workloads.
 
@@ -3920,10 +3948,11 @@ and clues to the potential problem area(s).
 ### Connectivity issues
 
 Both server misconfiguration issues and network access issues can
-prevent clients from connecting to an Azure Database for PostgreSQL Flexible Server instance.
-For some helpful connectivity suggestions, reference the [Troubleshoot
-connection issues to Azure Database for PostgreSQL Flexible Server] and [Handle transient
-errors and connect efficiently to Azure Database for PostgreSQL Flexible Server] articles.
+prevent clients from connecting to an Azure Database for PostgreSQL
+Flexible Server instance. For some helpful connectivity suggestions,
+reference the [Troubleshoot connection issues to Azure Database for
+PostgreSQL Flexible Server] and [Handle transient errors and connect
+efficiently to Azure Database for PostgreSQL Flexible Server] articles.
 
 #### Misconfiguration
 
@@ -3947,7 +3976,7 @@ errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]
     through the TLS 1.2 protocol; clients using TLS 1.0 or 1.1 will be
     unable to connect unless explicitly enabled. If it is not possible
     to change the TLS protocol used by an application, then [change the
-    Flexible Server instance's supported TLS versions.][16]
+    Flexible Server instance's supported TLS versions.][58]
 
 -   If connecting to Flexible Server via public access, ensure that
     firewall ACLs permit access from the client.
@@ -3957,10 +3986,10 @@ errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]
 
 -   Use a fully qualified domain name instead of an IP address in
     connection strings. This type of configuration is especially
-    important with Azure Database for PostgreSQL Flexible Server Single Server instances,
-    which use gateways to route incoming requests to database servers.
-    It is possible to use the gateway public IP address in your
-    applications.
+    important with Azure Database for PostgreSQL Flexible Server Single
+    Server instances, which use gateways to route incoming requests to
+    database servers. It is possible to use the gateway public IP
+    address in your applications.
 
     > ![Warning] **Warning:** However, as Microsoft plans to [retire
     > older gateways], you are responsible for updating the gateway IP
@@ -3979,33 +4008,35 @@ errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]
 ### Resource issues
 
 If the application experiences transient connectivity issues, perhaps
-the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained.
-Monitor resource usage and determine whether the instance needs to be
-scaled up.
+the resources of the Azure Database for PostgreSQL Flexible Server
+instance are constrained. Monitor resource usage and determine whether
+the instance needs to be scaled up.
 
 ### Unsupported PostgreSQL features
 
 Operating in a cloud environment means that certain features that
-function on-premises are incompatible with Azure Database for PostgreSQL Flexible Server
-instances. While Flexible Server has better feature parity with
-on-premises PostgreSQL than Single Server, it is important to be aware of any
-limitations.
+function on-premises are incompatible with Azure Database for PostgreSQL
+Flexible Server instances. While Flexible Server has better feature
+parity with on-premises PostgreSQL than Single Server, it is important
+to be aware of any limitations.
 
--   Azure Database for PostgreSQL Flexible Server does not support the PostgreSQL `SUPER`
-    privilege and the `DBA` role. This may affect how some applications
-    operate.
+-   Azure Database for PostgreSQL Flexible Server does not support the
+    PostgreSQL `SUPER` privilege and the `DBA` role. This may affect how
+    some applications operate.
 
-    -   [Error 1419][]: By default, PostgreSQL instances with binary logging
-        enabled for replication require function creators to have the
-        `SUPER` privilege to avoid privilege escalation attacks.
+    -   [Error 1419][]: By default, PostgreSQL instances with binary
+        logging enabled for replication require function creators to
+        have the `SUPER` privilege to avoid privilege escalation
+        attacks.
         -   **Resolution**: The Azure suggested setting is to set the
             `log_bin_trust_function_creators` parameter to `1`. Azure
             insulates against threats that exploit the binary log.
     -   [Error 1227][]: This error occurs when creating stored
         procedures or views with `DEFINER` statements.
         -   **Resolution**: If you encounter this error while migrating
-            schema objects from an on-premises PostgreSQL instance, remove
-            the `DEFINER` statements manually from the database dump.
+            schema objects from an on-premises PostgreSQL instance,
+            remove the `DEFINER` statements manually from the database
+            dump.
 
 -   Direct file system access is not available to clients. This means
     that `SELECT ... INTO OUTFILE` commands are unsupported.
@@ -4013,8 +4044,8 @@ limitations.
 -   Only the `InnoDB` and `MEMORY` storage engines are supported. This
     may affect older data warehousing and web applications based on the
     non-transactional `MyISAM` engine. Consult the [PostgreSQL
-    documentation][19] to learn how to convert your MyISAM tables to
-    InnoDB and make them run optimally.
+    documentation] to learn how to convert your MyISAM tables to InnoDB
+    and make them run optimally.
 
 ### Platform issues
 
@@ -4024,7 +4055,7 @@ limitations.
 
 -   Azure's periodic updates can impact the availability of
     applications. Flexible Server allows administrators [to set custom
-    maintenance schedules.][User-scheduled service maintenance:]
+    maintenance schedules.]
 
 -   Implement retry logic in your applications to mitigate transient
     connectivity issues:
@@ -4082,7 +4113,7 @@ application issues.
         to opcodes every request
 
 -   Write tests to ensure that applications function as intended when
-    code is modified. Review the [07 / Testing] document for more
+    code is modified. Review the [07 / Testing][61] document for more
     information about different testing strategies. Tests should be
     included in automated release processes.
 
@@ -4093,8 +4124,9 @@ application issues.
 ### Additional support
 
 -   In the Azure portal, navigate to the **Diagnose and solve problems**
-    tab of your Azure Database for PostgreSQL Flexible Server instance for suggestions
-    regarding common connectivity, performance, and availability issues.
+    tab of your Azure Database for PostgreSQL Flexible Server instance
+    for suggestions regarding common connectivity, performance, and
+    availability issues.
 
     ![This image demonstrates the Diagnose and solve problems tab of a
     Flexible Server instance in the Azure portal.]
@@ -4110,26 +4142,28 @@ application issues.
 
 ### Opening a support ticket
 
-If you need assistance with an Azure Database for PostgreSQL Flexible Server issue, [open an
-Azure support ticket][send a support request from the Azure portal.]
-with Microsoft. Be sure to select the correct product and provide as
-much information as possible, so the proper resources is assigned to
-your ticket.
+If you need assistance with an Azure Database for PostgreSQL Flexible
+Server issue, [open an Azure support
+ticket][send a support request from the Azure portal.] with Microsoft.
+Be sure to select the correct product and provide as much information as
+possible, so the proper resources is assigned to your ticket.
 
 ![This image shows how to open a detailed support ticket for Microsoft
 from the Azure portal.]
 
 ### Recommended content
 
--   [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server]
+-   [Troubleshoot connection issues to Azure Database for PostgreSQL
+    Flexible Server]
 
 -   [Handle transient errors and connect efficiently to Azure Database
-    for PostgreSQL]
+    for PostgreSQL Flexible Server]
 
 -   [Troubleshoot errors commonly encountered during or post migration
     to Azure Database for PostgreSQL Flexible Server]
 
--   [Troubleshoot data encryption in Azure Database for PostgreSQL Flexible Server]
+-   [Troubleshoot data encryption in Azure Database for PostgreSQL
+    Flexible Server]
 
 -   [Azure Community Support] Ask questions, get answers, and connect
     with Microsoft engineers and Azure community experts
@@ -4137,8 +4171,8 @@ from the Azure portal.]
 ## 09 / Summary
 
 This section helped pinpoint some of the most common issues a team may
-run into when hosting your PostgreSQL based applications in the cloud. These
-included items from connectivity, deployment, and performance.
+run into when hosting your PostgreSQL based applications in the cloud.
+These included items from connectivity, deployment, and performance.
 
 ### Checklist
 
@@ -4168,9 +4202,10 @@ While this option does provide redundancy against zonal failure, there
 is more latency between the zones that affects replication.
 
 > ![Watch icon] **Watch:** [High Availability \[9 of 16\] \| Azure
-> Database for PostgreSQL - Beginners Series][20]
+> Database for PostgreSQL Flexible Server - Beginners Series][62]
 
-![This image demonstrates Zone-Redundant HA for PostgreSQL Flexible Server.]
+![This image demonstrates Zone-Redundant HA for PostgreSQL Flexible
+Server.]
 
 Azure provides HA within a single zone to compensate for the latency
 challenges. In this configuration, both the primary node and the standby
@@ -4197,18 +4232,18 @@ To learn more about HA with PostgreSQL Flexible Server, consult the
 ### Implementing cross-region high availability
 
 Flexible Server does not currently support cross-region high
-availability. However, it is possible to achieve this using PostgreSQL native
-replication instead of replicating log files at the Azure storage level.
-The image below demonstrates two Flexible Server instances deployed in
-two virtual networks in two Azure regions.
+availability. However, it is possible to achieve this using PostgreSQL
+native replication instead of replicating log files at the Azure storage
+level. The image below demonstrates two Flexible Server instances
+deployed in two virtual networks in two Azure regions.
 
 ![This image demonstrates a possible cross-region HA scenario using two
 virtual networks.]
 
 The virtual networks are peered to provide network connectivity for
-PostgreSQL native replication. As the image indicates, developers can employ
-PostgreSQL native replication for scenarios like replicating from an
-on-premises primary to an Azure secondary.
+PostgreSQL native replication. As the image indicates, developers can
+employ PostgreSQL native replication for scenarios like replicating from
+an on-premises primary to an Azure secondary.
 
 One disadvantage of this architecture is that it is customer-managed.
 
@@ -4219,14 +4254,14 @@ Replication in Flexible Server allows applications to scale by providing
 operations to the main Flexible Server instance.
 
 > ![Watch icon] **Watch:** [Replication \[10 of 16\] \| Azure Database
-> for PostgreSQL - Beginners Series][21]
+> for PostgreSQL Flexible Server - Beginners Series][63]
 
 Replication from the main instance to the read replicas is asynchronous.
 Consequently, there is a lag between the source instance and the
 replicas. Microsoft estimates that this lag typically ranges between a
 few seconds to a few minutes.
 
-> ![Warning][22] **Warning:** Replication is not a high availability
+> ![Warning][64] **Warning:** Replication is not a high availability
 > strategy. Consult the BCDR document for more details. Replication is
 > designed to improve application performance, so **it does not support
 > automatic failover or bringing replicas up to the latest committed
@@ -4240,19 +4275,19 @@ the former replica cannot return to being a replica.
 
 ## Read replicas
 
-[Read replicas][23] can be used to increase the PostgreSQL read throughput,
-improve performance for regional users, and implement disaster recovery.
-There is a cost. When creating one or more read replicas, be aware that
-additional charges will apply for the same compute and storage as the
-primary server.
+[Read replicas][Read replicas:] can be used to increase the PostgreSQL
+read throughput, improve performance for regional users, and implement
+disaster recovery. There is a cost. When creating one or more read
+replicas, be aware that additional charges will apply for the same
+compute and storage as the primary server.
 
 ## Deleted servers
 
-> ![Warning][22] **Warning:** If an administrator or bad actor deletes
+> ![Warning][64] **Warning:** If an administrator or bad actor deletes
 > the server in the Azure Portal or via automated methods, all backups
-> and read replicas will also be deleted. [Resource locks][24] must be
-> created on the Azure Database for PostgreSQL Flexible Server resource group to add an extra
-> layer of deletion prevention to the instances.
+> and read replicas will also be deleted. [Resource locks][65] must be
+> created on the Azure Database for PostgreSQL Flexible Server resource
+> group to add an extra layer of deletion prevention to the instances.
 
 ## Regional failure
 
@@ -4290,10 +4325,9 @@ failover capability.
 
 Often, developers use load balancers, like ProxySQL, to direct read
 operations to read replicas automatically. ProxySQL can [run on an Azure
-VM] or [Azure Kubernetes
-Service.][on the same infrastructure as their apps]
+VM] or [Azure Kubernetes Service.]
 
-> ![Tip][25] **Tip:** Moreover, analytical systems often benefit from
+> ![Tip][66] **Tip:** Moreover, analytical systems often benefit from
 > read replicas. BI tools can connect to read replicas, while data is
 > written to the main instance and replicated to the read replicas
 > asynchronously.
@@ -4310,8 +4344,8 @@ PostgreSQL read replicas.]
 
 ## Flexible Server resources
 
--   [Azure Portal][26]
--   [Azure CLI][27]
+-   [Azure Portal][67]
+-   [Azure CLI][68]
 
 ## Backup and restore
 
@@ -4320,7 +4354,7 @@ as a disaster recovery (BCDR) strategy is an important part of the
 overall system design.
 
 > ![Watch icon] **Watch:** [Backup and Restore \[8 of 16\] \| Azure
-> Database for PostgreSQL - Beginners Series][28]
+> Database for PostgreSQL Flexible Server - Beginners Series][69]
 
 If an unforeseen event occurs, administrators should have the ability to
 restore data to a point in time called the Recovery Point Objective
@@ -4329,26 +4363,26 @@ Objective (RTO).
 
 ### Backup
 
-Azure Database for PostgreSQL Flexible Server takes automatic backups of data and transaction
-log files. These backups can be stored in locally-redundant storage
-(replicated multiple times in a datacenter); zone-redundant storage
-(multiple copies are stored in two separate availability zones in a
-region); and geo-redundant storage (multiple copies are stored in two
-separate Azure regions).
+Azure Database for PostgreSQL Flexible Server takes automatic backups of
+data and transaction log files. These backups can be stored in
+locally-redundant storage (replicated multiple times in a datacenter);
+zone-redundant storage (multiple copies are stored in two separate
+availability zones in a region); and geo-redundant storage (multiple
+copies are stored in two separate Azure regions).
 
-Azure Database for PostgreSQL Flexible Server supports automatic backups for 7 days by
-default. It may be appropriate to modify this to the current maximum of
-35 days. It is important to be aware that if the value is changed to 35
-days, there will be charges for any extra backup storage over 1x of the
-storage allocated. Data file backups are taken once daily, while
-transaction log backups are taken every five minutes.
+Azure Database for PostgreSQL Flexible Server supports automatic backups
+for 7 days by default. It may be appropriate to modify this to the
+current maximum of 35 days. It is important to be aware that if the
+value is changed to 35 days, there will be charges for any extra backup
+storage over 1x of the storage allocated. Data file backups are taken
+once daily, while transaction log backups are taken every five minutes.
 
 Find additional storage pricing details for Flexible Server [here.]
 
 There are several current limitations to the database backup feature as
-described in the [Backup and restore in Azure Database for PostgreSQL Flexible Server] docs
-article. It is important to understand them when deciding what
-additional strategies should be implemented.
+described in the [Backup and restore in Azure Database for PostgreSQL
+Flexible Server] docs article. It is important to understand them when
+deciding what additional strategies should be implemented.
 
 Some items to be aware of include:
 
@@ -4384,7 +4418,8 @@ Learn more about backup and restore in Flexible Server from the
 
 -   [Point-in-time restore with Azure Portal]
 -   [Point-in-time restore with CLI]
--   [Azure CLI samples for Azure Database for PostgreSQL Flexible Server - Flexible Server]
+-   [Azure CLI samples for Azure Database for PostgreSQL Flexible
+    Server - Flexible Server]
 
 ## Service maintenance
 
@@ -4427,7 +4462,7 @@ Single Server uses a gateway to access database instances, unlike
 Flexible Server. These gateways have public IP addresses that are
 retired and replaced, which may impede access from on-premises. Azure
 notifies customers about gateway retirements three months before. Learn
-more [here.][29]
+more [here.][70]
 
 Single Server does not support custom schedules for maintenance. Azure
 notifies administrators 72 hours before the maintenance event.
@@ -4441,20 +4476,20 @@ notifies administrators 72 hours before the maintenance event.
 
 ## Azure Database for PostgreSQL Flexible Server upgrade process
 
-Since Azure Database for PostgreSQL Flexible Server is a PaaS offering, administrators are
-not responsible for the management of the updates on the operating
-system or the PostgreSQL software. Also, administrators need to plan for
-database version upgrades. Cloud providers are continuously upgrading
-and improving their supported offerings. Older versions eventually fall
-into the unsupported status.
+Since Azure Database for PostgreSQL Flexible Server is a PaaS offering,
+administrators are not responsible for the management of the updates on
+the operating system or the PostgreSQL software. Also, administrators
+need to plan for database version upgrades. Cloud providers are
+continuously upgrading and improving their supported offerings. Older
+versions eventually fall into the unsupported status.
 
-![Read more icon] [Retired PostgreSQL engine versions not supported in Azure
-Database for PostgreSQL]
+![Read more icon] [Retired PostgreSQL engine versions not supported in
+Azure Database for PostgreSQL Flexible Server]
 
-![Warning][22] **Warning:** It is important to be aware the upgrade
-process can be random. During deployment, the PostgreSQL server workloads
-will stop be processed on the server. Plan for these downtimes by
-rerouting the workloads to a read replica in the event the particular
+![Warning][64] **Warning:** It is important to be aware the upgrade
+process can be random. During deployment, the PostgreSQL server
+workloads will stop be processed on the server. Plan for these downtimes
+by rerouting the workloads to a read replica in the event the particular
 instance goes into maintenance mode.
 
 > ![Note icon][Note] **Note:** This style of failover architecture may
@@ -4469,10 +4504,10 @@ owners up to 72 hours in advance of installation of an update or
 critical security patch. Database administrators may need to notify
 application users of planned and unplanned maintenance.
 
-> ![Note icon][Note] **Note:** Azure Database for PostgreSQL Flexible Server maintenance
-> notifications are incredibly important. The database maintenance can
-> take the database and connected applications down for a short period
-> of time.
+> ![Note icon][Note] **Note:** Azure Database for PostgreSQL Flexible
+> Server maintenance notifications are incredibly important. The
+> database maintenance can take the database and connected applications
+> down for a short period of time.
 
 ## 10 / Summary
 
@@ -4480,15 +4515,15 @@ A solid BCDR plan is critical for every organization. The operation team
 should leverage strategies covered in this chapter to ensure business
 continuity. Downtime events are not only disaster events, but also
 include normal scheduled maintenance. This chapter pointed out that
-platform as a service instances such as Azure Database for PostgreSQL Flexible Server still
-have some downtime that must be taken into consideration. Older versions
-of PostgreSQL will trigger end-of-life (EOL) support. A plan should be
-developed to ensure that the possibility of upgrades will not take
-applications offline. Consider using read only replicas that will
-maintain the application availability during these downtimes. To support
-these types of architectures, the applications may need to be able to
-gracefully support the failover to read-only nodes when users attempt to
-perform write based activities.
+platform as a service instances such as Azure Database for PostgreSQL
+Flexible Server still have some downtime that must be taken into
+consideration. Older versions of PostgreSQL will trigger end-of-life
+(EOL) support. A plan should be developed to ensure that the possibility
+of upgrades will not take applications offline. Consider using read only
+replicas that will maintain the application availability during these
+downtimes. To support these types of architectures, the applications may
+need to be able to gracefully support the failover to read-only nodes
+when users attempt to perform write based activities.
 
 ### Checklist
 
@@ -4509,18 +4544,18 @@ perform write based activities.
 
 ## Best practices for PostgreSQL Flexible Server apps
 
-Organizations developing cloud apps backed by Azure Database for PostgreSQL Flexible Server
-Flexible Server should consider implementing the following best
-practices. Note, that this list is not comprehensive.
+Organizations developing cloud apps backed by Azure Database for
+PostgreSQL Flexible Server should consider implementing the following
+best practices. Note, that this list is not comprehensive.
 
 Readers should review additional guide chapters for a more comprehensive
 understanding.
 
--   [05 / Monitoring]
--   [06 / Networking and Security]
--   [07 / Testing]
--   [08 / Performance and Optimization]
--   [10 / Business Continuity and Disaster Recovery]
+-   \[05 / Monitoring\]
+-   [06 / Networking and Security][71]
+-   [07 / Testing][61]
+-   [08 / Performance and Optimization][72]
+-   [10 / Business Continuity and Disaster Recovery][73]
 
 Consult the [Azure Well-Architected Framework] for more information
 regarding the core principles of efficient cloud workloads. You can
@@ -4532,8 +4567,8 @@ compliance with the [Azure Well-Architected Review utility.]
 Locating Azure services in the same region minimizes network traffic
 costs and network latency. Flexible Server supports co-location in the
 same region and co-location in the same Availability Zone for [regions
-that support Availability Zones.] PostgreSQL Flexible Server couples well
-with zonal services, like Virtual Machines.
+that support Availability Zones.] PostgreSQL Flexible Server couples
+well with zonal services, like Virtual Machines.
 
 ### 2. Implement connection pooling
 
@@ -4545,7 +4580,7 @@ application servers or container orchestrators, like Azure Kubernetes
 Service (AKS).
 
 -   [ProxySQL on a VM]
--   [ProxySQL on AKS][on the same infrastructure as their apps]
+-   [ProxySQL on AKS][Azure Kubernetes Service.]
 
 ### 3. Monitor and size containers adequately
 
@@ -4574,8 +4609,8 @@ on-premises Kubernetes clusters, and more.
 PostgreSQL Flexible Server natively supports connectivity through Azure
 Virtual Networks, meaning that the database endpoint does not face the
 public Internet, and database traffic remains within Azure. Consider the
-[06 / Networking and Security] document for more information regarding
-public and private access.
+[06 / Networking and Security][71] document for more information
+regarding public and private access.
 
 Microsoft also recommends securing data in motion through SSL for
 applications that support SSL connectivity. Legacy applications should
@@ -4601,9 +4636,10 @@ Azure SDKs typically provide native support for retrying service
 requests. Consult the documentation's [list of per-service retry
 recommendations.]
 
-For some ORMs that are commonly used with PostgreSQL databases, like PHP's
-**PDO PostgreSQL**, it may be necessary to write custom retry code that
-retries database connections if particular PostgreSQL error codes are thrown.
+For some ORMs that are commonly used with PostgreSQL databases, like
+PHP's **PDO PostgreSQL**, it may be necessary to write custom retry code
+that retries database connections if particular PostgreSQL error codes
+are thrown.
 
 ### 6. Size database compute resources adequately
 
@@ -4640,11 +4676,11 @@ realistic application load, consider utilities like [sysbench.]
 
 The preceding best practices are a collection of the most common items
 that architects and developers may employ to improve the performance,
-security and availability of their Azure Database for PostgreSQL Flexible Server
-applications. Be sure to review if you have followed all the recommended
-best practices and if you discover they have not been followed, try to
-implement them as soon as possible to esnure the integrity of your
-applications and satisfaction of your users.
+security and availability of their Azure Database for PostgreSQL
+Flexible Server applications. Be sure to review if you have followed all
+the recommended best practices and if you discover they have not been
+followed, try to implement them as soon as possible to esnure the
+integrity of your applications and satisfaction of your users.
 
 # 12 / PostgreSQL architectures
 
@@ -4666,43 +4702,44 @@ Center.
 
 ### Digital marketing using Azure Database for PostgreSQL Flexible Server
 
--   [Digital marketing using Azure Database for PostgreSQL Flexible Server:] In this
-    architecture, corporations serve digital marketing campaigns through
-    content management systems, like WordPress or Drupal, running on
-    Azure App Service. These CMS offerings access user data in Azure
-    Database for PostgreSQL. Azure Cache for Redis caches data and sessions,
-    while Azure Application Insights monitors the CMS app for issues and
-    performance.
+-   [Digital marketing using Azure Database for PostgreSQL Flexible
+    Server:] In this architecture, corporations serve digital marketing
+    campaigns through content management systems, like WordPress or
+    Drupal, running on Azure App Service. These CMS offerings access
+    user data in Azure Database for PostgreSQL Flexible Server. Azure
+    Cache for Redis caches data and sessions, while Azure Application
+    Insights monitors the CMS app for issues and performance.
 
 ### Finance management apps using Azure Database for PostgreSQL Flexible Server
 
--   [Finance management apps using Azure Database for PostgreSQL Flexible Server:] This
-    architecture demonstrates a three-tier app, coupled with advanced
-    analytics served by Power BI. Tier-3 clients, like mobile
-    applications, access tier-2 APIs, which reference tier-1 Azure
-    Database for PostgreSQL. To offer additional value, [Power BI] accesses
-    Azure Database for PostgreSQL Flexible Server (possibly read replicas) through its PostgreSQL
-    connector.
+-   [Finance management apps using Azure Database for PostgreSQL
+    Flexible Server:] This architecture demonstrates a three-tier app,
+    coupled with advanced analytics served by Power BI. Tier-3 clients,
+    like mobile applications, access tier-2 APIs, which reference tier-1
+    Azure Database for PostgreSQL Flexible Server. To offer additional
+    value, [Power BI] accesses Azure Database for PostgreSQL Flexible
+    Server (possibly read replicas) through its PostgreSQL connector.
 
 ### Intelligent apps using Azure Database for PostgreSQL Flexible Server
 
--   [Intelligent apps using Azure Database for PostgreSQL Flexible Server:] This solution
-    demonstrates an innovative app that utilizes serverless computing
-    (Azure Function Apps), machine learning (Azure Machine Learning
-    Studio & Cognitive Services APIs), Azure Database for PostgreSQL Flexible Server, and
-    Power BI.
+-   [Intelligent apps using Azure Database for PostgreSQL Flexible
+    Server:] This solution demonstrates an innovative app that utilizes
+    serverless computing (Azure Function Apps), machine learning (Azure
+    Machine Learning Studio & Cognitive Services APIs), Azure Database
+    for PostgreSQL Flexible Server, and Power BI.
 
 ### Gaming using Azure Database for PostgreSQL Flexible Server
 
--   [Gaming using Azure Database for PostgreSQL Flexible Server:] This architecture
-    demonstrates how to develop apps that must process API requests at
-    scale, such as gaming backends.
+-   [Gaming using Azure Database for PostgreSQL Flexible Server:] This
+    architecture demonstrates how to develop apps that must process API
+    requests at scale, such as gaming backends.
 -   The architecture utilizes:
     -   Azure Traffic Manager to geographically distribute traffic.
     -   Azure API Management to provide rate limiting.
     -   Azure App Service to host gaming APIs and Azure Database for
-        PostgreSQL. Firms can perform analysis on gaming data in Azure
-        Database for PostgreSQL using Azure HDInsight.
+        PostgreSQL Flexible Server. Firms can perform analysis on gaming
+        data in Azure Database for PostgreSQL Flexible Server using
+        Azure HDInsight.
     -   Power BI to visualize the data.
 
 ### Retail and e-commerce using Azure PostgreSQL
@@ -4710,22 +4747,23 @@ Center.
 -   [Retail and e-commerce using Azure PostgreSQL:] This application
     architecture focuses on processing transactions quickly and creating
     tailored customer experiences. It consists of Azure App Service,
-    Azure Database for PostgreSQL Flexible Server (for storing product and session
-    information), and Azure Search (for full-text search capability).
+    Azure Database for PostgreSQL Flexible Server (for storing product
+    and session information), and Azure Search (for full-text search
+    capability).
 
 ### Scalable web and mobile applications using Azure Database for PostgreSQL Flexible Server
 
 -   [Scalable web and mobile applications using Azure Database for
-    PostgreSQL:] This generic architecture utilizes the scaling capabilities
-    (vertical and horizontal) of Azure App Service and PostgreSQL Flexible
-    Server.
+    PostgreSQL Flexible Server:] This generic architecture utilizes the
+    scaling capabilities (vertical and horizontal) of Azure App Service
+    and PostgreSQL Flexible Server.
 
 ## 12 / Summary
 
 Many customers have built scalable resilient architectures using Azure
-Database for PostgreSQL. Developers can build basic two-tier and three-tier
-architectures to more advanced container-based and event-driven PostgreSQL
-based architectures.
+Database for PostgreSQL Flexible Server. Developers can build basic
+two-tier and three-tier architectures to more advanced container-based
+and event-driven PostgreSQL based architectures.
 
 At the very core, an application will consume CPU, memory, disk and
 network. Finding the right target hosting platform while balancing costs
@@ -4741,23 +4779,26 @@ throughout this guide to accelerate their learning and adoption journey.
 
 # 13 / Customer stories
 
-Azure Database for PostgreSQL Flexible Server is used by customers world wide, and many have
-shared their stories on the [Microsoft Customer Stories portal].
+Azure Database for PostgreSQL Flexible Server is used by customers world
+wide, and many have shared their stories on the [Microsoft Customer
+Stories portal].
 
 ## Case studies
 
 The following are a set of case studies from the Microsoft Customer
-Stories page focused on the usage of Azure Database for PostgreSQL Flexible Server.
+Stories page focused on the usage of Azure Database for PostgreSQL
+Flexible Server.
 
 ### Minecraft
 
 ![This image shows the Minecraft logo.]
 
-Minecraft migrated from AWS Aurora to Azure Database for PostgreSQL Flexible Server for its
-Realms service to improve performance and reduce costs. Minecraft moved
-over 1 TB of data, distributed across 13 databases, serving over 6k
-requests per second during the migration. Minecraft utilized the Azure
-Database Migration Service six-month free offer to save costs.
+Minecraft migrated from AWS Aurora to Azure Database for PostgreSQL
+Flexible Server for its Realms service to improve performance and reduce
+costs. Minecraft moved over 1 TB of data, distributed across 13
+databases, serving over 6k requests per second during the migration.
+Minecraft utilized the Azure Database Migration Service six-month free
+offer to save costs.
 
 Minecraft also migrated its frontend servers to Azure to take advantage
 of Azure's global footprint. This migration also improved developer
@@ -4768,15 +4809,16 @@ accessing Azure Database for PostgreSQL Flexible Server.]
 
 ### Automobile Retail
 
-The retailer ran PostgreSQL database on Red Hat Enterprise Linux with a Java
-Spring Boot application on the backend and a Vue.js on the frontend. The
-environment did not have the capability to scale up and down as needed
-to cope with this fluctuation in the market, and 30% of its resources
-were underutilized. As a result, the retailer was overpaying and
-unnecessarily bleeding valuable capital.
+The retailer ran PostgreSQL database on Red Hat Enterprise Linux with a
+Java Spring Boot application on the backend and a Vue.js on the
+frontend. The environment did not have the capability to scale up and
+down as needed to cope with this fluctuation in the market, and 30% of
+its resources were underutilized. As a result, the retailer was
+overpaying and unnecessarily bleeding valuable capital.
 
-The PostgreSQL database was modernized with Azure Database for PostgreSQL Flexible Server with a
-read replica to support the reporting needs of the business.
+The PostgreSQL database was modernized with Azure Database for
+PostgreSQL Flexible Server with a read replica to support the reporting
+needs of the business.
 
 ### Linked Brain
 
@@ -4802,8 +4844,8 @@ In the Internet of Things (IoT) age, organizations must share
 proprietary data quickly while maintaining control, security, and
 compliance. [T-Systems], a Deutsche Telekom division, worked with expert
 partner Ultra Tendency to meet that need, using Microsoft Azure and
-Azure Database for PostgreSQL Flexible Server to help create the Telekom Data
-Intelligence Hub, a data marketplace for data sharing that includes
+Azure Database for PostgreSQL Flexible Server to help create the Telekom
+Data Intelligence Hub, a data marketplace for data sharing that includes
 built-in analytics tools.
 
 "We were looking for managed database solutions," says Robert Neumann,
@@ -4812,9 +4854,10 @@ services, we wouldn't have to manage uptime, backup, and recovery
 scenarios, and we could make the platform faster and more reliable."
 
 The execution layer of Data Intelligence Hub runs entirely on Azure
-database services, using the Azure Database for PostgreSQL Flexible Server and Azure
-Database for PostgreSQL services to support data availability without having
-to maintain a database operations infrastructure.
+database services, using the Azure Database for PostgreSQL Flexible
+Server and Azure Database for PostgreSQL Flexible Server services to
+support data availability without having to maintain a database
+operations infrastructure.
 
 ### Children's Mercy Hospital
 
@@ -4833,7 +4876,8 @@ The hospital and research institute had an existing relationship with
 Microsoft, so when researchers saw sequencing data begin to push toward
 the CMRI datacenter's storage limits, the organization chose to support
 its genomic data platform with Microsoft Genomics, Azure Database for
-PostgreSQL, and Azure infrastructure as a service (IaaS) resources.
+PostgreSQL Flexible Server, and Azure infrastructure as a service (IaaS)
+resources.
 
 ### GeekWire
 
@@ -4846,19 +4890,20 @@ events, a job board, startup resources, a weekly radio show, and more.
 As its popularity and site traffic increased, so did performance
 concerns. To gain better scalability and performance, GeekWire decided
 to migrate its WordPress site to the Microsoft Azure platform. By taking
-advantage of fully managed services like Azure Database for PostgreSQL Flexible Server, the
-company can scale on-demand while cutting costs 45 percent.
+advantage of fully managed services like Azure Database for PostgreSQL
+Flexible Server, the company can scale on-demand while cutting costs 45
+percent.
 
 ## Common PostgreSQL Apps
 
-This section documents common PostgreSQL-based products and their third-party
-implementations that organizations operate on Azure.
+This section documents common PostgreSQL-based products and their
+third-party implementations that organizations operate on Azure.
 
 ### 3rd party Azure solutions / Azure Marketplace
 
 The [Azure Marketplace] provides thousands of certified apps on Azure
 tailored to meet customer needs. Many of these apps utilize Azure
-Database for PostgreSQL.
+Database for PostgreSQL Flexible Server.
 
 #### CMS like WordPress
 
@@ -4879,14 +4924,14 @@ Azure Database for PostgreSQL Flexible Server for its persistence layer.
 
 Magento is a powerful e-commerce and marketing platform suitable for
 small and large businesses. There are multiple implementations available
-on the Azure Marketplace, including [this offering][30] that provides a
+on the Azure Marketplace, including [this offering][74] that provides a
 Helm chart for a Kubernetes deployment.
 
 ## 13 / Summary
 
 Similar to the reference architecture, case studies provide a view into
-how other organizations are building applications using PostgreSQL that could
-be appropriate and similar to how a developer may be thinking of
+how other organizations are building applications using PostgreSQL that
+could be appropriate and similar to how a developer may be thinking of
 building their own application. Although they may not go into as much
 depth as reference architectures, they certainly provide a means of
 generating ideas.
@@ -4936,28 +4981,30 @@ your waypoint.
 
 This guide was designed to provide insightful and rich sets of
 information on how to get started with developing applications with
-Azure Database for PostgreSQL Flexible Server. After reading through all the sections, a
-developer will have nurtured a foundation for how to get set up with the
-right tools and how to make decisions on target deployment models. This
-guide provided several sample architectures, deployment models and
-real-world customer references of using Azure Database for PostgreSQL Flexible Server that
-can be referenced in platform selection decisions.
+Azure Database for PostgreSQL Flexible Server. After reading through all
+the sections, a developer will have nurtured a foundation for how to get
+set up with the right tools and how to make decisions on target
+deployment models. This guide provided several sample architectures,
+deployment models and real-world customer references of using Azure
+Database for PostgreSQL Flexible Server that can be referenced in
+platform selection decisions.
 
-As a final note, although there are several options for hosting PostgreSQL in
-Azure, the recommended and preferred method is to utilize Azure Database
-for PostgreSQL Flexible Server for its rich set of features and flexibility.
+As a final note, although there are several options for hosting
+PostgreSQL in Azure, the recommended and preferred method is to utilize
+Azure Database for PostgreSQL Flexible Server for its rich set of
+features and flexibility.
 
 ## Resources
 
 ### Call to Action
 
-Thanks for downloading and reading this Azure Database for PostgreSQL Flexible Server
-developer guide. We encourage to to continue your learning by reviewing
-the following links to documentation pages and creating a free azure
-account to practice with.
+Thanks for downloading and reading this Azure Database for PostgreSQL
+Flexible Server developer guide. We encourage to to continue your
+learning by reviewing the following links to documentation pages and
+creating a free azure account to practice with.
 
 -   [Review homepage]
--   [Documentation][31]
+-   [Documentation][75]
 -   [Tutorial]
 -   [Get started for free with an Azure free account!]
 -   [Azure Pricing Calculator, TCO Calculator]
@@ -4973,7 +5020,7 @@ account to practice with.
 -   [Twitter]
 -   [LinkedIn]
 -   Email the Azure Database for PostgreSQL Flexible Server team at
-    AskAzureDBforPostgreSQL\@service.microsoft.com
+    AskAzureDBforPostgreSQL@service.microsoft.com
 
 ### Find a partner to assist in migrating
 
@@ -4994,131 +5041,4341 @@ real-world information:
 -   [LinkedIn Azure Group]
 -   [LinkedIn Azure Developers Group]
 
-  [01 / Azure PostgreSQL Developer Guide]: #azure-PostgreSQL-developer-guide
-  [02 / Introduction to Azure Database for PostgreSQL Flexible Server]: #introduction-to-azure-database-for-PostgreSQL
-  [What is PostgreSQL?]: #what-is-PostgreSQL
+# Appendix
+
+TODO
+
+# Getting Started
+
+1.  Clone the [whitepaper GitHub repository] to the development machine.
+
+2.  Install the [PowerShell Azure module][installation document.] if not
+    already installed.
+
+    > [PowerShell Core] is a cross-platform tool that is useful for
+    > managing Azure resources through the `Az` module.
+
+    > Try the `-AllowClobber` flag if the install does not succeed.
+
+3.  Utilize the `Connect-AzAccount` to interactively authenticate the
+    Azure PowerShell environment with Azure.
+
+## Create a Lab Resource Group
+
+1.  Use Azure PowerShell to create a new resource group. Substitute the
+    `rgName` and `location` parameters with the name of the resource
+    group and its location, respectively.
+
+    ``` powershell
+    $rgName = ""
+    $location = ""
+    New-AzResourceGroup -Name $rgName -Location $location
+    ```
+
+## Deploy the ARM Template
+
+1.  There are two ARM templates provided with the whitepaper.
+
+    -   The secure deployment uses private endpoints to securely access
+        the PostgreSQL database instances through private IP addresses.
+        It costs roughly ... per month.
+    -   The standard deployment routes traffic to the PostgreSQL
+        instances over the public internet. It costs roughly ... per
+        month.
+
+2.  If deploying the [secure ARM template] (`template-secure.json`),
+    edit the associated [parameters file]
+    (`template-secure.parameters.json`).
+
+    -   The `prefix` specifies a unique identifier for Azure resources
+    -   The `administratorLogin` specifies the login for the Azure
+        resources (such as PostgreSQL and the VM)
+    -   The `administratorLoginPassword` specifies the password for the
+        deployed Azure resources
+    -   The `location` set to an Azure environment closest to the users
+
+3.  If deploying the [insecure ARM template] (`template.json`), edit the
+    associated [parameters file][76] (`template.parameters.json`).
+
+    -   The `uniqueSuffix` specifies a unique identifier for Azure
+        resources
+    -   The `administratorLogin` specifies the login for the Azure
+        resources (such as PostgreSQL and the VM)
+    -   The `administratorLoginPassword` specifies the password for the
+        deployed Azure resources
+    -   The `vmSize` specifies the VM tier
+    -   The `dnsPrefix` specifies the DNS prefix for the load balancer
+        public IP address
+
+    > NOTE: Because of some automation account mapping settings, these
+    > templates are designed to only be deployed to `eastus2`, `eastus`,
+    > `southcentralus`, `westcentralus`, `westus2`, `westus`,
+    > `northcentralus`
+
+4.  If deploying the secure ARM template, issue the following command
+    from the repository root.
+
+    ``` powershell
+    cd "C:\labfiles\microsoft-postgres-docs-project"
+
+    New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\artifacts\template-secure.json -TemplateParameterFile .\artifacts\template-secure.parameters.json
+    ```
+
+    Use `template.json` and `template.parameters.json` for the insecure
+    ARM template deployment.
+
+## Running the sample application
+
+Instead of learning multiple sample applications, the guide focused on
+evolving deployment strategies. Readers should learn the sample
+application structure once and focus on how the application will need to
+be modified to fit the deployment model.
+
+### Site map
+
+![This image shows the sample app site map.]
+
+### Sample Application Prerequisites
+
+-   Azure subscription
+-   Git
+-   pgAdmin
+
+### Quick start: manual Azure set up instructions
+
+As part of this guide, there are environment automation setup scripts
+provided that will build and configure much of the environment needed
+for the sample application. It is important to understand the basic
+Azure **concepts** before running the automated scripts. Walking through
+each step will help provide additional context and learning
+opportunities. The scripts will create an environment in a few minutes
+rather than requiring to walk through lengthy setup exercises.
+
+> ![Note icon][Note] **Note:** The sample application was tested with
+> PHP version 7.4 and 8.0. Deploying to an 8.x environment requires a
+> slightly different configuration as the underlying web server has
+> changed.
+
+  PHP Version   Web Server
+  ------------- ------------
+  7.4           Apache
+  8.0           Nginx
+
+The Azure App Service uses this [Docker image][77] for its 8.0 container
+builds.
+
+> ![Warning] **Warning**: Outdated runtimes are periodically removed
+> from the Web Apps Create and Configuration blades in the Portal. These
+> runtimes are hidden from the Portal when they are deprecated by the
+> maintaining organization or found to have significant vulnerabilities.
+> These options are hidden to guide customers to the latest runtimes
+> where they will be the most successful. Older Azure App Service Docker
+> images can be found [here][78].
+
+### Sample application deployment steps
+
+**Deploying to PHP 8.0**
+
+The deployment strategy applied in this sample application focuses on
+updating project environment variables instead of global environment
+variable configuration.
+
+1.  Log into the Azure Portal.
+
+2.  Search for Marketplace.
+
+3.  While in the Marketplace, search for and create Azure Web App +
+    Database resources in the Marketplace.
+
+    -   Select the Marketplace button.
+
+        ![Displays the Marketplace button.]
+
+    -   Enter `Web App + Database` in the search box.
+
+    -   Select the Microsoft Web App + Database search result.
+
+        ![Web app + database search result.]
+
+4.  Create a web application and database.
+
+    ![Create web app database.]
+
+    -   Choose the subscription.
+
+    -   Create a new resource group
+
+    -   Choose a region.
+
+    -   Create a unique web app name.
+
+    -   Select the runtime stack. The web app is only tested with PHP
+        8.0.
+
+    -   Create the resources.
+
+5.  After the resources have been deployed, locate the App Service in
+    the Resource Group.
+
+    -   Select the **Deployment Center** and capture the configuration
+        settings.
+
+    -   In the Settings tab, choose Local Git.
+
+    ![App Service repository options.]
+
+    -   Select **Save** at the top.
+
+    > ![Note icon][Note] **Note:** Alternative Azure CLI command:
+
+    ``` cmd
+    az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
+    ```
+
+    -   Capture the **Git Clone Uri**. Later exercises will be pushing
+        the application files to the Azure App Service local storage
+        from the development machine.
+
+        ![Local Git URL example]
+
+    -   Capture the Application Scope user and password to be used
+        later. Make sure to capture only the user name.
+
+        ![Application Scope user and password]
+
+6.  Clone the sample **ContosoNoshNow** application to the local
+    development machine from the Microsoft Git repository:
+
+TODO: Get the MS repo.
+
+-   Open the command prompt or terminal on the development machine.
+
+-   Type the following commands individually to configure the remote
+    repo connection. Review the output:
+
+    ``` cmd
+    git remote add azure <Azure App Service Git Clone URL>
+    git remote -v
+    git push azure master
+    ```
+
+-   When pushing content to the Azure App Service, the systems will
+    prompt for the Local Git credentials. Enter the Application Scope
+    credentials.
+
+    ![Git Credential Manager]
+
+    If you make a mistake entering the credentials, you will have to
+    open Credential Manager to update the credentials.
+
+-   The following output should display in the command window:
+
+    ![Azure local git push example.]
+
+5.  Return to the Azure Portal. Navigate to the App Service. Find the
+    **Deployment Tools** section. Log into App Service SSH terminal.
+
+    ![This image shows how to access the App Service SSH prompt from the
+    Azure portal.]
+
+6.  Verify the sample application files have been copied into the
+    wwwroot directory.
+
+    ``` bash
+    cd /home/site/wwwroot
+    ls -la
+    ```
+
+7.  Run the Composer update command in the wwwroot directory, which will
+    import the packages and create the vendor folder, along with the
+    autoload script (../vendor/autoload.php).
+
+    ``` bash
+    cp /home/site/repository/.env.example.azure /home/site/wwwroot/.env
+    composer.phar update
+    ```
+
+8.  Generate Laravel application key. This command will update the
+    **.env** file.
+
+    ``` bash
+    php artisan key:generate
+    ```
+
+9.  Update the **APP_URL** parameter in the .env file with the Azure App
+    Service URL and save the changes.
+
+    ``` bash
+     nano /home/site/wwwroot/.env
+    ```
+
+    ![Update APP_URL value]
+
+10. Copy the Nginx default to the home default. By default, App Service
+    set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true. Files stored in
+    /home path are persisted in an Azure Storage file share, which can
+    survive restart and shared across scale instances. So we need to
+    save your own Nginx configure file under /home path.
+
+    ``` bash
+    cp /etc/nginx/sites-enabled/default /home/default
+    ```
+
+11. Update the Nginx home default.
+
+    ``` bash
+    nano /home/default
+    ```
+
+    -   absolute_redirect off
+    -   root /home/site/wwwroot/public
+    -   try_files \$uri $uri/ /index.php$is_args\$args;
+
+    ![This image shows the needed modifications to the /home/default
+    file.]
+
+12. Restart the service.
+
+    ``` bash
+    service nginx restart
+    ```
+
+13. Your configuration needs to survive an App Service restart. Update
+    the App Service Startup Command.
+
+    -   Navigate to the **Settings** section.
+    -   Select **Configuration**.
+    -   Select the **General settings**.
+    -   Enter the following command in the **Startup Command**:
+
+    ``` bash
+    cp /home/default /etc/nginx/sites-enabled/default; service nginx restart
+    ```
+
+    ![This image shows how to configure the App Service startup command
+    in the Azure portal.]
+
+14. Open a browser and view the application.
+
+    ![ContosoNoshNow home page]
+
+> ![Note icon][Note] **Note:** Notice the message in red at the bottom
+> of the web page. "Site is unable to pull from database. Using JSON
+> data instead."
+
+## Connecting to the database
+
+The application should now be available and show some sample data,
+however the web application is not reading or writing to the database.
+Let's go through the steps to configure the database configuration
+information.
+
+1.  Capture the database connection information. Open the Azure CLI
+    Cloud Shell and run this command.
+
+    ``` cmd
+    az webapp deployment list-publishing-profiles --resource-group <resource group name> --name <app service name>
+    ```
+
+2.  Capture the following connection values:
+
+    -   Host/Server
+    -   User ID
+    -   Password
+
+    > ![Note icon][Note] **Note:** For production environments, values
+    > will be retrieved from Azure Key Vault.
+
+3.  Using the Azure Portal, navigate to the Flexible Server in the
+    resource group and create the `contosonoshnow` database.
+
+    ![This image shows how to create the contosonoshnow database in the
+    new Flexible Server instance.]
+
+    > ![Note icon][Note] **Note:** It is possible to execute alternative
+    > commands in the App Service SSL terminal to create the database.
+    > See the alternative commands below.
+
+    Alternative commands:
+
+    ``` bash
+    PostgreSQL --host=<hostname>-server.postgres.database.azure.com --user=<user name> --password=<password> --ssl=true
+    ```
+
+    ``` sql
+    CREATE DATABASE contosonoshnow
+    ```
+
+    ``` bash
+    exit
+    ```
+
+4.  With the database connection information in hand, open the App
+    Service SSH console and configure the **.env** project file.
+
+    ``` bash
+    nano /home/site/wwwroot/.env
+    ```
+
+    ![Configure the database environment variables.]
+
+    Update the following environment variables:
+
+    -   DB_HOST
+    -   DB_DATABASE
+    -   DB_USERNAME
+    -   DB_PASSWORD
+
+5.  Run the `php artisan migrate` command to create the tables in the
+    contosonoshnow database.
+
+    ``` bash
+    php artisan migrate
+    ```
+
+    ![This image shows how to create PHP migrations.]
+
+6.  Run the `php artisan db:seed` command to seed the database with
+    sample data values.
+
+    ``` bash
+    php artisan db:seed
+    ```
+
+    ![Seeded database.]
+
+    -   Using pgAdmin, verify the tables have the seed data.
+
+7.  Navigate back to the web app and enter a sample order.
+
+    ![This image shows how to create a sample order from the Laravel
+    app.]
+
+8.  Using pgAdmin, verify the order was saved to the Flexible Server
+    database.
+
+    ![This image shows the output of a SQL query that demonstrates the
+    new order.]
+
+### What happens to my app during an Azure deployment?
+
+All the officially supported deployment methods make changes to the
+files in the /home/site/wwwroot folder of the app. These files are used
+to run the application. The web framework of choice may use a
+subdirectory as the site root. For example, Laravel, uses the public/
+subdirectory as the site root.
+
+The environment variable could be set globally or at the project level.
+Setting the environment variables at the project level, when possible,
+allows for deployment independence and reduces the likelihood of
+dependency collision.
+
+### Troubleshooting tips
+
+-   Select the App Service in the Azure Portal. In the **Monitoring**
+    section, select **Log Stream**.
+-   [Troubleshoot connection issues to Azure Database for PostgreSQL
+    Flexible Server]
+-   Running `php -i` at the Azure App Service SSH console will provide
+    valuable configuration information.
+-   Azure App Service 8.0 php.ini location -
+    `cat /usr/local/etc/php/php.ini-production`
+-   [Configure a PHP app for Azure App Service - Access diagnostic logs]
+-   [Deploying a Laravel application to Nginx server.]
+-   [Local Git deployment to Azure App Service]
+
+## Recommended content
+
+-   [How PHP apps are detected and built.]
+
+## Deploying a Laravel app backed by a Java REST API to AKS
+
+### Evolve the sample application
+
+In the previous stages of this developer guide, an MVC app was deployed
+on an Azure VM, containerized, and then hosted on various PaaS services
+(e.g. Azure Container Instances, App Service, AKS). The second sample
+app provided with this developer guide delegates database access
+operations (Flexible Server queries) to a Java REST API. The Laravel app
+calls the REST API.
+
+One of the advantages of this microservices architecture is that the
+Java API and the Laravel app can be scaled independently. Both
+deployments have high availability. Moreover, though this exercise does
+not demonstrate how to configure CI/CD for this app, but can apply the
+same techniques learned previously.
+
+We recommend creating a new resource group for this exercise.
+
+``` bash
+az group create -n [RESOURCE GROUP NAME] -l [AZURE REGION]
+```
+
+### Download the tools
+
+To complete this document, install the following tools on the
+development machine:
+
+-   Azure CLI
+-   [Apache Maven:] This tool manages the build processes for the Java
+    API. Add the Maven executable to the system's PATH variable for
+    simpler usage.
+-   [Docker Desktop:] Docker Desktop provides an intuitive management
+    interface for the Docker service. This guide uses the Docker CLI to
+    create Docker images.
+-   [kubectl:] kubectl is a useful management tool for Kubernetes
+    clusters. Install it from the Azure CLI through
+    `az aks install-cli`.
+
+### Provision the database
+
+Navigate to `.\java-api\Database` from a PowerShell terminal instance.
+Then, execute the `create-database.ps1` script, passing the parameters
+in the order shown below. The command will provision a new Flexible
+Server instance with the app database schema.
+
+-   Provide a unique `Suffix` to ensure that the Flexible Server
+    instance's name is unique
+-   Provide a strong `Password` for the database admin user (`AppAdmin`)
+-   Provide the name of the lab `Resource Group`
+-   Provide the desired `Location` for the Azure resources
+
+``` powershell
+.\create-database.ps1 'Suffix' 'Password' 'Resource Group' 'Location'
+```
+
+The Flexible Server instance will have 1 vCore, 2 GiB memory, 32 GiB
+storage, and it will allow all clients to access it. Note that this is
+not recommended for production scenarios; access can be limited to
+target Azure resources through the Azure portal or other management
+tools.
+
+> Consult the [Microsoft documentation][79] for information on how to
+> configure private access for PostgreSQL Flexible Server from Azure
+> Kubernetes Service. This example uses public access for simplicity.
+
+### Create Docker images
+
+#### API
+
+Navigate to the `.\java-api` directory and enter the following command
+to create an optimized Docker image. Note that Maven does not need a
+Dockerfile to create this image, called `noshnowapi:0.0.1-SNAPSHOT`.
+
+``` powershell
+mvn spring-boot:build-image
+```
+
+#### Laravel
+
+Navigate to the `.\sample-php-app-rest` directory. Create a file called
+`.env`. Set `APP_KEY=` as the first line in the file. Then, run
+`php artisan key:generate` to create an application key in the `.env`
+file.
+
+``` txt
+APP_KEY=[ARTISAN APPLICATION KEY]
+```
+
+Now, in the same directory, enter the following command to create a
+Docker image to serve the PHP frontend app through Apache.
+
+``` powershell
+docker image build -t noshnowui:0.0.1 .
+```
+
+### Provision Azure Kubernetes Service
+
+Navigate to `.\java-api\Kubernetes` from a PowerShell terminal instance.
+Then, execute the `create-azure-resources.ps1` script, using the same
+parameters as the prior script. The command will provision Azure
+Container Registry and push the two Docker images; provision a new Azure
+Kubernetes Service cluster and provide it access to ACR; create the
+`contosonoshnow` namespace within the Kubernetes cluster.
+
+``` powershell
+.\create-azure-resources.ps1 'Suffix' 'Resource Group' 'Location'
+```
+
+Note that if the resources are deployed to an Azure region that supports
+Availability Zones, the script will co-locate the Flexible Server
+instance and the Kubernetes cluster.
+
+### Deploy the API to Azure Kubernetes Service
+
+#### Create the API Secret
+
+Open the `api.secrets.yml` file in the `Kubernetes` directory. This file
+contains the base64-encoded password for the application user. Besides
+the administrative user, the database schema setup script created a
+less-privileged app user.
+
+Run the command below from the `Kubernetes` directory to create the
+password secret:
+
+``` powershell
+kubectl apply -f api.secrets.yml
+```
+
+#### Create the API Service
+
+`api.service.yml` defines a Service that directs all traffic received
+from within the cluster on port 8080 to the pods that serve the Java
+API. Note that the API service is only accessible from within the
+cluster.
+
+``` powershell
+kubectl apply -f api.service.yml
+```
+
+#### Create the API Deployment
+
+`api.deployment.yml` defines a deployment with two pods, created from
+the Java API image pushed to ACR.
+
+Open the file. Replace the two `[SUFFIX]` placeholders with the values
+used when provisioning the Azure resources. Then, execute the command
+below:
+
+``` powershell
+kubectl apply -f api.deployment.yml
+```
+
+Congratulations. The API to Azure Kubernetes Service is now deployed and
+exposed internally through a Service.
+
+### Deploy the Laravel app to Azure Kubernetes Service
+
+#### Create the Laravel app Service
+
+Navigate to `.\sample-php-app-rest\Kubernetes`. Create a service to
+expose the Laravel app through a public IP address (in this case,
+through a Load Balancer provisioned in Azure).
+
+``` powershell
+kubectl apply -f web.service.yml
+```
+
+#### Create the Laravel app Deployment
+
+The deployment specified in the `web.deployment.yml` file (in the same
+directory as the previous step) creates two pods from the Laravel app
+image pushed to ACR.
+
+Again, replace the `[SUFFIX]` placeholder in the file. Then, create the
+deployment.
+
+``` powershell
+kubectl apply -f web.deployment.yml
+```
+
+### Browse to the app
+
+Run `kubectl get svc` to get the public IP address of
+`laravel-ui-service`. Copy the `EXTERNAL-IP` value to a browser window.
+
+![This image demonstrates the IP address of the LoadBalancer service for
+the Laravel app.]
+
+If all functions correctly, the user details for a random user will be
+displayed.
+
+![This image demonstrates that the Laravel app functions without a
+problem when deployed to AKS.]
+
+# Classic Deployment to PHP enabled IIS server
+
+This is a simple app that runs PHP code to connect to a PostgreSQL
+database. These tasks will be performed on the **paw-1** virtual machine
+that was deployed via the ARM template.
+
+## Database Deployment
+
+1.  On the **paw-1** virtual machine, open a Windows PowerShell window
+
+2.  Run the following commands to create the database (type `yes` when
+    prompted). Note that the repo should be cloned to the `c:\labfiles`
+    directory:
+
+    ``` powershell
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\sample-php-app
+
+    composer update 
+
+    copy .env.example.root .env
+
+    php artisan config:clear
+
+    php artisan migrate
+
+    php artisan db:seed
+
+    php artisan key:generate
+    ```
+
+3.  Several tables should get created and will be populated with sample
+    data:
+
+    ![This screen shot shows the results of the above commands.]
+
+## Test the PHP Setup
+
+1.  In the **paw-1** virtual machine, open a chrome browser window
+2.  Navigate to `http://localhost:8080/default.php`, **Hello World**
+    should be displayed.
+3.  Navigate to `http://localhost:8080/database.php`, **12 results**
+    should be displayed.
+
+## Test the Store Application
+
+1.  Open a chrome browser window
+
+2.  Navigate to `http://localhost:8080`, the store front will load with
+    a random user.
+
+    ![This image demonstrates the loading screen for the Contoso NoshNow
+    app.]
+
+## Manual Deployment
+
+The above resources were deployed as part of the ARM template and
+supporting scripts. In order to setup a developer machine manually, do
+the following:
+
+### Windows Setup
+
+1.  Install Composer
+2.  Install OpenSSL
+3.  Install Docker Desktop
+4.  Install Visual Studio Code
+5.  Install 7Zip
+6.  Install IIS
+7.  Install the WebPI extensions
+8.  Install PHP Extensions
+9.  Install PHP 8.x
+10. Configure PHP 8.x
+11. Copy the web application files to the `c:\inetpub\wwwroot` folder
+12. Create an IIS web application that points to the web app directory
+13. Install PostgreSQL and create the `contosostore` database
+
+### Linux Setup
+
+1.  Update the operating system
+2.  Install nginx
+3.  Install PHP 8.x
+4.  Install Composer
+5.  Install OpenSSL
+6.  Install Docker
+7.  Install PHP Extensions (PostgreSQL, mbstring, xml, bcmath, etc)
+8.  Configure PHP 8.0
+9.  Copy the web application files to the
+    `/var/www/mydomain/htdocs/public` folder
+10. Update the nginx conf file for redirects
+11. Install PostgreSQL and create the `contosostore` database
+
+# Cloud Deployment to Azure VM
+
+This is a simple app that runs PHP code to connect to a PostgreSQL
+database.
+
+The app is running in an Azure VM and the App needs to be exposed to the
+internet via port 80 in order results to display.
+
+## Test the Application #1
+
+1.  Open a browser to the Azure Portal
+
+2.  Navigate to the **paw-1** virtual machine
+
+3.  In the **Essentials** section, copy the public IP Address
+
+    ![This image demonstrates the VM IP address in the Overview tab.]
+
+4.  Open a browser to the virtual machine ip address (ex
+    `http:\\IP_ADDRESS:8080`)
+
+5.  A **ERR_CONNECTION_TIMED_OUT** error should occur. This is because
+    the network security group on the virtual machine does not allow
+    port 8080 access.
+
+## Open Port 8080
+
+1.  Navigate to the **Paw-1** machine, select it
+
+2.  Under **Settings**, select **Networking**
+
+3.  Select **Add inbound port rule**
+
+4.  For the destination port, type **8080**
+
+5.  For the name, type **Port_8080**
+
+6.  Select **Add**
+
+    ![This image demonstrates the added inbound security rule.]
+
+## Test the Application #2
+
+1.  Retry connecting to the web application (ex
+    `http:\\IP_ADDRESS:8080`), notice another timeout error
+
+2.  Switch back to the **paw-1** machine, run the following PowerShell
+    command:
+
+    ``` powershell
+    New-NetFirewallRule -DisplayName 'Port 8080' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8080
+    ```
+
+3.  The application should load
+
+4.  Open a browser to the virtual machine ip address (ex
+    `http:\\IP_ADDRESS:8080`)
+
+5.  The results should be displayed, but some files will not be download
+
+## Edit .env file
+
+1.  Open the
+    `c:\labfiles\microsoft-postgres-developer-guide\artifacts\sample-php-app\.env`
+    file
+2.  Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine and
+    remove the port `8080`.\
+3.  Change the http protocol to `https` in order to properly load the
+    application over SSL.
+4.  Save the file, refresh the browser window
+
+## Enable Port 443
+
+As part of any secured web application, SSL/TLS should be enabled.
+
+1.  Create a certificate on web machine by running the following command
+    in PowerShell:
+
+    ``` powershell
+    New-SelfSignedCertificate -FriendlyName ContosoNow -DnsName ContosoNow -CertStoreLocation Cert:\LocalMachine\My -KeyUsage DigitalSignature
+    ```
+
+2.  Set the certificate on the site:
+
+    -   Open Internet Information Services (IIS) Manager
+
+    -   Select the server node
+
+    -   Select **Server certificates**
+
+        ![This image demonstrates the Server Certificates tab in IIS
+        Manager.]
+
+3.  Setup SSL
+
+    -   Expand the **Sites** node
+    -   Select the **ContosoStore** web site
+    -   In the actions, select **Bindings**
+    -   Select **Add**
+    -   For the type, select **https**
+    -   For the SSL certificate, select **ContosoNow**
+    -   Select **OK**
+
+    ![This image demonstrates an HTTPS binding in IIS.]
+
+## Open Port 443
+
+1.  In the Azure Portal, navigate to the **Paw-1** machine, select it
+2.  Under **Settings**, select **Networking**
+3.  Select **Add inbound port rule**
+4.  For the destination port, type **443**
+5.  For the name, type **Port_443**
+6.  Select **Add**
+
+## Test the Application #3
+
+1.  Retry connecting to the web application (ex
+    `https:\\IP_ADDRESS:443`), an error should occur.
+
+2.  Switch back to the **paw-1** machine, run the following PowerShell:
+
+    ``` powershell
+    New-NetFirewallRule -DisplayName 'Port 443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
+    ```
+
+3.  Select the **Advanced** button
+
+4.  Select **Proceed to IP_ADDRESS (unsafe)**
+
+5.  The application should load
+
+6.  Open a browser to the virtual machine ip address (ex
+    `https:\\IP_ADDRESS:443`)
+
+7.  The results should display
+
+# Cloud Deployment to Azure App Service
+
+This is a simple app that runs PHP code to connect to a PostgreSQL
+database. The application and database must be migrated to Azure App
+Service and Azure Database for PostgreSQL Flexible Server.
+
+## Basic Deployment
+
+### Update env
+
+1.  Open the `C:\labfiles\microsoft-postgresql-developer-guide` folder
+    in Visual Studio code
+2.  If prompted, select **Yes, I trust the authors**
+3.  Switch to the browser, browse to the **pgsqldevSUFFIX** app service
+4.  Select the **Overview** link, copy the **URL** for use later
+
+### Deploy the Application
+
+1.  Switch to the **Paw-1** virtual machine remote desktop.
+
+2.  Open a terminal window, run the following to deploy the zip to
+    Azure, be sure to replace the `SUFFIX`:
+
+    > NOTE: The virtual machine is running under a Managed Identity with
+    > `owner` access to the resource group.
+
+    ``` powershell
+    cd "C:\labfiles\microsoft-postgresql-developer-guide"
+
+    Connect-AzAccount -identity
+
+    $resourceGroups = Get-AzResourceGroup
+
+    $resourceGroupName = $resourceGroups[0].ResourceGroupName
+    $suffix = $resourceGroups[0].tags['Suffix']
+
+    $appName = "pgsqldev$($suffix)linux";
+    $app = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
+
+    #NOTE: This can't be used this for linux based deployments
+    #Compress-Archive -Path .\sample-php-app\* -DestinationPath site.zip -force
+
+    7z a -r ./site.zip ./sample-php-app/*
+
+    #Publish-AzWebApp -WebApp $app -ArchivePath "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" -force
+
+    #Reference - https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
+
+    az login --scope https://management.core.windows.net//.default --identity
+
+    #setup local git
+    az webapp deployment source config-local-git --name $appName --resource-group $resourceGroupName;
+
+    #set the username and password
+    az webapp deployment user set --user-name "pgsqldev$suffix" --password "Solliance123";
+
+    #get the github link to the azure app service
+    #$url = az webapp deployment list-publishing-profiles --resource-group $resourceGroupName --name $appName
+
+    $url = az webapp deployment list-publishing-credentials --resource-group $resourceGroupName --name $appName --query scmUri
+    $url = $url.replace("`"","") + "/$appName.git"
+
+    az webapp config appsettings set --name $appName --resource-group $resourceGroupName --settings DEPLOYMENT_BRANCH='main'
+
+    #setup git
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    git config --global http.postBuffer 524288000
+
+    #do the deployment
+    cd "C:\labfiles\microsoft-postgresql-developer-guide"
+
+    #remove current git setup
+    remove-item .git -force -Recurse
+
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app"
+
+    #remove current git setup
+    remove-item .git -force -Recurse
+
+    git init
+    git remote rm origin
+    git remote rm azure
+    git add .
+    git commit -m "init commit"
+    git remote add azure $url
+    git branch -m azure main
+    git pull --allow-unrelated-histories
+    git push -u azure main
+
+    #only works with 7.4 PHP / Apache
+    #az webapp deploy --resource-group $resourceGroupName --name $appName --src-path "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" --type zip
+    ```
+
+### Update Application Settings
+
+1.  Switch to the Azure Portal, browse to the **pgsqldevSUFFIXlinux**
+    app service
+
+2.  Under **Development tools**, select **SSH**, then select **Go**
+
+3.  Login using your lab credentials (ex: Azure Entra)
+
+4.  Run the following:
+
+    ``` bash
+    cp /etc/nginx/sites-available/default /home/site/default
+    ```
+
+5.  Edit the `default` file
+
+    ``` bash
+    nano /home/site/default
+    ```
+
+6.  Modify the root to be the following:
+
+    ``` bash
+    root /home/site/wwwroot/public
+    ```
+
+7.  Add the following to the `location` section after the
+    `index  index.php index.html index.htm hostingstart.html;` line:
+
+    ``` bash
+    try_files $uri $uri/ /index.php?$args;
+    ```
+
+    ![This image demonstrates the changes made to the /home/site/default
+    file in the SSH session.]
+
+8.  Press **Ctrl-X**, then select **Y** to save the file
+
+9.  Run the following command to add a startup.sh file:
+
+```` bash
+ nano /home/site/startup.sh
+ ```
+
+11. Copy and paste the following:
+
+ ```bash
+ #!/bin/bash
+
+ cp /home/site/default /etc/nginx/sites-available/default
+ service nginx reload
+ ```
+
+12. Press **Ctrl-X**, then select **Y** to save the file
+13. Open the `.env` file in the text editor.
+
+ ```bash
+ nano /home/site/wwwroot/.env
+ ```
+
+14. Update the `APP_URL` parameter to the App Service URL (found on the **Overview** tab of the Azure portal). Then, set `ASSET_URL` to `APP_URL`.
+
+ ```bash
+ APP_URL=https://[APP SERVICE NAME].azurewebsites.net
+ ASSET_URL = "${APP_URL}"
+ ```
+
+15. Press **Ctrl-X**, then select **Y** to save the file
+16. Run the following commands to setup the Larvael application:
+
+ ```powershell
+ mkdir /home/site/ext 
+ cd /home/site/ext 
+ curl -sS https://getcomposer.org/installer | php
+
+ cp /home/site/ext/composer.phar /usr/local/bin/composer
+
+ cd /home/site/wwwroot
+
+ composer.phar update
+
+ php artisan config:clear
+
+ php artisan key:generate
+ ```
+
+15. Switch back the Azure Portal and the app service, under **Settings**, select **Configuration**
+16. Select **General settings**
+17. In the startup command textbox, type `/home/site/startup.sh`
+18. Select **Save**, then select **Continue**
+
+### Test the Application
+
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/` to see the app load with SSL
+
+### Add Firewall IP Rule and Azure Access
+
+1. Switch to the Azure Portal
+2. Browse to the `pgsqldevSUFFIXflex16` Azure Database for PostgreSQL Flexible Server
+3. Under **Settings**, select **Connection security**
+4. Select the **Allow access to Azure services** toggle to **Yes**
+5. Select **Save**
+
+### Migrate the Database Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
+
+## Update the connection string
+
+1. Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
+
+## Update the connection string
+
+1. Switch to the Azure Portal
+2. Browse to the **pgsqldevSUFFIX** web application
+3. Under **Development Tools**, select **SSH**
+4. Select **Go->**
+6. Edit the **/home/site/wwwroot/pubic/database.php**:
+
+ ```bash
+ nano /home/site/wwwroot/public/database.php
+ ```
+
+7. Set the servername variable to `pgsqldevSUFFIXflex16.postgres.database.azure.com`
+8. Set the username to `wsuser`
+9. Set the password to `Solliance123`
+10. Press **Ctrl-X**, then **Y** to save the file
+
+## Test new settings #1
+
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, you should get results, but the connection is not secured over SSL.
+
+## Enable SSL support
+
+1. Download the `https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem` certificate by switching back to the SSH window, run the following:
+
+ ```bash
+ cd /home/site/wwwroot/public
+
+ wget https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+ ```
+
+3. Edit the `database.php` file
+
+ ```php
+ nano /home/site/wwwroot/public/database.php
+ ```
+
+4. Update the database connection to use ssl by uncommenting the `sslmode=verify_full` line:
+
+ ```php
+ $conn_str .= 'sslmode=verify-full ';
+ ```
+5. Also uncomment the `sslrootcert` line:
+
+ ```php
+ //$conn_str .= 'sslrootcert=/home/site/wwwroot/public/DigiCertGlobalRootCA.crt.pem ';
+ ```
+
+6. Press Ctrl-X, then Y to save the file
+
+## Test new settings #2
+
+1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, results should display.
+
+## Update to use Environment Variables
+
+Putting credential in the PHP files is not a best practice, it is better to utilize environment variables for this.
+
+1. Switch back to the SSH window
+2. Edit the **/home/site/wwwroot/pubic/database.php**:
+
+ ```bash
+ nano /home/site/wwwroot/pubic/database.php
+ ```
+
+3. Update the connection variables to the following:
+
+ ```php
+ $servername = getenv("APPSETTING_DB_HOST");
+ $username = getenv("APPSETTING_DB_USERNAME");
+ $password = getenv("APPSETTING_DB_PASSWORD");
+ $dbname = getenv("APPSETTING_DB_DATABASE");
+ ```
+
+ > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables. You can see this by navigating to the `info.php` page and review the server variables.
+
+4. Edit the **/home/site/wwwroot/config/database.php** (note that this is in the `config` directory):
+
+ ```bash
+ nano /home/site/wwwroot/config/database.php
+ ```
+
+5. Update the PostgreSQL connection to utilize the environment variables:
+
+ ```php
+ 'host' => env('APPSETTING_DB_HOST', '127.0.0.1'),
+ 'port' => env('APPSETTING_DB_PORT', '5432'),
+ 'database' => env('APPSETTING_DB_DATABASE', 'postgres'),
+ 'username' => env('APPSETTING_DB_USERNAME', 'postgres'),
+ 'password' => env('APPSETTING_DB_PASSWORD', ''),
+ ```
+
+6. Add the environment variables to the App Service:
+- Browse to the Azure Portal
+- Select the **pgsqldevSUFFIXlinux** app service
+- Under **Settings**, select **Configuration**
+- Select **New application setting**
+- Add the following:
+  - `DB_HOST` = `pgsqldevSUFFIXflex16.postgres.database.azure.com`
+  - `DB_USERNAME` = `wsuser`
+  - `DB_PASSWORD` = `Solliance123`
+  - `DB_DATABASE` = `contosostore`
+  - `DB_PORT` = `5432`
+  - `APP_URL` = `https://pgsqldevSUFFIXlinux.azurewebsites.net`
+ - Select **Save**, then select **Continue**
+
+## Test new settings #3
+
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display.
+
+## Create Azure Key Vault values
+
+1. Switch to the Azure Portal
+2. Browse to the **pgsqldevSUFFIX-kv** Key Vault
+3. Under **Settings** select **Access Policies**
+4. Select **Create**
+5. For the secret permissions, select **Select all**, then select **Next**
+6. For the principal, select the lab guide user account, select **Next**
+1. On application, select **Next**
+1. Select **Create**
+1. Under **Settings**, select **Secrets**
+1. Select **Generate/Import**
+1. For the name, type **PostgreSQLPassword**
+1. For the value, type **Solliance123**
+1. Select **Create**
+
+## Create Managed Service Identity
+
+1. Switch to the Azure Portal
+2. Browse to the **pgsqldevSUFFIXlinux** app service
+3. Under **Settings**, select **Identity**
+4. For the system assigned identity, toggle to **On**
+5. Select **Save**, in the dialog, select **Yes**
+6. Copy the **Object ID** for later user
+7. Browse to the **pgsqldevSUFFIX-kv** Key Vault
+8. Under **Settings** select **Access Policies**
+9. Select **Create**
+10. For the secret permission, select **Select all**, then select **Next**
+11. For the principal, paste the **Object ID** you copied above, select **Next**
+12. For application, select **Next**
+13. Select **Create**
+14. Under **Settings**, select **Secrets**
+15. Select the **PostgreSQLPassword**
+16. Select the current version
+17. Copy the secret identifier for later use
+
+## Configure Environment Variables
+
+1. Browse to the Azure Portal
+2. Select the **pgsqldevSUFFIXlinux** app service
+3. Under **Settings**, select **Configuration**
+4. Select **New application setting**
+5. For the name, type **PostgreSQL_PASSWORD**
+6. Update it to the following, replace the `SUFFIX` value:
+
+   ```text
+   @Microsoft.KeyVault(SecretUri=https://pgsqldevSUFFIX-kv.vault.azure.net/secrets/PostgreSQLPassword/)
+   ```
+
+7. Select **OK**
+8. Select **Save**, then select **Continue**. Ensure a green check mark appears in the Source field.
+
+## Update the files
+
+1. Switch back to the SSH window
+2. Edit the **/home/site/wwwroot/pubic/database.php**:
+
+ ```bash
+ nano /home/site/wwwroot/pubic/database.php
+ ```
+
+3. Update the connection variables to the following:
+
+ ```php
+ $password = getenv("APPSETTING_POSTGRESQL_PASSWORD");
+ ```
+
+ > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables
+
+4. Edit the **/home/site/wwwroot/config/database.php**:
+
+ ```bash
+ nano /home/site/wwwroot/config/database.php
+ ```
+
+5. Update the PostgreSQL connection to utilize the environment variables:
+
+ ```php
+ 'password' => getenv('APPSETTING_POSTGRESQL_PASSWORD')
+ ```
+
+## Test new settings #4
+
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display.
+
+# Deployment via CI/CD
+
+This is a simple app that runs PHP code to connect to a PostgreSQL database.  Both the application and database are deployed via Docker containers.
+
+## Azure DevOps Option
+
+### Create DevOps Project
+
+1. Login to Azure Dev Ops (https://dev.azure.com)
+2. Select **New project**
+3. For the name, type **contosostore**
+4. For the visibiilty, select **Private**
+5. Select **Create**
+
+### Setup Git Origin and push code
+
+1. In the new project, select **Repos**
+2. In the **Push an existing repository from command line** section, select the **Copy** button
+3. In the **Paw-1** virtual machine, switch to Visual Studio code
+4. In the terminal window, run the following:
+
+ ```powershell
+ cd c:\labfiles\microsoft-postgresql-developer-guide\sample-php-app
+
+ git remote remove origin
+ git remote remove azure
+ ```
+
+5. In the terminal window, paste the repo url copied from above (it will look something like the following):
+
+ ```powershell
+ git remote add origin https://ORG_NAME@dev.azure.com/ORG_NAME/contosostore/_git/contosostore
+ git push -f origin main
+ ```
+
+6. Press **ENTER** (be sure to replace ORG_NAME)
+7. In the dialog, login using the Microsoft Entra credentials for the repo.  The files will get pushed to the repo.
+
+> NOTE:  If using sensitive credentials, be sure you remove them or delete the virtual machine when you are finished with the developer guide content.
+
+8. Switch back to Azure Dev Ops, refresh the repo, all the repo files should be visible.
+
+### Create Service Connection
+
+1. In the lower left, select **Project Settings**
+2. Under **Pipelines**, select **Service Connections**
+3. Select **Create service connection**
+4. Select **Azure Resource Manager**
+5. Select **Next**
+6. For the authentication, select **Service principal (automatic)**
+7. Select **Next**
+8. Select the lab subscription and resource group
+
+ > **NOTE** If no subscriptions are displayed, open Azure Dev Ops in a in-private window and try again
+
+9. For the service connection name, type **PostgreSQLDev**
+10. Select **Grant access permission to all pipelines**
+10.Select **Save**
+
+### Create Pipeline
+
+1. In the left navigation, select **Pipelines**
+2. Select **Create Pipeline**
+3. Select **Azure Repos Git**
+4. Select the **ContosoStore** repo
+5. Select **Existing Azure Pipelines YAML file**
+6. Select the **/azure-pipelines.yaml** file
+7. Select **Continue**
+8. Select **Run**
+
+> **NOTE** Check that your Dev Ops repo is setup with the appropriate branch (`master` vs `main`).  Update the YAML and supporting steps accordingly.
+
+### Create Release
+
+1. In the left navigation, select **Releases**
+2. Select **New pipeline**
+3. Select the **Azure App Service Deployment**
+4. Select **Apply**
+5. In the **Artifacts** section, select the **Add an artifact** shape
+6. For the project, select **contosostore**
+7. For the source, select **contosostore**
+8. Select **Add**
+9. Select the **Lighting** icon to add an trigger
+10. Select **Enabled** for the `Creates a release every time a new build is avaiable`
+11. Select the **1 job, 1 task** link
+12. Select the **PostgreSQLDev** connection
+13. For **App type**, select **Web App on Linux**
+14. Select the **pgsqldevSUFFIXlinux** app service
+15. Select **Save**, in the dialog, select **OK**
+
+### Commit some changes
+
+1. Switch back to the **paw-1** virtual machine
+2. Run the following:
+
+ ```powershell
+ git add -A
+ git commit -a -m "Pipeline settings"
+ git push -f origin main
+ ```
+
+### Perform the deployment
+
+1. Select **Pipelines**
+2. Select the **contosostore** pipeline, then select **Run pipeline**
+3. Select **Run**
+4. Select **Releases**
+5. Select the **PostgreSQL Dev** pipeline
+6. The release should show as being deployed, wait for the pipeline to complete execution
+
+### Test the DevOps deployment
+
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/default.php`, the site should be displayed.
+2. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, the results should display.
+
+## GitHub Option
+
+### Create Github repo
+
+1. Browse to `https://github.com`
+2. Login with GitHub credentials
+3. In the top right, select the **+** then select **New repository**
+4. For the name, type **contosostore**
+5. Select **Create repository**
+
+### Upload the application
+
+1. Switch to Visual Studio code
+2. In the terminal window, run the following:
+
+ ```powershell
+ git remote remove origin
+ ```
+
+3. In the terminal window, paste the code copied above, press **ENTER**
+
+ ```powershell
+ git remote add origin https://github.com/USERNAME/contosostore.git
+ git branch -M main
+ git push -u origin main
+ ```
+
+4. In the dialog, login using GitHub credentials for the repo.  The files get pushed to the repo.
+5. Switch back to GitHub, refresh the repo, the files should display.
+
+### Generate Credentials
+
+1. Run the following commands to generate the azure credentials (be sure to replace the token values for subscription and resource group):
+
+ ```PowerShell
+ az login
+
+ az ad sp create-for-rbac --name "pgsqldevSUFFIX" --sdk-auth --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group}
+ ```
+
+2. Copy the json that is outputted
+3. Switch back to the GitHub repository, select **Settings** then select **Secrets**
+4. Select **New repository secret**
+5. For the name, type **AZURE_CREDENTIALS**
+6. Paste the json from above as the value
+7. Select **Save**
+
+### Deploy the code
+
+1. In the GitHub browser window, select **Actions**
+2. Select **set up a workflow yourself**
+3. Copy and paste the `github-pipelines.yaml` into the `main.yml` file
+4. Update the `AZURE_WEBAPP_NAME: pgsqldevSUFFIX` line to replace the SUFFIX
+5. Select **Start commit**
+6. Select **Commit new file**
+7. Select **Actions**, then select the `Create main.yml` workflow instance, the `Contoso Store` job should be displayed, select it
+8. Review the tasks that were executed
+
+### Test the GitHub deployment
+
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/default.php`, the application should be displayed.
+2. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should be displayed.
+
+<!--
+## Terraform
+
+
+## Azure Bicep
+
+
+-->
+# Migrate to Docker Containers
+
+This is a simple app that runs PHP code to connect to a PostgreSQL database.  Both the application and database are deployed via Docker containers.
+
+## Migrate Application to Docker
+
+### Migrate to ENV variables
+
+1. Switch to Visual Studio Code and the opening repo directory
+2. Open the `.\artifacts\sample-php-app\public\database.php` file, update the php PostgreSQL connection environment variables by removing the `APPSETTING_` from each:
+
+ ```php
+ $servername = getenv("DB_SERVERNAME");
+ $username = getenv("DB_USERNAME");
+ $password = getenv("DB_PASSWORD");
+ $dbname = getenv("DB_DATABASE");
+ ```
+
+### Download Docker container
+
+1. Open Docker Desktop, if prompted, select **OK**
+2. In the agreement dialog, select the checkbox and then select  **Accept**
+3. It will take a few minutes for the Docker service to start, when prompted, select **Skip tutorial**
+4. Open a PowerShell window, run the following to download and start a php-enabled docker container
+
+ ```Powershell
+ docker run -d php:8.0-apache
+ ```
+
+5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
+
+ ```text
+ # Dockerfile
+ FROM php:8.0-apache
+
+ RUN apt-get update && apt-get upgrade -y
+ RUN apt update && apt install -y zlib1g-dev libpng-dev && rm -rf /var/lib/apt/lists/*
+ RUN apt update && apt install -y curl
+ RUN apt-get install -y libcurl4-openssl-dev
+ RUN docker-php-ext-install fileinfo
+ RUN docker-php-ext-install curl
+ 
+ COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
+ COPY ./start-apache.sh /usr/local/bin
+
+ RUN a2enmod rewrite
+
+ COPY ./sample-php-app /var/www
+ RUN chown -R www-data:www-data /var/www
+
+ RUN chmod 755 /usr/local/bin/start-apache.sh
+
+ #CMD ["start-apache.sh"]
+
+ EXPOSE 80
+ ```
+
+6. Run the following to create the image:
+
+ ```PowerShell
+ $sourcePath = "c:\labfiles\microsoft-postgresql-developer-guide";
+
+ cd $sourcePath;
+
+ docker build -t store-web --file artifacts\Dockerfile.web . 
+ ```
+
+## Migrate Database to Docker
+
+1. Run the following to export the database:
+
+ ```powershell
+ cd "c:\labfiles\microsoft-postgresql-developer-guide";
+
+ $username = "postgres";
+ $password = "Solliance123";
+ $server = "localhost";
+ $database = "ContosoStore";
+
+ pgsql -h $server -u $username $database > data.sql
+
+ #remove the weird encoding...
+ $data = get-content data.sql
+
+ set-content data.sql $data
+ ```
+
+2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
+
+ ```text
+ FROM PostgreSQL:8.0
+ RUN chown -R PostgreSQL:root /var/lib/PostgreSQL/
+
+ ADD data.sql /etc/PostgreSQL/data.sql
+
+ RUN cp /etc/PostgreSQL/data.sql /docker-entrypoint-initdb.d
+
+ EXPOSE 5432
+ ```
+
+3. Build the container:
+
+ ```PowerShell
+ docker build -t store-db --file Dockerfile.db .
+ ```
+
+## Run the Docker images
+
+1. Create the following `docker-compose.yml` docker compose file:
+
+ ```yaml
+ version: '3.8'
+ services:
+   web:
+     image: store-web
+     environment:
+       - DB_DATABASE=contosostore
+       - DB_USER=postgres
+       - DB_PASSWORD=root
+       - DB_PORT=5432
+       - DB_SERVERNAME=db
+     ports:
+       - "8080:80"
+   db:
+     image: store-db
+     restart: always
+     environment:
+       - PostgreSQL_ROOT_PASSWORD=root
+     ports:
+       - "5432:5432"
+   phpmyadmin:
+     image: phpmyadmin/phpmyadmin
+     ports:
+         - '8081:80'
+     restart: always
+     environment:
+         PMA_HOST: db
+     depends_on:
+         - db
+````
+
+2.  Run the following to create the web container:
+
+    ``` powershell
+    cd Artifacts
+
+    iisreset /stop
+
+    docker compose run --service-ports web
+    ```
+
+3.  Run the following to create the db container:
+
+    ``` powershell
+    stop-service PostgreSQL
+
+    docker compose run --service-ports db
+    ```
+
+4.  Run the following to create the phpmyadmin container:
+
+    ``` powershell
+    docker compose run --service-ports phpmyadmin
+    ```
+
+## Migrate the database
+
+1.  Use export steps in [Migrate the database][80] article to export the
+    database
+2.  Open a browser to `http:\\localhost:8081` and the phpmyadmin portal
+3.  Login to the database using `root` and `root`
+4.  Select the **contosostore** database
+5.  Run the exported database sql to import the database and data
+6.  Select the **SQL** tab, copy and then run the following query by
+    selecting **Go**, record the count
+
+``` sql
+select count(*) from orders
+```
+
+## Test the Docker images
+
+1.  Open a browser to `http:\\localhost:8080\index.php`
+2.  Select **START ORDER**
+
+> **NOTE** If get an error about the application not being able to
+> connect, do the following to attempt to debug:
+
+-   Open a new PowerShell window, run the following to start a bash
+    shell
+
+    ``` powershell
+    docker exec -it artifacts-web-1 /bin/bash
+    ```
+
+-   Run the following commands in the new bash shell, look for the
+    database error that is displayed:
+
+    ``` bash
+    cd /var/www
+
+    php artisian migrate
+    ```
+
+3.  Once the connection is working, refresh the page then select **START
+    ORDER**
+
+4.  Select **Breakfast**, then select **CONTINUE**
+
+5.  Select **Bacon & Eggs**, then select **ADD**
+
+6.  Select **CHECKOUT**
+
+7.  Select **COMPLETE ORDER**
+
+8.  Switch to the PowerShell window that started the containers,
+    shutdown the images, press **CTRL-X** to stop the images
+
+9.  Restart the images:
+
+    ``` powershell
+    docker compose up
+    ```
+
+10. Switch back to the phpmyadmin window. Attemp to re-run the query,
+    notice that the database has the same orders as when it was started
+    before. This is because the container's data was lost when it was
+    stopped/removed.
+
+## Fix Storage persistence
+
+1.  Modify the `docker-compose.yml` docker compose file, notice how we
+    are creating and adding a volume to the database container. We also
+    added the phpmyadmin continer:
+
+``` yaml
+version: '3.8'
+services:
+  web:
+    image: store-web
+    environment:
+      - DB_DATABASE=contosostore
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=root
+      - DB_HOST=db
+      - DB_PORT=5432
+      - PostgreSQL_ATTR_SSL_CA=
+    ports:
+      - "8080:80" 
+  db:
+    image: store-db
+    restart: always
+    environment:
+      - PostgreSQL_ROOT_PASSWORD=root
+      - PostgreSQL_DATABASE=contosostore
+    volumes:
+      - "db-volume:/var/lib/PostgreSQL"
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+        - '8081:80'
+    restart: always
+    environment:
+        PMA_HOST: db
+    depends_on:
+        - db
+volumes:
+  db-volume:
+    external: false
+```
+
+## Re-test the Docker images
+
+1.  Run the following:
+
+``` powershell
+stop service PostgreSQL
+
+docker compose up
+```
+
+2.  Create some more orders, restart the containers. Notice that data is
+    now persisted. It is now up to the administrators to ensure the
+    database volume is maintained for the length of the solution. If
+    this volume is ever deleted, the data will be lost!
+
+## Save the images to Azure Container Registry (ACR)
+
+1.  Open the Azure Portal
+
+2.  Browse to the **pgsqldevSUFFIX** Azure Container Registry
+
+3.  Under **Settings**, select **Access keys**
+
+4.  Copy the username and password
+
+5.  In the **paw-1** virtual machine, switch to a powershell window and
+    run the following:
+
+    ``` powershell
+    docker login {acrName}.azurecr.io -u {username} -p {password}
+
+    docker tag dpage/pgadmin4 {acrName}.azurecr.io/dpage/pgadmin4
+
+    docker tag store-db {acrName}.azurecr.io/store-db
+
+    docker tag store-web {acrName}.azurecr.io/store-web
+
+    docker push {acrName}.azurecr.io/store-db
+
+    docker push {acrName}.azurecr.io/store-web
+
+    docker push {acrName}.azurecr.io/dpage/pgadmin4
+    ```
+
+6.  Three images should display in the Azure Container Registry that we
+    will use later for deployment to other container based runtimes.
+
+# Migrate to Azure Container Instances (ACI)
+
+Now that containerized versions of the application exists, they can now
+be hosted in several resource types in Azure. Here, we explore Azure
+Container Instances (ACI).
+
+## Push images to Azure Container Registry
+
+1.  If they haven't been already, push the images to the Azure Container
+    Registry using the [Push Images to Acr] article.
+
+## Run images in ACI
+
+1.  Run the following commands to create two new container instances:
+
+    ``` powershell
+    $acrName = "pgsqldevSUFFIX";
+    $resourceName = $acrName;
+    $resourceGroupName = "{RESOURCE_GROUP_NAME}";
+
+    $rg = Get-AzResourceGroup $resourceGroupName;
+
+    $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
+    $creds = $acr | Get-AzContainerRegistryCredential
+
+    $imageRegistryCredential = New-AzContainerGroupImageRegistryCredentialObject -Server "$acrName.azurecr.io" -Username $creds.username -Password (ConvertTo-SecureString $creds.password -AsPlainText -Force)
+
+    $storageKey = $(Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $resourceName).Value[0];
+    $context = $(New-AzStorageContext -StorageAccountName $resourceName -StorageAccountKey $storageKey);
+
+    #create a new azure file share
+    New-AzStorageShare -Name "db-volume" -Context $context
+
+    $containerName = "store-db";
+    $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_DATABASE" -Value "contosostore";
+    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_PASSWORD" -Value "root";
+    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_HOST" -Value "%";
+    $port1 = New-AzContainerInstancePortObject -Port 5432 -Protocol TCP;
+    $volume = New-AzContainerGroupVolumeObject -Name "db-volume" -AzureFileShareName "db-volume" -AzureFileStorageAccountName $resourceName -AzureFileStorageAccountKey (ConvertTo-SecureString $storageKey -AsPlainText -Force);
+    $vMount = @{};
+    $vMount.MountPath = "/var/lib/PostgreSQL";
+    $vMount.Name = "db-volume";
+    $container = New-AzContainerInstanceObject -Name $containerName -Image "$acrName.azurecr.io/store-db" -Port @($port1) -EnvironmentVariable @($env1, $env2, $env3) -VolumeMount @($vMount);
+    New-AzContainerGroup -ResourceGroupName $resourceGroupName -Name $containerName -Container $container -OsType Linux -Location $rg.location -ImageRegistryCredential $imageRegistryCredential -IpAddressType Public -Volume $volume;
+    ```
+
+2.  Browse to the Azure Portal
+
+3.  Search for the **store-db** Container instance and select it
+
+4.  Copy the public IP address
+
+5.  Setup the web container, replace the `IP_ADDRESS` with the one
+    copied above:
+
+    ``` powershell
+    $containerName = "store-web";
+    $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_DATABASE" -Value "contosostore";
+    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_USERNAME" -Value "root";
+    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_PASSWORD" -Value "root";
+    $env4 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_HOST" -Value "IP_ADDRESS";
+    $port1 = New-AzContainerInstancePortObject -Port 80 -Protocol TCP;
+    $port2 = New-AzContainerInstancePortObject -Port 8080 -Protocol TCP;
+    $container = New-AzContainerInstanceObject -Name PostgreSQL-dev-web -Image "$acrName.azurecr.io/store-web" -EnvironmentVariable @($env1, $env2, $env3, $env4) -Port @($port1, $port2);
+    New-AzContainerGroup -ResourceGroupName $resourceGroupName -Name $containerName -Container $container -OsType Linux -Location $rg.location -ImageRegistryCredential $imageRegistryCredential -IpAddressType Public;
+    ```
+
+## Test the images
+
+1.  Browse to the Azure Portal
+2.  Search for the **store-web** Container instance and select it
+3.  Copy the public IP address and then open a browser window to
+    `http://IP_ADDRESS/default.php`
+
+## Multi-container single app service deployment
+
+In the previous steps, a container instance was created for each of the
+containers, however, it is possible to create a multi-container
+container instance where all services are encapsulated into one
+container instance instance using Azure CLI.
+
+1.  Create the following `docker-compose-contoso.yml` file, be sure to
+    replace the `SUFFIX`:
+
+    ``` yaml
+    version: '3.8'
+    services:
+    web:
+        image: pgsqldevSUFFIX.azurecr.io/store-web:latest
+        environment:
+        - DB_DATABASE=contosostore
+        - DB_USERNAME=root
+        - DB_PASSWORD=root
+        - DB_HOST=db
+        - DB_PORT=5432
+        ports:
+        - "8080:80" 
+        depends_on:
+        - db 
+    db:
+        image: pgsqldevSUFFIX.azurecr.io/store-db:latest
+        volumes:
+        - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/PostgreSQL
+        restart: always
+        environment:
+        - PostgreSQL_ROOT_PASSWORD=root
+        - PostgreSQL_DATABASE=contosostore
+        ports:
+        - "5432:5432"
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8081:80'
+        restart: always
+        environment:
+            PMA_HOST: db
+        depends_on:
+          - db
+    ```
+
+2.  In a PowerShell window, run the following command, be sure to
+    replace the `SUFFIX` and other variable values:
+
+    ``` powershell
+    $acrName = "pgsqldevSUFFIX";
+    $resourceName = $acrName;
+    $resourceGroupName = "{RESOURCE_GROUP_NAME}";
+
+    $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
+    $creds = $acr | Get-AzContainerRegistryCredential;
+
+    az login;
+
+    az webapp create --resource-group $resourceGroupName --plan "$resourceName-sf" --name $resourceName --multicontainer-config-type compose --multicontainer-config-file docker-compose-contoso.yml;
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DOCKER_REGISTRY_SERVER_USERNAME=$($creds.Username)
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DOCKER_REGISTRY_SERVER_URL="$resourceName.azurecr.io"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DOCKER_REGISTRY_SERVER_PASSWORD=$($creds.Password)
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_HOST="DB"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_USERNAME="root"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PASSWORD="root"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_DATABASE="ContosoStore"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PORT="5432"
+
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
+
+    az webapp config container set --resource-group $resourceGroupName --name $resourceName --multicontainer-config-type compose --multicontainer-config-file docker-compose-contoso.yml
+    ```
+
+3.  Switch back to the Azure Portal, browse to the Azure App Service. If
+    troubleshooting is needed, view the container logs by browsing to
+    `https://pgsqldevSUFFIX.scm.azurewebsites.net/api/logs/docker`. Copy
+    the path to the docker file and paste it into a new window, review
+    the logs and fix any errors.
+
+# Migrate to Azure App Service Containers
+
+Now that a containerized version of the applications exists, it can now
+be hosted in several places in Azure. Here we explore Azure App Service
+Containers.
+
+## Push images to Azure Container Registry
+
+1.  If they have not been pushed already, push the images to the Azure
+    Container Registry using the [Push Images to Acr] article.
+
+## Run images in Azure App Service
+
+1.  Run the following to create the app service containers, be sure to
+    replace the `SUFFIX` and `RESOURCE_GROUP_NAME`:
+
+    ``` powershell
+    $suffix = "SUFFIX"
+    $acrName = "pgsqldev$suffix";
+    $appPlan = "pgsqldev$suffix-linux";
+    $image = "$acrName.azure.io/store-web";
+    $resourceGroupName = "{RESOURCE_GROUP_NAME}";
+
+    $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
+    $creds = $acr | Get-AzContainerRegistryCredential;
+
+    $name = "pgsqldev$suffix-app-web";
+    New-AzWebApp -Name $name -ResourceGroupName $resourceGroupName -AppServicePlan $appPlan -ContainerImageName $image -ContainerRegistryUrl $acr.loginserver -ContainerRegistryUser $creds.username -ContainerRegistryPassword (ConvertTo-SecureString $creds.password -AsPlainText -Force) -Location $acr.location;
+
+    $config = Get-AzResource -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Web/sites/config -ResourceName $name -ApiVersion 2018-02-01
+    $config.Properties.linuxFxVersion = "DOCKER|$($image):latest"
+    $config | Set-AzResource -ApiVersion 2018-02-01 -Debug -Force
+
+    $name = "pgsqldev$suffix-app-db";
+    $image = "$acrName.azure.io/store-db";
+    New-AzWebApp -Name $name -ResourceGroupName $resourceGroupName -AppServicePlan $appPlan -ContainerImageName $image -ContainerRegistryUrl $acr.loginserver -ContainerRegistryUser $creds.username -ContainerRegistryPassword (ConvertTo-SecureString $creds.password -AsPlainText -Force) -Location $acr.location;
+
+    $config = Get-AzResource -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Web/sites/config -ResourceName $name -ApiVersion 2018-02-01
+    $config.Properties.linuxFxVersion = "DOCKER|$($image):latest"
+    $config | Set-AzResource -ApiVersion 2018-02-01 -Debug -Force
+
+    az webapp create --resource-group $resourceGroupName --plan $appPlan --name $name --deployment-container-image-name $image
+    az webapp config set --resource-group $resourceGroupName --name $name --linux-fx-version "DOCKER|$image:latest"
+    az webapp config appsettings set --resource-group $resourceGroupName --name $name --settings WEBSITES_PORT=5432
+    ```
+
+## Test the containers
+
+1.  Browse to the Azure Portal
+2.  Select the **pgsqldevSUFFIX-app-db** app service
+3.  On the **Overview** tabe, record the **URL**
+4.  Under **Monitoring**, select **App Service Logs**
+5.  Select **File System**
+6.  For **Days**, type **7**
+7.  Select **Save**
+8.  Under **Settings**, select **Configuration**
+9.  Select **New application setting**, add the following, replace the
+    `DB_URL` with the one recorded previously from the database
+    container, replace the `APP_URL` with the one recorded for the
+    application web:
+    -   `PostgreSQL_ROOT_PASSWORD` = `Solliance123`
+    -   `WEBSITES_PORT` = `5432`
+10. Select **Save**, then select **Continue**
+11. Select the **pgsqldevSUFFIX-app-web** app service
+12. On the **Overview** tabe, record the **URL**
+13. Under **Monitoring**, select **App Service Logs**
+14. Select **File System**
+15. For **Days**, type **7**
+16. Select **Save**
+17. Under **Settings**, select **Configuration**
+18. Select **New application setting**, add the following, replace the
+    `DB_URL` with the one recorded previously from the database
+    container, replace the `APP_URL` with the one recorded for the
+    application web:
+    -   `DB_HOST` = {DB_URL}
+    -   `DB_USERNAME` = `root`
+    -   `DB_PASSWORD` = `Solliance123`
+    -   `DB_DATABASE` = `contosostore`
+    -   `DB_PORT` = `5432`
+    -   `APP_URL` = {APP_URL}
+
+    > **NOTE** It is possible to edit multiple by selecting **Advanced
+    > edit** and then copying the below values in, be sure to replace
+    > the `SUFFIX`
+
+    ``` text
+    {
+        "name": "DB_HOST",
+        "value": "pgsqldevSUFFIX-app-db.azurewebsites.net",
+        "slotSetting": false
+    },
+    {
+        "name": "DB_USERNAME",
+        "value": "wsuser",
+        "slotSetting": false
+    },
+    {
+        "name": "DB_PASSWORD",
+        "value": "Solliance",
+        "slotSetting": false
+    },
+    {
+        "name": "DB_DATABASE",
+        "value": "contosostore",
+        "slotSetting": false
+    },
+    {
+        "name": "DB_PORT",
+        "value": "5432",
+        "slotSetting": false
+    },
+    {
+        "name": "APP_URL",
+        "value": "https://pgsqldevSUFFIX-app-web.azurewebsites.net/",
+        "slotSetting": false
+    }
+    ```
+19. Select **Save**
+20. Browse to the **pgsqldevSUFFIX-app-web** app service url, the web
+    site will load but it has database errors.
+
+## Troubleshooting
+
+1.  If no results are displayed, review the logs for each container
+    instance
+    1.  Browse to the app service
+    2.  Under **Monitoring**, select **Log stream**
+    3.  Review the startup logs, notice that the database instance did
+        not respond to an HTTP request on port 5432. This is because an
+        app service container will only work with HTTP based container
+        images unless it is a multicontainer deployment.
+2.  Change the application settings for the web container to point to
+    the Azure Database for PostgreSQL Flexible Server Single Server
+    instance
+3.  Refresh the web site, it should now load successfully.
+
+# Migrate to Azure Kubernetes Services (AKS)
+
+Now that a containerized version of the applications exists, it can now
+be hosted in several places in Azure. Here we explore Azure App Service
+Containers.
+
+## Push images to Azure Container Registry
+
+1.  If they haven't already, push the images to the Azure Container
+    Registry using the [Push Images to Acr] article.
+
+## Run images in Azure Kubernetes Service (AKS)
+
+1.  Open the
+    `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\04-AKS`
+    directory with Visual Studio Code
+
+2.  Open a new terminal window, ensure kubectl is installed:
+
+    ``` powershell
+    $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
+
+    az aks install-cli
+
+    az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
+    ```
+
+3.  Run the following commands to deploy the containers (be sure to
+    update the variable values):
+
+    ``` powershell
+    $acrName = "pgsqldevSUFFIX";
+    $resourceName = "pgsqldevSUFFIX";
+    $resourceGroupName = "RESOURCEGROUPNAME";
+
+    $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
+    $creds = $acr | Get-AzContainerRegistryCredential;
+
+    kubectl create namespace PostgreSQLdev
+
+    $ACR_REGISTRY_ID=$(az acr show --name $ACRNAME --query "id" --output tsv);
+    $SERVICE_PRINCIPAL_NAME = "acr-service-principal";
+    $PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role acrpull --query "password" --output tsv)
+    $USERNAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+
+    kubectl create secret docker-registry acr-secret `
+    --namespace PostgreSQLdev `
+    --docker-server="https://$($acr.loginserver)" `
+    --docker-username=$username `
+    --docker-password=$password
+
+    #ensure that MSI is enabled
+    az aks update -g $resourceGroupName -n $resourceName --enable-managed-identity
+
+    #get the principal id
+    az aks show -g $resourceGroupName -n $resourceName --query "identity"
+    ```
+
+4.  Create a managed disk, copy its `id` for later use:
+
+``` powershell
+az disk create --resource-group $resourceGroupName --name "disk-store-db" --size-gb 200 --query id --output tsv
+```
+
+5.  Open and review the following `storage-db.yaml` deployment file:
+
+``` yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: PostgreSQL-data
+  namespace: PostgreSQLdev
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi
+```
+
+6.  Open and review the `store-db.yaml` deployment file, be sure to
+    replace the `<REGISTRY_NAME>` and `ID` tokens:
+
+``` yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: store-db
+  namespace: PostgreSQLdev
+  labels:
+      app: store-db
+spec:
+  volumes:
+  - name: PostgreSQL-data
+    persistentVolumeClaim:
+      claimName: PostgreSQL-data
+  containers:
+    - name: store-db
+      image: <REGISTRY_NAME>.azurecr.io/store-db:latest
+      volumeMounts:
+      - mountPath: "/var/lib/PostgreSQL/"
+        name: PostgreSQL-data
+      imagePullPolicy: IfNotPresent
+      env:
+      - name: PostgreSQL_DATABASE
+        value: "ContosoStore"
+      - name: PostgreSQL_ROOT_PASSWORD
+        value: "root"
+  imagePullSecrets:
+    - name: acr-secret
+```
+
+7.  Run the deployment:
+
+    ``` powershell
+    kubectl create -f storage-db.yaml
+
+    kubectl create -f store-db.yaml
+    ```
+
+8.  Create the following `store-web.yaml` deployment file, be sure to
+    replace the `<REGISTRY_NAME>` token:
+
+``` yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: store-web
+  namespace: PostgreSQLdev
+spec:
+  containers:
+    - name: store-web
+      image: <REGISTRY_NAME>.azurecr.io/store-web:latest
+      imagePullPolicy: IfNotPresent
+      env:
+      - name: DB_DATABASE
+        value: "ContosoStore"
+      - name: DB_USERNAME
+        value: "root"
+      - name: DB_PASSWORD
+        value: "root"
+      - name: DB_HOST
+        value: "store-db"
+  imagePullSecrets:
+    - name: acr-secret
+```
+
+6.  Run the deployment:
+
+    ``` powershell
+    kubectl create -f store-web.yaml
+    ```
+
+## Add services
+
+1.  Open and review the `store-db-service.yaml` yaml file:
+
+``` yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-db
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: store-db
+```
+
+2.  Open and review the `store-web-service.yaml` yaml file:
+
+``` yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-web
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: store-web
+```
+
+3.  Run the deployment:
+
+    ``` powershell
+    kubectl create -f store-web-service.yaml
+
+    kubectl create -f store-db-service.yaml
+    ```
+
+## Create a Loadbalancer
+
+1.  Review the `store-web-lb.yaml` file:
+2.  Execute the deployment:
+
+``` powershell
+kubectl create -f store-web-lb.yaml
+```
+
+3.  Review the `store-db-lb.yaml` file:
+4.  Execute the deployment:
+
+``` powershell
+kubectl create -f store-db-lb.yaml
+```
+
+## Test the images
+
+1.  Browse to the Azure Portal
+2.  Navigate to the AKS cluster and select it
+3.  Under **Kubernetes resources**, select **Service and ingresses**
+4.  For the **store-web-lb** service, select the external IP link. A new
+    web browser tab should open to the web front end. Ensure that an
+    order can be created without a database error.
+
+## Create a deployment
+
+Kubernetes deployments allow for the creation of multiple instances of
+pods and containers in case nodes or pods crash unexpectiantly.
+
+1.  Review the `store-web-deployment.yaml` file be sure to replace the
+    Azure Container Registry link:
+
+``` powershell
+kubectl create -f store-web-deployment.yaml
+```
+
+2.  Review the `store-db-deployment.yaml` file be sure to replace the
+    Azure Container Registry link:
+3.  Execute the deployment:
+
+``` powershell
+kubectl create -f store-db-deployment.yaml
+```
+
+4.  This deployment is now very robust and will survive multiple node
+    failures.
+
+# Utilize AKS and Azure Database for PostgreSQL Flexible Server
+
+Rather than managing the database volumes for a PostgreSQL server
+instance, it is possible to utilize Azure Database for PostgreSQL
+Flexible Server in order to use a platform as a service approach. This
+will remove the need to have a database server container and a volumne
+to be persisted.
+
+## Push images to Azure Container Registry
+
+1.  If they haven't already, push the images to the Azure Container
+    Registry using the [Push Images to Acr] article.
+
+## Run images in AKS
+
+1.  Review the `store-web-development.yaml` file
+2.  Run the following to execute the deployment, update the `DB_HOST`
+    value to the Azure Database for PostgreSQL Flexible Server instance:
+
+``` powershell
+kubectl create -f store-web-development.yaml
+```
+
+# Azure Function with PostgreSQL (.NET)
+
+https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/how-to-connect-to-azure-database-for-PostgreSQL-using-managed/ba-p/1518196
+
+## Setup
+
+It is possible to utilize Visual Studio or Visual Studio Code to create
+Azure Functions.
+
+### Install pre-requisites
+
+Most of this is done already in the lab setup scripts, but is provided
+here for reference.
+
+-   Install [Visual Studio 2022 Community Edition]
+    -   Expand the **Download Visual Studio with .NET** dropdown for an
+        installation package with the .NET SDK
+    -   Once Visual Studio loads, sign in with an Azure account
+-   Install the [Azure Functions core tools MSI]
+
+#### Install the Azure development workload for Visual Studio
+
+-   Open the Visual Studio installer from the Start menu.
+-   Select **Modify** next to the **Visual Studio Community 2022**
+    installation
+-   Select the **Azure development** tile below the **Web & Cloud**
+    header. Then, select **Modify** at the lower right-hand corner of
+    the window
+
+## Create the Function Application
+
+The application here is based on an Http Trigger that will then make a
+call into the Azure Database for PostgreSQL Flexible Server instance and
+add some records. Create this function by performing the following
+steps.
+
+-   Open Visual Studio, if prompted, sign in
+-   Select **Create a new project**
+-   Search for **Azure Functions**
+-   Select **C#** for the language
+-   Select **Next**
+-   For the name, type **AddCustomerFunction**
+-   Select the project path
+-   Select **Next**
+-   For the functions works, select **.NET 8.0 Isloated**
+-   For the function type, select **Http Trigger**
+-   For the Storage account, select **Storage Emulator**
+-   For the authorization level, select **Function**
+-   Select **Create**
+-   Open the **Function1.cs** file, update the function class (in
+    `Function1.cs`) to the following. This Function completes the
+    following tasks when its HTTP endpoint receives a request:
+    -   Connecting to the Azure Database for PostgreSQL Flexible Server
+        instance provisioned in the ARM template
+    -   Generating a list of databases on the PostgreSQL instance
+    -   Building a formatted response
+    -   Returning the formatted response to the caller
+-   Be sure to replace the `SUFFIX` connection information:
+
+``` csharp
+    public static class AddCustomerFunction
+    {
+        [FunctionName("AddCustomerFunction")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = "pgsqldevSUFFIXflex16.postgres.database.azure.com",
+                Username = "wsuser",
+                Password = "Solliance123",
+                Database = "postgres",
+                SslMode = SslMode.Require
+            };
+
+            string responseMessage = "";
+
+            using (var conn = new NpgsqlConnection(builder.ConnectionString))
+            {
+                conn.Open();
+
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT datname FROM pg_catalog.pg_database;";
+                    NpgsqlDataReader r = command.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        responseMessage += r["datname"] + "\r\n";
+                    }
+                }
+            }
+
+            return new OkObjectResult(responseMessage);
+        }
+    }
+```
+
+-   Right-click the project, select **Manage Nuget Packages**
+
+-   Select the **Browse** tab
+
+-   Search for **Npgsql**, select it, then select **Install**
+
+-   Select **Apply**
+
+-   Select **Ok** if prompted
+
+-   At the top of `Function1.cs` file, add a using reference to `Npgsql`
+    by adding the following statement.
+
+    ``` csharp
+    using Npgsql;
+    ```
+
+-   Press **F5** to start the function
+
+-   When prompted, select **Allow**
+
+-   Open a browser window to the function endpoint, it will be similar
+    to the following:
+
+``` text
+http://localhost:7071/api/AddCustomerFunction
+```
+
+-   You should see a list of databases displayed.
+
+## Deploy the Function Application
+
+Now that the function app is created and working locally, the next step
+is to publish the function app to Azure.
+
+-   Right click the project, select **Publish**
+
+-   Select **Azure**, then select **Next**
+
+-   For the target, select **Azure Function App (Linux)**
+
+    ![This image demonstrates choosing the Azure Function App Linux
+    deployment option.]
+
+-   Select **Next**
+
+-   Select the **Sign in** button, login using your lab credentials
+
+-   Select the account, subscription and resource group
+
+-   Select the **pgsqldevSUFFIX-AddCustomerFunction** function app
+
+-   Select **Finish**
+
+-   Select **Publish**, and if prompted, select **Yes** to update the
+    runtime version.
+
+-   Switch to the Azure portal, browse to your lab resource group
+
+-   Select the **pgsqldevSUFFIX-addcustomerfunction** Function App
+    instance
+
+-   Under **Functions**, select **App keys**
+
+-   Copy the function `default` app key value
+
+-   It should now be possible to browse to the function endpoint and see
+    data, replace the `APPKEY` with the one you copied:
+
+``` text
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=APPKEY
+```
+
+## Test the Function App in the Azure portal
+
+-   Switch to the Azure portal, browse to your lab resource group
+
+-   Select the **pgsqldevSUFFIX-addcustomerfunction** Function App
+    instance
+
+-   On the **Overview** page, select the **AddCustomerFunction** link
+
+-   On the **AddCustomerFunction** page, select **Code + Test**. Then,
+    select **Test/Run** to access the built-in testing interface
+
+-   If prompted, select the warning to enable CORS
+
+-   Issue a simple GET request to the Function App endpoint using the
+    `master` key.
+
+    > **NOTE** It is possible to use a *function key*, which is scoped
+    > to an individual Function App, or a *host key*, which is scoped to
+    > an Azure Functions instance.
+
+    ![This image demonstrates how to configure a GET request to the
+    Function App endpoint from the Azure portal.]
+
+-   The Function App should execute successfully and a list of items
+    should display
+
+## Troubleshooting
+
+-   If the application builds successfully, but deployment fails, try
+    restarting Visual Studio and publishing the Function App again to
+    avoid transient errors
+-   Enabling Application Insight logs is a useful way to debug Function
+    Apps deployed to Azure. As Application Insights cannot be configured
+    from the Visual Studio publish profile, consult the [Microsoft
+    documentation][81] for the manual setup steps
+
+# Azure Function with PostgreSQL (Python)
+
+https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/how-to-connect-to-azure-database-for-PostgreSQL-using-managed/ba-p/1518196
+
+## Setup
+
+It is possible to utilize several different tools including Visual
+Studio or Visual Studio Code to create Azure Functions.
+
+### Visual Studio Code
+
+> **Note** that these steps have already been performed in the virtual
+> machine environment.
+
+-   Install the [`Azure Functions`] and [`Python`] extensions
+-   Install [Python 3.11.x][Downloads page]
+-   Install the [Azure Functions core tools MSI]
+
+## Create the Function Application
+
+The application here is based on an HTTP Trigger that will then make a
+call into the Azure Database for PostgreSQL Flexible Server instance and
+add some records. To create this function perform the following steps.
+
+-   Open Visual Studio Code, type **Ctrl-Shift-P**
+
+-   Select **Azure Functions: Create New Project**
+
+    ![This image demonstrates how to create a new Function App project.]
+
+-   Select the project path (ex `c:\temp\python-function`)
+
+-   For the language, select **Python**
+
+-   For the model, select **Model V2**
+
+-   Select the **python 3.11.x** option
+
+-   Select the **HTTP trigger**
+
+    ![This image demonstrates configuring the HTTP Trigger for the new
+    Function App.]
+
+-   For the name, type **AddCustomerFunction**, press **ENTER**
+
+-   For the authorization level, select **FUNCTION**
+
+-   Select **Open in current window**
+
+-   Update the function code in `function_app.py` to the following,
+    ensuring that the connection information is replaced. This Function
+    completes the following tasks when its HTTP endpoint receives a
+    request:
+
+    -   Connecting to the PostgreSQL Flexible Server instance
+        provisioned in the ARM template
+    -   Generating a list of databases on the PostgreSQL instance
+    -   Building a formatted response
+    -   Returning the formatted response to the caller
+
+``` python
+import logging
+import azure.functions as func
+import psycopg2
+import ssl
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="AddCustomerFunction")
+def AddCustomerFunction(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    crtpath = 'BaltimoreCyberTrustRoot.crt.pem'
+    #crtpath = 'DigiCertGlobalRootCA.crt.pem'
+
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+
+    # Connect to PostgreSQL
+    cnx = psycopg2.connect(database="postgres",
+        host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+        user="wsuser",
+        password="Solliance123",
+        port="5432")
+
+    logging.info(cnx)
+    # Show databases
+    cursor = cnx.cursor()
+    cursor.execute("SELECT datname FROM pg_catalog.pg_database;")
+    result_list = cursor.fetchall()
+    # Build result response text
+    result_str_list = []
+    for row in result_list:
+        row_str = ', '.join([str(v) for v in row])
+        result_str_list.append(row_str)
+    result_str = '\n'.join(result_str_list)
+    return func.HttpResponse(
+        result_str,
+        status_code=200
+    )
+```
+
+-   Open a terminal window (Select **Terminal-\>New Terminal**)
+
+    -   Install the PostgreSQL connector:
+
+        ``` powershell
+        pip install psycopg2
+        ```
+
+        ![This image demonstrates the Virtual Environment and PostgreSQL
+        connector installation in the PowerShell terminal.]
+
+    -   Run the function app (your can also press `F5`):
+
+        ``` powershell
+        func start run
+        ```
+
+-   In the dialog, select **Allow**
+
+-   Open a browser window to the following. A list of databases should
+    load:
+
+    ``` text
+    http://localhost:7071/api/AddCustomerFunction
+    ```
+
+-   The data will be displayed, however it is over non-SSL connection.
+    Azure recommends that Flexible Server clients use the service's
+    public SSL certificate for secure access. Download the [Azure SSL
+    certificate] to the Function App project root directory
+
+-   Add the following lines to the Python code to utilize the Flexible
+    Server public certificate and support connections over TLS 1.2:
+
+``` python
+crtpath = '../BaltimoreCyberTrustRoot.crt.pem'
+#crtpath = '../DigiCertGlobalRootCA.crt.pem' #THIS IS THE OLD CERT, USE THE BALTIMORE CERT
+
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+
+# Connect to PostgreSQL
+cnx = psycopg2.connect(database="postgres",
+        host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+        user="wsuser",
+        password="Solliance123",
+        port="5432",
+        sslmode='require',
+        sslrootcert=crtpath)
+```
+
+-   Call the endpoint again in a browser. The Function App should still
+    operate
+
+## Deploy the Function Application
+
+Now that the Function App is created and working locally, the next step
+is to publish the Function App to Azure. This will require some small
+changes.
+
+-   Add the following to the Python code:
+
+``` python
+import pathlib
+
+def get_ssl_cert():
+    current_path = pathlib.Path(__file__).parent.parent
+    return str(current_path / 'BaltimoreCyberTrustRoot.crt.pem')
+```
+
+-   Modify the `ssl_ca` parameter to call the `get_ssl_cert()` function
+    and get the certificate file path
+
+``` python
+ssl_ca=get_ssl_cert(),
+```
+
+-   Open the `requirements.txt` file and modify to the following. The
+    Azure Functions runtime will install the dependencies in this file
+
+``` text
+azure-functions
+psycopg2
+```
+
+-   Switch to the terminal window and run the following. Follow the
+    instructions to log in to the Azure subscription:
+
+``` powershell
+az login
+```
+
+-   If necessary, switch to the target subscription:
+
+``` powershell
+az account set --subscription 'SUBSCRIPTION NAME'
+```
+
+-   Switch to the terminal window and run the following from the
+    repository root:
+
+``` powershell
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction
+```
+
+-   If you previously deployed the dotnet version, you should get an
+    error about the function runtime. Run the following to force the
+    deployment and change the runtime to python:
+
+``` powershell
+az functionapp config set --name pgsqldevSUFFIX-addcustomerfunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
+```
+
+-   Retry the deployment:
+
+``` powershell
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force
+```
+
+## Test the Function App in the Azure portal
+
+-   Navigate to the Azure portal and select **AddCustomerFunction** from
+    the **PostgreSQLdev\[SUFFIX\]-addcustomerfunction** Function App
+    instance
+
+    ![This image demonstrates how to select the AddCustomerFunction from
+    the Function App instance.]
+
+-   On the **AddCustomerFunction** page, **Code + Test**. Then, select
+    **Test/Run** to access the built-in testing interface
+
+-   Issue a simple GET request to the Function App endpoint.
+
+    > **NOTE** It is possible to use a *function key*, which is scoped
+    > to an individual Function App, or a *host key*, which is scoped to
+    > an Azure Functions instance.
+
+    ![This image demonstrates how to configure a GET request to the
+    Function App endpoint from the Azure portal.]
+
+-   The Function App should execute successfully, with logs indicating a
+    successful connection to PostgreSQL Flexible Server
+
+    ![This image demonstrates the logs of a successful Function App
+    invocation.]
+
+## Troubleshooting
+
+-   If the Function App works locally, but fails in the cloud, ensure
+    that the Azure environment is configured properly:
+    -   The `requirements.txt` file must reference the PostgreSQL Python
+        connector
+    -   The Flexible Server instance must provide access to all Azure
+        resources
+    -   The Azure Function Apps instance must be using extension version
+        `4`, as that is the what the local core tools support
+
+# Deploy Azure Function App to Azure Kubernetes Service (AKS)
+
+Function apps can be containerized and deployed to AKS. These steps will
+walk through this process so it can be applied later if this is
+something the architecture demands.
+
+## Ensure Docker is started
+
+-   Open Docker Desktop, ensure that it is running.
+
+## Setup AKS (KEDA)
+
+-   Open a new Visual Studio Code window to the
+    `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\06-03-FunctionApp-AKS`
+    folder
+-   Open a new terminal window, ensure that an AKS connection is
+    present:
+
+``` powershell
+$resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
+
+az aks install-cli
+
+az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
+```
+
+-   Run the following command to install KEDA on the AKS cluster:
+
+``` powershell
+kubectl create namespace keda
+
+func kubernetes install
+```
+
+## Ensure Docker Connection
+
+1.  Open the Azure Portal
+
+2.  Browse to the **pgsqldevSUFFIX** Azure Container Registry
+
+3.  Under **Settings**, select **Access keys**
+
+4.  Copy the username and password
+
+5.  In the terminal windows, run the following:
+
+    ``` powershell
+    docker login {acrName}.azurecr.io -u {username} -p {password}
+    ```
+
+## Configure Function App as Container
+
+-   Run the following command to setup the docker file
+
+``` powershell
+func init --docker-only --python
+```
+
+-   Deploy the function app using the following, be sure to replace the
+    function name and `SUFFIX` value:
+
+``` powershell
+func kubernetes deploy --name "addcustomerfunction" --registry "pgsqldevSUFFIX.azurecr.io"
+```
+
+-   After following the above steps, the function app has been turned
+    into a container and pushed to the target registry. It should also
+    now be deployed to the AKS cluster in the `keda` namespace.
+
+# Securing Azure Function Apps
+
+In the previous function apps the connection information was embedded
+into the function app code. As was covered in the traditional deployment
+models, it is a best practice to remove this information and place it
+into Azure Key Vault. Here we will utilize the features of Azure to use
+Managed Identities to connect to the database.
+
+> **NOTE** This is currently only supported on Azure Database for Single
+> Server.
+
+## Enable PostgreSQL Microsoft Entra Authentication
+
+-   Switch to the Azure Portal
+-   Browse to the **pgsqldevSUFFIXflex16** Azure Database for PostgreSQL
+    Flexible Server instance
+-   Under **Security**, select **Authentication**
+-   Ensure **Assign access to** is set to
+    `PostgreSQL and Microsoft Entra authentication`
+-   Select **Add Microsoft Entra Admins**
+-   Select your lab credentials
+-   Select **Select**
+-   Select **Save**
+
+## Create Managed Identity
+
+-   Browse to the **pgsqldevSUFFIX-addcustomerfunction** Function App
+-   Under **Settings**, select **Identity**
+-   For the **System assigned** identity, toggle to **On**
+-   Select **Save**, then select **Yes**
+-   Run the following to get the application id, replace the `SUFFIX`:
+
+``` powershell
+az ad sp list --display-name pgsqldevSUFFIX-addcustomerfunction --query [*].appId --out tsv
+```
+
+-   Copy the value for later use
+
+## Login to the Azure Database with Microsoft Entra credentials
+
+-   Switch to the **paw-1** virtual machine
+-   Open a PowerShell window, run the following to create a login token
+    using your lab credentials (not the MSI of the virtual machine):
+
+``` powershell
+Connect-AzAccount
+
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+
+$password = $accessToken.Token;
+```
+
+-   Open the pgAdmin
+-   Create a new server connection, right click **Servers**, select
+    **Register**
+-   For the name, type **azureadPostgreSQL**
+-   For the hostname, type the DNS of the Azure Database for PostgreSQL
+    Flexible Server (ex
+    `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
+-   For the username, type your user UPN (ex
+    `user@tenant.onmicrosoft.com@mydb`)
+    -   `user` is your alias
+    -   `tenant` is your Azure AD Tenant name
+    -   `mydb` is the database to connect too
+-   Select **OK**
+-   Select the new connection, type the password from above
+
+## Add Users to Database
+
+-   Run the following, replace the `APP_ID` with the one copied from
+    above:
+
+    ``` sql
+    SET aad_validate_oids_in_tenant = off;    
+
+    CREATE ROLE funcuser WITH LOGIN PASSWORD 'APP_ID' IN ROLE azure_ad_user;
+    ```
+
+## Modify the code
+
+-   Open the
+    `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\06-04-FunctionApp-MSI`
+    function app folder in Visual Studio Code
+
+-   Add the following code to get an access token  password for the
+    managed identity:
+
+    ``` python
+    from azure.identity import DefaultAzureCredential, AzureCliCredential, ChainedTokenCredential, ManagedIdentityCredential
+    managed_identity = ManagedIdentityCredential()
+    scope = "https://management.azure.com"
+    token = managed_identity.get_token(scope)
+    access_token = token.token
+    ```
+
+-   Update the connection code to use the application id and the access
+    token:
+
+    ``` python
+    # Connect to PostgreSQL
+        cnx = psycopg2.connect(database="postgres",
+            host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
+            user="funcuser",
+            password=access_token,
+            port="5432",
+            sslmode='require',
+            sslrootcert=crtpath)
+    ```
+
+-   Run the following to deploy the updated Azure Function App:
+
+``` powershell
+func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force --python
+```
+
+Browse to the function endpoint and see the data (the output of the
+previous command will include this information). The function app is now
+running as a managed identity and connecting to the database using that
+identity:
+
+``` text
+https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=APPKEY
+```
+
+# Logic Apps with PostgreSQL
+
+Logic Apps can be used to connect to Azure Database for PostgreSQL
+Flexible Server instances and perform actions such as SELECT, INSERT,
+DELETE and UPDATE. However, Logic Apps do not have any direct
+integrations that allow for triggers that fire from PostgreSQL DDL or
+DML events. In order for the PostgreSQL actions to connect to the
+PostgreSQL instance, it is necessary to install a Logic Apps Gateway.
+This can be done with Azure instances, but the Azure Database for
+PostgreSQL Flexible Server will need private endpoints enabled and the
+gateway will need to run in a virtual machine that can access that
+private endpoint.
+
+## Create a Private Endpoint Flexible Server
+
+-   Open the Azure Portal
+
+-   Browse to the lab resource group
+
+-   Find the **pgsqldevSUFFIX-db** virtual network, take note of its
+    region location
+
+-   In the top navigation menu, select **+Create**
+
+-   Search for **Azure Database for PostgreSQL Flexible Server**
+
+-   Select **Create**
+
+-   Under **Flexible Server**, select **Create**
+
+    ![This image demonstrates the first provisioning screen for Azure
+    Database for PostgreSQL Flexible Server.]
+
+-   Select the target subscription and resource group
+
+-   For the name, type **pgsqldevSUFFIXflexpriv**
+
+-   Select the resource group region (it must be in the region that the
+    VNet is in)
+
+-   For **Workload type**, select **Development** to save costs
+
+-   For **Availability zone**, select **No preference**
+
+    -   Co-locating the VM and the Flexible Server instance will improve
+        network performance, but it is not strictly necessary
+
+-   For the **PostgreSQL Version**, select **16**
+
+-   Do not enable high availability
+
+-   For the admin username, type **wsuser**
+
+-   For the password, type **Solliance123**
+
+-   Select **Next: Networking \>**
+
+-   Select **Private access (VNet Integration)**
+
+-   Select the lab subscription
+
+-   Select the **PostgreSQLdev\[SUFFIX\]-db** vnet
+
+-   Select the **default** subnet, which is delegated to hold just
+    Flexible Server instances
+
+    ![This image demonstrates the Azure VNet integration.]
+
+-   Select the **private.postgres.database.azure.com** private DNS zone
+
+-   Select **Review + create**
+
+-   Select **Create**
+
+-   Navigate to the new Azure Database for PostgreSQL Flexible Server
+    instance
+
+-   Under **Settings** select **Server parameters**
+
+-   Search for the `require_secure_transport` setting
+
+-   Change the value to **OFF**
+
+-   Select **Save**
+
+    ![This image demonstrates how to disable SSL transport for Flexible
+    Server.]
+
+> **NOTE** The Log App Gateway can currently only do non-SSL connections
+> to PostgreSQL
+
+> **NOTE** It is also possible to use the Azure CLI
+> [`az PostgreSQL flexible-server create`] command to provision a
+> Flexible Server instance in a virtual network.
+
+## Private DNS - Virtual network link
+
+Several private DNS Zones were created as part of the ARM template
+deployment, here it will be necessary to link those to the virtual
+networks so DNS resolution of private vnet and private endpoint
+resources become resolvable by other resources (such as virtual
+machines).
+
+-   Browse to the **private.postgres.database.azure.com** private dns
+    zone
+-   Under **Settings**, select **Virtual network links**, notice an
+    auto-created link (from the resource creation above)
+-   Select the **Overview** link
+-   Record the database IP Address for later use
+-   It can take some time for the DNS to become available, on the
+    **paw-1** virtual machine
+-   Open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
+-   Add the following to the file:
+
+``` text
+10.4.0.6 pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com
+```
+
+## Configure the new Flexible Server instance
+
+-   Switch to the **paw-1** virtual machine
+
+-   Open a command prompt window and enter the following command to
+    initiate a connection to the Flexible Server instance. Provide
+    `Solliance123` as the password, when prompted. Be sure to replace
+    the `SUFFIX`:
+
+    ``` cmd
+    "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE\PostgreSQL.exe" -h pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com -u wsuser -p
+    ```
+
+-   Create a new database, titled `noshnowapp`. Then, create a new table
+    for orders. It is a simplified version of the table used by the
+    Contoso NoshNow application.
+
+    ``` sql
+    CREATE DATABASE noshnowapp;
+    USE noshnowapp;
+
+    CREATE TABLE orders (
+      id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      name varchar(20) NOT NULL,
+      address varchar(80) NOT NULL
+    );
+    ```
+
+## Install the PostgreSQL .NET Connector
+
+-   Log in to the **pgsqldevSUFFIX-paw-1** virtual machine using
+    **wsuser** and **Solliance123**
+-   [Download] the connector
+-   Run the **PostgreSQL-installer...** installer
+-   Click through all the default values of all dialogs
+-   Select **Next**
+-   Select **Finish**
+
+## Install the Logic Apps Gateway
+
+-   [Download][82] the Logic Apps Gateway
+
+-   Install the Logic Apps Gateway by running the **gatewayinstall.exe**
+
+-   Select **I accept the terms...** checkbox
+
+-   Select **Install**
+
+-   Enter the lab user email, then select **Sign in**
+
+-   When prompted, log in to the lab Azure account
+
+-   Select **Register a new gateway on this computer**
+
+-   Select **Next**
+
+-   For the name, type **gateway-PostgreSQL-SUFFIX**
+
+-   For the recovery key, type **Solliance123**
+
+-   Ensure that the region is the same as where the virtual network for
+    the database instance is located
+
+-   Select **Configure**
+
+    ![This image demonstrates the configuration for the on-premises data
+    gateway.]
+
+## Configure the Logic Apps Gateway
+
+-   In the **On-premises data gateway** dialog, select **Create a
+    gateway in Azure**
+
+-   Select the subscription and the resource group
+
+-   For the name, type **logic-app-gateway**
+
+-   Select the region used above
+
+-   Select the **gateway-PostgreSQL-SUFFIX** gateway
+
+-   Select **Review + create**
+
+-   Select **Create**
+
+    ![This image demonstrates how to configure the on-premises data
+    gateway Azure connection.]
+
+## Configure the Logic App
+
+We have already created a Logic App that uses a timer trigger to check
+for new Orders in the database and then send an email.
+
+### Configure deployed Logic App
+
+-   Browse to the **pgsqldevSUFFIX-logic-app**
+-   Under **Development Tools**, select **API connections**
+-   Select **office365**
+-   Under **General**, select **Edit API Connection**
+-   Under the **Display Name** to your lab user email address
+-   Select **Authorize**, login using the lab credentials
+-   Select **Save**
+-   Select the **azureblob** connection
+-   Under **General**, select **Edit API Connection**
+-   Enter the **pgsqldevSUFFIX**, azure storage account name and access
+    key
+-   Select the **PostgreSQL** connection
+-   Under **General**, select **Edit API Connection**
+-   Enter the following information:
+    -   Server :
+        `pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com`
+    -   Database name : `contosostore`
+    -   Username : `wsuser`
+    -   Password : `Solliance123`
+    -   Gateway : `gateway-PostgreSQL-SUFFIX`
+-   Select **Save**
+
+### Create a Logic App (Optional)
+
+This step has already been done for you, but if you'd like to create the
+logic app from scratch the steps are provided here.
+
+-   Select **Blank template**
+
+-   For the trigger, select **Recurrence**. Keep the default values
+
+    ![This image demonstrates the recurrence trigger parameters for the
+    Logic Apps instance.]
+
+-   Select **+ New step**, search for **PostgreSQL**
+
+-   Select **Get Rows**
+
+-   Update the step variables:
+
+    -   For the name, type **PostgreSQLflex**
+    -   For the server, type
+        **pgsqldevSUFFIXflexpriv.postgres.database.azure.com**.
+
+    > **Note** It may be necessary to put the private IP address if DNS
+    > resolution does not kick in in a reasonable amount of time.
+
+    -   For the database, type **noshnowapp**
+    -   For username, type **wsuser**
+    -   For password, type **Solliance123**
+    -   For the gateway, select **gateway-PostgreSQL-SUFFIX**
+
+-   Select **Create**
+
+-   For the table name, enter **noshnowapp.orders**
+
+-   Add the **Filter Query** and the **Select Query** parameters
+
+-   Set the following:
+
+    -   Filter Query = `name eq 'John'`
+    -   Leave Select Query blank
+
+-   Search for the **Office 365 Outlook : Send an email** action
+
+-   Select **Sign in**
+
+-   Sign in with the lab user credentials
+
+-   For the `To`, type the lab user email
+
+-   For the subject, enter **New Order Recieved**
+
+-   For the body, select **Add dynamic content**, then select **Current
+    item**
+
+-   For the logic app, select **Save**
+
+## Configure supporting items
+
+### Add private endpoint to App Service
+
+-   Browse to the **pgsqldevSUFFIX-web** app service
+-   Under **App Service plan**, select **App Service plan**
+-   Under **Settings**, select **Scale up (App Service plan)**
+-   Select **Production** tab
+-   Select the **P1V2** pricing tier
+-   Select **Apply**
+-   Switch back to the app service
+-   Under **Settings**, select **Networking**
+-   In the **Inbound Traffic** section, select **Private endpoints**
+-   Select **Add**
+-   For the name, type **pgsqldevSUFFIX-web-pe**
+-   For the virtual network, select **pgsqldevSUFFIX-web**
+-   Select the **default** subnet
+-   Select **OK**
+-   Browse to the **pgsqldevSUFFIX-web** virtual network, record the new
+    IP Address of the private endpoint.
+
+### Set the Database Host
+
+-   Switch back to the main blade for the app service
+-   Under **Settings**, select **Configuration**
+-   Edit the app setting value for **DB_HOST** to the ip address
+    recorded above.
+-   Select **Save**
+
+### Add virtual network peering
+
+-   Browse to the **pgsqldevSUFFIX-web** virtual network
+-   Under **Settings**, select **Peerings**
+-   Select **+Add**
+-   For the name, type **web-to-db**
+-   For the peering link name, type **db-to-web**
+-   For the virtual network, select **pgsqldevSUFFIX-db**
+-   Select **Add**, after a couple minutes the link should to
+    **Connected**
+-   Under **Settings**, select **Subnets**, ensure that a virtual
+    network called **vnet-web-int**, if not create it
+    -   Select **+Subnet**
+    -   For the name, type **vnet-web-int**
+    -   Select **Save**
+
+### Add VNet Integrate
+
+-   Browse back to the app service
+-   Under **Settings**, select **Networking**
+-   Under **Outbound Traffic**, select **VNet integration**
+-   Select **Add VNet**
+-   Select the **pgsqldevSUFFIX-web** virtual network
+-   Select the **vnet-web-int** subnet
+-   Select **OK**
+
+### Add the lastOrder.txt file
+
+-   Browse to the **pgsqldevSUFFIX** storage account
+-   Select **Containers**, then select **logicapp**
+-   Upload the **lastOrder.txt** file
+
+## Test Trigger
+
+-   On the **paw-1** virtual machine
+-   Add the following to the hosts file:
+
+``` text
+10.3.0.4 PostgreSQLdev-app-web.azurewebsites.net
+10.3.0.4 PostgreSQLdev-app-web.scm.azurewebsites.net
+```
+
+-   Open a new Chrome browser window
+-   Browse to the Contoso Store app service -
+    https://PostgreSQLdev-app-web.azurewebsites.net/
+-   Create a new order
+-   Browse to Outlook Online (https://outlook.office.com), wait for 5
+    minutes for an email to show up with the order details.
+
+# Azure Data Factory with PostgreSQL
+
+## Setup
+
+## Create Linked Services
+
+-   Switch to the Azure Portal, browse to the **pgsqldevSUFFIX** Azure
+    Data Factory instance
+-   Select **Launch Studio**
+-   In the left navigation, select the **Manage** tab
+-   Select **Linked servics**, select the **+ New** button
+-   For the type, select **Azure Database for PostgreSQL**, then select
+    **Continue**
+-   For the name, type **ContosoStore**
+-   For the account selection, select **From Azure Subscription**
+-   Select the subscription
+-   Select the **pgsqldevSUFFIXflex16** Azure Database for PostgreSQL
+    Flexible Server server
+-   For the database name, select **ContosoStore**
+-   For the username, type **wsuser**
+-   For the password, type **Solliance123**
+-   For the encryption methods, select **RequestSSL**
+-   Select **Test connection**, ensure that a success message is
+    displayed.
+-   Select **Create**
+-   Select **Linked services**, select the **+ New** button
+-   For the type, select **Azure Data Lake Storage Gen2**
+-   Select **Continue**
+-   For the name type **AzStorage**
+-   Select the subscription
+-   Select the **pgsqldevSUFFIX** storage account
+-   Select **Create**
+
+## Create Dataset (PostgreSQL)
+
+-   Seelct the **Author** tab
+-   Select the **+** button, then select **Data Set**
+-   For the type, select **Azure Database for PostgreSQL**
+-   Select **Continue**
+-   For the name, type **orders_database**
+-   For the linked service, select **ContosoStore**
+-   For the table name, select **public.orders**
+-   Select **OK**
+
+## Create Dataset (Storage)
+
+-   Select the **+** button, then select **Data Set**
+-   For the type, select **Azure Data Lake Storage Gen2**
+-   Select **Continue**
+-   For the data format, select **JSON**
+-   Select **Continue**
+-   For the name, type **orders_storage**
+-   For the linked service, select **AzStorage**
+-   For the file system, type **orders**
+-   Select **OK**
+
+## Create a Pipeline
+
+-   Select the **+** button, then select **Pipeline-\>Pipeline**
+-   On the right dialog, for the name, type **PostgreSQL_to_storage**
+-   In the middle navigation, expand **Move & transform**
+-   Drag the **Copy data** activity to the design surface
+-   In the **General** tab on the bottom middle, for the pipeline name,
+    type **PostgreSQL_to_storage**
+-   Select the **Source** tab, then select the **orders_database** data
+    set
+-   For the **Use query**, select **Query**
+-   Place the mouse in the text area, select **Add dynamic content**
+-   For the query text, type **select \* from orders where created_at
+    \>= '@pipeline().parameters.LastCreateDate'**
+-   Select **OK**
+-   Select the **Sink** tab, then select the **orders_storage** data set
+-   Select the main pipeline canvas (click the white area around the
+    copy data activity), then select **Parameters**
+-   Select **+ New**
+-   For the name, tyep **LastCreateDate**
+-   For the type, select **String**
+-   For the default value, type **@trigger().scheduledTime**
+
+## Add a trigger
+
+-   In the top middle, select the **Add trigger** button
+-   Select **New/Edit**
+-   Select the **Choose trigger** dropdown, then select **+New**
+-   For the name, type **UserScheduleTrigger**
+-   For the recurrance, select **1 day**
+-   Select **OK**
+-   For the pipeline parameter value, type **@trigger().scheduledTime**
+-   Select **OK**
+
+## Publish
+
+-   Select **Publish all**, in the dialog you should see four artifacts.
+-   Select **Publish**
+
+## Test the pipeline
+
+-   In the middle top area, select the **Trigger (1)** button
+-   Select **Trigger now**
+-   Select **OK**
+-   Open a new browser window to the Azure Portal
+-   Browse to the **pgsqldevSUFFIX** storage account
+-   Under **Data storage**, select **Containers**
+-   Select the **orders** container
+-   Notice that a new file is created that contains the exported data.
+
+# Azure Synapse Analytics with PostgreSQL
+
+## Create PostgreSQL Linked Service
+
+-   Create a new Azure Synapse Analytics workspace
+-   Navigate to the **pgsqldevSUFFIX** Azure Synapce Analytics Workspace
+-   Under **Security**, select **Networking**
+-   Check the **Allow Azure services and resources to access this
+    workspace** checkbox
+-   Select the **+ Add client IP**
+-   Select **Save**
+-   Select **Overview**, then n the **Getting started** area, select the
+    **Open** link for Synapse Studio
+-   Login if prompted.
+-   Select the **Manage** tab
+-   Under **External connections** select **Linked services**
+-   Select **+ New**
+-   For the type, select **Azure Database for PostgreSQL**, select
+    **Continue**
+-   For the name, type **ContosoStore**
+-   For the account selection, select **From Azure Subscription**
+-   Select the subscription
+-   Select the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible
+    Server server
+-   For the database name, type **ContosoStore**
+-   For the username, type **wsuser**
+-   For the password, type **Solliance123**
+-   Select **Test connection**, ensure a success message is displayed.
+-   Select **Create**
+
+## Create PowerBI Workspace
+
+-   Open the Power BI Portal, https://powerbi.microsoft.com
+-   Sign in with your lab credentials
+-   In the left navigation, expand **Workspaces**
+-   Select **Create a workspace**
+-   For the name, type **PostgreSQL**
+-   Select **Apply**
+
+## Create PowerBI Linked Service
+
+-   Switch back to Azure Synapse
+-   Select the **Manage** tab
+-   Under **External connections** select **Linked services**
+-   Select **+ New**
+-   For the type, select **Power BI**, select **Continue**
+-   For the name, type **PowerBI**
+-   Select the lab tenant
+-   Select the **PostgreSQL** workspace
+-   Select **Create**
+
+## Create Integration Dataset
+
+-   Select the **Data** tab
+-   Select the **+** button
+-   Select **Integration Dataset**
+-   For the type, select **Azure Database for PostgreSQL**, select
+    **Continue**
+-   For the name, type **ContosoStore_Orders**
+-   For the linked service **ContosoStore**
+-   Select **OK**
+-   Select **Publish all**, then select **Publish**
+
+## Create PowerBI Desktop Report (Dataset)
+
+-   Switch to the **paw-1** virtual machine
+-   Open **Power BI Desktop**
+-   Select **Get data**
+-   Select **PostgreSQL database**
+-   Select **Connect**
+-   For the servername, enter **pgsqldevSUFFIXflex16**
+-   For the database, select **contosostore**
+-   Select **OK**
+-   Select the **Database** tab
+-   For the user name, type **wsuser**
+-   For the password, type **Solliance123**
+-   Select **Connect**
+-   Check all the checkboxes
+-   Select **Load**
+-   Select **File-\>Save as**, save the report to the desktop as
+    **PostgreSQL**
+-   Select **Save**
+
+## Publish the PowerBI report to Power BI Online
+
+-   Select **File-\>Publish**
+-   Select **Publish to Power BI**
+-   When prompted, login with your lab credentials
+-   Select the **PostgreSQL** workspace
+-   Select **Select**
+-   Select the **Open 'PostgreSQL.pbix' in Power BI** link
+-   Login using your lab credentials.
+-   Ensure the **PostgreSQL** workspace is selected
+-   Select the **PostgreSQL** semantic model
+-   In the **Tables** window, select the **public users** table
+-   Select **Create paginated report**
+-   Select **File-\>Save**, save the report as **Contoso Users**
+-   Select **Save**, the report should load in the synapse workspace.
+
+## Create PowerBI Report in Azure Synapse
+
+-   Select the **Develop** tab
+-   Select the **+** button
+-   Select **Power BI report**
+-   Select the **PostgreSQL** data set
+-   Select **Create**
+-   In the **Data** window, expand the **contosostore categories** table
+-   Select the `id`, `name` and `img` fields.
+-   Select **File-\>Save as**
+-   Save the report as **Contoso Categories**
+-   Select **Save**, the report should load in the synapse workspace.
+
+# Azure Batch with PostgreSQL
+
+## Setup
+
+-   Create a `Batch Service` in Azure (one is created via the arm
+    templates)
+-   Set the PostgreSQL instance to have private endpoint
+
+## Configure Batch Service
+
+-   Browse to the Azure Portal
+-   Select the `pgsqldevSUFFIX` batch service
+-   Under **Features** select **Pools**
+-   Ensure a pool called **main** is displayed, if not create it.
+-   Select the **main** pool
+-   Under **Settings**, select **Scale**
+-   Modify the `Target Spot/low-priority nodes` to **1**
+-   Select **Save**
+-   Navigate back to the Azure Batch instance
+-   Under **Settings**, select **Identity**
+-   Select **System assigned**
+-   Select **Save**, in the dialog select **Yes**
+
+## Create a Batch Job
+
+-   Under **Features**, select **Jobs**
+-   Select **+ Add**
+-   For the name, type **PostgreSQL_job**
+-   For the current pool, select the **main** pool
+-   For **ADVANCED SETTINGS**, select **Custom**
+-   Select the **Environment Settings** link
+-   Add the following environment variables:
+    -   DB_HOST = pgsqldevSUFFIXflex16.postgres.database.azure.com
+    -   DB_DATABASE = contosostore
+    -   DB_PORT = 5432
+    -   DB_USER = wsuser
+    -   DB_PASSWORD = Solliance123
+-   Select **Select**
+-   Select **OK**
+
+## Create an application
+
+-   Zip the
+    `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\07-03-AzureBatch\applications`
+    folder, notice the contents
+-   Switch to the Azure Portal and the Azure Batch instance
+-   Under **Features** select **Applications**
+-   Select **+Add**
+-   For the name, type **app01_PostgreSQL**
+-   For the version, type **1.0.0**\*
+-   For the applciation package, browse to the zip file that was just
+    created.
+-   Select **Submit**
+
+## Create a Batch Task
+
+-   Under **General** select **Jobs**
+
+-   Select the new **PostgreSQL_job**
+
+-   Under **General**, select **Tasks**
+
+-   Select **+ Add**
+
+-   For the task id, type **main_01**
+
+-   For the display name, type **PostgreSQL_copy_orders**
+
+-   For the command line, type the following:
+
+    ``` powershell
+    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders.ps1')
+    ```
+
+-   For the **User identity**, select **Pool autouser, Admin**
+
+-   Select **Application packages** link
+
+-   Select the **app01_PostgreSQL** package and version **1.0.0**
+
+-   Select **Select**
+
+-   Select **Submit**, after a few seconds, the state will show
+    **Running**
+
+## Review the job status
+
+-   Select the **main_01** task
+-   Review the results in the `stdout.txt` file, it should contain data,
+    if no data is present, review the `stderr.txt` and fix any issues
+
+## Setup Managed Identity (certificate)
+
+The steps above utilize hardcoded values to gain access to the target
+database instance. It is possible to setup a managed identity with Azure
+Batch such that credentials can be retrieved at runtime using a managed
+identity of the Azure Batch node pool.
+
+-   On the **paw-1** virtual machine, run the following:
+
+``` powershell
+choco install openssl -y
+
+cd c:\temp
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";C:\Program Files\OpenSSL-Win64\bin"
+
+openssl genrsa -out server.pem 2048
+
+openssl req -new -key server.pem -out server.csr
+```
+
+-   When prompted, enter the requested information (press `ENTER` to
+    select all the defaults)
+
+``` powershell
+openssl x509 -req -days 365 -in server.csr -signkey server.pem -out server.crt
+
+openssl pkcs12 -export -out certificate.pfx -inkey server.pem -in server.crt
+```
+
+-   Enter the certificate password, **Solliance123**\*
+-   Run the following to create a service principal based on the
+    certificate, be sure to replace the `SUFFIX`:
+
+``` powershell
+Connect-AzAccount
+
+Select-AzSubscription "SUBSCRIPTION_NAME";
+
+$certificateFilePath = "c:\temp\server.crt";
+$now = [System.DateTime]::Now;
+
+# Set this to the expiration date of the certificate
+$expirationDate = [System.DateTime]::now.Addyears(1);
+
+# Point the script at the cer file created $cerCertificateFilePath = 'c:\temp\batchcertificate.cer'
+$cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$cer.Import($certificateFilePath)
+
+# Load the certificate into memory
+$credValue = [System.Convert]::ToBase64String($cer.GetRawCertData())
+
+#create a new app registration...
+$newADApplication = New-AzADApplication -DisplayName "Batch Key Vault Access" -certValue $credValue -StartDate $cer.NotBefore -EndDate $cer.NotAfter
+
+# Create new AAD service principal that uses this application
+$newAzureAdPrincipal = New-AzADServicePrincipal -DisplayName $newAdApplication.AppId -CertValue $credValue -StartDate $cer.NotBefore -EndDate $cer.NotAfter;
+```
+
+-   Run the following to grant permission to the new service principal:
+
+``` powershell
+Set-AzKeyVaultAccessPolicy -VaultName 'pgsqldevSUFFIX-kv' -ServicePrincipalName $newAzureAdPrincipal.AppId -PermissionsToSecrets 'Get'
+```
+
+-   Get the needed information for the environment variables:
+
+``` powershell
+$thumbprint = $cer.Thumbprint
+$tenantId = $(Get-AzContext).Tenant.Id
+$appId = $newAzureAdPrincipal.AppId
+
+write-host "Thumbprint: $thumbprint"
+write-host "TenantId: $tenantId"
+write-host "AppId: $appId"
+```
+
+-   Upload the PFX certificate to Azure Batch
+    -   Browse to the Batch instance
+    -   Under **Features**, select **Certificates**
+    -   Select **+Add**
+    -   Browse to the `c:\temp\certificate.pfx` file
+    -   Type the password, **Solliance123**
+    -   Paste the thumprint into the thumbprint textbox
+    -   Select **Create**, a dialog showing the certificate as
+        **Active** should be displayed
+    -   Under **Features**, select **Pools**
+    -   Select the **main** pool
+    -   Under **Settings**, select **Certificates**
+    -   For the thumbprint, select the certificate thumbprint that was
+        just created
+    -   For the store location, select **LocalMachine**
+    -   Select **Save**
+    -   Under **General**, select **Nodes**
+    -   Select the ellipses for the single node, select **Reboot**
+    -   Select **Reboot**, continue on with the next few steps
+
+### Create Key Vault values
+
+-   Browse to the `pgsqldevSUFFIX` key vault
+-   Under **Settings**, select **Access Policies**
+-   Select **Add Access Policy**
+-   For **Key permissions**, select **Get** and **List**
+-   For **Secret permissions**, select **Get**, **List** and **Set**
+-   For the **Select principal**, select **None selected**
+-   Add your username
+-   Select **Save**
+-   Select **Add**
+-   Select **Secrets**
+-   Select **Generate/Import**, create the following secrets:
+    -   DB-PASSWORD = Solliance123
+    -   DB-SERVER = localhost
+    -   DB-USER = wsuser
+    -   DB-DATABASE = contosostore
+
+### Create a new task with secure settings
+
+-   Navigate back to the Azure Batch instance
+
+-   Under **General**, select **Jobs**
+
+-   Select the **PostgreSQL_job**
+
+-   Under **General**, select **Tasks**
+
+-   Select **+ Add**
+
+-   For the task id, type **main_02**
+
+-   For the display name, type **PostgreSQL_copy_orders_secure**
+
+-   For the command line, type the following:
+
+    ``` powershell
+    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders_secure.ps1')
+    ```
+
+-   For the **User identity**, select **Pool autouse, Admin**
+
+-   Select **Application packages** link
+
+-   Select the **app01_PostgreSQL** package and version **1.0.0**
+
+-   Select **Select**
+
+-   Select **Environment settings**, create the following replacing the
+    values from the PowerShell window:
+
+    -   Batch_Thumbprint = {THUMBPRINT}
+    -   Batch_TenantId = {TENANT_ID}
+    -   Batch_AppId = {APP_ID}
+    -   Batch_VaultName = {pgsqldevSUFFIX-kv}
+
+-   Select **Submit**
+
+-   Select the **main_02** task
+
+-   Review the results in the `stdout.txt` file, data should be present,
+    if there is no data, review the `stderr.txt` and fix any issues
+
+# Push images to Azure Container Registry
+
+1.  If they haven't already, push the images to the Azure Container
+    Registry.
+
+    ``` powershell
+    $acrName = "pgsqldevSUFFIX";
+    $resourceGroupName = "";
+    $subscriptionName = "";
+
+    Connect-AzAccount
+
+    Select-AzSubscription $subscriptName;
+
+    $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
+
+    $creds = $acr | Get-AzContainerRegistryCredential
+
+    $acrPassword = $creds.password;
+    $acrurl = $acr.loginserver;
+
+    docker login -u $ACRNAME -p $ACRPASSWORD $ACRURL
+
+    docker tag store-web "$ACRNAME.azurecr.io/store-web"
+
+    docker tag store-db "$ACRNAME.azurecr.io/store-db"
+
+    docker push "$ACRNAME.azurecr.io/store-web"
+
+    docker push "$ACRNAME.azurecr.io/store-db"
+    ```
+
+# Migrate the on-premises database
+
+## pgAdmin
+
+### Export the data
+
+1.  In the **paw-1** virtual machine, open **pgAdmin**
+2.  Connect to the local Postgres 16 instance using `wsuser` with
+    `Solliance123` password
+3.  Expand **Databases-\>ContosoStore**
+4.  Export the `ContosoStore` database
+    1.  Right-click the `ContosoStore` database, select **Backup...**
+    2.  For the filename, select the folder icon
+    3.  Type `ContosoStore.backup`, select **Save**
+    4.  On the **Objects** tab, select the `public` schema
+    5.  Select **Backup**
+
+### Import the data
+
+1.  Connect to the target PostgreSQL instance
+    1.  Right-click **Servers**, select **Register-\>Server**
+    2.  For the hostname, type the dns of the Azure Database for
+        PostgreSQL Flexible Server single server (ex
+        `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
+    3.  Switch to the `Connection` tab
+        1.  For the username, type **wsuser**
+        2.  For the password type **Solliance123**
+        3.  Toggle the **Save password?** button
+        4.  Select **Save**
+2.  Import the backup
+    1.  Expand the
+        **pgsqldevSUFFIXflex16.postgres.database.azure.com-\>Databases-\>contosostore**
+        nodes
+    2.  Right-click the **contosostore** node, select **Restore...**
+    3.  For format, select **Custom or tar**
+    4.  For the filename, select the folder icon.
+    5.  Select the `C:\temp\ContosoStore\ContosoStore.backup` file, then
+        select **Open**
+    6.  Select **Restore**, after a few momemts, the database will be
+        imported into Azure PostgreSQL
+
+# Flexible Server deployment sample ARM template
+
+## Create public network Flexible Server
+
+Utilize the ARM template provided in this directory
+(`PostgreSQL-flexible-server-template.json`) to quickly deploy a
+PostgreSQL Flexible Server instance to Azure. When deploying, simply
+provider the `serverName`, `administratorLogin`, and
+`administratorLoginPassword` for the template to deploy successfully. It
+is possible to edit these values in the provided parameter file
+(`PostgreSQL-flexible-server-template.parameters.json`).
+
+Once completed, use the Azure CLI to deploy the template.
+
+``` bash
+az deployment group create --resource-group [RESOURCE GROUP] --template-file ./PostgreSQL-flexible-server-template.json --parameters @PostgreSQL-flexible-server-template.parameters.json
+```
+
+## Create private network Flexible Server
+
+-   Browse to the Azure Portal
+-   Select your lab resource group
+-   Select **Create**
+-   Search for **PostgreSQL**, then select **Azure Database for
+    PostgreSQL Flexible Server**
+-   Select **Create**
+-   In the drop down, select **Flexible Server**
+-   Select **Create**
+-   Select your lab subscription and resource group
+-   For the name, type **pgsqldevSUFFIXflex**
+-   For the PostgreSQL version, select **16**
+-   For the admin username, type **wsuser**
+-   For the password and confirm password, type **Solliance123**
+-   Select **Next: Networking\>**
+-   Select **Private Network access**
+-   Select the lab subscription
+-   Select the **pgsqldevSUFFIX-db** virtual network
+-   Select the **default** subnet
+-   For the private dns zone, select
+    **private.postgres.database.azure.com**
+-   Select **Review + create**
+-   Select **Create**
+
+  [01 / Azure PostgreSQL Developer Guide]: #azure-postgresql-developer-guide
+  {#toc-azure-postgresql-developer-guide}
+  [02 / Introduction to Azure Database for PostgreSQL Flexible Server]: #introduction-to-azure-database-for-postgresql-flexible-server
+  {#toc-introduction-to-azure-database-for-postgresql-flexible-server}
+  [What is PostgreSQL?]: #what-is-postgresql {#toc-what-is-postgresql}
   [Comparison with other RDBMS offerings]: #comparison-with-other-rdbms-offerings
-  [PostgreSQL hosting options]: #PostgreSQL-hosting-options
-  [Hosting PostgreSQL on Azure - benefits and options]: #hosting-PostgreSQL-on-azure---benefits-and-options
+  {#toc-comparison-with-other-rdbms-offerings}
+  [PostgreSQL hosting options]: #postgresql-hosting-options
+  {#toc-postgresql-hosting-options}
+  [Hosting PostgreSQL on Azure - benefits and options]: #hosting-postgresql-on-azure---benefits-and-options
+  {#toc-hosting-postgresql-on-azure---benefits-and-options}
   [Introduction to Azure resource management]: #introduction-to-azure-resource-management
-  [Introduction to Azure Database for PostgreSQL Flexible Server]: #introduction-to-azure-database-for-PostgreSQL-1
-  [Migrate to Flexible Server]: #migrate-to-flexible-server
-  [02 / Summary]: #summary
+  {#toc-introduction-to-azure-resource-management}
+  [Introduction to Azure Database for PostgreSQL Flexible Server]: #introduction-to-azure-database-for-postgresql-flexible-server-1
+  {#toc-introduction-to-azure-database-for-postgresql-flexible-server-1}
+  [Migrate to Azure Database for Flexible Server]: #migrate-to-azure-database-for-flexible-server
+  {#toc-migrate-to-azure-database-for-flexible-server}
+  [02 / Summary]: #summary {#toc-summary}
   [03 / Getting Started - Setup and Tools]: #getting-started---setup-and-tools
-  [Azure free account]: #azure-free-account
+  {#toc-getting-started---setup-and-tools}
+  [Azure free account]: #azure-free-account {#toc-azure-free-account}
   [Azure subscriptions and limits]: #azure-subscriptions-and-limits
+  {#toc-azure-subscriptions-and-limits}
   [Azure authentication]: #azure-authentication
+  {#toc-azure-authentication}
   [Development editor tools]: #development-editor-tools
-  [Resources]: #resources
+  {#toc-development-editor-tools}
+  [Resources]: #resources {#toc-resources}
   [Create a Flexible Server database]: #create-a-flexible-server-database
-  [Connect and query Azure Database for PostgreSQL Flexible Server using pgAdmin]: #connect-and-query-azure-database-for-PostgreSQL-using-PostgreSQL-workbench
-  [Connect and query Azure Database for PostgreSQL Flexible Server using the Azure CLI]: #connect-and-query-azure-database-for-PostgreSQL-using-the-azure-cli
-  [Language support]: #language-support
-  [03 / Summary]: #summary-1
+  {#toc-create-a-flexible-server-database}
+  [Connect and query Azure Database for PostgreSQL Flexible Server using pgAdmin]:
+    #connect-and-query-azure-database-for-postgresql-flexible-server-using-pgadmin
+  {#toc-connect-and-query-azure-database-for-postgresql-flexible-server-using-pgadmin}
+  [Connect and query Azure Database for PostgreSQL Flexible Server using the Azure CLI]:
+    #connect-and-query-azure-database-for-postgresql-flexible-server-using-the-azure-cli
+  {#toc-connect-and-query-azure-database-for-postgresql-flexible-server-using-the-azure-cli}
+  [Language support]: #language-support {#toc-language-support}
+  [03 / Summary]: #summary-1 {#toc-summary-1}
   [04 / End to End application development]: #end-to-end-application-development
+  {#toc-end-to-end-application-development}
   [Common Azure development services overview]: #common-azure-development-services-overview
+  {#toc-common-azure-development-services-overview}
   [Introduction to the Sample Application]: #introduction-to-the-sample-application
+  {#toc-introduction-to-the-sample-application}
   [Deployment evolution options]: #deployment-evolution-options
-  [Classic deployment]: #classic-deployment
-  [Azure VM deployment]: #azure-vm-deployment
+  {#toc-deployment-evolution-options}
+  [Classic deployment]: #classic-deployment {#toc-classic-deployment}
+  [Azure VM deployment]: #azure-vm-deployment {#toc-azure-vm-deployment}
   [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server]:
-    #simple-app-service-deployment-with-azure-database-for-PostgreSQL-flexible-server
-  [App Service with In-App PostgreSQL]: #app-service-with-in-app-PostgreSQL
+    #simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server
+  {#toc-simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server}
   [Continuous Integration (CI) and Continuous Delivery (CD)]: #continuous-integration-ci-and-continuous-delivery-cd
+  {#toc-continuous-integration-ci-and-continuous-delivery-cd}
   [Containerizing layers with Docker]: #containerizing-layers-with-docker
+  {#toc-containerizing-layers-with-docker}
   [Azure Container Instances (ACI)]: #azure-container-instances-aci
+  {#toc-azure-container-instances-aci}
   [App Service Containers]: #app-service-containers
+  {#toc-app-service-containers}
   [Azure Kubernetes Service (AKS)]: #azure-kubernetes-service-aks
-  [AKS with PostgreSQL Flexible Server]: #aks-with-PostgreSQL-flexible-server
+  {#toc-azure-kubernetes-service-aks}
+  [AKS with PostgreSQL Flexible Server]: #aks-with-postgresql-flexible-server
+  {#toc-aks-with-postgresql-flexible-server}
   [Start the hands-on-tutorial developer journey]: #start-the-hands-on-tutorial-developer-journey
+  {#toc-start-the-hands-on-tutorial-developer-journey}
   [Application continuous integration and deployment]: #application-continuous-integration-and-deployment
-  [04 / Summary]: #summary-2
-  [05 / Monitoring]: #monitoring
-  [Overview]: #overview
+  {#toc-application-continuous-integration-and-deployment}
+  [04 / Summary]: #summary-2 {#toc-summary-2}
+  [Vectors]: #vectors {#toc-vectors}
+  [Vector Similarity]: #vector-similarity {#toc-vector-similarity}
+  [Embeddings]: #embeddings {#toc-embeddings}
+  [References - DELETE]: #references---delete {#toc-references---delete}
+  [Standard Patterns]: #standard-patterns {#toc-standard-patterns}
+  [Large Languange Models (LLMs)]: #large-languange-models-llms
+  {#toc-large-languange-models-llms}
+  [Small Language Models (SLMs)]: #small-language-models-slms
+  {#toc-small-language-models-slms}
+  [Responsible AI]: #responsible-ai {#toc-responsible-ai}
+  [Generative AI]: #generative-ai {#toc-generative-ai}
+  [Chat Applications]: #chat-applications {#toc-chat-applications}
+  [Image Generation]: #image-generation {#toc-image-generation}
+  [Low Code Applciations]: #low-code-applciations
+  {#toc-low-code-applciations}
+  [External Applications with function calling]: #external-applications-with-function-calling
+  {#toc-external-applications-with-function-calling}
+  [Azure Database for PostgreSQL AI]: #azure-database-for-postgresql-ai
+  {#toc-azure-database-for-postgresql-ai}
+  [pgvector]: #pgvector {#toc-pgvector}
+  [Azure extension]: #azure-extension {#toc-azure-extension}
+  [embedding performance]: #embedding-performance
+  {#toc-embedding-performance}
+  [Other vector databases]: #other-vector-databases
+  {#toc-other-vector-databases}
+  [Overview]: #overview {#toc-overview}
   [Define your monitoring strategy]: #define-your-monitoring-strategy
+  {#toc-define-your-monitoring-strategy}
   [Azure Monitor options]: #azure-monitor-options
+  {#toc-azure-monitor-options}
   [Application monitoring]: #application-monitoring
+  {#toc-application-monitoring}
   [Monitoring database operations]: #monitoring-database-operations
-  [Alerting guidelines]: #alerting-guidelines
-  [05 / Summary]: #summary-3
-  [Recommended content]: #recommended-content
+  {#toc-monitoring-database-operations}
+  [Alerting guidelines]: #alerting-guidelines {#toc-alerting-guidelines}
+  [05 / Summary]: #summary-3 {#toc-summary-3}
+  [Recommended content]: #recommended-content {#toc-recommended-content}
   [06 / Networking and Security]: #networking-and-security
+  {#toc-networking-and-security}
   [Public vs. Private Access]: #public-vs.-private-access
+  {#toc-public-vs.-private-access}
   [Virtual Network Hierarchy]: #virtual-network-hierarchy
+  {#toc-virtual-network-hierarchy}
   [Networking best practices for Flexible Server]: #networking-best-practices-for-flexible-server
-  [Security]: #security
-  [06 / Summary]: #summary-4
-  [Security checklist]: #security-checklist
-  [07 / Testing]: #testing
-  [Approaches]: #approaches
+  {#toc-networking-best-practices-for-flexible-server}
+  [Security]: #security {#toc-security}
+  [06 / Summary]: #summary-4 {#toc-summary-4}
+  [Security checklist]: #security-checklist {#toc-security-checklist}
+  [07 / Testing]: #testing {#toc-testing}
+  [Approaches]: #approaches {#toc-approaches}
   [Testing data capture tools]: #testing-data-capture-tools
-  [07 / Summary]: #summary-5
+  {#toc-testing-data-capture-tools}
+  [07 / Summary]: #summary-5 {#toc-summary-5}
   [08 / Performance and Optimization]: #performance-and-optimization
+  {#toc-performance-and-optimization}
   [General performance tips]: #general-performance-tips
+  {#toc-general-performance-tips}
   [Monitoring hardware and query performance]: #monitoring-hardware-and-query-performance
-  [Upgrading the tier]: #upgrading-the-tier
-  [Scaling the server]: #scaling-the-server
-  [Azure Database for PostgreSQL Flexible Server memory recommendations]: #azure-database-for-PostgreSQL-memory-recommendations
-  [Moving regions]: #moving-regions
-  [Server parameters]: #server-parameters
-  [Upgrade Azure Database for PostgreSQL Flexible Server versions]: #upgrade-azure-database-for-PostgreSQL-versions
+  {#toc-monitoring-hardware-and-query-performance}
+  [Upgrading the tier]: #upgrading-the-tier {#toc-upgrading-the-tier}
+  [Scaling the server]: #scaling-the-server {#toc-scaling-the-server}
+  [Azure Database for PostgreSQL Flexible Server memory recommendations]:
+    #azure-database-for-postgresql-flexible-server-memory-recommendations
+  {#toc-azure-database-for-postgresql-flexible-server-memory-recommendations}
+  [Moving regions]: #moving-regions {#toc-moving-regions}
+  [Server parameters]: #server-parameters {#toc-server-parameters}
+  [Upgrade Azure Database for PostgreSQL Flexible Server versions]: #upgrade-azure-database-for-postgresql-flexible-server-versions
+  {#toc-upgrade-azure-database-for-postgresql-flexible-server-versions}
   [Customizing the container runtime]: #customizing-the-container-runtime
-  [Running PostgreSQL Benchmarks]: #running-PostgreSQL-benchmarks
+  {#toc-customizing-the-container-runtime}
+  [Running PostgreSQL Benchmarks]: #running-postgresql-benchmarks
+  {#toc-running-postgresql-benchmarks}
   [Instrumenting vital server resources]: #instrumenting-vital-server-resources
-  [1]: #server-parameters-1
-  [Caching]: #caching
+  {#toc-instrumenting-vital-server-resources}
+  [1]: #server-parameters-1 {#toc-server-parameters-1}
+  [Caching]: #caching {#toc-caching}
   [Azure Content Delivery Network]: #azure-content-delivery-network
-  [08 / Summary]: #summary-6
-  [09 / Troubleshooting]: #troubleshooting
-  [Common PostgreSQL issues]: #common-PostgreSQL-issues
+  {#toc-azure-content-delivery-network}
+  [08 / Summary]: #summary-6 {#toc-summary-6}
+  [09 / Troubleshooting]: #troubleshooting {#toc-troubleshooting}
+  [Common PostgreSQL issues]: #common-postgresql-issues
+  {#toc-common-postgresql-issues}
   [Troubleshoot app issues in Azure App Service]: #troubleshoot-app-issues-in-azure-app-service
-  [App debugging]: #app-debugging
-  [09 / Summary]: #summary-7
+  {#toc-troubleshoot-app-issues-in-azure-app-service}
+  [App debugging]: #app-debugging {#toc-app-debugging}
+  [09 / Summary]: #summary-7 {#toc-summary-7}
   [10 / Business Continuity and Disaster Recovery]: #business-continuity-and-disaster-recovery
-  [High availability]: #high-availability
-  [Replication]: #replication
-  [Read replicas]: #read-replicas
-  [Deleted servers]: #deleted-servers
-  [Regional failure]: #regional-failure
-  [Load Balancers]: #load-balancers
+  {#toc-business-continuity-and-disaster-recovery}
+  [High availability]: #high-availability {#toc-high-availability}
+  [Replication]: #replication {#toc-replication}
+  [Read replicas]: #read-replicas {#toc-read-replicas}
+  [Deleted servers]: #deleted-servers {#toc-deleted-servers}
+  [Regional failure]: #regional-failure {#toc-regional-failure}
+  [Load Balancers]: #load-balancers {#toc-load-balancers}
   [Flexible Server resources]: #flexible-server-resources
-  [Backup and restore]: #backup-and-restore
-  [Service maintenance]: #service-maintenance
-  [Azure Database for PostgreSQL Flexible Server upgrade process]: #azure-database-for-PostgreSQL-upgrade-process
-  [10 / Summary]: #summary-8
-  [11 / Best practices]: #best-practices
-  [Best practices for PostgreSQL Flexible Server apps]: #best-practices-for-PostgreSQL-flexible-server-apps
-  [11 / Summary]: #summary-9
-  [12 / PostgreSQL architectures]: #PostgreSQL-architectures
+  {#toc-flexible-server-resources}
+  [Backup and restore]: #backup-and-restore {#toc-backup-and-restore}
+  [Service maintenance]: #service-maintenance {#toc-service-maintenance}
+  [Azure Database for PostgreSQL Flexible Server upgrade process]: #azure-database-for-postgresql-flexible-server-upgrade-process
+  {#toc-azure-database-for-postgresql-flexible-server-upgrade-process}
+  [10 / Summary]: #summary-8 {#toc-summary-8}
+  [11 / Best practices]: #best-practices {#toc-best-practices}
+  [Best practices for PostgreSQL Flexible Server apps]: #best-practices-for-postgresql-flexible-server-apps
+  {#toc-best-practices-for-postgresql-flexible-server-apps}
+  [11 / Summary]: #summary-9 {#toc-summary-9}
+  [12 / PostgreSQL architectures]: #postgresql-architectures
+  {#toc-postgresql-architectures}
   [Sample architectures]: #sample-architectures
-  [12 / Summary]: #summary-10
-  [13 / Customer stories]: #customer-stories
-  [Case studies]: #case-studies
-  [Common PostgreSQL Apps]: #common-PostgreSQL-apps
-  [13 / Summary]: #summary-11
-  [14 / Zero to Hero]: #zero-to-hero
+  {#toc-sample-architectures}
+  [12 / Summary]: #summary-10 {#toc-summary-10}
+  [13 / Customer stories]: #customer-stories {#toc-customer-stories}
+  [Case studies]: #case-studies {#toc-case-studies}
+  [Common PostgreSQL Apps]: #common-postgresql-apps
+  {#toc-common-postgresql-apps}
+  [13 / Summary]: #summary-11 {#toc-summary-11}
+  [14 / Zero to Hero]: #zero-to-hero {#toc-zero-to-hero}
   [Determining the evolutionary waypoint]: #determining-the-evolutionary-waypoint
-  [Summary of tasks]: #summary-of-tasks
-  [14 / Final Summary]: #final-summary
-  [2]: #resources-10
-  [PostgreSQL]: https://www.PostgreSQL.com/
+  {#toc-determining-the-evolutionary-waypoint}
+  [Summary of tasks]: #summary-of-tasks {#toc-summary-of-tasks}
+  [14 / Final Summary]: #final-summary {#toc-final-summary}
+  [2]: #resources-10 {#toc-resources-10}
+  [Appendix]: #appendix {#toc-appendix}
+  [Getting Started]: #getting-started {#toc-getting-started}
+  [Create a Lab Resource Group]: #create-a-lab-resource-group
+  {#toc-create-a-lab-resource-group}
+  [Deploy the ARM Template]: #deploy-the-arm-template
+  {#toc-deploy-the-arm-template}
+  [Running the sample application]: #running-the-sample-application
+  {#toc-running-the-sample-application}
+  [Connecting to the database]: #connecting-to-the-database
+  {#toc-connecting-to-the-database}
+  [3]: #recommended-content-3 {#toc-recommended-content-3}
+  [Deploying a Laravel app backed by a Java REST API to AKS]: #deploying-a-laravel-app-backed-by-a-java-rest-api-to-aks
+  {#toc-deploying-a-laravel-app-backed-by-a-java-rest-api-to-aks}
+  [Classic Deployment to PHP enabled IIS server]: #classic-deployment-to-php-enabled-iis-server
+  {#toc-classic-deployment-to-php-enabled-iis-server}
+  [Database Deployment]: #database-deployment {#toc-database-deployment}
+  [Test the PHP Setup]: #test-the-php-setup {#toc-test-the-php-setup}
+  [Test the Store Application]: #test-the-store-application
+  {#toc-test-the-store-application}
+  [Manual Deployment]: #manual-deployment {#toc-manual-deployment}
+  [Cloud Deployment to Azure VM]: #cloud-deployment-to-azure-vm
+  {#toc-cloud-deployment-to-azure-vm}
+  [Test the Application #1]: #test-the-application-1
+  {#toc-test-the-application-1}
+  [Open Port 8080]: #open-port-8080 {#toc-open-port-8080}
+  [Test the Application #2]: #test-the-application-2
+  {#toc-test-the-application-2}
+  [Edit .env file]: #edit-.env-file {#toc-edit-.env-file}
+  [Enable Port 443]: #enable-port-443 {#toc-enable-port-443}
+  [Open Port 443]: #open-port-443 {#toc-open-port-443}
+  [Test the Application #3]: #test-the-application-3
+  {#toc-test-the-application-3}
+  [Cloud Deployment to Azure App Service]: #cloud-deployment-to-azure-app-service
+  {#toc-cloud-deployment-to-azure-app-service}
+  [Basic Deployment]: #basic-deployment {#toc-basic-deployment}
+  [Migrate the database]: #migrate-the-database
+  {#toc-migrate-the-database}
+  [Test the Docker images]: #test-the-docker-images
+  {#toc-test-the-docker-images}
+  [Fix Storage persistence]: #fix-storage-persistence
+  {#toc-fix-storage-persistence}
+  [Re-test the Docker images]: #re-test-the-docker-images
+  {#toc-re-test-the-docker-images}
+  [Save the images to Azure Container Registry (ACR)]: #save-the-images-to-azure-container-registry-acr
+  {#toc-save-the-images-to-azure-container-registry-acr}
+  [Migrate to Azure Container Instances (ACI)]: #migrate-to-azure-container-instances-aci
+  {#toc-migrate-to-azure-container-instances-aci}
+  [Push images to Azure Container Registry]: #push-images-to-azure-container-registry
+  {#toc-push-images-to-azure-container-registry}
+  [Run images in ACI]: #run-images-in-aci {#toc-run-images-in-aci}
+  [Test the images]: #test-the-images {#toc-test-the-images}
+  [Multi-container single app service deployment]: #multi-container-single-app-service-deployment
+  {#toc-multi-container-single-app-service-deployment}
+  [Migrate to Azure App Service Containers]: #migrate-to-azure-app-service-containers
+  {#toc-migrate-to-azure-app-service-containers}
+  [4]: #push-images-to-azure-container-registry-1
+  {#toc-push-images-to-azure-container-registry-1}
+  [Run images in Azure App Service]: #run-images-in-azure-app-service
+  {#toc-run-images-in-azure-app-service}
+  [Test the containers]: #test-the-containers {#toc-test-the-containers}
+  [Troubleshooting]: #troubleshooting-1 {#toc-troubleshooting-1}
+  [Migrate to Azure Kubernetes Services (AKS)]: #migrate-to-azure-kubernetes-services-aks
+  {#toc-migrate-to-azure-kubernetes-services-aks}
+  [5]: #push-images-to-azure-container-registry-2
+  {#toc-push-images-to-azure-container-registry-2}
+  [Run images in Azure Kubernetes Service (AKS)]: #run-images-in-azure-kubernetes-service-aks
+  {#toc-run-images-in-azure-kubernetes-service-aks}
+  [Add services]: #add-services {#toc-add-services}
+  [Create a Loadbalancer]: #create-a-loadbalancer
+  {#toc-create-a-loadbalancer}
+  [6]: #test-the-images-1 {#toc-test-the-images-1}
+  [Create a deployment]: #create-a-deployment {#toc-create-a-deployment}
+  [Utilize AKS and Azure Database for PostgreSQL Flexible Server]: #utilize-aks-and-azure-database-for-postgresql-flexible-server
+  {#toc-utilize-aks-and-azure-database-for-postgresql-flexible-server}
+  [7]: #push-images-to-azure-container-registry-3
+  {#toc-push-images-to-azure-container-registry-3}
+  [Run images in AKS]: #run-images-in-aks {#toc-run-images-in-aks}
+  [Azure Function with PostgreSQL (.NET)]: #azure-function-with-postgresql-.net
+  {#toc-azure-function-with-postgresql-.net}
+  [Setup]: #setup-4 {#toc-setup-4}
+  [Create the Function Application]: #create-the-function-application
+  {#toc-create-the-function-application}
+  [Deploy the Function Application]: #deploy-the-function-application
+  {#toc-deploy-the-function-application}
+  [Test the Function App in the Azure portal]: #test-the-function-app-in-the-azure-portal
+  {#toc-test-the-function-app-in-the-azure-portal}
+  [8]: #troubleshooting-2 {#toc-troubleshooting-2}
+  [Azure Function with PostgreSQL (Python)]: #azure-function-with-postgresql-python
+  {#toc-azure-function-with-postgresql-python}
+  [9]: #setup-5 {#toc-setup-5}
+  [10]: #create-the-function-application-1
+  {#toc-create-the-function-application-1}
+  [11]: #deploy-the-function-application-1
+  {#toc-deploy-the-function-application-1}
+  [12]: #test-the-function-app-in-the-azure-portal-1
+  {#toc-test-the-function-app-in-the-azure-portal-1}
+  [13]: #troubleshooting-3 {#toc-troubleshooting-3}
+  [Deploy Azure Function App to Azure Kubernetes Service (AKS)]: #deploy-azure-function-app-to-azure-kubernetes-service-aks
+  {#toc-deploy-azure-function-app-to-azure-kubernetes-service-aks}
+  [Ensure Docker is started]: #ensure-docker-is-started
+  {#toc-ensure-docker-is-started}
+  [Setup AKS (KEDA)]: #setup-aks-keda {#toc-setup-aks-keda}
+  [Ensure Docker Connection]: #ensure-docker-connection
+  {#toc-ensure-docker-connection}
+  [Configure Function App as Container]: #configure-function-app-as-container
+  {#toc-configure-function-app-as-container}
+  [Securing Azure Function Apps]: #securing-azure-function-apps
+  {#toc-securing-azure-function-apps}
+  [Enable PostgreSQL Microsoft Entra Authentication]: #enable-postgresql-microsoft-entra-authentication
+  {#toc-enable-postgresql-microsoft-entra-authentication}
+  [Create Managed Identity]: #create-managed-identity
+  {#toc-create-managed-identity}
+  [Login to the Azure Database with Microsoft Entra credentials]: #login-to-the-azure-database-with-microsoft-entra-credentials
+  {#toc-login-to-the-azure-database-with-microsoft-entra-credentials}
+  [Add Users to Database]: #add-users-to-database
+  {#toc-add-users-to-database}
+  [Modify the code]: #modify-the-code {#toc-modify-the-code}
+  [Logic Apps with PostgreSQL]: #logic-apps-with-postgresql
+  {#toc-logic-apps-with-postgresql}
+  [Create a Private Endpoint Flexible Server]: #create-a-private-endpoint-flexible-server
+  {#toc-create-a-private-endpoint-flexible-server}
+  [Private DNS - Virtual network link]: #private-dns---virtual-network-link
+  {#toc-private-dns---virtual-network-link}
+  [Configure the new Flexible Server instance]: #configure-the-new-flexible-server-instance
+  {#toc-configure-the-new-flexible-server-instance}
+  [Install the PostgreSQL .NET Connector]: #install-the-postgresql-.net-connector
+  {#toc-install-the-postgresql-.net-connector}
+  [Install the Logic Apps Gateway]: #install-the-logic-apps-gateway
+  {#toc-install-the-logic-apps-gateway}
+  [Configure the Logic Apps Gateway]: #configure-the-logic-apps-gateway
+  {#toc-configure-the-logic-apps-gateway}
+  [Configure the Logic App]: #configure-the-logic-app
+  {#toc-configure-the-logic-app}
+  [Configure supporting items]: #configure-supporting-items
+  {#toc-configure-supporting-items}
+  [Test Trigger]: #test-trigger {#toc-test-trigger}
+  [Azure Data Factory with PostgreSQL]: #azure-data-factory-with-postgresql
+  {#toc-azure-data-factory-with-postgresql}
+  [14]: #setup-6 {#toc-setup-6}
+  [Create Linked Services]: #create-linked-services
+  {#toc-create-linked-services}
+  [Create Dataset (PostgreSQL)]: #create-dataset-postgresql
+  {#toc-create-dataset-postgresql}
+  [Create Dataset (Storage)]: #create-dataset-storage
+  {#toc-create-dataset-storage}
+  [Create a Pipeline]: #create-a-pipeline {#toc-create-a-pipeline}
+  [Add a trigger]: #add-a-trigger {#toc-add-a-trigger}
+  [Publish]: #publish {#toc-publish}
+  [Test the pipeline]: #test-the-pipeline {#toc-test-the-pipeline}
+  [Azure Synapse Analytics with PostgreSQL]: #azure-synapse-analytics-with-postgresql
+  {#toc-azure-synapse-analytics-with-postgresql}
+  [Create PostgreSQL Linked Service]: #create-postgresql-linked-service
+  {#toc-create-postgresql-linked-service}
+  [Create PowerBI Workspace]: #create-powerbi-workspace
+  {#toc-create-powerbi-workspace}
+  [Create PowerBI Linked Service]: #create-powerbi-linked-service
+  {#toc-create-powerbi-linked-service}
+  [Create Integration Dataset]: #create-integration-dataset
+  {#toc-create-integration-dataset}
+  [Create PowerBI Desktop Report (Dataset)]: #create-powerbi-desktop-report-dataset
+  {#toc-create-powerbi-desktop-report-dataset}
+  [Publish the PowerBI report to Power BI Online]: #publish-the-powerbi-report-to-power-bi-online
+  {#toc-publish-the-powerbi-report-to-power-bi-online}
+  [Create PowerBI Report in Azure Synapse]: #create-powerbi-report-in-azure-synapse
+  {#toc-create-powerbi-report-in-azure-synapse}
+  [Azure Batch with PostgreSQL]: #azure-batch-with-postgresql
+  {#toc-azure-batch-with-postgresql}
+  [15]: #setup-7 {#toc-setup-7}
+  [Configure Batch Service]: #configure-batch-service
+  {#toc-configure-batch-service}
+  [Create a Batch Job]: #create-a-batch-job {#toc-create-a-batch-job}
+  [Create an application]: #create-an-application
+  {#toc-create-an-application}
+  [Create a Batch Task]: #create-a-batch-task {#toc-create-a-batch-task}
+  [Review the job status]: #review-the-job-status
+  {#toc-review-the-job-status}
+  [Setup Managed Identity (certificate)]: #setup-managed-identity-certificate
+  {#toc-setup-managed-identity-certificate}
+  [16]: #push-images-to-azure-container-registry-4
+  {#toc-push-images-to-azure-container-registry-4}
+  [Migrate the on-premises database]: #migrate-the-on-premises-database
+  {#toc-migrate-the-on-premises-database}
+  [pgAdmin]: #pgadmin {#toc-pgadmin}
+  [Flexible Server deployment sample ARM template]: #flexible-server-deployment-sample-arm-template
+  {#toc-flexible-server-deployment-sample-arm-template}
+  [Create public network Flexible Server]: #create-public-network-flexible-server
+  {#toc-create-public-network-flexible-server}
+  [Create private network Flexible Server]: #create-private-network-flexible-server
+  {#toc-create-private-network-flexible-server}
+  [PostgreSQL]: https://www.postgresql.org/
   [Microsoft Azure]: https://portal.azure.com/
   [The diagram shows the progression of development evolution in the guide.]:
-    media/PostgreSQL-journey.png "PostgreSQL Journey"
-  [Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/
+    media/postgresql-journey.png "PostgreSQL Journey"
+  [Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/overview
   [Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
   [Structured Query Language (SQL)]: https://en.wikipedia.org/wiki/SQL
-  [PostgreSQL Documentation]: https://dev.PostgreSQL.com/doc/refman/8.0/en/features.html
-  [WordPress]: https://wordpress.org/
-  [Drupal]: https://www.drupal.org/
-  [LAMP]: https://en.wikipedia.org/wiki/LAMP_(software_bundle)
+  [PostgreSQL Feature Matrix]: https://www.postgresql.org/about/featurematrix/
+  [MySQL]: https://www.mysql.com/
   [MariaDB]: https://mariadb.org/
-  [Oracle purchased Sun Microsystems]: https://www.oracle.com/webfolder/college-recruiting/projects/PostgreSQL.html#.YexR-P7ML8o
-  [Azure Database for MariaDB.]: https://azure.microsoft.com/services/mariadb/
-  [PostgreSQL]: https://www.postgresql.org/
-  [Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/overview
-  [in Microsoft Learn.]: https://docs.microsoft.com/learn/modules/deploy-mariadb-PostgreSQL-postgresql-azure/2-describe-open-source-offerings
-  [Docker image]: https://hub.docker.com/_/PostgreSQL
+  [Docker image]: https://hub.docker.com/_/postgres
   [Azure Partner Builder's Program]: https://partner.microsoft.com/marketing/azure-isv-technology-partners
   [Visual Studio]: https://visualstudio.microsoft.com/
   [Azure DevOps]: https://dev.azure.com/
@@ -5128,9 +9385,11 @@ real-world information:
   [This image demonstrates common development tools on the Microsoft cloud platform to expedite application development.]:
     media/ISV-Tech-Builders-tools-white.png "Microsoft cloud tooling"
   [free subscription]: https://azure.microsoft.com/free/search/
+  [750 hours of Azure Database for PostgreSQL Flexible Server on a Burstable B1MS instance with 32GB storage for free]:
+    https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-deploy-on-azure-free-account
   [This diagram shows the cloud adoption strategy.]: media/cloud-adoption-strategies.png
     "Cloud adoption strategy"
-  [3]: https://azure.microsoft.com/services/PostgreSQL/#features
+  [17]: https://azure.microsoft.com/services/PostgreSQL/#features
   [Microsoft Learn.]: https://docs.microsoft.com/learn/modules/cmu-cloud-computing-overview/4-building-blocks
   [Azure Fundamentals Microsoft Learn Module]: https://docs.microsoft.com/learn/modules/intro-to-azure-fundamentals/
   [IaaS and PaaS Azure service classification and categories]: ./media/azure-services.png
@@ -5143,7 +9402,7 @@ real-world information:
   [Management groups]: https://docs.microsoft.com/azure/governance/management-groups/overview
   [Resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal
   [This image shows Azure resource scopes.]: ./media/scope-levels.png
-    "fig:Azure resource scopes"
+    "Azure resource scopes"
   [Azure landing zone]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
   [This image demonstrates the Azure landing zone accelerator in the Azure portal, and how organizations can optimize Azure for their needs and innovate.]:
     ./media/landing-zone-accelerator.png
@@ -5161,7 +9420,7 @@ real-world information:
   [Azure mobile app]: https://azure.microsoft.com/get-started/azure-portal/mobile-app/
   [The picture shows the initial Azure service list.]: media/azure-portal-services.png
     "Azure portal Services"
-  [4]: https://docs.microsoft.com/marketplace/azure-marketplace-overview
+  [18]: https://docs.microsoft.com/marketplace/azure-marketplace-overview
   [The picture shows an example of Azure Marketplace search results.]: media/azure-marketplace-search-results.png
     "Azure Marketplace Results"
   [Shows an example of the Azure CLI.]: media/azure-cli-example.png
@@ -5170,8 +9429,7 @@ real-world information:
   [Azure Cloud Shell]: https://shell.azure.com
   [download the CLI tools from Microsoft.]: https://docs.microsoft.com/cli/azure/install-azure-cli
   [installation document.]: https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0
-  [Azure PowerShell cmdlets]: https://docs.microsoft.com/powershell/azure/?view=azps-7.3.0
-  [Tutorial: Design an Azure Database for PostgreSQL Flexible Server using PowerShell]: https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-design-database-using-powershell
+  [Azure PowerShell cmdlets]: https://learn.microsoft.com/powershell/module/az.postgresql/?view=azps-11.0.0
   [Infrastructure as Code (IaC)]: https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code
   [ARM templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/
   [The picture shows an example of an ARM template JSON export.]: media/azure-template-json-example.png
@@ -5196,63 +9454,61 @@ real-world information:
   [Azure Certifications and Exams]: https://docs.microsoft.com/learn/certifications/browse/?products=azure
   [Microsoft Learn]: https://docs.microsoft.com/learn/
   [Azure Fundamentals (AZ-900) Learning Path]: https://docs.microsoft.com/learn/paths/az-900-describe-cloud-concepts/
-  [Migrating to Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/01-PostgreSQL-migration-guide-intro
-  [pgAdmin]: https://www.PostgreSQL.com/products/workbench/
+  [19]: https://www.pgadmin.org/
   [This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.]:
-    ./media/PostgreSQL-conceptual-diagram.png
+    ./media/postgresql-conceptual-diagram.png
     "Control plane for Azure Database for PostgreSQL Flexible Server"
-  [Choose the right PostgreSQL Server option in Azure]: https://learn.microsoft.com/azure/postgresql/flexible-server/select-right-deployment-type
+  [Choose the right PostgreSQL Server option in Azure]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server
   [Note]: media/note.png "Note"
-  [The picture displays the logo for Azure Database for PostgreSQL Flexible Server]: media/azure-database-for-PostgreSQL-for-beginners.png
-    "Azure Database for PostgreSQL Flexible Server YouTube logo"
   [Watch icon]: media/watch.png "Watch"
-  [5]: https://www.youtube.com/watch?v=TcPpNu45p78
-  [Top 3 Reasons to consider Azure Database for PostgreSQL Flexible Server]: https://docs.microsoft.com/shows/data-exposed/top-3-reasons-to-consider-azure-database-for-PostgreSQL-flexible-server/
-  [Flexible Server instances can also be paused]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-restart-stop-start-server-cli
+  [20]: https://youtu.be/NSEmJfUgNzE
+  [*burstable* tier]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage
+  [Flexible Server instances can also be paused]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-stop-start-server-portal
   [availability zone]: https://docs.microsoft.com/azure/availability-zones/az-overview
   [This image demonstrates how PostgreSQL Flexible Server works, with compute, storage, and backup storage.]:
-    ./media/flexible-server.png "Operation of PostgreSQL Flexible Server"
-  [User-scheduled service maintenance:]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-maintenance
+    ./media/flexible-server.png
+    "Operation of PostgreSQL Flexible Server"
+  [User-scheduled service maintenance:]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-maintenance
   [This image demonstrates how to set a custom maintenance schedule in Flexible Server.]:
     media/custom_maintenance_schedule.png
     "Setting a custom maintenance schedule"
-  [Network security:]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-networking
-  [Automatic backups:]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/overview
+  [Network security:]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-security
+  [Automatic backups:]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-backup-restore
   [This image demonstrates how to configure Flexible Server automatic backups.]:
-    media/PostgreSQL_backup_configuration.png "Configuring automatic backups"
-  [Read replicas:]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-read-replicas
-  [Input-output operations per second (IOPS):]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-compute-storage#iops
-  [This image demonstrates server IOPS configuration.]: media/PostgreSQL_iops_configuration.png
+    media/postgresql_backup_configuration.png
+    "Configuring automatic backups"
+  [Read replicas:]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-read-replicas
+  [Input-output operations per second (IOPS):]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#iops
+  [This image demonstrates server IOPS configuration.]: media/postgresql_iops_configuration.png
     "Configuring server IOPS"
   [Azure Pricing Calculator]: https://azure.microsoft.com/pricing/calculator/
   [Azure TCO Calculator]: https://azure.microsoft.com/pricing/tco/calculator/
-  [detailed list of the limitations of Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-limitations
-  [pause the Single Server offering]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-stop-start-server
-  [SLA of 99.99%]: https://azure.microsoft.com/updates/azure-database-for-PostgreSQL-general-availability/
-  [Microsoft Learn Module.]: https://docs.microsoft.com/learn/modules/choose-azure-services-sla-lifecycle/
-  [Azure documentation]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-migrate-single-flexible-minimum-downtime
-  [Azure documentation.]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-data-in-replication
+  [detailed list of the limitations of Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits
+  [Azure Database Migration Service (DMS)]: https://learn.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online
+  [pgcopydb]: https://github.com/dimitri/pgcopydb
+  [pg_dump and dp_restore]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore
+  [Azure Portal]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal
+  [21]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli
+  [migration prerequisites]: https://learn.microsoft.com/azure/postgresql/migrate/concepts-single-to-flexible#migration-prerequisites
   [\$200 free credit for developers to trial Azure]: https://azure.microsoft.com/free
-  [Innovate faster with fully managed PostgreSQL and an Azure free account.]:
-    https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-deploy-on-azure-free-account/
+  [22]: #introduction-to-azure-resource-management
   [Azure's comprehensive list of service and subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
   [Microsoft docs]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-ad-authentication
   [Microsoft download page.]: https://code.visualstudio.com/download
   [A simple screenshot of Visual Studio Code.]: media/VSCode_screenshot.png
     "Visual Studio Code"
-  [6]: https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-PostgreSQL
+  [23]: https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql
   [Azure App Service plan overview]: https://docs.microsoft.com/azure/app-service/overview-hosting-plans
   [Plan and manage costs for Azure App Service]: https://docs.microsoft.com/azure/app-service/overview-manage-costs
-  [7]: https://www.youtube.com/watch?v=kfhSih8mRAo&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=4
-  [Quickstart document]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-server-portal
+  [Quickstart document]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-portal
   [Azure's quickstart guide]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-server-cli
-  [`flexible-server create`]: https://docs.microsoft.com/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest#az_PostgreSQL_flexible_server_create
-  [`flexible-server db create`]: https://docs.microsoft.com/cli/azure/PostgreSQL/flexible-server/db?view=azure-cli-latest#az_PostgreSQL_flexible_server_db_create
-  [This image demonstrates the PostgreSQL Flexible Server provisioned through Bash CLI commands.]:
-    ./media/PostgreSQL-flex-params.png "CLI provisioning"
-  [8]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-arm-template#review-the-template
-  [PostgreSQL Downloads.]: https://dev.PostgreSQL.com/downloads/workbench/
-  [Use pgAdmin with Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-workbench
+  [`flexible-server create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-create
+  [`flexible-server db create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server/db?view=azure-cli-latest#az-postgres-flexible-server-db-create
+  [24]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template
+  [25]: #create-a-flexible-server-database
+  [pgAdmin Downloads.]: https://www.pgadmin.org/download/
+  [Use pgAdmin tool with Azure Database for PostgreSQL Flexible Server]:
+    https://learn.microsoft.com/azure/cosmos-db/postgresql/howto-connect?tabs=pgadmin
   [SSL public certificate]: https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
   [Add the SSL CA file on the SSL tab of the Setup New Connection dialog box.]:
     ./media/new-ssl-connection-with-ca-file.png "Add SSL CA file"
@@ -5265,7 +9521,7 @@ real-world information:
   [PHP]: #php
   [Java]: #java
   [Python]: #python
-  [Other notable languages for PostgreSQL apps]: #other-notable-languages-for-PostgreSQL-apps
+  [Other notable languages for PostgreSQL apps]: #other-notable-languages-for-postgresql-apps
   [downloads page.]: https://windows.php.net/download/
   [Quickstart guide]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-php
   [Tip]: media/tip.png "Tip"
@@ -5275,7 +9531,8 @@ real-world information:
   [PDO_PostgreSQL Reference]: https://www.php.net/manual/en/ref.pdo-PostgreSQL.php
   [Configure a PHP app for Azure App Service]: https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
   [php.ini directives]: https://www.php.net/manual/en/ini.list.php
-  [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]: https://docs.microsoft.com/azure/PostgreSQL/flexible-server/connect-java
+  [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]:
+    https://docs.microsoft.com/azure/PostgreSQL/flexible-server/connect-java
   [PostgreSQL drivers and management tools compatible with Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compatibility
   [PostgreSQL Connector/J Introduction]: https://dev.PostgreSQL.com/doc/connector-j/8.0/en/connector-j-overview.html
@@ -5285,6 +9542,7 @@ real-world information:
   [Hibernate ORM]: https://hibernate.org/orm/
   [Installing the Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
   [Create a Hello World web app for Azure App Service using Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app
+  [26]: #end-to-end-application-development
   [Azure for Java developer documentation]: https://docs.microsoft.com/azure/developer/java/?view=azure-java-stable
   [Maven Introduction]: https://maven.apache.org/guides/getting-started/index.html
   [Develop Java web app on Azure using Maven (App Service)]: https://docs.microsoft.com/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/
@@ -5300,27 +9558,22 @@ real-world information:
   [from the PostgreSQL documentation]: https://dev.PostgreSQL.com/doc/connector-net/en/connector-net-entityframework-core.html
   [Async PostgreSQL Connector for .NET]: https://github.com/PostgreSQL-net/PostgreSQLConnector
   [*PostgreSQL2*]: https://github.com/brianmario/PostgreSQL2
-  [This image shows a Data Exposed video explaining the benefits that Flexible Server offers for application development.]:
-    media/develop-app-faster-youtube.png
-    "Data Exposed Flexible Server app development video"
-  [Develop applications faster with Azure Database for PostgreSQL Flexible Server -- Flexible Server \| Data Exposed]:
-    https://www.youtube.com/watch?v=RZXbwscC9FU&t=266s
   [This image explains the progression of topics in this chapter.]: media/end-to-end-deployment-chapter-steps.png
     "Chapter topics list"
-  [Running the sample application]: https://github.com/Azure/azure-PostgreSQL/blob/master/DeveloperGuide/step-1-sample-apps/README.md
-  [Cloud Deployment to Azure App Service]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
+  [27]: https://github.com/Azure/azure-PostgreSQL/blob/master/DeveloperGuide/step-1-sample-apps/README.md
+  [28]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
   [Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
   [Azure Logic Apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
   [custom handlers.]: https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers
   [documentation]: https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp
   [Azure Functions hosting options]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-  [Azure Function with PostgreSQL (.NET)]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet
-  [Azure Function with PostgreSQL (Python)]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python
+  [29]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet
+  [30]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python
   [Compare Azure Functions and Azure Logic Apps]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
-  [Logic Apps with PostgreSQL]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
+  [31]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
   [Build microservices on Azure]: https://docs.microsoft.com/azure/architecture/microservices/
   [Using domain analysis to model microservices]: https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis
-  [Deploying a Laravel app backed by a Java REST API to AKS]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/sample-php-app-rest
+  [32]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/sample-php-app-rest
   [About API Management]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
   [Self-hosted gateway overview]: https://docs.microsoft.com/azure/api-management/self-hosted-gateway-overview
   [Azure Functions:]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer
@@ -5333,42 +9586,15 @@ real-world information:
   [This image shows the sample app site map.]: media/sample-app-site-map.png
     "Sample app site map"
   [Sample application tutorial]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps
-  [Classic Deployment to PHP-enabled IIS server]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
-  [This image demonstrates the classic deployment.]: media/classic-deployment-diagram.png
-    "Classic deployment"
-  [Cloud Deployment to Azure VM]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
-  [This image demonstrates the Azure VM deployment.]: ./media/azure-vm-deployment.png
-    "Azure VM deployment"
-  [This image demonstrates an App Service deployment that references Flexible Server.]:
-    ./media/app-svc-flex-server.png
-    "App Service and Flexible Server deployment"
-  [App Service Plan]: https://azure.microsoft.com/pricing/details/app-service/windows/
-  [Announcing Azure App Service PostgreSQL in-app]: https://azure.microsoft.com/blog/PostgreSQL-in-app-preview-app-service/
-  [Cloud Deployment to Azure App Service with PostgreSQL InApp]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-InApp
-  [This image demonstrates an App Service deployment with in-app PostgreSQL.]:
-    ./media/in-app-deployment.png "App Service with in-app PostgreSQL"
-  [Deployment via CI/CD]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-04-CloudDeploy-CICD
-  [This image demonstrates an App Service deployment with CI/CD.]: ./media/cicd-deployment.png
-    "App Service CI/CD deployment"
-  [Migrate to Docker Containers]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
-  [This image demonstrates a containerized deployment.]: ./media/containerized-deployment.png
-    "Containerized deployment"
-  [Migrate to Azure Container Instances (ACI)]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
-  [This image demonstrates a deployment to Azure Container Instances.]: ./media/aci-deployment.png
-    "Azure Container Instances deployment"
-  [Migrate to Azure App Service Containers]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
-  [This image demonstrates a deployment to App Service for Containers.]:
-    ./media/app-service-containers-deployment.png
-    "App Service for Containers deployment"
-  [on the same infrastructure as their apps]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/deploy-proxysql-as-a-service-on-kubernetes-using-azure-database/ba-p/1105959
-  [Azure Service Operator]: https://azure.github.io/azure-service-operator/
-  [Migrate to Azure Kubernetes Services (AKS)]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
-  [This image demonstrates a deployment to Azure Kubernetes Service (AKS).]:
-    ./media/aks-deployment.png "AKS deployment"
-  [Utilize AKS and Azure Database for PostgreSQL Flexible Server]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
-  [This image demonstrates an AKS deployment that references Flexible Server.]:
-    ./media/aks-flexible-server-deployment.png
-    "AKS with Flexible Server deployment"
+  [33]: #classic-deployment
+  [34]: #azure-vm-deployment
+  [35]: #simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server
+  [36]: #continuous-integration-ci-and-continuous-delivery-cd
+  [37]: #containerizing-layers-with-docker
+  [38]: #azure-container-instances-aci
+  [39]: #app-service-containers
+  [40]: #azure-kubernetes-service-aks
+  [41]: #aks-with-postgresql-flexible-server
   [This image shows how to enter the Deploy a custom template wizard in the Azure portal.]:
     media/search-for-custom-template.png
     "Entering the Deploy a custom template wizard"
@@ -5381,6 +9607,14 @@ real-world information:
   [Tutorial: Deploy a local ARM template]: https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli
   [Basic Template]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json
   [Secure Template]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/secure-template/template-secure.json
+  [42]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
+  [43]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
+  [Continuous Integration / Continuous Delivery]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD
+  [44]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
+  [45]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
+  [46]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
+  [47]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
+  [48]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
   [AKS]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-03-FunctionApp-AKS
   [Secured with MSI]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-04-FunctionApp-MSI
   [Azure Data Factory]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-01-AzureDataFactory
@@ -5388,7 +9622,7 @@ real-world information:
   [Azure Batch]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch
   [microservice]: https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures
   [Design patterns for microservices]: https://docs.microsoft.com/azure/architecture/microservices/design/patterns
-  [9]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
+  [49]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
   [YAML.]: yaml.org
   [Azure Boards:]: https://docs.microsoft.com/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops
   [processes.]: https://docs.microsoft.com/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=basic-process
@@ -5398,6 +9632,7 @@ real-world information:
   [Azure Artifacts:]: https://docs.microsoft.com/azure/devops/artifacts/start-using-azure-artifacts?view=azure-devops
   [Azure Pipelines]: https://docs.microsoft.com/azure/azure-resource-manager/templates/add-template-to-azure-pipelines
   [GitHub Actions]: https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-github-actions
+  [Azure Service Operator]: https://azure.github.io/azure-service-operator/
   [Here]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/using-azure-service-operator-to-provision-azure-db-for-PostgreSQL/ba-p/3056231
   [Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
   [Log Analytics]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment
@@ -5428,7 +9663,7 @@ real-world information:
     "Azure Resource Health icon"
   [Resource Health overview]: https://docs.microsoft.com/azure/service-health/resource-health-overview
   [Application Insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
-  [10]: media/application-insights-overview.png
+  [50]: media/application-insights-overview.png
   [Connection Strings]: https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net
   [Azure Metrics Explorer]: https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started
   [The Azure Metrics workflow is displayed.]: media/azure-metrics-workflow.png
@@ -5442,7 +9677,7 @@ real-world information:
   [The Azure Metrics new alert rule is displayed.]: media/azure-metric-new-alert-rule.png
     "Metrics alert rule example"
   [Manage usage and costs for Application Insights]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
-  [11]: https://www.youtube.com/watch?v=yQOnRNgly0M&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=7
+  [51]: https://www.youtube.com/watch?v=yQOnRNgly0M&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=7
   [This image shows PostgreSQL metrics in the Azure portal.]: media/azure-portal-PostgreSQL-overview.png
     "PostgreSQL metrics in the Azure portal"
   [This image shows Metrics on the Monitoring tab in the Azure portal.]:
@@ -5513,7 +9748,7 @@ real-world information:
   [Get started with log queries in Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
   [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and Management (PMM)]:
     https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/monitor-azure-database-for-PostgreSQL-using-percona-monito%20ring-and/ba-p/2568545
-  [12]: https://www.youtube.com/watch?v=LSNV5BW-g-U&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=6
+  [52]: https://www.youtube.com/watch?v=LSNV5BW-g-U&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=6
   [firewall rules]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules
   [restrict public access]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-deny-public-network-access
   [This image shows how PostgreSQL Flexible Server instances evaluate firewall rules.]:
@@ -5527,9 +9762,9 @@ real-world information:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-portal
   [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by using the Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-cli
-  [13]: https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/servers/firewallrules?tabs=json
+  [53]: https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/servers/firewallrules?tabs=json
   [basic Azure Networking considerations]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-data-access-and-security-vnet
-  [14]: media/warning.png "warning"
+  [54]: media/warning.png "warning"
   [RFC 1918.]: https://datatracker.ietf.org/doc/html/rfc1918
   [Introduction to Azure]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure.md
   [Virtual Network Peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
@@ -5541,14 +9776,14 @@ real-world information:
   [CLI]: https://docs.microsoft.com/azure/virtual-network/quick-create-cli
   [ARM Template]: https://docs.microsoft.com/azure/virtual-network/quick-create-template
   [Private DNS zone overview]: https://docs.microsoft.com/azure/dns/private-dns-overview
-  [Azure Portal]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-portal
-  [15]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-cli
+  [55]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-portal
+  [56]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-cli
+  [57]: #introduction-to-azure-database-for-postgresql-flexible-server-1
   [hub and spoke configuration.]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
   [Security and Compliance document]: 03_PostgreSQL_Security_Compliance.md
   [General Azure Networking Best Practices]: https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking
   [modify the applications]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-ssl
-  [16]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-connect-tls-ssl
-  [17]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-ssl-connection-security
+  [58]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-connect-tls-ssl
   [Microsoft Purview]: https://docs.microsoft.com/azure/purview/overview
   [security baseline]: https://learn.microsoft.com/azure/postgresql/flexible-server/security-baseline
   [Selenium]: https://www.selenium.dev/
@@ -5594,7 +9829,7 @@ real-world information:
   [paired Azure region]: https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure
   [This image shows PostgreSQL server parameters in the Azure portal.]: media/server_parameters.png
     "PostgreSQL server parameters"
-  [18]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters
+  [59]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters
   [Microsoft documentation]: https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/08-data-migration
   [PHPBench tool]: https://github.com/phpbench/phpbench
   [Container insights overview]: https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview
@@ -5621,7 +9856,9 @@ real-world information:
   [Enterprise, Premium, Standard, and Basic tiers]: https://azure.microsoft.com/pricing/details/cache/
   [This image demonstrates how Azure CDN POPs optimize content delivery.]:
     ./media/cdn-overview.png "Azure CDN POP static content delivery"
-  [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues
+  [60]: #postgresql-architectures
+  [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server]:
+    https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues
   [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity
   [Error 1184]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_new_aborting_connection
@@ -5629,7 +9866,8 @@ real-world information:
   [Azure Network Watcher]: https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview
   [Error 1419]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super
   [Error 1227]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_specific_access_denied_error
-  [19]: https://dev.PostgreSQL.com/doc/refman/8.0/en/converting-tables-to-innodb.html
+  [PostgreSQL documentation]: https://dev.PostgreSQL.com/doc/refman/8.0/en/converting-tables-to-innodb.html
+  [to set custom maintenance schedules.]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-maintenance
   [circuit breaker pattern]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
   [debugging an App Service app]: https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
   [Troubleshoot slow app performance issues in Azure App Service]: https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation
@@ -5641,6 +9879,7 @@ real-world information:
     https://azureossd.github.io/2020/05/05/debugging-php-application-on-azure-app-service-linux/
   [PHP Debug extension]: https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug
   [opcode caching]: https://www.php.net/manual/en/intro.opcache.php
+  [61]: #testing
   [retry logic]: https://docs.microsoft.com/azure/architecture/patterns/retry
   [This image demonstrates the Diagnose and solve problems tab of a Flexible Server instance in the Azure portal.]:
     ./media/troubleshoot-problems-portal.png
@@ -5654,9 +9893,10 @@ real-world information:
     "Opening a detailed support ticket for Microsoft"
   [Troubleshoot errors commonly encountered during or post migration to Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-errors
-  [Troubleshoot data encryption in Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-data-encryption-troubleshoot
+  [Troubleshoot data encryption in Azure Database for PostgreSQL Flexible Server]:
+    https://learn.microsoft.com/azure/postgresql/flexible-server/howto-data-encryption-troubleshoot
   [Azure Community Support]: https://azure.microsoft.com/support/community/
-  [20]: https://www.youtube.com/watch?v=5hp8KlNNPpA&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=9
+  [62]: https://www.youtube.com/watch?v=5hp8KlNNPpA&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=9
   [This image demonstrates Zone-Redundant HA for PostgreSQL Flexible Server.]:
     media/1-flexible-server-overview-zone-redundant-ha.png
     "Zone-Redundant HA"
@@ -5666,30 +9906,32 @@ real-world information:
   [documentation.]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-high-availability
   [This image demonstrates a possible cross-region HA scenario using two virtual networks.]:
     ./media/cross-region-ha.png "Cross-region HA scenario"
-  [21]: https://www.youtube.com/watch?v=K-MScJu4Jqw&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=10
-  [22]: media/warning.png
-  [23]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-read-replicas
-  [24]: https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources
+  [63]: https://www.youtube.com/watch?v=K-MScJu4Jqw&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=10
+  [64]: media/warning.png
+  [65]: https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources
   [Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
   [Application Gateway]: https://docs.microsoft.com/azure/application-gateway/overview
   [run on an Azure VM]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042
-  [25]: media/tip.png
+  [Azure Kubernetes Service.]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/deploy-proxysql-as-a-service-on-kubernetes-using-azure-database/ba-p/1105959
+  [66]: media/tip.png
   [This image demonstrates a possible microservices architecture with PostgreSQL read replicas.]:
     ./media/microservices-with-replication.png
     "Possible microservices architecture"
-  [26]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-read-replicas-portal
-  [27]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-read-replicas-cli
-  [28]: https://www.youtube.com/watch?v=B7qGSX8IeSY&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=8
+  [67]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-read-replicas-portal
+  [68]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-read-replicas-cli
+  [69]: https://www.youtube.com/watch?v=B7qGSX8IeSY&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=8
   [here.]: https://azure.microsoft.com/pricing/details/PostgreSQL/flexible-server/
-  [Backup and restore in Azure Database for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-backup
+  [Backup and restore in Azure Database for PostgreSQL Flexible Server]:
+    https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-backup
   [Some regions]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pricing-tiers#storage
   [Perform post-restore tasks]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-backup#perform-post-restore-tasks
   [Microsoft documentation.]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-backup-restore
   [Point-in-time restore with Azure Portal]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-restore-server-portal
   [Point-in-time restore with CLI]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-restore-server-cli
-  [Azure CLI samples for Azure Database for PostgreSQL Flexible Server - Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/sample-scripts-azure-cli
+  [Azure CLI samples for Azure Database for PostgreSQL Flexible Server - Flexible Server]:
+    https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/sample-scripts-azure-cli
   [this]: https://azure.microsoft.com/global-infrastructure/data-residency/#select-geography
-  [29]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity-architecture
+  [70]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity-architecture
   [Manage scheduled maintenance settings using the Azure Portal (Flexible Server)]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-maintenance-portal
   [View service health notifications in the Azure Portal]: https://docs.microsoft.com/azure/service-health/service-notifications
@@ -5697,6 +9939,9 @@ real-world information:
   [Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy#retired-PostgreSQL-engine-versions-not-supported-in-azure-database-for-PostgreSQL
   [planned maintenance notification]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#planned-maintenance-notification
+  [71]: #networking-and-security
+  [72]: #performance-and-optimization
+  [73]: #business-continuity-and-disaster-recovery
   [Azure Well-Architected Framework]: https://docs.microsoft.com/azure/architecture/framework/
   [Azure Well-Architected Review utility.]: https://docs.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment
   [regions that support Availability Zones.]: https://docs.microsoft.com/azure/availability-zones/az-region
@@ -5704,10 +9949,13 @@ real-world information:
   [list of per-service retry recommendations.]: https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific
   [sysbench.]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/benchmarking-azure-database-for-PostgreSQL-flexible-server-using/ba-p/3108799
   [Azure Architecture center]: https://docs.microsoft.com/azure/architecture/
-  [Digital marketing using Azure Database for PostgreSQL Flexible Server:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-PostgreSQL
-  [Finance management apps using Azure Database for PostgreSQL Flexible Server:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-PostgreSQL
+  [Digital marketing using Azure Database for PostgreSQL Flexible Server:]:
+    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-PostgreSQL
+  [Finance management apps using Azure Database for PostgreSQL Flexible Server:]:
+    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-PostgreSQL
   [Power BI]: https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview
-  [Intelligent apps using Azure Database for PostgreSQL Flexible Server:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-PostgreSQL
+  [Intelligent apps using Azure Database for PostgreSQL Flexible Server:]:
+    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-PostgreSQL
   [Gaming using Azure Database for PostgreSQL Flexible Server:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-PostgreSQL
   [Retail and e-commerce using Azure PostgreSQL:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-PostgreSQL
   [Scalable web and mobile applications using Azure Database for PostgreSQL Flexible Server:]:
@@ -5731,9 +9979,9 @@ real-world information:
   [GeekWire]: https://customers.microsoft.com/story/geekwire
   [one from WordPress]: https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview
   [this offering]: https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle-frontend-manageddb-multitier?tab=Overview
-  [30]: https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.magento-chart?tab=Overview
+  [74]: https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.magento-chart?tab=Overview
   [Review homepage]: https://aka.ms/PostgreSQL
-  [31]: http://aka.ms/PostgreSQLdocs
+  [75]: http://aka.ms/PostgreSQLdocs
   [Tutorial]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-deploy-on-azure-free-account
   [Get started for free with an Azure free account!]: https://azure.microft.com/free/PostgreSQL
   [Azure Pricing Calculator, TCO Calculator]: https://azure.microsoft.com/pricing
@@ -5749,3 +9997,113 @@ real-world information:
   [Azure Facebook Group]: https://www.facebook.com/groups/MsftAzure
   [LinkedIn Azure Group]: https://www.linkedin.com/groups/2733961/
   [LinkedIn Azure Developers Group]: https://www.linkedin.com/groups/1731317/
+  [whitepaper GitHub repository]: https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git
+  [PowerShell Core]: https://github.com/PowerShell/PowerShell
+  [secure ARM template]: ../Artifacts/template-secure.json
+  [parameters file]: ../Artifacts/template-secure.parameters.json
+  [insecure ARM template]: ../Artifacts/template.json
+  [76]: ../Artifacts/template.parameters.json
+  [77]: https://github.com/Azure-App-Service/nginx-fpm
+  [78]: https://github.com/Azure-App-Service/php
+  [Displays the Marketplace button.]: media/market-place-button.png
+    "Marketplace button"
+  [Web app + database search result.]: media/microsoft-web-app-database-marketplace.png
+  [Create web app database.]: media/create-web-app-database.png
+    "Create Web App + Database"
+  [App Service repository options.]: media/local-git.png
+  [Local Git URL example]: media/local-git-url.png
+  [Application Scope user and password]: media/application-scope-user-password.png
+  [Git Credential Manager]: media/git-credential-manager-for-windows.png
+  [Azure local git push example.]: media/azure-local-git-push.png
+  [This image shows how to access the App Service SSH prompt from the Azure portal.]:
+    media/ssh_terminal.png "Accessing the App Service SSH prompt"
+  [Update APP_URL value]: media/update-app-url-env.png
+  [This image shows the needed modifications to the /home/default file.]:
+    media/nginx-home-default-update.png
+    "Modifications to the /home/default file"
+  [This image shows how to configure the App Service startup command in the Azure portal.]:
+    media/general-settings-startup-command.png
+    "App Service startup command"
+  [ContosoNoshNow home page]: media/ContosoNoshNow-home-page.png
+  [This image shows how to create the contosonoshnow database in the new Flexible Server instance.]:
+    media/create-contosonoshnow-database.png
+    "Creating the contosonoshnow database"
+  [Configure the database environment variables.]: media/update-PostgreSQL-connection-info.png
+  [This image shows how to create PHP migrations.]: media/php-laravel-database-creation.png
+    "Creating PHP migrations"
+  [Seeded database.]: media/seeded-database.png
+  [This image shows how to create a sample order from the Laravel app.]:
+    media/sample-order.png
+    "Creating a sample order from the Laravel app"
+  [This image shows the output of a SQL query that demonstrates the new order.]:
+    media/verify-order-data.png "New order in SQL query results"
+  [Configure a PHP app for Azure App Service - Access diagnostic logs]: https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs
+  [Deploying a Laravel application to Nginx server.]: https://laravel.com/docs/8.x/deployment#nginx
+  [Local Git deployment to Azure App Service]: https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
+  [How PHP apps are detected and built.]: https://github.com/microsoft/Oryx/blob/main/doc/runtimes/php.md
+  [Apache Maven:]: https://maven.apache.org/
+  [Docker Desktop:]: https://docs.docker.com/desktop/
+  [kubectl:]: https://kubernetes.io/docs/reference/kubectl/kubectl/
+  [79]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-deploy-springboot-on-aks-vnet
+  [This image demonstrates the IP address of the LoadBalancer service for the Laravel app.]:
+    ./media/laravel-service-ip.png "Laravel service IP address"
+  [This image demonstrates that the Laravel app functions without a problem when deployed to AKS.]:
+    ./media/app-loads-aks.png "Laravel app loads"
+  [This screen shot shows the results of the above commands.]: ./media/php_setup.png
+    "Powershell window with results displayed"
+  [This image demonstrates the loading screen for the Contoso NoshNow app.]:
+    ./media/noshnow-app-load.png "Loading screen with random user"
+  [This image demonstrates the VM IP address in the Overview tab.]: ./media/vm-ip-address.png
+    "VM IP address"
+  [This image demonstrates the added inbound security rule.]: ./media/nsg-rule.png
+    "New inbound security rule"
+  [This image demonstrates the Server Certificates tab in IIS Manager.]:
+    ./media/server-certificates-iis-manager.png
+    "Server Certificates in IIS Manager"
+  [This image demonstrates an HTTPS binding in IIS.]: ./media/site-binding-iis.png
+    "IIS HTTPS binding"
+  [This image demonstrates the changes made to the /home/site/default file in the SSH session.]:
+    ./media/web-server-config.png
+    "Web server configuration file changes"
+  [80]: ./Misc/02_MigrateDatabase
+  [Push Images to Acr]: ./../Misc/01_PushImagesToAcr.md
+  [Visual Studio 2022 Community Edition]: https://visualstudio.microsoft.com/downloads/
+  [Azure Functions core tools MSI]: https://go.microsoft.com/fwlink/?linkid=2174087
+  [This image demonstrates choosing the Azure Function App Linux deployment option.]:
+    ./media/choose-linux-function-app.png "Azure Function App Linux"
+  [This image demonstrates how to configure a GET request to the Function App endpoint from the Azure portal.]:
+    ./media/azure-portal-function-test.png "GET request test"
+  [81]: https://docs.microsoft.com/azure/azure-functions/configure-monitoring?tabs=v2#enable-application-insights-integration
+  [`Azure Functions`]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+  [`Python`]: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+  [This image demonstrates how to create a new Function App project.]: ./media/create-function-app-vscode.png
+    "New Function App project"
+  [This image demonstrates configuring the HTTP Trigger for the new Function App.]:
+    ./media/http-trigger-vscode.png "Configuring HTTP Trigger"
+  [This image demonstrates the Virtual Environment and PostgreSQL connector installation in the PowerShell terminal.]:
+    ./media/terminal-set-up.png
+    "Virtual environment and connector installation"
+  [Azure SSL certificate]: https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
+  [This image demonstrates how to select the AddCustomerFunction from the Function App instance.]:
+    ./media/select-function-from-portal.png "Selecting the Function"
+  [This image demonstrates the logs of a successful Function App invocation.]:
+    ./media/function-app-logs.png "Function App invocation logs"
+  [This image demonstrates the first provisioning screen for Azure Database for PostgreSQL Flexible Server.]:
+    ./media/az-PostgreSQL-db-create.png
+    "First provisioning screen for Flexible Server"
+  [This image demonstrates the Azure VNet integration.]: ./media/vnet-integration.png
+    "Flexible Server VNet integration"
+  [This image demonstrates how to disable SSL transport for Flexible Server.]:
+    ./media/disable-secure-transport.png "Disable SSL transport"
+  [`az PostgreSQL flexible-server create`]: https://docs.microsoft.com/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest#az-PostgreSQL-flexible-server-create
+  [Download]: https://go.microsoft.com/fwlink/?LinkId=278885
+  [82]: https://www.microsoft.com/download/details.aspx?id=53127
+  [This image demonstrates the configuration for the on-premises data gateway.]:
+    ./media/on-premises-data-gateway-config.png
+    "On-premises data gateway configuration"
+  [This image demonstrates how to configure the on-premises data gateway Azure connection.]:
+    ./media/logic-apps-gateway-azure-config.png
+    "Azure connection for data gateway"
+  [This image demonstrates the recurrence trigger parameters for the Logic Apps instance.]:
+    ./media/recurrence-logic-apps-trigger.png
+    "Recurrence trigger parameters"

@@ -50,7 +50,7 @@ die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 }
 
 // Run the create table query
-if (PostgreSQLi_query($conn, '
+if (pg_query($conn, '
 CREATE TABLE Products (
 `Id` INT NOT NULL AUTO_INCREMENT ,
 `ProductName` VARCHAR(200) NOT NULL ,
@@ -104,7 +104,7 @@ PostgreSQLi_close($conn);
 
 The console output message `Insert: Affected 1 rows` should be displayed.
 
-The third code snippet utilizes the `PostgreSQLi_query()` method, just like the first code snippet. However, it also utilizes the `PostgreSQLi_fetch_assoc()` method to parse the result set.
+The third code snippet utilizes the `pg_query()` method, just like the first code snippet. However, it also utilizes the `PostgreSQLi_fetch_assoc()` method to parse the result set.
 
 ```php
 <?php
@@ -123,7 +123,7 @@ die('Failed to connect to PostgreSQL: '.PostgreSQLi_connect_error());
 
 //Run the Select query
 printf("Reading data from table: \n");
-$res = PostgreSQLi_query($conn, 'SELECT * FROM Products');
+$res = pg_query($conn, 'SELECT * FROM Products');
 while ($row = PostgreSQLi_fetch_assoc($res)) {
 var_dump($row);
 }
