@@ -54,29 +54,34 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - Browse to the **private.postgres.database.azure.com** private dns zone
 - Under **Settings**, select **Virtual network links**, notice an auto-created link (from the resource creation above)
 - Select the **Overview** link
-- Record the database IP Address for later use
-- It can take some time for the DNS to become available, on the **paw-1** virtual machine
-- Open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
-- Add the following to the file:
+- Record the database IP Address (it should be something like `10.4.0.4`)
+- Select **Record set**
+- For the name, type **pgsqldevSUFFIXflexpriv**
+- For the TTL, select **30**  and for units select **seconds**
+- For the ip address, type the IP that was added for the random `A` record
+- It can take some time for the DNS to become available, on the **paw-1** virtual machine.  If you want to speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
+  - Add the following to the file:
 
-```text
-10.4.0.6 pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com
-```
+    ```text
+    10.4.0.4 pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com
+    ```
 
 ## Configure the new Flexible Server instance
 
 - Switch to the **paw-1** virtual machine
 - Open a command prompt window and enter the following command to initiate a connection to the Flexible Server instance. Provide `Solliance123` as the password, when prompted. Be sure to replace the `SUFFIX`:
 
-  ```cmd
-  psql -h pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com -u wsuser
+  ```PowerShell
+  set PGPASSWORD="Solliance123"
+  $server = "DNSNAME.private.postgres.database.azure.com"
+  psql -h $server -U wsuser -d postgres
   ```
 
 - Create a new database, titled `noshnowapp`. Then, create a new table for orders. It is a simplified version of the table used by the Contoso NoshNow application.
 
   ```sql
   CREATE DATABASE noshnowapp;
-  USE noshnowapp;
+  \connect noshnowapp;
 
   CREATE TABLE orders (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -85,7 +90,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
   );
   ```
 
-## Install the PostgreSQL .NET Connector
+## Install the PostgreSQL ODBC Connector
 
 - Log in to the **pgsqldevSUFFIX-paw-1** virtual machine using **wsuser** and **Solliance123**
 - Run the following to install the Postgres ODBC connector
@@ -108,6 +113,12 @@ choco install psqlodbc
 - **IMPORTANT** Ensure that the region is the same as where the virtual network for the database instance is located
 - Select **Configure**
 
+> NOTE: If you did not select the correct region, you can uninstall/reinstall, or perform the following steps:
+
+  - Navigate to: C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway
+  - Delete the Gateway.bin file, and then restarting the service in task manager
+  - Open the Gateway app from the Start menu.
+
 ## Configure the Logic Apps Gateway
 
 - In the **On-premises data gateway** dialog, select **Create a gateway in Azure**
@@ -120,8 +131,8 @@ choco install psqlodbc
 
 ## Install npgsql
 
-- You can download `npgsql` from [here]([../../../../../Users/given/Downloads/Npgsql-4.0.12.msi](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi))
-  - It is also available in the repo with this README.md file
+- You can download `npgsql` from [here](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi)
+  - `Npgsql-4.0.12.msi` is also available in the repo along side this README.md file
 - Install the software to support the data gateway
 
 ## Configure the Logic App
@@ -140,12 +151,13 @@ We have already created a Logic App that uses a timer trigger to check for new O
 - Select the **azureblob** connection
 - Under **General**, select **Edit API Connection**
 - Enter the **pgsqldevSUFFIX**, azure storage account name and access key
-- Select the **PostgreSQL** connection
+- Select the **postgresql** connection
 - Under **General**, select **Edit API Connection**
 - Enter the following information:
   - Server : `pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com`
   - Database name : `contosostore`
   - Username : `wsuser`
+  - Authentication type : `basic`
   - Password : `Solliance123`
   - Gateway : `gateway-postgresql-SUFFIX`
 - Select **Save**
@@ -252,11 +264,11 @@ This step has already been done for you, but if you'd like to create the logic a
 - Add the following to the `hosts` file:
 
 ```text
-10.3.0.4 PostgreSQLdev-app-web.azurewebsites.net
-10.3.0.4 PostgreSQLdev-app-web.scm.azurewebsites.net
+10.3.0.4 postgresqldev-app-web.azurewebsites.net
+10.3.0.4 postgresqldev-app-web.scm.azurewebsites.net
 ```
 
 - Open a new Chrome browser window
-- Browse to the Contoso Store app service - https://PostgreSQLdev-app-web.azurewebsites.net/
+- Browse to the Contoso Store app service - https://postgresqldev-app-web.azurewebsites.net/
 - Create a new order
 - Browse to Outlook Online (https://outlook.office.com), wait for 5 minutes for an email to show up with the order details.
