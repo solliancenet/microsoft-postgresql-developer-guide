@@ -55,12 +55,12 @@ $password = $accessToken.Token;
 
 ## Add Users to Database
 
-- Run the following, replace the `CLIENT_ID` with the one copied from above:
+- Run the following, replace the `APP_ID` with the one copied from above:
 
     ```sql
     SET aad_validate_oids_in_tenant = off;    
 
-    CREATE ROLE myuser WITH LOGIN PASSWORD 'CLIENT_ID' IN ROLE azure_ad_user;
+    CREATE ROLE funcuser WITH LOGIN PASSWORD 'APP_ID' IN ROLE azure_ad_user;
     ```
 
 ## Modify the code
@@ -82,7 +82,7 @@ $password = $accessToken.Token;
     # Connect to PostgreSQL
         cnx = psycopg2.connect(database="postgres",
             host="pgsqldevSUFFIXflex16.postgres.database.azure.com",
-            user="wsuser",
+            user="funcuser",
             password=access_token,
             port="5432",
             sslmode='require',
