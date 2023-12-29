@@ -45,7 +45,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
 > **NOTE** The Log App Gateway can currently only do non-SSL connections to PostgreSQL
 
-> **NOTE** It is also possible to use the Azure CLI [`az PostgreSQL flexible-server create`](https://docs.microsoft.com/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest#az-PostgreSQL-flexible-server-create) command to provision a Flexible Server instance in a virtual network.
+> **NOTE** It is also possible to use the Azure CLI [`az PostgreSQL flexible-server create`](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server-cli) command to provision a Flexible Server instance in a virtual network.
 
 ## Private DNS - Virtual network link
 
@@ -69,7 +69,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - Open a command prompt window and enter the following command to initiate a connection to the Flexible Server instance. Provide `Solliance123` as the password, when prompted. Be sure to replace the `SUFFIX`:
 
   ```cmd
-  "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE\PostgreSQL.exe" -h pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com -u wsuser -p
+  psql -h pgsqldevSUFFIXflexpriv.private.postgres.database.azure.com -u wsuser
   ```
 
 - Create a new database, titled `noshnowapp`. Then, create a new table for orders. It is a simplified version of the table used by the Contoso NoshNow application.
@@ -88,28 +88,25 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 ## Install the PostgreSQL .NET Connector
 
 - Log in to the **pgsqldevSUFFIX-paw-1** virtual machine using **wsuser** and **Solliance123**
-- [Download](https://go.microsoft.com/fwlink/?LinkId=278885) the connector
-- Run the **PostgreSQL-installer...** installer
-- Click through all the default values of all dialogs
-- Select **Next**
-- Select **Finish**
+- Run the following to install the Postgres ODBC connector
+
+```PowerShell
+choco install psqlodbc
+```
 
 ## Install the Logic Apps Gateway
 
-- [Download](https://www.microsoft.com/download/details.aspx?id=53127) the Logic Apps Gateway
-- Install the Logic Apps Gateway by running the **gatewayinstall.exe**
+- [Download](https://aka.ms/on-premises-data-gateway-installer) and tnstall the Logic Apps Gateway
 - Select **I accept the terms...** checkbox
 - Select **Install**
 - Enter the lab user email, then select **Sign in**
 - When prompted, log in to the lab Azure account
 - Select **Register a new gateway on this computer**
 - Select **Next**
-- For the name, type **gateway-PostgreSQL-SUFFIX**
+- For the name, type **gateway-postgresql-SUFFIX**
 - For the recovery key, type **Solliance123**
-- Ensure that the region is the same as where the virtual network for the database instance is located
+- **IMPORTANT** Ensure that the region is the same as where the virtual network for the database instance is located
 - Select **Configure**
-
-  ![This image demonstrates the configuration for the on-premises data gateway.](./media/on-premises-data-gateway-config.png "On-premises data gateway configuration")
 
 ## Configure the Logic Apps Gateway
 
@@ -117,11 +114,15 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - Select the subscription and the resource group
 - For the name, type **logic-app-gateway**
 - Select the region used above
-- Select the **gateway-PostgreSQL-SUFFIX** gateway
+- Select the **gateway-postgresql-SUFFIX** gateway
 - Select **Review + create**
 - Select **Create**
 
-  ![This image demonstrates how to configure the on-premises data gateway Azure connection.](./media/logic-apps-gateway-azure-config.png "Azure connection for data gateway")
+## Install npgsql
+
+- You can download `npgsql` from [here]([../../../../../Users/given/Downloads/Npgsql-4.0.12.msi](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi))
+  - It is also available in the repo with this README.md file
+- Install the software to support the data gateway
 
 ## Configure the Logic App
 
@@ -146,7 +147,7 @@ We have already created a Logic App that uses a timer trigger to check for new O
   - Database name : `contosostore`
   - Username : `wsuser`
   - Password : `Solliance123`
-  - Gateway : `gateway-PostgreSQL-SUFFIX`
+  - Gateway : `gateway-postgresql-SUFFIX`
 - Select **Save**
 
 ### Create a Logic App (Optional)
@@ -188,25 +189,29 @@ This step has already been done for you, but if you'd like to create the logic a
 
 ### Add private endpoint to App Service
 
-- Browse to the **pgsqldevSUFFIX-web** app service
+- Browse to the **pgsqldevSUFFIXlinux** app service
 - Under **App Service plan**, select **App Service plan**
 - Under **Settings**, select **Scale up (App Service plan)**
 - Select **Production** tab
-- Select the **P1V2** pricing tier
-- Select **Apply**
+- Ensure the **P1V2** pricing tier is selected, if not select it and select **Apply**
 - Switch back to the app service
 - Under **Settings**, select **Networking**
 - In the **Inbound Traffic** section, select **Private endpoints**
-- Select **Add**
-- For the name, type **pgsqldevSUFFIX-web-pe**
+- Select **Add->Advanced**
+- For the name, type **pgsqldevSUFFIX-linux-pe**
+- Select **Next: Resource>**
+- Select **Next: Virtual Network>**
 - For the virtual network, select **pgsqldevSUFFIX-web**
 - Select the **default** subnet
-- Select **OK**
+- Select **Next: DNS>**
+- Select **Next: Tags>**
+- Select **Next: Review + create>**
+- Select **Create**
 - Browse to the **pgsqldevSUFFIX-web** virtual network, record the new IP Address of the private endpoint.
 
 ### Set the Database Host
 
-- Switch back to the main blade for the app service
+- Browse to the **pgsqldevSUFFIXlinux** app service
 - Under **Settings**, select **Configuration**
 - Edit the app setting value for **DB_HOST** to the ip address recorded above.
 - Select **Save**
@@ -229,11 +234,11 @@ This step has already been done for you, but if you'd like to create the logic a
 
 - Browse back to the app service
 - Under **Settings**, select **Networking**
-- Under **Outbound Traffic**, select **VNet integration**
-- Select **Add VNet**
+- Under **Outbound Traffic**, select **Virtual Network integration**
+- Select **Add virtual network integration**
 - Select the **pgsqldevSUFFIX-web** virtual network
 - Select the **vnet-web-int** subnet
-- Select **OK**
+- Select **Connect**
 
 ### Add the lastOrder.txt file
 
@@ -244,7 +249,7 @@ This step has already been done for you, but if you'd like to create the logic a
 ## Test Trigger
 
 - On the **paw-1** virtual machine
-- Add the following to the hosts file:
+- Add the following to the `hosts` file:
 
 ```text
 10.3.0.4 PostgreSQLdev-app-web.azurewebsites.net

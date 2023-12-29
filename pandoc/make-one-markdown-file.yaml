@@ -34,6 +34,10 @@
 # xcopy .\media\*.png .\temp\media /Y
 # xcopy .\*.md .\temp /Y
 
+# Step 4
+# Convert to docx
+# pandoc -s -f markdown+pipe_tables+backtick_code_blocks -t docx -o postgresql-developer-guide.docx postgresql-developer-guide.md
+
 from: markdown+pipe_tables+backtick_code_blocks
 to: markdown+pipe_tables
 output-file: postgresql-developer-guide.md

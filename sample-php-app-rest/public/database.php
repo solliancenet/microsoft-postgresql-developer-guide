@@ -1,34 +1,40 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "postgres";
+$password = "Solliance123";
 $dbname = "contosostore";
+$port = "5432"
 
-$conn = PostgreSQLi_init();
+// connection string with SSL certificate files
+$conn_str  = 'host=' . $servername . ' ';
+$conn_str .= 'port=' . $port . ' ';
+$conn_str .= 'dbname=' . $dbName . ' ';
+$conn_str .= 'user=' . $username . ' ';
+$conn_str .= 'password=' . $password . ' ';
+//$conn_str .= 'sslmode=verify-full ';
+//$conn_str .= 'sslrootcert=/home/site/wwwroot/public/DigiCertGlobalRootCA.crt.pem ';
 
-//PostgreSQLi_ssl_set($conn,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-
-PostgreSQLi_real_connect($conn, $servername, $username, $password, $dbname);
+// attempt connection
+$conn = pg_connect($conn_str); //or die('Cannot connect to database.');
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+  die("Connection failed: " . pg_last_error());
 }
 
-$sql = "SELECT id, firstname, lastname FROM user";
+$sql = "SELECT count(*) FROM users";
 
-$result = $conn->query($sql);
+$result = pg_query($conn, $sql);
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-  }
-} else {
-  echo "0 results";
+if  (!$result) {
+    echo "query did not execute";
 }
 
-$conn->close();
+while ($row = pg_fetch_array($result)) {
+    echo $row[0] . " records" ;
+}
 
-?> 
+pg_close();
+
+?>
