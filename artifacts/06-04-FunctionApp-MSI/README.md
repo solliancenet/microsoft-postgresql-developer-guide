@@ -77,9 +77,7 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 - The same could be performed using psql. From a psql connection, run the following, replace the `APP_ID` with the one copied from above:
 
     ```sql
-    SET aad_validate_oids_in_tenant = off;
-
-    CREATE ROLE funcuser WITH LOGIN PASSWORD 'APP_ID' IN ROLE azure_ad_user;
+    select * from pgaadauth_create_principal('APP_ID', false, false);
     ```
 
 ## Modify the code

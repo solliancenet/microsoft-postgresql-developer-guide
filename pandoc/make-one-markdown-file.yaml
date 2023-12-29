@@ -36,7 +36,7 @@
 
 from: markdown+pipe_tables+backtick_code_blocks
 to: markdown+pipe_tables
-output-file: postgressql-developer-guide.md
+output-file: postgresql-developer-guide.md
 dpi: 300
 
 input-files:
@@ -50,7 +50,7 @@ input-files:
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\02_IntroToPostgreSQL\02_05_Summary.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00__Getting_Started.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md
-- C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-1_Query_PostgreSQL_Workbench.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-1_Query_PostgreSQL_pgAdmin.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-2_Connect_Query_Azure_CLI.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_01_PHP_Language_Support.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_02_Java_Language_Support.md
