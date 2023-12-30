@@ -47,6 +47,8 @@ Another useful tool that can be used is Azure Data Studio. Azure Data Studio pro
 
 One of the key advantages of Azure Data Studio is its cross-platform compatibility, as it can be installed and used on Windows, macOS, and Linux systems. This flexibility enables users to work seamlessly across different operating systems and collaborate effectively.
 
+Leverage the [extension for PostgreSQL](https://learn.microsoft.com/azure-data-studio/quickstart-postgres) to connect to Azure Database for PostgreSQL Flexible Server.
+
 ## Cost saving tip
 
 >![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
