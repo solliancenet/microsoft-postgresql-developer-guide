@@ -9722,7 +9722,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [`flexible-server db create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server/db?view=azure-cli-latest#az-postgres-flexible-server-db-create
   [25]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template
   [26]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-bicep
-  [article]: https://learn.microsoft.com/en-us/azure/developer/terraform/deploy-postgresql-flexible-server-database?tabs=azure-cli
+  [article]: https://learn.microsoft.com/azure/developer/terraform/deploy-postgresql-flexible-server-database?tabs=azure-cli
   [27]: ./03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md
   [pgAdmin Downloads]: https://www.pgadmin.org/download/
   [Chocolatey]: https://community.chocolatey.org/packages/pgadmin4
