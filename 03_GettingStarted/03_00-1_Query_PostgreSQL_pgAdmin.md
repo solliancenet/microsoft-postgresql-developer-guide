@@ -66,13 +66,13 @@ Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/downl
 
     ![The pgAdmin PSQL Tool displays with the SQL statement to create a new table having executed successfully.](media/psql-tool-create-table.png "PSQL Tool with CREATE TABLE statement")
 
-3. In the Object Explorer, right-click the **inventory** database and select **Refresh**. Expand the **Schemas** item and the **public** node. The `products` table will display under **Tables**. Expand the **products** node to view the table columns.
+3. In the Object Explorer, right-click the **inventory** database and select **Refresh**. Expand the **Schemas** item and the **public** node. The `products` table will display under **Tables**.
 
     ![The pgAdmin Object Explorer displays with the inventory database expanded to show the products table.](media/products-table-created.png "products table created")
 
 4. Keep the PSQL Tool window open for use in the next section.
 
-### Insert data into the inventory table using the PSQL Tool
+### Insert data into the products table using the PSQL Tool
 
 1. In the PSQL Tool window, paste the following code and press <kbd>Enter</kbd>. The shell will output `INSERT 0 1` indicating the successful operation.
 
@@ -92,7 +92,7 @@ Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/downl
 
 3. Close the PSQL Tool tab.
 
-### Query the inventory table using the Query Tool
+### Query the products table using the Query Tool
 
 1. In Object Explorer, right-click the **products** table and select **Query Tool**.
 
@@ -106,7 +106,7 @@ Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/downl
 
 3. Keep the Query Tool window open for use in the next section.
 
-### Update data in the inventory table using the Query Tool results grid
+### Update data in the products table using the Query Tool results grid
 
 The output of the previous query displays ther results in a spreadsheet-like format. This data is editable in-line.
 
