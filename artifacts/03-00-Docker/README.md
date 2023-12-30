@@ -72,7 +72,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     RUN apt-get install -y libcurl4-openssl-dev
     RUN docker-php-ext-install fileinfo
     RUN docker-php-ext-install curl
-    #RUN docker-php-ext-install openssl
+    
+    RUN apt-get install -y build-essential cmake zlib1g-dev libcppunit-dev git subversion wget && rm -rf /var/lib/apt/lists/*
+    
+    RUN wget https://www.openssl.org/source/openssl-3.2.0.tar.gz -O - | tar -xz
+    WORKDIR /openssl-3.2.0g
+    RUN ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl && make && make install
+
+    RUN docker-php-ext-install openssl
     
     # Install Postgre PDO
     RUN apt-get install -y libpq-dev \

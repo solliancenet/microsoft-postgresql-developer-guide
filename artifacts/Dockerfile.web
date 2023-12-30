@@ -8,7 +8,20 @@ RUN apt update && apt install -y curl
 RUN apt-get install -y libcurl4-openssl-dev
 RUN docker-php-ext-install fileinfo
 RUN docker-php-ext-install curl
-#RUN docker-php-ext-install openssl
+
+#install openssl
+RUN apt-get update &&\
+    apt-get -y remove openssl &&\
+    apt-get -y install build-essential zlib1g-dev &&\
+    apt-get -q update && apt-get -qy install wget make &&\
+    wget https://www.openssl.org/source/openssl-3.0.5.tar.gz &&\
+    tar -xzvf openssl-3.0.5.tar.gz &&\
+    cd openssl-3.0.5 &&\
+    ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib &&\
+    make &&\
+    make install
+
+RUN docker-php-ext-install openssl
 
 # Install Postgre PDO
 RUN apt-get install -y libpq-dev \
