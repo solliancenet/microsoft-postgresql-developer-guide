@@ -4,7 +4,7 @@ This section describes tools to interact with Azure Database for PostgreSQL Flex
 
 ### Getting started
 
-Refer to the [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/PostgreSQL/flexible-server/connect-java?tabs=passwordless) for detailed instructions on how to get started with Java and Azure Database for PostgreSQL Flexible Server.
+Refer to the [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/PostgreSQL/flexible-server/connect-java?tabs=passwordless) for detailed instructions on how to get started with Java and Azure Database for PostgreSQL Flexible Server. This example uses JDBC to connect to the database and perform basic data access operations.
 
 ### General information on Java and Azure
 

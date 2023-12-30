@@ -80,7 +80,7 @@ Microsoft has a tutorial on one of the popular applications of Azure Database fo
 
 ### Cleanup
 
-The following Azure SDK code will delete the database created in the previous section. Alternatively, use the portal or Azure CLI to delete the database.
+The following Azure SDK code will delete the database created earlier. Alternatively, use the portal or Azure CLI to delete the database.
 
 ```python
 postgres_client.databases.begin_delete(
