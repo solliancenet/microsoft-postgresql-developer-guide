@@ -16,6 +16,8 @@ spec:
       - containerPort: 443
         name: https
       env:
+      - name: APP_URL
+        value: ""
       - name: DB_DATABASE
         value: "contosostore"
       - name: DB_USERNAME

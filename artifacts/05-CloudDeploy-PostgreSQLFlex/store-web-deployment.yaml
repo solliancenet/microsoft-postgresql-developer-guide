@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: store-web
-  namespace: PostgreSQLdev
+  namespace: postgresqldev
 spec:
   replicas: 3
   selector:
@@ -28,10 +28,10 @@ spec:
         - name: DB_DATABASE
           value: "contosostore"
         - name: DB_USERNAME
-          value: "AZURE_PostgreSQL_USERNAME"
+          value: "AZURE_USERNAME"
         - name: DB_PASSWORD
-          value: "AZURE_PostgreSQL_PASSWORD"
+          value: "AZURE_PASSWORD"
         - name: DB_HOST
-          value: "AZURE_PostgreSQL_INSTANCE"
+          value: "AZURE_INSTANCE"
       imagePullSecrets:
         - name: acr-secret
