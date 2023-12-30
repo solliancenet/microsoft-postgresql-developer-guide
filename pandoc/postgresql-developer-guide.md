@@ -6842,17 +6842,17 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker compose run --service-ports db
     ```
 
-4.  Run the following to create the phpmyadmin container:
+4.  Run the following to create the pgadmin container:
 
     ``` powershell
-    docker compose run --service-ports phpmyadmin
+    docker compose run --service-ports pgadmin
     ```
 
 ## Migrate the database
 
 1.  Use export steps in [Migrate the database][85] article to export the
     database
-2.  Open a browser to `http:\\localhost:8081` and the phpmyadmin portal
+2.  Open a browser to `http:\\localhost:8081` and the pgadmin portal
 3.  Login to the database using `root` and `root`
 4.  Select the **contosostore** database
 5.  Run the exported database sql to import the database and data
@@ -6961,7 +6961,8 @@ volumes:
 1.  Run the following:
 
 ``` powershell
-stop service PostgreSQL
+stop service postgresql-x64-14 -ea silentlycontinue
+stop service postgresql-x64-16 -ea silentlycontinue
 
 docker compose up
 ```

@@ -26,7 +26,7 @@ server {
         log_not_found off;
     }
 
-    # Add locations of phpmyadmin here.
+    # Add locations of pgadmin here.
     location ~ [^/]\.php(/|$) {
         fastcgi_split_path_info ^(.+?\.php)(|/.*)$;
         fastcgi_pass 127.0.0.1:9000;

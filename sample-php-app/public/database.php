@@ -9,7 +9,7 @@ $port = "5432"
 // connection string with SSL certificate files
 $conn_str  = 'host=' . $servername . ' ';
 $conn_str .= 'port=' . $port . ' ';
-$conn_str .= 'dbname=' . $dbName . ' ';
+$conn_str .= 'dbname=' . $dbname . ' ';
 $conn_str .= 'user=' . $username . ' ';
 $conn_str .= 'password=' . $password . ' ';
 //$conn_str .= 'sslmode=verify-full ';

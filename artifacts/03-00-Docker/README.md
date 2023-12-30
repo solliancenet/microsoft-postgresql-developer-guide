@@ -4,6 +4,26 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ## Migrate Application to Docker
 
+### Setup Web Application (optional)
+
+1. If you did not run through the previous labs, you will need to execute the following to setup the web application:
+
+    ```powershell
+      cd C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app
+    
+      composer update 
+    
+      copy .env.example.root .env
+    
+      php artisan config:clear
+      
+      php artisan migrate
+    
+      php artisan db:seed
+    
+      php artisan key:generate
+    ```
+
 ### Migrate to ENV variables
 
 1. Switch to Visual Studio Code and the opening repo directory
@@ -14,6 +34,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     $username = getenv("DB_USERNAME");
     $password = getenv("DB_PASSWORD");
     $dbname = getenv("DB_DATABASE");
+    $port = getenv("DB_PORT");
     ```
 
 ### Download Docker container
@@ -24,14 +45,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 4. Open a PowerShell window, run the following to download a php-enabled docker container:
 
     ```Powershell
-    docker pull php:8.0-apache
+    docker pull php:8.2-apache
     ```
 
 5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
 
     ```text
     # Dockerfile
-    FROM php:8.0-apache
+    FROM php:8.2-apache
 
     RUN apt-get update && apt-get upgrade -y
     RUN apt update && apt install -y zlib1g-dev libpng-dev && rm -rf /var/lib/apt/lists/*
@@ -85,9 +106,9 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     pg_dump -h $server -p $port -U $username -W -F p $database > c:\temp\data.sql
 
     #remove the weird encoding...
-    $data = get-content data.sql
+    $data = get-content c:\temp\data.sql
 
-    set-content data.sql $data
+    set-content c:\temp\data.sql $data
     ```
 
 2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
@@ -122,7 +143,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         image: store-web
         environment:
           - DB_DATABASE=contosostore
-          - DB_USER=postgres
+          - DB_USERNAME=postgres
           - DB_PASSWORD=Solliance123
           - DB_PORT=5432
           - DB_SERVERNAME=db
@@ -145,48 +166,57 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
             - '8081:80'
         restart: always
         environment:
-            - PMA_HOST=db
             - PGADMIN_DEFAULT_PASSWORD=Solliance123
+            - PGADMIN_DEFAULT_EMAIL=postgres@contoso.com
         depends_on:
             - db
    ```
 
-2. Run the following to create the web container:
+2. Open a new PowerShell window, run the following to create the web container:
 
     ```PowerShell
-    cd artifacts
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
 
     iisreset /stop
 
     docker compose run --service-ports web
     ```
 
-3. Run the following to create the db container:
+3. Open a new PowerShell window, run the following to create the db container:
 
     ```powershell
-    stop-service postgresql-x64-14
-    stop-service postgresql-x64-16
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+
+    stop-service postgresql-x64-14 -ea silentlycontinue
+    stop-service postgresql-x64-16 -ea silentlycontinue
 
     docker compose run --service-ports db
     ```
 
-4. Run the following to create the pgadmin container:
+4. Open a new PowerShell window, run the following to create the pgadmin container:
 
     ```powershell
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+
     docker compose run --service-ports pgadmin
     ```
 
 ## Migrate the database
 
 1. Use export steps in [Migrate the database](./Misc/02_MigrateDatabase) article to export the database
-2. Open a browser to `http:\\localhost:8081` and the phpmyadmin portal
-3. Login to the database using `root` and `root`
-4. Select the **contosostore** database
-5. Run the exported database sql to import the database and data
-6. Select the **SQL** tab, copy and then run the following query by selecting **Go**, record the count
+2. Open a browser to `http:\\localhost:8081` and the pgadmin portal
+3. Login to the database using `postgres@contoso.com` and `Solliance123`
+4. Right-click **Servers**, select **Register**
+5. For the name, type **Postgres 16**
+6. Select the **Connection** tab
+7. For the host, type **localhost**
+8. Select **Save**
+9. Select the **contosostore** database
+10. Run the exported database sql to import the database and data
+11. Select the **SQL** tab, copy and then run the following query by selecting **Go**, record the count
 
   ```sql
-  select count(*) from orders
+  select count(*) from users
   ```
 
 ## Test the Docker images
@@ -207,7 +237,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```bash
     cd /var/www
     
-    php artisian migrate
+    php artisan migrate
     ```
 
 3. Once the connection is working, refresh the page then select **START ORDER**
@@ -215,18 +245,20 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 5. Select **Bacon & Eggs**, then select **ADD**
 6. Select **CHECKOUT**
 7. Select **COMPLETE ORDER**
-8. Switch to the PowerShell window that started the containers, shutdown the images, press **CTRL-X** to stop the images
+8. Switch to the PowerShell windows that started the containers, shutdown the images, press **CTRL-X** to stop the images
 9. Restart the images:
 
     ```PowerShell
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+
     docker compose up
     ```
 
-10. Switch back to the phpmyadmin window.  Attemp to re-run the query, notice that the database has the same orders as when it was started before.  This is because the container's data was lost when it was stopped/removed.
+10. Switch back to the pgadmin window.  Attemp to re-run the query, notice that the database has the same orders as when it was started before.  This is because the container's data was lost when it was stopped/removed.
 
 ## Fix Storage persistence
 
-1. Modify the `docker-compose.yml` docker compose file, notice how we are creating and adding a volume to the database container.  We also added the phpmyadmin continer:
+1. Modify the `docker-compose.yml` docker compose file, notice how we are creating and adding a volume to the database container.  We also added the pgadmin continer:
 
   ```yaml
   version: '3.8'
@@ -258,8 +290,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
           - '8081:80'
       restart: always
       environment:
-          - PMA_HOST=db
           - PGADMIN_DEFAULT_PASSWORD=Solliance123
+          - PGADMIN_DEFAULT_EMAIL=postgres@contoso.com
       depends_on:
           - db
   volumes:
@@ -272,12 +304,15 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. Run the following:
 
   ```PowerShell
-  stop service PostgreSQL
+  stop service postgresql-x64-14 -ea silentlycontinue
+  stop service postgresql-x64-16 -ea silentlycontinue
 
   docker compose up
   ```
 
-2. Create some more orders, restart the containers.  Notice that data is now persisted.  It is now up to the administrators to ensure the database volume is maintained for the length of the solution.  If this volume is ever deleted, the data will be lost!
+2. Create some more orders
+3. Restart the containers.  Notice that data is now persisted.  
+4. It is now up to the administrators to ensure the database volume is maintained for the length of the solution.  If this volume is ever deleted, the data will be lost!
 
 ## Save the images to Azure Container Registry (ACR)
 
