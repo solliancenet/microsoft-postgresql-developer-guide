@@ -53,37 +53,58 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```text
     # Dockerfile
     FROM php:8.2-apache
-
+    
     RUN apt-get update && apt-get upgrade -y
+    
     RUN apt update && apt install -y zlib1g-dev libpng-dev && rm -rf /var/lib/apt/lists/*
     RUN apt update && apt install -y curl
     RUN apt-get install -y libcurl4-openssl-dev
     RUN docker-php-ext-install fileinfo
     RUN docker-php-ext-install curl
-    RUN docker-php-ext-install pgsql 
-    RUN docker-php-ext-install pdo_pgsql
+    #RUN docker-php-ext-install openssl
     
-    COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
-    COPY ./start-apache.sh /usr/local/bin
-
+    # Install Postgre PDO
+    RUN apt-get install -y libpq-dev \
+        && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+        && docker-php-ext-install pdo pdo_pgsql pgsql
+    
+    # Install Composer
+    RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    
+    COPY artifacts/000-default.conf /etc/apache2/sites-available/000-default.conf
+    COPY artifacts/start-apache.sh /usr/local/bin
+    
     RUN a2enmod rewrite
-
-    COPY ./sample-php-app /var/www
+    
+    COPY sample-php-app /var/www
     RUN chown -R www-data:www-data /var/www
-
-    RUN chmod 755 /usr/local/bin/start-apache.sh
-
+    
+    #RUN chmod 755 /usr/local/bin/start-apache.sh
+    
     #CMD ["start-apache.sh"]
-
-    EXPOSE 80
+    
+    ENV SSH_PASSWD "root:Docker!"
+    RUN apt-get update \
+            && apt-get install -y --no-install-recommends dialog \
+            && apt-get update \
+      && apt-get install -y --no-install-recommends openssh-server \
+      && echo "$SSH_PASSWD" | chpasswd 
+    
+    COPY artifacts/sshd_config /etc/ssh/
+    
+    COPY artifacts/init.sh /usr/local/bin/
+    
+    RUN chmod u+x /usr/local/bin/init.sh
+    
+    EXPOSE 80 22
+    
+    ENTRYPOINT ["/usr/local/bin/init.sh"]
     ```
 
 6. Run the following to create the image:
 
     ```PowerShell
-    $sourcePath = "c:\labfiles\microsoft-postgresql-developer-guide";
-
-    cd $sourcePath;
+    cd "c:\labfiles\microsoft-postgresql-developer-guide";
 
     docker build -t store-web --file artifacts\Dockerfile.web . 
     ```
@@ -115,14 +136,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
     ```text
     FROM postgres:16.1
-    RUN chown -R postgres:root /var/lib/postgres/
-
+    #RUN chown -R postgres:root /var/lib/postgres/
+    
     ADD artifacts/data.sql /etc/postgres/data.sql
-
+    
     ENV POSTGRES_DB contosostore
-
+    
     RUN cp /etc/postgres/data.sql /docker-entrypoint-initdb.d
-
+    
     EXPOSE 5432 22
     ```
 
@@ -216,7 +237,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 11. Select the **SQL** tab, copy and then run the following query by selecting **Go**, record the count
 
   ```sql
-  select count(*) from users
+  select count(*) from orders
   ```
 
 ## Test the Docker images
@@ -254,7 +275,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker compose up
     ```
 
-10. Switch back to the pgadmin window.  Attemp to re-run the query, notice that the database has the same orders as when it was started before.  This is because the container's data was lost when it was stopped/removed.
+10. Switch back to the pgadmin window.  Attemp to re-run the `select count(*) from orders` query, notice that the database has the same orders as when it was started before.  This is because the container's data was lost when it was stopped/removed.
 
 ## Fix Storage persistence
 
