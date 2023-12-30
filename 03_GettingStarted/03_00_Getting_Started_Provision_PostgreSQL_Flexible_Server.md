@@ -24,4 +24,4 @@ Bicep is a declarative language for describing and deploying Azure resources. It
 
 ### Terraform
 
-Terraform is a third-party open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure. Azure documentation provides an [article](https://learn.microsoft.com/en-us/azure/developer/terraform/deploy-postgresql-flexible-server-database?tabs=azure-cli) outlining Terraform code for a Flexible Server deployment.
+Terraform is a third-party open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure. Azure documentation provides an [article](https://learn.microsoft.com/azure/developer/terraform/deploy-postgresql-flexible-server-database?tabs=azure-cli) outlining Terraform code for a Flexible Server deployment.
