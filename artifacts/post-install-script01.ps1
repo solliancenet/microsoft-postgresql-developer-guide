@@ -152,6 +152,12 @@ choco install openssl
 Write-Host "Install Azure Functions core tools." -ForegroundColor Green -Verbose
 choco install azure-functions-core-tools
 
+Write-Host "Install VS build tools." -ForegroundColor Green -Verbose
+choco install visualstudio2022buildtools
+
+Write-Host "Install VCPP build tools." -ForegroundColor Green -Verbose
+choco install visualcpp-build-tools
+
 InstallPgAdmin
 
 $extensions = @("ms-vscode-deploy-azure.azure-deploy", 

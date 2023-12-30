@@ -30,7 +30,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 2. Open the `.\artifacts\sample-php-app\public\database.php` file, update the php PostgreSQL connection environment variables:
 
     ```php
-    $servername = getenv("DB_SERVERNAME");
+    $servername = getenv("DB_HOST");
     $username = getenv("DB_USERNAME");
     $password = getenv("DB_PASSWORD");
     $dbname = getenv("DB_DATABASE");
@@ -167,7 +167,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
           - DB_USERNAME=postgres
           - DB_PASSWORD=Solliance123
           - DB_PORT=5432
-          - DB_SERVERNAME=db
+          - DB_HOST=db
         ports:
           - "8080:80"
         depends_on:
