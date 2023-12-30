@@ -24,6 +24,8 @@ The built-in PostgreSQL account management system governs access for administrat
 
 ## Development editor tools
 
+### Visual Studio Code
+
 Developers have various code editor tools to choose from to complete their IT projects. Commercial organizations and OSS communities have produced tools and plug-ins making Azure application development efficient and rapid. A very popular tool is Visual Studio Code (VS Code). VS Code is an open-source, cross-platform text editor. It offers useful utilities for various languages through extensions. Download VS Code from the [Microsoft download page.](https://code.visualstudio.com/download)
 
 ![A simple screenshot of Visual Studio Code.](media/VSCode_screenshot.png "Visual Studio Code")
@@ -39,8 +41,12 @@ The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.
 
 Consider adding it to Visual Studio Code environment to make working with PostgreSQL instances more efficient.
 
+### Azure Data Studio
+
 Another useful tool that can be used is Azure Data Studio. Azure Data Studio provides a rich set of features to enhance productivity and collaboration. It supports advanced editing capabilities, intelligent code completion, and integrated source control. Users can also leverage built-in extensions and integrations with other Azure services to streamline their data management tasks.
 
 One of the key advantages of Azure Data Studio is its cross-platform compatibility, as it can be installed and used on Windows, macOS, and Linux systems. This flexibility enables users to work seamlessly across different operating systems and collaborate effectively.
+
+## Cost saving tip
 
 >![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
