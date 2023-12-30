@@ -64,6 +64,12 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
       ).result()
       ```
 
+3. Run the code and then verify the database was created.
+
+    ```bash
+    python create_flexible_server_database.py
+    ```
+
 ### Getting started
 
 Refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-python). for detailed instructions on how to get started with Python and Azure Database for PostgreSQL Flexible Server. This article covers connecting to the database, creating a table, and performing CRUD operations.
