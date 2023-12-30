@@ -12,24 +12,28 @@ Now that a containerized version of the applications exists, it can now be hoste
 2. Open a new terminal window, ensure kubectl is installed:
 
     ```powershell
-    $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
+    Connect-AzAccount -identity
 
+    $resourceGroups = Get-AzResourceGroup
+
+    $rg = $resourceGroups[0]
+    $resourceGroupName = $rg.ResourceGroupName
+
+    $suffix = $rg.tags['Suffix']
+    $resourceName = "pgsqldev$suffix"
+    
     az aks install-cli
 
-    az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
+    az aks get-credentials --name "pgsqldev$suffix" --resource-group $resourceGroupName
     ```
 
 3. Run the following commands to deploy the containers (be sure to update the variable values):
 
     ```powershell
-    $acrName = "pgsqldevSUFFIX";
-    $resourceName = "pgsqldevSUFFIX";
-    $resourceGroupName = "RESOURCEGROUPNAME";
-
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
     $creds = $acr | Get-AzContainerRegistryCredential;
     
-    kubectl create namespace PostgreSQLdev
+    kubectl create namespace postgresqldev
 
     $ACR_REGISTRY_ID=$(az acr show --name $ACRNAME --query "id" --output tsv);
     $SERVICE_PRINCIPAL_NAME = "acr-service-principal";
@@ -37,7 +41,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     $USERNAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
 
     kubectl create secret docker-registry acr-secret `
-    --namespace PostgreSQLdev `
+    --namespace postgresqldev `
     --docker-server="https://$($acr.loginserver)" `
     --docker-username=$username `
     --docker-password=$password
