@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: store-web
-  namespace: PostgreSQLdev
+  namespace: postgresqldev
 spec:
   replicas: 3
   selector:
@@ -26,9 +26,9 @@ spec:
         - name: DB_DATABASE
           value: "contosostore"
         - name: DB_USERNAME
-          value: "root"
+          value: "postgres"
         - name: DB_PASSWORD
-          value: "root"
+          value: "Solliance123"
         - name: DB_HOST
           value: "store-db-svc"
       imagePullSecrets:

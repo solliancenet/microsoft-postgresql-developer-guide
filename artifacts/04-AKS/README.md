@@ -27,7 +27,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     az aks get-credentials --name "pgsqldev$suffix" --resource-group $resourceGroupName
     ```
 
-3. Run the following commands to deploy the containers (be sure to update the variable values):
+3. Run the following commands to deploy the containers (be sure to update the variable values). Note that you must be able to create rbac in the Microsoft Entra tenant to run these commands.  If you do not have this access, you will need to enable the anonymous access to the container registry using (`az acr update --name myregistry --anonymous-pull-enabled false`):
 
     ```powershell
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
@@ -51,22 +51,27 @@ Now that a containerized version of the applications exists, it can now be hoste
 
     #get the principal id
     az aks show -g $resourceGroupName -n $resourceName --query "identity"
+
+    az aks update -n $resourceName -g $resourceGroupName --attach-acr $acrName
+    az aks check-acr --resource-group $resourceGroupName --name $resourceName --acr $acrName
+    
     ```
 
-4. Create a managed disk, copy its `id` for later use:
+4. Create a managed disk:
 
   ```powershell
   az disk create --resource-group $resourceGroupName --name "disk-store-db" --size-gb 200 --query id --output tsv
   ```
 
-5. Open and review the following `storage-db.yaml` deployment file:
+5. Copy its `id` (ex : `/subscriptions/SUBSCRIPTON_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Compute/disks/disk-store-db` for later use:
+6. Open and review the following `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\storage-db.yaml` deployment file:
 
   ```yaml
   apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
-    name: PostgreSQL-data
-    namespace: PostgreSQLdev
+    name: postgresql-data
+    namespace: postgresqldev
   spec:
     accessModes:
     - ReadWriteOnce
@@ -75,27 +80,27 @@ Now that a containerized version of the applications exists, it can now be hoste
         storage: 200Gi
   ```
 
-6. Open and review the `store-db.yaml` deployment file, be sure to replace the `<REGISTRY_NAME>` and `ID` tokens:
+6. Open and review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-db.yaml` deployment file, be sure to replace the `<REGISTRY_NAME>` and `ID` tokens:
 
   ```yaml
   apiVersion: v1
   kind: Pod
   metadata:
     name: store-db
-    namespace: PostgreSQLdev
+    namespace: postgresqldev
     labels:
         app: store-db
   spec:
     volumes:
-    - name: PostgreSQL-data
+    - name: postgresql-data
       persistentVolumeClaim:
-        claimName: PostgreSQL-data
+        claimName: postgresql-data
     containers:
       - name: store-db
         image: <REGISTRY_NAME>.azurecr.io/store-db:latest
         volumeMounts:
         - mountPath: "/var/lib/postgresql/"
-          name: PostgreSQL-data
+          name: postgresql-data
         imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRES_DB
@@ -104,24 +109,30 @@ Now that a containerized version of the applications exists, it can now be hoste
           value: "root"
     imagePullSecrets:
       - name: acr-secret
+    volumes:
+    - name: postgresql-data
+      persistentVolumeClaim:
+        claimName: postgresql-data
   ```
 
 7. Run the deployment:
 
     ```powershell
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS"
+
     kubectl create -f storage-db.yaml
 
     kubectl create -f store-db.yaml
     ```
 
-8. Create the following `store-web.yaml` deployment file, be sure to replace the `<REGISTRY_NAME>` token:
+8. Create the following `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-web.yaml` deployment file, be sure to replace the `<REGISTRY_NAME>` token:
 
   ```yaml
   apiVersion: v1
   kind: Pod
   metadata:
     name: store-web
-    namespace: PostgreSQLdev
+    namespace: postgresqldev
   spec:
     containers:
       - name: store-web
@@ -131,9 +142,9 @@ Now that a containerized version of the applications exists, it can now be hoste
         - name: DB_DATABASE
           value: "contosostore"
         - name: DB_USERNAME
-          value: "root"
+          value: "postgres"
         - name: DB_PASSWORD
-          value: "root"
+          value: "Solliance123"
         - name: DB_HOST
           value: "store-db"
     imagePullSecrets:
@@ -143,12 +154,14 @@ Now that a containerized version of the applications exists, it can now be hoste
 6. Run the deployment:
 
     ```powershell
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS"
+
     kubectl create -f store-web.yaml
     ```
 
 ## Add services
 
-1. Open and review the  `store-db-service.yaml` yaml file:
+1. Open and review the  `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-db-service.yaml` yaml file:
 
   ```yaml
   apiVersion: v1
@@ -162,7 +175,7 @@ Now that a containerized version of the applications exists, it can now be hoste
       app: store-db
   ```
 
-2. Open and review the `store-web-service.yaml` yaml file:
+2. Open and review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-web-service.yaml` yaml file:
 
   ```yaml
   apiVersion: v1
@@ -179,6 +192,8 @@ Now that a containerized version of the applications exists, it can now be hoste
 3. Run the deployment:
 
     ```powershell
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS"
+
     kubectl create -f store-web-service.yaml
 
     kubectl create -f store-db-service.yaml
@@ -186,14 +201,14 @@ Now that a containerized version of the applications exists, it can now be hoste
 
 ## Create a Loadbalancer
 
-1. Review the `store-web-lb.yaml` file:
+1. Review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-web-lb.yaml` file:
 2. Execute the deployment:
 
   ```powershell
   kubectl create -f store-web-lb.yaml
   ```
 
-3. Review the `store-db-lb.yaml` file:
+3. Review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-db-lb.yaml` file:
 4. Execute the deployment:
 
   ```powershell
@@ -206,18 +221,24 @@ Now that a containerized version of the applications exists, it can now be hoste
 2. Navigate to the AKS cluster and select it
 3. Under **Kubernetes resources**, select **Service and ingresses**
 4. For the **store-web-lb** service, select the external IP link. A new web browser tab should open to the web front end. Ensure that an order can be created without a database error.
+5. If you run into issues, fix them and then restart the node pool:
+
+```powershell
+az aks nodepool stop --resource-group $resourceGroupName --cluster-name $resourceName --nodepool-name agentpool
+az aks nodepool start --resource-group $resourceGroupName --cluster-name $resourceName --nodepool-name agentpool
+```
 
 ## Create a deployment
 
 Kubernetes deployments allow for the creation of multiple instances of pods and containers in case nodes or pods crash unexpectiantly.  
 
-1. Review the `store-web-deployment.yaml` file be sure to replace the Azure Container Registry link:
+1. Review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-web-deployment.yaml` file be sure to replace the Azure Container Registry link:
 
   ```powershell
   kubectl create -f store-web-deployment.yaml
   ```
 
-2. Review the `store-db-deployment.yaml` file be sure to replace the Azure Container Registry link:
+2. Review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\04-AKS\store-db-deployment.yaml` file be sure to replace the Azure Container Registry link:
 3. Execute the deployment:
 
   ```powershell
