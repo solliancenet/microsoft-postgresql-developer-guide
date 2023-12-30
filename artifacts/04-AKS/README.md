@@ -90,13 +90,13 @@ Now that a containerized version of the applications exists, it can now be hoste
       - name: store-db
         image: <REGISTRY_NAME>.azurecr.io/store-db:latest
         volumeMounts:
-        - mountPath: "/var/lib/PostgreSQL/"
+        - mountPath: "/var/lib/postgresql/"
           name: PostgreSQL-data
         imagePullPolicy: IfNotPresent
         env:
-        - name: PostgreSQL_DATABASE
-          value: "ContosoStore"
-        - name: PostgreSQL_ROOT_PASSWORD
+        - name: POSTGRES_DB
+          value: "contosostore"
+        - name: POSTGRES_PASSWORD
           value: "root"
     imagePullSecrets:
       - name: acr-secret
@@ -125,7 +125,7 @@ Now that a containerized version of the applications exists, it can now be hoste
         imagePullPolicy: IfNotPresent
         env:
         - name: DB_DATABASE
-          value: "ContosoStore"
+          value: "contosostore"
         - name: DB_USERNAME
           value: "root"
         - name: DB_PASSWORD

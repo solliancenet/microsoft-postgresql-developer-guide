@@ -63,7 +63,7 @@ function ConfigurePhp($iniPath)
 function AddPhpApplication($path, $port)
 {
   #create an IIS web site on the path and port
-  New-IISSite -Name "ContosoStore" -BindingInformation "*:$($port):" -PhysicalPath "$path\Public"
+  New-IISSite -Name "contosostore" -BindingInformation "*:$($port):" -PhysicalPath "$path\Public"
 
   #add IIS permissions
   $ACL = Get-ACL -Path "$path\storage";

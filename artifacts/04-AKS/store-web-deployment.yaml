@@ -24,7 +24,7 @@ spec:
           name: https
         env:
         - name: DB_DATABASE
-          value: "ContosoStore"
+          value: "contosostore"
         - name: DB_USERNAME
           value: "root"
         - name: DB_PASSWORD

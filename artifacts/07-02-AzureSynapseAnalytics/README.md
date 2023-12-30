@@ -14,11 +14,11 @@
 - Under **External connections** select **Linked services**
 - Select **+ New**
 - For the type, select **Azure Database for PostgreSQL**, select **Continue**
-- For the name, type **ContosoStore**
+- For the name, type **contosostore**
 - For the account selection, select **From Azure Subscription**
 - Select the subscription
 - Select the **pgsqldevSUFFIX** Azure Database for PostgreSQL Flexible Server server
-- For the database name, type **ContosoStore**
+- For the database name, type **contosostore**
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 - Select **Test connection**, ensure a success message is displayed.
@@ -51,8 +51,8 @@
 - Select the **+** button
 - Select **Integration Dataset**
 - For the type, select **Azure Database for PostgreSQL**, select **Continue**
-- For the name, type **ContosoStore_Orders**
-- For the linked service **ContosoStore**
+- For the name, type **contosostore_orders**
+- For the linked service **contosostore**
 - Select **OK**
 - Select **Publish all**, then select **Publish**
 

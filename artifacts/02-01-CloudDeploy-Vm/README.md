@@ -65,7 +65,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 
 3. Setup SSL
    - Expand the **Sites** node
-   - Select the **ContosoStore** web site
+   - Select the **contosostore** web site
    - In the actions, select **Bindings**
    - Select **Add**
    - For the type, select **https**

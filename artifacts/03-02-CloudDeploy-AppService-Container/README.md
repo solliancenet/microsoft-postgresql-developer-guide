@@ -51,7 +51,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 7. Select **Save**
 8. Under **Settings**, select **Configuration**
 9. Select **New application setting**, add the following, replace the `DB_URL` with the one recorded previously from the database container, replace the `APP_URL` with the one  recorded for the application web:
-     - `PostgreSQL_ROOT_PASSWORD` = `Solliance123`
+     - `POSTGRES_PASSWORD` = `Solliance123`
      - `WEBSITES_PORT` = `5432`
 10. Select **Save**, then select **Continue**
 11. Select the **pgsqldevSUFFIX-app-web** app service

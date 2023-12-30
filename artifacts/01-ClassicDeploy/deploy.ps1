@@ -8,17 +8,13 @@ mkdir $targetPath;
 copy-item -Path "$sourcepath" "$targetpath"
 
 #deploy the database
-$username = "root";
-$password = "";
+$username = "wsuser";
+$password = "Solliance123";
 $server = "localhost";
-$database = "ContosoStore";
-
-cd "C:\Program Files\PostgreSQL\PostgreSQL Workbench 8.0 CE"
+$database = "contosostore";
 
 #create the database
-.\PostgreSQL -h $server -u $username -e "create database $database"
+psql -h $server -U $username -e "create database $database"
 
 #setup the schema
-.\PostgreSQL -h $server -u $username $database -e "source $sourcePath/database/schema.sql"
-
-#add the data
+psql -h $server -U $username $database -e "source $sourcePath/database/schema.sql"

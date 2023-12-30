@@ -10,16 +10,16 @@ spec:
     - name: store-db
       image: <REGISTRY_NAME>.azurecr.io/store-db:latest
       volumeMounts:
-        - mountPath: "/var/lib/PostgreSQL/"
+        - mountPath: "/var/lib/postgresql/"
           name: PostgreSQL-data
       imagePullPolicy: IfNotPresent
       ports:
       - containerPort: 5432
         name: PostgreSQL
       env:
-      - name: PostgreSQL_DATABASE
-        value: "ContosoStore"
-      - name: PostgreSQL_ROOT_PASSWORD
+      - name: POSTGRES_DB
+        value: "contosostore"
+      - name: POSTGRES_PASSWORD
         value: "root"
   imagePullSecrets:
     - name: acr-secret

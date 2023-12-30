@@ -13,7 +13,7 @@
 - For the account selection, select **From Azure Subscription**
 - Select the subscription
 - Select the **pgsqldevSUFFIXflex16** Azure Database for PostgreSQL Flexible Server server
-- For the database name, select **ContosoStore**
+- For the database name, select **contosostore**
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 - For the encryption methods, select **RequestSSL**
@@ -34,7 +34,7 @@
 - For the type, select **Azure Database for PostgreSQL**
 - Select **Continue**
 - For the name, type **orders_database**
-- For the linked service, select **ContosoStore**
+- For the linked service, select **contosostore**
 - For the table name, select **public.orders**
 - Select **OK**
 

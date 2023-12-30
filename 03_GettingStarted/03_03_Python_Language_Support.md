@@ -49,7 +49,7 @@ It is recommended to bind the [SSL public certificate](https://dl.cacerts.digice
 ```python
 config = {
   'host':'[SERVER].postgres.database.azure.com',
-  'user':'sqlroot',
+  'user':'postgres',
   'password':'[PASSWORD]',
   'database':'newdatabase',
   'ssl_ca': 'C:\Tools\DigiCertGlobalRootCA.crt.pem'

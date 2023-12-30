@@ -6058,7 +6058,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 3.  Setup SSL
 
     -   Expand the **Sites** node
-    -   Select the **ContosoStore** web site
+    -   Select the **contosostore** web site
     -   In the actions, select **Bindings**
     -   Select **Add**
     -   For the type, select **https**
@@ -6561,7 +6561,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. In the left navigation, select **Pipelines**
 2. Select **Create Pipeline**
 3. Select **Azure Repos Git**
-4. Select the **ContosoStore** repo
+4. Select the **contosostore** repo
 5. Select **Existing Azure Pipelines YAML file**
 6. Select the **/azure-pipelines.yaml** file
 7. Select **Continue**
@@ -6760,7 +6760,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
  $username = "postgres";
  $password = "Solliance123";
  $server = "localhost";
- $database = "ContosoStore";
+ $database = "contosostore";
 
  pgsql -h $server -u $username $database > data.sql
 
@@ -6774,7 +6774,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
  ```text
  FROM PostgreSQL:8.0
- RUN chown -R PostgreSQL:root /var/lib/PostgreSQL/
+ RUN chown -R PostgreSQL:root /var/lib/postgresql/
 
  ADD data.sql /etc/PostgreSQL/data.sql
 
@@ -6810,11 +6810,11 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
      image: store-db
      restart: always
      environment:
-       - PostgreSQL_ROOT_PASSWORD=root
+       - POSTGRES_PASSWORD=root
      ports:
        - "5432:5432"
-   phpmyadmin:
-     image: phpmyadmin/phpmyadmin
+   pgadmin:
+     image: dpage/pgadmin4
      ports:
          - '8081:80'
      restart: always
@@ -6936,8 +6936,8 @@ services:
     image: store-db
     restart: always
     environment:
-      - PostgreSQL_ROOT_PASSWORD=root
-      - PostgreSQL_DATABASE=contosostore
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=contosostore
     volumes:
       - "db-volume:/var/lib/PostgreSQL"
     ports:
@@ -7112,8 +7112,8 @@ container instance instance using Azure CLI.
         - PostgreSQL_DATABASE=contosostore
         ports:
         - "5432:5432"
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+    pgadmin:
+        image: dpage/pgadmin4
         ports:
             - '8081:80'
         restart: always

@@ -4,8 +4,8 @@ services:
     image: store-web
     environment:
       - DB_DATABASE=contosostore
-      - DB_USERNAME=root
-      - DB_PASSWORD=root
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=Solliance123
       - DB_HOST=db
       - DB_PORT=5432
     ports:
@@ -14,14 +14,14 @@ services:
     image: store-db
     restart: always
     environment:
-      - PostgreSQL_ROOT_PASSWORD=root
+      - PGADMIN_DEFAULT_PASSWORD=Solliance123
       - PostgreSQL_DATABASE=contosostore
     volumes:
-      - "db-volume:/var/lib/PostgreSQL"
+      - "db-volume:/var/lib/postgresql"
     ports:
       - "5432:5432"
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+  pgadmin:
+    image: dpage/pgadmin4
     ports:
         - '8081:80'
     restart: always

@@ -10,13 +10,14 @@
         },
         "administratorLogin": {
             "type": "string",
-            "defaultValue": "sqlroot",
+            "defaultValue": "wsuser",
             "metadata": {
                 "description": "Administrator login."
             }
         },
         "administratorLoginPassword": {
             "type": "securestring",
+            "defaultValue": "Solliance123",
             "metadata": {
                 "description": "Administrator login password."
             }

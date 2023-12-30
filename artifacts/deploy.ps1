@@ -10,6 +10,6 @@ copy ./sample-php-app $path
 $username = "wsuser"
 $password = "S2@dmins2@dmin"
 $server = "localhost"
-$database = "ContosoStore"
+$database = "contosostore"
 
 PostgreSQL -h $server -u $username $database < "$path/database/schema.sql"

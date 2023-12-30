@@ -32,12 +32,12 @@ Lastly, download the [connection certificate](https://dl.cacerts.digicert.com/Di
 
 Microsoft's [Quickstart guide](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-php) performs standard CRUD operations against the PostgreSQL instance from a console app. This document modifies the code segments from the guide to provide an encrypted connection to the Flexible Server instance.
 
-The first code snippet creates a table called `Products` with four columns, including a primary key. Adjust the `host`, `username` (most likely `sqlroot`), `password`, and `db_name` (most likely `newdatabase`) parameters to the values used during provisioning. Moreover, adjust the certificate path in the `PostgreSQLi_ssl_set()` method.
+The first code snippet creates a table called `Products` with four columns, including a primary key. Adjust the `host`, `username` (most likely `postgres`), `password`, and `db_name` (most likely `newdatabase`) parameters to the values used during provisioning. Moreover, adjust the certificate path in the `PostgreSQLi_ssl_set()` method.
 
 ```php
 <?php
 $host = '[SERVER NAME].postgres.database.azure.com';
-$username = 'sqlroot';
+$username = 'postgres';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
 
@@ -74,7 +74,7 @@ The second code snippet uses the same logic to start and close an SSL-secured co
 ```php
 <?php
 $host = '[SERVER NAME].postgres.database.azure.com';
-$username = 'sqlroot';
+$username = 'postgres';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
 
@@ -109,7 +109,7 @@ The third code snippet utilizes the `pg_query()` method, just like the first cod
 ```php
 <?php
 $host = '[SERVER NAME].postgres.database.azure.com';
-$username = 'sqlroot';
+$username = 'postgres';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
 
@@ -140,7 +140,7 @@ The next snippet uses a prepared update statement with bound parameters. It modi
 ```php
 <?php
 $host = '[SERVER NAME].postgres.database.azure.com';
-$username = 'sqlroot';
+$username = 'postgres';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
 
@@ -176,7 +176,7 @@ The final code snippet deletes a row from the table using the `ProductName` colu
 ```php
 <?php
 $host = '[SERVER NAME].postgres.database.azure.com';
-$username = 'sqlroot';
+$username = 'postgres';
 $password = '[PASSWORD]';
 $db_name = 'newdatabase';
 

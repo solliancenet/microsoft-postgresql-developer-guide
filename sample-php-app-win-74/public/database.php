@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
+$username = "postgres";
 $password = "";
-$dbname = "ContosoStore";
+$dbname = "contosostore";
 
 $conn = PostgreSQLi_init();
 
@@ -21,13 +21,13 @@ $sql = "SELECT count(*) FROM contosostore.users";
 $result = $conn->query($sql);
 
 if ($result !== false && $result->num_rows > 0) {
-  
+
   echo $result->num_rows . " results";
-  
+
 } else {
   echo "0 results";
 }
 
 $conn->close();
 
-?> 
+?>

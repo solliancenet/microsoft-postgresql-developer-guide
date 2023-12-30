@@ -4,8 +4,8 @@ services:
       image: pgsqldevSUFFIX.azurecr.io/store-web:latest
       environment:
       - DB_DATABASE=contosostore
-      - DB_USERNAME=root
-      - DB_PASSWORD=root
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=Solliance123
       - DB_HOST=db
       - DB_PORT=5432
       ports:
@@ -15,15 +15,15 @@ services:
   db:
       image: pgsqldevSUFFIX.azurecr.io/store-db:latest
       volumes:
-      - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/PostgreSQL
+      - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/postgresql
       restart: always
       environment:
-      - PostgreSQL_ROOT_PASSWORD=root
+      - PGADMIN_DEFAULT_PASSWORD=Solliance123
       - PostgreSQL_DATABASE=contosostore
       ports:
       - "5432:5432"
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin
+  pgadmin:
+      image: dpage/pgadmin4
       ports:
           - '8081:80'
       restart: always

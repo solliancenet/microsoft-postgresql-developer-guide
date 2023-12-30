@@ -1,5 +1,5 @@
 FROM PostgreSQL:8.0
-RUN chown -R PostgreSQL:root /var/lib/PostgreSQL/
+RUN chown -R PostgreSQL:root /var/lib/postgresql/
 
 ADD Artifacts/data.sql /etc/PostgreSQL/data.sql
 

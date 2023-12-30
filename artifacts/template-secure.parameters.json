@@ -6,7 +6,7 @@
             "value": "skmPostgreSQL"
         },
         "administratorLogin": {
-            "value": "sqlroot"
+            "value": "wsuser"
         },
         "administratorLoginPassword": {
             "value": "Password.1!!"

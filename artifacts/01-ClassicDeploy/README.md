@@ -5,10 +5,10 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 ## Database Deployment
 
 1. On the **paw-1** virtual machine, open a Windows PowerShell window
-2. Run the following commands to create the database (type `yes` when prompted). Note that the repo should be cloned to the `c:\labfiles` directory:
+2. Run the following commands to create the database (type `yes` when prompted). Note that the developer guide repo should be cloned to the `c:\labfiles` directory:
 
     ```PowerShell
-    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\sample-php-app
+    cd C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app
 
     composer update 
 

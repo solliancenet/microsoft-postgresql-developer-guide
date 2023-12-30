@@ -16,8 +16,8 @@ class CategorySeeder extends Seeder
 	 */
 	public function run()
 	{
-		// DB::table('categories')->truncate();
-		Category::query()->delete();
+		DB::table('categories')->truncate();
+		//Category::query()->delete();
 		DB::statement("ALTER SEQUENCE categories_id_seq RESTART WITH 1");
 
 		$categories = [

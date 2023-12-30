@@ -29,15 +29,14 @@ Now that containerized versions of the application exists, they can now be hoste
     New-AzStorageShare -Name "db-volume" -Context $context
     
     $containerName = "store-db";
-    $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_DATABASE" -Value "contosostore";
-    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_PASSWORD" -Value "root";
-    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "PostgreSQL_ROOT_HOST" -Value "%";
+    $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_DB" -Value "contosostore";
+    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_PASSWORD" -Value "root";
     $port1 = New-AzContainerInstancePortObject -Port 5432 -Protocol TCP;
     $volume = New-AzContainerGroupVolumeObject -Name "db-volume" -AzureFileShareName "db-volume" -AzureFileStorageAccountName $resourceName -AzureFileStorageAccountKey (ConvertTo-SecureString $storageKey -AsPlainText -Force);
     $vMount = @{};
-    $vMount.MountPath = "/var/lib/PostgreSQL";
+    $vMount.MountPath = "/var/lib/postgresql";
     $vMount.Name = "db-volume";
-    $container = New-AzContainerInstanceObject -Name $containerName -Image "$acrName.azurecr.io/store-db" -Port @($port1) -EnvironmentVariable @($env1, $env2, $env3) -VolumeMount @($vMount);
+    $container = New-AzContainerInstanceObject -Name $containerName -Image "$acrName.azurecr.io/store-db" -Port @($port1) -EnvironmentVariable @($env1, $env2) -VolumeMount @($vMount);
     New-AzContainerGroup -ResourceGroupName $resourceGroupName -Name $containerName -Container $container -OsType Linux -Location $rg.location -ImageRegistryCredential $imageRegistryCredential -IpAddressType Public -Volume $volume;
     ```
 
@@ -88,15 +87,16 @@ In the previous steps, a container instance was created for each of the containe
     db:
         image: pgsqldevSUFFIX.azurecr.io/store-db:latest
         volumes:
-        - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/PostgreSQL
+        - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/postgresql
         restart: always
         environment:
-        - PostgreSQL_ROOT_PASSWORD=root
-        - PostgreSQL_DATABASE=contosostore
+        - POSTGRES_PASSWORD=Solliance123
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=contosostore
         ports:
         - "5432:5432"
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+    pgadmin:
+        image: dpage/pgadmin4
         ports:
             - '8081:80'
         restart: always
@@ -132,7 +132,7 @@ In the previous steps, a container instance was created for each of the containe
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PASSWORD="root"
 
-    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_DATABASE="ContosoStore"
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_DATABASE="contosostore"
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PORT="5432"
 

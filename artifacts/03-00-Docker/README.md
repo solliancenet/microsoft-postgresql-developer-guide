@@ -7,7 +7,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 ### Migrate to ENV variables
 
 1. Switch to Visual Studio Code and the opening repo directory
-2. Open the `.\artifacts\sample-php-app\public\database.php` file, update the php PostgreSQL connection environment variables by removing the `APPSETTING_` from each:
+2. Open the `.\artifacts\sample-php-app\public\database.php` file, update the php PostgreSQL connection environment variables:
 
     ```php
     $servername = getenv("DB_SERVERNAME");
@@ -18,7 +18,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 
 ### Download Docker container
 
-1. Open Docker Desktop, if prompted, select **OK**
+1. Open **Docker Desktop**, if prompted, select **OK**
 2. In the agreement dialog, select the checkbox and then select  **Accept**
 3. It will take a few minutes for the Docker service to start, when prompted, select **Skip tutorial**
 4. Open a PowerShell window, run the following to download and start a php-enabled docker container
@@ -39,6 +39,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     RUN apt-get install -y libcurl4-openssl-dev
     RUN docker-php-ext-install fileinfo
     RUN docker-php-ext-install curl
+    RUN docker-php-ext-install pgsql 
+    RUN docker-php-ext-install pdo_pgsql
     
     COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
     COPY ./start-apache.sh /usr/local/bin
@@ -75,9 +77,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     $username = "postgres";
     $password = "Solliance123";
     $server = "localhost";
-    $database = "ContosoStore";
+    $database = "contosostore";
+    $port = "5432";
 
-    pgsql -h $server -u $username $database > data.sql
+    $env:PG_PASSWORD = $password
+
+    pg_dump -h $server -p $port -U $username -W -F p $database > c:\temp\data.sql
 
     #remove the weird encoding...
     $data = get-content data.sql
@@ -88,12 +93,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
 
     ```text
-    FROM PostgreSQL:8.0
-    RUN chown -R PostgreSQL:root /var/lib/PostgreSQL/
+    FROM postgres:16.1
+    RUN chown -R postgres:root /var/lib/postgres/
 
-    ADD data.sql /etc/PostgreSQL/data.sql
+    ADD data.sql /etc/postgres/data.sql
 
-    RUN cp /etc/PostgreSQL/data.sql /docker-entrypoint-initdb.d
+    RUN cp /etc/postgres/data.sql /docker-entrypoint-initdb.d
 
     EXPOSE 5432
     ```
@@ -116,20 +121,22 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         environment:
           - DB_DATABASE=contosostore
           - DB_USER=postgres
-          - DB_PASSWORD=root
+          - DB_PASSWORD=Solliance123
           - DB_PORT=5432
           - DB_SERVERNAME=db
         ports:
           - "8080:80"
+        depends_on:
+          - db
       db:
         image: store-db
         restart: always
         environment:
-          - PostgreSQL_ROOT_PASSWORD=root
+          - PGADMIN_DEFAULT_PASSWORD=Solliance123
         ports:
           - "5432:5432"
-      phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+      pgadmin:
+        image: dpage/pgadmin4
         ports:
             - '8081:80'
         restart: always
@@ -142,7 +149,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 2. Run the following to create the web container:
 
     ```PowerShell
-    cd Artifacts
+    cd artifacts
 
     iisreset /stop
 
@@ -157,10 +164,10 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker compose run --service-ports db
     ```
 
-4. Run the following to create the phpmyadmin container:
+4. Run the following to create the pgadmin container:
 
     ```powershell
-    docker compose run --service-ports phpmyadmin
+    docker compose run --service-ports pgadmin
     ```
 
 ## Migrate the database
@@ -226,17 +233,17 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         - DB_PASSWORD=root
         - DB_HOST=db
         - DB_PORT=5432
-        - PostgreSQL_ATTR_SSL_CA=
       ports:
         - "8080:80" 
     db:
       image: store-db
       restart: always
       environment:
-        - PostgreSQL_ROOT_PASSWORD=root
-        - PostgreSQL_DATABASE=contosostore
+        - POSTGRES_PASSWORD=Solliance123
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=contosostore
       volumes:
-        - "db-volume:/var/lib/PostgreSQL"
+        - "db-volume:/var/lib/postgresql"
       ports:
         - "5432:5432"
     pgadmin:
@@ -245,7 +252,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
           - '8081:80'
       restart: always
       environment:
-          PMA_HOST: db
+          - PMA_HOST=db
+          - PGADMIN_DEFAULT_PASSWORD=Solliance123
       depends_on:
           - db
   volumes:
