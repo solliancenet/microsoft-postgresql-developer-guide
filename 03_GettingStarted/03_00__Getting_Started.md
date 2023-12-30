@@ -39,12 +39,8 @@ The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.
 
 Consider adding it to Visual Studio Code environment to make working with PostgreSQL instances more efficient.
 
-When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
+Another useful tool that can be used is Azure Data Studio. Azure Data Studio provides a rich set of features to enhance productivity and collaboration. It supports advanced editing capabilities, intelligent code completion, and integrated source control. Users can also leverage built-in extensions and integrations with other Azure services to streamline their data management tasks.
 
-## Resources
+One of the key advantages of Azure Data Studio is its cross-platform compatibility, as it can be installed and used on Windows, macOS, and Linux systems. This flexibility enables users to work seamlessly across different operating systems and collaborate effectively.
 
-- [App Service overview](https://docs.microsoft.com/azure/app-service/overview)
-
-- [Azure App Service plan overview](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)
-  
-- [Plan and manage costs for Azure App Service](https://docs.microsoft.com/azure/app-service/overview-manage-costs)
+>![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
