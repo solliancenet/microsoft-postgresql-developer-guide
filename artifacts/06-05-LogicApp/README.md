@@ -45,7 +45,7 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
 > **NOTE** The Log App Gateway can currently only do non-SSL connections to PostgreSQL
 
-> **NOTE** It is also possible to use the Azure CLI [`az PostgreSQL flexible-server create`](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server-cli) command to provision a Flexible Server instance in a virtual network.
+> **NOTE** It is also possible to use the Azure CLI [`az PostgreSQL flexible-server create`](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-cli) command to provision a Flexible Server instance in a virtual network.
 
 ## Private DNS - Virtual network link
 

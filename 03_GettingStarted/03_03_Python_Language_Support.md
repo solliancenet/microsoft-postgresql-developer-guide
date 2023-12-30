@@ -1,106 +1,87 @@
-### Python
+## Python
 
-This section describes tools to interact with Azure Database for PostgreSQL Flexible Server through Python.
+This section will demonstrate how to query Azure Database for PostgreSQL Flexible Server using the `psycopg2` library on Python 3.
 
-#### Connect and query
+### Setup
 
-##### Setup
+Follow one of the methods in the [Create a Flexible Server database](./03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md) document to create a Flexible Server resource. Remember the admin username and password for the Flexible Server resource.
 
-This section will demonstrate how to query Azure Database for PostgreSQL Flexible Server using the `PostgreSQL-connector-python` library on Python 3.
-
-Follow one of the methods in the [Create a Flexible Server database] document to create a Flexible Server instance with a database.
-
-Moreover, install Python 3.7 or above from the [Downloads page](https://www.python.org/downloads/). This sample was tested using Python 3.8.
+Moreover, install Python 3.8 or above from the [Downloads page](https://www.python.org/downloads/).
 
 A text editor like Visual Studio Code will greatly help.
 
-Though a Python Virtual Environment is not necessary for the sample to run, using one will avoid conflicts with packages installed globally on the development system. The commands below will create a Virtual Environment called `venv` and activate it on Windows. Instructions will differ for other OS.
+Though a Python Virtual Environment is not necessary for the sample to run, using one will avoid conflicts with packages installed globally on the development system. The commands below will create a Virtual Environment called `venv` and activate it on Windows. [Instructions](https://python.land/virtual-environments/virtualenv) will differ for other operating systems.
 
 ```cmd
 python -m venv venv
 .\venv\Scripts\activate
 ```
 
-##### Instructions
+### Azure SDK for Python
 
-This section is based on [Microsoft's sample](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-python).
+The [Azure SDK for Python](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview) is an open-source collection of over 180 libraries and tools that allow developers to build applications that provision, manage, and use a wide range of Azure services.
 
-The first code snippet creates a table, `inventory`, with three columns. It uses raw queries to create the `inventory` table and insert three rows. If the snippet succeeds, the following output will be displayed.
+The libraries are organized clearly delineated to distinguish between [management (control plane)](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview#create-and-manage-azure-resources-with-management-libraries) and [client (data plane)](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview#connect-to-and-use-azure-resources-with-client-libraries) libraries.
+
+#### Use the Azure SDK management library to create a Flexible Server database
+
+In this section, we'll create a Flexible Server database using the Azure SDK for Python.
+
+>![Note icon](media/note.png "Note") **Note:** The ability to create resource groups and the [PostgreSQL Flexible Server instances](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-python-sdk) are also available in the SDK.
+
+This code must be run in a terminal or notebook that is authenticated to Azure. For more information, see [Authenticate the Azure SDK for Python](https://docs.microsoft.com/azure/developer/python/azure-sdk-authenticate?tabs=cmd#authenticate-with-azure-cli). Also ensure the proper subscription is selected, if needed run the `az account set --subscription <subscription_id>` command.
+
+1. Install the required libraries.
+
+    ```bash
+    pip install azure-identity azure-mgmt-rdbms
+    ```
+
+2. Create a file named `create_flexible_server_database.py` and paste the following code into it. Replace the placeholders for `subscription_id`, `resource_group_name`, and `server_name` to reflect your environment.
+
+      ```python
+      from azure.identity import DefaultAzureCredential
+      from azure.mgmt.rdbms.postgresql_flexibleservers import PostgreSQLManagementClient
+      from azure.mgmt.rdbms.postgresql_flexibleservers.models import Database
+
+      credential = DefaultAzureCredential()
+      subscription_id = "<subscription_id>"
+      resource_group_name = "<resource_group_name>"
+      server_name = "<server_name>"
+      database_name = "inventory"
+
+      # Authenticate with your Azure account
+      credential = DefaultAzureCredential()
+      # Create PostgreSQL management client
+      postgres_client = PostgreSQLManagementClient(credential, subscription_id)
+
+      # Create the inventory database
+      postgres_client.databases.begin_create(
+          resource_group_name = resource_group_name,
+          server_name = server_name,
+          database_name = database_name,
+          parameters = Database(charset="UTF8", collation="en_US.UTF8")
+      ).result()
+      ```
+
+### Getting started
+
+Refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-python). for detailed instructions on how to get started with Python and Azure Database for PostgreSQL Flexible Server. This article covers connecting to the database, creating a table, and performing CRUD operations.
+
+### Further information
+
+Microsoft has a tutorial on one of the popular applications of Azure Database for PostgreSQL Flexible Server, using Python. See [building a Python web application with Flask or Django with Azure Database for PostgreSQL](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal) for more information.
+
+### Cleanup
+
+The following Azure SDK code will delete the database created in the previous section. Alternatively, use the portal or Azure CLI to delete the database.
 
 ```python
-Connection established
-Finished dropping table (if existed).
-Finished creating table.
-Inserted 1 row(s) of data.
-Inserted 1 row(s) of data.
-Inserted 1 row(s) of data.
-Done.
+postgres_client.databases.begin_delete(
+    resource_group_name = resource_group_name,
+    server_name = server_name,
+    database_name = database_name
+).result()
 ```
-
->![Note icon](media/note.png "Note") **Note:** The sample establishes an SSL connection with the PostgreSQL instance. Use the statement below (placed before `cursor` and `conn` are closed) to validate the use of SSL.
-
-```python
-cursor.execute("SHOW STATUS LIKE 'Ssl_cipher'")
-print(cursor.fetchone())
-```
-
-It is recommended to bind the [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) with connections to Flexible Server. Download the public certificate to a location on the development machine (such as `C:\Tools`). Then, edit the `config` dictionary to add the `ssl_ca` key and the file path of the certificate as the value.
-
-```python
-config = {
-  'host':'[SERVER].postgres.database.azure.com',
-  'user':'postgres',
-  'password':'[PASSWORD]',
-  'database':'newdatabase',
-  'ssl_ca': 'C:\Tools\DigiCertGlobalRootCA.crt.pem'
-}
-```
-
-The second code snippet connects to the PostgreSQL instance and executes a raw query to SELECT all rows from the `inventory` table. This time, it uses the `fetchall()` method to parse the result set into a Python iterable. An output like the one below should display:
-
-```python
-Connection established
-Read 3 row(s) of data.
-Data row = (1, banana, 150)
-Data row = (2, orange, 154)
-Data row = (3, apple, 100)
-Done.
-```
-
-The third code snippet executes an UPDATE statement to change the `quantity` value of the record identified by `name`. An output like the one below should display:
-
-```python
-Connection established
-Updated 1 row(s) of data.
-Done.
-```
-
-The final snippet executes a raw DELETE statement against the `inventory` table targeting records identified by `name`. An output like the one below should display:
-
-```python
-Connection established
-Deleted 1 row(s) of data.
-Done.
-```
-
-At this point, a successfully opened connection to Flexible Server was established, a table was created (DDL), and CRUD operations were performed (DML) against data in the table.
 
 If a Python Virtual Environment was created, simply enter `deactivate` into the console to remove it.
-.
-
-#### Application connectors
-
-*PostgreSQL Connector/Python* offers a Python Database API specification-compatible driver for PostgreSQL database access (PEP 249). It does not depend on a PostgreSQL client library. The Python Connect and Query sample utilizes *PostgreSQL Connector/Python*.
-
-An alternative connector is *PyPostgreSQL*. It is also PEP 249-compliant.
-
-Django is a popular web application framework for Python. The Django ORM officially supports PostgreSQL through (1) the *PostgreSQLclient* Python wrapper for the native PostgreSQL driver or (2) the *PostgreSQL Connector/Python* API. *PostgreSQLclient* is recommended for use with the Django ORM.
-
-Flexible Server is compatible with all Python client utilities for PostgreSQL Community Edition. However, Microsoft has only validated *PostgreSQL Connector/Python* and *PyPostgreSQL* for use with Single Server due to its network connectivity setup. Refer to [this](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compatibility) document for more information about drivers compatible with Single Server.
-
-#### Resources
-
-1. [Introduction to PostgreSQL Connector/Python](https://dev.PostgreSQL.com/doc/connector-python/en/connector-python-introduction.html)
-2. [PyPostgreSQL Samples](https://pyPostgreSQL.readthedocs.io/en/latest/user/examples.html)
-3. [PostgreSQLdb (PostgreSQLclient) User's Guide](https://PostgreSQLclient.readthedocs.io/user_guide.html#PostgreSQLdb)
-4. [Django ORM Support for PostgreSQL](https://docs.djangoproject.com/en/3.2/ref/databases/#PostgreSQL-notes)
