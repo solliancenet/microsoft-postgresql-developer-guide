@@ -37,6 +37,17 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     $port = getenv("DB_PORT");
     ```
 
+3. Open the `.\artifacts\sample-php-app\.env` file
+4. Remove the following lines:
+
+    ```php
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=contosostore
+    DB_USERNAME=postgres
+    DB_PASSWORD=Solliance123
+    ```
+
 ### Download Docker container
 
 1. Open **Docker Desktop**, if prompted, select **OK**
@@ -344,19 +355,31 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 5. In the **paw-1** virtual machine, switch to a powershell window and run the following:
 
     ```powershell
-    docker login {acrName}.azurecr.io -u {username} -p {password}
+    az login --identity
 
-    docker tag dpage/pgadmin4 {acrName}.azurecr.io/dpage/pgadmin4
-
-    docker tag store-db {acrName}.azurecr.io/store-db
-
-    docker tag store-web {acrName}.azurecr.io/store-web
-
-    docker push {acrName}.azurecr.io/store-db
-
-    docker push {acrName}.azurecr.io/store-web
-
-    docker push {acrName}.azurecr.io/dpage/pgadmin4
+    $acrList = $(az acr list -o json | ConvertFrom-Json)
+    $acrName = $acrList[0].name
+    
+    $creds = $(az acr credential show --name $acrname -o json | ConvertFrom-Json)
+    
+    $username = $creds.username
+    $password = $creds.passwords[0].value
+    
+    docker login "$($acrName).azurecr.io" -u $username -p $password
+    
+    docker tag dpage/pgadmin4 "$($acrName).azurecr.io/dpage/pgadmin4"
+    
+    docker tag store-db "$($acrName).azurecr.io/store-db"
+    
+    docker tag store-web "$($acrName).azurecr.io/store-web"
+    
+    docker push "$($acrName).azurecr.io/store-db"
+    
+    docker push "$($acrName).azurecr.io/store-web"
+    
+    docker push "$($acrName).azurecr.io/dpage/pgadmin4"
     ```
 
-6. Three images should display in the Azure Container Registry that we will use later for deployment to other container based runtimes.
+6. Switch to the Azure Portal
+7. Browse to the `pgsqldevSUFFIX` Azure Container Registry.
+8. Under **Services**, select **Repositories**, three images should display in the Azure Container Registry that we will use later for deployment to other container based runtimes.

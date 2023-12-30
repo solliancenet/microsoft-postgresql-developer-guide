@@ -11,12 +11,17 @@ Now that containerized versions of the application exists, they can now be hoste
 1. Run the following commands to create two new container instances:
 
     ```PowerShell
-    $acrName = "pgsqldevSUFFIX";
-    $resourceName = $acrName;
-    $resourceGroupName = "{RESOURCE_GROUP_NAME}";
+    Connect-AzAccount -identity
 
-    $rg = Get-AzResourceGroup $resourceGroupName;
+    $resourceGroups = Get-AzResourceGroup
 
+    $rg = $resourceGroups[0]
+    $resourceGroupName = $rg.ResourceGroupName
+
+    $suffix = $rg.tags['Suffix']
+    $resourceName = "pgsqldev$suffix"
+    $acrName = $resourceName
+    
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
     $creds = $acr | Get-AzContainerRegistryCredential
 
@@ -30,30 +35,33 @@ Now that containerized versions of the application exists, they can now be hoste
     
     $containerName = "store-db";
     $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_DB" -Value "contosostore";
-    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_PASSWORD" -Value "root";
+    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_PASSWORD" -Value "Solliance123";
+    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "POSTGRES_USER" -Value "Solliance123";
     $port1 = New-AzContainerInstancePortObject -Port 5432 -Protocol TCP;
     $volume = New-AzContainerGroupVolumeObject -Name "db-volume" -AzureFileShareName "db-volume" -AzureFileStorageAccountName $resourceName -AzureFileStorageAccountKey (ConvertTo-SecureString $storageKey -AsPlainText -Force);
     $vMount = @{};
     $vMount.MountPath = "/var/lib/postgresql";
     $vMount.Name = "db-volume";
-    $container = New-AzContainerInstanceObject -Name $containerName -Image "$acrName.azurecr.io/store-db" -Port @($port1) -EnvironmentVariable @($env1, $env2) -VolumeMount @($vMount);
+    $container = New-AzContainerInstanceObject -Name $containerName -Image "$acrName.azurecr.io/store-db" -Port @($port1) -EnvironmentVariable @($env1, $env2, $env3) -VolumeMount @($vMount);
     New-AzContainerGroup -ResourceGroupName $resourceGroupName -Name $containerName -Container $container -OsType Linux -Location $rg.location -ImageRegistryCredential $imageRegistryCredential -IpAddressType Public -Volume $volume;
     ```
 
 2. Browse to the Azure Portal
-3. Search for the **store-db** Container instance and select it
+3. Search for the **store-db** `Container instance` and select it
 4. Copy the public IP address
 5. Setup the web container, replace the `IP_ADDRESS` with the one copied above:
 
     ```Powershell
+    $ipAddress = "IP_ADDRESS";
     $containerName = "store-web";
     $env1 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_DATABASE" -Value "contosostore";
-    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_USERNAME" -Value "root";
-    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_PASSWORD" -Value "root";
-    $env4 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_HOST" -Value "IP_ADDRESS";
+    $env2 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_USERNAME" -Value "postgres";
+    $env3 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_PASSWORD" -Value "Solliance123";
+    $env4 = New-AzContainerInstanceEnvironmentVariableObject -Name "DB_HOST" -Value $ipAddress;
+    $env5 = New-AzContainerInstanceEnvironmentVariableObject -Name "APP_URL" -Value "";
     $port1 = New-AzContainerInstancePortObject -Port 80 -Protocol TCP;
     $port2 = New-AzContainerInstancePortObject -Port 8080 -Protocol TCP;
-    $container = New-AzContainerInstanceObject -Name PostgreSQL-dev-web -Image "$acrName.azurecr.io/store-web" -EnvironmentVariable @($env1, $env2, $env3, $env4) -Port @($port1, $port2);
+    $container = New-AzContainerInstanceObject -Name postgresql-dev-web -Image "$acrName.azurecr.io/store-web" -EnvironmentVariable @($env1, $env2, $env3, $env4, $env5) -Port @($port1, $port2);
     New-AzContainerGroup -ResourceGroupName $resourceGroupName -Name $containerName -Container $container -OsType Linux -Location $rg.location -ImageRegistryCredential $imageRegistryCredential -IpAddressType Public;
     ```
 
@@ -65,43 +73,44 @@ Now that containerized versions of the application exists, they can now be hoste
 
 ## Multi-container single app service deployment
 
-In the previous steps, a container instance was created for each of the containers, however, it is possible to create a multi-container container instance where all services are encapsulated into one container instance instance using Azure CLI.
+In the previous steps, a container instance was created for each of the containers, however, it is possible to create a multi-container instance where all services are encapsulated into one container instance using Azure CLI.
 
-1. Create the following `docker-compose-contoso.yml` file, be sure to replace the `SUFFIX`:
+1. Create the following `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\docker-compose-contoso.yml` file, be sure to replace the `SUFFIX`:
 
     ```yaml
     version: '3.8'
     services:
-    web:
+      web:
         image: pgsqldevSUFFIX.azurecr.io/store-web:latest
         environment:
-        - DB_DATABASE=contosostore
-        - DB_USERNAME=root
-        - DB_PASSWORD=root
-        - DB_HOST=db
-        - DB_PORT=5432
+          - DB_DATABASE=contosostore
+          - DB_USERNAME=postgres
+          - DB_PASSWORD=Solliance123
+          - DB_HOST=db
+          - DB_PORT=5432
         ports:
-        - "8080:80" 
+          - "8080:80" 
         depends_on:
-        - db 
-    db:
+          - db 
+      db:
         image: pgsqldevSUFFIX.azurecr.io/store-db:latest
         volumes:
-        - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/postgresql
+          - ${WEBAPP_STORAGE_HOME}/site/database:/var/lib/postgresql
         restart: always
         environment:
-        - POSTGRES_PASSWORD=Solliance123
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=contosostore
+          - POSTGRES_PASSWORD=Solliance123
+          - POSTGRES_USER=postgres
+          - POSTGRES_DB=contosostore
         ports:
-        - "5432:5432"
-    pgadmin:
-        image: dpage/pgadmin4
+          - "5432:5432"
+      pgadmin:
+        image: pgsqldevSUFFIX.azurecr.io/dpage/pgadmin4
         ports:
-            - '8081:80'
+          - '8081:80'
         restart: always
         environment:
-            PMA_HOST: db
+          - PGADMIN_DEFAULT_PASSWORD=Solliance123
+          - PGADMIN_DEFAULT_EMAIL=postgres@contoso.com
         depends_on:
           - db
     ```
@@ -109,16 +118,25 @@ In the previous steps, a container instance was created for each of the containe
 2. In a PowerShell window, run the following command, be sure to replace the `SUFFIX` and other variable values:
 
     ```powershell
-    $acrName = "pgsqldevSUFFIX";
-    $resourceName = $acrName;
-    $resourceGroupName = "{RESOURCE_GROUP_NAME}";
+    cd "C:\labfiles\microsoft-postgresql-developer-guide\artifacts"
+
+    Connect-AzAccount -identity
+
+    $resourceGroups = Get-AzResourceGroup
+
+    $rg = $resourceGroups[0]
+    $resourceGroupName = $rg.ResourceGroupName
+
+    $suffix = $rg.tags['Suffix']
+    $resourceName = "pgsqldev$suffix-linux"
+    $acrName = $resourceName
 
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
     $creds = $acr | Get-AzContainerRegistryCredential;
 
-    az login;
+    az login -identity;
 
-    az webapp create --resource-group $resourceGroupName --plan "$resourceName-sf" --name $resourceName --multicontainer-config-type compose --multicontainer-config-file docker-compose-contoso.yml;
+    az webapp create --resource-group $resourceGroupName --plan $resourceName --name $resourceName --multicontainer-config-type compose --multicontainer-config-file docker-compose-contoso.yml;
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DOCKER_REGISTRY_SERVER_USERNAME=$($creds.Username)
 
@@ -128,9 +146,9 @@ In the previous steps, a container instance was created for each of the containe
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_HOST="DB"
 
-    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_USERNAME="root"
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_USERNAME="postgres"
 
-    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PASSWORD="root"
+    az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_PASSWORD="Solliance123"
 
     az webapp config appsettings set --resource-group $resourceGroupName --name $resourceName --settings DB_DATABASE="contosostore"
 
