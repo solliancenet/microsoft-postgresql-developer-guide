@@ -1,10 +1,20 @@
-# Generative AI
+## Types of AI Applications
 
-# Chat Applications
+## Standard Patterns
 
-# Image Generation
+### RAG
 
-# Low Code Applciations
+### CoT
 
-# External Applications with function calling
+### ReAct
+
+### Prompt Engineering
+
+## Chat Applications
+
+## Image Generation
+
+## Low Code Applciations
+
+## External Applications with function calling
 

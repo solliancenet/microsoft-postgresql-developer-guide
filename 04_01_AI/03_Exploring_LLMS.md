@@ -1,3 +1,9 @@
-## Large Languange Models (LLMs)
+## Language Models
 
-## Small Language Models (SLMs)
+### Large Languange Models (LLMs)
+
+TODO
+
+### Small Language Models (SLMs)
+
+TODO

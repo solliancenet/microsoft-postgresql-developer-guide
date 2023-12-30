@@ -1,17 +1,17 @@
-# Azure Database for PostgreSQL AI
+## Azure Database for PostgreSQL AI
 
-## pgvector
-
-TODO
-
-## Azure extension
+### pgvector
 
 TODO
 
-## embedding performance
+### Azure extension
 
 TODO
 
-## Other vector databases
+### embedding performance
+
+TODO
+
+### Other vector databases
 
 TODO
