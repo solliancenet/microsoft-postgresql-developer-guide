@@ -39,7 +39,7 @@ function ConfigurePhp($iniPath)
       $phpDirectory = $iniPath.replace("\php.ini","");
       $phpPath = "$phpDirectory\php-cgi.exe";
 
-      New-WebHandler -Name "PHP_via_FastCGI" -Path "*.php" -ScriptProcessor "$phpPath" -Module FastCgiModule
+      New-WebHandler -Name "PHP_via_FastCGI" -Path "*.php" -ScriptProcessor "$phpPath" -Module FastCgiModule -Verb *
 
       # Set the max request environment variable for PHP
       $configPath = "system.webServer/fastCgi/application[@fullPath='$php']/environmentVariables/environmentVariable"
@@ -129,7 +129,10 @@ InstallWebPI
 $version = "8.0.13"
 InstallPhp $version;
 
+#this is now retired...
 InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
+
+InstallUrlRewrite
 
 #will get port 5432
 InstallPostgres16
