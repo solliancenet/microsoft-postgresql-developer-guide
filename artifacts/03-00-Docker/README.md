@@ -21,10 +21,10 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 1. Open **Docker Desktop**, if prompted, select **OK**
 2. In the agreement dialog, select the checkbox and then select  **Accept**
 3. It will take a few minutes for the Docker service to start, when prompted, select **Skip tutorial**
-4. Open a PowerShell window, run the following to download and start a php-enabled docker container
+4. Open a PowerShell window, run the following to download a php-enabled docker container:
 
     ```Powershell
-    docker run -d php:8.0-apache
+    docker pull php:8.0-apache
     ```
 
 5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
@@ -96,17 +96,19 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     FROM postgres:16.1
     RUN chown -R postgres:root /var/lib/postgres/
 
-    ADD data.sql /etc/postgres/data.sql
+    ADD artifacts/data.sql /etc/postgres/data.sql
+
+    ENV POSTGRES_DB contosostore
 
     RUN cp /etc/postgres/data.sql /docker-entrypoint-initdb.d
 
-    EXPOSE 5432
+    EXPOSE 5432 22
     ```
 
 3. Build the container:
 
     ```PowerShell
-    docker build -t store-db --file Dockerfile.db .
+    docker build -t store-db --file artifacts\Dockerfile.db .
     ```
 
 ## Run the Docker images
@@ -132,7 +134,9 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
         image: store-db
         restart: always
         environment:
-          - PGADMIN_DEFAULT_PASSWORD=Solliance123
+          - POSTGRES_PASSWORD=Solliance123
+          - POSTGRES_USER=postgres
+          - POSTGRES_DB=contosostore
         ports:
           - "5432:5432"
       pgadmin:
@@ -141,7 +145,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
             - '8081:80'
         restart: always
         environment:
-            PMA_HOST: db
+            - PMA_HOST=db
+            - PGADMIN_DEFAULT_PASSWORD=Solliance123
         depends_on:
             - db
    ```
@@ -159,7 +164,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 3. Run the following to create the db container:
 
     ```powershell
-    stop-service PostgreSQL
+    stop-service postgresql-x64-14
+    stop-service postgresql-x64-16
 
     docker compose run --service-ports db
     ```
