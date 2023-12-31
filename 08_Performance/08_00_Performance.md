@@ -13,7 +13,7 @@ The following are some basic tips for how to increase or ensure the performance 
 - Performance regular database maintenance.
 - Make sure the application/clients (e.g. App Service) are physically located as close as possible to the database. Reduce network latency.
 - Use accelerated networking for the application server if you use a Azure virtual machine, Azure Kubernetes, or App Services.
-- Use connection pooling when possible. Avoid creating new connections for each application request. ProxySQL for built-in connection pooling and load balancing. Balance your workload to multiple read replicas as demand requires without any changes in application code.
+- Use connection pooling when possible. Avoid creating new connections for each application request. Balance your workload to multiple read replicas as demand requires without any changes in application code.
 - Set timeouts when creating transactions.
 - Set up a read replica for read-only queries and analytics.
 - Consider using query caching solution like Heimdall Data Proxy. Limit connections based on per user and per database. Protect the database from being overwhelmed by a single application or feature.
@@ -23,17 +23,29 @@ The following are some basic tips for how to increase or ensure the performance 
 
 As previously discussed in the monitoring section of this guide, monitoring metrics such as the `cpu_percent` or `memory_percent` can be important when deciding to upgrade the database tier. Consistently high values for extended periods of time could indicate a tier upgrade is necessary.
 
-If CPU and memory do not seem to be the issue, administrators can explore database-based options such as indexing and query modifications for poor-performing queries.
+If CPU and memory do not seem to be the issue, administrators can explore database-based options such as indexing and query modifications for poor-performing queries. In order to gain access to this data, you should follow the steps in the [Troubleshoot and identify slow-running queries in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-identify-slow-queries) documentation.
 
-To find poor-performing queries, run the following:
+Once enabled, you can utilize wither the QueryStore or AzureDiagnostics logs to find poor-performing queries. Please note that verbose logging tends to cause performance issues, especially if you log ALL statements or set `log_min_duration_statement` to 0. This impacts both the server performance and storage consumption. It is better to set the duration to something more managable such as `1000` or higher.  This implies that a query that takes longer than 1 second should be logged.
+
+The following psql statement can help you find slow queries:
+
+```sql
+SELECT query_sql_text
+FROM query_store.query_texts_view
+WHERE query_text_id = <add query id identified>;
+```
+
+The following KQL query can help you find the top slow running queries:
 
 ```kql
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.DBFORPostgreSQL"
-| where Category == 'PostgreSQLSlowLogs'
+| where Category == 'PostgreSQLLogs'
 | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
 | top 5 by query_time_d desc
 ```
+
+In addition to the server parameters and extensions, Azure Database for PostgreSQL has some other options to collect query stats including the **pg_stat_statements** extension.  
 
 ## Upgrading the tier
 
@@ -41,9 +53,19 @@ AzureDiagnostics
 
 ## Scaling the server
 
+Azure Database for PostgreSQL Flexible Server supports both vertical and horizontal scaling options.
+
+### Vertical Scaling
+
+You can scale vertically by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, You can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools, for instance, Azure portal or the Azure CLI.
+
 Within the tier, it is possible to scale cores and memory to the minimum and maximum [limits](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pricing-tiers) allowed in that tier. If monitoring shows a continual maxing out of CPU or memory, scale up to meet demand.
 
 You can also adjust the IOPS for better transactions per second (TPS) performance. You can use an [Azure CLI script](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale) to monitor relevant metrics and scale the server.
+
+### Horizontal Scaling
+
+You scale horizontally by creating read replicas. Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
 
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
 
@@ -79,20 +101,18 @@ Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified
 
 Sometimes, just upgrading versions may be the solution to an issue. Flexible Server currenlty supports PostgreSQL versions 11 through 16. Migrating from on-premises PostgreSQL to PostgreSQL Flexible Server 16 delivers some major performance improvements.
 
-## Customizing the container runtime
+## Customizing the application container runtime
 
-When using containers for your PostgreSQL and PHP application, the platform choice has a huge impact on your performance limits. In most cases, creating a custom PHP container can improve performance up to 6x over the out-of-the-box official PHP containers.  It is important to determine if the effort of building a custom image will be worth the performance gain from the work.  Also, keep in mind recent versions of PHP tend to perform better than older versions.
-
-Custom environments can be tested against standard workloads by running various benchmarks using the [PHPBench tool](https://github.com/phpbench/phpbench).
+When using containers for your PostgreSQL and container based applications, the platform choice has a huge impact on your performance limits. In most cases, creating a custom application container (such as with PHP) can improve performance versus the out-of-the-box official platform containers.  It is important to determine if the effort of building a custom image will be worth the performance gain from the work.  Also, keep in mind recent versions of containers tend to perform better than older versions.
 
 ![Read more icon](media/read-more.png "Read more")  [Container insights overview](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview)
 
-## Running PostgreSQL Benchmarks
+## Running Benchmarks
 
-There are several tools that can be used to benchmark PostgreSQL environments. Here are a few that can be used to determine how well an instance is performing:
+There are several tools that can be used to benchmark environments. Here are a few that can be used to determine how well an instance is performing:
 
 - [DBT2 Benchmark](https://downloads.PostgreSQL.com/source/dbt2-0.37.50.16.tar.gz) - DBT2 is an open source benchmark that mimics an OLTP application for a company owning large amounts of warehouses. It contains transactions to handle New Orders, Order Entry, Order Status, Payment and Stock handling
 
 - [SysBench Benchmark Tool](https://downloads.PostgreSQL.com/source/sysbench-0.4.12.16.tar.gz) - Sysbench is a popular open source benchmark to test open source DBMSs.
 
-More Common sets of tests typically utilize TPC benchmarks such as [TPC-H](https://www.tpc.org/tpch/) but there are many more [types of tests](https://www.tpc.org/information/benchmarks5.asp) that can be run against the PostgreSQL environment to test against specific workloads and patterns.
+More Common sets of tests typically utilize TPC benchmarks such as [TPC-H](https://www.tpc.org/tpch/) but there are many more [types of tests](https://www.tpc.org/information/benchmarks5.asp) that can be run against the environment to test against specific workloads and patterns.
