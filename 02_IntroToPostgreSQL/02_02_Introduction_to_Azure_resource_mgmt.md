@@ -102,6 +102,10 @@ The Azure portal and Windows PowerShell can be used for managing the Azure Datab
 Install-Module -Name Az.PostgreSQL
 ```
 
+#### Azure API
+
+All paths lead to the Azure REST APIs.  If you wanted to build your own tools using simply HTTP REST calls it is possible.  To find the latest on the API release for Azure Database for PostgreSQL, reference [API Release notes](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/release-notes-api).
+
 #### Infrastructure as Code
 
 [Infrastructure as Code (IaC)](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) provides a way to describe or declare what infrastructure looks like using descriptive code. The infrastructure code is the desired state. The environment will be built when the code runs and completes. One of the main benefits of IaC is that it is human readable. Once the environment code is proven and tested, it can be versioned and saved into source code control. Developers can review the environment changes over time.
@@ -151,6 +155,7 @@ Azure provides [multiple support plans for businesses](https://azure.microsoft.c
 - [StackOverflow Azure Tag](https://stackoverflow.com/questions/tagged/azure)
 - [Azure on Twitter](https://twitter.com/azure)
 - Move to Azure efficiently with customized guidance from Azure engineers. [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/)
+- [Support Requests](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 #### Training
 

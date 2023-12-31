@@ -44,7 +44,7 @@ The service generally provides more flexibility and server configuration customi
 
 ![Alt text](media/overview-flexible-server.png)
 
-The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific backup features, you should reference the [latest documentation](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions).
+The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific set of supported features, you should reference the [latest documentation](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions).
 
 #### PaaS (Containers)
 

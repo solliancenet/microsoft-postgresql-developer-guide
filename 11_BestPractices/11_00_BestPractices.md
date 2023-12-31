@@ -71,3 +71,7 @@ Teams must be diligent with sizing their Flexible Server instances to be cost-ef
 Flexible Server instances can be resized after creation. Azure stops database VM instances and needs up to 120 seconds to scale compute resources.
 
 Use Azure Monitor Metrics to determine if you need to scale your Flexible Server instance. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make your scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/benchmarking-azure-database-for-PostgreSQL-flexible-server-using/ba-p/3108799)
+
+### 7. Utilize Reserved Capacity
+
+In addition to resizing your instances, you can also prepay for your compute resources with reserved capacity. With Azure Database for PostgreSQL reserved capacity, you make an upfront commitment on PostgreSQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.  For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concept-reserved-pricing).

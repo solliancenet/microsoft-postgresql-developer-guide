@@ -82,3 +82,21 @@ To interact with the REST API, applications first need to obtain an authenticati
 ### Azure Service Health
 
 [Azure Service Health](https://azure.microsoft.com/features/service-health/) notifies administrators about Azure service incidents and planned maintenance so actions can be taken to mitigate downtime. Configure customizable cloud alerts and use personalized dashboards to analyze health issues, monitor the impact on cloud resources, get guidance and support, and share details and updates.
+
+### Azure Database for PostgreSQL Release Notes
+
+Typically each month a new set of release notes are published for Flexible Server.  You can read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/release-notes) document.
+
+For example, the November 2023 release had some very significant updates including:
+
+- General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
+- General availability of near-zero downtime scaling.
+- General availability of Pgvector 0.5.1 extension.
+- Public preview of Italy North region.
+- Public preview of premium SSD v2.
+- Public preview of decoupling storage and IOPS.
+- Public preview of private endpoints.
+- Public preview of virtual endpoints and new promote to primary server operation for read replica.
+- Public preview of Postgres azure_ai extension.
+- Public preview of pg_failover_slots extension.
+- Public preview of long-term backup retention.
