@@ -46,6 +46,8 @@ The service generally provides more flexibility and server configuration customi
 
 The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific set of supported features, you should reference the [latest documentation](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions).
 
+Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage).
+
 #### PaaS (Containers)
 
 In addition to the IaaS and PaaS options mentioned above, it is possible to choose to host container based instances inside PaaS-based services such as Azure Container Instances and Azure App Services.

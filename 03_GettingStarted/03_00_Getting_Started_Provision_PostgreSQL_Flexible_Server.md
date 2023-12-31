@@ -40,6 +40,27 @@ When creating an instance using the tools above, without passing any additional 
   - Backup retention period (7 days)
   - PostgreSQL version (13)
 
+Reference the [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage) for more information on all the available compute, storage and memory options available for Azure Database for PostgreSQL.  As a summary, your options range from:
+
+- vCores : 1-96
+- Memory: 2GB to 672GB
+- Storage : 32Gb to 32TB
+- IOPS : 120 to 20,000
+
+As you can see, Azure Database for PostgreSQL can accomidate a very large set of use cases and workloads.
+
+### Storage
+
+Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.  
+
+> NOTE: After you increase the storage size, you can't go back to a smaller storage size.
+
+There are [some limitations](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types) when working with Azure managed disk storage.
+
+Although currently in preview and with [some limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage#premium-ssd-v2-early-preview-limitations), Premium SSD v2 will become generally available for Azure Database for PostgreSQL and will increase the performance IOPS from 20,000 max to 80,000 and the disk size to 64TB.
+
+Another advantage of Premium SSD v2 is they come with 3000 IOPS and 125MB/s free of charge.
+
 ### Networking
 
 The connectivity method cannot be changed after creating the server. For example, if you selected Private access (VNet Integration) during creation, then you cannot change it to Public access (allowed IP addresses) after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration.
@@ -69,3 +90,16 @@ psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=m
 ```
 
 Notice the two additional command line switches that enable SSL and tell the tool where the certificate resides.
+
+You can read more about TLS and SSL by referencing [Secure connectivity with TLS and SSL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-ssl-tls).
+
+### Admin users
+
+While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role azure_pg_admin. This role does not have full superuser permissions.
+
+The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
+
+An Azure Database for PostgreSQL server has default databases:
+
+- postgres - A default database you can connect to once your server is created.
+- azure_maintenance - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.

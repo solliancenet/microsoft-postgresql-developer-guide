@@ -65,6 +65,8 @@ To minimize downtime, Flexible Server configuration settings can be kept intact.
 
 ## Server parameters
 
+As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the PostgreSQL documentation). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
+
 ![This image shows PostgreSQL server parameters in the Azure portal.](media/server_parameters.png "PostgreSQL server parameters")
 
 As part of the migration, the on-premises [server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters) were likely modified to support a fast egress. Also, modifications were made to the Azure Database for PostgreSQL Flexible Server parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload-optimized values after the migration.
