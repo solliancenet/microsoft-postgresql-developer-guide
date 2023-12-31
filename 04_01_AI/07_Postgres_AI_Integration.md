@@ -14,4 +14,4 @@ TODO
 
 ### Other vector databases
 
-TODO
+In production, the Embedding Index would be stored in a vector database such as Azure Cognitive Search, Redis, Pinecone, Weaviate, to name but a few.

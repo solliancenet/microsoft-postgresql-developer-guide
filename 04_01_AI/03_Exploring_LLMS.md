@@ -65,6 +65,20 @@ Image generation models are models that generate images. These models are often 
 
 ### Search
 
+Now you might be wondering, why are we talking about Search with AI?  It is because search is core to the way models work.  
+
+### Text Search
+
+TODO
+
+### Semantic Search
+
+Semantic search is a search technique that uses the semantics, or meaning, of the words in a query to return relevant results.
+
+Here is an example of a semantic search. Let's say you were looking to buy a car, you might search for 'my dream car', semantic search understands that you are not dreaming about a car, but rather you are looking to buy your ideal car. Semantic search understands your intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
+
+As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
+
 ## Vectors
 
 - Dimension: The dimension of a vector is the number of elements that it contains. In the example above, vector1 and vector2 are both two-dimensional since they each have two elements. You can only visualize vectors with three dimensions or less, but generally, vectors can have any number of dimensions. In fact, as you'll see later, vectors that encode words and text tend to have hundreds or thousands of dimensions.
@@ -89,6 +103,16 @@ L-infinity (chessboard) distance – The number of moves a King would make on an
 Inner product – The product of the magnitudes of two vectors and the cosine of the angle between them. Usually used for natural language processing (NLP) vector similarity.
 Cosine similarity – The cosine of the angle between two vectors in a vector space.
 Hamming distance – For binary-coded vectors, the number of bits that differ between the two vectors.
+
+## Cosine Similiarity
+
+Cosine similarity is a measure of similarity between two vectors, you'll also hear this referred to as nearest neighbor search. To perform a cosine similarity search you need to vectorize for query text using the OpenAI Embedding API. Then calculate the cosine similarity between the query vector and each vector in the Embedding Index. Remember, the Embedding Index has a vector for each YouTube transcript text segment. Finally, sort the results by cosine similarity and the text segments with the highest cosine similarity are the most similar to the query.
+
+From a mathematic perspective, cosine similarity measures the cosine of the angle between two vectors projected in a multidimensional space. This measurement is beneficial, because if two documents are far apart by Euclidean distance because of size, they could still have a smaller angle between them and therefore higher cosine similarity. For more information about cosine similarity equations, see [Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity?WT.mc_id=academic-105485-koreyst).
+
+## Vector Storage
+
+Once you have generated embeddings, you will want to store them somewhere.  This could be in memory locally, or in memory remotely.  It could also be persisted to disk storage.  We will explore various types of storage mechanisms (such as PostgreSQL) in a later section.
 
 ## Improving Results
 

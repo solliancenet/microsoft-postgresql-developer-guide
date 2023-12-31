@@ -4,13 +4,14 @@ It's easy to be fascinated with AI and generative AI in particular, but you need
 
 ## Principles
 
-The principles of Responsible AI include:
+Microsoft's approach to Responsible AI has identified six principles that should guide AI development and use. These principles of Responsible AI include:
 
-    - Fairness
-    - Inclusiveness
-    - Reliability/Safety
-    - Security & Privacy
-    - Transparency and Accountability. 
+- Fairness : AI systems should treat all people fairly.
+- Inclusiveness : AI systems should empower everyone and engage people.
+- Reliability/Safety : AI systems should perform reliably and safely.
+- Security & Privacy : AI systems should be secure and respect privacy.
+- Transparency : AI systems should be understandable.
+- Accountability : People should be accountable for AI systems.
 
 With these principles in mind, developers should consider their context with the use of Generative AI in their applications.
 

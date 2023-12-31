@@ -28,15 +28,75 @@ As we move further into an age defined by automation and seamless human-machine 
 
 ## Image Generation
 
-TODO
+There's more to LLMs than text generation. It's also possible to generate images from text descriptions. Having images as a modality can be highly useful in a number of areas from MedTech, architecture, tourism, game development and more. In this chapter, we will look into the two most popular image generation models, DALL-E and Midjourney. DALL-E and Midjourney allow you to use prompts to generate images.
+
+Image generation applications are a great way to explore the capabilities of Generative AI. They can be used for, for example:
+
+- Image editing and synthesis. You can generate images for a variety of use cases, such as image editing and image synthesis.
+- Applied to a variety of industries. They can also be used to generate images for a variety of industries like Medtech, Tourism, Game development and more.
+
+When generating images, it is imporant to create boundaries on the creations. For example, we don't want to generate images that are not safe for work, or that are not appropriate for children. This can be accomplished with metaprompts. Metaprompts are text prompts that are used to control the output of a Generative AI model. For example, we can use metaprompts to control the output, and ensure that the generated images are safe for work, or appropriate for children. Metaprompts are positioned before the text prompt, and are used to control the output of the model and embedded in applications to control the output of the model. Encapsulating the prompt input and the meta prompt input in a single text prompt.
+
+#### DALL-E
+
+DALL-E, which is a Generative AI model that generates images from text descriptions. DALL-E is a Generative AI model based on the transformer architecture with an autoregressive transformer. An autoregressive transformer defines how a model generates images from text descriptions, it generates one pixel at a time, and then uses the generated pixels to generate the next pixel. Passing through multiple layers in a neural network, until the image is complete. With this process, DALL-E, controls attributes, objects, characteristics, and more in the image it generates. However, DALL-E 2 and 3 have more control over the generated image,
+
+Additionally, DALL-E is a combination of two models, CLIP and diffused attention.
+
+- CLIP, is a model that generates embeddings, which are numerical representations of data, from images and text.
+- Diffused attention, is a model that generates images from embeddings. DALL-E is trained on a dataset of images and text and can be used to generate images from text descriptions. For example, DALL-E can be used to generate images of a cat in a hat, or a dog with a mohawk.
+
+## Midjourney
+
+Midjourney works in a similar way to DALL-E, it generates images from text prompts. Midjourney, can also be used to generate images using prompts like “a cat in a hat”, or a “dog with a mohawk”.
 
 ## Low Code Applciations
 
-TODO
+Generative AI can be used for a variety of different areas including low code, but what is low code and how can we add AI to it?
+
+Building apps and solutions has become more easier for traditional developers and non-developers through the use of Low Code Development Platforms. Low Code Development Platforms enable you to build apps and solutions with little to no code. This is achieved by providing a visual development environment that enables you to drag and drop components to build apps and solutions. This enables you to build apps and solutions faster and with less resources.
+
+The Power Platform provides organizations with the opportunity to empower their teams to build their own solutions through an intuitive low-code or no-code environment. This environment helps simplify the process of building solutions. With Power Platform, solutions can be built in days or weeks instead of months or years. Power Platform consists of five key products: 
+
+- Power Apps
+- Power Automate
+- Power BI
+- Power Pages
+- Power Virtual Agents
+
+Enhancing low-code development and application with generative AI is a key focus area for Power Platform. The goal is to enable everyone to build AI-powered apps, sites, dashboards and automate processes with AI, without requiring any data science expertise. This goal is achieved by integrating generative AI into the low-code development experience in Power Platform in the form of Copilot and AI Builder.
+
+Some of the Prebuilt AI Models available in Power Platform include:
+
+- Key Phrase Extraction: This model extracts key phrases from text.
+- Language Detection: This model detects the language of a text.
+- Sentiment Analysis: This model detects positive, negative, neutral, or mixed sentiment in text.
+- Business Card Reader: This model extracts information from business cards.
+- Text Recognition: This model extracts text from images.
+- Object Detection: This model detects and extracts objects from images.
+- Form Processing: This model extracts information from forms.
+- Invoice Processing: This model extracts information from invoices.
+
+## Copilots
+
+You can use Copilot driven functionalities as a feature in your app screens to enable users to uncover insights through conversational interactions.
+
+Copilots are available in all of the Power Platform products: Power Apps, Power Automate, Power BI, Power Pages and Power Virtual Agents. AI Builder is available in Power Apps and Power Automate.
 
 ## External Applications with function calling
 
-TODO
+Before function calling, responses from an LLM were unstructured and inconsistent. Developers were required to write complex validation code to make sure they are able to handle each variation of a response. Users could not get answers like "What is the current weather in Stockholm?". This is because models were limited to the time the data was trained on.
+
+Function Calling is a feature of the Azure Open AI Service to overcome to the following limitations:
+
+- Consistent response format. If we can better control the response format we can more easily integrate the response downstream to other systems.
+- External data. Ability to use data from other sources of an application in a chat context.
+
+There are many different use cases where function calls can improve your app like:
+
+- Calling External Tools. Chatbots are great at providing answers to questions from users. By using function calling, the chatbots can use messages from users to complete certain tasks. For example, a student can ask the chatbot to "Send email to my instructor saying I need more assistance with this subject". This can make a function call to send_email(to: string, body: string)
+- Create API or Database Queries. Users can find information using natural language that gets converted into a formatted query or API request. An example of this could be a teacher who requests "Who are the students that completed the last assignment" which could call a function named get_completed(student_name: string, assignment: int, current_status: string)
+- Creating Structured Data. Users can take a block of text or CSV and use the LLM to extract important information from it. For example, a student can convert a Wikipedia article about peace agreements to create AI flash cards. This can be done by using a function called get_important_facts(agreement_name: string, date_signed: string, parties_involved: list)
 
 ## User Experience (UX)
 
