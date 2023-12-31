@@ -1,8 +1,8 @@
 param([string]$suffix, [string]$password, [string]$resourceGroup, [string]$location)
 
-$serverName = "PostgreSQLflexapp$suffix"
+$serverName = "postgresqlflexapp$suffix"
 
-az PostgreSQL flexible-server create `
+az postgresql flexible-server create `
     --admin-user AppAdmin `
     --admin-password $password `
     --database-name app `
@@ -12,9 +12,9 @@ az PostgreSQL flexible-server create `
     --public-access all `
     --tier Burstable `
     --sku-name Standard_B1ms `
-    --version 8.0.21
+    --version 16
 
-az PostgreSQL flexible-server execute `
+az postgresql flexible-server execute `
     -n $serverName `
     -u AppAdmin `
     -p $password `

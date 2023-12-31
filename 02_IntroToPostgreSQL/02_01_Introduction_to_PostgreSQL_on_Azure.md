@@ -20,6 +20,8 @@ The concepts Infrastructure as a Service (IaaS) and Platform as a Service (PaaS)
 
 ![This diagram shows the cloud adoption strategy.](media/cloud-adoption-strategies.png "Cloud adoption strategy")
 
+In addition to the below information, you can reference [Choose the right PostgreSQL server option in Azure](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview-postgres-choose-server-options) for the latest information.  This document outlines other considerations such as Total Cost of Ownership, Billing, Administration and migration time.
+
 #### IaaS (VMs)
 
 In the IaaS model, organizations deploy PostgreSQL on Azure Virtual Machines. This model allows the customer to choose when to patch the VM OS, the PostgreSQL engine, and install other software such as antivirus utilities when required. Microsoft is responsible for the underlying VM hardware that constitutes the Azure infrastructure. Customers are responsible for all other maintenance.
@@ -37,6 +39,12 @@ In the PaaS model, organizations deploy a fully managed PostgreSQL environment o
 Like IaaS, customers are still responsible for managing query performance, database access, and database objects, such as indexes. PaaS is suitable for applications where the PostgreSQL configuration exposed by Azure is sufficient, and access to the OS and filesystem is unnecessary.
 
 The Azure DBaaS PostgreSQL offering is [Azure Database for PostgreSQL Flexible Server](https://azure.microsoft.com/services/PostgreSQL/#features).  It supports many of the common administration tools and programming languages.
+
+The service generally provides more flexibility and server configuration customizations based on user requirements. The flexible server architecture allows users to collocate the database engine with the client tier for lower latency and choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to stop/start your server and a burstable compute tier ideal for workloads that don't need full compute capacity continuously.
+
+![Alt text](media/overview-flexible-server.png)
+
+The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific backup features, you should reference the [latest documentation](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions).
 
 #### PaaS (Containers)
 

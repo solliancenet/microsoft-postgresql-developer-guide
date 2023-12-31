@@ -12,11 +12,16 @@ Both server misconfiguration issues and network access issues can prevent client
 
 #### Misconfiguration
 
-- [Error 1184](https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_new_aborting_connection): This error occurs after a user authenticates with the database instance, but before they execute SQL statements. The `init_connect` server parameter includes statements that execute before sessions are initiated. Consequently, erroneous SQL statements in `init_connect` prevent clients from connecting.
-  - **Resolution**: Reset the value of `init_connect` using the Azure portal or SQL.
-
 - Administrators use the database admin user specified during server creation to create new databases and add new users. If the admin user credentials were not recorded, administrators can easily reset the admin password using the Azure portal.
   - Logging in with the administrator account can help debug other access issues, like confirming if a given user exists.
+
+#### SSL Connectivity
+
+Most on-premises applications that are migrated to cloud-based services will not have the supporting connection string information for SSL based connections.  In most cases, you will need to download the SSL certificate for the server(s) and include them as part of your application deployments.
+
+SSL certificate best practice is to expire these certifcates on a set period.  If you have migrated your applications to use SSL, ensure that the certificate is valid.  You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
+
+For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-certificate-rotation).
 
 #### Network access issues
 
@@ -44,15 +49,9 @@ If the application experiences transient connectivity issues, perhaps the resour
 
 Operating in a cloud environment means that certain features that function on-premises are incompatible with Azure Database for PostgreSQL Flexible Server instances. While Flexible Server has better feature parity with on-premises PostgreSQL than Single Server, it is important to be aware of any limitations.
 
-- Azure Database for PostgreSQL Flexible Server does not support the PostgreSQL `SUPER` privilege and the `DBA` role. This may affect how some applications operate.
-  - [Error 1419](https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super): By default, PostgreSQL instances with binary logging enabled for replication require function creators to have the `SUPER` privilege to avoid privilege escalation attacks.
-    - **Resolution**: The Azure suggested setting is to set the `log_bin_trust_function_creators` parameter to `1`. Azure insulates against threats that exploit the binary log.
-  - [Error 1227](https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_specific_access_denied_error): This error occurs when creating stored procedures or views with `DEFINER` statements.
-    - **Resolution**: If you encounter this error while migrating schema objects from an on-premises PostgreSQL instance, remove the `DEFINER` statements manually from the database dump.
+- Azure Database for PostgreSQL Flexible Server does not support the PostgreSQL super user privilege. This may affect how some applications operate.
 
-- Direct file system access is not available to clients. This means that `SELECT ... INTO OUTFILE` commands are unsupported.
-
-- Only the `InnoDB` and `MEMORY` storage engines are supported. This may affect older data warehousing and web applications based on the non-transactional `MyISAM` engine. Consult the [PostgreSQL documentation](https://dev.PostgreSQL.com/doc/refman/8.0/en/converting-tables-to-innodb.html) to learn how to convert your MyISAM tables to InnoDB and make them run optimally.
+- Direct file system access is not available to clients.
 
 ### Platform issues
 

@@ -44,7 +44,7 @@
                 "name": "Standard_B1ms",
                 "tier": "Burstable"
             },
-            "version": "8.0.21"
+            "version": "14"
         },
         "resources": [
             {

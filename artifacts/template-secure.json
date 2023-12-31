@@ -63,7 +63,7 @@
                     "geoRedundantBackup": "Disabled",
                     "storageAutogrow": "Enabled"
                 },
-                "version": "8.0",
+                "version": "14",
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "sslEnforcement": "Enabled",

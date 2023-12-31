@@ -6,8 +6,7 @@ As Single Server will be retired in the future, you will at some point need to m
 
 - Database tools
   - [Azure Database Migration Service (DMS)](https://learn.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)
-  - [pgcopydb](https://github.com/dimitri/pgcopydb)
-  - [pg_dump and dp_restore](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore)
+  - [pg_dump and pg_restore](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore)
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli)
 

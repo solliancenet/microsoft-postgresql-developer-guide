@@ -3872,7 +3872,7 @@ modified. Verify the strategy before making environment assumptions.
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
 
 Sometimes, just upgrading versions may be the solution to an issue.
-Flexible Server supports PostgreSQL versions 5.7 and 8.0. Migrating from
+Flexible Server supports PostgreSQL versions 11 through 16.5.7 and 8.0. Migrating from
 on-premises PostgreSQL 5.x to PostgreSQL Flexible Server 5.7 or 8.0
 delivers major performance improvements. Consult the [Microsoft
 documentation] for more information regarding PostgreSQL Azure

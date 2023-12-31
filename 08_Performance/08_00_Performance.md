@@ -15,11 +15,9 @@ The following are some basic tips for how to increase or ensure the performance 
 - Use accelerated networking for the application server if you use a Azure virtual machine, Azure Kubernetes, or App Services.
 - Use connection pooling when possible. Avoid creating new connections for each application request. ProxySQL for built-in connection pooling and load balancing. Balance your workload to multiple read replicas as demand requires without any changes in application code.
 - Set timeouts when creating transactions.
-- Set up a [read replica](https://dev.PostgreSQL.com/doc/refman/5.7/en/replication-features.html) for read-only queries and analytics.
+- Set up a read replica for read-only queries and analytics.
 - Consider using query caching solution like Heimdall Data Proxy. Limit connections based on per user and per database. Protect the database from being overwhelmed by a single application or feature.
 - Temporarily scale your Azure Database for PostgreSQL Flexible Server resources for taxing tasks. Once your task is complete, scale it down.
-
-See [Best practices for optimal performance of your Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concept-performance-best-practices)
 
 ## Monitoring hardware and query performance
 
@@ -77,7 +75,7 @@ Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified
 
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
 
-Sometimes, just upgrading versions may be the solution to an issue. Flexible Server supports PostgreSQL versions 5.7 and 8.0. Migrating from on-premises PostgreSQL 5.x to PostgreSQL Flexible Server 5.7 or 8.0 delivers major performance improvements. Consult the [Microsoft documentation](https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/08-data-migration) for more information regarding PostgreSQL Azure migrations, including major version changes.
+Sometimes, just upgrading versions may be the solution to an issue. Flexible Server currenlty supports PostgreSQL versions 11 through 16. Migrating from on-premises PostgreSQL to PostgreSQL Flexible Server 16 delivers some major performance improvements.
 
 ## Customizing the container runtime
 
@@ -96,11 +94,3 @@ There are several tools that can be used to benchmark PostgreSQL environments. H
 - [SysBench Benchmark Tool](https://downloads.PostgreSQL.com/source/sysbench-0.4.12.16.tar.gz) - Sysbench is a popular open source benchmark to test open source DBMSs.
 
 More Common sets of tests typically utilize TPC benchmarks such as [TPC-H](https://www.tpc.org/tpch/) but there are many more [types of tests](https://www.tpc.org/information/benchmarks5.asp) that can be run against the PostgreSQL environment to test against specific workloads and patterns.
-
-## Instrumenting vital server resources
-
-The [PostgreSQL Performance Schema](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-sys-schema) **sys_schema** provides a way to inspect internal server execution events at runtime. The PostgreSQL performance_schema provides instrumentation for many vital server resources such as memory allocation, stored programs, metadata locking, etc. However, the performance_schema contains more than 80 tables and getting the necessary information often requires joining tables within the performance_schema, and tables from the information_schema. Building on both performance_schema and information_schema, the sys_schema provides a powerful collection of user-friendly views in a read-only database and is fully enabled in Azure Database for PostgreSQL Flexible Server version 5.7.
-
-![This image shows how to use tables in the sys schema to optimize PostgreSQL queries.](media/employee-query-full-table-scan.png "Using tables in the sys schema to optimize PostgreSQL queries")
-
->![Warning](media/warning.png "Warning") **Warning**: The Performance Schema avoids using mutexes to collect or produce data, so there are no guarantees of consistency and results can sometimes be incorrect. Event values in performance_schema tables are non-deterministic and unrepeatable.

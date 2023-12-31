@@ -10,13 +10,12 @@ The following scenarios will be discussed and demonstrated as part of this Azure
 1. [Classic deployment]
 2. [Azure VM Deployment]
 3. [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server]
-4. [App Service with In-App PostgreSQL]
-5. [Continuous Integration (CI) and Continuous Delivery (CD)]
-6. [Containerizing layers with Docker]
-7. [Azure Container Instances (ACI)]
-8. [App Service Containers]
-9. [Azure Kubernetes Service (AKS)]
-10. [AKS with PostgreSQL Flexible Server]
+4. [Continuous Integration (CI) and Continuous Delivery (CD)]
+5. [Containerizing layers with Docker]
+6. [Azure Container Instances (ACI)]
+7. [App Service Containers]
+8. [Azure Kubernetes Service (AKS)]
+9. [AKS with PostgreSQL Flexible Server]
 
 ## Classic deployment
 

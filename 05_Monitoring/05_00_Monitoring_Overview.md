@@ -2,6 +2,8 @@
 
 Once the application and database are deployed, the next phase is to manage the new cloud-based data workload and supporting resources. Microsoft proactively performs the necessary monitoring and actions to ensure the databases are highly available and performed at the expecting level.
 
+Flexible server is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, each providing 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resource utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads and configure your server for the best performance.
+
 ## Overview
 
 Proper monitoring management helps with the following:
@@ -27,7 +29,6 @@ This chapter will be focused on these monitoring concepts:
 - Alerts and strategies
 
 ![This image explains the Azure Monitor workflow.](media/azure-monitor-overview-topics.png "Azure Monitor workflow")
-
 
 ### Azure Monitor overview
 
