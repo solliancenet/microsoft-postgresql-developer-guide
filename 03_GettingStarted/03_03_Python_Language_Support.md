@@ -76,6 +76,8 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
 
 Refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-python). for detailed instructions on how to get started with Python and Azure Database for PostgreSQL Flexible Server. This article covers connecting to the database, creating a table, and performing CRUD operations.
 
+You can also reference the Python sample (06-02-FunctionApp-Python) in this developer guide.
+
 ### Further information
 
 Microsoft has a tutorial on one of the popular applications of Azure Database for PostgreSQL Flexible Server, using Python. See [building a Python web application with Flask or Django with Azure Database for PostgreSQL](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal) for more information.
