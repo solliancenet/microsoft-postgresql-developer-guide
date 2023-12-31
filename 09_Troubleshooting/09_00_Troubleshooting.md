@@ -10,6 +10,18 @@ Debugging operational support issues can be time consuming. Configuring the righ
 
 Both server misconfiguration issues and network access issues can prevent clients from connecting to an Azure Database for PostgreSQL Flexible Server instance. For some helpful connectivity suggestions, reference the [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues) and [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity) articles.
 
+#### Outdataed Azure CLI
+
+Always ensure that you are running the latest Azure CLI.  If using older versions, you can run into issues such as:
+
+- `The parameter PrivateDnsZoneArguments is required, and must be provided by customer``, this means you may be running an older version of Azure CLI. 
+
+You can upgrade your Azure CLI by executing the following if your currency version is `2.11.0` or higher:
+
+```powershell
+az upgrade
+```
+
 #### Misconfiguration
 
 - Administrators use the database admin user specified during server creation to create new databases and add new users. If the admin user credentials were not recorded, administrators can easily reset the admin password using the Azure portal.

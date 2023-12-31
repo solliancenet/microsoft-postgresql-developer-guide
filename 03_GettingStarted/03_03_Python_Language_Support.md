@@ -34,7 +34,9 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
 1. Install the required libraries.
 
     ```bash
-    pip install azure-identity azure-mgmt-rdbms
+    pip install azure-mgmt-resource
+    pip install azure-identity 
+    pip install azure-mgmt-rdbms
     ```
 
 2. Create a file named `create_flexible_server_database.py` and paste the following code into it. Replace the placeholders for `subscription_id`, `resource_group_name`, and `server_name` to reflect your environment.

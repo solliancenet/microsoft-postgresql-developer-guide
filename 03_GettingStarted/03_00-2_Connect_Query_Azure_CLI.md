@@ -126,6 +126,10 @@ In this section, we'll continue in the PSQL interactive shell to update and dele
 
     ![Exit is entered at the database prompt returning to the Azure Cloud Shell prompt.](media/cli-exit-psql-interactive-shell.png "Exit the PSQL interactive shell")
 
+### SQL Files
+
+In addtion to running interactive commands, you can also execute SQL files.  This can be accomplished by using the `--file-path` argument in the Azure CLI command.
+
 ### Clean up - Delete the database
 
 In this section, we'll use the `az postgres flexible-server db delete` command to delete the `inventory` database.
