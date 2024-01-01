@@ -1,6 +1,12 @@
-## Generative Artificial Intelligence (AI)
+## Generative Artificial Intelligence (GenAI)
 
 Generative AI is artificial intelligence capable of generating text, images, audio and video content. With the myrid of free or low-cost Generative AI services available online, anyone can use it with as little as a simple text prompt written in a natural language. There's no need to learn a new language such as Python or JavaScript.  All that is required is for you to state what you want and the AI model will provide you with a response (also called a completion). The applications and impact for this is huge, you write or understand reports, write applications and much more, all in seconds.
+
+GenAI algorithms tend to apply specific Machine Learning models.  Some examples include:
+
+- Transformers and Recurrent Neural Nets (RNNs) for text generation
+- Generative Adversarial Networks (GANs) for image generation
+- Variational Autoencoders (VAEs) for image generation etc.
 
 In the next few sections, we will explore how generative AI is used to unlock new scenarios in various industries and how we address the new challenges and limitations associated with its usage.
 

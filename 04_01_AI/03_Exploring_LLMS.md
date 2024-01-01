@@ -4,7 +4,13 @@ In this section we will explore the different types of LLMs that exist today alo
 
 ### Large Languange Models (LLMs)
 
-Large Language Models (LLMs) can categorized based on their architecture, training data, and use case. Understanding how a model was built help in selecting the right model for the target scenario.  It will also help with understanding how to test, iterate, and improve the model performance.
+A Large Language Model (LLM) is a type of AI model trained on massive amounts of text data to understand and generate human-like language. LLMs are typically based on deep learning architectures, such as Transformers, and they're known for their ability to perform a wide range of natural language understanding and generation tasks. LLMs can be categorized based on their architecture, training data, and use case. Understanding how a model was built help in selecting the right model for the target scenario.  It will also help with understanding how to test, iterate, and improve the model performance.
+
+Key characteristics and capabilities of Large Language Models include:
+
+- Scale: immense scale in terms of the number of parameters used in LLM architecture are characteristic for them. Models like GPT-3 (Generative Pretrained Transformer 3) contain hundreds of millions to trillions of parameters, which allow them to capture complex patterns in language.
+- Pretraining: LLMs undergo pretraining on a large corpus of text data from the internet, which enables them to learn grammar, syntax, semantics, and a broad range of knowledge about language and the world.
+- Fine-tuning: After pretraining, LLMs can be fine-tuned on specific tasks or domains with smaller, task-specific datasets. This fine-tuning process allows them to adapt to more specialized tasks, such as text classification, translation, summarization, and question-answering.
 
 Your choice of model comes down to three major areas:
 
@@ -21,6 +27,26 @@ When it comes to data, a differnt model will be required based on if it is text,
     - **Text generation** : Most models are trained on text generation and there are a large variety of choices from GPT-3.5 to GPT-4 and others. They come at different costs with the latest GPT-4 being the most expensive. Azure offers many ways to deploy and utilize models which gives your flexibility in selecting the best fit for your needs in terms of capability and cost.
 
 Selecting a model means you get some basic built-in capabilities of that model, however, you may need just a little bit more than the model is able to provide. In many cases, developers have company specific data that you want to use the LLM model with. There are a few different approaches for that and we will explore them in more detail in the upcoming sections.
+
+### OpenAI
+
+OpenAI is an artificial intelligence (AI) research organization and technology company known for its pioneering work in the field of artificial intelligence and machine learning. Their mission is to ensure that artificial general intelligence (AGI), which refers to highly autonomous AI systems that can outperform humans in most economically valuable work, benefits all of humanity. OpenAI brought to market state-of-the-art generative models such as GPT-3, GPT-3.5 and GPT-4 (Generative Pretrained Transformer).
+
+Azure OpenAI is Azure’s LLM service offering to help build GenAI applications using Azure. Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, DALL-E, and Whisper models with the security and enterprise promise of Azure. Azure OpenAI codevelops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+
+With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.
+
+Learn more about [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview).
+
+### GPT
+
+GPT stands for Generative Pretrained Transformer, and it refers to a series of large language models developed by OpenAI. The GPT models are neural networks pretrained on vast amounts of data from the internet, making them capable of understanding and generating human-like text.
+
+Here's an overview of the major GPT models and their key characteristics:
+
+GPT-3: GPT-3, released in June 2020, is a well-known model in the GPT series. It has 175 billion parameters, making it one of the largest and most powerful language models in existence. GPT-3 achieved remarkable performance on a wide range of natural language understanding and generation tasks. It can perform tasks like text completion, translation, question-answering, and more with human-level fluency. GPT-3 is divided into various model sizes, ranging from the smallest (125M parameters) to the largest (175B parameters).
+
+GPT-4: GPT-4, the latest GPT model from OpenAI, has 1.76 trillion parameters.
 
 ### Small Language Models (SLMs)
 
@@ -80,6 +106,8 @@ Here is an example of a semantic search. Let's say you were looking to buy a car
 As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
 
 ## Vectors
+
+A vector is a mathematical concept used in linear algebra and geometry to represent quantities that have both magnitude and direction. In the context of machine learning, vectors are often used to represent data points or features. Some key vector attributes and operations include:
 
 - Dimension: The dimension of a vector is the number of elements that it contains. In the example above, vector1 and vector2 are both two-dimensional since they each have two elements. You can only visualize vectors with three dimensions or less, but generally, vectors can have any number of dimensions. In fact, as you'll see later, vectors that encode words and text tend to have hundreds or thousands of dimensions.
 
