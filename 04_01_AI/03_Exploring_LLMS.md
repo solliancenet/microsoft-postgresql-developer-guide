@@ -50,7 +50,18 @@ GPT-4: GPT-4, the latest GPT model from OpenAI, has 1.76 trillion parameters.
 
 ### Small Language Models (SLMs)
 
-TODO
+LLMs are typically trained on large text datasets which enable capabilities like generating text, summarizing documents, translating between languages, and answering questions.
+
+Small language models (SLMs) fill much of the same niche but with notably smaller model sizes. A model is typically considered small when it has under 100 million parameters,  with some suggesting cutting off at even lower thresholds like 10 million or 1 million parameters. For comparison, models considered large tend to scale to over 100 billion parameters, like the aforementioned GPT-3/4 models from OpenAI.
+
+Smaller model sizes allow the models to be more efficient, economical, and customizable than the larger counterparts. This can come with the drawback that they achieve lower overall capabilities since model capacity in language models has been shown to correlate with size.
+
+Because of the smaller number of parameters, SLMs are significantly less computationally needy than massive models like GPT-3/4:
+
+- Faster in inference speed and throughput since fewer parameters are needed when executing.
+- Require less memory and storage space.
+
+These efficiency advantages directly relate to cost savings of training and running the models.
 
 ### Services vs Models
 
@@ -106,7 +117,11 @@ Now you might be wondering, why are we talking about Search with AI?  It is beca
 
 ### Text Search
 
-TODO
+Before embedding models created vectors, search engines worked by creating indexes of content using ranking functions.  The most common ranking function being Okapi BM25 (BM25).
+
+BM25 is a bag-of-words retrieval function that ranks a set of documents based on the query terms appearing in each document, regardless of their proximity within the document. It is a family of scoring functions with slightly different components and parameters.
+
+This is still a popular way of indexing documents, but let's also explore how GenAI finds information it uses in generating completions.
 
 ### Semantic Search
 
@@ -125,6 +140,10 @@ Building semantic search capability on your data using GenAI and Flexible Server
 - Search for the vector data field and list the nearest neighbors.
 - Run the results through appropriate relevance, ranking and personalization models to produce the final ranking. In the absence of such models, rank the results in decreasing dot-product order.
 - Monitor the model, results quality, and business metrics such as CTR (click-through rate) and dwell time. Incorporate feedback mechanisms to debug and improve the search stack from data quality, data freshness and personalization to user experience.
+
+### Hybrid search
+
+Hybrid search is the combination of Semantic Search and Text Search.  This typically involves adding some metadata to the stored vectors.  This can allow for faster and more releveant recall in some cases.
 
 ## Vectors
 
