@@ -20,7 +20,7 @@ PostgreSQL can gain the capabilities of a vector database with the help of the `
 
 The pgvector extension adds an open-source vector similarity search to PostgreSQL. By enabling the extension, you can utilize the various operators and functions on vector based data.
 
-For more information, review [How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).
+For more information, review [How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-use-pgvector).
 
 > NOTE: Although there are other embedding extensions (such as `pg_embedding`) available for PostgreSQL, only the `pgvector` extension is currently available for Azure Database for PostgreSQL Flexible Server.
 
@@ -32,8 +32,8 @@ Once enabled, you will need to setup the endpoint and key settings for the exten
 
 For more information, review the following:
 
-- [Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-overview).
-- [Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-integrate-azure-ai)
+- [Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-overview).
+- [Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-integrate-azure-ai)
 
 ### Embedding performance
 

@@ -5,19 +5,19 @@
 Thanks for downloading and reading this Azure Database for PostgreSQL Flexible Server developer guide.  We encourage to to continue your learning by reviewing the following links to documentation pages and creating a free azure account to practice with.
 
 - [Review homepage](https://aka.ms/postgresql)
-- [Documentation](http://aka.ms/PostgreSQLdocs)
-- [How to deploy on Azure Free Account](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-deploy-on-azure-free-account)
+- [Documentation](https://aka.ms/PostgreSQLdocs)
+- [How to deploy on Azure Free Account](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-deploy-on-azure-free-account)
 - [Azure Pricing Calculator, TCO Calculator](https://azure.microsoft.com/pricing)
-- [Migrate your workloads to Azure DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore)
+- [Migrate your workloads to Azure DB for PostgreSQL](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore)
 
 ### Stay tuned for latest updates and announcements
 
-- [What's new in Flexible Server?](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/release-notes)
+- [What's new in Flexible Server?](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes)
 - [Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/bg-p/ADforPostgreSQL)
 
 ### Follow Azure Database for PostgreSQL Flexible Server on social platforms
 
-- [Twitter](https://twitter.com/AzureDBPostgre)
+- [Twitter](https://twitter.com/AzureDBPostgres)
 - [LinkedIn](https://www.linkedin.com/company/azure-database-for-postgresql)
 - Email the Azure Database for PostgreSQL Flexible Server team at AskAzureDBforPostgreSQL@service.microsoft.com  
 

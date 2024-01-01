@@ -104,7 +104,7 @@ Install-Module -Name Az.PostgreSQL
 
 #### Azure API
 
-All paths lead to the Azure REST APIs.  If you wanted to build your own tools using simply HTTP REST calls it is possible.  To find the latest on the API release for Azure Database for PostgreSQL, reference [API Release notes](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/release-notes-api).
+All paths lead to the Azure REST APIs.  If you wanted to build your own tools using simply HTTP REST calls it is possible.  To find the latest on the API release for Azure Database for PostgreSQL, reference [API Release notes](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes-api).
 
 #### Infrastructure as Code
 

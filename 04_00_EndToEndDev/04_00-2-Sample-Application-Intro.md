@@ -22,4 +22,4 @@ The web application is simple, but covers the fundamentals.
 
 ### Running the sample lab
 
-You will find the steps to run the lab in the artifacts repo here: [Sample application tutorial](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps)
+You will find the steps to run the lab in the artifacts repo here: [Sample application tutorial](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps)

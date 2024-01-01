@@ -20,10 +20,7 @@ Locating Azure services in the same region minimizes network traffic costs and n
 
 ### 2. Implement connection pooling
 
-Developers can significantly improve application performance by reducing the number of times that connections are established and increasing the duration of those connections through connection pooling. Microsoft recommends the ProxySQL connection pooling solution, hosted on application servers or container orchestrators, like Azure Kubernetes Service (AKS).
-
-- [ProxySQL on a VM](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/setting-up-proxysql-as-a-connection-pool-for-azure-database-for/ba-p/2589350)
-- [ProxySQL on AKS](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/deploy-proxysql-as-a-service-on-kubernetes-using-azure-database/ba-p/1105959)
+Developers can significantly improve application performance by reducing the number of times that connections are established and increasing the duration of those connections through connection pooling. Microsoft recommends the [pgBouncer connection pooling solution](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-on-azure/ba-p/3633043), hosted on application servers or container orchestrators, like Azure Kubernetes Service (AKS).
 
 ### 3. Monitor and size containers adequately
 
@@ -55,7 +52,7 @@ For some ORMs that are commonly used with PostgreSQL databases, like PHP's **PDO
 
 ### 6. Size database compute resources adequately
 
-Teams must be diligent with sizing their Flexible Server instances to be cost-effective while maintaining sufficient application performance. There are [three different tiers of Flexible Server instances](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-compute-storage), each with different intended use cases and memory configurations.
+Teams must be diligent with sizing their Flexible Server instances to be cost-effective while maintaining sufficient application performance. There are [three different tiers of Flexible Server instances](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), each with different intended use cases and memory configurations.
 
 - **Burstable**:
   - Up to **2 GiB** memory per vCore
@@ -70,8 +67,8 @@ Teams must be diligent with sizing their Flexible Server instances to be cost-ef
 
 Flexible Server instances can be resized after creation. Azure stops database VM instances and needs up to 120 seconds to scale compute resources.
 
-Use Azure Monitor Metrics to determine if you need to scale your Flexible Server instance. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make your scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/benchmarking-azure-database-for-PostgreSQL-flexible-server-using/ba-p/3108799)
+Use Azure Monitor Metrics to determine if you need to scale your Flexible Server instance. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make your scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://wiki.postgresql.org/wiki/SysBench)
 
 ### 7. Utilize Reserved Capacity
 
-In addition to resizing your instances, you can also prepay for your compute resources with reserved capacity. With Azure Database for PostgreSQL reserved capacity, you make an upfront commitment on PostgreSQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.  For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concept-reserved-pricing).
+In addition to resizing your instances, you can also prepay for your compute resources with reserved capacity. With Azure Database for PostgreSQL reserved capacity, you make an upfront commitment on PostgreSQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.  For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/azure/postgresql/single-server/concept-reserved-pricing).

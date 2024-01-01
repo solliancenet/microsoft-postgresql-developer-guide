@@ -1,8 +1,6 @@
 ## Monitoring database operations
 
-Azure can be configured to monitor the Flexible server database as well.
-
->![Watch icon](media/watch.png "Watch") **Watch:** [Monitoring [7 of 16] | Azure Database for PostgreSQL Flexible Server - Beginners Series](https://www.youtube.com/watch?v=yQOnRNgly0M&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=7)
+Azure can be configured to monitor Azure Database for PostgreSQL Flexible Server instances and databases. This includes items such as metrics and logs.
 
 ### Azure Database for PostgreSQL Flexible Server overview
 
@@ -16,7 +14,7 @@ For more specific metrics, navigate to the **Monitoring** section. Select **Metr
 
 ![This image shows Metrics on the Monitoring tab in the Azure portal.](media/PostgreSQL-azure-portal-metrics.png "Monitoring tab in the Azure portal")
 
-![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Servers with built-in metrics](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-monitoring)
+![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Servers with built-in metrics](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring)
 
 ### Diagnostic settings
 
@@ -24,7 +22,7 @@ Diagnostic settings allow you to route platform logs and metrics continuously to
 
 ![This image shows how to graph metrics in the Azure portal Monitoring tab.](media/PostgreSQL-diagnostic-settings.png "Graphing metrics in the Azure portal")
 
-![Read more icon](media/read-more.png "Read more")  [Set up diagnostics](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-configure-audit#set-up-diagnostics)
+![Read more icon](media/read-more.png "Read more")  [Set up diagnostics](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit)
 
 ### Log Analytics
 
@@ -52,7 +50,7 @@ CPU, IOPS, and other common monitoring metrics are available. You can also acces
 
 ![This image shows QPI in the Azure portal.](media/query-performance-insight.png "Azure portal QPI configuration")
 
-In addition to the fundamental server monitoring aspects, Azure provides tools to monitor application query performance.  Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-query-performance-insights) to:
+In addition to the fundamental server monitoring aspects, Azure provides tools to monitor application query performance.  Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-query-performance-insight) to:
 
 - Analyze the longest-running queries and determine if it is possible to cache those items.
 - If they are deterministic within a set period, modify the queries to increase their performance.
@@ -63,7 +61,7 @@ In addition to the query performance insight tool, `Wait statistics` provides a 
 
 Finally, the `slow_query_log` can be set to show slow queries in the PostgreSQL log files (default is OFF). The `long_query_time` server parameter can be used to log long-running queries (default long query time is 10 sec).
 
-![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-workbooks)
+![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-workbooks)
 
 ### Resource health
 
@@ -93,13 +91,13 @@ You can also create alerts from the Metrics section.
 
 Once the alert has been configured, you can create an action group to send a notification to the operations team.
 
-![Read more icon](media/read-more.png "Read more")  [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-alert-on-metric)
+![Read more icon](media/read-more.png "Read more")  [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-alert-on-metrics)
 
 ### Server Logs
 
 By default, the server logs feature in Azure Database for PostgreSQL - Flexible Server is disabled. However, after you enable the feature, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts.
 
-For more information on how to enable and download the server logs, reference [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-server-logs-portal).
+For more information on how to enable and download the server logs, reference [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-server-logs-portal).
 
 ### Server Resource Logs
 
@@ -107,13 +105,13 @@ Server logs from Azure Database for PostgreSQL Flexible Server can also be extra
 
 In addition to Log Analytics, the data can also be routed to Event Hubs for third-party integrations and Azure storage for long-term backup.
 
-For more information on basic PostgreSQL logs, reference [Logs in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-logging).
+For more information on basic PostgreSQL logs, reference [Logs in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-logging).
 
 ### PostgreSQL audit logs (pgAudit)
 
 In addition to metrics, it is also possible to enable PostgreSQL logs to be ingested into Azure Monitor. While metrics are better suited for real-time decision-making, logs are also useful for deriving insights. One source of logs generated by Flexible Server is PostgreSQL audit logs, which indicate connections, DDL and DML operations, and more. Many businesses utilize audit logs to meet compliance requirements, but enabling audit logs can impact performance.
 
-PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is disabled](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit) in Azure Database for PostgreSQL Flexible Server by default.  Server level logging can be enabled by adding the `pgaudit` server extension and then modifiying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit).
+PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is disabled](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit) in Azure Database for PostgreSQL Flexible Server by default.  Server level logging can be enabled by adding the `pgaudit` server extension and then modifiying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit).
 
 Once enabled, logs can be accessed through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).  The following KQL query can be used to access `AUDIT:` based logs:
 
@@ -135,4 +133,4 @@ The Azure Advisor system uses telemetry to issue performance and reliability rec
 - **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, and connection limits. For more information, see Advisor Reliability recommendations.
 - **Cost**: To optimize and reduce your overall Azure spending. This includes server right-sizing recommendations. For more information, see Advisor Cost recommendations.
 
-For the latest information reference [Azure Advisor for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-azure-advisor-recommendations).
+For the latest information reference [Azure Advisor for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-advisor-recommendations).

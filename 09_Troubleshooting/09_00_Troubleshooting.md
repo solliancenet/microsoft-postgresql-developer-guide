@@ -33,7 +33,7 @@ Most on-premises applications that are migrated to cloud-based services will not
 
 SSL certificate best practice is to expire these certifcates on a set period.  If you have migrated your applications to use SSL, ensure that the certificate is valid.  You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
 
-For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-certificate-rotation).
+For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/azure/postgresql/single-server/concepts-certificate-rotation).
 
 #### Network access issues
 
@@ -66,9 +66,9 @@ There are several troubleshooting tools available for Azure Database for Postgre
 - Autovacuum Monitoring
 - Autovacuum Blockers
 
-For the latest information, reference [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-troubleshooting-guides).
+For the latest information, reference [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-troubleshooting-guides).
 
-Additionally, you can utilize the monitoring metrics to further investigate any resource related issues.  Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring) for more information.
+Additionally, you can utilize the monitoring metrics to further investigate any resource related issues.  Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) for more information.
 
 ### Unsupported PostgreSQL features
 
@@ -78,13 +78,13 @@ Operating in a cloud environment means that certain features that function on-pr
 
 - Direct file system access is not available to clients.
 
-Also reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-limits) for the latest information.
+Also reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits) for the latest information.
 
 ### Transient errors
 
 A best practice for designing and developing applications in the cloud is to expect transient errors. Assume they can happen in any component at any time and to have the appropriate logic in place to handle these situations.
 
-For more information, reference [Handling transient connectivity errors for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-connectivity).
+For more information, reference [Handling transient connectivity errors for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity).
 
 ### Platform issues
 

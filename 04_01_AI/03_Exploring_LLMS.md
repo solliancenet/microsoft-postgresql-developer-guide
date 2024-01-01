@@ -36,7 +36,7 @@ Azure OpenAI is Azure’s LLM service offering to help build GenAI applications 
 
 With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.
 
-Learn more about [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview).
+Learn more about [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview).
 
 ### GPT
 
@@ -99,7 +99,7 @@ Embeddings are central to representing complex, high-dimensional data in a form 
 Embedding models are designed to convert input into a numerical form, called an embedding.  Embeddings are numerical representations of the input.
 Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there is an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is OpenAI embeddings.
 
-PostgreSQL can gain the capabilities of [generating vector embeddings with Azure AI extension OpenAI integration](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-openai).
+PostgreSQL can gain the capabilities of [generating vector embeddings with Azure AI extension OpenAI integration](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-openai).
 
 ### Text + Code
 
@@ -211,6 +211,6 @@ Training an LLM from scratch is without a doubt the most difficult and the most 
 
 ### Deploying Language Models in Azure
 
-[Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) is the most common and practical way to gain access to various Large Language Models.
+[Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) is the most common and practical way to gain access to various Large Language Models.
 
-Azure OpenAI supports several models, however due to the ever changing landscape, these models are subject to change.  To see the latest models available, reference [Azure OpenAI Service models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models).
+Azure OpenAI supports several models, however due to the ever changing landscape, these models are subject to change.  To see the latest models available, reference [Azure OpenAI Service models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models).

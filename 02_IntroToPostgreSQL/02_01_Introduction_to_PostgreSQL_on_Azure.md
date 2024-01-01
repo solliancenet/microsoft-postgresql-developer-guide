@@ -20,7 +20,7 @@ The concepts Infrastructure as a Service (IaaS) and Platform as a Service (PaaS)
 
 ![This diagram shows the cloud adoption strategy.](media/cloud-adoption-strategies.png "Cloud adoption strategy")
 
-In addition to the below information, you can reference [Choose the right PostgreSQL server option in Azure](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview-postgres-choose-server-options) for the latest information.  This document outlines other considerations such as Total Cost of Ownership, Billing, Administration and migration time.
+In addition to the below information, you can reference [Choose the right PostgreSQL server option in Azure](https://learn.microsoft.com/azure/postgresql/flexible-server/overview-postgres-choose-server-options) for the latest information.  This document outlines other considerations such as Total Cost of Ownership, Billing, Administration and migration time.
 
 #### IaaS (VMs)
 
@@ -44,9 +44,9 @@ The service generally provides more flexibility and server configuration customi
 
 ![Alt text](media/overview-flexible-server.png)
 
-The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific set of supported features, you should reference the [latest documentation](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions).
+The Azure Database for PostgreSQL is available in most Azure regions, however, if you are looking for specific set of supported features, you should reference the [latest documentation](https://learn.microsoft.com/azure/postgresql/flexible-server/overview#azure-regions).
 
-Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage).
+Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage).
 
 #### PaaS (Containers)
 

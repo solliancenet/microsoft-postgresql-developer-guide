@@ -71,7 +71,7 @@ For more information on configuring Private Access for Flexible Server, referenc
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-cli)
 
-Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-pgbouncer) connection pooler. You can enable it and connect your applications to your database server via PgBouncer using the same hostname and port 6432.
+Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer) connection pooler. You can enable it and connect your applications to your database server via PgBouncer using the same hostname and port 6432.
 
 ## Networking best practices for Flexible Server
 

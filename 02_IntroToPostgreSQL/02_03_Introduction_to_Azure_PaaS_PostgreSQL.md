@@ -4,7 +4,7 @@ Developers can deploy PostgreSQL on Azure through Virtual Machines (IaaS) or Azu
 
 Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Editions 11 through 16, making it flexible for most cloud migrations.  With the latest performance changes in PostgreSQL 16, it makes a lot of sense to migrate any existing workloads to this latest version.
 
-For the latest version support and policy information, reference [Azure Database for PostgreSQL versioning policy](https://learn.microsoft.com/en-us/azure/postgresql/single-server/concepts-version-policy).
+For the latest version support and policy information, reference [Azure Database for PostgreSQL versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy).
 
 **Control Plane**
 As the image below demonstrates, Azure Resource Manager handles resource configuration, meaning that standard Azure management tools, such as the CLI, PowerShell, and ARM templates, are still applicable. This is commonly referred to as the *control plane*.

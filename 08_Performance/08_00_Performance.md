@@ -23,7 +23,7 @@ The following are some basic tips for how to increase or ensure the performance 
 
 As previously discussed in the monitoring section of this guide, monitoring metrics such as the `cpu_percent` or `memory_percent` can be important when deciding to upgrade the database tier. Consistently high values for extended periods of time could indicate a tier upgrade is necessary.
 
-If CPU and memory do not seem to be the issue, administrators can explore database-based options such as indexing and query modifications for poor-performing queries. In order to gain access to this data, you should follow the steps in the [Troubleshoot and identify slow-running queries in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-identify-slow-queries) documentation.
+If CPU and memory do not seem to be the issue, administrators can explore database-based options such as indexing and query modifications for poor-performing queries. In order to gain access to this data, you should follow the steps in the [Troubleshoot and identify slow-running queries in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-identify-slow-queries) documentation.
 
 Once enabled, you can utilize wither the QueryStore or AzureDiagnostics logs to find poor-performing queries. Please note that verbose logging tends to cause performance issues, especially if you log ALL statements or set `log_min_duration_statement` to 0. This impacts both the server performance and storage consumption. It is better to set the duration to something more managable such as `1000` or higher.  This implies that a query that takes longer than 1 second should be logged.
 
@@ -63,7 +63,7 @@ Within the tier, it is possible to scale cores and memory to the minimum and max
 
 You can also adjust the IOPS for better transactions per second (TPS) performance. You can use an [Azure CLI script](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale) to monitor relevant metrics and scale the server.
 
-For an example of scaling an instance, reference [Scale operations in Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-scale-compute-storage-portal).
+For an example of scaling an instance, reference [Scale operations in Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-scale-compute-storage-portal).
 
 ### Horizontal Scaling
 
@@ -75,7 +75,7 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 
 This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions* and there's no customer action required to use this capability.
 
-There are some situations where near-zero scaling may not work and the regular scaling operation would need to be taken.  See [Limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-scaling-resources#limitations).
+There are some situations where near-zero scaling may not work and the regular scaling operation would need to be taken.  See [Limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-scaling-resources#limitations).
 
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
 
@@ -105,7 +105,7 @@ However, be sure to review and make server parameter changes that are appropriat
 
 Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified. Verify the strategy before making environment assumptions.
 
-For an example of working with server parameters, reference [Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-configure-server-parameters-using-portal).
+For an example of working with server parameters, reference [Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-server-parameters-using-portal).
 
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
 
@@ -117,9 +117,9 @@ There are some issues to be aware of when utilizing in-place upgrades, some noti
 
 - Flexible Server uses `pg_upgrade` utility to perform in-place major version upgrades and provides the flexibility to skip versions and upgrade directly to higher versions.
 - The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved.
-- Review the [limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade#limitations)
+- Review the [limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-major-version-upgrade#limitations)
 
-For more information, review [Major Version Upgrade for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade) and [Major Version Upgrade of a Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-perform-major-version-upgrade-portal).
+For more information, review [Major Version Upgrade for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-major-version-upgrade) and [Major Version Upgrade of a Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-perform-major-version-upgrade-portal).
 
 ## Customizing the application container runtime
 

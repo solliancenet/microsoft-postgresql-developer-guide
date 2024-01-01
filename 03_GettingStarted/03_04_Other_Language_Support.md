@@ -4,7 +4,7 @@
 
 This wouldn't be a comprehensive guide without some mention of .NET.  You can utilize the popular framework called `Npgsql` from .NET applications to make calls to Azure Database for PostgreSQL instances.
 
-For an example, reference [Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/connect-csharp).
+For an example, reference [Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-csharp).
 
 #### Others
 
@@ -18,7 +18,7 @@ Once enabled, you can utilize basic Microsoft Entra flows to generate access tok
 
 There are some drawbacks to utilizing this approach.  One such drawback is the token will expire typically after about 60 minutes.  Unless you have a mechanism to re-try and get a new token, you may run into broken application flows.
 
-For more information, reference [Microsoft Entra authentication with PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-azure-ad-authentication).
+For more information, reference [Microsoft Entra authentication with PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-ad-authentication).
 
 #### Managed Service Identities (MSI)
 

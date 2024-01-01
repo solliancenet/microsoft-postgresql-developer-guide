@@ -215,7 +215,7 @@ foreach($server in $servers)
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
 }
 
-$ipAddress = (Invoke-WebRequest -uri "http://ifconfig.me/ip" -UseBasicParsing).Content 
+$ipAddress = (Invoke-WebRequest -uri "https://ifconfig.me/ip" -UseBasicParsing).Content 
 
 $resourceGroups = Get-AzResourceGroup
 $ResourceGroupName = $resourceGroups[0].ResourceGroupName

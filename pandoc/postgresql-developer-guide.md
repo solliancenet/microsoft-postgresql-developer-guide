@@ -909,7 +909,7 @@ context is already authenticated with Azure.
 Azure provides a [Quickstart document][25] with a basic ARM template for
 a Flexible Server deployment. We have also provided an ARM template to
 support the applications explored in this guide
-(https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json).
+(https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json).
 The Azure sample template requires additional parameters to run. It can
 be deployed with the `New-AzResourceGroupDeployment` PowerShell command
 in the Quickstart or the `az deployment group create` CLI command.
@@ -9816,20 +9816,20 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [*PostgreSQL2*]: https://github.com/brianmario/PostgreSQL2
   [This image explains the progression of topics in this chapter.]: media/end-to-end-deployment-chapter-steps.png
     "Chapter topics list"
-  [32]: https://github.com/Azure/azure-PostgreSQL/blob/master/DeveloperGuide/step-1-sample-apps/README.md
-  [33]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
+  [32]: https://github.com/azure/azure-postgresql/blob/master/DeveloperGuide/step-1-sample-apps/README.md
+  [33]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
   [Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
   [Azure Logic Apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
   [custom handlers.]: https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers
   [documentation]: https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp
   [Azure Functions hosting options]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-  [34]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet
-  [35]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python
+  [34]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet
+  [35]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python
   [Compare Azure Functions and Azure Logic Apps]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
-  [36]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
+  [36]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
   [Build microservices on Azure]: https://docs.microsoft.com/azure/architecture/microservices/
   [Using domain analysis to model microservices]: https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis
-  [37]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/sample-php-app-rest
+  [37]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/sample-php-app-rest
   [About API Management]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
   [Self-hosted gateway overview]: https://docs.microsoft.com/azure/api-management/self-hosted-gateway-overview
   [Azure Functions:]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer
@@ -9841,7 +9841,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Basic Azure deployment architecture"
   [This image shows the sample app site map.]: media/sample-app-site-map.png
     "Sample app site map"
-  [Sample application tutorial]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps
+  [Sample application tutorial]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps
   [38]: #classic-deployment
   [39]: #azure-vm-deployment
   [40]: #simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server
@@ -9861,24 +9861,24 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This image shows how to save the ARM template in the editor.]: media/save-the-template.png
     "Saving the ARM template in the Azure editor"
   [Tutorial: Deploy a local ARM template]: https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli
-  [Basic Template]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json
-  [Secure Template]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/secure-template/template-secure.json
-  [47]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
-  [48]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
-  [Continuous Integration / Continuous Delivery]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD
-  [49]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
-  [50]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
-  [51]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
-  [52]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
-  [53]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
-  [AKS]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-03-FunctionApp-AKS
-  [Secured with MSI]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-04-FunctionApp-MSI
-  [Azure Data Factory]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-01-AzureDataFactory
-  [Azure Synapse Analytics]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-02-AzureSynapseAnalytics
-  [Azure Batch]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch
+  [Basic Template]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json
+  [Secure Template]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/secure-template/template-secure.json
+  [47]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
+  [48]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
+  [Continuous Integration / Continuous Delivery]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD
+  [49]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
+  [50]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
+  [51]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
+  [52]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
+  [53]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
+  [AKS]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-03-FunctionApp-AKS
+  [Secured with MSI]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-04-FunctionApp-MSI
+  [Azure Data Factory]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-01-AzureDataFactory
+  [Azure Synapse Analytics]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-02-AzureSynapseAnalytics
+  [Azure Batch]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch
   [microservice]: https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures
   [Design patterns for microservices]: https://docs.microsoft.com/azure/architecture/microservices/design/patterns
-  [54]: https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
+  [54]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
   [YAML.]: yaml.org
   [Azure Boards:]: https://docs.microsoft.com/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops
   [processes.]: https://docs.microsoft.com/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=basic-process

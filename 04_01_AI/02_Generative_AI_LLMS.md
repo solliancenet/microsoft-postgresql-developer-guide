@@ -19,7 +19,7 @@ Generative AI has a wide range of applications across various domains and indust
 - Chatbots and Virtual Assistants:
   - Develop chatbots that can engage in natural context-aware conversations, for example, to implement self-help for customers.
 - Recommendation Systems:
-  - Improve recommendation algorithms by generating embeddings or representations of items or users.  See [Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-recommendation-system) for an example.
+  - Improve recommendation algorithms by generating embeddings or representations of items or users.  See [Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-recommendation-system) for an example.
 - Clustering and segmentation:
   - GenAI-generated embeddings allow clustering algorithms to cluster data so that similar data is grouped together. This enables scenarios such as customer segmentation, which allows advertisers to target their customers differently based on their attributes.
 - Content Generation:

@@ -85,7 +85,7 @@ To interact with the REST API, applications first need to obtain an authenticati
 
 ### Azure Database for PostgreSQL Release Notes
 
-Typically each month a new set of release notes are published for Flexible Server.  You can read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/release-notes) document.
+Typically each month a new set of release notes are published for Flexible Server.  You can read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes) document.
 
 For example, the November 2023 release had some very significant updates including:
 
