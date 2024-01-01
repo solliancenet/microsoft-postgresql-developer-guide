@@ -55,7 +55,20 @@ For more information, review [Understanding the changes in the Root CA change fo
 
 ### Resource issues
 
-If the application experiences transient connectivity issues, perhaps the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained. Monitor resource usage and determine whether the instance needs to be scaled up.
+If the application experiences transient connectivity issues, perhaps the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained. Monitor resource usage and determine whether the instance needs to be scaled up.  
+
+There are several troubleshooting tools available for Azure Database for PostgreSQL that focus on resource analysis. Some items that are coverd include:
+
+- High CPU Usage
+- High Memory Usage
+- High IOPS Usage
+- High Temporary Files
+- Autovacuum Monitoring
+- Autovacuum Blockers
+
+For the latest information, reference [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-troubleshooting-guides).
+
+Additionally, you can utilize the monitoring metrics to further investigate any resource related issues.  Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring) for more information.
 
 ### Unsupported PostgreSQL features
 
@@ -64,6 +77,8 @@ Operating in a cloud environment means that certain features that function on-pr
 - Azure Database for PostgreSQL Flexible Server does not support the PostgreSQL super user privilege. This may affect how some applications operate.
 
 - Direct file system access is not available to clients.
+
+Also reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-limits) for the latest information.
 
 ### Platform issues
 
