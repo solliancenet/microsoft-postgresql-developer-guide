@@ -28,7 +28,10 @@ Azure Database for PostgreSQL extension for Azure AI enables you to use large la
 
 Once enabled, you will need to setup the endpoint and key settings for the extension in order to utilize it in your queries.
 
-For more information, review [Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-overview).
+For more information, review the following:
+
+- [Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-overview).
+- [Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-integrate-azure-ai)
 
 ### Embedding performance
 

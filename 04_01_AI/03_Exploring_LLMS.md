@@ -76,8 +76,19 @@ LLMs can also be categorized by the output they generate.
 
 ### Embeddings
 
+Embeddings are a concept in machine learning and natural language processing (NLP) that involve representing objects, such as words, documents, or entities, as vectors in a multi-dimensional space. These vectors are often dense, meaning that they have a high number of dimensions, and they're learned through various techniques, including neural networks. Embeddings aim to capture semantic relationships and similarities between objects in a continuous vector space.
+
+Common types of embeddings include:
+
+- word: In NLP, word embeddings represent words as vectors. Each word is mapped to a vector in a high-dimensional space, where words with similar meanings or contexts are located closer to each other. Word2Vec and GloVe are popular word embedding techniques.
+- document: These represent documents as vectors. Doc2Vec is popularly used to create document embeddings.
+- image: Images can be represented as embeddings to capture visual features, allowing for tasks like object recognition.
+Embeddings are central to representing complex, high-dimensional data in a form easily processable by machine learning models. They can be trained on large datasets and then used as features for various tasks, and are used by LLMs.
+
 Embedding models are designed to convert input into a numerical form, called an embedding.  Embeddings are numerical representations of the input.
 Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there is an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is OpenAI embeddings.
+
+PostgreSQL can gain the capabilities of [generating vector embeddings with Azure AI extension OpenAI integration](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-openai).
 
 ### Text + Code
 
@@ -104,6 +115,16 @@ Semantic search is a search technique that uses the semantics, or meaning, of th
 Here is an example of a semantic search. Let's say you were looking to buy a car, you might search for 'my dream car', semantic search understands that you are not dreaming about a car, but rather you are looking to buy your ideal car. Semantic search understands your intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
 
 As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
+
+Building semantic search capability on your data using GenAI and Flexible Server involves the following steps:
+
+- Identify the search scenarios. Identify the data fields that will be involved in search.
+- For every data field involved in search, create a corresponding vector field of type embedding.
+- Generate embeddings for the data in the selected data fields and store the embeddings in the corresponding vector fields.
+- Generate the embedding for any given input search query.
+- Search for the vector data field and list the nearest neighbors.
+- Run the results through appropriate relevance, ranking and personalization models to produce the final ranking. In the absence of such models, rank the results in decreasing dot-product order.
+- Monitor the model, results quality, and business metrics such as CTR (click-through rate) and dwell time. Incorporate feedback mechanisms to debug and improve the search stack from data quality, data freshness and personalization to user experience.
 
 ## Vectors
 

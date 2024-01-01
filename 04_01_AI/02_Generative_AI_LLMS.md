@@ -10,6 +10,39 @@ GenAI algorithms tend to apply specific Machine Learning models.  Some examples 
 
 In the next few sections, we will explore how generative AI is used to unlock new scenarios in various industries and how we address the new challenges and limitations associated with its usage.
 
+## Scenarios
+
+Generative AI has a wide range of applications across various domains and industries including tech, healthcare, entertainment, finance, manufacturing and more. Here are some common tasks that can be accomplished with generative AI:
+
+- Semantic Search:
+  - GenAI enables semantic search on data rather than lexicographical search. The latter looks for exact matches to queries whereas semantic search finds content that satisfies the search query intent.
+- Chatbots and Virtual Assistants:
+  - Develop chatbots that can engage in natural context-aware conversations, for example, to implement self-help for customers.
+- Recommendation Systems:
+  - Improve recommendation algorithms by generating embeddings or representations of items or users.  See [Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-recommendation-system) for an example.
+- Clustering and segmentation:
+  - GenAI-generated embeddings allow clustering algorithms to cluster data so that similar data is grouped together. This enables scenarios such as customer segmentation, which allows advertisers to target their customers differently based on their attributes.
+- Content Generation:
+  - Text Generation: Generate human-like text for applications like chatbots, novel/ poetry creation, and natural language understanding.
+  - Image Generation: Create realistic images, artwork, or designs for graphics, entertainment, and advertising.
+  - Video Generation: Generate videos, animations, or video effects for film, gaming, and marketing.
+  - Music Generation
+- Translation:
+  - Translate text from one language to another.
+- Summarization:
+  - Summarize long articles or documents to extract key information.
+- Data Augmentation:
+  - Generate extra data samples to expand and improve training datasets for machine learning (ML) models.
+  - Create synthetic data for scenarios that are difficult or expensive to collect in the real world, such as medical imaging.
+- Drug Discovery:
+  - Generate molecular structures and predict potential drug candidates for pharmaceutical research.
+- Game Development:
+  - Create game content, including levels, characters, and textures.
+  - Generate realistic in-game environments and landscapes.
+- Data Denoising and Completion:
+  - Clean noisy data by generating clean data samples.
+  - Fill in missing or incomplete data in datasets.
+
 ## Tokens
 
 The latest AI works by taking text and converting it to numbers. Large language models (LLMs) such as OpenAI GPT are commonly referred to as Generative Pre-trained Transformer models.
