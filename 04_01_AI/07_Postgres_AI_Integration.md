@@ -16,15 +16,21 @@ Some key characteristics of vector databases:
 
 PostgreSQL can gain the capabilities of a vector database with the help of the `pgvector` extension.
 
-### pgvector
+### pgvector extension
 
-TODO
+The pgvector extension adds an open-source vector similarity search to PostgreSQL. By enabling the extension, you can utilize the various operators and functions on vector based data.
 
-### Azure extension
+For more information, review [How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).
 
-TODO
+### azure_ai extension
 
-### embedding performance
+Azure Database for PostgreSQL extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including Azure OpenAI and Azure Cognitive Services simplifying the development process allowing seamless integration into those services.
+
+Once enabled, you will need to setup the endpoint and key settings for the extension in order to utilize it in your queries.
+
+For more information, review [Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-overview).
+
+### Embedding performance
 
 TODO
 
