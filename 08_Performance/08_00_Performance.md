@@ -107,6 +107,16 @@ Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified
 
 Sometimes, just upgrading versions may be the solution to an issue. Flexible Server currenlty supports PostgreSQL versions 11 through 16. Migrating from on-premises PostgreSQL to PostgreSQL Flexible Server 16 delivers some major performance improvements.
 
+Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and don't require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration.
+
+There are some issues to be aware of when utilizing in-place upgrades, some notible ones include:
+
+- Flexible Server uses `pg_upgrade` utility to perform in-place major version upgrades and provides the flexibility to skip versions and upgrade directly to higher versions.
+- The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved.
+- Review the [limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade#limitations)
+
+For more information, review [Major Version Upgrade for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade).
+
 ## Customizing the application container runtime
 
 When using containers for your PostgreSQL and container based applications, the platform choice has a huge impact on your performance limits. In most cases, creating a custom application container (such as with PHP) can improve performance versus the out-of-the-box official platform containers.  It is important to determine if the effort of building a custom image will be worth the performance gain from the work.  Also, keep in mind recent versions of containers tend to perform better than older versions.

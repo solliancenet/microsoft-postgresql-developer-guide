@@ -130,3 +130,7 @@ An Azure Database for PostgreSQL server has default databases:
 Row level security (RLS) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles. Row level security is an additional filter you can apply to a PostgreSQL database table.
 
 In PostgreSQL it is possible for a user to be assigned the `BYPASSRLS` attribute by another `superuser`. With this permission, a user can bypass RLS for all tables in Postgres, as is `superuser`. That permission cannot be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL service.
+
+### Extensions
+
+TODO
