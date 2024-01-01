@@ -10,6 +10,10 @@ Azure Database for PostgreSQL Flexible Server offers various encryption features
 
 Data stored in the Azure Database for PostgreSQL Flexible Server instances are encrypted at rest by default. Any automated backups are also encrypted to prevent potential leakage of data to unauthorized parties. This encryption is typically performed with a key generated when the Azure Database for PostgreSQL Flexible Server instance is created.
 
+Encryption of these artifacts is done using a Microsoft managed key by default, however it is possible to use your own customer managed key. This can be accomplished by using Azure Key Vault and managed identities.  The key must be contiuously accessible or the server will go into an `inaccessible` state.
+
+Reference [Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-data-encryption) for the latest information.
+
 In addition to be encrypted at rest, data can be encrypted during transit using SSL/TLS. SSL/TLS is enabled by default. As previously discussed, it may be necessary to [modify the applications](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-ssl) to support this change and configure the appropriate TLS validation settings. It is possible to allow insecure connections for legacy applications or enforce a minimum TLS version for connections, **but this should be used sparingly and in highly network-protected environments**. Flexible Server's TLS enforcement status can be set through the `require_secure_transport` PostgreSQL server parameter. Consult the guides below.
 
 - [Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-connect-tls-ssl)
@@ -33,3 +37,9 @@ Data privacy has evolved into a organizational priority over the past few years.
 ### Security baselines
 
 In addition to all the topics discussed above, the Azure Database for PostgreSQL Flexible Server [security baseline](https://learn.microsoft.com/azure/postgresql/flexible-server/security-baseline) is a basic set of potential tasks that can be implemented on your Azure Database for PostgreSQL Flexible Server instances to further solidify your security posture.
+
+### Compliance
+
+To help customers achieve compliance with national/regional and industry specific regulations and requirements Azure Database for PostgreSQL - Flexible Server build upon Microsoft Azure’s compliance offerings to provide the most rigorous compliance certifications to customers at service general availability. To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific. Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments and customer guidance documents produced by Microsoft. More detailed information about Azure compliance offerings is available from the [Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+
+For a list of compliance certifications, reference [Security and Compliance Certifications in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compliance).

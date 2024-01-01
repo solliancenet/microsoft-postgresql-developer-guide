@@ -65,15 +65,33 @@ Another advantage of Premium SSD v2 is they come with 3000 IOPS and 125MB/s free
 
 The connectivity method cannot be changed after creating the server. For example, if you selected Private access (VNet Integration) during creation, then you cannot change it to Public access (allowed IP addresses) after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration.
 
-Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432. Notice that if you enable PgBouncer on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is that port that your IT department must open for outbound traffic.
+Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
+
+#### PgBouncer
+
+[PgBouncer](https://github.com/pgbouncer/pgbouncer) is a lightweight connection pooler for PostgreSQL that is included with Azure Database for PostgreSQL Flexible Server free of charge and enabled via the `pgbouncer.enabled` server parameter. The purpose of connection pooling is to make it efficient for applications to connect to Postgres instances.
+
+It tends to be costly to establish a database connection, taking around 1.5–14.5 MB per connection. If you have 100 open connections to the database, that will take a maximum of ~1.45GB of RAM just to maintain the connections. In addition to allowing more connections to your database, you can also use PgBouncer to:
+
+- Protect your instance from massive number of connections. In pgbouncer, you can set the maximum number of connections to the Postgres server. If an external system tries to open more connections than the maximum number of allowed connections, PgBouncer will reject the connection before reaching the upstream database server.
+
+> NOTE: PgBouncer is not used to speed up queries.  As you will read in later sections, Azure Database for PostgreSQL has other tools to help find and assist with improving query performance.
+
+For an example of real world PgBouncer usage, reference [Scaling the GitLab database](https://about.gitlab.com/blog/2017/10/02/scaling-the-gitlab-database/).
+
+For the latest on PgBouncer and Azure Database for PostgreSQL support, reference [PgBouncer in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-pgbouncer).
+
+#### Troubleshooting
 
 When attempting to connect to the instance, if the connection failed, try these simple solutions:
 
-- Check if port 5432 is accessible.
+- Check if port 5432/6432 is accessible.
 - If your server administrator user name and password are correct.
 - If you have configured firewall rule for your client machine.
 - If you have configured firewall rule for the server instance.
 - If you've configured your server with private access in virtual networking, make sure - your client machine is in the same virtual network.
+
+Note that if you enable PgBouncer on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is port 6432 that your IT department must open for outbound traffic.
 
 Because Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the files is automatically updated based on the network settings.
 
@@ -110,7 +128,7 @@ For example, with `psql`, your connection string will look something like the fo
 psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres --set=sslmode=require --set=sslrootcert=DigiCertGlobalRootCA.crt.pem
 ```
 
-Notice the two additional command line switches that enable SSL and tell the tool where the certificate resides.
+Notice the two additional command line switches (`sslmode` and `sslrootcert`) that enable SSL and tell the tool where the certificate resides.
 
 You can read more about TLS and SSL by referencing [Secure connectivity with TLS and SSL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-ssl-tls).
 
@@ -133,4 +151,8 @@ In PostgreSQL it is possible for a user to be assigned the `BYPASSRLS` attribute
 
 ### Extensions
 
-TODO
+Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions).
+
+### Limitations
+
+As you read above, not all PostgreSQL features are available in Azure Database for PostgreSQL.  To read more about these limitations, reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-limits).

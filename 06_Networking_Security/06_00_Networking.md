@@ -26,10 +26,6 @@ Firewall rules are set at the server level, meaning that they govern network acc
   - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using the Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-firewall-portal)
   - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-firewall-cli)
   - [ARM Reference for Firewall Rules](https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json)
-- Single Server
-  - [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by using the Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-portal)
-  - [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by using the Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-cli)
-  - [ARM Reference for Firewall Rules](https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/servers/firewallrules?tabs=json)
 
 ### Private Access
 
@@ -60,7 +56,7 @@ For more information on Virtual Networks, reference the following:
   - [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli)
   - [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template)
 
-### Flexible Server
+### Flexible Server VNet Integration
 
 Flexible Server supports deployment into a virtual network for secure access. When enabling virtual network integration, the target virtual network subnet must be *delegated*, meaning that it can only contain Flexible Server instances. Because Flexible Server is deployed in a subnet, it will receive a private IP address. To resolve the DNS names of Azure Database for PostgreSQL Flexible Server instances, the virtual networks are integrated with a private DNS zone to support domain name resolution for the Flexible Server instances.
 
