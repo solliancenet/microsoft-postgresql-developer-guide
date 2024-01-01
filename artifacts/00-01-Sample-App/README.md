@@ -16,20 +16,13 @@ Instead of learning multiple sample applications, the guide focused on evolving 
 
 As part of this guide, there are environment automation setup scripts provided that will build and configure much of the environment needed for the sample application. It is important to understand the basic Azure **concepts** before running the automated scripts. Walking through each step will help provide additional context and learning opportunities. The scripts will create an environment in a few minutes rather than requiring to walk through lengthy setup exercises.
 
->![Note icon](media/note.png "Note") **Note:** The sample application was tested with PHP version 7.4 and 8.0. Deploying to an 8.x environment requires a slightly different configuration as the underlying web server has changed.
-
-| PHP Version | Web Server |
-|-------------|----------------|
-| 7.4         | Apache         |
-| 8.0         | Nginx          |
-
-The Azure App Service uses this [Docker image](https://github.com/Azure-App-Service/nginx-fpm) for its 8.0 container builds.
+The Azure App Service uses this [Docker image](https://github.com/Azure-App-Service/nginx-fpm) for its 8.x container builds.
 
 >![Warning](media/warning.png "Warning") **Warning**: Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful. Older Azure App Service Docker images can be found [here](https://github.com/Azure-App-Service/php).
 
 ### Sample application deployment steps
 
-**Deploying to PHP 8.0**
+**Deploying to PHP 8.x**
 
 The deployment strategy applied in this sample application focuses on updating project environment variables instead of global environment variable configuration.
 
@@ -46,7 +39,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
       ![Web app + database search result.](media/microsoft-web-app-database-marketplace.png)
 
-3. Create a web application and database.
+4. Create a web application and database.
 
     ![Create web app database.](media/create-web-app-database.png "Create Web App + Database")
 
@@ -58,11 +51,11 @@ The deployment strategy applied in this sample application focuses on updating p
 
    - Create a unique web app name.
 
-   - Select the runtime stack.  The web app is only tested with PHP 8.0.
+   - Select the runtime stack.  The web app is only tested with PHP 8.x.
 
    - Create the resources.
 
-4. After the resources have been deployed, locate the App Service in the Resource Group.
+5. After the resources have been deployed, locate the App Service in the Resource Group.
   
    - Select the **Deployment Center** and capture the configuration settings.
 
@@ -82,13 +75,13 @@ The deployment strategy applied in this sample application focuses on updating p
   
       ![Local Git URL example](media/local-git-url.png)
 
-   - Capture the Application Scope user and password to be used later. Make sure to capture only the user name.
+   - On the **Local Git/FTPS credentials**, capture the Application Scope local Git username and password to be used later. Make sure to capture only the user name.
 
-     ![Application Scope user and password](media/application-scope-user-password.png)
+     ![Application Scope local Git username and password](media/application-scope-user-password.png)
 
-5. Clone the sample **ContosoNoshNow** application to the local development machine from the Microsoft Git repository:
+6. Clone the sample **ContosoNoshNow** application to the local development machine from the Microsoft Git repository:
 
-TODO: Get the MS repo.
+   TODO: Get the MS repo.
 
    - Open the command prompt or terminal on the development machine.
 
@@ -99,9 +92,9 @@ TODO: Get the MS repo.
       git remote -v
       git push azure master
       ```
-  
+
    - When pushing content to the Azure App Service, the systems will prompt for the Local Git credentials. Enter the Application Scope credentials.
-  
+
       ![Git Credential Manager](media/git-credential-manager-for-windows.png)
 
       If you make a mistake entering the credentials, you will have to open Credential Manager to update the credentials.
@@ -110,45 +103,46 @@ TODO: Get the MS repo.
 
       ![Azure local git push example.](media/azure-local-git-push.png)
 
-5. Return to the Azure Portal. Navigate to the App Service. Find the **Deployment Tools** section. Log into App Service SSH terminal.
+7. Return to the Azure Portal. Navigate to the App Service. Find the **Development Tools** section. Log into App Service SSH terminal.
 
    ![This image shows how to access the App Service SSH prompt from the Azure portal.](media/ssh_terminal.png "Accessing the App Service SSH prompt")
 
-6. Verify the sample application files have been copied into the wwwroot directory.
+8. Verify the sample application files have been copied into the wwwroot directory.
 
    ```bash
    cd /home/site/wwwroot
    ls -la
    ```
 
-7. Run the Composer update command in the wwwroot directory, which will import the packages and create the vendor folder, along with the autoload script (../vendor/autoload.php).
+9. Run the Composer update command in the wwwroot directory, which will import the packages and create the vendor folder, along with the autoload script (../vendor/autoload.php).
 
     ```bash
     cp /home/site/repository/.env.example.azure /home/site/wwwroot/.env
+    curl -sS https://getcomposer.org/installer | php
     composer.phar update
     ```
   
-8. Generate Laravel application key. This command will update the **.env** file.
+10. Generate Laravel application key. This command will update the **.env** file.
   
     ```bash
     php artisan key:generate
     ```
 
-9. Update the **APP_URL** parameter in the .env file with the Azure App Service URL and save the changes.
-
-   ```bash
-    nano /home/site/wwwroot/.env
-   ```
-
-    ![Update APP_URL value](media/update-app-url-env.png)
-
-10. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true.  Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. So we need to save your own Nginx configure file under /home path.
+11. Update the **APP_URL** parameter in the .env file with the Azure App Service URL and save the changes.
 
       ```bash
-      cp /etc/nginx/sites-enabled/default /home/default
+      nano /home/site/wwwroot/.env
       ```
 
-11. Update the Nginx home default.
+      ![Update APP_URL value](media/update-app-url-env.png)
+
+12. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true.  Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. So we need to save your own Nginx configure file under /home path.
+
+    ```bash
+    cp /etc/nginx/sites-enabled/default /home/default
+    ```
+
+13. Update the Nginx home default.
 
       ```bash
       nano /home/default
@@ -160,13 +154,13 @@ TODO: Get the MS repo.
   
       ![This image shows the needed modifications to the /home/default file.](media/nginx-home-default-update.png "Modifications to the /home/default file")
 
-12. Restart the service.
+14. Restart the service.
 
       ```bash
       service nginx restart
       ```
 
-13. Your configuration needs to survive an App Service restart. Update the App Service Startup Command.
+15. Your configuration needs to survive an App Service restart. Update the App Service Startup Command.
 
        - Navigate to the **Settings** section.
        - Select **Configuration**.
@@ -179,7 +173,7 @@ TODO: Get the MS repo.
 
       ![This image shows how to configure the App Service startup command in the Azure portal.](media/general-settings-startup-command.png "App Service startup command")
 
-14. Open a browser and view the application.
+16. Open a browser and view the application.
 
     ![ContosoNoshNow home page](media/ContosoNoshNow-home-page.png)
 
@@ -189,38 +183,20 @@ TODO: Get the MS repo.
 
 The application should now be available and show some sample data, however the web application is not reading or writing to the database. Let's go through the steps to configure the database configuration information.
 
-1. Capture the database connection information. Open the Azure CLI Cloud Shell and run this command.
+1. In the Azure Portal, navigate to the App Service and select **Configuration** from the left menu.
 
-   ```cmd
-   az webapp deployment list-publishing-profiles --resource-group <resource group name> --name <app service name>
-   ```
+2. Beneath the Application settings heading, locate the `AZURE_POSTGRESQL-CONNECTIONSTRING` setting. Select the **Edit** button at the end of the row.
 
-2. Capture the following connection values:
-   - Host/Server
-   - User ID
-   - Password
+   ![The App Service configuration application settings display with the edit button highlighted.](media/edit_connection_string_config_setting.png "Connection string setting")
+
+3. In the Add/Edit application setting blade, extract the following details:
+
+   - host
+   - dbname
+   - user
+   - password
   
    >![Note icon](media/note.png "Note") **Note:** For production environments, values will be retrieved from Azure Key Vault.
-
-3. Using the Azure Portal, navigate to the Flexible Server in the resource group and create the `contosonoshnow` database.  
-
-   ![This image shows how to create the contosonoshnow database in the new Flexible Server instance.](media/create-contosonoshnow-database.png "Creating the contosonoshnow database")
-
-   >![Note icon](media/note.png "Note") **Note:** It is possible to execute alternative commands in the App Service SSL terminal to create the database. See the alternative commands below.
-
-   Alternative commands:
-
-   ```bash
-   PostgreSQL --host=<hostname>-server.postgres.database.azure.com --user=<user name> --password=<password> --ssl=true
-   ```
-
-   ```sql
-   CREATE DATABASE contosonoshnow
-   ```
-
-   ```bash
-   exit
-   ```
 
 4. With the database connection information in hand, open the App Service SSH console and configure the **.env** project file.
 
@@ -228,7 +204,7 @@ The application should now be available and show some sample data, however the w
    nano /home/site/wwwroot/.env
    ```
 
-   ![Configure the database environment variables.](media/update-PostgreSQL-connection-info.png)
+   ![Configure the database environment variables.](media/update-postgresql-connection-info.png)
 
    Update the following environment variables:
    - DB_HOST
@@ -236,7 +212,7 @@ The application should now be available and show some sample data, however the w
    - DB_USERNAME
    - DB_PASSWORD
   
-5. Run the `php artisan migrate` command to create the tables in the contosonoshnow database.
+5. Run the `php artisan migrate` command to create the tables in the contosonoshnow database. Note: Ensure you are in the `/home/site/wwwroot` directory when executing this command.
 
    ```bash
    php artisan migrate
@@ -250,17 +226,9 @@ The application should now be available and show some sample data, however the w
    php artisan db:seed
    ```
 
-   ![Seeded database.](media/seeded-database.png)
-
-   - Using pgAdmin, verify the tables have the seed data.
-
-7. Navigate back to the web app and enter a sample order.
+7. Navigate back to the web app and enter a sample order. Notice the red bar at the bottom of the page is gone. The application is now reading and writing to the database.
 
    ![This image shows how to create a sample order from the Laravel app.](media/sample-order.png "Creating a sample order from the Laravel app")
-
-8. Using pgAdmin, verify the order was saved to the Flexible Server database.
-
-   ![This image shows the output of a SQL query that demonstrates the new order.](media/verify-order-data.png "New order in SQL query results")
 
 ### What happens to my app during an Azure deployment?
 

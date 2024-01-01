@@ -34,10 +34,10 @@ In this section, we'll create a new database named `inventory` on the Flexible S
 
 In this section, we'll use the `az postgres flexible-server execute` command to create a table named `products` in the `inventory` database.
 
-1. In the cloud shell, run the following command to create the `products` table in the `inventory` database. Replace the `<resource-group>` and `<server-name>` placeholders with your values.
+1. In the cloud shell, run the following command to create the `products` table in the `inventory` database. Replace the `<server-name>`, `<username>`, and `<password>` placeholders with your values.
 
     ```bash
-    az postgres flexible-server execute -g <resource-group> -s <server-name> -d inventory -q "CREATE TABLE products (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);"
+    az postgres flexible-server execute -n <server-name> -u <username> -p <password> -d inventory -q "CREATE TABLE products (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);"
     ```
 
     ![The Azure CLI displays the command to create a new table.](media/az-postgres-flexible-server-create-table.png "Azure CLI create table")
