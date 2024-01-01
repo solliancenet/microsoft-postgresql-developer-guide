@@ -14,6 +14,7 @@ Thanks for downloading and reading this Azure Database for PostgreSQL Flexible S
 
 - [What's new in Flexible Server?](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes)
 - [Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/bg-p/ADforPostgreSQL)
+- [Azure PostgreSQL Feature Requests](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)
 
 ### Follow Azure Database for PostgreSQL Flexible Server on social platforms
 
