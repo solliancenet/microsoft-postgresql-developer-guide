@@ -11,7 +11,7 @@ Developers can deploy PostgreSQL-backed apps to Azure on a Windows or Linux envi
 - [App Service overview](https://learn.microsoft.com/azure/app-service/overview)
 - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal)
 - [Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?tabs=clone)
-- [Deploying to App Services](../artifacts/00-01-Sample-App/README.md)
+- [Deploying to App Services](https://github.com/azure/azure-postgresql/blob/master/DeveloperGuide/step-1-sample-apps/README.md)
   
 ### Serverless Compute
 
@@ -30,8 +30,8 @@ For long-running, stateful serverless architectures, such as when human interven
 - [Introduction to Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
 - [Azure Functions hosting options](https://learn.microsoft.com/azure/azure-functions/functions-scale)
 - Azure Functions with PostgreSQL Flexible Server samples:
-  - .NET: [Azure Function with PostgreSQL (.NET)](../artifacts/06-01-FunctionApp-DotNet/README.md)
-  - Python: [Azure Function with PostgreSQL (Python)](../artifacts/06-02-FunctionApp-Python/README.md)
+  - .NET: [Azure Function with PostgreSQL (.NET)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet)
+  - Python: [Azure Function with PostgreSQL (Python)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python)
 
 ### Azure Logic Apps
 
@@ -43,7 +43,7 @@ Azure Logic Apps interface with external systems through *managed connectors*. M
 
 - [What is a Azure Logic App?](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Compare Azure Functions and Azure Logic Apps](https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps)
-- [Logic Apps with PostgreSQL](../artifacts/06-05-LogicApp/README.md)
+- [Logic Apps with PostgreSQL](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp)
 
 ### Microservices
 
@@ -57,7 +57,7 @@ On Azure, organizations often deploy microservices to Azure Kubernetes Service t
 
 - [Build microservices on Azure](https://learn.microsoft.com/azure/architecture/microservices/)
 - [Using domain analysis to model microservices](https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis)
-- [Deploying a Laravel app backed by a Java REST API to AKS](../artifacts/00-02-Sample-App-01-Java-REST/04_02_Deploy_Laravel_API_app.md)
+- [Deploying a Laravel app backed by a Java REST API to AKS](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest)
 
 ### API Management
 

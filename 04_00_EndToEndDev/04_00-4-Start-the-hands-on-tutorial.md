@@ -40,14 +40,14 @@ Below are two methods of deploying an ARM template:
 
 Another option for deploying infrastructure using a template is to use Azure CLI or PowerShell.  Here is a tutorial guide:
 
-[Tutorial: Deploy a local ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli)
+[Tutorial: Deploy a local ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli)
 
 #### Step 1 - Build the development environment - deploy one of the templates below
 
 This is an optional step if you have your development environment already set up. You will need to install the basic Azure development packages.
 
-- [Basic Template](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
-- [Secure Template](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/secure-template/template-secure.json)
+- [Basic Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
+- [Secure Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template-secure.json)
 
 #### Step 2 - Explore the development environment
 
@@ -90,7 +90,7 @@ Additionally, some applications are more than just a web application with a data
 
 It is recommended that each of the above scenarios is executed in the order shown so that a full picture of the steps involved in the development evolution is understood.  This will also ensure the necessary pre-requisite Azure services and resources are available for the reader to progress to the more complex deployment examples.
 
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
   - [Dotnet](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet)
   - [Python](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python)
   - [AKS](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-03-FunctionApp-AKS)
@@ -102,7 +102,7 @@ It is recommended that each of the above scenarios is executed in the order show
 
 ### Sample Application evolution
 
-The Sample Application is written as a two-tier application.  This architecture is great for a proof of concept or an application that has limited performance needs. Scaling this type of application is difficult and costly. Developers should consider separating their application's business logic and data concerns into a [microservice](https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures) layer. For more information on design patterns, review: [Design patterns for microservices](https://docs.microsoft.com/azure/architecture/microservices/design/patterns).
+The Sample Application is written as a two-tier application.  This architecture is great for a proof of concept or an application that has limited performance needs. Scaling this type of application is difficult and costly. Developers should consider separating their application's business logic and data concerns into a [microservice](https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures) layer. For more information on design patterns, review: [Design patterns for microservices](https://learn.microsoft.com/azure/architecture/microservices/design/patterns).
 
 After reviewing the need for microservice architecture and the typical design patterns, you can see how the Sample Application architecture changed when it utilizes a Java REST microservice architecture.
 
