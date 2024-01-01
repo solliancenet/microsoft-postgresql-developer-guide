@@ -75,6 +75,27 @@ When attempting to connect to the instance, if the connection failed, try these 
 - If you have configured firewall rule for the server instance.
 - If you've configured your server with private access in virtual networking, make sure - your client machine is in the same virtual network.
 
+Because Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the files is automatically updated based on the network settings.
+
+For more information, review:
+
+- [Networking overview for Azure Database for PostgreSQL - Flexible Server with public access (allowed IP addresses)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-public)
+- [Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-private)
+- [Azure Database for PostgreSQL Flexible Server Networking with Private Link - Preview](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-private-link)
+
+We explore working with VNET Integration in the `06-05-LogicApp` developer lab.  This lab will setup an Azure Gateway in a Virtual Machine to allow a cloud-based Logic App access to a private network Azure Database for PostgreSQL instance.
+
+### Firewall Rules
+
+With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level firewall rules. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With private access no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL - Flexible Server.
+
+There are some limitations to firewall rules, reference [Troubleshoot firewall problems](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-firewall-rules#troubleshoot-firewall-problems) for the latest information.  The two most important items to note:
+
+- Firewall doesn't support allowing dynamic IP addresses : This can occur when your ISP cycles your public IP address for you client(s).
+- Firewall rules aren't available for IPv6 format: The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, you'll get a validation error.
+
+When connecting from other Azure services, it is likely you will not be away of the IP addresses these services use.  You can utilize the **Allow public access from any Azure service within Azure to this server** option.  However, this option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you're using this option, make sure your sign-in and user permissions limit access to only authorized users.
+
 ### SSL
 
 Once you have an Azure Database for PostgreSQL instance created, you will want to connect to it.  The next few sections will show you how to connect from various languages.  All of them will have the option to connect with or without SSL.
@@ -103,3 +124,9 @@ An Azure Database for PostgreSQL server has default databases:
 
 - postgres - A default database you can connect to once your server is created.
 - azure_maintenance - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.
+
+### Row-Level Security
+
+Row level security (RLS) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles. Row level security is an additional filter you can apply to a PostgreSQL database table.
+
+In PostgreSQL it is possible for a user to be assigned the `BYPASSRLS` attribute by another `superuser`. With this permission, a user can bypass RLS for all tables in Postgres, as is `superuser`. That permission cannot be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL service.

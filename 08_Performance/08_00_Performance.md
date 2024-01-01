@@ -67,6 +67,14 @@ You can also adjust the IOPS for better transactions per second (TPS) performanc
 
 You scale horizontally by creating read replicas. Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
 
+### Near-zero downtime scaling
+
+When updating your Flexible server in scaling scenarios, we create a new copy of your server (VM) with the updated configuration, synchronize it with your current one, briefly switch to the new copy with a 30-second interruption, and retire the old server, all at no extra cost to you.
+
+This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions* and there's no customer action required to use this capability.
+
+There are some situations where near-zero scaling may not work and the regular scaling operation would need to be taken.  See [Limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-scaling-resources#limitations).
+
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
 
 An Azure Database for PostgreSQL Flexible Server performance best practice is to allocate enough RAM so that your working set resides almost completely in memory. Check if the memory percentage used is reaching the limits.
@@ -77,13 +85,11 @@ For information on monitoring a DB instance's metrics, see [PostgreSQL DB Metric
 
 ## Moving regions
 
+TODO - move to new style
+
 It is possible to move a geo-redundant Flexible Server instance to a [paired Azure region](https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure) through geo-restore. Geo-restore creates a new Flexible Server instance in the paired Azure region based on the current state of the database.
 
->![Note icon](media/note.png "Note") **Note:** Point-in-time restore is not supported.
-
-Geo-restore can be used to recover from a service outage in the primary region. However, the Flexible Server instance created in the paired region can only be configured with locally redundant storage, as its paired region (the old primary region) is down.
-
-To minimize downtime, Flexible Server configuration settings can be kept intact.
+Geo-restore can be used to recover from a service outage in the primary region.
 
 ## Server parameters
 
