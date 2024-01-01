@@ -110,12 +110,24 @@ For more information, reference [Handling transient connectivity errors for Azur
   
   - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
 
+- If your instance loses access to the Azure Key Vault with a customer managed key, you may get a `UserErrorMissingPermissionsOnSecretStore` error.  Ensure that the managed identity is added with permission to the key vault.
+
+- **SQL Errors** : Ensure that you are running your SQL queries against a supported PostgreSQL version.
+
+- **Connection Errors** : Ensure that the database name case-sensitivity is set correctly.
+
+- **Vacuum taking too long** : Ensure that you have the proper compute tier to support the vacuum options.
+
 ## Troubleshoot app issues in Azure App Service
 
 - **Enable web logging.** Azure provides built-in diagnostics to assist with [debugging an App Service app](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
 - Network requests taking a long time? [Troubleshoot slow app performance issues in Azure App Service](https://learn.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
 - In Azure App Service, certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when configuring the app settings.
 [Environment variables and app settings in Azure App Service](https://learn.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet)
+
+- **HTTP vs HTTPS** Ensure that you are using the right http endpoint (`http` vs `https`).
+
+- **Missing application configuration values** : Ensure that you have set all configuration values in the App Service or Azure Key Vault.
 
 - [Azure App Service on Linux FAQ](https://learn.microsoft.com/azure/app-service/faq-app-service-linux)
 
