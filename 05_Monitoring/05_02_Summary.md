@@ -18,13 +18,11 @@ With cloud-based systems, being proactive is a better strategy then being reacti
 
 - [Best practices for alerting on metrics with Azure Database for PostgreSQL Flexible Server monitoring](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-PostgreSQL-monitoring/)
 
-- [Configure audit logs (Azure portal)](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-configure-audit)
+- [Configure audit logs (Azure portal)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit)
 
 - [Azure Monitor best practices](https://docs.microsoft.com/azure/azure-monitor/best-practices)
 
 - [Cloud monitoring guide: Collect the right data](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/data-collection)
-
-- [Configure and access audit logs in the Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-audit-logs-cli)
 
 - [Write your first query with Kusto Query Language (Microsoft Learn)](https://docs.microsoft.com/learn/modules/write-first-query-kusto-query-language/)
 
@@ -39,5 +37,4 @@ With cloud-based systems, being proactive is a better strategy then being reacti
 - [SQL Kusto cheat sheet](https://docs.microsoft.com/azure/data-explorer/kusto/query/sqlcheatsheet)
 - [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
-- [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and Management (PMM)](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/monitor-azure-database-for-PostgreSQL-using-percona-monito
-ring-and/ba-p/2568545)
+- [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and Management (PMM)](https://docs.percona.com/percona-operator-for-postgresql/2.0/index.html)

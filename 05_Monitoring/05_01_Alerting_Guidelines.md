@@ -37,7 +37,7 @@ Metric alerts assess metric time-series according to defined conditions and take
 
 - **Alert processing rules** is a *preview* feature that filters alerts as they are generated to modify the actions taken in response to that alert (i.e. by disabling action groups)
 
-Refer to [Microsoft's tutorial](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-alert-on-metric) explaining the configuration of a metric alert for a Flexible Server instance.
+Refer to [Microsoft's tutorial](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-alert-on-metrics) explaining the configuration of a metric alert for a Flexible Server instance.
 
 ### Best Practices with Alerting Metrics
 
@@ -47,7 +47,7 @@ Here are some scenarios of how aggregating metrics over time generates insights.
   - This may indicate incorrect credentials or an SSL issue in the application
 
 - If IOPS is **90%** or more of capacity (average of `io_consumption_percent` in Flexible Server) for at least **1** hour, then call a webhook
-  - Excessive IO usage affects the performance of transactional workloads, so [scale storage to increase IOPS capacity or provision additional IOPS](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-compute-storage)
+  - Excessive IO usage affects the performance of transactional workloads, so [scale storage to increase IOPS capacity or provision additional IOPS](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage)
   - See the linked CLI examples for automatic scaling based on metrics
 
 ### Webhooks
@@ -61,13 +61,12 @@ Webhook action groups send POST requests to configured webhook endpoints. Action
 Azure CLI provides the `az monitor` series of commands to manipulate action groups (`az monitor action-group`), alert rules and metrics (`az monitor metrics`), and more.
 
 - [Azure CLI reference commands for Azure Monitor](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-monitor)
-- [Monitor and scale an Azure Database for PostgreSQL Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale)
 
 #### Azure Portal
 
 While the Azure Portal does not provide automation capabilities like the CLI or the REST API, it does support configurable dashboards and provides a strong introduction to monitoring metrics in PostgreSQL.
 
-- [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-alert-on-metric)
+- [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-alert-on-metrics)
 - [Tutorial: Analyze metrics for an Azure resource](https://docs.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics)
 
 #### Azure Monitor REST API

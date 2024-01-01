@@ -104,7 +104,7 @@ The following resources are helpful for exploring various approaches to using th
 
 - [Prometheus Overview](https://prometheus.io/docs/introduction/overview)
 
-- [What is Grafana OSS](https://grafana.com/docs/grafana/latest/introduction/oss-details/)
+- [What is Grafana](https://grafana.com/docs/grafana/latest/fundamentals/)
 
 - [Store Prometheus Metrics with Thanos, Azure Storage and Azure Kubernetes Service (AKS)](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/store-prometheus-metrics-with-thanos-azure-storage-and-azure/ba-p/3067849)
 
