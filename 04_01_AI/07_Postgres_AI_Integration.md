@@ -22,6 +22,8 @@ The pgvector extension adds an open-source vector similarity search to PostgreSQ
 
 For more information, review [How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).
 
+> NOTE: Although there are other embedding extensions (such as `pg_embedding`) available for PostgreSQL, only the `pgvector` extension is currently available for Azure Database for PostgreSQL Flexible Server.
+
 ### azure_ai extension
 
 Azure Database for PostgreSQL extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including Azure OpenAI and Azure Cognitive Services simplifying the development process allowing seamless integration into those services.
@@ -35,7 +37,9 @@ For more information, review the following:
 
 ### Embedding performance
 
-TODO
+If you co-locate your database instance in the same region as your Azure Open AI instance, you can gain some performance enhancements versus making the same calls over the internet or private networks.
+
+If you will be performing a lot of vector embedding operations, ensure you resources are located as close as possible to each other.
 
 ### Other vector databases
 

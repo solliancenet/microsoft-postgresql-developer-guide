@@ -209,10 +209,8 @@ Fine-tuning is a process that leverages transfer learning to adapt the model to 
 
 Training an LLM from scratch is without a doubt the most difficult and the most complex approach to adopt, requiring massive amounts of data, skilled resources, and appropriate computational power. This option should be considered only in a scenario where a business has a domain-specific use case and a large amount of domain-centric data.
 
-# References - DELETE 
-
-https://realpython.com/chromadb-vector-database/
-
 ### Deploying Language Models in Azure
 
-TODO
+[Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) is the most common and practical way to gain access to various Large Language Models.
+
+Azure OpenAI supports several models, however due to the ever changing landscape, these models are subject to change.  To see the latest models available, reference [Azure OpenAI Service models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models).

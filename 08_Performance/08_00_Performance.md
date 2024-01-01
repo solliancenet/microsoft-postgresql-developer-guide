@@ -105,6 +105,8 @@ However, be sure to review and make server parameter changes that are appropriat
 
 Some Azure Database for PostgreSQL Flexible Server parameters cannot be modified. Verify the strategy before making environment assumptions.
 
+For an example of working with server parameters, reference [Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-configure-server-parameters-using-portal).
+
 ## Upgrade Azure Database for PostgreSQL Flexible Server versions
 
 Sometimes, just upgrading versions may be the solution to an issue. Flexible Server currenlty supports PostgreSQL versions 11 through 16. Migrating from on-premises PostgreSQL to PostgreSQL Flexible Server 16 delivers some major performance improvements.
@@ -117,7 +119,7 @@ There are some issues to be aware of when utilizing in-place upgrades, some noti
 - The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved.
 - Review the [limitations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade#limitations)
 
-For more information, review [Major Version Upgrade for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade).
+For more information, review [Major Version Upgrade for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-major-version-upgrade) and [Major Version Upgrade of a Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-perform-major-version-upgrade-portal).
 
 ## Customizing the application container runtime
 
