@@ -22,7 +22,7 @@ Diagnostic settings allow you to route platform logs and metrics continuously to
 
 ![This image shows how to graph metrics in the Azure portal Monitoring tab.](media/PostgreSQL-diagnostic-settings.png "Graphing metrics in the Azure portal")
 
-![Read more icon](media/read-more.png "Read more")  [Set up diagnostics](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit)
+![Read more icon](media/read-more.png "Read more")  [Set up diagnostics](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit)
 
 ### Log Analytics
 
@@ -50,7 +50,7 @@ CPU, IOPS, and other common monitoring metrics are available. You can also acces
 
 ![This image shows QPI in the Azure portal.](media/query-performance-insight.png "Azure portal QPI configuration")
 
-In addition to the fundamental server monitoring aspects, Azure provides tools to monitor application query performance.  Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-query-performance-insight) to:
+In addition to the fundamental server monitoring aspects, Azure provides tools to monitor application query performance.  Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-performance-insight) to:
 
 - Analyze the longest-running queries and determine if it is possible to cache those items.
 - If they are deterministic within a set period, modify the queries to increase their performance.
@@ -61,7 +61,7 @@ In addition to the query performance insight tool, `Wait statistics` provides a 
 
 Finally, the `slow_query_log` can be set to show slow queries in the PostgreSQL log files (default is OFF). The `long_query_time` server parameter can be used to log long-running queries (default long query time is 10 sec).
 
-![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-workbooks)
+![Read more icon](media/read-more.png "Read more")  [Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-workbooks)
 
 ### Resource health
 

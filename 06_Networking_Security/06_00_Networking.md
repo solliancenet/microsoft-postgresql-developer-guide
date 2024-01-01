@@ -21,15 +21,15 @@ Firewall rules are set at the server level, meaning that they govern network acc
 >![Note icon](media/note.png "Note") **Note:** Restricting access to Azure public IP addresses still provides network access to the instance to public IPs owned by other Azure customers.
 
 - Flexible Server
-  - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using the Azure portal](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-firewall-portal)
-  - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-firewall-cli)
+  - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using the Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-firewall-portal)
+  - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-firewall-cli)
   - [ARM Reference for Firewall Rules](https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json)
 
 ### Private Access
 
 As mentioned, Azure Database for PostgreSQL Flexible Server supports public connectivity by default. However, most organizations will utilize private connectivity to limit access to Azure virtual networks and resources.
 
-> **Note:** There are many other [basic Azure Networking considerations](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-networking-private) that must be taken into account that are not the focus of this guide.
+> **Note:** There are many other [basic Azure Networking considerations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-networking-private) that must be taken into account that are not the focus of this guide.
 
 ## Virtual Network Hierarchy
 
@@ -66,8 +66,8 @@ Flexible Server supports deployment into a virtual network for secure access. Wh
 
 For more information on configuring Private Access for Flexible Server, reference the following:
 
-- [Azure Portal](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-virtual-network-private-endpoint-portal)
-- [Azure CLI](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-virtual-network-cli)
+- [Azure Portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-private-endpoint-portal)
+- [Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-cli)
 
 Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer) connection pooler. You can enable it and connect your applications to your database server via PgBouncer using the same hostname and port 6432.
 

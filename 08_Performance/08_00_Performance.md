@@ -59,7 +59,7 @@ Azure Database for PostgreSQL Flexible Server supports both vertical and horizon
 
 You can scale vertically by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, You can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools, for instance, Azure portal or the Azure CLI.
 
-Within the tier, it is possible to scale cores and memory to the minimum and maximum [limits](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage) allowed in that tier. If monitoring shows a continual maxing out of CPU or memory, scale up to meet demand.
+Within the tier, it is possible to scale cores and memory to the minimum and maximum [limits](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage) allowed in that tier. If monitoring shows a continual maxing out of CPU or memory, scale up to meet demand.
 
 You can also adjust the IOPS for better transactions per second (TPS) performance. You can use an [Azure alert](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/scale-monitoring-with-azure-postgresql-multi-resource-alerts/ba-p/3866526) to monitor relevant metrics and scale the server.
 
@@ -99,7 +99,7 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 ![This image shows PostgreSQL server parameters in the Azure portal.](media/server_parameters.png "PostgreSQL server parameters")
 
-As part of the migration, the on-premises [server parameters](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-server-parameters) were likely modified to support a fast egress. Also, modifications were made to the Azure Database for PostgreSQL Flexible Server parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload-optimized values after the migration.
+As part of the migration, the on-premises [server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-server-parameters) were likely modified to support a fast egress. Also, modifications were made to the Azure Database for PostgreSQL Flexible Server parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload-optimized values after the migration.
 
 However, be sure to review and make server parameter changes that are appropriate for the workload and the environment. Some values that were great for an on-premises environment may not be optimal for a cloud-based environment. When migrating the current on-premises parameters to Azure, verify that they can be set.
 

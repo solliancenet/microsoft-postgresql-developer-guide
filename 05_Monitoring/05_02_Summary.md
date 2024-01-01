@@ -18,7 +18,7 @@ With cloud-based systems, being proactive is a better strategy then being reacti
 
 - [Best practices for alerting on metrics with Azure Database for PostgreSQL Flexible Server monitoring](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-PostgreSQL-monitoring/)
 
-- [Configure audit logs (Azure portal)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-audit)
+- [Configure audit logs (Azure portal)](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit)
 
 - [Azure Monitor best practices](https://docs.microsoft.com/azure/azure-monitor/best-practices)
 

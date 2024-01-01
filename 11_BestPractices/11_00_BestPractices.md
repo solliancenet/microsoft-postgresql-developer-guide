@@ -52,7 +52,7 @@ For some ORMs that are commonly used with PostgreSQL databases, like PHP's **PDO
 
 ### 6. Size database compute resources adequately
 
-Teams must be diligent with sizing their Flexible Server instances to be cost-effective while maintaining sufficient application performance. There are [three different tiers of Flexible Server instances](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), each with different intended use cases and memory configurations.
+Teams must be diligent with sizing their Flexible Server instances to be cost-effective while maintaining sufficient application performance. There are [three different tiers of Flexible Server instances](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage), each with different intended use cases and memory configurations.
 
 - **Burstable**:
   - Up to **2 GiB** memory per vCore

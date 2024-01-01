@@ -8,7 +8,7 @@ Debugging operational support issues can be time consuming. Configuring the righ
 
 ### Connectivity issues
 
-Both server misconfiguration issues and network access issues can prevent clients from connecting to an Azure Database for PostgreSQL Flexible Server instance. For some helpful connectivity suggestions, reference the [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-troubleshoot-common-connection-issues) and [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity) articles.
+Both server misconfiguration issues and network access issues can prevent clients from connecting to an Azure Database for PostgreSQL Flexible Server instance. For some helpful connectivity suggestions, reference the [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-troubleshoot-common-connection-issues) and [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity) articles.
 
 #### Outdataed Azure CLI
 
@@ -37,7 +37,7 @@ For more information, review [Understanding the changes in the Root CA change fo
 
 #### Network access issues
 
-- By default, Flexible Server only supports encrypted connections through the TLS 1.2 protocol; clients using TLS 1.0 or 1.1 will be unable to connect unless explicitly enabled. If it is not possible to change the TLS protocol used by an application, then [change the Flexible Server instance's supported TLS versions.](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-tls-ssl)
+- By default, Flexible Server only supports encrypted connections through the TLS 1.2 protocol; clients using TLS 1.0 or 1.1 will be unable to connect unless explicitly enabled. If it is not possible to change the TLS protocol used by an application, then [change the Flexible Server instance's supported TLS versions.](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-tls-ssl)
 
 - If connecting to Flexible Server via public access, ensure that firewall ACLs permit access from the client.
 
@@ -88,7 +88,7 @@ For more information, reference [Handling transient connectivity errors for Azur
 
 - On occasion, Azure experiences outages. Use [Azure Service Health](https://azure.microsoft.com/features/service-health/) to determine if an Azure outage impacts PostgreSQL workloads in your region or datacenter.
 
-- Azure's periodic updates can impact the availability of applications. Flexible Server allows administrators [to set custom maintenance schedules.](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-maintenance)
+- Azure's periodic updates can impact the availability of applications. Flexible Server allows administrators [to set custom maintenance schedules.](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-maintenance)
 
 - Implement retry logic in your applications to mitigate transient connectivity issues:
   
@@ -142,9 +142,9 @@ If you need assistance with an Azure Database for PostgreSQL Flexible Server iss
 
 ### Recommended content
 
-- [Troubleshoot connection issues to Azure Database for PostgreSQL - flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-troubleshoot-common-connection-issues)
+- [Troubleshoot connection issues to Azure Database for PostgreSQL - flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-troubleshoot-common-connection-issues)
 
-- [Use the Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-troubleshooting-guides)
+- [Use the Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-troubleshooting-guides)
 
 - [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity)
 

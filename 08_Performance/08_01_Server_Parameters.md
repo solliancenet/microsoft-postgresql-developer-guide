@@ -11,8 +11,8 @@ Some parameters that cannot be configured at the server level can be configured 
 
 Standard Azure management tools, like the Azure portal, Azure CLI, and Azure PowerShell, allow for configuring server parameters.
 
-- [Use Azure portal to configure server parameters](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-configure-server-parameters-using-portal)
-- [User Azure CLI to configure server parameters](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/howto-configure-server-parameters-using-cli)
+- [Use Azure portal to configure server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-server-parameters-using-portal)
+- [User Azure CLI to configure server parameters](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-server-parameters-using-cli)
 
 ### Server Parameters best practices
 

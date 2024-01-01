@@ -4,7 +4,7 @@ This section documents common PostgreSQL-based products and their third-party im
 
 ### 3rd party Azure solutions / Azure Marketplace
 
-The [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=postgres&page=1) provides thousands of certified apps on Azure tailored to meet customer needs. Using `postgres` as the search criteria, you can see many apps that utilize PostgreSQL available.
+The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=postgres&page=1) provides thousands of certified apps on Azure tailored to meet customer needs. Using `postgres` as the search criteria, you can see many apps that utilize PostgreSQL available.
 
 #### Example #1
 

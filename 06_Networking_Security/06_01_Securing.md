@@ -14,9 +14,9 @@ Encryption of these artifacts is done using a Microsoft managed key by default, 
 
 Reference [Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-data-encryption) for the latest information and [Create and manage Azure Database for PostgreSQL - Flexible Server with data encrypted by Customer Managed Keys (CMK) using Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-create-server-customer-managed-key-portal).
 
-In addition to be encrypted at rest, data can be encrypted during transit using SSL/TLS. SSL/TLS is enabled by default. As previously discussed, it may be necessary to [modify the applications](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-tls-ssl) to support this change and configure the appropriate TLS validation settings. It is possible to allow insecure connections for legacy applications or enforce a minimum TLS version for connections, **but this should be used sparingly and in highly network-protected environments**. Flexible Server's TLS enforcement status can be set through the `require_secure_transport` PostgreSQL server parameter. Consult the guides below.
+In addition to be encrypted at rest, data can be encrypted during transit using SSL/TLS. SSL/TLS is enabled by default. As previously discussed, it may be necessary to [modify the applications](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-tls-ssl) to support this change and configure the appropriate TLS validation settings. It is possible to allow insecure connections for legacy applications or enforce a minimum TLS version for connections, **but this should be used sparingly and in highly network-protected environments**. Flexible Server's TLS enforcement status can be set through the `require_secure_transport` PostgreSQL server parameter. Consult the guides below.
 
-- [Encrypted connectivity using Transport Layer Security in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-tls-ssl)
+- [Encrypted connectivity using Transport Layer Security in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-tls-ssl)
 
 ### Microsoft Sentinel
 
@@ -36,7 +36,7 @@ Data privacy has evolved into a organizational priority over the past few years.
 
 ### Security baselines
 
-In addition to all the topics discussed above, the Azure Database for PostgreSQL Flexible Server [security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-database-for-postgresql-flexible-server-security-baseline) is a basic set of potential tasks that can be implemented on your Azure Database for PostgreSQL Flexible Server instances to further solidify your security posture.
+In addition to all the topics discussed above, the Azure Database for PostgreSQL Flexible Server [security baseline](https://learn.microsoft.com/security/benchmark/azure/baselines/azure-database-for-postgresql-flexible-server-security-baseline) is a basic set of potential tasks that can be implemented on your Azure Database for PostgreSQL Flexible Server instances to further solidify your security posture.
 
 ### Compliance
 
