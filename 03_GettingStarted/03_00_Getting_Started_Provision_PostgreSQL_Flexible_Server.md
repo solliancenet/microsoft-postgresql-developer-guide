@@ -71,7 +71,7 @@ Connections to Azure Database for PostgreSQL communicate over port 5432. If you 
 
 [PgBouncer](https://github.com/pgbouncer/pgbouncer) is a lightweight connection pooler for PostgreSQL that is included with Azure Database for PostgreSQL Flexible Server free of charge and enabled via the `pgbouncer.enabled` server parameter. The purpose of connection pooling is to make it efficient for applications to connect to Postgres instances.
 
-It tends to be costly to establish a database connection, taking around 1.5–14.5 MB per connection. If you have 100 open connections to the database, that will take a maximum of ~1.45GB of RAM just to maintain the connections. In addition to allowing more connections to your database, you can also use PgBouncer to:
+Every time a new connection is created, PostgreSQL spawns a new process using the postmaster process, which consumes more resources. It tends to be costly to establish a database connection, taking around 1.5–14.5 MB per connection. If you have 100 open connections to the database, that will take a maximum of ~1.45GB of RAM just to maintain the connections. In addition to allowing more connections to your database, you can also use PgBouncer to:
 
 - Protect your instance from massive number of connections. In pgbouncer, you can set the maximum number of connections to the Postgres server. If an external system tries to open more connections than the maximum number of allowed connections, PgBouncer will reject the connection before reaching the upstream database server.
 
@@ -80,6 +80,8 @@ It tends to be costly to establish a database connection, taking around 1.5–14
 For an example of real world PgBouncer usage, reference [Scaling the GitLab database](https://about.gitlab.com/blog/2017/10/02/scaling-the-gitlab-database/).
 
 For the latest on PgBouncer and Azure Database for PostgreSQL support, reference [PgBouncer in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-pgbouncer).
+
+Also reference [Connection pooling strategy for PostgreSQL Using PgBouncer](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-connection-pooling-best-practices).
 
 #### Troubleshooting
 

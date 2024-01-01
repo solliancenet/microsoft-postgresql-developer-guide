@@ -246,3 +246,7 @@ Kubernetes deployments allow for the creation of multiple instances of pods and 
   ```
 
 4. This deployment is now very robust and will survive multiple node failures.
+
+## Extra Resources
+
+For an example of deploying a Django app that uses Azure Database for PostgreSQL on AKS, reference [Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/tutorial-django-aks-database).

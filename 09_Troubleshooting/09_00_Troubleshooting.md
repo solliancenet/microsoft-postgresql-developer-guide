@@ -80,6 +80,12 @@ Operating in a cloud environment means that certain features that function on-pr
 
 Also reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-limits) for the latest information.
 
+### Transient errors
+
+A best practice for designing and developing applications in the cloud is to expect transient errors. Assume they can happen in any component at any time and to have the appropriate logic in place to handle these situations.
+
+For more information, reference [Handling transient connectivity errors for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-connectivity).
+
 ### Platform issues
 
 - On occasion, Azure experiences outages. Use [Azure Service Health](https://azure.microsoft.com/features/service-health/) to determine if an Azure outage impacts PostgreSQL workloads in your region or datacenter.

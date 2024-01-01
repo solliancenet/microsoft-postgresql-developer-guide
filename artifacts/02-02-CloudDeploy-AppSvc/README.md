@@ -384,3 +384,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 ## Test new settings #4
 
 1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display.
+
+## Extra Resources
+
+For an example of deploying a Django app that uses Azure Database for PostgreSQL on AppService, reference [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/en-us/azure/app-service/tutorial-python-postgresql-app).

@@ -63,6 +63,8 @@ Within the tier, it is possible to scale cores and memory to the minimum and max
 
 You can also adjust the IOPS for better transactions per second (TPS) performance. You can use an [Azure CLI script](https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale) to monitor relevant metrics and scale the server.
 
+For an example of scaling an instance, reference [Scale operations in Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-scale-compute-storage-portal).
+
 ### Horizontal Scaling
 
 You scale horizontally by creating read replicas. Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
