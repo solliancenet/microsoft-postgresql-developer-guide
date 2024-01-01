@@ -18,7 +18,7 @@ Test and validate the assumptions in a nonproduction environment, and then deplo
 
 Consider automating the remediation steps in Azure.
 
-![Read more icon](media/read-more.png "Read more")  [Successful alerting strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/response#successful-alerting-strategy)
+![Read more icon](media/read-more.png "Read more")  [Successful alerting strategy](https://learn.microsoft.com/azure/cloud-adoption-framework/manage/monitor/response#successful-alerting-strategy)
 
 ### Azure alerting concepts
 
@@ -33,7 +33,7 @@ Metric alerts assess metric time-series according to defined conditions and take
   - A time window for the aggregation (e.g. `30 minutes`)
   - A polling frequency to determine if the previous conditions are met (e.g. `5 minutes`)
 
-- **Action groups** define notification actions, such as emailing or texting an administrator, and other actions to take, like calling a webhook or [Azure Automation Runbooks](https://docs.microsoft.com/azure/automation/automation-runbook-types)
+- **Action groups** define notification actions, such as emailing or texting an administrator, and other actions to take, like calling a webhook or [Azure Automation Runbooks](https://learn.microsoft.com/azure/automation/automation-runbook-types)
 
 - **Alert processing rules** is a *preview* feature that filters alerts as they are generated to modify the actions taken in response to that alert (i.e. by disabling action groups)
 
@@ -52,7 +52,7 @@ Here are some scenarios of how aggregating metrics over time generates insights.
 
 ### Webhooks
 
-Webhook action groups send POST requests to configured webhook endpoints. Action groups can use the [common alert schema](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema) for webhook calls, or custom JSON payloads. This feature allows Azure Monitor to [integrate with incident management systems like PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/), [call Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-webhook), and [execute Azure Automation runbooks](https://docs.microsoft.com/azure/automation/automation-webhooks).
+Webhook action groups send POST requests to configured webhook endpoints. Action groups can use the [common alert schema](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema) for webhook calls, or custom JSON payloads. This feature allows Azure Monitor to [integrate with incident management systems like PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/), [call Logic Apps](https://learn.microsoft.com/azure/connectors/connectors-native-webhook), and [execute Azure Automation runbooks](https://learn.microsoft.com/azure/automation/automation-webhooks).
 
 ### Metrics resources
 
@@ -60,14 +60,14 @@ Webhook action groups send POST requests to configured webhook endpoints. Action
 
 Azure CLI provides the `az monitor` series of commands to manipulate action groups (`az monitor action-group`), alert rules and metrics (`az monitor metrics`), and more.
 
-- [Azure CLI reference commands for Azure Monitor](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-monitor)
+- [Azure CLI reference commands for Azure Monitor](https://learn.microsoft.com/cli/azure/azure-cli-reference-for-monitor)
 
 #### Azure Portal
 
 While the Azure Portal does not provide automation capabilities like the CLI or the REST API, it does support configurable dashboards and provides a strong introduction to monitoring metrics in PostgreSQL.
 
 - [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-alert-on-metrics)
-- [Tutorial: Analyze metrics for an Azure resource](https://docs.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics)
+- [Tutorial: Analyze metrics for an Azure resource](https://learn.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics)
 
 #### Azure Monitor REST API
 
@@ -75,8 +75,8 @@ The REST API allows applications to access metric values for integration with ot
 
 To interact with the REST API, applications first need to obtain an authentication token from Microsoft Entra and then use that token in API requests.
 
-- [REST API Walkthrough](https://docs.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough)
-- [Azure Monitor REST API Reference](https://docs.microsoft.com/rest/api/monitor/)
+- [REST API Walkthrough](https://learn.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough)
+- [Azure Monitor REST API Reference](https://learn.microsoft.com/rest/api/monitor/)
 
 ### Azure Service Health
 

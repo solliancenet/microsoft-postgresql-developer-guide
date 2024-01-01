@@ -20,21 +20,21 @@ With cloud-based systems, being proactive is a better strategy then being reacti
 
 - [Configure audit logs (Azure portal)](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit)
 
-- [Azure Monitor best practices](https://docs.microsoft.com/azure/azure-monitor/best-practices)
+- [Azure Monitor best practices](https://learn.microsoft.com/azure/azure-monitor/best-practices)
 
-- [Cloud monitoring guide: Collect the right data](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/data-collection)
+- [Cloud monitoring guide: Collect the right data](https://learn.microsoft.com/azure/cloud-adoption-framework/manage/monitor/data-collection)
 
-- [Write your first query with Kusto Query Language (Microsoft Learn)](https://docs.microsoft.com/learn/modules/write-first-query-kusto-query-language/)
+- [Write your first query with Kusto Query Language (Microsoft Learn)](https://learn.microsoft.com/learn/modules/write-first-query-kusto-query-language/)
 
-- [Azure Monitor Logs Overview](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
+- [Azure Monitor Logs Overview](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
 
-- [Application Monitoring for Azure App Service Overview](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps)
+- [Application Monitoring for Azure App Service Overview](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps)
 
 - [Configure and access audit logs for Azure Database for PostgreSQL Flexible Server in the Azure Portal](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-audit-logs-portal)
 
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Kusto Query Language (KQL)](https://learn.microsoft.com/azure/data-explorer/kusto/query/)
 
-- [SQL Kusto cheat sheet](https://docs.microsoft.com/azure/data-explorer/kusto/query/sqlcheatsheet)
-- [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [SQL Kusto cheat sheet](https://learn.microsoft.com/azure/data-explorer/kusto/query/sqlcheatsheet)
+- [Get started with log queries in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 - [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and Management (PMM)](https://docs.percona.com/percona-operator-for-postgresql/2.0/index.html)

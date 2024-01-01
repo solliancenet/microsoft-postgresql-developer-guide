@@ -34,7 +34,7 @@ Azure has the capability to support this type of testing via Deployment Center, 
 
 The following links provide resources on Blue-green deployment options:
 
-- [Deployment Center example](https://docs.microsoft.com/azure/app-service/deploy-github-actions?tabs=applevel)
+- [Deployment Center example](https://learn.microsoft.com/azure/app-service/deploy-github-actions?tabs=applevel)
 - [Azure Traffic Manager example](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
 - [Application Gateway example](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/upgrading-aks-version-with-blue-green-deployment-i/ba-p/2527145)
 
@@ -42,7 +42,7 @@ The following links provide resources on Blue-green deployment options:
 
 #### Load testing
 
-Load testing determines an application's performance as load increases. Load testing tools typically simulate users or requests, and they help companies meet their user and business SLAs. Proper load testing requires knowledge of the load a production system normally experiences and potential Azure service limits (e.g. [Event Hub throughput by tier](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers)).
+Load testing determines an application's performance as load increases. Load testing tools typically simulate users or requests, and they help companies meet their user and business SLAs. Proper load testing requires knowledge of the load a production system normally experiences and potential Azure service limits (e.g. [Event Hub throughput by tier](https://learn.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers)).
 
 #### Stress testing
 
@@ -58,7 +58,7 @@ The image below demonstrates one approach to operating JMeter at scale using Azu
 
 ![This image demonstrates how to perform a load test at scale using CI/CD, JMeter, and ACI.](./media/load-testing-pipeline-jmeter.png "Load testing at scale")
 
-It is also possible to run JMeter load tests using [Azure Load Testing Preview.](https://docs.microsoft.com/azure/load-testing/quickstart-create-and-run-load-test)
+It is also possible to run JMeter load tests using [Azure Load Testing Preview.](https://learn.microsoft.com/azure/load-testing/quickstart-create-and-run-load-test)
 
 ### K6
 
@@ -80,11 +80,11 @@ The image below demonstrates the cluster's maximum CPU usage over a half-hour pe
 
 #### Resources
 
-- [Supported languages for Azure App Insights](https://docs.microsoft.com/azure/azure-monitor/app/platforms)
+- [Supported languages for Azure App Insights](https://learn.microsoft.com/azure/azure-monitor/app/platforms)
 - Comparison of *metrics* and *logs* in Azure Monitor
-  - [Azure Monitor Metrics overview](https://docs.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics)
-  - [Azure Monitor Logs overview](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
-- [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](https://docs.microsoft.com/azure/aks/monitor-aks#scope-of-the-scenario)
+  - [Azure Monitor Metrics overview](https://learn.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics)
+  - [Azure Monitor Logs overview](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
+- [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](https://learn.microsoft.com/azure/aks/monitor-aks#scope-of-the-scenario)
 
 ### Grafana and Prometheus
 
@@ -108,6 +108,6 @@ The following resources are helpful for exploring various approaches to using th
 
 - [Store Prometheus Metrics with Thanos, Azure Storage and Azure Kubernetes Service (AKS)](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/store-prometheus-metrics-with-thanos-azure-storage-and-azure/ba-p/3067849)
 
-- [What are Azure Pipelines?](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20automatically%20builds%20and,ship%20it%20to%20any%20target)
+- [What are Azure Pipelines?](https://learn.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20automatically%20builds%20and,ship%20it%20to%20any%20target)
 
-- [What is Azure Load Testing?](https://docs.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl)
+- [What is Azure Load Testing?](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl)

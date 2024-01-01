@@ -45,7 +45,7 @@ For more information, review [Understanding the changes in the Root CA change fo
 
 - Use a fully qualified domain name instead of an IP address in connection strings.
 
-- Use [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) to debug traffic flows in virtual networks. 
+- Use [Azure Network Watcher](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) to debug traffic flows in virtual networks. 
   
   >![Note icon](media/note.png "Note") **Note:** It does not support PaaS services, but it is still a helpful tool for IaaS configurations
   
@@ -92,16 +92,16 @@ For more information, reference [Handling transient connectivity errors for Azur
 
 - Implement retry logic in your applications to mitigate transient connectivity issues:
   
-  - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
+  - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
 
 ## Troubleshoot app issues in Azure App Service
 
-- **Enable web logging.** Azure provides built-in diagnostics to assist with [debugging an App Service app](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
-- Network requests taking a long time? [Troubleshoot slow app performance issues in Azure App Service](https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
+- **Enable web logging.** Azure provides built-in diagnostics to assist with [debugging an App Service app](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
+- Network requests taking a long time? [Troubleshoot slow app performance issues in Azure App Service](https://learn.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
 - In Azure App Service, certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when configuring the app settings.
-[Environment variables and app settings in Azure App Service](https://docs.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet)
+[Environment variables and app settings in Azure App Service](https://learn.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet)
 
-- [Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service/faq-app-service-linux)
+- [Azure App Service on Linux FAQ](https://learn.microsoft.com/azure/app-service/faq-app-service-linux)
 
 ## App debugging
 
@@ -113,14 +113,14 @@ Following software development best practices makes your code simpler to develop
   
   - Users of Visual Studio Code can install XDebug's [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug).
 
-- To debug slow PHP applications, consider using Application Performance Monitoring solutions like [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), which integrates with Azure Monitor. Here are a few common culprits for low-performing PHP apps.
+- To debug slow PHP applications, consider using Application Performance Monitoring solutions like [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview), which integrates with Azure Monitor. Here are a few common culprits for low-performing PHP apps.
   - Executing database queries against tables that are indexed inefficiently
   - Configuring web servers poorly, such as by choosing a suboptimal number of worker processes to serve user requests
   - Disabling [opcode caching](https://www.php.net/manual/en/intro.opcache.php), requiring PHP to compile code files to opcodes every request
 
 - Write tests to ensure that applications function as intended when code is modified. Review the [07 / Testing] document for more information about different testing strategies. Tests should be included in automated release processes.
 
-- Generally, all cloud applications should include connection [retry logic](https://docs.microsoft.com/azure/architecture/patterns/retry), which typically responds to transient issues by initiating subsequent connections after a delay.
+- Generally, all cloud applications should include connection [retry logic](https://learn.microsoft.com/azure/architecture/patterns/retry), which typically responds to transient issues by initiating subsequent connections after a delay.
 
 ### Additional support
 

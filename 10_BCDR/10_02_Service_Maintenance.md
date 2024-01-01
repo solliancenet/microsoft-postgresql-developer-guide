@@ -29,5 +29,5 @@ Notifications about upcoming scheduled maintenance can be:
 ### Configure maintenance scheduling and alerting
 
 - [Manage scheduled maintenance settings using the Azure Portal (Flexible Server)](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal)
-- [View service health notifications in the Azure Portal](https://docs.microsoft.com/azure/service-health/service-notifications)
-- [Configure resource health alerts using Azure Portal](https://docs.microsoft.com/azure/service-health/resource-health-alert-monitor-guide)
+- [View service health notifications in the Azure Portal](https://learn.microsoft.com/azure/service-health/service-notifications)
+- [Configure resource health alerts using Azure Portal](https://learn.microsoft.com/azure/service-health/resource-health-alert-monitor-guide)

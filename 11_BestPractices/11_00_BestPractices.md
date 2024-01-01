@@ -12,11 +12,11 @@ Readers should review additional guide chapters for a more comprehensive underst
 - [08 / Performance and Optimization]
 - [10 / Business Continuity and Disaster Recovery]
 
-Consult the [Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) for more information regarding the core principles of efficient cloud workloads. You can assess your existing Azure workloads for Well-Architected Framework compliance with the [Azure Well-Architected Review utility.](https://docs.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment)
+Consult the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/) for more information regarding the core principles of efficient cloud workloads. You can assess your existing Azure workloads for Well-Architected Framework compliance with the [Azure Well-Architected Review utility.](https://learn.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment)
 
 ### 1. Co-locate resources
 
-Locating Azure services in the same region minimizes network traffic costs and network latency. Flexible Server supports co-location in the same region and co-location in the same Availability Zone for [regions that support Availability Zones.](https://docs.microsoft.com/azure/availability-zones/az-region) PostgreSQL Flexible Server couples well with zonal services, like Virtual Machines.
+Locating Azure services in the same region minimizes network traffic costs and network latency. Flexible Server supports co-location in the same region and co-location in the same Availability Zone for [regions that support Availability Zones.](https://learn.microsoft.com/azure/availability-zones/az-region) PostgreSQL Flexible Server couples well with zonal services, like Virtual Machines.
 
 ### 2. Implement connection pooling
 
@@ -26,7 +26,7 @@ Developers can significantly improve application performance by reducing the num
 
 To ensure that containerized applications function optimally, verify that application containers are allocated sufficient resources. It may be necessary to adjust application parameters for container environments, like Java heap size parameters.
 
-Developers can identify container resource issues using monitoring utilities, like [Container insights,](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview) which supports Azure Kubernetes Service, Azure Container Instances, on-premises Kubernetes clusters, and more.
+Developers can identify container resource issues using monitoring utilities, like [Container insights,](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) which supports Azure Kubernetes Service, Azure Container Instances, on-premises Kubernetes clusters, and more.
 
 - Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
 
@@ -46,7 +46,7 @@ Given that cloud environments are more likely to encounter transient faults, lik
 
 Applications must first determine if a fault is transient or more persistent. Typically, API responses indicate the nature of the issue, sometimes even specifying a retry interval. If the fault is transient, applications must retry requests without consuming excessive resources. Common retry strategies including sending requests at regular intervals, exponential intervals, or random intervals. If a given number of retry requests fail, applications consider the operation failed.
 
-Azure SDKs typically provide native support for retrying service requests. Consult the documentation's [list of per-service retry recommendations.](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Azure SDKs typically provide native support for retrying service requests. Consult the documentation's [list of per-service retry recommendations.](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific)
 
 For some ORMs that are commonly used with PostgreSQL databases, like PHP's **PDO PostgreSQL**, it may be necessary to write custom retry code that retries database connections if particular PostgreSQL error codes are thrown.
 

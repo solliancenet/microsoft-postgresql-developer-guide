@@ -89,7 +89,7 @@ For information on monitoring a DB instance's metrics, see [PostgreSQL DB Metric
 
 TODO - move to new style
 
-It is possible to move a geo-redundant Flexible Server instance to a [paired Azure region](https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure) through geo-restore. Geo-restore creates a new Flexible Server instance in the paired Azure region based on the current state of the database.
+It is possible to move a geo-redundant Flexible Server instance to a [paired Azure region](https://learn.microsoft.com/azure/availability-zones/cross-region-replication-azure) through geo-restore. Geo-restore creates a new Flexible Server instance in the paired Azure region based on the current state of the database.
 
 Geo-restore can be used to recover from a service outage in the primary region.
 
@@ -125,7 +125,7 @@ For more information, review [Major Version Upgrade for PostgreSQL Flexible Serv
 
 When using containers for your PostgreSQL and container based applications, the platform choice has a huge impact on your performance limits. In most cases, creating a custom application container (such as with PHP) can improve performance versus the out-of-the-box official platform containers.  It is important to determine if the effort of building a custom image will be worth the performance gain from the work.  Also, keep in mind recent versions of containers tend to perform better than older versions.
 
-![Read more icon](media/read-more.png "Read more")  [Container insights overview](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview)
+![Read more icon](media/read-more.png "Read more")  [Container insights overview](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)
 
 ## Running Benchmarks
 
