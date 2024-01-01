@@ -22,10 +22,24 @@ You can upgrade your Azure CLI by executing the following if your currency versi
 az upgrade
 ```
 
+#### Outdated SDK
+
+PostgreSQL has gone through many changes over the years.  In some cases parameters have been deprecated and/or removed.  You will need to ensure that your SDK supports the target PostgreSQL versoin.
+
 #### Misconfiguration
 
 - Administrators use the database admin user specified during server creation to create new databases and add new users. If the admin user credentials were not recorded, administrators can easily reset the admin password using the Azure portal.
   - Logging in with the administrator account can help debug other access issues, like confirming if a given user exists.
+
+If you receive permission denied errors, ensure you are connecting to the correct database with the correct username and password and have the proper permissions assigned.
+
+#### Collation Defaults
+
+After migrating from Single Server to Flexible server (or even from on-premises), be cognizant of the Collation settings.
+
+Flexible Server uses `en_US.utf8` while the Single Server uses `English_United States.1252`. The Postgres documentation states that "The LC_COLLATE and LC_CTYPE variables affect the sort order of indexes". You may need to rebuild the indexes.
+
+You can review differences between Single Server and Flexible Server [here](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
 
 #### SSL Connectivity
 
@@ -34,6 +48,8 @@ Most on-premises applications that are migrated to cloud-based services will not
 SSL certificate best practice is to expire these certifcates on a set period.  If you have migrated your applications to use SSL, ensure that the certificate is valid.  You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
 
 For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/azure/postgresql/single-server/concepts-certificate-rotation).
+
+When working with other Azure services such as Azure Synapse or Azure Data Factory, ensure you select the SSL option that requires encryption otherwise you will get a connection error.
 
 #### Network access issues
 
@@ -94,12 +110,24 @@ For more information, reference [Handling transient connectivity errors for Azur
   
   - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
 
+- If your instance loses access to the Azure Key Vault with a customer managed key, you may get a `UserErrorMissingPermissionsOnSecretStore` error.  Ensure that the managed identity is added with permission to the key vault.
+
+- **SQL Errors** : Ensure that you are running your SQL queries against a supported PostgreSQL version.
+
+- **Connection Errors** : Ensure that the database name case-sensitivity is set correctly.
+
+- **Vacuum taking too long** : Ensure that you have the proper compute tier to support the vacuum options.
+
 ## Troubleshoot app issues in Azure App Service
 
 - **Enable web logging.** Azure provides built-in diagnostics to assist with [debugging an App Service app](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
 - Network requests taking a long time? [Troubleshoot slow app performance issues in Azure App Service](https://learn.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
 - In Azure App Service, certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when configuring the app settings.
 [Environment variables and app settings in Azure App Service](https://learn.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet)
+
+- **HTTP vs HTTPS** Ensure that you are using the right http endpoint (`http` vs `https`).
+
+- **Missing application configuration values** : Ensure that you have set all configuration values in the App Service or Azure Key Vault.
 
 - [Azure App Service on Linux FAQ](https://learn.microsoft.com/azure/app-service/faq-app-service-linux)
 
