@@ -16,14 +16,14 @@ The first line of defense for protecting a PostgreSQL instance access is to impl
 
 ![This image shows how PostgreSQL Flexible Server instances evaluate firewall rules.](media/firewall-rule-diagram.png "Firewall rule evaluation")
 
-Firewall rules are set at the server level, meaning that they govern network access to all databases on the server instance. While it is best practice to create rules that allow specific IP addresses or ranges to access the instance, developers can also enable network access from all Azure resources. This feature is useful for Azure services without fixed public IP addresses, such as [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) that use public networks to access the server and databases.
+Firewall rules are set at the server level, meaning that they govern network access to all databases on the server instance. While it is best practice to create rules that allow specific IP addresses or ranges to access the instance, developers can also enable network access from all Azure resources. This feature is useful for Azure services without fixed public IP addresses, such as [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) that use public networks to access the server and databases.
 
 >![Note icon](media/note.png "Note") **Note:** Restricting access to Azure public IP addresses still provides network access to the instance to public IPs owned by other Azure customers.
 
 - Flexible Server
   - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using the Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-firewall-portal)
   - [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-firewall-cli)
-  - [ARM Reference for Firewall Rules](https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json)
+  - [ARM Reference for Firewall Rules](https://learn.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json)
 
 ### Private Access
 
@@ -41,18 +41,18 @@ An Azure virtual network is similar to a on-premises network. It provides networ
 
 Each virtual network is further segmented into subnets. Subnets improve virtual network organization and security, just as they do on-premises.
 
-When moving an application to Azure along with the PostgreSQL workload, there will likely multiple virtual networks set up in a hub and spoke pattern that will require [Virtual Network Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to be configured. Virtual networks are joined through *peering*. The peered virtual networks can reside in the same or different Azure regions.
+When moving an application to Azure along with the PostgreSQL workload, there will likely multiple virtual networks set up in a hub and spoke pattern that will require [Virtual Network Peering](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to be configured. Virtual networks are joined through *peering*. The peered virtual networks can reside in the same or different Azure regions.
 
-Lastly, it is possible to access resources in a virtual network from on-premises. Some organizations opt to use VPN connections through [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways), which sends encrypted traffic over the Internet. Others opt for [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction), which establishes a private connection to Azure through a service provider.
+Lastly, it is possible to access resources in a virtual network from on-premises. Some organizations opt to use VPN connections through [Azure VPN Gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways), which sends encrypted traffic over the Internet. Others opt for [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction), which establishes a private connection to Azure through a service provider.
 
 For more information on Virtual Networks, reference the following:
 
-- [Introduction to Azure Virtual Networks](https://docs.microsoft.com/learn/modules/introduction-to-azure-virtual-networks/)
+- [Introduction to Azure Virtual Networks](https://learn.microsoft.com/learn/modules/introduction-to-azure-virtual-networks/)
 - Creating virtual networks
-  - [Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-  - [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell)
-  - [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli)
-  - [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template)
+  - [Portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
+  - [PowerShell](https://learn.microsoft.com/azure/virtual-network/quick-create-powershell)
+  - [CLI](https://learn.microsoft.com/azure/virtual-network/quick-create-cli)
+  - [ARM Template](https://learn.microsoft.com/azure/virtual-network/quick-create-template)
 
 ### Flexible Server VNet Integration
 
@@ -62,7 +62,7 @@ Flexible Server supports deployment into a virtual network for secure access. Wh
 
 >![Note icon](media/note.png "Note") **Note:** Private DNS zone names must end with PostgreSQL.database.azure.com. If you are connecting to the Azure Database for PostgreSQL Flexible Server - Flexible sever with SSL and are using an option to perform full verification (sslmode=VERIFY_IDENTITY) with certificate subject name, use <servername>.postgres.database.azure.com in your connection string.
 
-![Read more icon](media/read-more.png "Read more")  [Private DNS zone overview](https://docs.microsoft.com/azure/dns/private-dns-overview)
+![Read more icon](media/read-more.png "Read more")  [Private DNS zone overview](https://learn.microsoft.com/azure/dns/private-dns-overview)
 
 For more information on configuring Private Access for Flexible Server, reference the following:
 
@@ -77,11 +77,11 @@ Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure
 
 > For a review of availability zones, consult the [Introduction to Azure Database for PostgreSQL Flexible Server] document.
 
-- Organize the components of the application into multiple virtual networks, such as in a [hub and spoke configuration.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) Employ virtual network peering or VPN Gateways to join the application's virtual networks.
+- Organize the components of the application into multiple virtual networks, such as in a [hub and spoke configuration.](https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) Employ virtual network peering or VPN Gateways to join the application's virtual networks.
 
 - Configure data protection at rest and in motion (see the [Security and Compliance document](03_PostgreSQL_Security_Compliance.md)).
 
-- [General Azure Networking Best Practices](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking)
+- [General Azure Networking Best Practices](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking)
   - Determine IP addressing and subnetting.
   - Determine DNS setup and whether forwarders are needed.
   - Employ tools like network security groups to secure traffic within and between subnets.

@@ -2,7 +2,7 @@
 
 1. Clone the [whitepaper GitHub repository](https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git) to the development machine.
 
-2. Install the [PowerShell Azure module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0) if not already installed.
+2. Install the [PowerShell Azure module](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0) if not already installed.
 
     > [PowerShell Core](https://github.com/PowerShell/PowerShell)  is a cross-platform tool that is useful for managing Azure resources through the `Az` module.
 

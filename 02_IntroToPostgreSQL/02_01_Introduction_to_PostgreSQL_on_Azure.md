@@ -54,4 +54,4 @@ In addition to the IaaS and PaaS options mentioned above, it is possible to choo
 
 #### Video reference
 
-For a video comparison of cloud hosting models, please refer to [Microsoft Learn.](https://docs.microsoft.com/learn/modules/cmu-cloud-computing-overview/4-building-blocks)
+For a video comparison of cloud hosting models, please refer to [Microsoft Learn.](https://learn.microsoft.com/learn/modules/cmu-cloud-computing-overview/4-building-blocks)

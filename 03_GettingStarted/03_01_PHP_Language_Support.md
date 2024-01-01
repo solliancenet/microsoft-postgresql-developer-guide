@@ -24,7 +24,7 @@ The following resources provide additional information on PHP on Azure and Postg
 
 1. [Create a PHP web app in Azure App Service](https://aka.ms/php-qs)
 2. [Introduction to PDO](https://www.php.net/manual/en/intro.pdo.php)
-3. [Configure a PHP app for Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
+3. [Configure a PHP app for Azure App Service](https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
 4. The [php.ini directives](https://www.php.net/manual/en/ini.list.php) allow for the customization of the PHP environment.
 
 ### Cleanup

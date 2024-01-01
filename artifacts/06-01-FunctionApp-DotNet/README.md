@@ -150,4 +150,4 @@ https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunc
 ## Troubleshooting
 
 - If the application builds successfully, but deployment fails, try restarting Visual Studio and publishing the Function App again to avoid transient errors
-- Enabling Application Insight logs is a useful way to debug Function Apps deployed to Azure. As Application Insights cannot be configured from the Visual Studio publish profile, consult the [Microsoft documentation](https://docs.microsoft.com/azure/azure-functions/configure-monitoring?tabs=v2#enable-application-insights-integration) for the manual setup steps
+- Enabling Application Insight logs is a useful way to debug Function Apps deployed to Azure. As Application Insights cannot be configured from the Visual Studio publish profile, consult the [Microsoft documentation](https://learn.microsoft.com/azure/azure-functions/configure-monitoring?tabs=v2#enable-application-insights-integration) for the manual setup steps

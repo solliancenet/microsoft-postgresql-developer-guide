@@ -6144,7 +6144,7 @@ Service and Azure Database for PostgreSQL Flexible Server.
 
     #Publish-AzWebApp -WebApp $app -ArchivePath "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" -force
 
-    #Reference - https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
+    #Reference - https://learn.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
 
     az login --scope https://management.core.windows.net//.default --identity
 
@@ -9605,28 +9605,28 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This diagram shows the cloud adoption strategy.]: media/cloud-adoption-strategies.png
     "Cloud adoption strategy"
   [17]: https://azure.microsoft.com/services/PostgreSQL/#features
-  [Microsoft Learn.]: https://docs.microsoft.com/learn/modules/cmu-cloud-computing-overview/4-building-blocks
-  [Azure Fundamentals Microsoft Learn Module]: https://docs.microsoft.com/learn/modules/intro-to-azure-fundamentals/
+  [Microsoft Learn.]: https://learn.microsoft.com/learn/modules/cmu-cloud-computing-overview/4-building-blocks
+  [Azure Fundamentals Microsoft Learn Module]: https://learn.microsoft.com/learn/modules/intro-to-azure-fundamentals/
   [IaaS and PaaS Azure service classification and categories]: ./media/azure-services.png
     "Categories of Azure services"
-  [Virtual Machines (IaaS)]: https://docs.microsoft.com/azure/virtual-machines/windows/overview
-  [Azure App Service (PaaS)]: https://docs.microsoft.com/azure/app-service/overview
-  [Azure Container Instances (PaaS)]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-  [Azure Kubernetes Service (PaaS)]: https://docs.microsoft.com/azure/aks/intro-kubernetes
-  [Azure Fundamentals Microsoft Learn]: https://docs.microsoft.com/learn/modules/intro-to-azure-fundamentals/tour-of-azure-services
-  [Management groups]: https://docs.microsoft.com/azure/governance/management-groups/overview
-  [Resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal
+  [Virtual Machines (IaaS)]: https://learn.microsoft.com/azure/virtual-machines/windows/overview
+  [Azure App Service (PaaS)]: https://learn.microsoft.com/azure/app-service/overview
+  [Azure Container Instances (PaaS)]: https://learn.microsoft.com/azure/container-instances/container-instances-overview
+  [Azure Kubernetes Service (PaaS)]: https://learn.microsoft.com/azure/aks/intro-kubernetes
+  [Azure Fundamentals Microsoft Learn]: https://learn.microsoft.com/learn/modules/intro-to-azure-fundamentals/tour-of-azure-services
+  [Management groups]: https://learn.microsoft.com/azure/governance/management-groups/overview
+  [Resource groups]: https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal
   [This image shows Azure resource scopes.]: ./media/scope-levels.png
     "Azure resource scopes"
-  [Azure landing zone]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
+  [Azure landing zone]: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
   [This image demonstrates the Azure landing zone accelerator in the Azure portal, and how organizations can optimize Azure for their needs and innovate.]:
     ./media/landing-zone-accelerator.png
     "Azure landing zone accelerator screenshot"
-  [Azure Resource Manager]: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
-  [Azure CLI]: https://docs.microsoft.com/cli/azure/what-is-azure-cli
-  [Azure PowerShell]: https://docs.microsoft.com/powershell/azure/what-is-azure-powershell?view=azps-7.1.0
-  [Azure REST API]: https://docs.microsoft.com/rest/api/azure/
-  [Identity and access management (IAM)]: https://docs.microsoft.com/azure/role-based-access-control/overview
+  [Azure Resource Manager]: https://learn.microsoft.com/azure/azure-resource-manager/management/overview
+  [Azure CLI]: https://learn.microsoft.com/cli/azure/what-is-azure-cli
+  [Azure PowerShell]: https://learn.microsoft.com/powershell/azure/what-is-azure-powershell?view=azps-7.1.0
+  [Azure REST API]: https://learn.microsoft.com/rest/api/azure/
+  [Identity and access management (IAM)]: https://learn.microsoft.com/azure/role-based-access-control/overview
   [This image demonstrates how the Azure Resource Manager provides a robust, secure interface to Azure resources.]:
     media/consistent-management-layer.png
     "Azure Resource Manager explained"
@@ -9635,40 +9635,40 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure mobile app]: https://azure.microsoft.com/get-started/azure-portal/mobile-app/
   [The picture shows the initial Azure service list.]: media/azure-portal-services.png
     "Azure portal Services"
-  [18]: https://docs.microsoft.com/marketplace/azure-marketplace-overview
+  [18]: https://learn.microsoft.com/marketplace/azure-marketplace-overview
   [The picture shows an example of Azure Marketplace search results.]: media/azure-marketplace-search-results.png
     "Azure Marketplace Results"
   [Shows an example of the Azure CLI.]: media/azure-cli-example.png
     "Azure CLI Example"
-  [Azure command-line tool guide]: https://docs.microsoft.com/azure/developer/azure-cli/choose-the-right-azure-command-line-tool
+  [Azure command-line tool guide]: https://learn.microsoft.com/azure/developer/azure-cli/choose-the-right-azure-command-line-tool
   [Azure Cloud Shell]: https://shell.azure.com
-  [download the CLI tools from Microsoft.]: https://docs.microsoft.com/cli/azure/install-azure-cli
-  [installation document.]: https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0
+  [download the CLI tools from Microsoft.]: https://learn.microsoft.com/cli/azure/install-azure-cli
+  [installation document.]: https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0
   [Azure PowerShell cmdlets]: https://learn.microsoft.com/powershell/module/az.postgresql/?view=azps-11.0.0
-  [Infrastructure as Code (IaC)]: https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code
-  [ARM templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/
+  [Infrastructure as Code (IaC)]: https://learn.microsoft.com/devops/deliver/what-is-infrastructure-as-code
+  [ARM templates]: https://learn.microsoft.com/azure/azure-resource-manager/templates/
   [The picture shows an example of an ARM template JSON export.]: media/azure-template-json-example.png
     "Azure Template JSON"
-  [Bicep]: https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview
+  [Bicep]: https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview
   [Bicep playground]: https://aka.ms/bicepdemo
-  [Explore the Bicep template benefits]: https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep
+  [Explore the Bicep template benefits]: https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep
   [This image demonstrates part of a sample Bicep template for provisioning Azure Database for PostgreSQL Flexible Server.]:
     ./media/sample-bicep-template.png
     "Azure Database for PostgreSQL Flexible Server sample Bicep template"
   [Hashicorp Terraform]: https://www.terraform.io/
-  [Terraform]: https://docs.microsoft.com/azure/developer/terraform/overview
+  [Terraform]: https://learn.microsoft.com/azure/developer/terraform/overview
   [This image demonstrates part of a sample Terraform template for provisioning Azure Database for PostgreSQL Flexible Server.]:
     ./media/sample-terraform-template.png
     "Azure Database for PostgreSQL Flexible Server sample Terraform template"
-  [resource tags]: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json
-  [resource locks]: https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json
+  [resource tags]: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json
+  [resource locks]: https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json
   [multiple support plans for businesses]: https://azure.microsoft.com/support/plans/
   [StackOverflow Azure Tag]: https://stackoverflow.com/questions/tagged/azure
   [Azure on Twitter]: https://twitter.com/azure
   [FastTrack for Azure]: https://azure.microsoft.com/programs/azure-fasttrack/
-  [Azure Certifications and Exams]: https://docs.microsoft.com/learn/certifications/browse/?products=azure
-  [Microsoft Learn]: https://docs.microsoft.com/learn/
-  [Azure Fundamentals (AZ-900) Learning Path]: https://docs.microsoft.com/learn/paths/az-900-describe-cloud-concepts/
+  [Azure Certifications and Exams]: https://learn.microsoft.com/learn/certifications/browse/?products=azure
+  [Microsoft Learn]: https://learn.microsoft.com/learn/
+  [Azure Fundamentals (AZ-900) Learning Path]: https://learn.microsoft.com/learn/paths/az-900-describe-cloud-concepts/
   [19]: https://www.pgadmin.org/
   [This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.]:
     ./media/postgresql-conceptual-diagram.png
@@ -9679,7 +9679,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [20]: https://youtu.be/NSEmJfUgNzE
   [*burstable* tier]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage
   [Flexible Server instances can also be paused]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-stop-start-server-portal
-  [availability zone]: https://docs.microsoft.com/azure/availability-zones/az-overview
+  [availability zone]: https://learn.microsoft.com/azure/availability-zones/az-overview
   [This image demonstrates how PostgreSQL Flexible Server works, with compute, storage, and backup storage.]:
     ./media/flexible-server.png
     "Operation of PostgreSQL Flexible Server"
@@ -9707,15 +9707,15 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [migration prerequisites]: https://learn.microsoft.com/azure/postgresql/migrate/concepts-single-to-flexible#migration-prerequisites
   [\$200 free credit for developers to trial Azure]: https://azure.microsoft.com/free
   [22]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure_resource_mgmt.md
-  [Azure's comprehensive list of service and subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
+  [Azure's comprehensive list of service and subscription limits]: https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
   [23]: #introduction-to-azure-resource-management
   [Microsoft docs]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-ad-authentication
   [Microsoft download page.]: https://code.visualstudio.com/download
   [A simple screenshot of Visual Studio Code.]: media/VSCode_screenshot.png
     "Visual Studio Code"
   [24]: https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql
-  [Azure App Service plan overview]: https://docs.microsoft.com/azure/app-service/overview-hosting-plans
-  [Plan and manage costs for Azure App Service]: https://docs.microsoft.com/azure/app-service/overview-manage-costs
+  [Azure App Service plan overview]: https://learn.microsoft.com/azure/app-service/overview-hosting-plans
+  [Plan and manage costs for Azure App Service]: https://learn.microsoft.com/azure/app-service/overview-manage-costs
   [Quickstart document]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-portal
   [Azure's quickstart guide]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/quickstart-create-server-cli
   [`flexible-server create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-create
@@ -9785,10 +9785,10 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Backend libraries for PostgreSQLi and PDO_PostgreSQL]: https://www.php.net/manual/en/PostgreSQLinfo.library.choosing.php
   [Introduction to PDO]: https://www.php.net/manual/en/intro.pdo.php
   [PDO_PostgreSQL Reference]: https://www.php.net/manual/en/ref.pdo-PostgreSQL.php
-  [Configure a PHP app for Azure App Service]: https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
+  [Configure a PHP app for Azure App Service]: https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
   [php.ini directives]: https://www.php.net/manual/en/ini.list.php
   [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]:
-    https://docs.microsoft.com/azure/PostgreSQL/flexible-server/connect-java
+    https://learn.microsoft.com/azure/PostgreSQL/flexible-server/connect-java
   [PostgreSQL drivers and management tools compatible with Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compatibility
   [PostgreSQL Connector/J Introduction]: https://dev.PostgreSQL.com/doc/connector-j/8.0/en/connector-j-overview.html
@@ -9796,14 +9796,14 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Single Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/connect-java
   [Introduction to Spring Data JPA]: https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
   [Hibernate ORM]: https://hibernate.org/orm/
-  [Installing the Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
-  [Create a Hello World web app for Azure App Service using Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app
+  [Installing the Azure Toolkit for Eclipse]: https://learn.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
+  [Create a Hello World web app for Azure App Service using Eclipse]: https://learn.microsoft.com/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app
   [31]: #end-to-end-application-development
-  [Azure for Java developer documentation]: https://docs.microsoft.com/azure/developer/java/?view=azure-java-stable
+  [Azure for Java developer documentation]: https://learn.microsoft.com/azure/developer/java/?view=azure-java-stable
   [Maven Introduction]: https://maven.apache.org/guides/getting-started/index.html
-  [Develop Java web app on Azure using Maven (App Service)]: https://docs.microsoft.com/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/
-  [Deploy Spring microservices to Azure (Spring Cloud)]: https://docs.microsoft.com/learn/modules/azure-spring-cloud-workshop/
-  [Develop Java serverless Functions on Azure using Maven]: https://docs.microsoft.com/learn/modules/develop-azure-functions-app-with-maven-plugin/
+  [Develop Java web app on Azure using Maven (App Service)]: https://learn.microsoft.com/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/
+  [Deploy Spring microservices to Azure (Spring Cloud)]: https://learn.microsoft.com/learn/modules/azure-spring-cloud-workshop/
+  [Develop Java serverless Functions on Azure using Maven]: https://learn.microsoft.com/learn/modules/develop-azure-functions-app-with-maven-plugin/
   [Downloads page]: https://www.python.org/downloads/
   [Microsoft's sample]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/connect-python
   [Introduction to PostgreSQL Connector/Python]: https://dev.PostgreSQL.com/doc/connector-python/en/connector-python-introduction.html
@@ -9818,24 +9818,24 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Chapter topics list"
   [32]: https://github.com/azure/azure-postgresql/blob/master/DeveloperGuide/step-1-sample-apps/README.md
   [33]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
-  [Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-  [Azure Logic Apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
-  [custom handlers.]: https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers
-  [documentation]: https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp
-  [Azure Functions hosting options]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+  [Azure Functions]: https://learn.microsoft.com/azure/azure-functions/functions-overview
+  [Azure Logic Apps]: https://learn.microsoft.com/azure/logic-apps/logic-apps-overview
+  [custom handlers.]: https://learn.microsoft.com/azure/azure-functions/functions-custom-handlers
+  [documentation]: https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp
+  [Azure Functions hosting options]: https://learn.microsoft.com/azure/azure-functions/functions-scale
   [34]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet
   [35]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python
-  [Compare Azure Functions and Azure Logic Apps]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
+  [Compare Azure Functions and Azure Logic Apps]: https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
   [36]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
-  [Build microservices on Azure]: https://docs.microsoft.com/azure/architecture/microservices/
-  [Using domain analysis to model microservices]: https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis
+  [Build microservices on Azure]: https://learn.microsoft.com/azure/architecture/microservices/
+  [Using domain analysis to model microservices]: https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis
   [37]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/sample-php-app-rest
-  [About API Management]: https://docs.microsoft.com/azure/api-management/api-management-key-concepts
-  [Self-hosted gateway overview]: https://docs.microsoft.com/azure/api-management/self-hosted-gateway-overview
-  [Azure Functions:]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-timer
-  [Logic Apps:]: https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows
+  [About API Management]: https://learn.microsoft.com/azure/api-management/api-management-key-concepts
+  [Self-hosted gateway overview]: https://learn.microsoft.com/azure/api-management/self-hosted-gateway-overview
+  [Azure Functions:]: https://learn.microsoft.com/azure/azure-functions/functions-bindings-timer
+  [Logic Apps:]: https://learn.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows
   [Read more icon]: media/read-more.png "Read more"
-  [Copy activity performance and scalability guide]: https://docs.microsoft.com/azure/data-factory/copy-activity-performance
+  [Copy activity performance and scalability guide]: https://learn.microsoft.com/azure/data-factory/copy-activity-performance
   [This image shows a sample architecture involving a PHP App Service instance and a Flexible Server instance.]:
     media/sample-app-level-1-architecture.png
     "Basic Azure deployment architecture"
@@ -9860,7 +9860,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     media/load-local-arm-template.png "Loading the ARM template"
   [This image shows how to save the ARM template in the editor.]: media/save-the-template.png
     "Saving the ARM template in the Azure editor"
-  [Tutorial: Deploy a local ARM template]: https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli
+  [Tutorial: Deploy a local ARM template]: https://learn.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli
   [Basic Template]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json
   [Secure Template]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/secure-template/template-secure.json
   [47]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
@@ -9877,51 +9877,51 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure Synapse Analytics]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-02-AzureSynapseAnalytics
   [Azure Batch]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch
   [microservice]: https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures
-  [Design patterns for microservices]: https://docs.microsoft.com/azure/architecture/microservices/design/patterns
+  [Design patterns for microservices]: https://learn.microsoft.com/azure/architecture/microservices/design/patterns
   [54]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
   [YAML.]: yaml.org
-  [Azure Boards:]: https://docs.microsoft.com/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops
-  [processes.]: https://docs.microsoft.com/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=basic-process
-  [Azure Pipelines:]: https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops
-  [Azure Test Plans:]: https://docs.microsoft.com/azure/devops/test/overview?view=azure-devops
-  [Azure Repos:]: https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops
-  [Azure Artifacts:]: https://docs.microsoft.com/azure/devops/artifacts/start-using-azure-artifacts?view=azure-devops
-  [Azure Pipelines]: https://docs.microsoft.com/azure/azure-resource-manager/templates/add-template-to-azure-pipelines
-  [GitHub Actions]: https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-github-actions
+  [Azure Boards:]: https://learn.microsoft.com/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops
+  [processes.]: https://learn.microsoft.com/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=basic-process
+  [Azure Pipelines:]: https://learn.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops
+  [Azure Test Plans:]: https://learn.microsoft.com/azure/devops/test/overview?view=azure-devops
+  [Azure Repos:]: https://learn.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops
+  [Azure Artifacts:]: https://learn.microsoft.com/azure/devops/artifacts/start-using-azure-artifacts?view=azure-devops
+  [Azure Pipelines]: https://learn.microsoft.com/azure/azure-resource-manager/templates/add-template-to-azure-pipelines
+  [GitHub Actions]: https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-github-actions
   [Azure Service Operator]: https://azure.github.io/azure-service-operator/
   [Here]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/using-azure-service-operator-to-provision-azure-db-for-PostgreSQL/ba-p/3056231
-  [Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
-  [Log Analytics]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment
-  [Azure Sentinel]: https://docs.microsoft.com/azure/sentinel/overview
-  [Azure runbooks]: https://docs.microsoft.com/azure/automation/automation-quickstart-create-runbook
+  [Azure Monitor]: https://learn.microsoft.com/azure/azure-monitor/overview
+  [Log Analytics]: https://learn.microsoft.com/azure/azure-monitor/platform/design-logs-deployment
+  [Azure Sentinel]: https://learn.microsoft.com/azure/sentinel/overview
+  [Azure runbooks]: https://learn.microsoft.com/azure/automation/automation-quickstart-create-runbook
   [This image explains the Azure Monitor workflow.]: media/azure-monitor-overview-topics.png
     "Azure Monitor workflow"
   [This image clarifies how Azure Monitor integrates with various Azure data sources and management tools.]:
     media/how-azure-monitor-works.png "Azure Monitor integrations"
-  [What is monitored by Azure Monitor?]: https://docs.microsoft.com/azure/azure-monitor/monitor-reference
-  [plan their monitoring strategy]: https://docs.microsoft.com/azure/azure-monitor/best-practices-plan
+  [What is monitored by Azure Monitor?]: https://learn.microsoft.com/azure/azure-monitor/monitor-reference
+  [plan their monitoring strategy]: https://learn.microsoft.com/azure/azure-monitor/best-practices-plan
   [Azure Monitor Pricing]: https://azure.microsoft.com/pricing/details/monitor/
   [This image shows the Azure Monitor Metrics icon.]: media/azure-metric-icon.png
     "Azure Monitor Metrics icon"
-  [Azure Monitor Metrics overview]: https://docs.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics
+  [Azure Monitor Metrics overview]: https://learn.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics
   [This image shows the Activity Logs icon.]: media/activity-logs.png
     "Activity logs icon"
-  [platform log]: https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview
-  [Azure Activity log]: https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log
+  [platform log]: https://learn.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview
+  [Azure Activity log]: https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log
   [This image shows the Azure Log Analytics icon.]: media/log-analytics-icon.png
     "Azure Log Analytics icon"
-  [Overview of Log Analytics in Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview
-  [Log Analytics tutorial]: https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial
+  [Overview of Log Analytics in Azure Monitor]: https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview
+  [Log Analytics tutorial]: https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial
   [This image shows the Azure Monitor Workbooks icon.]: media/workbooks-icon.png
     "Azure Monitor Workbooks icon"
-  [Azure Monitor Workbooks]: https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview
+  [Azure Monitor Workbooks]: https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview
   [This image shows the Azure Resource Health icon.]: media/resource-health.png
     "Azure Resource Health icon"
-  [Resource Health overview]: https://docs.microsoft.com/azure/service-health/resource-health-overview
-  [Application Insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+  [Resource Health overview]: https://learn.microsoft.com/azure/service-health/resource-health-overview
+  [Application Insights]: https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview
   [55]: media/application-insights-overview.png
-  [Connection Strings]: https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net
-  [Azure Metrics Explorer]: https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started
+  [Connection Strings]: https://learn.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net
+  [Azure Metrics Explorer]: https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started
   [The Azure Metrics workflow is displayed.]: media/azure-metrics-workflow.png
     "Azure Metrics workflow"
   [The picture shows the time frame options for metric filtering.]: media/azure-metric-time-range.png
@@ -9932,7 +9932,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Metrics request count"
   [The Azure Metrics new alert rule is displayed.]: media/azure-metric-new-alert-rule.png
     "Metrics alert rule example"
-  [Manage usage and costs for Application Insights]: https://docs.microsoft.com/azure/azure-monitor/app/pricing
+  [Manage usage and costs for Application Insights]: https://learn.microsoft.com/azure/azure-monitor/app/pricing
   [56]: https://www.youtube.com/watch?v=yQOnRNgly0M&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=7
   [This image shows PostgreSQL metrics in the Azure portal.]: media/azure-portal-PostgreSQL-overview.png
     "PostgreSQL metrics in the Azure portal"
@@ -9974,34 +9974,34 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Set up alerts on metrics for Azure Database for PostgreSQL Flexible Server-Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-alert-on-metric
   [audit log feature is disabled]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-audit-logs
-  [Successful alerting strategy]: https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/response#successful-alerting-strategy
-  [Azure Automation Runbooks]: https://docs.microsoft.com/azure/automation/automation-runbook-types
+  [Successful alerting strategy]: https://learn.microsoft.com/azure/cloud-adoption-framework/manage/monitor/response#successful-alerting-strategy
+  [Azure Automation Runbooks]: https://learn.microsoft.com/azure/automation/automation-runbook-types
   [Microsoft blog]: https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-PostgreSQL-monitoring/
   [scale storage to increase IOPS capacity or provision additional IOPS]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-compute-storage
-  [common alert schema]: https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema
+  [common alert schema]: https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema
   [integrate with incident management systems like PagerDuty]: https://www.pagerduty.com/docs/guides/azure-integration-guide/
-  [call Logic Apps]: https://docs.microsoft.com/azure/connectors/connectors-native-webhook
-  [execute Azure Automation runbooks]: https://docs.microsoft.com/azure/automation/automation-webhooks
-  [Azure CLI reference commands for Azure Monitor]: https://docs.microsoft.com/cli/azure/azure-cli-reference-for-monitor
+  [call Logic Apps]: https://learn.microsoft.com/azure/connectors/connectors-native-webhook
+  [execute Azure Automation runbooks]: https://learn.microsoft.com/azure/automation/automation-webhooks
+  [Azure CLI reference commands for Azure Monitor]: https://learn.microsoft.com/cli/azure/azure-cli-reference-for-monitor
   [Monitor and scale an Azure Database for PostgreSQL Flexible Server using Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/scripts/sample-cli-monitor-and-scale
-  [Tutorial: Analyze metrics for an Azure resource]: https://docs.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics
-  [REST API Walkthrough]: https://docs.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough
-  [Azure Monitor REST API Reference]: https://docs.microsoft.com/rest/api/monitor/
+  [Tutorial: Analyze metrics for an Azure resource]: https://learn.microsoft.com/azure/azure-monitor/essentials/tutorial-metrics
+  [REST API Walkthrough]: https://learn.microsoft.com/azure/azure-monitor/essentials/rest-api-walkthrough
+  [Azure Monitor REST API Reference]: https://learn.microsoft.com/rest/api/monitor/
   [Azure Service Health]: https://azure.microsoft.com/features/service-health/
   [Configure audit logs (Azure portal)]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-configure-audit
-  [Azure Monitor best practices]: https://docs.microsoft.com/azure/azure-monitor/best-practices
-  [Cloud monitoring guide: Collect the right data]: https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/data-collection
+  [Azure Monitor best practices]: https://learn.microsoft.com/azure/azure-monitor/best-practices
+  [Cloud monitoring guide: Collect the right data]: https://learn.microsoft.com/azure/cloud-adoption-framework/manage/monitor/data-collection
   [Configure and access audit logs in the Azure CLI]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-audit-logs-cli
-  [Write your first query with Kusto Query Language (Microsoft Learn)]: https://docs.microsoft.com/learn/modules/write-first-query-kusto-query-language/
-  [Azure Monitor Logs Overview]: https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs
-  [Application Monitoring for Azure App Service Overview]: https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps
+  [Write your first query with Kusto Query Language (Microsoft Learn)]: https://learn.microsoft.com/learn/modules/write-first-query-kusto-query-language/
+  [Azure Monitor Logs Overview]: https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs
+  [Application Monitoring for Azure App Service Overview]: https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps
   [Configure and access audit logs for Azure Database for PostgreSQL Flexible Server in the Azure Portal]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-audit-logs-portal
-  [Kusto Query Language (KQL)]: https://docs.microsoft.com/azure/data-explorer/kusto/query/
-  [SQL Kusto cheat sheet]: https://docs.microsoft.com/azure/data-explorer/kusto/query/sqlcheatsheet
-  [Get started with log queries in Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+  [Kusto Query Language (KQL)]: https://learn.microsoft.com/azure/data-explorer/kusto/query/
+  [SQL Kusto cheat sheet]: https://learn.microsoft.com/azure/data-explorer/kusto/query/sqlcheatsheet
+  [Get started with log queries in Azure Monitor]: https://learn.microsoft.com/azure/azure-monitor/log-query/get-started-queries
   [Monitor Azure Database for PostgreSQL Flexible Server using Percona Monitoring and Management (PMM)]:
     https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/monitor-azure-database-for-PostgreSQL-using-percona-monito%20ring-and/ba-p/2568545
   [57]: https://www.youtube.com/watch?v=LSNV5BW-g-U&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=6
@@ -10013,34 +10013,34 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-firewall-portal
   [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-firewall-cli
-  [ARM Reference for Firewall Rules]: https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json
+  [ARM Reference for Firewall Rules]: https://learn.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json
   [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by using the Azure portal]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-portal
   [Create and manage Azure Database for PostgreSQL Flexible Server firewall rules by using the Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/howto-manage-firewall-using-cli
-  [58]: https://docs.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/servers/firewallrules?tabs=json
+  [58]: https://learn.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/servers/firewallrules?tabs=json
   [basic Azure Networking considerations]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-data-access-and-security-vnet
   [59]: media/warning.png "warning"
   [RFC 1918.]: https://datatracker.ietf.org/doc/html/rfc1918
   [Introduction to Azure]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure.md
-  [Virtual Network Peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-  [Azure VPN Gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
-  [Azure ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-  [Introduction to Azure Virtual Networks]: https://docs.microsoft.com/learn/modules/introduction-to-azure-virtual-networks/
-  [Portal]: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
-  [PowerShell]: https://docs.microsoft.com/azure/virtual-network/quick-create-powershell
-  [CLI]: https://docs.microsoft.com/azure/virtual-network/quick-create-cli
-  [ARM Template]: https://docs.microsoft.com/azure/virtual-network/quick-create-template
-  [Private DNS zone overview]: https://docs.microsoft.com/azure/dns/private-dns-overview
+  [Virtual Network Peering]: https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview
+  [Azure VPN Gateway]: https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
+  [Azure ExpressRoute]: https://learn.microsoft.com/azure/expressroute/expressroute-introduction
+  [Introduction to Azure Virtual Networks]: https://learn.microsoft.com/learn/modules/introduction-to-azure-virtual-networks/
+  [Portal]: https://learn.microsoft.com/azure/virtual-network/quick-create-portal
+  [PowerShell]: https://learn.microsoft.com/azure/virtual-network/quick-create-powershell
+  [CLI]: https://learn.microsoft.com/azure/virtual-network/quick-create-cli
+  [ARM Template]: https://learn.microsoft.com/azure/virtual-network/quick-create-template
+  [Private DNS zone overview]: https://learn.microsoft.com/azure/dns/private-dns-overview
   [60]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-portal
   [61]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-manage-virtual-network-cli
   [62]: #introduction-to-azure-database-for-postgresql-flexible-server-1
-  [hub and spoke configuration.]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
+  [hub and spoke configuration.]: https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
   [Security and Compliance document]: 03_PostgreSQL_Security_Compliance.md
-  [General Azure Networking Best Practices]: https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking
+  [General Azure Networking Best Practices]: https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking
   [modify the applications]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-configure-ssl
   [63]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-connect-tls-ssl
-  [Microsoft Purview]: https://docs.microsoft.com/azure/purview/overview
+  [Microsoft Purview]: https://learn.microsoft.com/azure/purview/overview
   [security baseline]: https://learn.microsoft.com/azure/postgresql/flexible-server/security-baseline
   [Selenium]: https://www.selenium.dev/
   [Selenium Grid]: https://www.selenium.dev/documentation/grid/
@@ -10051,14 +10051,14 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This image shows how to implement a Blue/Green test using Azure Traffic Manager.]:
     media/azure-traffic-manager-blue-green.png
     "Azure Traffic Manager Blue/Green test"
-  [Deployment Center example]: https://docs.microsoft.com/azure/app-service/deploy-github-actions?tabs=applevel
+  [Deployment Center example]: https://learn.microsoft.com/azure/app-service/deploy-github-actions?tabs=applevel
   [Azure Traffic Manager example]: https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/
   [Application Gateway example]: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/upgrading-aks-version-with-blue-green-deployment-i/ba-p/2527145
-  [Event Hub throughput by tier]: https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers
+  [Event Hub throughput by tier]: https://learn.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers
   [Apache JMeter]: https://jmeter.apache.org/
   [This image demonstrates how to perform a load test at scale using CI/CD, JMeter, and ACI.]:
     ./media/load-testing-pipeline-jmeter.png "Load testing at scale"
-  [Azure Load Testing Preview.]: https://docs.microsoft.com/azure/load-testing/quickstart-create-and-run-load-test
+  [Azure Load Testing Preview.]: https://learn.microsoft.com/azure/load-testing/quickstart-create-and-run-load-test
   [Grafana K6]: https://k6.io/
   [Azure DevOps Pipelines]: https://techcommunity.microsoft.com/t5/azure-devops/load-testing-with-azure-devops-and-k6/m-p/2489134
   [This image demonstrates container logs in the AKS cluster's Log Analytics workspace.]:
@@ -10066,8 +10066,8 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "AKS cluster container logs"
   [This image demonstrates the maximum CPU usage of the AKS cluster's nodes, a feature provided by metrics from AKS.]:
     ./media/metric-visualization.png "Maximum CPU usage graph"
-  [Supported languages for Azure App Insights]: https://docs.microsoft.com/azure/azure-monitor/app/platforms
-  [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor]: https://docs.microsoft.com/azure/aks/monitor-aks#scope-of-the-scenario
+  [Supported languages for Azure App Insights]: https://learn.microsoft.com/azure/azure-monitor/app/platforms
+  [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor]: https://learn.microsoft.com/azure/aks/monitor-aks#scope-of-the-scenario
   [This image demonstrates a dashboard in Grafana showing CPU usage for a pod.]:
     ./media/grafana-dashboard.png "Pod CPU usage in Grafana"
   [Using Azure Kubernetes Service with Grafana and Prometheus]: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459
@@ -10075,20 +10075,20 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [What is Grafana OSS]: https://grafana.com/docs/grafana/latest/introduction/oss-details/
   [Store Prometheus Metrics with Thanos, Azure Storage and Azure Kubernetes Service (AKS)]:
     https://techcommunity.microsoft.com/t5/apps-on-azure-blog/store-prometheus-metrics-with-thanos-azure-storage-and-azure/ba-p/3067849
-  [What are Azure Pipelines?]: https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20automatically%20builds%20and,ship%20it%20to%20any%20target
-  [What is Azure Load Testing?]: https://docs.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl
+  [What are Azure Pipelines?]: https://learn.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20automatically%20builds%20and,ship%20it%20to%20any%20target
+  [What is Azure Load Testing?]: https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl
   [read replica]: https://dev.PostgreSQL.com/doc/refman/5.7/en/replication-features.html
   [Best practices for optimal performance of your Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concept-performance-best-practices
   [limits]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pricing-tiers
   [PostgreSQL DB Metrics]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#metrics
-  [paired Azure region]: https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure
+  [paired Azure region]: https://learn.microsoft.com/azure/availability-zones/cross-region-replication-azure
   [This image shows PostgreSQL server parameters in the Azure portal.]: media/server_parameters.png
     "PostgreSQL server parameters"
   [64]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-server-parameters
   [Microsoft documentation]: https://learn.microsoft.com/azure/postgresql/flexible-server/migrate/PostgreSQL-on-premises-azure-db/08-data-migration
   [PHPBench tool]: https://github.com/phpbench/phpbench
-  [Container insights overview]: https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview
+  [Container insights overview]: https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview
   [DBT2 Benchmark]: https://downloads.PostgreSQL.com/source/dbt2-0.37.50.16.tar.gz
   [SysBench Benchmark Tool]: https://downloads.PostgreSQL.com/source/sysbench-0.4.12.16.tar.gz
   [TPC-H]: https://www.tpc.org/tpch/
@@ -10106,9 +10106,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     ./media/thread-pooling-performance.png
     "Performance benefits of thread pooling"
   [Microsoft TechCommunity post]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/achieve-up-to-a-50-performance-boost-in-azure-database-for-PostgreSQL/ba-p/2909691
-  [Caching guidance]: https://docs.microsoft.com/azure/architecture/best-practices/caching
+  [Caching guidance]: https://learn.microsoft.com/azure/architecture/best-practices/caching
   [Redis cache]: https://redis.io/
-  [Azure Cache for Redis]: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview
+  [Azure Cache for Redis]: https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview
   [Enterprise, Premium, Standard, and Basic tiers]: https://azure.microsoft.com/pricing/details/cache/
   [This image demonstrates how Azure CDN POPs optimize content delivery.]:
     ./media/cdn-overview.png "Azure CDN POP static content delivery"
@@ -10119,16 +10119,16 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity
   [Error 1184]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_new_aborting_connection
   [retire older gateways]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity-architecture#azure-database-for-PostgreSQL-gateway-ip-addresses
-  [Azure Network Watcher]: https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview
+  [Azure Network Watcher]: https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview
   [Error 1419]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super
   [Error 1227]: https://dev.PostgreSQL.com/doc/PostgreSQL-errors/8.0/en/server-error-reference.html#error_er_specific_access_denied_error
   [PostgreSQL documentation]: https://dev.PostgreSQL.com/doc/refman/8.0/en/converting-tables-to-innodb.html
   [to set custom maintenance schedules.]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/concepts-maintenance
-  [circuit breaker pattern]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
-  [debugging an App Service app]: https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
-  [Troubleshoot slow app performance issues in Azure App Service]: https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation
-  [Environment variables and app settings in Azure App Service]: https://docs.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet
-  [Azure App Service on Linux FAQ]: https://docs.microsoft.com/azure/app-service/faq-app-service-linux
+  [circuit breaker pattern]: https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker
+  [debugging an App Service app]: https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
+  [Troubleshoot slow app performance issues in Azure App Service]: https://learn.microsoft.com/azure/app-service/troubleshoot-performance-degradation
+  [Environment variables and app settings in Azure App Service]: https://learn.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet
+  [Azure App Service on Linux FAQ]: https://learn.microsoft.com/azure/app-service/faq-app-service-linux
   [KLogger]: https://github.com/katzgrau/KLogger
   [XDebug]: https://xdebug.org/docs/
   [Apps running on Azure App Service PHP and Container instances can take advantage of XDebug.]:
@@ -10136,7 +10136,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [PHP Debug extension]: https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug
   [opcode caching]: https://www.php.net/manual/en/intro.opcache.php
   [66]: #testing
-  [retry logic]: https://docs.microsoft.com/azure/architecture/patterns/retry
+  [retry logic]: https://learn.microsoft.com/azure/architecture/patterns/retry
   [This image demonstrates the Diagnose and solve problems tab of a Flexible Server instance in the Azure portal.]:
     ./media/troubleshoot-problems-portal.png
     "Diagnose and solve problems"
@@ -10164,9 +10164,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     ./media/cross-region-ha.png "Cross-region HA scenario"
   [68]: https://www.youtube.com/watch?v=K-MScJu4Jqw&list=PLlrxD0HtieHghqeFLMwaGxfxPbndt52Ap&index=10
   [69]: media/warning.png
-  [70]: https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources
-  [Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-  [Application Gateway]: https://docs.microsoft.com/azure/application-gateway/overview
+  [70]: https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources
+  [Azure Load Balancer]: https://learn.microsoft.com/azure/load-balancer/load-balancer-overview
+  [Application Gateway]: https://learn.microsoft.com/azure/application-gateway/overview
   [run on an Azure VM]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042
   [Azure Kubernetes Service.]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/deploy-proxysql-as-a-service-on-kubernetes-using-azure-database/ba-p/1105959
   [71]: media/tip.png
@@ -10190,32 +10190,32 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [75]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connectivity-architecture
   [Manage scheduled maintenance settings using the Azure Portal (Flexible Server)]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/how-to-maintenance-portal
-  [View service health notifications in the Azure Portal]: https://docs.microsoft.com/azure/service-health/service-notifications
-  [Configure resource health alerts using Azure Portal]: https://docs.microsoft.com/azure/service-health/resource-health-alert-monitor-guide
+  [View service health notifications in the Azure Portal]: https://learn.microsoft.com/azure/service-health/service-notifications
+  [Configure resource health alerts using Azure Portal]: https://learn.microsoft.com/azure/service-health/resource-health-alert-monitor-guide
   [Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy#retired-PostgreSQL-engine-versions-not-supported-in-azure-database-for-PostgreSQL
   [planned maintenance notification]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#planned-maintenance-notification
   [76]: #networking-and-security
   [77]: #performance-and-optimization
   [78]: #business-continuity-and-disaster-recovery
-  [Azure Well-Architected Framework]: https://docs.microsoft.com/azure/architecture/framework/
-  [Azure Well-Architected Review utility.]: https://docs.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment
-  [regions that support Availability Zones.]: https://docs.microsoft.com/azure/availability-zones/az-region
+  [Azure Well-Architected Framework]: https://learn.microsoft.com/azure/architecture/framework/
+  [Azure Well-Architected Review utility.]: https://learn.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment
+  [regions that support Availability Zones.]: https://learn.microsoft.com/azure/availability-zones/az-region
   [ProxySQL on a VM]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/setting-up-proxysql-as-a-connection-pool-for-azure-database-for/ba-p/2589350
-  [list of per-service retry recommendations.]: https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific
+  [list of per-service retry recommendations.]: https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific
   [sysbench.]: https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/benchmarking-azure-database-for-PostgreSQL-flexible-server-using/ba-p/3108799
-  [Azure Architecture center]: https://docs.microsoft.com/azure/architecture/
+  [Azure Architecture center]: https://learn.microsoft.com/azure/architecture/
   [Digital marketing using Azure Database for PostgreSQL Flexible Server:]:
-    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-PostgreSQL
+    https://learn.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-PostgreSQL
   [Finance management apps using Azure Database for PostgreSQL Flexible Server:]:
-    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-PostgreSQL
-  [Power BI]: https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview
+    https://learn.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-PostgreSQL
+  [Power BI]: https://learn.microsoft.com/power-bi/fundamentals/power-bi-overview
   [Intelligent apps using Azure Database for PostgreSQL Flexible Server:]:
-    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-PostgreSQL
-  [Gaming using Azure Database for PostgreSQL Flexible Server:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-PostgreSQL
-  [Retail and e-commerce using Azure PostgreSQL:]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-PostgreSQL
+    https://learn.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-PostgreSQL
+  [Gaming using Azure Database for PostgreSQL Flexible Server:]: https://learn.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-PostgreSQL
+  [Retail and e-commerce using Azure PostgreSQL:]: https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-PostgreSQL
   [Scalable web and mobile applications using Azure Database for PostgreSQL Flexible Server:]:
-    https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-PostgreSQL
+    https://learn.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-PostgreSQL
   [Microsoft Customer Stories portal]: https://customers.microsoft.com/search?sq=%22Azure%20Database%20for%20PostgreSQL%22&ff=&p=2&so=story_publish_date%20desc
   [This image shows the Minecraft logo.]: media/minecraft-logo.png
     "Minecraft logo"
@@ -10248,7 +10248,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [LinkedIn]: https://www.linkedin.com/company/azure-database-for-PostgreSQL/
   [search for a Microsoft Partner]: https://www.microsoft.com/solution-providers/home
   [Microsoft MVP]: https://mvp.microsoft.com/MvpSearch
-  [Microsoft Community Forum]: https://docs.microsoft.com/answers/topics/azure-database-PostgreSQL.html
+  [Microsoft Community Forum]: https://learn.microsoft.com/answers/topics/azure-database-PostgreSQL.html
   [StackOverflow for Azure PostgreSQL]: https://stackoverflow.com/questions/tagged/azure-database-PostgreSQL
   [Azure Facebook Group]: https://www.facebook.com/groups/MsftAzure
   [LinkedIn Azure Group]: https://www.linkedin.com/groups/2733961/
@@ -10293,9 +10293,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Creating a sample order from the Laravel app"
   [This image shows the output of a SQL query that demonstrates the new order.]:
     media/verify-order-data.png "New order in SQL query results"
-  [Configure a PHP app for Azure App Service - Access diagnostic logs]: https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs
+  [Configure a PHP app for Azure App Service - Access diagnostic logs]: https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs
   [Deploying a Laravel application to Nginx server.]: https://laravel.com/docs/8.x/deployment#nginx
-  [Local Git deployment to Azure App Service]: https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
+  [Local Git deployment to Azure App Service]: https://learn.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
   [How PHP apps are detected and built.]: https://github.com/microsoft/Oryx/blob/main/doc/runtimes/php.md
   [Apache Maven:]: https://maven.apache.org/
   [Docker Desktop:]: https://docs.docker.com/desktop/
@@ -10329,7 +10329,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     ./media/choose-linux-function-app.png "Azure Function App Linux"
   [This image demonstrates how to configure a GET request to the Function App endpoint from the Azure portal.]:
     ./media/azure-portal-function-test.png "GET request test"
-  [86]: https://docs.microsoft.com/azure/azure-functions/configure-monitoring?tabs=v2#enable-application-insights-integration
+  [86]: https://learn.microsoft.com/azure/azure-functions/configure-monitoring?tabs=v2#enable-application-insights-integration
   [`Azure Functions`]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
   [`Python`]: https://marketplace.visualstudio.com/items?itemName=ms-python.python
   [This image demonstrates how to create a new Function App project.]: ./media/create-function-app-vscode.png
@@ -10351,7 +10351,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Flexible Server VNet integration"
   [This image demonstrates how to disable SSL transport for Flexible Server.]:
     ./media/disable-secure-transport.png "Disable SSL transport"
-  [`az PostgreSQL flexible-server create`]: https://docs.microsoft.com/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest#az-PostgreSQL-flexible-server-create
+  [`az PostgreSQL flexible-server create`]: https://learn.microsoft.com/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest#az-PostgreSQL-flexible-server-create
   [Download]: https://go.microsoft.com/fwlink/?LinkId=278885
   [87]: https://www.microsoft.com/download/details.aspx?id=53127
   [This image demonstrates the configuration for the on-premises data gateway.]:

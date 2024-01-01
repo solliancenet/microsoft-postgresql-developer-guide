@@ -274,9 +274,9 @@ The environment variable could be set globally or at the project level. Setting 
 - [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues)
 - Running `php -i` at the Azure App Service SSH console will provide valuable configuration information.
 - Azure App Service 8.0 php.ini location - `cat /usr/local/etc/php/php.ini-production`
-- [Configure a PHP app for Azure App Service - Access diagnostic logs](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs)
+- [Configure a PHP app for Azure App Service - Access diagnostic logs](https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs)
 - [Deploying a Laravel application to Nginx server.](https://laravel.com/docs/8.x/deployment#nginx)
-- [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli)
+- [Local Git deployment to Azure App Service](https://learn.microsoft.com/azure/app-service/deploy-local-git?tabs=cli)
 
 ## Recommended content
 

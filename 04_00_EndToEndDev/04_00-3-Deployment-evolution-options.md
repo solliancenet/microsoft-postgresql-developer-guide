@@ -31,7 +31,7 @@ As part of our sample application and supporting Azure Landing zone created by t
 
 The biggest advantage of a classic on-premises deployment is the infrastructure team will have full control of the environment.  The biggest weakness is they must also maintain every aspect of the environment as well.
 
-Follow the [Classic deployment](../artifacts/01-ClassicDeploy/README.md) guide to deploy the application and database.
+Follow the [Classic deployment](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy) guide to deploy the application and database.
 
 ## Azure VM deployment
 
@@ -39,7 +39,7 @@ An Azure VM Deployment is very similar to a classical deployment but rather than
 
 The advantages of using Azure to host virtual machines include the ability to enable backup and restore services, disk encryption, and scaling options that require no upfront costs and provide flexibility in configuration options with just a few clicks of the mouse.  This is in contrast to the relatively complex and extra work needed to enable these types of services on-premises.
 
-Follow the [Azure VM deployment](../artifacts/02-01-CloudDeploy-Vm/README.md) guide to deploy the application and database.
+Follow the [Azure VM deployment](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm) guide to deploy the application and database.
 
 ## Simple App Service deployment with Azure Database for PostgreSQL Flexible Server
 
@@ -47,7 +47,7 @@ If supporting the operating system and the various other software is not a prefe
 
 However, modernizing an application and migrating them to these aforementioned services may introduce some relatively small application changes.
 
-Follow the [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server](../artifacts/02-02-CloudDeploy-AppSvc/README.md) guide to deploy the application and database.
+Follow the [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc) guide to deploy the application and database.
 
 ## Continuous Integration (CI) and Continuous Delivery (CD)
 
@@ -55,7 +55,7 @@ Doing manual deployments every time a change is made can be a very time-consumin
 
 Whether using Azure DevOps or Github, there will be some setup work to support the deployments.  This typically includes creating credentials that can connect to the target environment and deploy the release artifacts.
 
-Follow the [Continuous Integration (CI) and Continuous Delivery (CD)](../artifacts/02-03-CloudDeploy-CICD/README.md) guide to deploy the application and database.
+Follow the [Continuous Integration (CI) and Continuous Delivery (CD)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD) guide to deploy the application and database.
 
 ## Containerizing layers with Docker
 
@@ -65,7 +65,7 @@ Containers solve the potential issue of misconfiguration of the target environme
 
 Containerizing an application and data layer can be relatively complex, but once the build environment is set up and working, it is possible to push container updates very quickly to multi-region load-balanced environments.
 
-Follow the [Containerizing layers with Docker](../artifacts/03-00-Docker/README.md) guide to deploy the application and database.
+Follow the [Containerizing layers with Docker](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker) guide to deploy the application and database.
 
 ## Azure Container Instances (ACI)
 
@@ -73,13 +73,13 @@ After application and data layers are migrated to containers, a hosting target m
 
 Azure Container Instances can deploy one container at a time or multiple containers to keep the application, API, and data contained in the same resource.
 
-Follow the [Azure Container Instances (ACI)](../artifacts/03-01-CloudDeploy-ACI/README.md) guide to deploy the application and database.
+Follow the [Azure Container Instances (ACI)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI) guide to deploy the application and database.
 
 ## App Service Containers
 
 Developers can extend the benefits of App Service, like scalability, elasticity, and simple CI/CD integration, to their containerized apps using App Service for Containers. This offering supports individual containers and multi-container apps through Docker Compose files. Containers give teams added flexibility beyond the platforms supported directly by App Service.
 
-Follow the [App Service Containers](../artifacts/03-02-CloudDeploy-AppService-Container/README.md) guide to deploy the application and database.
+Follow the [App Service Containers](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container) guide to deploy the application and database.
 
 ## Azure Kubernetes Service (AKS)
 
@@ -89,10 +89,10 @@ Moving to Azure Kubernetes Service (AKS) will enable the application to inherit 
 
 - In supported regions, co-locating Flexible Server and AKS nodes in the same availability zone minimizes latency.
 
-Follow the [Azure Kubernetes Service (AKS)](../artifacts/04-AKS/README.md) guide to deploy the application and database.
+Follow the [Azure Kubernetes Service (AKS)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS) guide to deploy the application and database.
 
 ## AKS with PostgreSQL Flexible Server
 
 Running the database layer in a container is better than running it in a VM, but not as great as removing all the operating system and software management components.
 
-Follow the [AKS with PostgreSQL Flexible Server](../artifacts/05-CloudDeploy-PostgreSQLFlex/README.md) guide to deploy the application and database.
+Follow the [AKS with PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex) guide to deploy the application and database.

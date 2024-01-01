@@ -28,7 +28,7 @@ Azure Database for PostgreSQL Flexible Server provides two options for deploymen
 
 Cost management is one of the advantages of Flexible Server: it supports a [*burstable* tier](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage), which is based on the B-series Azure VM tier and is optimized for workloads that do not continually use the CPU. [Flexible Server instances can also be paused](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-stop-start-server-portal). The image below shows how Flexible Server works for a non-high availability arrangement.
 
-> *Locally-redundant storage* replicates data within a single [availability zone](https://docs.microsoft.com/azure/availability-zones/az-overview). *Availability zones* are present within a single Azure region (such as East US) and are geographically isolated. All Azure regions that support availability zones have at least three zones.
+> *Locally-redundant storage* replicates data within a single [availability zone](https://learn.microsoft.com/azure/availability-zones/az-overview). *Availability zones* are present within a single Azure region (such as East US) and are geographically isolated. All Azure regions that support availability zones have at least three zones.
 
 ![This image demonstrates how PostgreSQL Flexible Server works, with compute, storage, and backup storage.](./media/flexible-server.png "Operation of PostgreSQL Flexible Server")
 

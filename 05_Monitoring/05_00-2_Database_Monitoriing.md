@@ -113,7 +113,7 @@ In addition to metrics, it is also possible to enable PostgreSQL logs to be inge
 
 PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is disabled](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit) in Azure Database for PostgreSQL Flexible Server by default.  Server level logging can be enabled by adding the `pgaudit` server extension and then modifiying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit).
 
-Once enabled, logs can be accessed through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).  The following KQL query can be used to access `AUDIT:` based logs:
+Once enabled, logs can be accessed through [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).  The following KQL query can be used to access `AUDIT:` based logs:
 
 ```kql
 AzureDiagnostics

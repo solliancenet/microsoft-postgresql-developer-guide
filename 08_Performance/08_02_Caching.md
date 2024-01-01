@@ -4,7 +4,7 @@ Utilizing resources such as CPU, memory, disk (read/write access) and network ca
 
 Caching is a common technique that aims to improve the performance and scalability of a system. It does this by temporarily copying frequently accessed data to fast storage that's located close to the application.
 
-![Read more icon](media/read-more.png "Read more")  [Caching guidance](https://docs.microsoft.com/azure/architecture/best-practices/caching)
+![Read more icon](media/read-more.png "Read more")  [Caching guidance](https://learn.microsoft.com/azure/architecture/best-practices/caching)
 
 ### Disk cache
 
@@ -26,4 +26,4 @@ A common piece of software that helps with caching is called [Redis cache](https
 
 Redis cache works by putting data into memory via key/value pairs.  The application will typically serialize the data and then hand it off to Redis for quick retrieval later.  The Redis cache should be located close to the application. Query results should be retrieved and forwarded quickly.
 
-[Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) is a platform as a service Microsoft Azure-hosted Redis environment that provides several levels of service such as [Enterprise, Premium, Standard, and Basic tiers](https://azure.microsoft.com/pricing/details/cache/).
+[Azure Cache for Redis](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview) is a platform as a service Microsoft Azure-hosted Redis environment that provides several levels of service such as [Enterprise, Premium, Standard, and Basic tiers](https://azure.microsoft.com/pricing/details/cache/).

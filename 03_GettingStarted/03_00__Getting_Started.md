@@ -12,7 +12,7 @@ As explained in the [Introduction to Azure resource management](../02_IntroToPos
 
 Since most Azure services are provisioned in regions, some limits apply at the regional level. Developers must consider both global and regional subscription limits when developing and deploying applications.
 
-Consult [Azure's comprehensive list of service and subscription limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) for more details.
+Consult [Azure's comprehensive list of service and subscription limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) for more details.
 
 ## Azure authentication
 

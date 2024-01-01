@@ -29,7 +29,7 @@ In this section, we'll create a Flexible Server database using the Azure SDK for
 
 >![Note icon](media/note.png "Note") **Note:** The ability to create resource groups and the [PostgreSQL Flexible Server instances](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-python-sdk) are also available in the SDK.
 
-This code must be run in a terminal or notebook that is authenticated to Azure. For more information, see [Authenticate the Azure SDK for Python](https://docs.microsoft.com/azure/developer/python/azure-sdk-authenticate?tabs=cmd#authenticate-with-azure-cli). Also ensure the proper subscription is selected, if needed run the `az account set --subscription <subscription_id>` command.
+This code must be run in a terminal or notebook that is authenticated to Azure. For more information, see [Authenticate the Azure SDK for Python](https://learn.microsoft.com/azure/developer/python/azure-sdk-authenticate?tabs=cmd#authenticate-with-azure-cli). Also ensure the proper subscription is selected, if needed run the `az account set --subscription <subscription_id>` command.
 
 1. Install the required libraries.
 

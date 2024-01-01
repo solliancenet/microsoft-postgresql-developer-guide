@@ -38,7 +38,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     
     #Publish-AzWebApp -WebApp $app -ArchivePath "C:\labfiles\microsoft-postgresql-developer-guide\site.zip" -force
 
-    #Reference - https://docs.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
+    #Reference - https://learn.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
 
     az login --scope https://management.core.windows.net//.default --identity
 
