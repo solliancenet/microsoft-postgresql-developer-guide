@@ -11,9 +11,6 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 - Search for **Azure Database for PostgreSQL Flexible Server**
 - Select **Create**
 - Under **Flexible Server**, select **Create**
-
-  ![This image demonstrates the first provisioning screen for Azure Database for PostgreSQL Flexible Server.](./media/az-PostgreSQL-db-create.png "First provisioning screen for Flexible Server")
-
 - Select the target subscription and resource group
 - For the name, type **pgsqldevSUFFIXflexpriv**
 - Select the resource group region (it must be in the region that the VNet is in)
