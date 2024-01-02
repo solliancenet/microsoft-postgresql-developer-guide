@@ -57,6 +57,8 @@ Now that a containerized version of the applications exists, it can now be hoste
     
     ```
 
+> NOTE: You could also use the Azure Key Vault provider for AKS to utilize secrets.  Reference [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/). Additionally, consider using [Managed Identities](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/identity-access-modes/) for your pods.
+
 4. Create a managed disk:
 
   ```powershell
