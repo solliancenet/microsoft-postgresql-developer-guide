@@ -19,6 +19,9 @@
 - For the encryption methods, select **RequestSSL**
 - Select **Test connection**, ensure that a success message is displayed.
 - Select **Create**
+
+> NOTE: Currently you cannot use a MSI to connect to PostgreSQL from ADF.
+
 - Select **Linked services**, select the **+ New** button
 - For the type, select **Azure Data Lake Storage Gen2**
 - Select **Continue**

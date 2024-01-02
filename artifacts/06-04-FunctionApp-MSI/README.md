@@ -66,6 +66,18 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 - Select **Save**
 - Right click the new server, select **Connect**
 
+> NOTE: `pgadmin` does have a password limit and the access token will exceed this limit.  If for some reason pgadmin will not connect, fall back to using `psql`
+
+- Run the following to get an access token (be sure to login using a PostgreSQL admin with the proper Tenant ID when generating the access token):
+
+```powershell
+az login
+
+$env:PGPASSWORD=$(az account get-access-token --resource https://ossrdbms-aad.database.windows.net --query accessToken --output tsv)
+
+psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d postgres
+```
+
 ## Add MSI to Database
 
 - Switch to the Azure Portal
@@ -79,6 +91,55 @@ powershell -file "C:\temp\GetAzADToken.ps1"
     ```sql
     select * from pgaadauth_create_principal('APP_ID', false, false);
     ```
+
+## Entra Users and Groups (Optional)
+
+You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL.  If you have access to create groups, you can attempt these next set of labs:
+
+- Switch to the Azure Portal
+- Open the **Microsoft Entra ID** app
+- Under **Manage** select **Groups**
+- Select **New Group**
+- For the group type, select **Security**
+- Enter a group name (ex. **Test_PG_Admins**)
+- Select the **No members selected** link
+- Search for the `APP_ID` and select it, then select **Select**
+- Select **Create**
+- Switch back to the **paw-1** virtual machine
+- Switch to Windows PowerShell with psql as the Microsoft Entra user from above
+
+> NOTE: You can only assign roles using an authenticated Microsoft Entra User (not a PostgreSQL user)
+
+- Attempt to assign the group access to the database with the following script (it should fail):
+  - First parameter `true` = isAdmin
+  - Second paremeter `false` = isMfa
+
+```psql
+select * from pgaadauth_create_principal('Test_PG_Admins', true, false);
+```
+
+> NOTE: This is equilent to executing `CREATE ROLE "Test_PG_Admins" LOGIN CREATEROLE CREATEDB in role azure_pg_admin;` and since you are not a super user, you must use the portal to assign this level of permissions.  You can however add non-admin users by changing the first parameters to `false`.
+
+- You can find the current Microsoft Entra users by running the following:
+
+```psql
+select * from pgaadauth_list_principals(false);
+```
+
+- Is is possible to add Microsoft Entra users to the database (be sure to use their primary UPN/Email address):
+
+```psql
+select * from pgaadauth_create_principal('chris@contoso.com', false, false);
+```
+
+- Switch to Windows PowerShell
+- You can now connect to the database using the following:
+
+```powershell
+
+```
+
+> NOTE: If you have a PostgreSQL instance that is on a private network, you would need to open an outbound path (also a route if using route tables) to the **AzureActiveDirectory** service tag.
 
 ## Modify the code
 

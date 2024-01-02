@@ -72,3 +72,5 @@ PostgreSQL offers a [Docker image](https://hub.docker.com/_/postgres) to operate
 ### Cloud PaaS
 
 PostgreSQL databases can be deployed on public cloud platforms by utilizing VMs, container runtimes, and Kubernetes. However, these platforms require a middle ground of customer management.  If a fully managed environment is required, cloud providers offer their own managed PostgreSQL products, such as Amazon RDS for PostgreSQL and Google Cloud SQL for PostgreSQL.  Microsoft Azure offers Azure Database for PostgreSQL Flexible Server.
+
+- **Video** - [Introducing Azure Database for PostgreSQL and Azure Database for MySQL](https://www.youtube.com/watch?v=ElKfEurMi9E)
