@@ -1997,8 +1997,7 @@
         "apiVersion": "2021-02-01",
         "location": "[variables('location')]",
         "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": { "domainNameLabel": "[variables('dnsPrefix')]" }
+          "publicIPAllocationMethod": "Dynamic"
         }
       },
       {
