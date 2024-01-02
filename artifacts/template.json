@@ -1194,7 +1194,7 @@
                 "appSettings" : [
                   {
                     "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                    "value": "[reference(resourceId('microsoft.insights/components', variables('resourceName')), '2015-05-01').InstrumentationKey]"
                   },
                   {
                     "name": "AzureWebJobsStorage",
@@ -1247,7 +1247,7 @@
             "appSettings" : [
                   {
                     "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                    "value": "[reference(resourceId('microsoft.insights/components', variables('resourceName')), '2015-05-01').InstrumentationKey]"
                   }
                 ]
           },
@@ -1291,7 +1291,7 @@
           "siteConfig": {"appSettings" : [
                   {
                     "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                    "value": "[reference(variables('resourceName'), '2015-05-01').InstrumentationKey]"
+                    "value": "[reference(resourceId('microsoft.insights/components', variables('resourceName')), '2015-05-01').InstrumentationKey]"
                   }
                 ]},
           "scmSiteAlsoStopped": false,
