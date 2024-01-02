@@ -89,7 +89,7 @@ Moving to Azure Kubernetes Service (AKS) will enable the application to inherit 
 
 - In supported regions, co-locating Flexible Server and AKS nodes in the same availability zone minimizes latency.
 
-Follow the [Azure Kubernetes Service (AKS)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS) guide to deploy the application and database.
+Follow the [Azure Kubernetes Service (AKS)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS) guide to deploy the application and database to AKS.
 
 ## AKS with PostgreSQL Flexible Server
 
