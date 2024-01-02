@@ -109,8 +109,9 @@ input-files:
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\14_ZeroToHero\14_02_Resources.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00_Appendix_Header.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\Template_Deployment_Instructions.md
-- C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-Sample-App\README.md
-- C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-Sample-App-01-Java-REST\04_02_Deploy_Laravel_API_app.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-01-Sample-App\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-02-Sample-App-01-Java-REST\04_02_Deploy_Laravel_API_app.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-03-Whats-New-Pg16\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\01-ClassicDeploy\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\02-01-CloudDeploy-Vm\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\02-02-CloudDeploy-AppSvc\README.md

@@ -123,6 +123,35 @@ AzureDiagnostics
 | where Message contains "AUDIT:"
 ```
 
+You can also send in custom error message from your workload using the `RAISE WARNING` command.
+
+```psql
+CREATE OR REPLACE PROCEDURE my_proc(schema_name TEXT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RAISE WARNING 'my_proc executed for schema %', schema_name;
+  -- add your procedure logic here
+END;
+$$;
+
+CALL my_proc('my_schema');
+```
+
+You can then find the data by using the following KQL query:
+
+```kql
+AzureDiagnostics
+| where Category == "PostgreSQLLogs"
+| where Message contains "my_proc executed for schema" 
+```
+
+It is also possible to change the prefix of the log by changing the `log_line_prefix` server parameter. For example, you can get the user name in the log line prefix by adding `%u` to log_line_prefix. For example:
+
+```text
+'%m [%p] %q%u@%d (%h) '
+```
+
 >![Warning](media/warning.png "Warning") **Warning**: Excessive audit logging can degrade server performance, so be mindful of the events and users configured for logging.
 
 ### Azure Advisor

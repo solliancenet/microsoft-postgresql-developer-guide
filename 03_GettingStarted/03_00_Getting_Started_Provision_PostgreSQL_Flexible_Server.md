@@ -138,7 +138,7 @@ You can read more about TLS and SSL by referencing [Secure connectivity with TLS
 
 ### Admin users
 
-While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role azure_pg_admin. This role does not have full superuser permissions.
+While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role `azure_pg_admin`. This role does not have full superuser permissions.
 
 The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
 

@@ -1,3 +1,7 @@
+C:\github\solliancenet\microsoft-postgresql-developer-guide\articles.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\outline.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\resources.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\01_Intro\01_Introduction.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\02_IntroToPostgreSQL\02_00_Intro_PostgreSQL.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\02_IntroToPostgreSQL\02_01_Introduction_to_PostgreSQL_on_Azure.md
@@ -7,7 +11,7 @@ C:\github\solliancenet\microsoft-postgresql-developer-guide\02_IntroToPostgreSQL
 C:\github\solliancenet\microsoft-postgresql-developer-guide\02_IntroToPostgreSQL\02_05_Summary.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00__Getting_Started.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md
-C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-1_Query_PostgreSQL_Workbench.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-1_Query_PostgreSQL_pgAdmin.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_00-2_Connect_Query_Azure_CLI.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_01_PHP_Language_Support.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\03_GettingStarted\03_02_Java_Language_Support.md
@@ -62,8 +66,9 @@ C:\github\solliancenet\microsoft-postgresql-developer-guide\14_ZeroToHero\14_01_
 C:\github\solliancenet\microsoft-postgresql-developer-guide\14_ZeroToHero\14_02_Resources.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00_Appendix_Header.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\Template_Deployment_Instructions.md
-C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-Sample-App\README.md
-C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-Sample-App-01-Java-REST\04_02_Deploy_Laravel_API_app.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-01-Sample-App\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-02-Sample-App-01-Java-REST\04_02_Deploy_Laravel_API_app.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\00-03-Whats-New-Pg16\README.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\01-ClassicDeploy\README.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\02-01-CloudDeploy-Vm\README.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\02-02-CloudDeploy-AppSvc\README.md
@@ -86,3 +91,7 @@ C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\08-02-AI-A
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\Misc\01_PushImagesToAcr.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\Misc\02_MigrateDatabase.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\artifacts\Misc\03_CreateFlexibleServer.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\pandoc\postgresql-developer-guide.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\sample-php-app\readme.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\sample-php-app-rest\readme.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\sample-php-app-win-74\readme.md

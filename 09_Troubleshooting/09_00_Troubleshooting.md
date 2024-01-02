@@ -118,6 +118,8 @@ For more information, reference [Handling transient connectivity errors for Azur
 
 - **Vacuum taking too long** : Ensure that you have the proper compute tier to support the vacuum options.
 
+- **Restart** When in doubt, attempt to restart the server during a maintenence window and see if your issue resolves itself.
+
 ## Troubleshoot app issues in Azure App Service
 
 - **Enable web logging.** Azure provides built-in diagnostics to assist with [debugging an App Service app](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
@@ -128,6 +130,8 @@ For more information, reference [Handling transient connectivity errors for Azur
 - **HTTP vs HTTPS** Ensure that you are using the right http endpoint (`http` vs `https`).
 
 - **Missing application configuration values** : Ensure that you have set all configuration values in the App Service or Azure Key Vault.
+
+- **App is running very slow** : Check to see if the App Service is running in the same region as the PostgreSQL server.
 
 - [Azure App Service on Linux FAQ](https://learn.microsoft.com/azure/app-service/faq-app-service-linux)
 
