@@ -10,7 +10,6 @@ Instead of learning multiple sample applications, the guide focused on evolving 
 
 - Azure subscription
 - Git
-- pgAdmin
 
 ### Quick start: manual Azure set up instructions
 

@@ -4,7 +4,7 @@ $servername = "localhost";
 $username = "postgres";
 $password = "Solliance123";
 $dbname = "contosostore";
-$port = "5432"
+$port = "5432";
 
 // connection string with SSL certificate files
 $conn_str  = 'host=' . $servername . ' ';

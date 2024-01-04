@@ -49,6 +49,8 @@ This is an optional step if you have your development environment already set up
 - [Basic Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
 - [Secure Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template-secure.json)
 
+> [!NOTE](media/note-icon.png)  Due to the number of software packages to be installed, the deployment of the template may fail due a time out of the VM extension `winExtension` on the -win11 and -paw-1 virtual machines.  On each of these virtual machines, the log for the installation of the software is located at `C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt` to follow the progress.
+
 #### Step 2 - Explore the development environment
 
 Once the template has been deployed, several resources will be deployed to support the developer journey.  Not all of these will be used but are provided in case other paths would like to be explored.

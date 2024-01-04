@@ -30,8 +30,13 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 ## Test the PHP Setup
 
 1. In the **paw-1** virtual machine, open a chrome browser window
-2. Navigate to `http://localhost:8080/default.php`, **Hello World** should be displayed.
-3. Navigate to `http://localhost:8080/database.php`, **12 results** should be displayed.
+2. Navigate to `http://localhost:8080/info.php`, the PHP version and configuration should be displayed.
+
+    ![This image demonstrates the PHP configuration page.](./media/php_info.png "PHP configuration page")
+
+3. Navigate to `http://localhost:8080/database.php`, **100 results** should be displayed.
+
+    ![This image demonstrates the database results page.](./media/php_database.png "Database results page")
 
 ## Test the Store Application
 
