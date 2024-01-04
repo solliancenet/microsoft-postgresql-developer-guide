@@ -18,8 +18,11 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 ## Open Port 8080
 
 1. Navigate to the **Paw-1** machine, select it
-2. Under **Settings**, select **Networking**
-3. Select **Add inbound port rule**
+2. Under **Networking**, select **Network settings**
+3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option
+
+   ![This image demonstrates the Create port rule button.](./media/create-port-rule.png "Create port rule")
+
 4. For the destination port, type **8080**
 5. For the name, type **Port_8080**
 6. Select **Add**
@@ -35,16 +38,19 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
    New-NetFirewallRule -DisplayName 'Port 8080' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8080
    ```
 
-3. The application should load
-4. Open a browser to the virtual machine ip address (ex `http:\\IP_ADDRESS:8080`)
-5. The results should be displayed, but some files will not be download
+3. Open a browser to the virtual machine ip address (ex `http:\\IP_ADDRESS:8080`)
+4. The results should be displayed, but some files will not be download
+
+   ![This image demonstrates the application running in the browser.](./media/app-running-incomplete-render.png "Application running")
 
 ## Edit .env file
 
 1. Open the `c:\labfiles\microsoft-postgres-developer-guide\artifacts\sample-php-app\.env` file
 2. Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine and remove the port `8080`.  
-3. Change the http protocol to `https` in order to properly load the application over SSL.
-4. Save the file, refresh the browser window
+3. Change the http protocol to `https` in order to properly load the application over SSL, example: https://IP_ADDRESS
+4. Save the file.
+
+   ![This image demonstrates the .env file.](./media/env-file.png ".env file")
 
 ## Enable Port 443
 
@@ -56,12 +62,15 @@ As part of any secured web application, SSL/TLS should be enabled.
     New-SelfSignedCertificate -FriendlyName ContosoNow -DnsName ContosoNow -CertStoreLocation Cert:\LocalMachine\My -KeyUsage DigitalSignature
     ```
 
-2. Set the certificate on the site:
+2. See the certificate on the site:
    - Open Internet Information Services (IIS) Manager
    - Select the server node
    - Select **Server certificates**
 
       ![This image demonstrates the Server Certificates tab in IIS Manager.](./media/server-certificates-iis-manager.png "Server Certificates in IIS Manager")
+   - Locate **ContosoNow** in the list
+
+      ![This image demonstrates the ContosoNow certificate in the list.](./media/contosonow-certificate.png "ContosoNow certificate")
 
 3. Setup SSL
    - Expand the **Sites** node
@@ -77,11 +86,16 @@ As part of any secured web application, SSL/TLS should be enabled.
 ## Open Port 443
 
 1. In the Azure Portal, navigate to the **Paw-1** machine, select it
-2. Under **Settings**, select **Networking**
-3. Select **Add inbound port rule**
+2. Under **Networking**, select **Network settings**
+3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option
+
+   ![This image demonstrates the Create port rule button.](./media/create-port-rule.png "Create port rule")
+
 4. For the destination port, type **443**
 5. For the name, type **Port_443**
 6. Select **Add**
+
+   ![This image demonstrates the added inbound security rule.](./media/nsg-rule-443.png "New inbound security rule")
 
 ## Test the Application #3
 
@@ -92,8 +106,11 @@ As part of any secured web application, SSL/TLS should be enabled.
    New-NetFirewallRule -DisplayName 'Port 443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
    ```
 
-3. Select the **Advanced** button
-4. Select **Proceed to IP_ADDRESS (unsafe)**
-5. The application should load
-6. Open a browser to the virtual machine ip address (ex `https:\\IP_ADDRESS:443`)
-7. The results should display
+3. In IIS restart the **contosostore** web site
+4. Select the **Advanced** button
+5. Select **Proceed to IP_ADDRESS (unsafe)**
+6. The application should load
+7. Open a browser to the virtual machine ip address (ex `https:\\IP_ADDRESS:443`)
+8. The results should display
+
+   ![This image demonstrates the application running in the browser.](./media/app-running.png "Application running")
