@@ -375,14 +375,3 @@ TODO...
 
     ```sql
     ```
-    
-
-## Exercise 6: Build sample app
-
-Explore a low code/nocode chatbot using postgres? (Have to see how easy)
-
-Possibly use a simple Steamlit app to interact with database and execute vector similarity searches?
-
-Take a look at this example from Denzil: https://github.com/YugabyteDB-Samples/yugabytedb-azure-openai-lodging-service
-
-TODO: Come up with some good queries that cross the boundaries of the work that has been done in labs 3 and 4 to really showcase the capabilities. Combine geospatial query with semantic search and other such things.
