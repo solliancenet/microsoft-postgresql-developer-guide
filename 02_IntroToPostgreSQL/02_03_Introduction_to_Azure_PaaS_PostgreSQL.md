@@ -4,7 +4,7 @@ Developers can deploy PostgreSQL on Azure through Virtual Machines (IaaS) or Azu
 
 Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Editions 11 through 16, making it flexible for most cloud migrations.  With the latest performance changes in PostgreSQL 16, it makes a lot of sense to migrate any existing workloads to this latest version.
 
-For the latest version support and policy information, reference [Azure Database for PostgreSQL versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy).
+For the latest version support and policy information, reference [Azure Database for PostgreSQL Flexible Server versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy).
 
 **Control Plane**
 As the image below demonstrates, Azure Resource Manager handles resource configuration, meaning that standard Azure management tools, such as the CLI, PowerShell, and ARM templates, are still applicable. This is commonly referred to as the *control plane*.
@@ -14,13 +14,7 @@ For managing database objects and access controls at the server and database lev
 
 ![This image demonstrates the control and data plane for Azure Database for PostgreSQL Flexible Server.](./media/postgresql-conceptual-diagram.png "Control plane for Azure Database for PostgreSQL Flexible Server")
 
-### Azure Database for PostgreSQL Flexible Server deployment options
-
-Azure Database for PostgreSQL Flexible Server provides two options for deployment: Single Server and Flexible Server. Below is a summary of these offerings. For a more comprehensive comparison table, please consult the article [Choose the right PostgreSQL Server option in Azure](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
-
->![Note](media/note.png "Note") **Note:** This guide will be focused on Flexible Server and will not explore Single Server or the Cosmos DB database for PostgresSQL.
-
-##### Flexible Server video introduction
+### Flexible Server video introduction
 
 >![Watch icon](media/watch.png "Watch") **Watch:** [Introduction to Azure Database for PostgreSQL Flexible Server](https://youtu.be/NSEmJfUgNzE)
 
@@ -70,4 +64,4 @@ To estimate the TCO for Azure Database for PostgreSQL Flexible Server:
 Azure provides a [detailed list of the limitations of Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits). Here are a few notable ones.
 
 - Users are not provided host or OS access to view or modify configuration files such as postgresql.conf
-- You can't create or load your own extension in Azure Database for PostgreSQL.
+- You can't create or load your own extension in Azure Database for PostgreSQL Flexible Server.

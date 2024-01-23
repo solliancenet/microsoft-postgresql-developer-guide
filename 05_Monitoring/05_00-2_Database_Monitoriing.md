@@ -160,7 +160,7 @@ It is also possible to change the prefix of the log by changing the `log_line_pr
 
 ### Azure Advisor
 
-The Azure Advisor system uses telemetry to issue performance and reliability recommendations for your PostgreSQL database. Azure Database for PostgreSQL prioritize the following types of recommendations:
+The Azure Advisor system uses telemetry to issue performance and reliability recommendations for your PostgreSQL database. Azure Database for PostgreSQL Flexible Server prioritize the following types of recommendations:
 
 - **Performance**: To improve the speed of your PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see Advisor Performance recommendations.
 - **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, and connection limits. For more information, see Advisor Reliability recommendations.

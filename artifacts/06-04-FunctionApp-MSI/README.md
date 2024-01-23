@@ -2,8 +2,6 @@
 
 In the previous function apps the connection information was embedded into the function app code.  As was covered in the traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault.  Here we will utilize the features of Azure to use Managed Identities to connect to the database.
 
-> **NOTE** This is currently only supported on Azure Database for Single Server.
-
 ## Enable PostgreSQL Microsoft Entra Authentication
 
 - Switch to the Azure Portal
@@ -94,7 +92,7 @@ psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d 
 
 ## Entra Users and Groups (Optional)
 
-You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL.  If you have access to create groups, you can attempt these next set of labs:
+You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL Flexible Server.  If you have access to create groups, you can attempt these next set of labs:
 
 - Switch to the Azure Portal
 - Open the **Microsoft Entra ID** app

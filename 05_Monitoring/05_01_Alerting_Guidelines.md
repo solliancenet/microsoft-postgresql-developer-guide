@@ -82,7 +82,7 @@ To interact with the REST API, applications first need to obtain an authenticati
 
 [Azure Service Health](https://azure.microsoft.com/features/service-health/) notifies administrators about Azure service incidents and planned maintenance so actions can be taken to mitigate downtime. Configure customizable cloud alerts and use personalized dashboards to analyze health issues, monitor the impact on cloud resources, get guidance and support, and share details and updates.
 
-### Azure Database for PostgreSQL Release Notes
+### Azure Database for PostgreSQL Flexible Server Release Notes
 
 Typically each month a new set of release notes are published for Flexible Server.  You can read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes) document.
 

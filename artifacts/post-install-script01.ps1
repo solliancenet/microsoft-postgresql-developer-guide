@@ -219,11 +219,24 @@ $ipAddress = (Invoke-WebRequest -uri "https://ifconfig.me/ip" -UseBasicParsing).
 
 $resourceGroups = Get-AzResourceGroup
 $ResourceGroupName = $resourceGroups[0].ResourceGroupName
+$suffix = $resourceGroups[0].tags["suffix"]
 
 #add the VM ip address
 foreach($server in $servers)
 {
   New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-linux-1-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-linux-1" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-win11-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-win11" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-paw-1-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-paw-1" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
 }
 
 #run composer on app path

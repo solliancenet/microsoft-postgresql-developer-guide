@@ -387,4 +387,4 @@ Putting credential in the PHP files is not a best practice, it is better to util
 
 ## Extra Resources
 
-For an example of deploying a Django app that uses Azure Database for PostgreSQL on AppService, reference [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app).
+For an example of deploying a Django app that uses Azure Database for PostgreSQL Flexible Server on AppService, reference [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app).

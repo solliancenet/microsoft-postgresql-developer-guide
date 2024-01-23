@@ -12,13 +12,13 @@ The [planned maintenance notification](https://learn.microsoft.com/azure/postgre
 
 ### Version Policy
 
-Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community.
+Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL Flexible Server from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community.
 
 Before PostgreSQL version 10, the PostgreSQL versioning policy considered a major version upgrade to be an increase in the first or second number. For example, 9.5 to 9.6 was considered a major version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a minor release upgrade. Version 10 to 11 is a major version upgrade.
 
 ## Running retired versions
 
-As the community won't be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL won't patch the retired database engine for any bugs or security issues, or otherwise take security measures with regard to the retired database engine. You might experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
+As the community won't be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL Flexible Server won't patch the retired database engine for any bugs or security issues, or otherwise take security measures with regard to the retired database engine. You might experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 
 In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop your database server to secure the service. In such case, you'll be notified to upgrade the server before bringing the server online.
 

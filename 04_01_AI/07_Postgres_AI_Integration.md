@@ -1,4 +1,4 @@
-## Azure Database for PostgreSQL AI
+## Azure Database for PostgreSQL Flexible Server and AI
 
 ### Vector Databases
 
@@ -26,7 +26,7 @@ For more information, review [How to enable and use pgvector on Azure Database f
 
 ### azure_ai extension
 
-Azure Database for PostgreSQL extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including Azure OpenAI and Azure Cognitive Services simplifying the development process allowing seamless integration into those services.
+Azure Database for PostgreSQL Flexible Server extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including Azure OpenAI and Azure Cognitive Services simplifying the development process allowing seamless integration into those services.
 
 Once enabled, you will need to setup the endpoint and key settings for the extension in order to utilize it in your queries.
 

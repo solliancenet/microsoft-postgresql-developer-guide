@@ -18,7 +18,7 @@
 
 1. Connect to the target PostgreSQL instance
    1. Right-click **Servers**, select **Register->Server**
-   2. For the hostname, type the dns of the Azure Database for PostgreSQL Flexible Server single server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
+   2. For the hostname, type the dns of the Azure Database for PostgreSQL Flexible Server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
    3. Switch to the `Connection` tab
       1. For the username, type **wsuser**
       2. For the password type **Solliance123**

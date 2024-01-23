@@ -45,7 +45,7 @@ AzureDiagnostics
 | top 5 by query_time_d desc
 ```
 
-In addition to the server parameters and extensions, Azure Database for PostgreSQL has some other options to collect query stats including the **pg_stat_statements** extension.  
+In addition to the server parameters and extensions, Azure Database for PostgreSQL Flexible Server has some other options to collect query stats including the **pg_stat_statements** extension.  
 
 ## Upgrading the tier
 
@@ -95,7 +95,7 @@ Geo-restore can be used to recover from a service outage in the primary region.
 
 ## Server parameters
 
-As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the PostgreSQL documentation). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
+As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL Flexible Server are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the PostgreSQL documentation). Your Azure Database for PostgreSQL Flexible Server server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
 
 ![This image shows PostgreSQL server parameters in the Azure portal.](media/server_parameters.png "PostgreSQL server parameters")
 

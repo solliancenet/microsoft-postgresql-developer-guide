@@ -113,5 +113,5 @@ Now that a containerized version of the applications exists, it can now be hoste
    1. Browse to the app service
    2. Under **Monitoring**, select **Log stream**
    3. Review the startup logs, notice that the database instance did not respond to an HTTP request on port 5432.  This is because an app service container will only work with HTTP based container images unless it is a multicontainer deployment.
-2. Change the application settings for the web container to point to the Azure Database for PostgreSQL Flexible Server Single Server instance
+2. Change the application settings for the web container to point to the Azure Database for PostgreSQL Flexible Server instance
 3. Refresh the web site, it should now load successfully.

@@ -42,14 +42,14 @@ When creating an instance using the tools above, without passing any additional 
   - Backup retention period (7 days)
   - PostgreSQL version (13)
 
-Reference the [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage) for more information on all the available compute, storage and memory options available for Azure Database for PostgreSQL.  As a summary, your options range from:
+Reference the [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage) for more information on all the available compute, storage and memory options available for Azure Database for PostgreSQL Flexible Server.  As a summary, your options range from:
 
 - vCores : 1-96
 - Memory: 2GB to 672GB
 - Storage : 32Gb to 32TB
 - IOPS : 120 to 20,000
 
-As you can see, Azure Database for PostgreSQL can accomidate a very large set of use cases and workloads.
+As you can see, Azure Database for PostgreSQL Flexible Server can accomidate a very large set of use cases and workloads.
 
 ### Storage
 
@@ -59,7 +59,7 @@ Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https
 
 There are [some limitations](https://learn.microsoft.com/azure/virtual-machines/disks-types) when working with Azure managed disk storage.
 
-Although currently in preview and with [some limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#premium-ssd-v2-early-preview-limitations), Premium SSD v2 will become generally available for Azure Database for PostgreSQL and will increase the performance IOPS from 20,000 max to 80,000 and the disk size to 64TB.
+Although currently in preview and with [some limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#premium-ssd-v2-early-preview-limitations), Premium SSD v2 will become generally available for Azure Database for PostgreSQL Flexible Server and will increase the performance IOPS from 20,000 max to 80,000 and the disk size to 64TB.
 
 Another advantage of Premium SSD v2 is they come with 3000 IOPS and 125MB/s free of charge.
 
@@ -67,7 +67,7 @@ Another advantage of Premium SSD v2 is they come with 3000 IOPS and 125MB/s free
 
 The connectivity method cannot be changed after creating the server. For example, if you selected Private access (VNet Integration) during creation, then you cannot change it to Public access (allowed IP addresses) after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration.
 
-Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
+Connections to Azure Database for PostgreSQL Flexible Server communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
 
 #### PgBouncer
 
@@ -77,11 +77,11 @@ Every time a new connection is created, PostgreSQL spawns a new process using th
 
 - Protect your instance from massive number of connections. In pgbouncer, you can set the maximum number of connections to the Postgres server. If an external system tries to open more connections than the maximum number of allowed connections, PgBouncer will reject the connection before reaching the upstream database server.
 
-> NOTE: PgBouncer is not used to speed up queries.  As you will read in later sections, Azure Database for PostgreSQL has other tools to help find and assist with improving query performance.
+> NOTE: PgBouncer is not used to speed up queries.  As you will read in later sections, Azure Database for PostgreSQL Flexible Server has other tools to help find and assist with improving query performance.
 
 For an example of real world PgBouncer usage, reference [Scaling the GitLab database](https://about.gitlab.com/blog/2017/10/02/scaling-the-gitlab-database/).
 
-For the latest on PgBouncer and Azure Database for PostgreSQL support, reference [PgBouncer in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer).
+For the latest on PgBouncer and Azure Database for PostgreSQL Flexible Server support, reference [PgBouncer in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer).
 
 Also reference [Connection pooling strategy for PostgreSQL Using PgBouncer](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connection-pooling-best-practices).
 
@@ -97,7 +97,7 @@ When attempting to connect to the instance, if the connection failed, try these 
 
 Note that if you enable PgBouncer on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is port 6432 that your IT department must open for outbound traffic.
 
-Because Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the files is automatically updated based on the network settings.
+Because Azure Database for PostgreSQL Flexible Server is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the files is automatically updated based on the network settings.
 
 For more information, review:
 
@@ -109,7 +109,7 @@ We explore working with VNET Integration in the `06-05-LogicApp` developer lab. 
 
 ### Firewall Rules
 
-With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level firewall rules. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With private access no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL - Flexible Server.
+With public access, the Azure Database for PostgreSQL Flexible Server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level firewall rules. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With private access no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL Flexible Server.
 
 There are some limitations to firewall rules, reference [Troubleshoot firewall problems](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules#troubleshoot-firewall-problems) for the latest information.  The two most important items to note:
 
@@ -120,7 +120,7 @@ When connecting from other Azure services, it is likely you will not be away of 
 
 ### SSL
 
-Once you have an Azure Database for PostgreSQL instance created, you will want to connect to it.  The next few sections will show you how to connect from various languages.  All of them will have the option to connect with or without SSL.
+Once you have an Azure Database for PostgreSQL Flexible Server instance created, you will want to connect to it.  The next few sections will show you how to connect from various languages.  All of them will have the option to connect with or without SSL.
 
 Most of the libraries support SSL connectivity, but modifying your applications to support SSL connectivity can be non-trival.
 
@@ -142,7 +142,7 @@ While creating a server, you set up the credentials for your admin user. The adm
 
 The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
 
-An Azure Database for PostgreSQL server has default databases:
+An Azure Database for PostgreSQL Flexible Server has default databases:
 
 - postgres - A default database you can connect to once your server is created.
 - azure_maintenance - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.
@@ -165,7 +165,7 @@ When Microsoft Entra Authentication is enabled, you can assign other service man
 
 It is also possible to assign Entra groups to Azure Database for PostgreSQL roles and permissions.  You may find it easier to create a group and then add the MSI to the group. After assigning to a group, you would then assign the permissions to the group rather than the individual identities.
 
-When working with MSI, be sure you follow the steps for Azure Database for Flexible Server and not the Azure Database for Single Server.  It can be confusing when browsing articles on the internet or even the Microsoft Docs pages.
+When working with MSI, be sure you follow the steps for Azure Database for Flexible Server and not steps that might be related to other instance types.  It can be confusing when browsing articles on the internet or even the Microsoft Docs pages.
 
 Reference [06-04-FunctionApp-MSI] developer lab for examples on how to do this. You can also reference [Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-with-managed-identity) and [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
@@ -189,4 +189,4 @@ Flexible Server supports all `contrib` extensions and more. Please refer to [Pos
 
 ### Limitations
 
-As you read above, not all PostgreSQL features are available in Azure Database for PostgreSQL.  To read more about these limitations, reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits).
+As you read above, not all PostgreSQL features are available in Azure Database for PostgreSQL Flexible Server.  To read more about these limitations, reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits).

@@ -35,11 +35,9 @@ If you receive permission denied errors, ensure you are connecting to the correc
 
 #### Collation Defaults
 
-After migrating from Single Server to Flexible server (or even from on-premises), be cognizant of the Collation settings.
+After migrating from a source instance to Azure Database for PostgreSQL Flexible Server be cognizant of the collation settings.
 
-Flexible Server uses `en_US.utf8` while the Single Server uses `English_United States.1252`. The Postgres documentation states that "The LC_COLLATE and LC_CTYPE variables affect the sort order of indexes". You may need to rebuild the indexes.
-
-You can review differences between Single Server and Flexible Server [here](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server).
+Flexible Server uses `en_US.utf8`. The Postgres documentation states that "The LC_COLLATE and LC_CTYPE variables affect the sort order of indexes". You may need to rebuild the indexes.
 
 #### SSL Connectivity
 
@@ -71,7 +69,7 @@ When working with other Azure services such as Azure Synapse or Azure Data Facto
 
 If the application experiences transient connectivity issues, perhaps the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained. Monitor resource usage and determine whether the instance needs to be scaled up.  
 
-There are several troubleshooting tools available for Azure Database for PostgreSQL that focus on resource analysis. Some items that are coverd include:
+There are several troubleshooting tools available for Azure Database for PostgreSQL Flexible Server that focus on resource analysis. Some items that are coverd include:
 
 - High CPU Usage
 - High Memory Usage
@@ -86,7 +84,7 @@ Additionally, you can utilize the monitoring metrics to further investigate any 
 
 ### Unsupported PostgreSQL features
 
-Operating in a cloud environment means that certain features that function on-premises are incompatible with Azure Database for PostgreSQL Flexible Server instances. While Flexible Server has better feature parity with on-premises PostgreSQL than Single Server, it is important to be aware of any limitations.
+Operating in a cloud environment means that certain features that function on-premises are incompatible with Azure Database for PostgreSQL Flexible Server instances.
 
 - Azure Database for PostgreSQL Flexible Server does not support the PostgreSQL super user privilege. This may affect how some applications operate.
 
