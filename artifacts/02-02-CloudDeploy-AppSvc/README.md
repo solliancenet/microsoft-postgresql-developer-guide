@@ -8,13 +8,15 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
 1. Open the `C:\labfiles\microsoft-postgresql-developer-guide` folder in Visual Studio code
 2. If prompted, select **Yes, I trust the authors**
-3. Switch to the browser, browse to the **pgsqldevSUFFIX** app service
-4. Select the **Overview** link, copy the **URL** for use later
+3. Switch to the browser, in the Azure Portal, browse to the **pgsqldevSUFFIX** app service
+4. Select the **Overview** link, copy the **Default domain** for use later
+
+![The app service overview screen displays with the default domain link highlighted.](media/app_service_url.png "default domain URL")
 
 ### Deploy the Application
 
 1. Switch to the **Paw-1** virtual machine remote desktop.
-2. Open a terminal window, run the following to deploy the zip to Azure, be sure to replace the `SUFFIX`:
+2. Open a terminal window, run the following to deploy the zip to Azure, run these commands one at a time and observe:
 
     > NOTE: The virtual machine is running under a Managed Identity with `owner` access to the resource group.
 
@@ -33,6 +35,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
     #NOTE: This can't be used this for linux based deployments
     #Compress-Archive -Path .\sample-php-app\* -DestinationPath site.zip -force
+    #NOTE: The next command will take a few minutes to run
 
     7z a -r ./site.zip ./sample-php-app/*
     
@@ -65,21 +68,25 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     cd "C:\labfiles\microsoft-postgresql-developer-guide"
 
     #remove current git setup
+    # If you see an error that the path does not exist, ignore it
     remove-item .git -force -Recurse
 
     cd "C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app"
 
     #remove current git setup
+    # If you see an error that the path does not exist, ignore it
     remove-item .git -force -Recurse
 
     git init
+    # If you see an error that there is no such remote 'origin' or 'azure', ignore it
     git remote rm origin
     git remote rm azure
+
     git add .
     git commit -m "init commit"
     git remote add azure $url
-    git branch -m azure main
-    git pull --allow-unrelated-histories
+    # rename the current local branch to main
+    git branch -m main
     git push -u azure main
 
     #only works with 7.4 PHP / Apache
@@ -90,27 +97,26 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 ### Update Application Settings
 
 1. Switch to the Azure Portal, browse to the **pgsqldevSUFFIXlinux** app service
-3. Under **Development tools**, select **SSH**, then select **Go**
-4. Login using your lab credentials (ex: Azure Entra)
-5. Run the following:
+2. Under **Development tools**, select **SSH**, then select **Go**
+3. Run the following:
 
     ```bash
     cp /etc/nginx/sites-available/default /home/site/default
     ```
 
-6. Edit the `default` file
+4. Edit the `default` file
 
     ```bash
     nano /home/site/default
     ```
 
-7. Modify the root to be the following:
+5. Modify the root to be the following:
 
     ```bash
     root /home/site/wwwroot/public
     ```
 
-8. Add the following to the `location` section after the `index  index.php index.html index.htm hostingstart.html;` line:
+6. Add the following to the `location` section after the `index  index.php index.html index.htm hostingstart.html;` line:
 
     ```bash
     try_files $uri $uri/ /index.php?$args;
@@ -118,14 +124,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
 
     ![This image demonstrates the changes made to the /home/site/default file in the SSH session.](./media/web-server-config.png "Web server configuration file changes")
 
-9. Press **Ctrl-X**, then select **Y** to save the file
-10. Run the following command to add a startup.sh file:
+7. Press **Ctrl-X**, then select **Y** to save the file.
+8. Run the following command to add a startup.sh file:
 
    ```bash
     nano /home/site/startup.sh
     ```
 
-11. Copy and paste the following:
+9. Copy and paste the following:
 
     ```bash
     #!/bin/bash
@@ -134,29 +140,31 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     service nginx reload
     ```
 
-12. Press **Ctrl-X**, then select **Y** to save the file
-13. Open the `.env` file in the text editor.
+10. Press **Ctrl-X**, then select **Y** to save the file
+11. Open the `.env` file in the text editor.
 
     ```bash
     nano /home/site/wwwroot/.env
     ```
 
-14. Update the `APP_URL` parameter to the App Service URL (found on the **Overview** tab of the Azure portal). Then, set `ASSET_URL` to `APP_URL`.
+12. Update the `APP_URL` parameter to the App Service **Default domain** URL (found on the **Overview** tab of the Azure portal). Then, set `ASSET_URL` to `APP_URL`.
+
+    ![The default domain url is highlighted on the Overview section of the linux app service.](media/default_domain_url_linux.png "Linux App Service URL")
 
     ```bash
     APP_URL=https://[APP SERVICE NAME].azurewebsites.net
     ASSET_URL = "${APP_URL}"
     ```
 
-15. Press **Ctrl-X**, then select **Y** to save the file
-16. Run the following commands to setup the Larvael application:
+13. Press **Ctrl-X**, then select **Y** to save the file
+14. Run the following commands to setup the Laravel application:
 
-    ```powershell
+    ```bash
     mkdir /home/site/ext 
     cd /home/site/ext 
     curl -sS https://getcomposer.org/installer | php
 
-    cp /home/site/ext/composer.phar /usr/local/bin/composer
+    cp /home/site/ext/composer.phar /usr/local/bin
 
     cd /home/site/wwwroot
 
@@ -167,49 +175,59 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     php artisan key:generate
     ```
 
-15. Switch back the Azure Portal and the app service, under **Settings**, select **Configuration**
-16. Select **General settings**
-17. In the startup command textbox, type `/home/site/startup.sh`
-18. Select **Save**, then select **Continue**
+15. Switch back the Azure Portal and the **pgsqldevSUFFIXlinux** app service.
+16. Under **Settings**, select **Configuration**
+17. Select **General settings**
+18. In the startup command textbox, type `/home/site/startup.sh`
+
+    ![The General settings display with startup.sh in the startup command.](media/startup_general_settings.png "Set startup command")
+
+19. Select **Save**, then select **Continue**
 
 ### Test the Application
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/` to see the app load with SSL
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/` to see the app load with SSL
 
-### Add Firewall IP Rule and Azure Access
+    ![The ContosoNoshNow application is loaded over SSL on the deployed linux web app.](media/linux_app_svs_ssl.png "Website served over SSL")
+
+### Add Firewall Rule for Azure Access
 
 1. Switch to the Azure Portal
 2. Browse to the `pgsqldevSUFFIXflex16` Azure Database for PostgreSQL Flexible Server
-3. Under **Settings**, select **Connection security**
-4. Select the **Allow access to Azure services** toggle to **Yes**
+3. Under **Settings**, select **Networking**
+4. Check the **Allow public access from any Azure service within Azure to this server** checkbox, it is located beneath the **Firewall rules** section.
+
+    ![The firewall rules section of the PostgreSQL database displays with the allow public access from any azure service checkbox checked.](media/allow_azure_access.png "Allow Azure services access to the database")
 5. Select **Save**
 
-### Migrate the Database Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
+### Migrate the Database
 
-## Update the connection string
+## Create and restore a backup
 
 1. Use the steps in [Migrate your database](./Misc/02_MigrateDatabase) article.
 
 ## Update the connection string
 
 1. Switch to the Azure Portal
-2. Browse to the **pgsqldevSUFFIX** web application
+2. Browse to the **pgsqldevSUFFIXlinux** web application
 3. Under **Development Tools**, select **SSH**
 4. Select **Go->**
-6. Edit the **/home/site/wwwroot/pubic/database.php**:
+5. Edit the **/home/site/wwwroot/pubic/database.php**:
 
     ```bash
     nano /home/site/wwwroot/public/database.php
     ```
 
-7. Set the servername variable to `pgsqldevSUFFIXflex16.postgres.database.azure.com`
-8. Set the username to `wsuser`
-9. Set the password to `Solliance123`
-10. Press **Ctrl-X**, then **Y** to save the file
+6. Set the servername variable to `pgsqldevSUFFIXflex16.postgres.database.azure.com`
+7. Set the username to `wsuser`
+8. Set the password to `Solliance123`
+9. Press **Ctrl-X**, then **Y** to save the file
+
+    ![The database.php file is displayed with the connection string highlighted.](media/database_php_connection_string.png "Database connection string")
 
 ## Test new settings #1
 
-1. Browse to `https://pgsqldevSUFFIX.azurewebsites.net/database.php`, you should get results, but the connection is not secured over SSL.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, you should get results, but the connection is not secured over SSL.
 
 ## Enable SSL support
 
@@ -221,24 +239,25 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     wget https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
     ```
 
-3. Edit the `database.php` file
+2. Edit the `database.php` file
 
     ```php
     nano /home/site/wwwroot/public/database.php
     ```
 
-4. Update the database connection to use ssl by uncommenting the `sslmode=verify_full` line:
+3. Update the database connection to use ssl by uncommenting the `sslmode=verify_full` line:
 
     ```php
     $conn_str .= 'sslmode=verify-full ';
     ```
-5. Also uncomment the `sslrootcert` line:
+
+4. Also uncomment the `sslrootcert` line:
 
     ```php
     //$conn_str .= 'sslrootcert=/home/site/wwwroot/public/DigiCertGlobalRootCA.crt.pem ';
     ```
 
-6. Press Ctrl-X, then Y to save the file
+5. Press Ctrl-X, then Y to save the file
 
 ## Test new settings #2
 
@@ -308,13 +327,13 @@ Putting credential in the PHP files is not a best practice, it is better to util
 4. Select **Create**
 5. For the secret permissions, select **Select all**, then select **Next**
 6. For the principal, select the lab guide user account, select **Next**
-1. On application, select **Next**
-1. Select **Create**
-1. Under **Settings**, select **Secrets**
-1. Select **Generate/Import**
-1. For the name, type **PostgreSQLPassword**
-1. For the value, type **Solliance123**
-1. Select **Create**
+7. On application, select **Next**
+8. Select **Create**
+9. Under **Settings**, select **Secrets**
+10. Select **Generate/Import**
+11. For the name, type **PostgreSQLPassword**
+12. For the value, type **Solliance123**
+13. Select **Create**
 
 ## Create Managed Service Identity
 
