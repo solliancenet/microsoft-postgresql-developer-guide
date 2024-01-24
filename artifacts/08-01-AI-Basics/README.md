@@ -8,3 +8,19 @@
 ## Exercise 2: Receipes with Open AI
 
 - Open the `ai_receipes.ipynb` notebook.
+- Follow the instructions in the notebook.
+
+## Exercise 3: LangChain (VectorDB)
+
+- Open the `ai_langchain_vectordb.ipynb` notebook.
+- Follow the instructions in the notebook.
+
+## Exercise 4: LangChain (RAG/ReAct)
+
+- Open the `ai_langchain.ipynb` notebook.
+- Follow the instructions in the notebook.
+
+## Exercise 5: Semantic Kernel
+
+- Open the `ai_semantic_kernel.ipynb` notebook.
+- Follow the instructions in the notebook.
