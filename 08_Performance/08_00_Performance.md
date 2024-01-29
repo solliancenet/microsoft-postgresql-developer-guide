@@ -85,13 +85,17 @@ Do not be surprised. Set up alerts on thresholds to ensure that notifications ca
 
 For information on monitoring a DB instance's metrics, see [PostgreSQL DB Metrics](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#metrics).
 
-## Moving regions
-
-TODO - move to new style
+## Moving regions with Geo-restore
 
 It is possible to move a geo-redundant Flexible Server instance to a [paired Azure region](https://learn.microsoft.com/azure/availability-zones/cross-region-replication-azure) through geo-restore. Geo-restore creates a new Flexible Server instance in the paired Azure region based on the current state of the database.
 
 Geo-restore can be used to recover from a service outage in the primary region.
+
+## Moving regions with Virtual Endpoints
+
+In addition to Geo-restore, you can also utilize replication.  A newer feature to Azure Database for PostgreSQL Flexible Server is the concept of [virtual endpoints](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas#virtual-endpoints-preview).  This allows you to create [multiple replicas](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas) in different regions that are synchronized behind the scenes.  You will then create a virtual endpoint that layers over the top of the instances and provides a single DNS endpoint for your application to point.
+
+If a region were to go down, you simply failover to your read replica in another region by `promoting` a read replica.  The virtual endpoint with then be updated to point to the new primary replica without having to make any changes to your application's connection strings.
 
 ## Server parameters
 

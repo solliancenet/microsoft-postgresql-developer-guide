@@ -12,7 +12,17 @@ This technique is very helpful when a business doesn't have enough data, enough 
 
 ### CoT
 
+Chain of Thought (CoT) prompting is relatively new prompting method, that encourages the LLM to explain its reasoning.  The main idea of CoT is that by giving the LLM some few shot examples where the reasoning process is explained, the LLM will also show the reasoning process when answering the prompt. This often leads to more accurate results.
+
+Importantly, it has been shown that CoT only yields performance gains when used with models of ∼100B parameters. Smaller models wrote illogical chains of thought, which had worse accuracy than standard prompting. Models usually get performance boosts from CoT prompting in a manner proportional to the size of the model.
+
 ### ReAct
+
+ReAct is inspired by the synergies between `reasoning` and `acting` which allow humans to learn new tasks and make decisions or reasoning. ReAct is a general paradigm that combines reasoning and acting when working with LLMs. ReAct prompts LLMs to generate verbal reasoning traces and actions for a task. This allows the system to perform dynamic reasoning to create, maintain, and adjust plans for acting while also enabling interaction to external environments to incorporate additional information into the reasoning.
+
+The first step is to select cases from a training set and compose ReAct-format outcomes. These are used as few-shot examples in the prompts. The examples consist of multiple thought-action-observation steps.  
+
+For example, when using LangChain with dataframe agents and the SQL Toolkits with debugging, you can see the output of how the thought, action and observation interactions work.  That is typcially done over many iterations until you achive the desired outcome.
 
 ## Text Generation
 

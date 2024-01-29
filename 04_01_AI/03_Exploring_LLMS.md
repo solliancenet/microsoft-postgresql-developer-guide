@@ -105,7 +105,21 @@ PostgreSQL can gain the capabilities of [generating vector embeddings with Azure
 
 Text and code generation models are models that generate text or code. These models are often used for text summarization, translation, and question answering. Text generation models are often trained on large datasets of text, such as BookCorpus, and can be used to generate new text, or to answer questions. Code generation models, like CodeParrot, are often trained on large datasets of code, such as GitHub, and can be used to generate new code, or to fix bugs in existing code.
 
-### Voice
+### Speech to Text, Text to Speech
+
+Using LLMs to process audio to text has become very common.  There are several benefits to using AI to do this:
+
+- Improved accuracy: LLMs can improve the accuracy of speech recognition systems in noisy environments.
+- Accents: LLMs are more robust to accents than traditional speech recognition systems. This is because LLMs are trained on a massive dataset of text from a variety of speakers.
+- Scalability: LLMs can be scaled to handle large volumes of audio data. This makes them ideal for use in applications such as call centers and customer service.
+
+Microsoft provides several options for using Speech to Text and vice versa through the Conginitive Services offerings as well as the model regsitries in the various AI Studios.
+
+For more information, check out the following resources:
+
+- [Speech service documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview)
+- [Azure Speech Studio](https://speech.microsoft.com/)
+- [Azure AI Studio models registry](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog)
 
 ### Image
 
