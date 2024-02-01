@@ -15,3 +15,12 @@ Neural networks significantly enhanced natural language processing.  These new a
 
 It is these new algorithms training on very large sets of data that now drive the virtual assistants you have come to know.  These agents have become very proficient in interpreting the human language, identifying a need, and performing an action to achieve the stated goal(s).
 
+## Microsoft AI Videos
+
+Microsoft has created several YouTube videos that explain some of the basic concepts around Generative AI.
+
+- [AI in a Minute: Generative AI](https://youtu.be/om7iYSucLrk) - What it is, why it’s groundbreaking.
+- [AI in a Minute: Large Language Models](https://youtu.be/FSoQyJEvHiU) - Why they matter, how they work.
+- [AI in a Minute: Prompt Engineering](https://youtu.be/vGdyePbGNaE) - What it means, how to apply it.
+- [AI in a Minute: Vector Search](https://youtu.be/TsPNbxkK_Eg) - What it does, why it’s relevant.
+- [AI in a Minute: Responsible AI](https://youtu.be/fHEaFDMxFwQ) - How to think about it.

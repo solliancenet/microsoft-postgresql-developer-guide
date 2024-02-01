@@ -10,6 +10,8 @@ GenAI algorithms tend to apply specific Machine Learning models.  Some examples 
 
 In the next few sections, we will explore how generative AI is used to unlock new scenarios in various industries and how we address the new challenges and limitations associated with its usage.
 
+Again, check out the YouTube video [AI in a Minute: Generative AI](https://youtu.be/om7iYSucLrk)
+
 ## Scenarios
 
 Generative AI has a wide range of applications across various domains and industries including tech, healthcare, entertainment, finance, manufacturing and more. Here are some common tasks that can be accomplished with generative AI:

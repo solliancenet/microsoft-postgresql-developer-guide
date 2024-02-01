@@ -28,6 +28,8 @@ When it comes to data, a differnt model will be required based on if it is text,
 
 Selecting a model means you get some basic built-in capabilities of that model, however, you may need just a little bit more than the model is able to provide. In many cases, developers have company specific data that you want to use the LLM model with. There are a few different approaches for that and we will explore them in more detail in the upcoming sections.
 
+Check out the YouTube Video [AI in a Minute: Large Language Models](https://youtu.be/FSoQyJEvHiU).
+
 ### OpenAI
 
 OpenAI is an artificial intelligence (AI) research organization and technology company known for its pioneering work in the field of artificial intelligence and machine learning. Their mission is to ensure that artificial general intelligence (AGI), which refers to highly autonomous AI systems that can outperform humans in most economically valuable work, benefits all of humanity. OpenAI brought to market state-of-the-art generative models such as GPT-3, GPT-3.5 and GPT-4 (Generative Pretrained Transformer).

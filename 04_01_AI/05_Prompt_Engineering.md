@@ -13,6 +13,8 @@ Outputs of Generative AI models are not perfect and in some cases the creativity
 
 Generative AI is not intelligent per se.  When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit.  The idea is to provide enough context when you prompt to ensure you get the responses you require.
 
+Check out the YouTube video [AI in a Minute: Prompt Engineering](https://youtu.be/vGdyePbGNaE) - What it means, how to apply it.
+
 ### What is a prompt
 
 Prompts have now become the primary programming interface for generative AI apps.  Prompts tell the models what to do and influencing the quality of returned responses. How you write your prompt to the LLM matters, a carefully crafted prompt can achieve a better result than one that isn't.

@@ -15,6 +15,8 @@ Microsoft's approach to Responsible AI has identified six principles that should
 
 With these principles in mind, developers should consider their context with the use of Generative AI in their applications.
 
+Check out the YouTube video [AI in a Minute: Responsible AI](https://youtu.be/fHEaFDMxFwQ) - How to think about it.
+
 ## Harmful Results
 
 ### Hallucinations
