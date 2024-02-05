@@ -282,3 +282,8 @@ In addition to all the basic connectors, you have the ability to make Semantic K
  A planner typically takes a user prompt and a kernel and uses the kernel's available services to create a plan of how to perform the task.  Plugins tend to be the main building blocks of plans. The planner relies heavily on the plugin descriptions provided. If plugins and functions do not have clear and appropriate descriptions, the planner may not use them correctly (or at all) when building a plan. The planner can combine functions in various and seemingly random ways (remember a LLM is driving) so it is important to ensure that you only expose functions that you really want the planner to consider for usage.
 
  It is also a best practice to run your plan several times to ensure you are getting consisent and appropriate responses.
+
+### Samples
+
+1. [Basic AI with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
+2. [Advanced AI with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)

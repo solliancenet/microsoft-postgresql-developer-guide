@@ -14,9 +14,9 @@ In addition to any migration pre-requisities, you must also ensure that a networ
 
 ### Offline vs Online migrations
 
-For smaller and less used databases, the migration process is likely to be quick and effortless.  However, in larger and more heavily used environments, the choice of how you migrate will be a vital decision to ensure applications and end users are not subject to lengty downtime and productivity loss.
+For smaller and less used databases, the migration process is likely to be quick and effortless.  However, in larger and more heavily used environments, the choice of how you migrate will be a vital decision to ensure applications and end users are not subject to lengthy downtime and productivity loss.
 
-You can choose between the two following paths:
+You can choose between two migration paths:
 
 - **Offline Migration** – In an offline migration, all applications connecting to your source instance are stopped and the database(s) is copied to flexible server.
 

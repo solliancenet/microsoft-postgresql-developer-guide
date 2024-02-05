@@ -1,6 +1,6 @@
 # 01 / Azure PostgreSQL Developer Guide
 
-Welcome to THE comprehensive guide to developing [PostgreSQL](https://www.postgresql.org/)-based applications on [Microsoft Azure](https://portal.azure.com/)! Whether  creating a production application or improving an existing enterprise system, this guide will take developers and architects through the fundamentals of PostgreSQL application development to more advanced architecture and design. From beginning to end, it is a content journey designed to help ensure current or future PostgreSQL systems are performing at their best even as their usage grows and expands.
+Welcome to developing [PostgreSQL](https://www.postgresql.org/)-based applications on [Microsoft Azure](https://portal.azure.com/)! Whether  creating a production application or improving an existing enterprise system, this guide will take developers and architects through the fundamentals of PostgreSQL application development to more advanced architecture and design. From beginning to end, it is a content journey designed to help ensure current or future PostgreSQL systems are performing at their best even as their usage grows and expands.
 
 ![The diagram shows the progression of development evolution in the guide.](media/postgresql-journey.png "PostgreSQL Journey")
 

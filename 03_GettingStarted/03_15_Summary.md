@@ -1,5 +1,3 @@
 ## 03 / Summary
 
-This module augmented an understanding of Flexible Server through practical examples of how modern applications access Flexible Server. Flexible Server supports all standard PostgreSQL clients. Previously presented information Microsoft Azure deployment tools and concepts were utilized to provision a Flexible Server instance to run the included code examples.
-
-In the next section, the Contoso NoshNow Sample Application provides a starting point for the entire developer journey. It provides high-level concepts and shows how PostgreSQL apps can be evolved into a scalable modern applications.
+This module augmented an understanding of Azure Database for Flexible Server through practical examples of how modern applications access Flexible Server. It should now be apparent that Azure Database for Flexible Server supports all standard PostgreSQL client libraries. Microsoft Azure deployment tools and concepts were utilized to provision a Flexible Server instance to run the included code examples.

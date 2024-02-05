@@ -14,7 +14,7 @@ Since most Azure services are provisioned in regions, some limits apply at the r
 
 Consult [Azure's comprehensive list of service and subscription limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) for more details.
 
-## Azure authentication
+## Microsoft Entra authentication
 
 As mentioned previously, Azure Database for PostgreSQL Flexible Server consists of a data plane (data storage and data manipulation) and a control plane (management of the Azure resource). Authentication is separated between the control plane and the data plane as well.
 
@@ -24,20 +24,29 @@ The built-in PostgreSQL account management system governs access for administrat
 
 ## Development editor tools
 
+Developers have various code editor tools to choose from to complete their IT projects. Commercial organizations and OSS communities have produced tools and plug-ins making Azure application development efficient and rapid.
+
 ### Visual Studio Code
 
-Developers have various code editor tools to choose from to complete their IT projects. Commercial organizations and OSS communities have produced tools and plug-ins making Azure application development efficient and rapid. A very popular tool is Visual Studio Code (VS Code). VS Code is an open-source, cross-platform text editor. It offers useful utilities for various languages through extensions. Download VS Code from the [Microsoft download page.](https://code.visualstudio.com/download)
+A very popular tool is Visual Studio Code (VS Code). VS Code is an open-source, cross-platform text editor. It offers useful utilities for various languages through extensions. Download VS Code from the [Microsoft download page.](https://code.visualstudio.com/download)
 
 ![A simple screenshot of Visual Studio Code.](media/VSCode_screenshot.png "Visual Studio Code")
 
-The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql) extension allows developers to:
+The [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres) extension allows developers to:
 
-- Connect to PostgreSQL instances
-- Manage connection profiles
-- Connect to a different Postgres instance or database in each tab
-- View object DDL with 'Go to Definition' and 'Peek Definition'
-- Write queries with IntelliSense
-- Run queries and save results as JSON, csv, or Excel
+- Management of PostgreSQL connections
+- List Servers/Database/Functions/Tables/Columns (primary key/type)
+- Quickly select top * (with limit) of a table
+- Run Queries
+- All queries in a pgsql file (; delimited)
+- Selected query in pgsql file
+- Selected query in ANY file (via context menu or command palette)
+- Individual editors can have different connections
+- Quickly change connection database by clicking the DB in the status bar
+- Syntax Highlighting
+- Connection aware code completion (keywords, functions, tables, and fields)
+- In-line error detection powered by EXPLAIN (one error per query in editor)
+- Basic function signature support (connection aware)
 
 Consider adding it to Visual Studio Code environment to make working with PostgreSQL instances more efficient.
 
@@ -51,4 +60,4 @@ Leverage the [extension for PostgreSQL](https://learn.microsoft.com/azure-data-s
 
 ## Cost saving tip
 
->![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Flexible Server. This feature helps keep the organizational costs low.
+>![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Azure Database for Flexible Server. This feature helps keep the organizational costs low.

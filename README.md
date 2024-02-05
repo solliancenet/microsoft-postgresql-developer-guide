@@ -1,9 +1,9 @@
-# microsoft-PostgreSQL-developer-guide
+# Microsoft-PostgreSQL-Developer-Samples
 
 - 01 Overview
 - 02 Intro to PostgreSQL
 - 03 Samples
-  - 01 - What's new in PG16
+  - 01 - Postgres Developer Features
   - 02 - Connecting / Languages
   - 03 - Development Tools
   - 04 - Function Apps (.NET)
@@ -43,6 +43,6 @@
     - 07-AppService Containers
     - 08-AKS
 
-Potentially Secondary/Supplimentary Guide:
+Potentially Secondary/Supplimentary Guide (break out the appendix app modernization into its own repo/guide):
 
--01 App Modernization
+- 01 App Modernization

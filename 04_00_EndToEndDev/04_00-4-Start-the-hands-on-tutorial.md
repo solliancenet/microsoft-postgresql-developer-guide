@@ -1,4 +1,4 @@
-## Start the hands-on-tutorial developer journey
+## Explore PostgreSQL Developer samples
 
 ### Development environment setup
 
@@ -66,33 +66,11 @@ As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been de
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-guide` folder.  
+Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder.  
 
-#### Step 3 - Start your journey
+#### Developer Samples
 
-To reiterate, it is recommended to follow the developer journey from start to finish in the following order:
-
-##### Deployment option tutorial lab links
-
-Click the links to complete each journey before going to the next.
-
-1. [Classic deployment](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy)
-2. [Azure VM Deployment](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm)
-3. [Simple App Service Deployment with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc)
-4. [Continuous Integration / Continuous Delivery](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD)
-5. [Containerizing layers with Docker](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker)
-6. [Azure Container Instances (ACI)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI)
-7. [App Service Containers](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container)
-8. [Azure Kubernetes Service (AKS)](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS)
-9. [AKS with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
-10. [Basic AI with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
-11. [Advanced AI with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex)
-
-##### Compute and orchestration tutorial lab links
-
-Additionally, some applications are more than just a web application with a database backend.  Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities.
-
-It is recommended that each of the above scenarios is executed in the order shown so that a full picture of the steps involved in the development evolution is understood.  This will also ensure the necessary pre-requisite Azure services and resources are available for the reader to progress to the more complex deployment examples.
+Additionally, some problems are solved by more than just a web application and a database backend.  Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities that have connectivity to Azure Database for PostgreSQL Flexible Server.
 
 - [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
   - [Dotnet](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet)
@@ -104,10 +82,6 @@ It is recommended that each of the above scenarios is executed in the order show
 - [Azure Synapse Analytics](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-02-AzureSynapseAnalytics)
 - [Azure Batch](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch)
 
-### Sample Application evolution
+#### App Modernization
 
-The Sample Application is written as a two-tier application.  This architecture is great for a proof of concept or an application that has limited performance needs. Scaling this type of application is difficult and costly. Developers should consider separating their application's business logic and data concerns into a [microservice](https://azure.microsoft.com/solutions/microservice-applications/#solution-architectures) layer. For more information on design patterns, review: [Design patterns for microservices](https://learn.microsoft.com/azure/architecture/microservices/design/patterns).
-
-After reviewing the need for microservice architecture and the typical design patterns, you can see how the Sample Application architecture changed when it utilizes a Java REST microservice architecture.
-
-![Read more icon](media/read-more.png "Read more")  [Deploying a Laravel app backed by a Java REST API to AKS](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest).
+In addition to the samples above, you can also optionally choose to take an in-depth journey through an Application Modernization series of samples.  This is provided in the lab samples appendix.
