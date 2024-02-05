@@ -5,14 +5,15 @@
 - 03 Samples
   - 01 - What's new in PG16
   - 02 - Connecting / Languages
-  - 03 - Tools
+  - 03 - Development Tools
   - 04 - Function Apps (.NET)
   - 05 - Function Apps (Python)
-  - 06 - Function Apps (AKS)
-  - 07 - Logic App
-  - 08 - Azure Data Factory
-  - 09 - Azure Synapse Analytics
-  - 10 - Azure Batch
+  - 06 - Function Apps (Python) with MSI
+  - 07 - Function Apps (AKS)
+  - 08 - Logic Apps
+  - 09 - Azure Data Factory
+  - 10 - Azure Synapse Analytics
+  - 11 - Azure Batch
 - 04 AI
   - 01 - Gen AI
   - 02 - LLMs
@@ -38,8 +39,8 @@
     - 03-CloudDeploy(AppSvc)
     - 04-CloudDeploy(CI/CD)
     - 05-Docker
-    - 06-Azure COntainer Instances
-    - 07-AppService COnatiners
+    - 06-Azure Container Instances(ACI)
+    - 07-AppService Containers
     - 08-AKS
 
 Potentially Secondary/Supplimentary Guide:
