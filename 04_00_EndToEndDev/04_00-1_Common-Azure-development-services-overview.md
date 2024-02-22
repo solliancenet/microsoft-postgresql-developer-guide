@@ -88,9 +88,9 @@ Azure Service Bus provides a *queue* capability to pass each message to one cons
 
 Azure Event Hubs facilitates the ingestion and replay of event data. It is optimized for processing millions of events per second. Event Hubs supports multiple consumers through *consumer groups*, which point to certain locations in the stream.
 
-#### Example Solution
+#### Putting it together
 
-An e-commerce site can use Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
+Using the above technologies, you can build an e-commerce site can use Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
 
 ### Cron jobs
 
@@ -105,7 +105,7 @@ Azure WebJobs, like Azure Functions, processes events in Azure services. WebJobs
 
 Azure Functions is built on the WebJobs SDK. It offers more developer flexibility than WebJobs and serverless execution. However, WebJobs provides more control over how events are received than what Azure Functions exposes.
 
-### Advanced orchestration - Azure Data Factory
+### Azure Data Factory
 
 Azure Data Factory supports serverless data integration at scale. Users author data integration *pipelines* that consist of multiple *activities*. Activities operate on *datasets* (data sources and sinks). Data Factory compute environments are known as *integration runtimes*. Integration runtimes can be hosted in Azure or on-premises.
 

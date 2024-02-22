@@ -1,7 +1,7 @@
 
 ## Intro to Artificial Intelligence (AI)
 
-## History
+### History
 
 Despite the overwhealming hype generated recently by the announcement of new Generative AI models (which we will discuss in the next few sections), the technology has been decades in the making. The first AI research efforts date back to 1960s!
 
@@ -15,7 +15,7 @@ Neural networks significantly enhanced natural language processing.  These new a
 
 It is these new algorithms training on very large sets of data that now drive the virtual assistants you have come to know.  These agents have become very proficient in interpreting the human language, identifying a need, and performing an action to achieve the stated goal(s).
 
-## Microsoft AI Videos
+### Microsoft AI Videos
 
 Microsoft has created several YouTube videos that explain some of the basic concepts around Generative AI.
 

@@ -44,7 +44,7 @@ Here are a few other notable advantages of Flexible Server.
 
   ![This image demonstrates server IOPS configuration.](media/postgresql_iops_configuration.png "Configuring server IOPS")
 
-##### Flexible Server pricing & TCO
+#### Flexible Server pricing & TCO
 
 The PostgreSQL Flexible Server tiers offer a storage range between 32 GiB and 32 TiB and the same backup retention period range of 1-35 days. However, they differ in core count and memory per vCore. Choosing a compute tier affects the database IOPS and pricing.
 
@@ -59,7 +59,7 @@ To estimate the TCO for Azure Database for PostgreSQL Flexible Server:
    >![Note icon](media/note.png "Note") **Note:** The [Azure TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) can be used to estimate the cost savings of deploying PaaS Azure PostgreSQL over the same deployment in an on-premises data center.
 2. Indicate the configuration of on-premises hardware and the Azure landing zone, adjust calculation parameters, like the cost of electricity, and observe the potential savings.
 
-##### Flexible Server Unsupported Features
+### Flexible Server Unsupported Features
 
 Azure provides a [detailed list of the limitations of Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits). Here are a few notable ones.
 

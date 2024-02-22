@@ -68,10 +68,11 @@ As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been de
 
 Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder.  
 
-#### Developer Samples
+### Developer Samples
 
 Additionally, some problems are solved by more than just a web application and a database backend.  Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities that have connectivity to Azure Database for PostgreSQL Flexible Server.
 
+- [PostgreSQL Developer Features](samples/04-01-PostgreSQL-Developer-Features/README.md)
 - [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
   - [Dotnet](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-01-FunctionApp-DotNet)
   - [Python](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-02-FunctionApp-Python)
@@ -81,7 +82,10 @@ Additionally, some problems are solved by more than just a web application and a
 - [Azure Data Factory](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-01-AzureDataFactory)
 - [Azure Synapse Analytics](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-02-AzureSynapseAnalytics)
 - [Azure Batch](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/07-03-AzureBatch)
+- [External Samples](samples/04-10_External_Samples/README.md)
 
-#### App Modernization
+### App Modernization
 
 In addition to the samples above, you can also optionally choose to take an in-depth journey through an Application Modernization series of samples.  This is provided in the lab samples appendix.
+
+- [Application Modernization](../10_02_AppModernization/10_02_AppModernization.md)
