@@ -1951,7 +1951,7 @@ into the console to remove it.
 
 #### .NET
 
-This wouldn't be a comprehensive guide without some mention of .NET. You
+This would not be a comprehensive guide without some mention of .NET. You
 can utilize the popular framework called `Npgsql` from .NET applications
 to make calls to Azure Database for PostgreSQL Flexible Server
 instances.

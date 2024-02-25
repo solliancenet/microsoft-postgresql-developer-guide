@@ -91,7 +91,7 @@ Some of the Prebuilt AI Models available in Power Platform include:
 
 You can use Copilot driven functionalities as a feature in your app screens to enable users to uncover insights through conversational interactions.
 
-Copilots are available in all of the Power Platform products: Power Apps, Power Automate, Power BI, Power Pages and Power Virtual Agents. AI Builder is available in Power Apps and Power Automate.
+Copilots are available in all the Power Platform products: Power Apps, Power Automate, Power BI, Power Pages and Power Virtual Agents. AI Builder is available in Power Apps and Power Automate.
 
 ## External Applications with function calling
 

@@ -8580,7 +8580,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 		documentElement.removeChild( container );
 
-		// Nullify the div so it wouldn't be stored in the memory and
+		// Nullify the div so it would not be stored in the memory and
 		// it will also be a sign that checks already performed
 		div = null;
 	}

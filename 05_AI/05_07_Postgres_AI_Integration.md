@@ -10,7 +10,7 @@ Some key characteristics of vector databases:
 - **Efficient Vector Operations**: Vector databases are optimized for performing vector operations, such as vector addition, subtraction, dot products, and similarity calculations (for example, cosine similarity or Euclidean distance).
 - **Efficient Search**: Efficient indexing mechanisms are crucial for quick retrieval of similar vectors. Vector databases use various indexing mechanisms to enable fast retrieval.
 - **Query Languages**: They provide query languages and APIs tailored for vector operations and similarity search. These query languages allow users to express their search criteria efficiently.
-- **Similarity Search**: They excel at similarity searches, allowing users to find data points that are similar to a given query point. This characteristic is valuable in search and recommendation systems.
+- **Similarity Search**: They excel at similarity searches, allowing users to find data points that are like a given query point. This characteristic is valuable in search and recommendation systems.
 - **Geospatial Data Handling**: Some vector databases are designed for geospatial data, making them well-suited for applications like location-based services, GIS (Geographic Information Systems), and map-related tasks.
 - **Support for Diverse Data Types**: Vector databases can store and manage various types of data, including vectors, images, text and more.
 
@@ -197,7 +197,7 @@ memory_store = PostgresMemoryStore(connection_string=connection_string, default_
 await memory_store.create_collection_async(collection_name='aboutMe')
 ```
 
-And when using the SQLToolkit in LangChain, it looks similar to the following.  This code will attempt to use the data in the `SQLDatabase` object acheive the prompt goals.  This includes analyzie the table structure and then reasoning over it to find the data needed to provide the appropriate context to later steps:
+And when using the SQLToolkit in LangChain, it looks like the following.  This code will attempt to use the data in the `SQLDatabase` object acheive the prompt goals.  This includes analyzie the table structure and then reasoning over it to find the data needed to provide the appropriate context to later steps:
 
 ```python
 db = SQLDatabase.from_uri(connection_string)
@@ -249,7 +249,7 @@ generate_continent_text = kernel.create_semantic_function(
 
 When interacting with chat bots, one of the key aspects that makes the experience feel more natural is the ability to retain the context of our previous chats. It all of our chat context history was stored in system RAM then once we shut down the system it would be gone forever. For more intelligent designs, it can be useful to be able to build and persist both short and long term memory for our models to access.  One must take care when feeding all of the previous interactions into a future prompt. Models tend to have a fixed size context window (8K, 16K, 32K etc) which determines how large the prompts can be.  If you continue to pass all of the chat history, things will quickly break down. One way to avoid this is to store our memory as separate chunks and only load information that we think may be relevant into the current prompt.
 
-When it comes to **PostresSQL** and Semantic Kernel, similar to LangChain, you can use PostgreSQL as a vector store or a memory store (chat/context history):
+When it comes to **PostresSQL** and Semantic Kernel, like LangChain, you can use PostgreSQL as a vector store or a memory store (chat/context history):
 
 ```python
 kernel = sk.Kernel()

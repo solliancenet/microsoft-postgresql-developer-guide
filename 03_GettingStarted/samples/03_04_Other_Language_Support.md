@@ -2,7 +2,7 @@
 
 #### .NET
 
-This wouldn't be a comprehensive guide without some mention of .NET.  You can utilize the popular framework called `Npgsql` from .NET applications to make calls to Azure Database for PostgreSQL Flexible Server instances.
+This would not be a comprehensive guide without some mention of .NET.  You can utilize the popular framework called `Npgsql` from .NET applications to make calls to Azure Database for PostgreSQL Flexible Server instances.
 
 For an example, reference [Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-csharp).
 

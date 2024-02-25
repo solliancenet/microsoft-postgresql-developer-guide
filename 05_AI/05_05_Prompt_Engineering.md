@@ -170,7 +170,7 @@ You can repeat this process as many times as you want.
 
 ### Maieutic prompting
 
-Maieutic prompting is a technique that is similar to self-refine but it is more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:
+Maieutic prompting is a technique that is like self-refine but it is more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:
 
 - Ask the LLM to answer a question
 - For each part of the answer, ask the LLM to explain it more in depth.

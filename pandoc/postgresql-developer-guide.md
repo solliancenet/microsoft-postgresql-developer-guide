@@ -46,7 +46,7 @@ happy.
 
 The ultimate goal is to successfully deploy a stable, performant
 PostgreSQL application running securely in Microsoft Azure using cloud
-best practices. Let's start the journey!
+best practices. Let us start the journey!
 
 # 02 / Introduction to Azure Database for PostgreSQL Flexible Server
 
@@ -1654,8 +1654,8 @@ that allows us to query the `products` table.
 
 ### Update and delete data in the products table
 
-In this section, we will continue in the PSQL interactive shell to update
-and delete data in the `products` table.
+In this section, we will continue in the PSQL interactive shell to
+update and delete data in the `products` table.
 
 1.  At the database (`inventory`) prompt, run the following SQL
     statement to update the `quantity` of the `banana` product. When
@@ -1858,8 +1858,8 @@ The libraries are organized clearly delineated to distinguish between
 
 #### Use the Azure SDK management library to create a Flexible Server database
 
-In this section, we will create a Flexible Server database using the Azure
-SDK for Python.
+In this section, we will create a Flexible Server database using the
+Azure SDK for Python.
 
 > ![Note icon] **Note:** The ability to create resource groups and the
 > [PostgreSQL Flexible Server instances] are also available in the SDK.
@@ -1951,7 +1951,7 @@ into the console to remove it.
 
 #### .NET
 
-This wouldn't be a comprehensive guide without some mention of .NET. You
+This would not be a comprehensive guide without some mention of .NET. You
 can utilize the popular framework called `Npgsql` from .NET applications
 to make calls to Azure Database for PostgreSQL Flexible Server
 instances.
@@ -2603,10 +2603,10 @@ minutes for the queries to start to be recorded.
     psql -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -U s2admin -d airbnb
     ```
 
-3.  Run the following commands to create some temporary tablesablesables and import the
-    JSON and CSV data to the server. Notice the usage of `json` files to
-    do the import using the `COPY` command. Once into a temporary table,
-    we than do some massaging:
+3.  Run the following commands to create some temporary tables and
+    import the JSON and CSV data to the server. Notice the usage of
+    `json` files to do the import using the `COPY` command. Once into a
+    temporary table, we than do some massaging:
 
     > NOTE: These paths are Windows based and you may need to adjust
     > based on your environment (WSL, Linux, etc).
@@ -2685,8 +2685,8 @@ minutes for the queries to start to be recorded.
     );
     ```
 
-6.  Run the following to import the data from the temporary tables to the
-    main tables:
+6.  Run the following to import the data from the temporary tables to
+    the main tables:
 
     ``` sql
     INSERT INTO listings
@@ -4770,8 +4770,8 @@ for new Orders in the database and then send an email.
 
 ### Create a Logic App (Optional)
 
-This step has already been done for you, but if you would like to create the
-logic app from scratch the steps are provided here.
+This step has already been done for you, but if you would like to create
+the logic app from scratch the steps are provided here.
 
 -   Select **Blank template**
 
@@ -5523,11 +5523,11 @@ basic concepts around Generative AI.
 Generative AI is artificial intelligence capable of generating text,
 images, audio and video content. With the myrid of free or low-cost
 Generative AI services available online, anyone can use it with as
-little as a simple text prompt written in a natural language. There's no
-need to learn a new language such as Python or JavaScript. All that is
-required is for you to state what you want and the AI model will provide
-you with a response (also called a completion). The applications and
-impact for this is huge, you write or understand reports, write
+little as a simple text prompt written in a natural language. There is
+no need to learn a new language such as Python or JavaScript. All that
+is required is for you to state what you want and the AI model will
+provide you with a response (also called a completion). The applications
+and impact for this is huge, you write or understand reports, write
 applications and much more, all in seconds.
 
 GenAI algorithms tend to apply specific Machine Learning models. Some
@@ -5933,7 +5933,7 @@ based on the query terms appearing in each document, regardless of their
 proximity within the document. It is a family of scoring functions with
 slightly different components and parameters.
 
-This is still a popular way of indexing documents, but let's also
+This is still a popular way of indexing documents, but let us also
 explore how GenAI finds information it uses in generating completions.
 
 ### Semantic Search
@@ -5941,7 +5941,7 @@ explore how GenAI finds information it uses in generating completions.
 Semantic search is a search technique that uses the semantics, or
 meaning, of the words in a query to return relevant results.
 
-Here is an example of a semantic search. Let's say you were looking to
+Here is an example of a semantic search. Let us say you were looking to
 buy a car, you might search for 'my dream car', semantic search
 understands that you are not dreaming about a car, but rather you are
 looking to buy your ideal car. Semantic search understands your
@@ -6034,7 +6034,7 @@ Euclidean distance -- The straight-line distance between points. L1
 components. L1 distance measures how many orthogonal city blocks you
 need to traverse from point A to point B. L-infinity (chessboard)
 distance -- The number of moves a King would make on an n-dimensional
-chessboard. It's different than Euclidean distance on the diagonals---a
+chessboard. It is different than Euclidean distance on the diagonals---a
 diagonal step on a 2-dimensional chessboard is 1.41 Euclidean units
 away, but 2 L-infinity units away. Inner product -- The product of the
 magnitudes of two vectors and the cosine of the angle between them.
@@ -6105,7 +6105,7 @@ if:
 
     - Using fine-tuned models. A business would like to use fine-tuned less capable models (like embedding models) rather than high performance models, resulting in a more cost effective and fast solution.
 
-    - Considering latency. Latency is important for a specific use-case, so it's not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
+    - Considering latency. Latency is important for a specific use-case, so it is not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
 
     - Staying up to date. A business has a lot of high-quality data and ground truth labels and the resources required to maintain this data up to date over time.
 
@@ -6126,7 +6126,7 @@ Azure OpenAI supports several models, however due to the ever changing
 landscape, these models are subject to change. To see the latest models
 available, reference [Azure OpenAI Service models]. \## Responsible AI
 
-It's easy to be fascinated with AI and generative AI in particular, but
+It is easy to be fascinated with AI and generative AI in particular, but
 you need to consider how you would use it responsibly. You need to
 consider things like how to ensure the output is fair, non-harmful and
 more. This chapter aims to provide you with mentioned context, what to
@@ -6267,7 +6267,7 @@ harm to our users or company.
 
 Working with LLMs can be challenging because you may not always have
 control over the data the model was trained on. Regardless, we should
-always evaluate the model's performance and outputs. It's still
+always evaluate the model's performance and outputs. It is still
 important to measure the model's accuracy, similarity, groundedness, and
 relevance of the output. This helps provide transparency and trust to
 stakeholders and users.
@@ -6278,8 +6278,8 @@ The input of a large language model is known as prompt, while the output
 is known as a completion. Completion is a term that refers to the model
 mechanism of generating the next token to complete the current input. In
 the next few sections, we will dive deep into what is a prompt and how
-to design it in a way to get the most out of our model. But for now,
-let's just say that a prompt may include:
+to design it in a way to get the most out of our model. But for now, let
+us just say that a prompt may include:
 
     - An instruction: specifying the type of output we expect from the model. This instruction sometimes might embed some examples or some additional data.
     - A question: asked in the form of a conversation with an agent.
@@ -6367,7 +6367,7 @@ effort into prompt construction and optimization. For instance:
     develop best practices and workflows that abstract away differences
     and adapt to model-specific requirements in scalable, seamless ways.
 
-Let's see this in action in the OpenAI or Azure OpenAI Playground:
+Let us see this in action in the OpenAI or Azure OpenAI Playground:
 
 -   Use the same prompt with different LLM deployments (e.g, OpenAI,
     Azure OpenAI, Hugging Face) - did you see the variations?
@@ -6429,7 +6429,7 @@ practical applications and more-relevant to user objectives.
 
 ### Prompt Construction
 
-We've seen why prompt engineering is important - now let's understand
+We've seen why prompt engineering is important - now let us understand
 how prompts are constructed so we can evaluate different techniques for
 more effective prompt design.
 
@@ -6502,11 +6502,11 @@ Prompting is an emergent property of an LLM meaning that this is not a
 feature that is built into the model but rather something we discover as
 we use the model.
 
-There are some basic techniques that we can use to prompt an LLM. Let's
+There are some basic techniques that we can use to prompt an LLM. Let us
 explore them.
 
--   Few shot prompting, this is the most basic form of prompting. It's a
-    single prompt with a few examples.
+-   Few shot prompting, this is the most basic form of prompting. It is
+    a single prompt with a few examples.
 -   Chain-of-thought, this type of prompting tells the LLM how to break
     down a problem into steps.
 -   Generated knowledge, to improve the response of a prompt, you can
@@ -6543,7 +6543,7 @@ are using as you are starting to learn about LLMs. Here's an example:
 
 ### Chain-of-thought
 
-Chain-of-thought is a very interesting technique as it's about taking
+Chain-of-thought is a very interesting technique as it is about taking
 the LLM through a series of steps. The idea is to instruct the LLM in
 such a way that it understands how to do something. Applying
 chain-of-thought means:
@@ -6596,8 +6596,8 @@ You can repeat this process as many times as you want.
 
 ### Maieutic prompting
 
-Maieutic prompting is a technique that is similar to self-refine but
-it's more about asking the LLM to explain itself. The goal is to reduce
+Maieutic prompting is a technique that is similar to self-refine but it
+is more about asking the LLM to explain itself. The goal is to reduce
 inconsistencies in the LLM's output so to ensure it arrives at the
 correct answer. The workflow to follow is:
 
@@ -6793,7 +6793,7 @@ a database. So what can a developer build with a text generation app?
 Chat applications have become integrated into our daily lives, offering
 more than just a means of casual conversation. They're integral parts of
 customer service, technical support, and even sophisticated advisory
-systems. It's likely that you have gotten some help from a chat
+systems. It is likely that you have gotten some help from a chat
 application not too long ago. As we integrate more advanced technologies
 like generative AI into these platforms, the complexity increases and so
 does the challenges.
@@ -6808,7 +6808,7 @@ considerations pertinent to ensuring responsible AI deployment.
 
 ## Image Generation
 
-There's more to LLMs than text generation. It's also possible to
+There is more to LLMs than text generation. It is also possible to
 generate images from text descriptions. Having images as a modality can
 be highly useful in a number of areas from MedTech, architecture,
 tourism, game development and more. In this chapter, we will look into
@@ -7006,7 +7006,7 @@ various user impairments.
 
 ## Key Metrics
 
-To maintain the high-quality performance an application, it's essential
+To maintain the high-quality performance an application, it is essential
 to keep track of key metrics and considerations. These measurements not
 only ensure the functionality of the application but also assess the
 quality of the AI model and user experience. Below is a list that covers
@@ -11061,7 +11061,7 @@ variable configuration.
 
 The application should now be available and show some sample data,
 however the web application is not reading or writing to the database.
-Let's go through the steps to configure the database configuration
+Let us go through the steps to configure the database configuration
 information.
 
 1.  In the Azure Portal, navigate to the App Service and select

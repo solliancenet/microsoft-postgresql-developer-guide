@@ -280,7 +280,7 @@ Karl Keirstead -- UBS -- Analyst
 
 OK, great. Thanks. Amy, congrats on the 28% constant currency Azure growth. That's terrific.
 
-I wanted to press you a little bit on the outlook for Azure. you are obviously guiding to a 1- to 2-point decel in December and then stable thereafter. But why would it be stable? Why wouldn't it accelerate in the second half of your fiscal year if the AI contribution is increasing as you bring on more GPU capacity? Is this a function of perhaps continued core ex-AI Azure spend optimization continuing or maybe even getting slightly worse? Why couldn't we see some upside in that Azure number? I know you are trying to be conservative, but I'd just love to understand it. Thanks so much.
+I wanted to press you a little bit on the outlook for Azure. you are obviously guiding to a 1- to 2-point decel in December and then stable thereafter. But why would it be stable? Why would not it accelerate in the second half of your fiscal year if the AI contribution is increasing as you bring on more GPU capacity? Is this a function of perhaps continued core ex-AI Azure spend optimization continuing or maybe even getting slightly worse? Why couldn't we see some upside in that Azure number? I know you are trying to be conservative, but I'd just love to understand it. Thanks so much.
 
 Amy Hood -- Chief Financial Officer
 

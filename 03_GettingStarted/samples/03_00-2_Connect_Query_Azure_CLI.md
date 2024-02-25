@@ -2,7 +2,7 @@
 
 pgAdmin is not the only method of running queries against your PostgreSQL database. This section explains how to perform queries against Azure Database for PostgreSQL Flexible Server using the Azure CLI and the [`az postgres flexible-server` utilities](https://learn.microsoft.com/cli/azure/postgres/flexible-server?view=azure-cli-latest) and references the steps in the [Quickstart: Connect and query with Azure CLI with Azure Database for PostgreSQL Flexible Server - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-azure-cli#create-a-database) article.
 
-The Azure CLI supports running queries interactively, via the `az postgres flexible-server connect` command, which is similar to running queries interactively against a PostgreSQL instance through the PostgreSQL CLI (also known as the PSQL Tool). Alternatively, It is also possible to run an individual SQL query or a SQL file using the `az postgres flexible-server execute` command.
+The Azure CLI supports running queries interactively, via the `az postgres flexible-server connect` command, which is like running queries interactively against a PostgreSQL instance through the PostgreSQL CLI (also known as the PSQL Tool). Alternatively, It is also possible to run an individual SQL query or a SQL file using the `az postgres flexible-server execute` command.
 
 ### Setup
 

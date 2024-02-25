@@ -194,7 +194,7 @@ You will utilize the query store and logical replication in subsequent labs.  He
 
     ![Alt text](media/query_tool.png)
 
-10. Run each of the following commands to see the imported data after its transformation.  Note that we did not fully expand the JSON into all possible columns so as to show the new JSON syntax later:
+10. Run each of the following commands to see the imported data after its transformation.  Note that we did not fully expand the JSON into all columns so as to show the new JSON syntax later:
 
     ```sql
     select * from listings limit 10;
@@ -269,7 +269,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
     ![Alt text](media/02_02_json_04.png)
 
-5. When combining the above, you can create intricate `CASE` statements based on the target type (in the event that it could be multiple types):
+5. When combining the above, you can create intricate `CASE` statements based on the target type (if it could be multiple types):
 
     ```sql
     SELECT
@@ -432,7 +432,7 @@ For information on Full Text Search, reference [Full Text Search](https://www.po
 
 ### Task 5: Aggregate function ANY_VALUE()
 
-The `ANY_VALUE()` function is a PostgreSQL aggregate function that helps optimize queries when utilizing GROUP BY clauses. The function will return an arbitrary non-null value in a given set of values. It effectively informs PostgreSQL that any value from the group is acceptable, resolving the ambiguity and allowing the query to execute successfully.
+The `ANY_VALUE()` function is a PostgreSQL aggregate function that helps optimize queries when utilizing GROUP BY clauses. The function will return an arbitrary non-null value tot of values. It effectively informs PostgreSQL that any value from the group is acceptable, resolving the ambiguity and allowing the query to execute successfully.
 
 Prior to PostgreSQL 16, when using GROUP BY, all non-aggregated columns from the SELECT statement were included in the GROUP BY clause as well. Pre-16 PostgreSQL would throw an error if a non-aggregated column is not added in the GROUP BY clause.
 
@@ -519,7 +519,7 @@ Notice every entry from the source file with the default of '\D' was converted t
 
 ### Task 1: Allow parallelization of FULL and internal RIGHT OUTER hash joins
 
-In general, the more things you can do in parallel the faster you will get results.  As is the case when performing `FULL` and internal `RIGHT OUTER` joins.  Previous to PostgreSQL these would not have been executed in parallel and the costs were more to perform than the parallelization setup.
+In general, the more things you can do in parallel the faster you will get results.  As is the case when performing `FULL` and internal `RIGHT OUTER` joins.  Before PostgreSQL 16 these would not have been executed in parallel and the costs were more to perform than the parallelization setup.
 
 With this change, many queries you were performing using these joins will now run drastically faster.
 

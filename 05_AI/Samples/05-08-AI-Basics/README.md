@@ -43,7 +43,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
 
 - Install pgAdmin
 
@@ -301,7 +301,7 @@ The `listings` table is now ready to store embeddings. Using the `azure_openai.c
     WHERE listing_id IN (SELECT listing_id FROM empty_vectors);
     ```
 
-    The above query uses a common table expression (CTE) to retrieve records from the `listings` table where the `description_vector` field is null and the `description` field is not an empty string. This CTE also includes `LIMIT 100` to reduce the number of records returns to only the first 100. The query then attempts to update the `description_vector` column with a vector representation of the `description` column using the `azure_openai.create_embeddings` function. The limited number of records when performing this update is to prevent the calls from exceeding the call rate limit of the Azure OpenAI service. The `throw_on_error` parameter is false, allowing the query to proceed if the rate limit is exceeded. If you exceed the limit, you will see a warning similar to the following:
+    The above query uses a common table expression (CTE) to retrieve records from the `listings` table where the `description_vector` field is null and the `description` field is not an empty string. This CTE also includes `LIMIT 100` to reduce the number of records returns to only the first 100. The query then attempts to update the `description_vector` column with a vector representation of the `description` column using the `azure_openai.create_embeddings` function. The limited number of records when performing this update is to prevent the calls from exceeding the call rate limit of the Azure OpenAI service. The `throw_on_error` parameter is false, allowing the query to proceed if the rate limit is exceeded. If you exceed the limit, you will see a warning like the following:
 
     ```sql
     WARNING:  azure_ai::azure_ai: 429: Requests to the Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms. Operation under Azure OpenAI API version 2023-05-15 have exceeded call rate limit of your current OpenAI S0 pricing tier. Please retry after 1 second. Please go here: https://aka.ms/oai/quotaincrease if you would like to further increase the default rate limit.
@@ -421,7 +421,7 @@ In this task, you will use the `azure_cognitive.analyze_sentiment` function to e
     \d+ azure_cognitive.sentiment_analysis_result
     ```
 
-    The output of that command should look similar to the following:
+    The output of that command should look like the following:
 
     ```sql
                      Composite type "azure_cognitive.sentiment_analysis_result"

@@ -22,7 +22,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
 
 - [Chocolaty Installer](https://chocolatey.org/install)
 - [PostgreSQL 16](https://www.postgresql.org/download/)

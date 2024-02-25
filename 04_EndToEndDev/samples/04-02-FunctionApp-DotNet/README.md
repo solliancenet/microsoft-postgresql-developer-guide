@@ -18,7 +18,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
 
 - Install [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
   - Expand the **Download Visual Studio with .NET** dropdown for an installation package with the .NET SDK
@@ -105,7 +105,7 @@ The application here is based on an Http Trigger that will then make a call into
 
 - Press **F5** to start the function
 - When prompted, select **Allow**
-- Open a browser window to the function endpoint, it will be similar to the following:
+- Open a browser window to the function endpoint, it will be like the following:
 
 ```text
 http://localhost:7071/api/ShowDatabasesFunction
