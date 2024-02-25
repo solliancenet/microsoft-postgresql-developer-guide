@@ -180,7 +180,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
 ## Connecting to the database
 
-The application should now be available and show some sample data, however the web application is not reading or writing to the database. Let's go through the steps to configure the database configuration information.
+The application should now be available and show some sample data, however the web application is not reading or writing to the database. Let us go through the steps to configure the database configuration information.
 
 1. In the Azure Portal, navigate to the App Service and select **Configuration** from the left menu.
 

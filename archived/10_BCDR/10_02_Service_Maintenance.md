@@ -4,9 +4,9 @@ Like any Azure service, Flexible Server receives patches and functionality upgra
 
 To ensure that planned maintenance does not blindside administrators, Azure provides them control over when patching occurs.
 
-You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system alerts you five days before running any maintenance. The system will also let you know when maintenance is started, and when it's successfully completed.
+You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system alerts you five days before running any maintenance. The system will also let you know when maintenance is started, and when it is successfully completed.
 
-When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you don't specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription.
+When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you do not specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription.
 
 ### Rolling out changes
 

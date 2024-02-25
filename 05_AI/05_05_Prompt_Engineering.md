@@ -1,6 +1,6 @@
 ## Prompt Engineering
 
-The input of a large language model is known as prompt, while the output is known as a completion. Completion is a term that refers to the model mechanism of generating the next token to complete the current input. In the next few sections, we will dive deep into what is a prompt and how to design it in a way to get the most out of our model. But for now, let's just say that a prompt may include:
+The input of a large language model is known as prompt, while the output is known as a completion. Completion is a term that refers to the model mechanism of generating the next token to complete the current input. In the next few sections, we will dive deep into what is a prompt and how to design it in a way to get the most out of our model. But for now, let us just say that a prompt may include:
 
     - An instruction: specifying the type of output we expect from the model. This instruction sometimes might embed some examples or some additional data.
     - A question: asked in the form of a conversation with an agent.
@@ -42,7 +42,7 @@ So why do we need prompt engineering? The answer lies in the fact that current L
 
 - Models capabilities will vary. Newer models or model generations will have richer capabilities but also bring unique quirks and tradeoffs in cost & complexity. Prompt engineering can help us develop best practices and workflows that abstract away differences and adapt to model-specific requirements in scalable, seamless ways.
 
-Let's see this in action in the OpenAI or Azure OpenAI Playground:
+Let us see this in action in the OpenAI or Azure OpenAI Playground:
 
 - Use the same prompt with different LLM deployments (e.g, OpenAI, Azure OpenAI, Hugging Face) - did you see the variations?
 - Use the same prompt repeatedly with the same LLM deployment (e.g., Azure OpenAI playground) - how did these variations differ?
@@ -61,7 +61,7 @@ An LLM sees prompts as a sequence of tokens where different models (or versions 
 
 To get an intuition for how tokenization works, try tools like the [OpenAI Tokenizer](https://platform.openai.com/tokenizer?WT.mc_id=academic-105485-koreyst). This tools allows you to copy in your prompt and see how that gets converted into tokens. It is worth paying attention to how whitespace characters and punctuation marks are handled. Each model and version of a model will generate different results.
 
-Once a prompt is tokenized, the primary function of the Foundation model is to predict the token in that sequence. Since LLMs are trained on massive text datasets, they have a good sense of the statistical relationships between tokens and can make that prediction with some confidence. Note that they don't understand the meaning of the words in the prompt or token; they just see a pattern they can "complete" with their next prediction. They can continue predicting the sequence till terminated by user intervention or some pre-established condition.
+Once a prompt is tokenized, the primary function of the Foundation model is to predict the token in that sequence. Since LLMs are trained on massive text datasets, they have a good sense of the statistical relationships between tokens and can make that prediction with some confidence. Note that they do not understand the meaning of the words in the prompt or token; they just see a pattern they can "complete" with their next prediction. They can continue predicting the sequence till terminated by user intervention or some pre-established condition.
 
 Want to see how prompt-based completion works? Enter a prompt into the [Azure OpenAI Studio Chat Playground](https://oai.azure.com/playground?WT.mc_id=academic-105485-koreyst) with the default settings. The system is configured to treat prompts as requests for information - so you should see a completion that satisfies this context.
 
@@ -75,7 +75,7 @@ This uses techniques like Reinforcement Learning with Human Feedback (RLHF) that
 
 ### Prompt Construction
 
-We've seen why prompt engineering is important - now let's understand how prompts are constructed so we can evaluate different techniques for more effective prompt design.
+We've seen why prompt engineering is important - now let us understand how prompts are constructed so we can evaluate different techniques for more effective prompt design.
 
 - Basic prompt - A text input sent to the model with no other context.
 - Complex prompt -  A collection of messages with input/output pairs reflecting user input and assistant response along with system message setting the context for assistant behavior or personality.
@@ -110,9 +110,9 @@ Finally, the real value of templates lies in the ability to create and publish p
 
 Prompting is an emergent property of an LLM meaning that this is not a feature that is built into the model but rather something we discover as we use the model.
 
-There are some basic techniques that we can use to prompt an LLM. Let's explore them.
+There are some basic techniques that we can use to prompt an LLM. Let us explore them.
 
-- Few shot prompting, this is the most basic form of prompting. It's a single prompt with a few examples.
+- Few shot prompting, this is the most basic form of prompting. It is a single prompt with a few examples.
 - Chain-of-thought, this type of prompting tells the LLM how to break down a problem into steps.
 - Generated knowledge, to improve the response of a prompt, you can provide generated facts or knowledge additionally to your prompt.
 - Least to most, like chain-of-thought, this technique is about breaking down a problem into a series of steps and then ask these steps to be performed in order.
@@ -127,14 +127,14 @@ Pre-trained LLMs work very well on generalized natural language tasks, even by c
 - One-shot : the prompt includes only one example
 - Few-shot : it includes multiple examples
 
-This style of prompting is very simple, it may consist of a single prompt and possibly a few examples. This technique is probably what you're using as you're starting to learn about LLMs. Here's an example:
+This style of prompting is very simple, it may consist of a single prompt and possibly a few examples. This technique is probably what you are using as you are starting to learn about LLMs. Here's an example:
 
 - Prompt: "What is Algebra?"
 - Answer: "Algebra is a branch of mathematics that studies mathematical symbols and the rules for manipulating these symbols."
 
 ### Chain-of-thought
 
-Chain-of-thought is a very interesting technique as it's about taking the LLM through a series of steps. The idea is to instruct the LLM in such a way that it understands how to do something. Applying chain-of-thought means:
+Chain-of-thought is a very interesting technique as it is about taking the LLM through a series of steps. The idea is to instruct the LLM in such a way that it understands how to do something. Applying chain-of-thought means:
 
 - Give the LLM a similar example.
 - Show the calculation, and how to calculate it correctly.
@@ -149,7 +149,7 @@ Note how we write substantially longer prompts with another example, a calculati
 
 ### Generated Knowledge
 
-Many times when you want to construct a prompt, you want to do so using your own company's data. You want part of the prompt to be from the company and the other part should be the actual prompt you're interested in.
+Many times when you want to construct a prompt, you want to do so using your own company's data. You want part of the prompt to be from the company and the other part should be the actual prompt you are interested in.
 
 ### Least to most
 
@@ -157,7 +157,7 @@ The idea with Least-to-most prompting is to break down a bigger problem into sub
 
 ### Self refine
 
-With generative AIs and LLMs, you can't trust the output. You need to verify it. After all, the LLM is just presenting you what's the next most likely thing to say, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
+With generative AIs and LLMs, you cannot trust the output. You need to verify it. After all, the LLM is just presenting you what's the next most likely thing to say, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
 
 How it works is that you follow the following steps:
 
@@ -170,13 +170,13 @@ You can repeat this process as many times as you want.
 
 ### Maieutic prompting
 
-Maieutic prompting is a technique that is similar to self-refine but it's more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:
+Maieutic prompting is a technique that is similar to self-refine but it is more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:
 
 - Ask the LLM to answer a question
 - For each part of the answer, ask the LLM to explain it more in depth.
 - If there are inconsistencies, discard the parts that are inconsistent.
 
-Repeat 2 and 3 until you've gone through all the parts and you're satisfied with the answer.
+Repeat 2 and 3 until you have gone through all the parts and you are satisfied with the answer.
 
 ### Temperature
 

@@ -9,8 +9,8 @@
 		<div class="one-half column">
 			<form>
 				<label for="delivery_address">Welcome back, <span class="blue">{{ $user->name }}</span>! Where should we deliver your meal?</label>
-				<!-- 
-					Keeping it simple for demo purposes, only displaying a single street address field. We don't
+				<!--
+					Keeping it simple for demo purposes, only displaying a single street address field. We do not
 					actually use this field for anything though. It's just for show!
 				 -->
 				<input id="delivery_address" class="u-full-width" type="text" placeholder="Enter your street address" value="{{ $user->address }}">

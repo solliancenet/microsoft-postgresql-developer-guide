@@ -33,7 +33,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Th
     $appName = "pgsqldev$($suffix)linux";
     $app = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 
-    #NOTE: This can't be used this for linux based deployments
+    #NOTE: This cannot be used this for linux based deployments
     #Compress-Archive -Path .\sample-php-app\* -DestinationPath site.zip -force
     #NOTE: The next command will take a few minutes to run
 

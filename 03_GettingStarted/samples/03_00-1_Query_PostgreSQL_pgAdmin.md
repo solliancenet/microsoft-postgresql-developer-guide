@@ -2,7 +2,7 @@
 
 This section explains how to connect to and perform queries against Azure Database for PostgreSQL Flexible Server using PostgreSQL pgAdmin, a UI-based management tool.
 
-There are multiple ways of accomplishing each database task in pgAdmin, including (but limited to), GUI-based forms, the query tool and the interactive shell (PSQL tool). This section will demonstrate the use of many of these tools within pgAdmin.
+There are multiple ways of accomplishing each database task in pgAdmin, including (but limited to), GUI-based forms, the query tool, and the interactive shell (PSQL tool). This section will demonstrate the use of many of these tools within pgAdmin.
 
 ### Setup
 
@@ -24,7 +24,7 @@ Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/downl
 
 4. On your desktop, open the pgAdmin application and follow the instructions from the Azure Portal.
 
-    ![The pgAdmin application displays with a connection to the Azure Database for PostgreSQL Flexible Server.](media/flexible-server-connected.png "Connection established to Flexible Server in pgAdmin")
+    ![The pgAdmin application will display with a connection to the Azure Database for PostgreSQL Flexible Server.](media/flexible-server-connected.png "Connection established to Flexible Server in pgAdmin")
 
 ### Create and connect to a new database in the Flexible Server instance using the Query Tool
 

@@ -115,7 +115,7 @@ For an example of working with server parameters, reference [Configure server pa
 
 Sometimes, just upgrading versions may be the solution to an issue. Flexible Server currenlty supports PostgreSQL versions 11 through 16. Migrating from on-premises PostgreSQL to PostgreSQL Flexible Server 16 delivers some major performance improvements.
 
-Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and don't require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration.
+Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and do not require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration.
 
 There are some issues to be aware of when utilizing in-place upgrades, some notible ones include:
 

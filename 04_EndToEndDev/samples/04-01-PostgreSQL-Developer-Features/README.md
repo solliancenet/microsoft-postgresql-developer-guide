@@ -61,7 +61,7 @@ You will utilize the query store and logical replication in subsequent labs.  He
     psql -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -U s2admin -d airbnb
     ```
 
-3. Run the following commands to create some temp tables and import the JSON and CSV data to the server.  Notice the usage of `json` files to do the import using the `COPY` command. Once into a temporary table, we than do some massaging:
+3. Run the following commands to create some temporary tables and import the JSON and CSV data to the server.  Notice the usage of `json` files to do the import using the `COPY` command. Once into a temporary table, we than do some massaging:
 
     > NOTE: These paths are Windows based and you may need to adjust based on your environment (WSL, Linux, etc).
 
@@ -138,7 +138,7 @@ You will utilize the query store and logical replication in subsequent labs.  He
     );
     ```
 
-6. Run the following to import the data from the temp tables to the main tables:
+6. Run the following to import the data from the temporary tables to the main tables:
 
     ```sql
     INSERT INTO listings
@@ -797,7 +797,7 @@ References:
 
 ### Task 1: Enable PgBouncer and PgBouncer Metrics
 
-You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters pgbouncer.enabled and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and don't require an instance restart.
+You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters pgbouncer.enabled and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and do not require an instance restart.
 
 - Browse to the Azure Portal and your **PREFIX-pg-flex-REGION-16** resource.
 - Under **Settings**, select **Server parameters**.

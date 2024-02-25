@@ -26,8 +26,8 @@ if (file_exists(__DIR__.'/../storage/framework/maintenance.php')) {
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
-| this application. We just need to utilize it! We'll simply require it
-| into the script here so we don't need to manually load our classes.
+| this application. We just need to utilize it! We will simply require it
+| into the script here so we do not need to manually load our classes.
 |
 */
 

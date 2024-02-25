@@ -56,7 +56,7 @@ class AppHelper
 
 
 	// use these functions to get json data when there's no database:
-	// (don't worry about this section, it's just here to keep the app working if there's no database)
+	// (do not worry about this section, it's just here to keep the app working if there's no database)
 
 	// checks to see if database is connecting
 	public function checkDB()
@@ -73,7 +73,7 @@ class AppHelper
 	// returns a user (if ID is provided) or a list of users
 	public function userJson($id=null)
 	{
-		$json = '[ 
+		$json = '[
 			{"id":1,"name":"Jon Yang","address":"3761 N. 14th St","email":"jon24@adventure-works.com","password":"$2y$10$7LnWpy7R7hXgbMnn.IHaSu8i.9E0dTB4tuMVHFm77OwSV46qbIvWa"},
 			{"id":2,"name":"Eugene Huang","address":"2243 W St.","email":"eugene10@adventure-works.com","password":"$2y$10$XuvN1ti/OL5mdiPtdd0z6O5b1m0Yft3WHhk3zJphZhr4GrH0OhOzK"},
 			{"id":3,"name":"Ruben Torres","address":"5844 Linden Land","email":"ruben35@adventure-works.com","password":"$2y$10$ElCTjmvfndxWb/Z8EpDQkeKFCr0v1N8QSokKzEeXXwwHpPJhPv4EC"},
@@ -100,9 +100,9 @@ class AppHelper
 	// returns the list of categories
 	public function categoryJson()
 	{
-		$json = '[ 
-			{"id":1,"name":"Breakfast","url":"breakfast","img":"potatoes-g792cf4128_1920.jpg"}, 
-			{"id":2,"name":"Steak","url":"steak","img":"tomahawk-ge5ea2413d_1920.jpg"}, 
+		$json = '[
+			{"id":1,"name":"Breakfast","url":"breakfast","img":"potatoes-g792cf4128_1920.jpg"},
+			{"id":2,"name":"Steak","url":"steak","img":"tomahawk-ge5ea2413d_1920.jpg"},
 			{"id":3,"name":"Pizza","url":"pizza","img":"pizza-g204a8b3d6_1920.jpg"},
 			{"id":4,"name":"Burgers","url":"burgers","img":"hamburger-g685f013b8_1920.jpg"},
 			{"id":5,"name":"Sushi","url":"sushi","img":"food-g3eb975adc_1920.jpg"},
@@ -115,7 +115,7 @@ class AppHelper
 	// returns a list of items
 	public function itemJson($type=null,$id=null,$sort='name')
 	{
-		$json = '[ 
+		$json = '[
 			{"id":1,"category_id":1,"name":"Cinnamon Roll","img":"cinnamon-rolls-gb12ce8577_1920.jpg","price":"1.19","cooktime":"13","desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim lacus vel odio sagittis, ut faucibus felis vulputate. Duis nisi quam, luctus eget augue vel, ullamcorper commodo ipsum. Nunc quam turpis, facilisis interdum vestibulum et, volutpat congue arcu."},
 			{"id":2,"category_id":1,"name":"Toast & Eggs","img":"breakfast-g7a2675ee6_1920.jpg","price":"2.19","cooktime":"7","desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim lacus vel odio sagittis, ut faucibus felis vulputate. Duis nisi quam, luctus eget augue vel, ullamcorper commodo ipsum. Nunc quam turpis, facilisis interdum vestibulum et, volutpat congue arcu."},
 			{"id":3,"category_id":1,"name":"Croissant","img":"croissant-ga61b1fb0e_1920.jpg","price":"3.19","cooktime":"2","desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim lacus vel odio sagittis, ut faucibus felis vulputate. Duis nisi quam, luctus eget augue vel, ullamcorper commodo ipsum. Nunc quam turpis, facilisis interdum vestibulum et, volutpat congue arcu."},

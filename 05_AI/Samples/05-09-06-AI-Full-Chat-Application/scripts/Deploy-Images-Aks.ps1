@@ -29,11 +29,11 @@ function validate {
     }
 
     if ([string]::IsNullOrEmpty($aksHost) -and $tlsEnv -ne "custom")  {
-        Write-Host "AKS host of HttpRouting can't be found. Are you using right AKS ($aksName) and RG ($resourceGroup)?" -ForegroundColor Red
+        Write-Host "AKS host of HttpRouting cannot be found. Are you using right AKS ($aksName) and RG ($resourceGroup)?" -ForegroundColor Red
         $valid=$false
     }     
     if ([string]::IsNullOrEmpty($acrLogin))  {
-        Write-Host "ACR login server can't be found. Are you using right ACR ($acrName) and RG ($resourceGroup)?" -ForegroundColor Red
+        Write-Host "ACR login server cannot be found. Are you using right ACR ($acrName) and RG ($resourceGroup)?" -ForegroundColor Red
         $valid=$false
     }
 

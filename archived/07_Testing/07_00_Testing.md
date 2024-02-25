@@ -6,7 +6,7 @@ This chapter discusses the various types of tests you can run against Azure Data
 
 ## Approaches
 
-Let's discuss the types of approaches and tools.
+Let us discuss the types of approaches and tools.
 
 ### Functional testing
 

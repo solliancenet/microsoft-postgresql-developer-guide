@@ -12,4 +12,4 @@ Development teams will understand best practices and efficient architecture and 
 
 Many steps in the application lifecycle go beyond simply building and deploying an application. This guide will cover how easy it is to monitor system uptime and performance in the various Azure services. Administrators will appreciate the realistic and straightforward troubleshooting tips that help keep downtime to a minimum and users happy.
 
-The ultimate goal is to successfully deploy a stable, performant PostgreSQL application running securely in Microsoft Azure using cloud best practices. Let's start the journey!
+The ultimate goal is to successfully deploy a stable, performant PostgreSQL application running securely in Microsoft Azure using cloud best practices. Let us start the journey!

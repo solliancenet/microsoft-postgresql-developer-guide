@@ -50,9 +50,9 @@ After creating an Azure Database for Flexible Server, there are several configur
 
 ### Storage
 
-Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-types). When increasing storage, the default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.  
+Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-types). When increasing storage, the default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you are managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.  
 
-> NOTE: After you increase the storage size, you can't go back to a smaller storage size.
+> NOTE: After you increase the storage size, you cannot go back to a smaller storage size.
 
 There are [some limitations](https://learn.microsoft.com/azure/virtual-machines/disks-types) when working with Azure managed disk storage.
 
@@ -64,7 +64,7 @@ Another advantage of Premium SSD v2 is, as of writing, they come with 3000 IOPS 
 
 The connectivity method cannot be changed after creating the server. For example, if you selected Private access (VNet Integration) during creation, then you cannot change it to Public access (allowed IP addresses) after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration.
 
-Connections to Azure Database for PostgreSQL Flexible Server communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
+Connections to Azure Database for PostgreSQL Flexible Server communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you cannot connect to your server unless your IT department opens port 5432.
 
 Options like Express Route may also be used to open network paths to your cloud instances if accessing over the public internet is against corporate policies.
 
@@ -92,7 +92,7 @@ When attempting to connect to the instance, if the connection fails, try these s
 - If your server administrator user name and password are correct.
 - If you have configured firewall rule for your client machine.
 - If you have configured firewall rule for the server instance.
-- If you've configured your server with private access in virtual networking, make sure - your client machine is in the same virtual network.
+- If you have configured your server with private access in virtual networking, make sure - your client machine is in the same virtual network.
 
 Note that if you enable PgBouncer on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is port 6432 that your IT department must open for outbound traffic.
 
@@ -115,7 +115,7 @@ There are some limitations to firewall rules, reference [Troubleshoot firewall p
 - Firewall doesn't support allowing dynamic IP addresses : This can occur when your ISP cycles your public IP address for you client(s).
 - Firewall rules aren't available for IPv6 format: The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, you'll get a validation error.
 
-When connecting from other Azure services, it is likely you will not be away of the IP addresses these services use.  You can utilize the **Allow public access from any Azure service within Azure to this server** option.  However, this option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you're using this option, make sure your sign-in and user permissions limit access to only authorized users.
+When connecting from other Azure services, it is likely you will not be away of the IP addresses these services use.  You can utilize the **Allow public access from any Azure service within Azure to this server** option.  However, this option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you are using this option, make sure your sign-in and user permissions limit access to only authorized users.
 
 ### SSL
 
@@ -168,7 +168,7 @@ When working with MSI, be sure you follow the steps for Azure Database for Flexi
 
 Reference [FunctionApp-MSI] developer lab for examples on how to do this. You can also reference [Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-with-managed-identity) and [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
-> NOTE: If the system is using VNet integration, you would need to ensure outbound connectivity to **AzureActiveDirectory** service tag. Additionally, if you're using a route table, you need to create a rule with destination service tag AzureActiveDirectory and next hop Internet.
+> NOTE: If the system is using VNet integration, you would need to ensure outbound connectivity to **AzureActiveDirectory** service tag. Additionally, if you are using a route table, you need to create a rule with destination service tag AzureActiveDirectory and next hop Internet.
 
 ### SCRAM
 

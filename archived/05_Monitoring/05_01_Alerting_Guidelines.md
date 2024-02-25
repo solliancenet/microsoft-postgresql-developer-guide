@@ -1,6 +1,6 @@
 ## Alerting guidelines
 
-Once monitoring data is configured to flow into Azure Monitor or Log Analytics, the next step would to be to create alerts when issue data is generated. The operations team will want to know as quickly as possible when a pending outage or system issue is developing. Understanding the symptoms is critical. *"You can't fix what you don't know is broken."*
+Once monitoring data is configured to flow into Azure Monitor or Log Analytics, the next step would to be to create alerts when issue data is generated. The operations team will want to know as quickly as possible when a pending outage or system issue is developing. Understanding the symptoms is critical. *"You cannot fix what you do not know is broken."*
 
 Alert creation and remediation will take fine-tuning to ensure that alert fatigue does not set in. Focus less on integrating monitoring with IT Service Management (ITSM) systems for Incident Management, and seize on opportunities to let cloud automation replace more expensive service management processes, thereby eliminating time spent on easily automatically resolvable alerts and incidents.
 

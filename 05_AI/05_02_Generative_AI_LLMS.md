@@ -1,6 +1,6 @@
 ## Generative Artificial Intelligence (GenAI)
 
-Generative AI is artificial intelligence capable of generating text, images, audio and video content. With the myrid of free or low-cost Generative AI services available online, anyone can use it with as little as a simple text prompt written in a natural language. There's no need to learn a new language such as Python or JavaScript.  All that is required is for you to state what you want and the AI model will provide you with a response (also called a completion). The applications and impact for this is huge, you write or understand reports, write applications and much more, all in seconds.
+Generative AI is artificial intelligence capable of generating text, images, audio and video content. With the myrid of free or low-cost Generative AI services available online, anyone can use it with as little as a simple text prompt written in a natural language. There is no need to learn a new language such as Python or JavaScript.  All that is required is for you to state what you want and the AI model will provide you with a response (also called a completion). The applications and impact for this is huge, you write or understand reports, write applications and much more, all in seconds.
 
 GenAI algorithms tend to apply specific Machine Learning models.  Some examples include:
 
@@ -53,7 +53,7 @@ After decades of research in the AI field (and what some would call AI winters),
 
 Most of the generative AI models available today work with textual inputs and outputs and are based on the Transformer style architecture. These models tend to be trained on a huge amounts of unlabeled data from varying sources like books, articles and websites.  Amazingly, these trained models can be adapted to a wide variety of tasks and generate grammatically correct text with amazing creativity. Not only can these models enhance the capacity of a machine to understand an input text, but they also enabled a capacity to generate original responses in human language.
 
-In order to do these transformations, the text has to be broken up into chunks that make sense. These chunks are then broken down further into tokens.  Models don't tend to be in charge of the chunking aspect of the process, but they are respondible for the tokenization via a Tokenizer model.
+In order to do these transformations, the text has to be broken up into chunks that make sense. These chunks are then broken down further into tokens.  Models do not tend to be in charge of the chunking aspect of the process, but they are respondible for the tokenization via a Tokenizer model.
 
 ### Tokenizer
 

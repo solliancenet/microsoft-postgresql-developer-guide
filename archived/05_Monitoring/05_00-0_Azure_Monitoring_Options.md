@@ -43,7 +43,7 @@ Azure Resource Health helps you diagnose and get support for service problems th
 
 Multiple Azure infrastructure components can trigger Platform events. The events include both scheduled actions (planned maintenance) and unexpected incidents (unplanned host reboot or degraded hosted hardware that is predicted to fail after a specified time window).
 
-Resource Health provides additional details about the event and the recovery process. **It also enables you to contact Microsoft Support, even if you don't have an active support agreement.**
+Resource Health provides additional details about the event and the recovery process. **It also enables you to contact Microsoft Support, even if you do not have an active support agreement.**
 
 Resource issue examples:
 

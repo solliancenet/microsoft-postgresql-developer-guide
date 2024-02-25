@@ -16,7 +16,7 @@ Your choice of model comes down to three major areas:
 
     - What is your goal
     - What your data looks like
-    - How much you're ready to pay
+    - How much you are ready to pay
 
 When it comes to data, a differnt model will be required based on if it is text, audio, video, image generation and so forth.
 
@@ -137,13 +137,13 @@ Before embedding models created vectors, search engines worked by creating index
 
 BM25 is a bag-of-words retrieval function that ranks a set of documents based on the query terms appearing in each document, regardless of their proximity within the document. It is a family of scoring functions with slightly different components and parameters.
 
-This is still a popular way of indexing documents, but let's also explore how GenAI finds information it uses in generating completions.
+This is still a popular way of indexing documents, but let us also explore how GenAI finds information it uses in generating completions.
 
 ### Semantic Search
 
 Semantic search is a search technique that uses the semantics, or meaning, of the words in a query to return relevant results.
 
-Here is an example of a semantic search. Let's say you were looking to buy a car, you might search for 'my dream car', semantic search understands that you are not dreaming about a car, but rather you are looking to buy your ideal car. Semantic search understands your intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
+Here is an example of a semantic search. Let us say you were looking to buy a car, you might search for 'my dream car', semantic search understands that you are not dreaming about a car, but rather you are looking to buy your ideal car. Semantic search understands your intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
 
 As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
 
@@ -183,7 +183,7 @@ A vector is a mathematical concept used in linear algebra and geometry to repres
 
 Euclidean distance – The straight-line distance between points.
 L1 (Manhattan) distance – The sum of the differences of all of the vector components. L1 distance measures how many orthogonal city blocks you need to traverse from point A to point B.
-L-infinity (chessboard) distance – The number of moves a King would make on an n-dimensional chessboard. It's different than Euclidean distance on the diagonals—a diagonal step on a 2-dimensional chessboard is 1.41 Euclidean units away, but 2 L-infinity units away.
+L-infinity (chessboard) distance – The number of moves a King would make on an n-dimensional chessboard. It is different than Euclidean distance on the diagonals—a diagonal step on a 2-dimensional chessboard is 1.41 Euclidean units away, but 2 L-infinity units away.
 Inner product – The product of the magnitudes of two vectors and the cosine of the angle between them. Usually used for natural language processing (NLP) vector similarity.
 Cosine similarity – The cosine of the angle between two vectors in a vector space.
 Hamming distance – For binary-coded vectors, the number of bits that differ between the two vectors.
@@ -217,7 +217,7 @@ Fine-tuning is a process that leverages transfer learning to adapt the model to 
 
     - Using fine-tuned models. A business would like to use fine-tuned less capable models (like embedding models) rather than high performance models, resulting in a more cost effective and fast solution.
 
-    - Considering latency. Latency is important for a specific use-case, so it's not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
+    - Considering latency. Latency is important for a specific use-case, so it is not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
 
     - Staying up to date. A business has a lot of high-quality data and ground truth labels and the resources required to maintain this data up to date over time.
 

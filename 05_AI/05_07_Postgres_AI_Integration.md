@@ -110,7 +110,7 @@ Note that these two frameworks are incredibly new and continuing to evolve. You 
 
 LangChain is an open source framework for building AI applications using language models. LangChain provides tools and abstractions to improve the customization, accuracy, and relevancy of the information the target models generate. Developers can use LangChain components to build custom prompt chains or use several pre-built templates. LangChain also includes features that allow models to gain access to new data without retraining.
 
-Language models excel at responding to user prompts in a general context, but do not perform well when used in a specific domain they were never trained on. Prompts are text strings that are used to help guide an LLM to the target response. For example, an LLM can provide a detailed answer in terms of how to approach the solution to a problem. However, it can't provide any realtime information of the solution without added context.
+Language models excel at responding to user prompts in a general context, but do not perform well when used in a specific domain they were never trained on. Prompts are text strings that are used to help guide an LLM to the target response. For example, an LLM can provide a detailed answer in terms of how to approach the solution to a problem. However, it cannot provide any realtime information of the solution without added context.
 
 To support these types of scenerios, agents must integrate the organizations specific data sources and then apply prompt engineering tactis.  Prompt engineering refines inputs to a generative model with a specific structure and context.
 

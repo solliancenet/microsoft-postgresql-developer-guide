@@ -1,6 +1,6 @@
 ## Responsible AI
 
-It's easy to be fascinated with AI and generative AI in particular, but you need to consider how you would use it responsibly. You need to consider things like how to ensure the output is fair, non-harmful and more. This chapter aims to provide you with mentioned context, what to consider, and how to take active steps to improve your AI usage.
+It is easy to be fascinated with AI and generative AI in particular, but you need to consider how you would use it responsibly. You need to consider things like how to ensure the output is fair, non-harmful and more. This chapter aims to provide you with mentioned context, what to consider, and how to take active steps to improve your AI usage.
 
 ## Principles
 
@@ -67,11 +67,11 @@ It is now time to find ways where we can prevent or limit the potential harm cau
 
 - **Metaprompt**. Metaprompts and grounding are ways we can direct or limit the model based on certain behaviors and information. This could be using system inputs to define certain limits of the model. In addition, providing outputs that are more relevant to the scope or domain of the system. It can also be using techniques like Retrieval Augmented Generation (RAG) to have the model only pull information from a selection of trusted sources. There is a lesson later in this course for building search applications
 
-- **User Experience**. The final layer is where the user interacts directly with the model through our application's interface in some way. In this way we can design the UI/UX to limit the user on the types of inputs they can send to the model as well as text or images displayed to the user. When deploying the AI application, we also must be transparent about what our Generative AI application can and can't do.
+- **User Experience**. The final layer is where the user interacts directly with the model through our application's interface in some way. In this way we can design the UI/UX to limit the user on the types of inputs they can send to the model as well as text or images displayed to the user. When deploying the AI application, we also must be transparent about what our Generative AI application can and cannot do.
 
 ### Operationalize AI
 
 Building an operational practice around your AI applications is one of the final stages. This includes partnering with other parts of your company, like Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
 
-Working with LLMs can be challenging because you may not always have control over the data the model was trained on. Regardless, we should always evaluate the model's performance and outputs. It's still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.
+Working with LLMs can be challenging because you may not always have control over the data the model was trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.
 

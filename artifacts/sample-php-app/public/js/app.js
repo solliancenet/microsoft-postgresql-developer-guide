@@ -1931,7 +1931,7 @@ function isStandardBrowserEnv() {
  * @param {Function} fn The callback to invoke for each item
  */
 function forEach(obj, fn) {
-  // Don't bother if no value provided
+  // Do not bother if no value provided
   if (obj === null || typeof obj === 'undefined') {
     return;
   }
@@ -2072,7 +2072,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
- * We'll load the axios HTTP library which allows us to easily issue requests
+ * We will load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
@@ -2184,7 +2184,7 @@ var isFunction = function isFunction( obj ) {
 		// Support: Chrome <=57, Firefox <=52
 		// In some browsers, typeof returns "function" for HTML <object> elements
 		// (i.e., `typeof document.createElement( "object" ) === "function"`).
-		// We don't want to classify *any* DOM node as a function.
+		// We do not want to classify *any* DOM node as a function.
 		// Support: QtWeb <=3.8.5, WebKit <=534.34, wkhtmltopdf tool <=0.12.5
 		// Plus for old WebKit, typeof returns "function" for HTML collections
 		// (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
@@ -2220,7 +2220,7 @@ var document = window.document;
 			for ( i in preservedScriptAttributes ) {
 
 				// Support: Firefox 64+, Edge 18+
-				// Some browsers don't support the "nonce" property on scripts.
+				// Some browsers do not support the "nonce" property on scripts.
 				// On the other hand, just using `getAttribute` is not enough as
 				// the `nonce` attribute is reset to an empty string whenever it
 				// becomes browsing-context connected.
@@ -2419,7 +2419,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
-				// Don't bring in undefined values
+				// Do not bring in undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
 				}
@@ -2854,7 +2854,7 @@ try {
 			var j = target.length,
 				i = 0;
 
-			// Can't trust NodeList.length
+			// cannot trust NodeList.length
 			while ( ( target[ j++ ] = els[ i++ ] ) ) {}
 			target.length = j - 1;
 		}
@@ -2885,7 +2885,7 @@ function Sizzle( selector, context, results, seed ) {
 		if ( documentIsHTML ) {
 
 			// If the selector is sufficiently simple, try using a "get*By*" DOM method
-			// (excepting DocumentFragment context, where the methods don't exist)
+			// (excepting DocumentFragment context, where the methods do not exist)
 			if ( nodeType !== 11 && ( match = rquickExpr.exec( selector ) ) ) {
 
 				// ID selector
@@ -3165,7 +3165,7 @@ function createDisabledPseudo( disabled ) {
 
 			return elem.disabled === disabled;
 
-		// Try to winnow out elements that can't be disabled before trusting the disabled property.
+		// Try to winnow out elements that cannot be disabled before trusting the disabled property.
 		// Some victims get caught in our net (label, legend, menu, track), but it shouldn't
 		// even exist on them, let alone have a boolean value.
 		} else if ( "label" in elem ) {
@@ -3270,7 +3270,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
 	// Safari 4 - 5 only, Opera <=11.6 - 12.x only
-	// IE/Edge & older browsers don't support the :scope pseudo-class.
+	// IE/Edge & older browsers do not support the :scope pseudo-class.
 	// Support: Safari 6.0 only
 	// Safari 6.0 supports :scope but it's an alias of :root there.
 	support.scope = assert( function( el ) {
@@ -3304,7 +3304,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE<10
 	// Check if getElementById returns elements by name
-	// The broken getElementById methods don't pick up programmatically-set names,
+	// The broken getElementById methods do not pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert( function( el ) {
 		docElem.appendChild( el ).id = expando;
@@ -3372,7 +3372,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
 
-			// DocumentFragment nodes don't have gEBTN
+			// DocumentFragment nodes do not have gEBTN
 			} else if ( support.qsa ) {
 				return context.querySelectorAll( tag );
 			}
@@ -3458,10 +3458,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// Support: IE 11+, Edge 15 - 18+
-			// IE 11/Edge don't find elements on a `[name='']` query in some cases.
+			// IE 11/Edge do not find elements on a `[name='']` query in some cases.
 			// Adding a temporary attribute to the document before the selection works
 			// around the issue.
-			// Interestingly, IE 10 & older don't seem to have the issue.
+			// Interestingly, IE 10 & older do not seem to have the issue.
 			input = document.createElement( "input" );
 			input.setAttribute( "name", "" );
 			el.appendChild( input );
@@ -3764,7 +3764,7 @@ Sizzle.attr = function( elem, name ) {
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
 
-		// Don't get fooled by Object.prototype properties (jQuery #13807)
+		// Do not get fooled by Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
 			undefined;
@@ -4220,7 +4220,7 @@ Expr = Sizzle.selectors = {
 					input[ 0 ] = elem;
 					matcher( input, null, xml, results );
 
-					// Don't keep the element (issue #299)
+					// Do not keep the element (issue #299)
 					input[ 0 ] = null;
 					return !results.pop();
 				};
@@ -4438,7 +4438,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		if ( !matched || ( match = rcomma.exec( soFar ) ) ) {
 			if ( match ) {
 
-				// Don't consume trailing commas as valid
+				// Do not consume trailing commas as valid
 				soFar = soFar.slice( match[ 0 ].length ) || soFar;
 			}
 			groups.push( ( tokens = [] ) );
@@ -4523,7 +4523,7 @@ function addCombinator( matcher, combinator, base ) {
 			var oldCache, uniqueCache, outerCache,
 				newCache = [ dirruns, doneName ];
 
-			// We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
+			// We cannot set arbitrary data on XML nodes, so they do not benefit from combinator caching
 			if ( xml ) {
 				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
@@ -5386,7 +5386,7 @@ jQuery.fn.extend( {
 					if ( cur.nodeType < 11 && ( targets ?
 						targets.index( cur ) > -1 :
 
-						// Don't pass non-elements to Sizzle
+						// Do not pass non-elements to Sizzle
 						cur.nodeType === 1 &&
 							jQuery.find.matchesSelector( cur, selectors ) ) ) {
 
@@ -5489,7 +5489,7 @@ jQuery.each( {
 
 		// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
 		// Treat the template element as a regular one in browsers that
-		// don't support it.
+		// do not support it.
 		if ( nodeName( elem, "template" ) ) {
 			elem = elem.content || elem;
 		}
@@ -7574,15 +7574,15 @@ jQuery.event = {
 
 			for ( ; cur !== this; cur = cur.parentNode || this ) {
 
-				// Don't check non-elements (#13208)
-				// Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
+				// Do not check non-elements (#13208)
+				// Do not process clicks on disabled elements (#6911, #8165, #11382, #11764)
 				if ( cur.nodeType === 1 && !( event.type === "click" && cur.disabled === true ) ) {
 					matchedHandlers = [];
 					matchedSelectors = {};
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
 
-						// Don't conflict with Object.prototype properties (#13203)
+						// Do not conflict with Object.prototype properties (#13203)
 						sel = handleObj.selector + " ";
 
 						if ( matchedSelectors[ sel ] === undefined ) {
@@ -8147,7 +8147,7 @@ function domManip( collection, args, callback, ignored ) {
 		value = args[ 0 ],
 		valueIsFunction = isFunction( value );
 
-	// We can't cloneNode fragments that contain checked, in WebKit
+	// We cannot cloneNode fragments that contain checked, in WebKit
 	if ( valueIsFunction ||
 			( l > 1 && typeof value === "string" &&
 				!support.checkClone && rchecked.test( value ) ) ) {
@@ -8574,7 +8574,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// Support: IE 9 only
 		// Detect overflow:scroll screwiness (gh-3699)
 		// Support: Chrome <=64
-		// Don't get tricked when zoom affects offsetWidth (gh-4029)
+		// Do not get tricked when zoom affects offsetWidth (gh-4029)
 		div.style.position = "absolute";
 		scrollboxSizeVal = roundPixelMeasures( div.offsetWidth / 3 ) === 12;
 
@@ -8733,7 +8733,7 @@ function curCSS( elem, name, computed ) {
 
 function addGetHookIf( conditionFn, hookFn ) {
 
-	// Define the hook, we'll check on the first run if it's really needed.
+	// Define the hook, we will check on the first run if it's really needed.
 	return {
 		get: function() {
 			if ( conditionFn() ) {
@@ -8869,7 +8869,7 @@ function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, computed
 			extra -
 			0.5
 
-		// If offsetWidth/offsetHeight is unknown, then we can't determine content-box scroll gutter
+		// If offsetWidth/offsetHeight is unknown, then we cannot determine content-box scroll gutter
 		// Use an explicit zero to avoid NaN (gh-3964)
 		) ) || 0;
 	}
@@ -8970,7 +8970,7 @@ jQuery.extend( {
 		}
 	},
 
-	// Don't automatically add "px" to these possibly-unitless properties
+	// Do not automatically add "px" to these possibly-unitless properties
 	cssNumber: {
 		"animationIterationCount": true,
 		"columnCount": true,
@@ -9001,7 +9001,7 @@ jQuery.extend( {
 	// Get and set the style property on a DOM Node
 	style: function( elem, name, value, extra ) {
 
-		// Don't set styles on text and comment nodes
+		// Do not set styles on text and comment nodes
 		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
 			return;
 		}
@@ -9012,7 +9012,7 @@ jQuery.extend( {
 			isCustomProp = rcustomProp.test( name ),
 			style = elem.style;
 
-		// Make sure that we're working with the right name. We don't
+		// Make sure that we're working with the right name. We do not
 		// want to query the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -9081,7 +9081,7 @@ jQuery.extend( {
 			origName = camelCase( name ),
 			isCustomProp = rcustomProp.test( name );
 
-		// Make sure that we're working with the right name. We don't
+		// Make sure that we're working with the right name. We do not
 		// want to modify the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -9647,7 +9647,7 @@ function Animation( elem, properties, options ) {
 		length = Animation.prefilters.length,
 		deferred = jQuery.Deferred().always( function() {
 
-			// Don't match elem in the :animated selector
+			// Do not match elem in the :animated selector
 			delete tick.elem;
 		} ),
 		tick = function() {
@@ -10106,7 +10106,7 @@ jQuery.extend( {
 		var ret, hooks,
 			nType = elem.nodeType;
 
-		// Don't get/set attributes on text, comment and attribute nodes
+		// Do not get/set attributes on text, comment and attribute nodes
 		if ( nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -10238,7 +10238,7 @@ jQuery.extend( {
 		var ret, hooks,
 			nType = elem.nodeType;
 
-		// Don't get/set properties on text, comment and attribute nodes
+		// Do not get/set properties on text, comment and attribute nodes
 		if ( nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -10650,7 +10650,7 @@ jQuery.extend( {
 					// IE8-9 doesn't update selected after form reset (#2551)
 					if ( ( option.selected || i === index ) &&
 
-							// Don't return options that are disabled or in a disabled optgroup
+							// Do not return options that are disabled or in a disabled optgroup
 							!option.disabled &&
 							( !option.parentNode.disabled ||
 								!nodeName( option.parentNode, "optgroup" ) ) ) {
@@ -10658,7 +10658,7 @@ jQuery.extend( {
 						// Get the specific value for the option
 						value = jQuery( option ).val();
 
-						// We don't need an array for one selects
+						// We do not need an array for one selects
 						if ( one ) {
 							return value;
 						}
@@ -10742,7 +10742,7 @@ jQuery.extend( jQuery.event, {
 
 		cur = lastElement = tmp = elem = elem || document;
 
-		// Don't do events on text and comment nodes
+		// Do not do events on text and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
@@ -10843,10 +10843,10 @@ jQuery.extend( jQuery.event, {
 				acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name as the event.
-				// Don't do default actions on window, that's where global variables be (#6170)
+				// Do not do default actions on window, that's where global variables be (#6170)
 				if ( ontype && isFunction( elem[ type ] ) && !isWindow( elem ) ) {
 
-					// Don't re-trigger an onFOO event when we call its FOO() method
+					// Do not re-trigger an onFOO event when we call its FOO() method
 					tmp = elem[ ontype ];
 
 					if ( tmp ) {
@@ -11670,7 +11670,7 @@ jQuery.extend( {
 		}
 
 		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
+		// Do not fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
@@ -11873,7 +11873,7 @@ jQuery.extend( {
 				} else if ( status === 304 ) {
 					statusText = "notmodified";
 
-				// If we have data, let's convert it
+				// If we have data, let us convert it
 				} else {
 					statusText = response.state;
 					success = response.data;
@@ -16496,7 +16496,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Function} Returns the iteratee.
      */
     function baseIteratee(value) {
-      // Don't store the `typeof` result in a variable to avoid a JIT bug in Safari 9.
+      // Do not store the `typeof` result in a variable to avoid a JIT bug in Safari 9.
       // See https://bugs.webkit.org/show_bug.cgi?id=156034 for more details.
       if (typeof value == 'function') {
         return value;
@@ -19522,7 +19522,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         ((srcBitmask == WRAP_ARY_FLAG) && (bitmask == WRAP_REARG_FLAG) && (data[7].length <= source[8])) ||
         ((srcBitmask == (WRAP_ARY_FLAG | WRAP_REARG_FLAG)) && (source[7].length <= source[8]) && (bitmask == WRAP_CURRY_FLAG));
 
-      // Exit early if metadata can't be merged.
+      // Exit early if metadata cannot be merged.
       if (!(isCommon || isCombo)) {
         return data;
       }
@@ -19879,7 +19879,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Creates an array of elements split into groups the length of `size`.
-     * If `array` can't be split evenly, the final chunk will be the remaining
+     * If `array` cannot be split evenly, the final chunk will be the remaining
      * elements.
      *
      * @static
@@ -23171,7 +23171,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * prepended to the arguments it receives.
      *
      * This method differs from `_.bind` by allowing bound functions to reference
-     * methods that may be redefined or don't yet exist. See
+     * methods that may be redefined or do not yet exist. See
      * [Peter Michaux's article](http://peter.michaux.ca/articles/lazy-function-definition-pattern)
      * for more details.
      *
@@ -24965,7 +24965,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Checks if `value` is a pristine native function.
      *
-     * **Note:** This method can't reliably detect native functions in the presence
+     * **Note:** This method cannot reliably detect native functions in the presence
      * of the core-js package because core-js circumvents this kind of detection.
      * Despite multiple requests, the core-js maintainer has made it clear: any
      * attempt to fix the detection will be obstructed. As a result, we're left
@@ -27294,7 +27294,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * characters use a third-party library like [_he_](https://mths.be/he).
      *
      * Though the ">" character is escaped for symmetry, characters like
-     * ">" and "/" don't need escaping in HTML and have no special meaning
+     * ">" and "/" do not need escaping in HTML and have no special meaning
      * unless they're part of a tag or unquoted attribute value. See
      * [Mathias Bynens's article](https://mathiasbynens.be/notes/ambiguous-ampersands)
      * (under "semi-related fun fact") for more details.
@@ -27413,7 +27413,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Pads `string` on the left and right sides if it's shorter than `length`.
-     * Padding characters are truncated if they can't be evenly divided by `length`.
+     * Padding characters are truncated if they cannot be evenly divided by `length`.
      *
      * @static
      * @memberOf _
@@ -27865,7 +27865,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
       // Use a sourceURL for easier debugging.
       // The sourceURL gets injected into the source that's eval-ed, so be careful
-      // to normalize all kinds of whitespace, so e.g. newlines (and unicode versions of it) can't sneak in
+      // to normalize all kinds of whitespace, so e.g. newlines (and unicode versions of it) cannot sneak in
       // and escape the comment, thus injecting code that gets evaled.
       var sourceURL = '//# sourceURL=' +
         (hasOwnProperty.call(options, 'sourceURL')
@@ -27876,7 +27876,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
       string.replace(reDelimiters, function(match, escapeValue, interpolateValue, esTemplateValue, evaluateValue, offset) {
         interpolateValue || (interpolateValue = esTemplateValue);
 
-        // Escape characters that can't be included in string literals.
+        // Escape characters that cannot be included in string literals.
         source += string.slice(index, offset).replace(reUnescapedString, escapeStringChar);
 
         // Replace delimiters with snippets.
@@ -30224,7 +30224,7 @@ __webpack_require__.r(__webpack_exports__);
 var process = module.exports = {};
 
 // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
+// do not break things.  But we need to wrap it in a try catch in case it is
 // wrapped in strict mode code which doesn't define any globals.  It's inside a
 // function because try/catches deoptimize in certain engines.
 

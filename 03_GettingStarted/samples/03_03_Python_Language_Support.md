@@ -25,7 +25,7 @@ The libraries are organized clearly delineated to distinguish between [managemen
 
 #### Use the Azure SDK management library to create a Flexible Server database
 
-In this section, we'll create a Flexible Server database using the Azure SDK for Python.
+In this section, we will create a Flexible Server database using the Azure SDK for Python.
 
 >![Note icon](media/note.png "Note") **Note:** The ability to create resource groups and the [PostgreSQL Flexible Server instances](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-python-sdk) are also available in the SDK.
 

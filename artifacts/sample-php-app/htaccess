@@ -11,7 +11,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} !^public
 RewriteRule ^(.*)$ public/$1 [L]
 
-# NOT needed unless you're using mod_alias to redirect
+# NOT needed unless you are using mod_alias to redirect
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 

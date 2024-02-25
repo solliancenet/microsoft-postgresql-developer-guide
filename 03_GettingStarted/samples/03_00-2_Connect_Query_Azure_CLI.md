@@ -16,7 +16,7 @@ Running the CLI commands from the [Azure Cloud Shell](https://shell.azure.com) i
 
 ### Create a database on the Flexible Server
 
-In this section, we'll create a new database named `inventory` on the Flexible Server instance using the Azure CLI `az postgres flexible-server db create` command.
+In this section, we will create a new database named `inventory` on the Flexible Server instance using the Azure CLI `az postgres flexible-server db create` command.
 
 1. Retrieve the existing server name from the [Azure Portal](https://portal.azure.com) by navigating to the Flexible Server resource. The server name is displayed on the Overview page or in the header of the resource page. Do not include `.postgres.database.azure.com` in the server name. Also make note of the resource group name.
 
@@ -32,7 +32,7 @@ In this section, we'll create a new database named `inventory` on the Flexible S
 
 ### Create a table in the inventory database
 
-In this section, we'll use the `az postgres flexible-server execute` command to create a table named `products` in the `inventory` database.
+In this section, we will use the `az postgres flexible-server execute` command to create a table named `products` in the `inventory` database.
 
 1. In the cloud shell, run the following command to create the `products` table in the `inventory` database. Replace the `<server-name>`, `<username>`, and `<password>` placeholders with your values.
 
@@ -44,7 +44,7 @@ In this section, we'll use the `az postgres flexible-server execute` command to 
 
 ### Insert data into the products table
 
-In this section, we'll use the `az postgres flexible-server execute` command to insert data into the `products` table with a SQL file containing the `INSERT` statements.
+In this section, we will use the `az postgres flexible-server execute` command to insert data into the `products` table with a SQL file containing the `INSERT` statements.
 
 1. In a text editor, create and save the `products.sql` file with the following contents:
 
@@ -68,7 +68,7 @@ In this section, we'll use the `az postgres flexible-server execute` command to 
 
 ### Query the products table using the interactive shell (PSQL Tool)
 
-In this section, we'll use the `az postgres flexible-server connect` command with the `--interactive` flag to connect to the `inventory` database. This connection will open the PostgreSQL interactive shell that allows us to query the `products` table.
+In this section, we will use the `az postgres flexible-server connect` command with the `--interactive` flag to connect to the `inventory` database. This connection will open the PostgreSQL interactive shell that allows us to query the `products` table.
 
 1. In the cloud shell, replace the `<server-name>` and `<username>` placeholders. You will be prompted for the password when the command is submitted.
 
@@ -90,7 +90,7 @@ In this section, we'll use the `az postgres flexible-server connect` command wit
 
 ### Update and delete data in the products table
 
-In this section, we'll continue in the PSQL interactive shell to update and delete data in the `products` table.
+In this section, we will continue in the PSQL interactive shell to update and delete data in the `products` table.
 
 1. At the database (`inventory`) prompt, run the following SQL statement to update the `quantity` of the `banana` product. When prompted to proceed with a destructive call, enter `y` to continue.
 
@@ -132,7 +132,7 @@ In addtion to running interactive commands, you can also execute SQL files.  Thi
 
 ### Clean up - Delete the database
 
-In this section, we'll use the `az postgres flexible-server db delete` command to delete the `inventory` database.
+In this section, we will use the `az postgres flexible-server db delete` command to delete the `inventory` database.
 
 1. In the cloud shell, run the following command to delete the **inventory** database. Replace the `<resource-group>` and `<server-name>` placeholders with your values. When prompted to confirm the deletion, enter `y` to continue.
 

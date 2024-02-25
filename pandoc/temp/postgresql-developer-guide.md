@@ -289,7 +289,7 @@ client tier for lower latency and choose high availability within a
 single availability zone and across multiple availability zones.
 Flexible servers also provide better cost optimization controls with the
 ability to stop/start your server and a burstable compute tier ideal for
-workloads that don't need full compute capacity continuously.
+workloads that do not need full compute capacity continuously.
 
 ![Alt text]
 
@@ -738,7 +738,7 @@ Here are a few notable ones.
 
 -   Users are not provided host or OS access to view or modify
     configuration files such as postgresql.conf
--   You can't create or load your own extension in Azure Database for
+-   You cannot create or load your own extension in Azure Database for
     PostgreSQL Flexible Server.
 
 ## Migrate to Azure Database for Flexible Server
@@ -1024,11 +1024,11 @@ disks]. When increasing storage, the default behavior is to increase the
 disk size to the next premium tier. This increase is always double in
 both size and cost, regardless of whether you start the storage scaling
 operation manually or through storage autogrow. Enabling storage
-autogrow is valuable when you're managing unpredictable workloads,
+autogrow is valuable when you are managing unpredictable workloads,
 because it automatically detects low-storage conditions and scales up
 the storage accordingly.
 
-> NOTE: After you increase the storage size, you can't go back to a
+> NOTE: After you increase the storage size, you cannot go back to a
 > smaller storage size.
 
 There are [some limitations][Azure managed disks] when working with
@@ -1052,7 +1052,7 @@ Private access to securely access your server using VNet Integration.
 Connections to Azure Database for PostgreSQL Flexible Server communicate
 over port 5432. If you try to connect from within a corporate network,
 outbound traffic over port 5432 might not be allowed. If this is the
-case, you can't connect to your server unless your IT department opens
+case, you cannot connect to your server unless your IT department opens
 port 5432.
 
 Options like Express Route may also be used to open network paths to
@@ -1105,7 +1105,7 @@ these simple solutions:
 -   If your server administrator user name and password are correct.
 -   If you have configured firewall rule for your client machine.
 -   If you have configured firewall rule for the server instance.
--   If you've configured your server with private access in virtual
+-   If you have configured your server with private access in virtual
     networking, make sure - your client machine is in the same virtual
     network.
 
@@ -1158,7 +1158,7 @@ away of the IP addresses these services use. You can utilize the **Allow
 public access from any Azure service within Azure to this server**
 option. However, this option configures the firewall to allow all
 connections from Azure, including connections from the subscriptions of
-other customers. When you're using this option, make sure your sign-in
+other customers. When you are using this option, make sure your sign-in
 and user permissions limit access to only authorized users.
 
 ### SSL
@@ -1254,7 +1254,7 @@ roles in Azure Database for PostgreSQL - Flexible Server].
 
 > NOTE: If the system is using VNet integration, you would need to
 > ensure outbound connectivity to **AzureActiveDirectory** service tag.
-> Additionally, if you're using a route table, you need to create a rule
+> Additionally, if you are using a route table, you need to create a rule
 > with destination service tag AzureActiveDirectory and next hop
 > Internet.
 
@@ -1549,7 +1549,7 @@ the context is already authenticated with Azure.
 
 ### Create a database on the Flexible Server
 
-In this section, we'll create a new database named `inventory` on the
+In this section, we will create a new database named `inventory` on the
 Flexible Server instance using the Azure CLI
 `az postgres flexible-server db create` command.
 
@@ -1575,7 +1575,7 @@ Flexible Server instance using the Azure CLI
 
 ### Create a table in the inventory database
 
-In this section, we'll use the `az postgres flexible-server execute`
+In this section, we will use the `az postgres flexible-server execute`
 command to create a table named `products` in the `inventory` database.
 
 1.  In the cloud shell, run the following command to create the
@@ -1591,7 +1591,7 @@ command to create a table named `products` in the `inventory` database.
 
 ### Insert data into the products table
 
-In this section, we'll use the `az postgres flexible-server execute`
+In this section, we will use the `az postgres flexible-server execute`
 command to insert data into the `products` table with a SQL file
 containing the `INSERT` statements.
 
@@ -1622,7 +1622,7 @@ containing the `INSERT` statements.
 
 ### Query the products table using the interactive shell (PSQL Tool)
 
-In this section, we'll use the `az postgres flexible-server connect`
+In this section, we will use the `az postgres flexible-server connect`
 command with the `--interactive` flag to connect to the `inventory`
 database. This connection will open the PostgreSQL interactive shell
 that allows us to query the `products` table.
@@ -1654,7 +1654,7 @@ that allows us to query the `products` table.
 
 ### Update and delete data in the products table
 
-In this section, we'll continue in the PSQL interactive shell to update
+In this section, we will continue in the PSQL interactive shell to update
 and delete data in the `products` table.
 
 1.  At the database (`inventory`) prompt, run the following SQL
@@ -1708,7 +1708,7 @@ the Azure CLI command.
 
 ### Clean up - Delete the database
 
-In this section, we'll use the `az postgres flexible-server db delete`
+In this section, we will use the `az postgres flexible-server db delete`
 command to delete the `inventory` database.
 
 1.  In the cloud shell, run the following command to delete the
@@ -1858,7 +1858,7 @@ The libraries are organized clearly delineated to distinguish between
 
 #### Use the Azure SDK management library to create a Flexible Server database
 
-In this section, we'll create a Flexible Server database using the Azure
+In this section, we will create a Flexible Server database using the Azure
 SDK for Python.
 
 > ![Note icon] **Note:** The ability to create resource groups and the
@@ -3332,7 +3332,7 @@ restrictions:
 -   You can use parameters only with the statements SELECT, INSERT,
     UPDATE, DELETE and VALUES.
 -   You can only use parameters instead of constants (literals). You
-    can't use parameters instead of identifiers (object names) or
+    cannot use parameters instead of identifiers (object names) or
     keywords, among other things.
 
 ### Task 4: Using pg_stat_io for enhanced IO monitoring
@@ -3515,7 +3515,7 @@ access the new metrics dimensions to split and filter metrics data by
 database name. PgBouncer metrics are disabled by default. For PgBouncer
 metrics to work, both the server parameters pgbouncer.enabled and
 metrics.pgbouncer_diagnostics must be enabled. These parameters are
-dynamic and don't require an instance restart.
+dynamic and do not require an instance restart.
 
 -   Browse to the Azure Portal and your **PREFIX-pg-flex-REGION-16**
     resource.
@@ -4647,7 +4647,7 @@ for new Orders in the database and then send an email.
 
 ### Create a Logic App (Optional)
 
-This step has already been done for you, but if you'd like to create the
+This step has already been done for you, but if you would like to create the
 logic app from scratch the steps are provided here.
 
 -   Select **Blank template**
@@ -5437,7 +5437,7 @@ language.
 
 In order to do these transformations, the text has to be broken up into
 chunks that make sense. These chunks are then broken down further into
-tokens. Models don't tend to be in charge of the chunking aspect of the
+tokens. Models do not tend to be in charge of the chunking aspect of the
 process, but they are respondible for the tokenization via a Tokenizer
 model.
 
@@ -5492,7 +5492,7 @@ Your choice of model comes down to three major areas:
 
     - What is your goal
     - What your data looks like
-    - How much you're ready to pay
+    - How much you are ready to pay
 
 When it comes to data, a differnt model will be required based on if it
 is text, audio, video, image generation and so forth.
@@ -6066,7 +6066,7 @@ different layers:
     types of inputs they can send to the model as well as text or images
     displayed to the user. When deploying the AI application, we also
     must be transparent about what our Generative AI application can and
-    can't do.
+    cannot do.
 
 ### Operationalize AI
 
@@ -6213,7 +6213,7 @@ Once a prompt is tokenized, the primary function of the Foundation model
 is to predict the token in that sequence. Since LLMs are trained on
 massive text datasets, they have a good sense of the statistical
 relationships between tokens and can make that prediction with some
-confidence. Note that they don't understand the meaning of the words in
+confidence. Note that they do not understand the meaning of the words in
 the prompt or token; they just see a pattern they can "complete" with
 their next prediction. They can continue predicting the sequence till
 terminated by user intervention or some pre-established condition.
@@ -6347,7 +6347,7 @@ be.
 
 This style of prompting is very simple, it may consist of a single
 prompt and possibly a few examples. This technique is probably what
-you're using as you're starting to learn about LLMs. Here's an example:
+you are using as you are starting to learn about LLMs. Here's an example:
 
 -   Prompt: "What is Algebra?"
 -   Answer: "Algebra is a branch of mathematics that studies
@@ -6379,7 +6379,7 @@ answer 1. As you can see chain-of-thought is a very powerful technique.
 
 Many times when you want to construct a prompt, you want to do so using
 your own company's data. You want part of the prompt to be from the
-company and the other part should be the actual prompt you're interested
+company and the other part should be the actual prompt you are interested
 in.
 
 ### Least to most
@@ -6390,7 +6390,7 @@ the bigger problem.
 
 ### Self refine
 
-With generative AIs and LLMs, you can't trust the output. You need to
+With generative AIs and LLMs, you cannot trust the output. You need to
 verify it. After all, the LLM is just presenting you what's the next
 most likely thing to say, not what's correct. Therefore, a good idea is
 to ask the LLM to critique itself, which leads us to the self-refine
@@ -6419,7 +6419,7 @@ correct answer. The workflow to follow is:
 -   If there are inconsistencies, discard the parts that are
     inconsistent.
 
-Repeat 2 and 3 until you've gone through all the parts and you're
+Repeat 2 and 3 until you have gone through all the parts and you are
 satisfied with the answer.
 
 ### Temperature
@@ -6537,7 +6537,7 @@ make that part of the user's prompt.
 
 LLMs have the limitation that they can use only the data that has been
 used during their training to generate an answer. This means that they
-don't know anything about the facts that happened after their training
+do not know anything about the facts that happened after their training
 process, and they cannot access non-public information (like company
 data). This can be overcome through RAG, a technique that augments
 prompt with external data in the form of chunks of documents,
@@ -6605,7 +6605,7 @@ a database. So what can a developer build with a text generation app?
 Chat applications have become integrated into our daily lives, offering
 more than just a means of casual conversation. They're integral parts of
 customer service, technical support, and even sophisticated advisory
-systems. It's likely that you've gotten some help from a chat
+systems. It's likely that you have gotten some help from a chat
 application not too long ago. As we integrate more advanced technologies
 like generative AI into these platforms, the complexity increases and so
 does the challenges.
@@ -6637,7 +6637,7 @@ capabilities of Generative AI. They can be used for, for example:
     Game development and more.
 
 When generating images, it is imporant to create boundaries on the
-creations. For example, we don't want to generate images that are not
+creations. For example, we do not want to generate images that are not
 safe for work, or that are not appropriate for children. This can be
 accomplished with metaprompts. Metaprompts are text prompts that are
 used to control the output of a Generative AI model. For example, we can
@@ -6860,7 +6860,7 @@ basic, AI, and user experience metrics to consider.
 When building an AI integreated application, a great first step is to
 assess what is already out there. Using SDKs and APIs to build chat
 applications is an advantageous strategy for a variety of reasons. By
-integrating well-documented SDKs and APIs, you're strategically
+integrating well-documented SDKs and APIs, you are strategically
 positioning your application for long-term success, addressing
 scalability and maintenance concerns.
 
@@ -7095,7 +7095,7 @@ context, but do not perform well when used in a specific domain they
 were never trained on. Prompts are text strings that are used to help
 guide an LLM to the target response. For example, an LLM can provide a
 detailed answer in terms of how to approach the solution to a problem.
-However, it can't provide any realtime information of the solution
+However, it cannot provide any realtime information of the solution
 without added context.
 
 To support these types of scenerios, agents must integrate the
@@ -11240,7 +11240,7 @@ highlighted.]
     $appName = "pgsqldev$($suffix)linux";
     $app = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 
-    #NOTE: This can't be used this for linux based deployments
+    #NOTE: This cannot be used this for linux based deployments
     #Compress-Archive -Path .\sample-php-app\* -DestinationPath site.zip -force
     #NOTE: The next command will take a few minutes to run
 

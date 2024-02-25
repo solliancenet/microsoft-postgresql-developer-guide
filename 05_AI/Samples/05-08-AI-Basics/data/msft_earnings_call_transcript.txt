@@ -10,7 +10,7 @@ Good afternoon and thank you for joining us today. On the call with me are Satya
 
 Microsoft completed the acquisition of Activision Blizzard on October 13, 2023. We will share more on the expected impact of the Activision acquisition during the outlook commentary portion of today's call. On this call, we will discuss certain non-GAAP items. The non-GAAP financial measures provided should not be considered as a substitute for or superior to the measures of financial performance prepared in accordance with GAAP.
 
-They are included as additional clarifying items to aid investors in further understanding the company's first quarter performance in addition to the impact these items and events have on the financial results. All growth comparisons we make on the call today relate to the corresponding period of last year, unless otherwise noted. We will also provide growth rates in constant currency when available as a framework for assessing how our underlying businesses performed, excluding the effect of foreign currency rate fluctuations. Where growth rates are the same in constant currency, we'll refer to the growth rate only.
+They are included as additional clarifying items to aid investors in further understanding the company's first quarter performance in addition to the impact these items and events have on the financial results. All growth comparisons we make on the call today relate to the corresponding period of last year, unless otherwise noted. We will also provide growth rates in constant currency when available as a framework for assessing how our underlying businesses performed, excluding the effect of foreign currency rate fluctuations. Where growth rates are the same in constant currency, we will refer to the growth rate only.
 
 We will post our prepared remarks to our website immediately following the call until the complete transcript is available. Today's call is being webcast live and recorded. If you ask a question, it will be included in our live transmission, in the transcript, and in any future use of the recording. You can replay the call and view the transcript on the Microsoft investor relations website.
 
@@ -44,7 +44,7 @@ And this quarter, we introduced Copilot and Dynamics 365 Field Service to help s
 
 And with DAX Copilot, we are applying generative models to draft high-quality clinical notes in seconds, increasing physician productivity and reducing burnout. For example, Atrium Health, a leading provider in Southeast United States, credits DAX Copilot with helping its physicians each save up to 40 minutes per day in documentation time. We're also introducing healthcare data solutions in Microsoft Fabric, enabling providers like Northwestern Medicine and Sing Health to unify health data in a secure, compliant way. And with our Microsoft Cloud for Sovereignty, which will become generally available by the end of the calendar year, we offer industry-leading data sovereignty and encryption controls, meeting the specific needs of public sector customers around the world.
 
-Now on to future work. Copilot is your everyday AI assistant, helping you be more creative in Word, more analytical in Excel, more expressive in PowerPoint, more productive in Outlook and more collaborative in Teams. Tens of thousands of employees at customers like Bayer, KPMG, Mayo Clinic, Suncorp and Visa, including 40% of the Fortune 100, are using Copilot as part of our early access program. Customers tell us that once they use Copilot, they can't imagine work without it, and we are excited to make it generally available for enterprise customers next week.
+Now on to future work. Copilot is your everyday AI assistant, helping you be more creative in Word, more analytical in Excel, more expressive in PowerPoint, more productive in Outlook and more collaborative in Teams. Tens of thousands of employees at customers like Bayer, KPMG, Mayo Clinic, Suncorp and Visa, including 40% of the Fortune 100, are using Copilot as part of our early access program. Customers tell us that once they use Copilot, they cannot imagine work without it, and we are excited to make it generally available for enterprise customers next week.
 
 This quarter, we also introduced a new hero experience in Copilot, helping employees tap into their entire universe of work, data, and knowledge using chat. And the new Copilot lab helps employees build their own work habits for this era of AI by helping them turn good prompts into great ones. When it comes to Teams, usage continues to grow with more than 320 million monthly active users, making Teams the place to work across chat, collaboration, meetings, and calling. This quarter, we introduced a new version of Teams that is up to two times faster while using 50% less memory and includes seamless cross-tenant communications and collaboration.
 
@@ -72,7 +72,7 @@ We were delighted to close our acquisition of Activision Blizzard King earlier t
 
 Prerelease stuff fill this quarter to broad acclaim. More than 11 million people have played the game to date. Nearly half of the hours played have been on PC and on launch day, we set a record for the most Game Pass subscriptions added on a single day ever. Minecraft has now surpassed 300 million copies sold and with Activision Blizzard King, we now add significant depth to our content portfolio.
 
-We will have $13 billion-plus franchises from Candy Crush, Diablo, and Halo to Warcraft, Elder Scrolls, and Gears of War. And we're looking forward to one of our strongest first-party holiday lineup ever, including new titles like Call of Duty: Modern Warfare 3 and Forza Motorsport. In closing, we are rapidly innovating to expand our opportunity across our consumer and commercial businesses as we help our customers thrive in this new era. In just a few weeks, we'll be holding our flagship Ignite Conference, where we will introduce more than 100 new products and capabilities, including exciting new AI innovations.
+We will have $13 billion-plus franchises from Candy Crush, Diablo, and Halo to Warcraft, Elder Scrolls, and Gears of War. And we're looking forward to one of our strongest first-party holiday lineup ever, including new titles like Call of Duty: Modern Warfare 3 and Forza Motorsport. In closing, we are rapidly innovating to expand our opportunity across our consumer and commercial businesses as we help our customers thrive in this new era. In just a few weeks, we will be holding our flagship Ignite Conference, where we will introduce more than 100 new products and capabilities, including exciting new AI innovations.
 
 I encourage you to tune in. With that, I'll turn it over to Amy. 
 
@@ -150,7 +150,7 @@ In closing, with our strong start to FY '24, I am confident that as a team, we w
 
 Brett Iversen -- General Manager, Investor Relations
 
-Thanks, Amy. We'll now move over to Q&A. Out of respect for others on the call, we request to participants to please ask only one question. Joe, can you please repeat your instructions?
+Thanks, Amy. We will now move over to Q&A. Out of respect for others on the call, we request to participants to please ask only one question. Joe, can you please repeat your instructions?
 
 Questions & Answers:
 
@@ -162,7 +162,7 @@ Keith Weiss -- Morgan Stanley -- Analyst
 
 Excellent. Thank you for taking the question, and very nice quarter. The pace of innovation you guys have been putting out has been pretty amazing. And new products are like garnering traction probably faster than we had expected on our side of the equation.
 
-But we're also working in an overall spending environment that remains volatile at that, and I think investors are getting more concerned on it. So, two questions on this. One, based on sort of the new products and the innovation, do you think you guys can sustain the type of commercial growth that we saw in Q1 as we go through the year? Or is the environment too tricky for that? And then when it relates to investment, Amy, you've been able to keep overall opex growth very low, and it was very low this quarter. At some point, should we be thinking about a return to a more aggressive investment behind all this product innovation? 
+But we're also working in an overall spending environment that remains volatile at that, and I think investors are getting more concerned on it. So, two questions on this. One, based on sort of the new products and the innovation, do you think you guys can sustain the type of commercial growth that we saw in Q1 as we go through the year? Or is the environment too tricky for that? And then when it relates to investment, Amy, you have been able to keep overall opex growth very low, and it was very low this quarter. At some point, should we be thinking about a return to a more aggressive investment behind all this product innovation? 
 
 Satya Nadella -- Chief Executive Officer
 
@@ -170,7 +170,7 @@ Maybe I can start, Keith, and Amy, you can add to it. Overall, there are multipl
 
 A good reminder of where we are and even the core cloud migration story is the new Oracle announcement. Once we announce that the Oracle databases are going to be available on Azure, we saw a bunch of unlock from new customers who have significant Oracle estates that have not yet moved to the cloud because they needed to run the GUI with the rest of the app estate in one single cloud. And so, we're excited about that. So, in some sense, even the financial services sector, for example, is a good place where there's a lot of Oracle that still needs to move to the cloud.
 
-Second thing, of course, is the workloads start, then workloads get optimized and then new workloads start. And that cycle continues. We'll lap some of those optimization cycles that were fairly extreme perhaps in the second half of our fiscal. And the third thing is, for us, that's unique and different is new workload starts around AI.
+Second thing, of course, is the workloads start, then workloads get optimized and then new workloads start. And that cycle continues. We will lap some of those optimization cycles that were fairly extreme perhaps in the second half of our fiscal. And the third thing is, for us, that's unique and different is new workload starts around AI.
 
 Given our leadership position, we are seeing complete new project starts, which are AI projects. And as you know, AI projects are not just about AI meters. They have lots of other cloud meters as well. So, that sort of gives you one side of what's happening in terms of enterprise.
 
@@ -184,7 +184,7 @@ Keith, maybe just a few things to add, and then I'll talk a little bit about the
 
 And so, I think that is an important piece as you think about stability in commercial demand. And then if you think about the nature of your question, it was partially why I talked about in my full year guidance that now even with the addition of Activision and purchase accounting impacts, integration impacts, we still feel confident we can deliver consistent operating margins to last year. And it speaks to, I think, some of the improvements we're making in Azure and even Microsoft 365 gross margins, even in the core of the commercial cloud. It speaks to the pace at which we are delivering AI revenue with the increasing cost expense and capital investment ahead with the demand we see.
 
-And although you're right, our operating expense comparables in H2 get more challenging than in H1, we're really focused on making sure that every dollar we put and commit is back to the priorities we talked about, which is commercial cloud leadership and leading the AI wave. And so, I think that focus is really helping on both execution and leverage.
+And although you are right, our operating expense comparables in H2 get more challenging than in H1, we're really focused on making sure that every dollar we put and commit is back to the priorities we talked about, which is commercial cloud leadership and leading the AI wave. And so, I think that focus is really helping on both execution and leverage.
 
 Keith Weiss -- Morgan Stanley -- Analyst
 
@@ -206,13 +206,13 @@ Satya Nadella -- Chief Executive Officer
 
 OK. Thank you for the question, Mark. Yes, it is true that we have -- the approach we have taken is a full-stack approach all the way from whether it's ChatGPT or Bing chat or all our Copilots all share the same model. So, in some sense, one of the things that we do have is very, very high leverage of the one model that we used, which we trained, and then the one model that we are doing inferencing at scale.
 
-And that advantage sort of trickles down all the way to both utilization internally, utilization of third parties. And also over time, you can see that sort of stack optimization all the way to the silicon because the abstraction layer to which the developers are riding is much higher up than no-level kernels, if you will. So, therefore, I think there is a fundamental approach we took, which was a technical approach of saying we'll have Copilots and Copilot stack all available. That doesn't mean we don't have people doing training for open-source models or proprietary models.
+And that advantage sort of trickles down all the way to both utilization internally, utilization of third parties. And also over time, you can see that sort of stack optimization all the way to the silicon because the abstraction layer to which the developers are riding is much higher up than no-level kernels, if you will. So, therefore, I think there is a fundamental approach we took, which was a technical approach of saying we will have Copilots and Copilot stack all available. That doesn't mean we do not have people doing training for open-source models or proprietary models.
 
 We also have a bunch of open-source models. We have a bunch of fine-tuning happening, a bunch of RLHF happening. So, there's all kinds of ways people use it, but the thing is we have scale leverage of one large model that was trained and one large model that's been used for inference across all our first-party SaaS apps, as well as our API in our Azure AI service.
 
 Amy Hood -- Chief Financial Officer
 
-And the reason, Mark, that's important is that it means, even beyond the point Satya made, is that when it comes to our ability to leverage the infrastructure that we're building out, we don't really have a preference in terms of how people are utilizing that infrastructure, whether it's through all the means that Satya mentioned. It gives us a good opportunity to see quick conversion into revenue. 
+And the reason, Mark, that's important is that it means, even beyond the point Satya made, is that when it comes to our ability to leverage the infrastructure that we're building out, we do not really have a preference in terms of how people are utilizing that infrastructure, whether it's through all the means that Satya mentioned. It gives us a good opportunity to see quick conversion into revenue. 
 
 Satya Nadella -- Chief Executive Officer
 
@@ -250,7 +250,7 @@ The next question comes from the line of Raimo Lenschow with Barclays. Please pr
 
 Raimo Lenschow -- Barclays -- Analyst
 
-Hey, thank you. You sound very optimistic about the opportunity in the Office space with Copilot coming out now very soon. Can you speak a little bit about the -- what you're seeing there in the customer base that tested this already in terms of how excited they were, the special features there? And what does it mean in terms of adoption curve for that going forward once you go GA in 1st of November? Thank you. 
+Hey, thank you. You sound very optimistic about the opportunity in the Office space with Copilot coming out now very soon. Can you speak a little bit about the -- what you are seeing there in the customer base that tested this already in terms of how excited they were, the special features there? And what does it mean in terms of adoption curve for that going forward once you go GA in 1st of November? Thank you. 
 
 Satya Nadella -- Chief Executive Officer
 
@@ -280,7 +280,7 @@ Karl Keirstead -- UBS -- Analyst
 
 OK, great. Thanks. Amy, congrats on the 28% constant currency Azure growth. That's terrific.
 
-I wanted to press you a little bit on the outlook for Azure. You're obviously guiding to a 1- to 2-point decel in December and then stable thereafter. But why would it be stable? Why wouldn't it accelerate in the second half of your fiscal year if the AI contribution is increasing as you bring on more GPU capacity? Is this a function of perhaps continued core ex-AI Azure spend optimization continuing or maybe even getting slightly worse? Why couldn't we see some upside in that Azure number? I know you're trying to be conservative, but I'd just love to understand it. Thanks so much.
+I wanted to press you a little bit on the outlook for Azure. you are obviously guiding to a 1- to 2-point decel in December and then stable thereafter. But why would it be stable? Why wouldn't it accelerate in the second half of your fiscal year if the AI contribution is increasing as you bring on more GPU capacity? Is this a function of perhaps continued core ex-AI Azure spend optimization continuing or maybe even getting slightly worse? Why couldn't we see some upside in that Azure number? I know you are trying to be conservative, but I'd just love to understand it. Thanks so much.
 
 Amy Hood -- Chief Financial Officer
 
@@ -290,7 +290,7 @@ It's an important part of running workloads. That is not new. There obviously we
 
 And so, I think that impact remains through the rest of the year, and my view is unchanged on that. And then, of course, I think the key component has always been new workload starts. And at the scale we're talking about, being able to have stability in our Azure business does mean that we will have a lot of new workload starts. And primarily, we're expecting those to come from AI workloads.
 
-But AI workloads don't just use our AI services. They use data services and they use other things. And so, that combination, I think, looking on a competitive basis, we feel good about our execution, we feel good about taking share, and we feel good about consistent trends. And so, I feel good about that guide and what it says about where we are on share.
+But AI workloads do not just use our AI services. They use data services and they use other things. And so, that combination, I think, looking on a competitive basis, we feel good about our execution, we feel good about taking share, and we feel good about consistent trends. And so, I feel good about that guide and what it says about where we are on share.
 
 Karl Keirstead -- UBS -- Analyst
 
@@ -314,7 +314,7 @@ Amy Hood -- Chief Financial Officer
 
 Thanks for that question. Maybe I'll take that. Satya, if you want to add. In general, our seat growth has -- it does come from all segments but with a particular strength in small and midsized businesses, as well as what we call the frontline worker opportunity.
 
-And then that has been, I would say, looking back a number of quarters, where the majority of our seat growth has gone. And while obviously, it's slowed a bit, to your point, I think the fact that we're still able to add seats at this level speaks to the broadening nature of what Microsoft 365 needs. It's more applicable to more people. And so, I think many people have thought, oh, my goodness, you've got a lot of customers already.
+And then that has been, I would say, looking back a number of quarters, where the majority of our seat growth has gone. And while obviously, it's slowed a bit, to your point, I think the fact that we're still able to add seats at this level speaks to the broadening nature of what Microsoft 365 needs. It's more applicable to more people. And so, I think many people have thought, oh, my goodness, you have got a lot of customers already.
 
 And we look and say, how many people when you expand what Microsoft 365 means, whether it's security or it means analytics or it means Teams, it means lots of things and an expanding definition, it applies to more types of workers. And frankly, the value is such, especially on the small business front, where it's to the point where I think people feel like it's a great way to spend even the spend money they have is this remains a pretty compelling offer.
 
@@ -342,7 +342,7 @@ Thanks for that question. I think there are a couple of things going on. I would
 
 The second component of that is our core Azure business. The team continues to deliver thoughtful gross margin improvement across both technical decisions, software implementations. Our teams on the infrastructure build side have done really good work to deliver that. And so, that's been helpful as well.
 
-And then, of course, on operating expenses, there's been a good focus on continuing even within that segment to make sure we're focusing that work leading in the AI transition with Azure. And so, you're right, even as we're investing in AI infrastructure, which will and should show up as revenue, it will also show up in COGS and still deliver good margin. But this does have a slightly, as I talked about earlier, easier comp in Q1 and Q2 given it was some of our highest growth operating expense quarters in our company's history a year ago.
+And then, of course, on operating expenses, there's been a good focus on continuing even within that segment to make sure we're focusing that work leading in the AI transition with Azure. And so, you are right, even as we're investing in AI infrastructure, which will and should show up as revenue, it will also show up in COGS and still deliver good margin. But this does have a slightly, as I talked about earlier, easier comp in Q1 and Q2 given it was some of our highest growth operating expense quarters in our company's history a year ago.
 
 Brent Bracelin -- Piper Sandler -- Analyst
 

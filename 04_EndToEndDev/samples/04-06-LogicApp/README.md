@@ -188,7 +188,7 @@ We have already created a Logic App that uses a timer trigger to check for new O
 
 ### Create a Logic App (Optional)
 
-This step has already been done for you, but if you'd like to create the logic app from scratch the steps are provided here.
+This step has already been done for you, but if you would like to create the logic app from scratch the steps are provided here.
 
 - Select **Blank template**
 - For the trigger, select **Recurrence**. Keep the default values

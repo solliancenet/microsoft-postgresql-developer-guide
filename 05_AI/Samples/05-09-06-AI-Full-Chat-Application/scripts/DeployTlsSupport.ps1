@@ -67,7 +67,7 @@ if ([String]::IsNullOrEmpty($domain)) {
 }
 
 if ([String]::IsNullOrEmpty($domain)) {
-    Write-Host "Error: domain not passed and can't be inferred from AKS $aksName" -ForegroundColor Red
+    Write-Host "Error: domain not passed and cannot be inferred from AKS $aksName" -ForegroundColor Red
     exit 1
 }
 
@@ -75,12 +75,12 @@ Write-Host "TLS/SSL will be bound to domain $domain"
 Join-Path .. helm | Push-Location
 
 if ($sslSupport -eq "staging") {
-    Write-Host "Adding TLS/SSL support using Let's Encrypt Staging environment" -ForegroundColor Yellow
+    Write-Host "Adding TLS/SSL support using Let us Encrypt Staging environment" -ForegroundColor Yellow
     $command = "helm upgrade --install $name-ssl-staging tls-support -f $(Join-Path tls-support values-staging.yaml) --set domain=$domain --set ingressClass=$ingressClass"
     Invoke-Expression "$command"
 }
 if ($sslSupport -eq "prod") {
-    Write-Host "Adding TLS/SSL support using Let's Encrypt PRODUCTION environment" -ForegroundColor Yellow
+    Write-Host "Adding TLS/SSL support using Let us Encrypt PRODUCTION environment" -ForegroundColor Yellow
     Write-Host "helm upgrade --install $name-ssl-prod tls-support -f $(Join-Path tls-support values-prod.yaml) --set domain=$domain --set ingressClass=$ingressClass"
     $command = "helm upgrade --install $name-ssl-prod tls-support -f $(Join-Path tls-support values-prod.yaml) --set domain=$domain --set ingressClass=$ingressClass"
     Invoke-Expression "$command"
