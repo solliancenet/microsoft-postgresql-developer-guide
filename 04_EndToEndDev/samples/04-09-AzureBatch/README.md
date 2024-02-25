@@ -39,7 +39,7 @@
 
 ## Exercise 3: Create an application
 
-- Zip the `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\07-03-AzureBatch\applications` folder, notice the contents
+- Zip the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-09-AzureBatch\applications` folder, notice the contents
 - Switch to the Azure Portal and the Azure Batch instance
 - Under **Features** select **Applications**
 - Select **+Add**

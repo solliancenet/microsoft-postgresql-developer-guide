@@ -1,27 +1,34 @@
 # Hands on Lab: Azure Function with PostgreSQL (.NET)
 
-https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/how-to-connect-to-azure-database-for-PostgreSQL-using-managed/ba-p/1518196
+In this hands on lab you will create an HTTP Function Application using Visual Studio and .NET.  The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
-It is possible to utilize Visual Studio or Visual Studio Code to create Azure Functions.  
+### Required Resources
 
-## Exercise 1: Install pre-requisites
+You will need several resource to perform this lab.  These include:
 
-Most of this is done already in the lab setup scripts, but is provided here for reference.
+- Azure App Service Plan (Linux)
+- Azure App Service (Linux)
+- Azure Database for PostgreSQL Flexible Server
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
 
 - Install [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
   - Expand the **Download Visual Studio with .NET** dropdown for an installation package with the .NET SDK
   - Once Visual Studio loads, sign in with an Azure account
+  - Open the Visual Studio installer from the Start menu.
+  - Select **Modify** next to the **Visual Studio Community 2022** installation
+  - Select the **Azure development** tile below the **Web & Cloud** header. Then, select **Modify** at the lower right-hand corner of the window
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
 
-### Install the Azure development workload for Visual Studio
-
-- Open the Visual Studio installer from the Start menu.
-- Select **Modify** next to the **Visual Studio Community 2022** installation
-- Select the **Azure development** tile below the **Web & Cloud** header. Then, select **Modify** at the lower right-hand corner of the window
-
-## Exercise 2: Create the Function Application
+## Exercise 1: Create the Function Application
 
 The application here is based on an Http Trigger that will then make a call into the Azure Database for PostgreSQL Flexible Server instance and add some records. Create this function by performing the following steps.
 
@@ -30,7 +37,7 @@ The application here is based on an Http Trigger that will then make a call into
 - Search for **Azure Functions**
 - Select **C#** for the language
 - Select **Next**
-- For the name, type **AddCustomerFunction**
+- For the name, type **ShowDatabasesFunction**
 - Select the project path
 - Select **Next**
 - For the functions works, select **.NET 8.0 Isloated**
@@ -46,9 +53,9 @@ The application here is based on an Http Trigger that will then make a call into
 - Be sure to replace the `SUFFIX` connection information:
 
 ```csharp
-    public static class AddCustomerFunction
+    public static class ShowDatabasesFunction
     {
-        [FunctionName("AddCustomerFunction")]
+        [FunctionName("ShowDatabasesFunction")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -101,12 +108,12 @@ The application here is based on an Http Trigger that will then make a call into
 - Open a browser window to the function endpoint, it will be similar to the following:
 
 ```text
-http://localhost:7071/api/AddCustomerFunction
+http://localhost:7071/api/ShowDatabasesFunction
 ```
 
 - You should see a list of databases displayed.
 
-## Exercise 3: Deploy the Function Application
+## Exercise 2: Deploy the Function Application
 
 Now that the function app is created and working locally, the next step is to publish the function app to Azure.
 
@@ -119,25 +126,25 @@ Now that the function app is created and working locally, the next step is to pu
 - Select **Next**
 - Select the **Sign in** button, login using your lab credentials
 - Select the account, subscription and resource group
-- Select the **pgsqldevSUFFIX-AddCustomerFunction** function app
+- Select the **pgsqldevSUFFIX-ShowDatabasesFunction** function app
 - Select **Finish**
 - Select **Publish**, and if prompted, select **Yes** to update the runtime version.
 - Switch to the Azure portal, browse to your lab resource group
-- Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
+- Select the **pgsqldevSUFFIX-ShowDatabasesFunction** Function App instance
 - Under **Functions**, select **App keys**
 - Copy the function `default` app key value
 - It should now be possible to browse to the function endpoint and see data, replace the `APPKEY` with the one you copied:
 
 ```text
-https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=APPKEY
+https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabasesFunction?code=APPKEY
 ```
 
-## Exercise 4: Test the Function App in the Azure portal
+## Exercise 3: Test the Function App in the Azure portal
 
 - Switch to the Azure portal, browse to your lab resource group
-- Select the **pgsqldevSUFFIX-addcustomerfunction** Function App instance
-- On the **Overview** page, select the **AddCustomerFunction** link
-- On the **AddCustomerFunction** page, select **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
+- Select the **pgsqldevSUFFIX-ShowDatabasesFunction** Function App instance
+- On the **Overview** page, select the **ShowDatabasesFunction** link
+- On the **ShowDatabasesFunction** page, select **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
 - If prompted, select the warning to enable CORS
 - Issue a simple GET request to the Function App endpoint using the `master` key.
 

@@ -2,6 +2,35 @@
 
 In the previous function apps the connection information was embedded into the function app code.  As was covered in the traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault.  Here we will utilize the features of Azure to use Managed Identities to connect to the database.
 
+## Setup
+
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Azure App Service Plan (Linux)
+- Azure App Service (Linux)
+- Azure Database for PostgreSQL Flexible Server
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+
+- Install [Visual Studio Code](https://code.visualstudio.com/download)
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
+- Install [Python 3.11.x](https://www.python.org/downloads/)
+- Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
+- Install [pgAdmin](https://www.pgadmin.org/download/)
+
 ## Exercise 1: Enable PostgreSQL Microsoft Entra Authentication
 
 - Switch to the Azure Portal
@@ -15,14 +44,14 @@ In the previous function apps the connection information was embedded into the f
 
 ## Exercise 2: Create Managed Identity
 
-- Browse to the **pgsqldevSUFFIX-addcustomerfunction** Function App
+- Browse to the **pgsqldevSUFFIX-ShowDatabasesFunction** Function App
 - Under **Settings**, select **Identity**
 - For the **System assigned** identity, toggle to **On**
 - Select **Save**, then select **Yes**
 - Run the following to get the application id, replace the `SUFFIX`:
 
 ```powershell
-az ad sp list --display-name pgsqldevSUFFIX-addcustomerfunction --query [*].appId --out tsv
+az ad sp list --display-name pgsqldevSUFFIX-ShowDatabasesFunction --query [*].appId --out tsv
 ```
 
 - Copy the value for later use
@@ -141,7 +170,7 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
 
 ## Exercise 6: Utilize MSI Authentication
 
-- Open the `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\06-04-FunctionApp-MSI` function app folder in Visual Studio Code
+- Open the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-05-FunctionApp-MSI` function app folder in Visual Studio Code
 - Add the following code to get an access token \ password for the managed identity:
 
     ```python
@@ -168,11 +197,11 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
 - Run the following to deploy the updated Azure Function App:
 
 ```powershell
-func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force --python
+func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force --python
 ```
 
 Browse to the function endpoint and see the data (the output of the previous command will include this information).  The function app is now running as a managed identity and connecting to the database using that identity:
 
 ```text
-https://pgsqldevSUFFIX-addcustomerfunction.azurewebsites.net/api/addcustomerfunction?code=APPKEY
+https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabasesFunction?code=APPKEY
 ```

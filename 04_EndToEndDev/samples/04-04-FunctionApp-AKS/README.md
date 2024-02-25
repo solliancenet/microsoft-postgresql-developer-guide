@@ -2,13 +2,45 @@
 
 Function apps can be containerized and deployed to AKS.  These steps will walk through this process so it can be applied later if this is something the architecture demands.
 
+## Setup
+
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Azure App Service Plan (Linux)
+- Azure App Service (Linux)
+- Azure Database for PostgreSQL Flexible Server
+- Azure Kubernetes Service (AKS)
+- Azure Container Registry
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+
+- Install [Visual Studio Code](https://code.visualstudio.com/download)
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
+- Install [Python 3.11.x](https://www.python.org/downloads/)
+- Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
+- Install latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install [Docker Desktop (Windows)](https://www.docker.com/products/docker-desktop/#)
+
 ## Exercise 1: Ensure Docker is started
 
 - Open Docker Desktop, ensure that it is running.
 
 ## Exercise 2: Setup AKS (KEDA)
 
-- Open a new Visual Studio Code window to the `C:\labfiles\microsoft-postgresql-developer-guide\Artifacts\06-03-FunctionApp-AKS` folder
+- Open a new Visual Studio Code window to the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-04-FunctionApp-AKS` folder
 - Open a new terminal window, ensure that an AKS connection is present:
 
 ```Powershell

@@ -2,6 +2,33 @@
 
 Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE.  However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events.  In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway.  This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
 
+## Setup
+
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Local install of Azure Database for PostgreSQL Flexible Server
+- Virtual Networks
+- Logic App
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+
+- [Chocolaty Installer](https://chocolatey.org/install)
+- [PostgreSQL 16](https://www.postgresql.org/download/)
+- [Logic Apps Gateway](https://aka.ms/on-premises-data-gateway-installer)
+- [Npgsql](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi)
+
 ## Exercise 1: Create a Private Endpoint Flexible Server
 
 - Open the Azure Portal
@@ -98,7 +125,7 @@ choco install psqlodbc
 
 ## Exercise 5: Install the Logic Apps Gateway
 
-- [Download](https://aka.ms/on-premises-data-gateway-installer) and tnstall the Logic Apps Gateway
+- [Download](https://aka.ms/on-premises-data-gateway-installer) and install the Logic Apps Gateway
 - Select **I accept the terms...** checkbox
 - Select **Install**
 - Enter the lab user email, then select **Sign in**

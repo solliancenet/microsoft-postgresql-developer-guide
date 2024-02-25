@@ -59,7 +59,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker pull php:8.2-apache
     ```
 
-5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\03-00-Docker` directory, create the `Dockerfile.web` with the following:
+5. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker` directory, create the `Dockerfile.web` with the following:
 
     ```text
     # Dockerfile
@@ -150,7 +150,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     set-content c:\temp\data.sql $data
     ```
 
-2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts` directory, create a new `Dockerfile.db` docker compose file:
+2. In the `c:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker` directory, create a new `Dockerfile.db` docker compose file:
 
     ```text
     FROM postgres:16.1
@@ -214,7 +214,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 2. Open a new PowerShell window, run the following to create the web container:
 
     ```PowerShell
-    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker
 
     iisreset /stop
 
@@ -224,7 +224,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 3. Open a new PowerShell window, run the following to create the db container:
 
     ```powershell
-    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker
 
     stop-service postgresql-x64-14 -ea silentlycontinue
     stop-service postgresql-x64-16 -ea silentlycontinue
@@ -235,7 +235,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 4. Open a new PowerShell window, run the following to create the pgadmin container:
 
     ```powershell
-    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker
 
     docker compose run --service-ports pgadmin
     ```
@@ -288,7 +288,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 9. Restart the images:
 
     ```PowerShell
-    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts
+    cd C:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-03-00-Docker
 
     docker compose up
     ```

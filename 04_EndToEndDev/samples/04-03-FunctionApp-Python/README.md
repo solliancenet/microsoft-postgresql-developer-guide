@@ -1,16 +1,32 @@
 # Hands on Lab: Azure Function with PostgreSQL (Python)
 
-https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL-blog/how-to-connect-to-azure-database-for-PostgreSQL-using-managed/ba-p/1518196
+In this hands on lab you will create an HTTP Function Application using Visual Studio Code and Python.  The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
-It is possible to utilize several different tools including Visual Studio or Visual Studio Code to create Azure Functions.  
+### Required Resources
 
-### Visual Studio Code
+You will need several resource to perform this lab.  These include:
 
-> **Note** that these steps have already been performed in the virtual machine environment.
+- Azure App Service Plan (Linux)
+- Azure App Service (Linux)
+- Azure Database for PostgreSQL Flexible Server
 
-- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extensions
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+
+- Install [Visual Studio Code](https://code.visualstudio.com/download)
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
 
@@ -31,7 +47,7 @@ The application here is based on an HTTP Trigger that will then make a call into
 
     ![This image demonstrates configuring the HTTP Trigger for the new Function App.](./media/http-trigger-vscode.png "Configuring HTTP Trigger")
 
-- For the name, type **AddCustomerFunction**, press **ENTER**
+- For the name, type **ShowDatabasesFunction**, press **ENTER**
 - For the authorization level, select **FUNCTION**
 - Select **Open in current window**
 - Update the function code in `function_app.py` to the following, ensuring that the connection information is replaced. This Function completes the following tasks when its HTTP endpoint receives a request:
@@ -48,8 +64,8 @@ import ssl
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
-@app.route(route="AddCustomerFunction")
-def AddCustomerFunction(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="ShowDatabasesFunction")
+def ShowDatabasesFunction(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     crtpath = 'BaltimoreCyberTrustRoot.crt.pem'
@@ -100,7 +116,7 @@ def AddCustomerFunction(req: func.HttpRequest) -> func.HttpResponse:
 - Open a browser window to the following. A list of databases should load:
 
     ```text
-    http://localhost:7071/api/AddCustomerFunction
+    http://localhost:7071/api/ShowDatabasesFunction
     ```
 
 - The data will be displayed, however it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
@@ -166,28 +182,28 @@ az account set --subscription 'SUBSCRIPTION NAME'
 - Switch to the terminal window and run the following from the repository root:
 
 ```PowerShell
-func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction
+func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction
 ```
 
 - If you previously deployed the dotnet version, you should get an error about the function runtime.  Run the following to force the deployment and change the runtime to python:
 
 ```PowerShell
-az functionapp config set --name pgsqldevSUFFIX-addcustomerfunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
+az functionapp config set --name pgsqldevSUFFIX-ShowDatabasesFunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
 ```
 
 - Retry the deployment:
 
 ```PowerShell
-func azure functionapp publish pgsqldevSUFFIX-addcustomerfunction --force
+func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force
 ```
 
 ## Exercise 3: Test the Function App in the Azure portal
 
-- Navigate to the Azure portal and select **AddCustomerFunction** from the **PostgreSQLdev[SUFFIX]-addcustomerfunction** Function App instance
+- Navigate to the Azure portal and select **ShowDatabasesFunction** from the **PostgreSQLdev[SUFFIX]-ShowDatabasesFunction** Function App instance
 
-    ![This image demonstrates how to select the AddCustomerFunction from the Function App instance.](./media/select-function-from-portal.png "Selecting the Function")
+    ![This image demonstrates how to select the ShowDatabasesFunction from the Function App instance.](./media/select-function-from-portal.png "Selecting the Function")
 
-- On the **AddCustomerFunction** page, **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
+- On the **ShowDatabasesFunction** page, **Code + Test**. Then, select **Test/Run** to access the built-in testing interface
 - Issue a simple GET request to the Function App endpoint.
 
     > **NOTE** It is possible to use a *function key*, which is scoped to an individual Function App, or a *host key*, which is scoped to an Azure Functions instance.
