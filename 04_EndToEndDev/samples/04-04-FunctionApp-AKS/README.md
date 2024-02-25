@@ -82,7 +82,7 @@ func init --docker-only --python
 - Deploy the function app using the following, be sure to replace the function name and `SUFFIX` value:
 
 ```PowerShell
-func kubernetes deploy --name "addcustomerfunction" --registry "pgsqldevSUFFIX.azurecr.io"
+func kubernetes deploy --name "showdatabasesfunction" --registry "pgsqldevSUFFIX.azurecr.io"
 ```
 
 - After following the above steps, the function app has been turned into a container and pushed to the target registry.  It should also now be deployed to the AKS cluster in the `keda` namespace.

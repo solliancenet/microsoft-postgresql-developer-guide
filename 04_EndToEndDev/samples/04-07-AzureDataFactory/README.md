@@ -1,6 +1,24 @@
 # Hands on Lab: Azure Data Factory with PostgreSQL
 
+In this hands on lab you will use Azure Data Factory to connect to your Azure Database for PostgreSQL Flexible Server.
+
 ## Setup
+
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Azure Data Factory
+- Azure Database for PostgreSQL Flexible Server
+- Storage Account
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
 
 ## Exercise 1: Create Linked Services
 

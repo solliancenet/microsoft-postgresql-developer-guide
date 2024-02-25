@@ -1,6 +1,6 @@
 ### External Samples
 
-The following are a list of samples you can reference outside of what is presented in this samples guide.
+The following are a list of samples you can reference outside of what is presented in this PostgreSQL Developer Guide samples.
 
 - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/en-us/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal)
 - [Deploy a Django application to Azure by using PostgreSQL](https://learn.microsoft.com/en-us/training/modules/django-deployment/?source=recommendations)

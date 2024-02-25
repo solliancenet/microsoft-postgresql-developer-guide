@@ -1157,7 +1157,7 @@
       {
         "type": "Microsoft.Web/sites",
         "apiVersion": "2021-03-01",
-        "name": "[concat(variables('resourceName'),'-addcustomerfunction')]",
+        "name": "[concat(variables('resourceName'),'-showdatabasesfunction')]",
         "location": "[variables('location')]",
         "tags": {
         },
@@ -1169,12 +1169,12 @@
             "enabled": true,
             "hostNameSslStates": [
               {
-                "name": "[concat(variables('resourceName'),'-addcustomerfunction', '.azurewebsites.net')]",
+                "name": "[concat(variables('resourceName'),'-showdatabasesfunction', '.azurewebsites.net')]",
                 "sslState": "Disabled",
                 "hostType": "Standard"
               },
               {
-                "name": "[concat(variables('resourceName'),'-addcustomerfunction', '.scm.azurewebsites.net')]",
+                "name": "[concat(variables('resourceName'),'-showdatabasesfunction', '.scm.azurewebsites.net')]",
                 "sslState": "Disabled",
                 "hostType": "Repository"
               }

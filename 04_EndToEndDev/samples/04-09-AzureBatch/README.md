@@ -1,9 +1,23 @@
 # Hands on Lab: Azure Batch with PostgreSQL
 
+In this hands on lab you will utilize Azure Batch to connect to your Azure Database for PostgreSQL Flexible Server.
+
 ## Setup
 
-- Create a `Batch Service` in Azure (one is created via the arm templates)
-- Set the PostgreSQL instance to have private endpoint
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Azure Batch
+- Azure Database for PostgreSQL Flexible Server
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
 
 ## Exercise 1: Configure Batch Service
 
