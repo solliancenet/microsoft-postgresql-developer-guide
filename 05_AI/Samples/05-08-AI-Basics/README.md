@@ -28,9 +28,24 @@
 
 In this lab, you take advantage of [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) and the [Azure AI Language service](https://learn.microsoft.com/azure/ai-services/language-service/) to integrate rich generative AI capabilities directly into your Azure Database for PostgreSQL Flexible Server using the [Azure AI Extension](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-overview). The `azure_ai` extension adds the ability to leverage LLMs directly from your database.
 
-> Important:
->
-> This lab builds upon your work with extensions in Lab 3 and relies on data loaded into the Azure Database for PostgreSQL Flexible Server in that lab.
+## Setup
+
+### Required Resources
+
+You will need several resource to perform this lab.  These include:
+
+- Azure Database for PostgreSQL Flexible Server
+- Azure OpenAI enabled subscription
+
+You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+### Software pre-requisites
+
+All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+
+- Install pgAdmin
 
 ## Exercise 1: Add Azure AI and Vector extensions to allowlist
 
