@@ -1,4 +1,3 @@
-
 # 05 / Intro to Artificial Intelligence (AI)
 
 ## History

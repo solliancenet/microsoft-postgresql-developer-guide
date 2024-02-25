@@ -37,7 +37,12 @@ C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\05_05_Prompt_E
 C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\05_06_Types_Of_AI_Applications.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\05_07_Postgres_AI_Integration.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-08-AI-Basics\README.md
-C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-AI-Advanced\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-01-AI-HuggingFace\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-02-AI-Langchain\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-03-AI-Langchain-Receipes\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-04-AI-Langchain-VectorDB\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-05-AI-Semantic-Kernel\README.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\README.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\06_Troubleshooting\06_00_Troubleshooting.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\06_Troubleshooting\06_01_Summary.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\07_BestPractices\07_00_BestPractices.md

@@ -14,7 +14,7 @@ Both server misconfiguration issues and network access issues can prevent client
 
 Always ensure that you are running the latest Azure CLI.  If using older versions, you can run into issues such as:
 
-- `The parameter PrivateDnsZoneArguments is required, and must be provided by customer``, this means you may be running an older version of Azure CLI. 
+- `The parameter PrivateDnsZoneArguments is required, and must be provided by customer``, this means you may be running an older version of Azure CLI.
 
 You can upgrade your Azure CLI by executing the following if your currency version is `2.11.0` or higher:
 
