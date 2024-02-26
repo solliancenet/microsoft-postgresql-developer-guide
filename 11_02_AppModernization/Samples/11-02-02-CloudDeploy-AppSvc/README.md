@@ -68,17 +68,17 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
     cd "C:\labfiles\microsoft-postgresql-developer-guide"
 
     #remove current git setup
-    # If you see an error that the path does not exist, ignore it
+    # If and error that the path does not exist displays, ignore it
     remove-item .git -force -Recurse
 
     cd "C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app"
 
     #remove current git setup
-    # If you see an error that the path does not exist, ignore it
+    # If and error that the path does not exist displays, ignore it
     remove-item .git -force -Recurse
 
     git init
-    # If you see an error that there is no such remote 'origin' or 'azure', ignore it
+    # If an error that there is no such remote 'origin' or 'azure', ignore it
     git remote rm origin
     git remote rm azure
 
@@ -227,7 +227,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ## Test new settings #1
 
-1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, you should get results, but the connection is not secured over SSL.
+1. Browse to `https://pgsqldevSUFFIXlinux.azurewebsites.net/database.php`, results should display, but the connection is not secured over SSL.
 
 ## Enable SSL support
 
@@ -283,7 +283,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
     $dbname = getenv("APPSETTING_DB_DATABASE");
     ```
 
-    > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables. You can see this by navigating to the `info.php` page and review the server variables.
+    > **NOTE** Azure App Service adds the `APPSETTING` prefix to all environment variables. Review this by navigating to the `info.php` page and review the server variables.
 
 4. Edit the **/home/site/wwwroot/config/database.php** (note that this is in the `config` directory):
 
@@ -347,7 +347,7 @@ Putting credential in the PHP files is not a best practice, it is better to util
 8. Under **Settings** select **Access Policies**
 9. Select **Create**
 10. For the secret permission, select **Select all**, then select **Next**
-11. For the principal, paste the **Object ID** you copied above, select **Next**
+11. For the principal, paste the **Object ID** copied above, select **Next**
 12. For application, select **Next**
 13. Select **Create**
 14. Under **Settings**, select **Secrets**

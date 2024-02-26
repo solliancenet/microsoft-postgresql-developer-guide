@@ -7,5 +7,5 @@ At the very core, an application will consume CPU, memory, disk and network. Fin
 ### Checklist
 
 - Reference architectures can provide ideas on how to use a product. Start to learn from successful deployments.
-- Utilize the knowledge others have to build your own applications.
-- Implement common proven patterns in your architectures.
+- Utilize the valuable knowledge of others to build and design applications.
+- Implement common proven patterns in architectures.

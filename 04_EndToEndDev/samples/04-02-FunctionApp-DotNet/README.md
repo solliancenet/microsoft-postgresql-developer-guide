@@ -1,18 +1,18 @@
 # Hands-on Lab: Azure Function with PostgreSQL (.NET)
 
-In this hands-on lab you will create an HTTP Function Application using Visual Studio and .NET. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
+In this hands-on lab, an HTTP Function Application will be created using Visual Studio and .NET. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
 - Azure Database for PostgreSQL Flexible Server
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -111,7 +111,7 @@ The application here is based on an Http Trigger that will then make a call into
 http://localhost:7071/api/ShowDatabasesFunction
 ```
 
-- You should see a list of databases displayed.
+- A list of databases should be displayed.
 
 ## Exercise 2: Deploy the Function Application
 
@@ -124,16 +124,16 @@ Now that the function app is created and working locally, the next step is to pu
     ![This image demonstrates choosing the Azure Function App Linux deployment option.](./media/choose-linux-function-app.png "Azure Function App Linux")
 
 - Select **Next**
-- Select the **Sign in** button, login using your lab credentials
+- Select the **Sign in** button, login using the lab credentials
 - Select the account, subscription and resource group
 - Select the **pgsqldevSUFFIX-ShowDatabasesFunction** function app
 - Select **Finish**
 - Select **Publish**, and if prompted, select **Yes** to update the runtime version.
-- Switch to the Azure portal, browse to your lab resource group
+- Switch to the Azure portal, browse to the lab resource group
 - Select the **pgsqldevSUFFIX-ShowDatabasesFunction** Function App instance
 - Under **Functions**, select **App keys**
 - Copy the function `default` app key value
-- It should now be possible to browse to the function endpoint and see data, replace the `APPKEY` with the one you copied:
+- It should now be possible to browse to the function endpoint and see data, replace the `APPKEY` with the copied one:
 
 ```text
 https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabasesFunction?code=APPKEY
@@ -141,7 +141,7 @@ https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabases
 
 ## Exercise 3: Test the Function App in the Azure portal
 
-- Switch to the Azure portal, browse to your lab resource group
+- Switch to the Azure portal, browse to the lab resource group
 - Select the **pgsqldevSUFFIX-ShowDatabasesFunction** Function App instance
 - On the **Overview** page, select the **ShowDatabasesFunction** link
 - On the **ShowDatabasesFunction** page, select **Code + Test**. Then, select **Test/Run** to access the built-in testing interface

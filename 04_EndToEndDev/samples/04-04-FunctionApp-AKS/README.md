@@ -6,7 +6,7 @@ Function apps can be containerized and deployed to AKS. These steps will walk th
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
@@ -14,7 +14,7 @@ You will need several resources to perform this lab. These include:
 - Azure Kubernetes Service (AKS)
 - Azure Container Registry
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 

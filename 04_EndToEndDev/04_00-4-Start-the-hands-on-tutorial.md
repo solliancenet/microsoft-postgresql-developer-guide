@@ -4,7 +4,7 @@
 
 The first step to exploring the evolution of PostgreSQL Application development is to get the environment set up and configure the infrastructure.
 
-We provided two ARM templates that can be deployed that will set up the environment. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. In the template, you specify the resources to deploy and the properties for those resources.
+We provided two ARM templates that can be deployed that will set up the environment. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for a deployment. In the template, various resources and their properties are defined.
 
 One is a **basic deployment** of services that are exposed to the internet and the other is a more secure environment that utilizes private endpoints and VNet integrations. It also includes items like Azure Firewall and other security-related configurations.
 
@@ -25,7 +25,7 @@ Below are two methods of deploying an ARM template:
 
 ![This image shows the Build your own template in the editor button.](media/build-your-own-custom-template.png "Build your own template in the editor")
 
-- Load the ARM template file from your local drive.
+- Load the ARM template file from the cloned repo directory.
 
 ![This image shows how to load the ARM template from the local drive.](media/load-local-arm-template.png "Loading the ARM template")
 
@@ -36,15 +36,13 @@ Below are two methods of deploying an ARM template:
 
 - Enter the template parameters.
 - Select the **Review + create** button.
-- Check for validation errors. For example, you may have exceeded your quota for that subscription and region.
+- Check for validation errors. For example, it could be that the template resources exceed a quota for the target subscription and region.
 
 Another option for deploying infrastructure using a template is to use Azure CLI or PowerShell. Here is a tutorial guide:
 
 [Tutorial: Deploy a local ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli)
 
 #### Step 1 - Build the development environment - deploy one of the templates below
-
-This is an optional step if you have your development environment already set up. You will need to install the basic Azure development packages.
 
 - [Basic Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
 - [Secure Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template-secure.json)
@@ -58,7 +56,7 @@ Once the template has been deployed, several resources will be deployed to suppo
 As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities. Login to this virtual machine by doing the following:
 
 - Open Azure Portal
-- Browse to your resource group
+- Browse to the resource group
 - Select the **pgsqldevSUFFIX-paw1** virtual machine
 - Select **Connect->RDP**
 - Select **Download RDP file**
@@ -86,6 +84,6 @@ Additionally, some problems are solved by more than just a web application and a
 
 ### App Modernization
 
-In addition to the samples above, you can also optionally choose to take an in-depth journey through an Application Modernization series of samples. This is provided in the lab samples appendix.
+In addition to the samples above, it is also an option to take an in-depth journey through an Application Modernization series of samples. This is provided in the lab samples appendix.
 
 - [Application Modernization](../10_02_AppModernization/10_02_AppModernization.md)

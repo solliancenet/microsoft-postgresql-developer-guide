@@ -29,7 +29,7 @@
   - [Exercise 6: Other Features (Optional)](#exercise-6-other-features-optional)
     - [Task 1: Use new VACUUM options to improve VACUUM performance](#task-1-use-new-vacuum-options-to-improve-vacuum-performance)
 
-In this lab, you will explore the new developer and infrastructure features of PostgreSQL 16.
+This lab will explore several new developer and infrastructure features of PostgreSQL 16.
 
 ## Prerequisites
 
@@ -37,14 +37,14 @@ In this lab, you will explore the new developer and infrastructure features of P
 
 ## Exercise 1: Setup and Configuration
 
-In this exercise, you will create some tables and use the COPY command to move data into those tables. The data is in JSON format and not SQL format so the usage of `jsonb` data type with be required to import the data into a temporary table. We will use this initial data to run some queries to transform the data such that we can utilize the new JSON syntax in PostgreSQL 16.
+In this exercise, the COPY command will be used to move data into those tables. The data is in JSON format and not SQL format so the usage of `jsonb` data type with be required to import the data into a temporary table. We will use this initial data to run some queries to transform the data such that we can utilize the new JSON syntax in PostgreSQL 16.
 
 ### Task 1: Configure Server Parameters
 
-You will utilize the query store and logical replication in subsequent labs. Here you will modify the server parameters to support these exercises. You are going to enable query store now as it takes a few minutes for the queries to start to be recorded.
+In this task, server parameters will be configured to ensure support for the Query Store and logical replication in subsequent labs. It is necessary to enable Query Store now as it takes a few minutes for the queries to start to be recorded.
 
 1. Switch to the Azure Portal.
-2. Browse to your primary **PREFIX-pg-flex-REGION-16** instance or writer endpoint.
+2. Browse to the primary **PREFIX-pg-flex-REGION-16** instance or writer endpoint.
 3. Under **Settings**, select **Server parameters**.
 4. Browse for the `wal_level` parameters.
 5. Set the value to `logical`.
@@ -54,8 +54,8 @@ You will utilize the query store and logical replication in subsequent labs. Her
 
 ### Task 2: Create tables and data
 
-1. In your Windows-based lab virtual machine open a command prompt window, in the Windows search area, type **cmd** and select it.
-2. Run the following command to connect to your database, be sure to replace `PREFIX` and `REGION` with your lab information (optionally you can use pgAdmin to open a `psql` window):
+1. In the Windows-based lab virtual machine open a command prompt window, in the Windows search area, type **cmd** and select it.
+2. Run the following command to connect to the database, be sure to replace `PREFIX` and `REGION` with the lab information (optionally  use pgAdmin to open a `psql` window):
 
     ```cmd
     psql -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -U s2admin -d airbnb
@@ -63,7 +63,7 @@ You will utilize the query store and logical replication in subsequent labs. Her
 
 3. Run the following commands to create some temporary tables and import the JSON and CSV data to the server. Notice the usage of `json` files to do the import using the `COPY` command. Once into a temporary table, we then do some massaging:
 
-    > NOTE: These paths are Windows based and you may need to adjust based on your environment (WSL, Linux, etc).
+    > NOTE: These paths are Windows based and it may be necessary to adjust based on the environment (WSL, Linux, etc).
 
     ```sql
     DROP TABLE IF EXISTS temp_calendar;
@@ -186,7 +186,7 @@ You will utilize the query store and logical replication in subsequent labs. Her
 
     ![Alt text](media/02_01_insert_table_data.png)
 
-    > NOTE: We are storing data in the tables as JSONB for lab purposes. In the real world, you may not want to do something like this as with normal columns, PostgreSQL maintains statistics about the distributions of values in each column of the table – most common values (MCV), NULL entries, histogram of distribution. Based on this data, the PostgreSQL query planner makes smart decisions on the plan to use for the query. At this point, PostgreSQL does not store any stats for JSONB columns or keys. This can sometimes result in poor choices like using nested loop joins vs. hash joins.
+    > NOTE: We are storing data in the tables as JSONB for lab purposes. In the real world, it may not be appropriate. With normal columns, PostgreSQL maintains statistics about the distributions of values in each column of the table – most common values (MCV), NULL entries, histogram of distribution. Based on this data, the PostgreSQL query planner makes smart decisions on the plan to use for the query. At this point, PostgreSQL does not store any stats for JSONB columns or keys. This can sometimes result in poor choices like using nested loop joins vs. hash joins.
 
 7. Switch to pgAdmin.
 8. Navigate to **Databases->airbnb->Schemas->public->Tables**.
@@ -242,7 +242,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
     ![Alt text](media/02_02_json_02.png)
 
-3. In Postgres 16, you can now use the SQL standard `IS JSON` syntax. The `IS JSON` checks include checks for values, arrays, objects, scalars, and unique keys:
+3. In Postgres 16, it is now possible to use the SQL standard `IS JSON` syntax. The `IS JSON` checks include checks for values, arrays, objects, scalars, and unique keys:
 
     ```sql
     SELECT
@@ -255,7 +255,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
     ![Alt text](media/02_02_json_03.png)
 
-4. Additionally, you can get more granular about the type of JSON.
+4. Additionally, new functions allow for queries to be more granular about the type of JSON.
 
     ```sql
     SELECT
@@ -269,7 +269,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
     ![Alt text](media/02_02_json_04.png)
 
-5. When combining the above, you can create intricate `CASE` statements based on the target type (if it could be multiple types):
+5. When combining the above, it is possible to create intricate `CASE` statements based on the target type (if it could be multiple types):
 
     ```sql
     SELECT
@@ -296,7 +296,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
     ![Alt text](media/02_primary_address.png)
 
-6. Finally, much of the basic JSON functionality that has existed pre-PG16 is still available and can also be used. In this example, you are using the containment operator (where one json document is contained inside another) to select data in addition to using the backwards-compatible JSON syntax. Note the usage of the ["?" operator](https://www.postgresql.org/docs/9.5/functions-json.html) that tests the existence of the top-level key for the `host_is_superhost`:
+6. Finally, much of the basic JSON functionality that has existed pre-PG16 is still available and can also be used. This example is using the containment operator (where one json document is contained inside another) to select data in addition to using the backward-compatible JSON syntax. Note the usage of the ["?" operator](https://www.postgresql.org/docs/9.5/functions-json.html) that tests the existence of the top-level key for the `host_is_superhost`:
 
     ```sql
     SELECT listing_id, name as listing_name, city, listings.amenities
@@ -310,7 +310,7 @@ There are several developer-based changes in PostgreSQL 16 as related to SQL syn
 
 ### Task 2: Exploring JSON_ARRAY, JSON_ARRAYAGG and JSON_OBJECT
 
-In this series of steps, you will review the new functions `JSON_ARRAY()`, `JSON_ARRAYAGG()`, and `JSON_OBJECT()` that are part of the SQL standard and now PostgreSQL 16. 
+In this series of steps, the new functions `JSON_ARRAY()`, `JSON_ARRAYAGG()`, and `JSON_OBJECT()` that are part of the SQL standard and now PostgreSQL 16 will be utilized.
 
 1. In pgAdmin, run the following PostgreSQL 16 commands:
 
@@ -332,7 +332,7 @@ In this series of steps, you will review the new functions `JSON_ARRAY()`, `JSON
 
     ![Alt text](media/02_02_json_06.png)
 
-2. You can also convert regular types into JSON using the `JSON_OBJECT` function. The following will take several data types and create a JSON object from them:
+2. Regular types can also be converted into JSON using the `JSON_OBJECT` function. The following will take several data types and create a JSON object from them:
 
     ```sql
     SELECT json_object(ARRAY[1, 'a', true, row(2, 'b', false)]::TEXT[]);
@@ -340,7 +340,7 @@ In this series of steps, you will review the new functions `JSON_ARRAY()`, `JSON
 
     ![Alt text](media/02_02_json_07.png)
 
-3. Additionally, you can use the `json_agg` combined with `row_to_json` to convert a series of columns in a select statement into json:
+3. Additionally, it is possible to use `json_agg` combined with `row_to_json` to convert a series of columns in a select statement into json:
 
     ```sql
     select 
@@ -354,7 +354,7 @@ In this series of steps, you will review the new functions `JSON_ARRAY()`, `JSON
 
     ![Alt text](media/02_bedrooms_json_query.png)
 
-There are many other types of functions and operators in PostgreSQL that you can utilize when working with JSON data. You can reference the latest information for PG16 in the [9.16. JSON Functions and Operators](https://www.postgresql.org/docs/16/functions-json.html) documentation.
+There are many other types of functions and operators in PostgreSQL available when working with JSON data. Reference the latest information for PG16 in the [9.16. JSON Functions and Operators](https://www.postgresql.org/docs/16/functions-json.html) documentation.
 
 ### Task 3: Creating Indexes
 
@@ -420,7 +420,7 @@ For information on Full Text Search, reference [Full Text Search](https://www.po
     CREATE INDEX ts_idx ON listings USING GIN (ts_summary);
     ```
 
-4. Again, re-run the query, you should see the usage of a `Bitmap Heap Scan` instead of a `Seq Scan`:
+4. Again, re-run the query, notice the usage of a `Bitmap Heap Scan` instead of a `Seq Scan`:
 
     ```sql
     EXPLAIN ANALYZE SELECT *
@@ -466,7 +466,7 @@ Prior to PostgreSQL 16, when using GROUP BY, all non-aggregated columns from the
 
     ![Alt text](media/02_02_aggregate_02.png)
 
-3. Keep in mind that the `ANY_VALUE` is the selection of a non-null item from the group, and does not act the same if you did the full `group by` clause:
+3. Keep in mind that the `ANY_VALUE` is the selection of a non-null item from the group, and does not act the same when using the full `group by` clause:
 
     ```sql
     select
@@ -486,14 +486,14 @@ Prior to PostgreSQL 16, when using GROUP BY, all non-aggregated columns from the
 
 The new `COPY FROM` `DEFAULT` parameter syntax allows for the import of data into a table using a common token in the source data.
 
-> NOTE: These paths below are Windows based and you may need to adjust based on your environment (WSL, Linux, etc)
+> NOTE: These paths below are Windows based and may need adjusted based on the environment (WSL, Linux, etc)
 
 1. Download and review the `https://solliancepublicdata.blob.core.windows.net/ms-postgresql-labs/default.csv` file
 2. Notice the usage of the `\D` in the source data:
 
     ![Alt text](media/02_02_copy_from_default.png)
 
-3. In pgAdmin, right-click the `airbnb` database, select **PSQL Tool**.
+3. In pgAdmin, right-click the `airbnb` database, then select **PSQL Tool**.
 4. In the psql window, run the following command to import the data:
 
     ```sql
@@ -666,7 +666,7 @@ Previously, attempting to get an execution plan for a parameterized query proved
 As you can see above, you can use parameter placeholders like `$1` instead of an unknown or variable value. However, there are certain restrictions:
 
 - You can use parameters only with the statements SELECT, INSERT, UPDATE, DELETE and VALUES.
-- You can only use parameters instead of constants (literals). You can’t use parameters instead of identifiers (object names) or keywords, among other things.
+- You can only use parameters instead of constants (literals). You can't use parameters instead of identifiers (object names) or keywords, among other things.
 
 ### Task 4: Using pg_stat_io for enhanced IO monitoring
 

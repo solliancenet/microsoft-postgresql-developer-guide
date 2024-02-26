@@ -10,14 +10,14 @@ Migration from external sources such as other cloud providers or instances runni
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli)
 
-In addition to any migration pre-requisities, you must also ensure that a network path exists between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance. This can be more complicated than at first glance depending on a number of different network topology possibilies.
+In addition to any migration pre-requisities, a network path must exist between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance. This can be more complicated than at first glance depending on a number of different network topology possibilies.
 
 ### Offline vs Online migrations
 
-For smaller and less used databases, the migration process is likely to be quick and effortless. However, in larger and more heavily used environments, the choice of how you migrate will be a vital decision to ensure applications and end users are not subject to lengthy downtime and productivity loss.
+For smaller and less used databases, the migration process is likely to be quick and effortless. However, in larger and more heavily used environments, choosing a migration path will be a vital decision to ensure applications and end users are not subject to lengthy downtime and productivity loss.
 
-You can choose between two migration paths:
+There are two potential migration paths:
 
-- **Offline Migration** – In an offline migration, all applications connecting to your source instance are stopped and the database(s) is copied to flexible server.
+- **Offline Migration** – In an offline migration, all applications connecting to the source instance are stopped and the database(s) is copied to the Flexible Server.
 
-- **Online Migration** - In an online migration, applications connecting to your source instance are not stopped while database(s) are copied to the target server. The initial copy of the databases is followed by replication to keep the target server synchronized with the source server. A cutover is performed when the target server is in complete sync with the source server resulting in minimal downtime.
+- **Online Migration** - In an online migration, applications connecting to the source instance are not stopped while database(s) are copied to the target server. The initial copy of the databases is followed by replication to keep the target server synchronized with the source server. A cutover is performed when the target server is in complete sync with the source server resulting in minimal downtime.

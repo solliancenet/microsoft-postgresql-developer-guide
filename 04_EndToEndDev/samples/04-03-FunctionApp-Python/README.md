@@ -1,18 +1,18 @@
 # Hands-on Lab: Azure Function with PostgreSQL (Python)
 
-In this hands-on lab you will create an HTTP Function Application using Visual Studio Code and Python. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
+In this hands-on lab, an HTTP Function Application will be created using Visual Studio Code and Python. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
 - Azure Database for PostgreSQL Flexible Server
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -106,7 +106,7 @@ def ShowDatabasesFunction(req: func.HttpRequest) -> func.HttpResponse:
 
     ![This image demonstrates the Virtual Environment and PostgreSQL connector installation in the PowerShell terminal.](./media/terminal-set-up.png "Virtual environment and connector installation")
 
-  - Run the function app (your can also press `F5`):
+  - Run the function app (press `F5`):
 
     ```powershell
     func start run
@@ -119,7 +119,7 @@ def ShowDatabasesFunction(req: func.HttpRequest) -> func.HttpResponse:
     http://localhost:7071/api/ShowDatabasesFunction
     ```
 
-- The data will be displayed, however it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
+- The data will be displayed, however, it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
 - Add the following lines to the Python code to utilize the Flexible Server public certificate and support connections over TLS 1.2:
 
 ```python
@@ -160,7 +160,7 @@ def get_ssl_cert():
 ssl_ca=get_ssl_cert(),
 ```
 
-- Open the `requirements.txt` file and modify to the following. The Azure Functions runtime will install the dependencies in this file
+- Open the `requirements.txt` file and modify it to the following. The Azure Functions runtime will install the dependencies in this file
 
 ```text
 azure-functions
@@ -185,7 +185,7 @@ az account set --subscription 'SUBSCRIPTION NAME'
 func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction
 ```
 
-- If you previously deployed the dotnet version, you should get an error about the function runtime. Run the following to force the deployment and change the runtime to python:
+- If the previous dotnet version was deployed, then an error about the function runtime should be displayed. Run the following to force the deployment and change the runtime to python:
 
 ```PowerShell
 az functionapp config set --name pgsqldevSUFFIX-ShowDatabasesFunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
@@ -219,4 +219,4 @@ func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force
 - If the Function App works locally, but fails in the cloud, ensure that the Azure environment is configured properly:
   - The `requirements.txt` file must reference the PostgreSQL Python connector
   - The Flexible Server instance must provide access to all Azure resources
-  - The Azure Function Apps instance must be using extension version `4`, as that is the what the local core tools support
+  - The Azure Function Apps instance must be using extension version `4`, as that is what the local core tools support

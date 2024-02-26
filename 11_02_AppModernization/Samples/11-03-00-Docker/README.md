@@ -6,7 +6,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 ### Setup Web Application (optional)
 
-1. If you did not run through the previous labs, you will need to execute the following to setup the web application:
+1. These labs were designed to be run in logical order, to run these labs without performing previous labs, execute the following to setup the web application:
 
     ```powershell
       cd C:\labfiles\microsoft-postgresql-developer-guide\sample-php-app
@@ -27,7 +27,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 ### Migrate to ENV variables
 
 1. Switch to Visual Studio Code and the opening repo directory
-2. Open the `.\artifacts\sample-php-app\public\database.php` file, update the php PostgreSQL connection environment variables:
+2. Open the `.\artifacts\sample-php-app\public\database.php` file, then update the php PostgreSQL connection environment variables:
 
     ```php
     $servername = getenv("DB_HOST");
@@ -53,7 +53,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 1. Open **Docker Desktop**, if prompted, select **OK**
 2. In the agreement dialog, select the checkbox and then select  **Accept**
 3. It will take a few minutes for the Docker service to start, when prompted, select **Skip tutorial**
-4. Open a PowerShell window, run the following to download a php-enabled docker container:
+4. Open a PowerShell window, then run the following to download a php-enabled docker container:
 
     ```Powershell
     docker pull php:8.2-apache

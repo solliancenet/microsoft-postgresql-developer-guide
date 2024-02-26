@@ -8,18 +8,18 @@
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
-- Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
+- Visual Studio 2022 (only needed if there is a requirement to run/debug the solution locally)
 
->**NOTE**: Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Installation requires the choice of an Azure Region. Make sure to set the region to the one used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to your Azure subscription.
+Follow the steps below to deploy the solution to the Azure subscription.
 
-1. Ensure all the prerequisites are installed. 
+1. Ensure all the prerequisites are installed.
 
 2. Clone the repository:
-   
+
     ```cmd
     git clone https://github.com/Azure/Vector-Search-AI-Assistant.git
     ```
@@ -31,7 +31,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
     git checkout cognitive-search-vector
     ```
 
-4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into your choice of Azure Kubeternetes Service or Azure Container Apps, and import data into Azure Cosmos DB.
+4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Kubeternetes Service (AKS) or Azure Container Apps (ACA), and import data into Azure Cosmos DB.
 
     ### Deploy with Azure Kubernetes Service
     This script will deploy all services including a new Azure OpenAI account and AKS

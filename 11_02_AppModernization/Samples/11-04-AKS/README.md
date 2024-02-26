@@ -27,7 +27,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     az aks get-credentials --name "pgsqldev$suffix" --resource-group $resourceGroupName
     ```
 
-3. Run the following commands to deploy the containers (be sure to update the variable values). Note that you must be able to create rbac in the Microsoft Entra tenant to run these commands. If you do not have this access, you will need to enable the anonymous access to the container registry using (`az acr update --name myregistry --anonymous-pull-enabled false`):
+3. Run the following commands to deploy the containers (be sure to update the variable values). The lab account must be able to create RBAC in the Microsoft Entra tenant to run these commands. If it does not have this access, enable the anonymous access to the container registry using (`az acr update --name myregistry --anonymous-pull-enabled false`):
 
     ```powershell
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
@@ -57,7 +57,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     
     ```
 
-> NOTE: You could also use the Azure Key Vault provider for AKS to utilize secrets. Reference [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/). Additionally, consider using [Managed Identities](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/identity-access-modes/) for your pods.
+> NOTE: It is possible to use the Azure Key Vault provider for AKS to utilize secrets. Reference [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/). Additionally, consider using [Managed Identities](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/identity-access-modes/) for the pods.
 
 4. Create a managed disk:
 
@@ -223,7 +223,7 @@ Now that a containerized version of the applications exists, it can now be hoste
 2. Navigate to the AKS cluster and select it
 3. Under **Kubernetes resources**, select **Service and ingresses**
 4. For the **store-web-lb** service, select the external IP link. A new web browser tab should open to the web front end. Ensure that an order can be created without a database error.
-5. If you run into issues, fix them and then restart the node pool:
+5. Fix any issues and then restart the node pool:
 
 ```powershell
 az aks nodepool stop --resource-group $resourceGroupName --cluster-name $resourceName --nodepool-name agentpool

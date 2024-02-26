@@ -88,9 +88,9 @@ Azure Service Bus provides a *queue* capability to pass each message to one cons
 
 Azure Event Hubs facilitates the ingestion and replay of event data. It is optimized for processing millions of events per second. Event Hubs supports multiple consumers through *consumer groups*, which point to certain locations in the stream.
 
-#### Putting it together
+#### Putting it all together
 
-Using the above technologies, you can build an e-commerce site can use Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item shipped.
+Using the above technologies, it is possible to create an e-commerce site that uses Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item shipped.
 
 ### Cron jobs
 

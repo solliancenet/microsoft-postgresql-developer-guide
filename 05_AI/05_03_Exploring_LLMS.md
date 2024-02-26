@@ -1,10 +1,10 @@
 ## Language Models
 
-In this section we will explore the different types of LLMs that exist today along with how you can test different models for your use case in Azure. We will then show how easy it is to deploy an LLM in Azure.
+In this section we will explore the different types of LLMs that exist today along with how to test different models for various use cases in Azure. We will then show how easy it is to deploy an LLM in Azure.
 
 ### Large Languange Models (LLMs)
 
-A Large Language Model (LLM) is a type of AI model trained on massive amounts of text data to understand and generate human-like language. LLMs are typically based on deep learning architectures, such as Transformers, and they're known for their ability to perform a wide range of natural language understanding and generation tasks. LLMs can be categorized based on their architecture, training data, and use case. Understanding how a model is designed will help in selecting the right model for the target scenario. It will also help with understanding how to test, iterate, and improve the model performance.
+A Large Language Model (LLM) is a type of AI model trained on massive amounts of text data to understand and generate human-like language. LLMs are typically based on deep learning architectures, such as Transformers, and they are known for their ability to perform a wide range of natural language understanding and generation tasks. LLMs can be categorized based on their architecture, training data, and use case. Understanding how a model is designed will help in selecting the right model for the target scenario. It will also help with understanding how to test, iterate, and improve the model performance.
 
 Key characteristics and capabilities of Large Language Models include:
 
@@ -12,11 +12,11 @@ Key characteristics and capabilities of Large Language Models include:
 - Pretraining: LLMs undergo pretraining on a large corpus of text data from the internet, which enables them to learn grammar, syntax, semantics, and a broad range of knowledge about language and the world.
 - Fine-tuning: After pretraining, LLMs can be fine-tuned on specific tasks or domains with smaller, task-specific datasets. This fine-tuning process allows them to adapt to more specialized tasks, such as text classification, translation, summarization, and question-answering.
 
-Your choice of model comes down to three major areas:
+The choice of model comes down to three major areas:
 
-    - What is your goal
-    - What your data looks like
-    - How much you are ready to pay
+    - What is the goal
+    - What the data looks like
+    - How much budget is available
 
 When it comes to data, a differnt model will be required based on if it is text, audio, video, image generation and so forth.
 
@@ -24,9 +24,9 @@ When it comes to data, a differnt model will be required based on if it is text,
 
     - **Images** : For image generation, DALL-E and Midjourney are two very well-known choices. DALL-E is offered by Azure OpenAI. Read more about DALL-E [here](https://platform.openai.com/docs/models/dall-e?WT.mc_id=academic-105485-koreyst).
 
-    - **Text generation** : Most models are trained on text generation and there are a large variety of choices from GPT-3.5 to GPT-4 and others. They come at different costs with the latest GPT-4 being the most expensive. Azure offers many ways to deploy and utilize models which gives your flexibility in selecting the best fit for your needs in terms of capability and cost.
+    - **Text generation** : Most models are trained on text generation and there are a large variety of choices from GPT-3.5 to GPT-4 and others. They come at different costs with the latest GPT-4 being the most expensive. Azure offers many ways to deploy and utilize models which provider ultimate flexibility in selecting the best fit for a wide array of capability and cost requirements.
 
-Selecting a model means you get some basic built-in capabilities of that model, however, you may need just a little bit more than the model is able to provide. In many cases, developers have company specific data that you want to use the LLM model with. There are a few different approaches for that and we will explore them in more detail in the upcoming sections.
+Selecting a model means inheriting the basic built-in capabilities of that model, however, it may that an application or use case will need just a little bit more than the model is able to provide. In many cases, developers have company specific data that an LLM model must be integrated with. There are a few different approaches for that and we will explore them in more detail in the upcoming sections.
 
 Check out the YouTube Video [AI in a Minute: Large Language Models](https://youtu.be/FSoQyJEvHiU).
 
@@ -34,7 +34,7 @@ Check out the YouTube Video [AI in a Minute: Large Language Models](https://yout
 
 OpenAI is an artificial intelligence (AI) research organization and technology company known for its pioneering work in the field of artificial intelligence and machine learning. Their mission is to ensure that artificial general intelligence (AGI), which refers to highly autonomous AI systems that can outperform humans in most economically valuable work, benefits all humanity. OpenAI brought to market state-of-the-art generative models such as GPT-3, GPT-3.5 and GPT-4 (Generative Pretrained Transformer).
 
-Azure OpenAI is Azure’s LLM service offering to help build GenAI applications using Azure. Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, DALL-E, and Whisper models with the security and enterprise promise of Azure. Azure OpenAI codevelops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+Azure OpenAI is Azure's LLM service offering to help build GenAI applications using Azure. Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, DALL-E, and Whisper models with the security and enterprise promise of Azure. Azure OpenAI codevelops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 
 With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.
 
@@ -73,7 +73,7 @@ Services are often optimized for production use and tend to be easier to use tha
 
 For example, Microsoft Azure OpenAI offers pay-as-you-go plans which allow developers to be charged proportionally to how much they use the service. In addtion to access to the models and service, Azure OpenAI offers enterprise-grade security and a responsible AI framework in addition to the models' capabilities.
 
-Models are the Neural Network, with the parameters, weights, and others needed components. If you were to train and run a model locally, you would need to buy equipment, build infrastructure to scale and potentially buy a license for a closed-model or use an open-source model.
+Models are the Neural Network, with the parameters, weights, and others needed components. If a model was to be trained and run locally, it would be necessary to buy hardware (such as GPUs), build infrastructure to scale and potentially buy a license for a closed-model or use an open-source model.
 
 ### Open vs Closed Source
 
@@ -89,7 +89,7 @@ LLMs can also be categorized by the output they generate.
 
 ### Embeddings
 
-Embeddings are a concept in machine learning and natural language processing (NLP) that involve representing objects, such as words, documents, or entities, as vectors in a multi-dimensional space. These vectors are often dense, meaning that they have a high number of dimensions, and they're learned through various techniques, including neural networks. Embeddings aim to capture semantic relationships and similarities between objects in a continuous vector space.
+Embeddings are a concept in machine learning and natural language processing (NLP) that involve representing objects, such as words, documents, or entities, as vectors in a multi-dimensional space. These vectors are often dense, meaning that they have a high number of dimensions, and they are learned through various techniques, including neural networks. Embeddings aim to capture semantic relationships and similarities between objects in a continuous vector space.
 
 Common types of embeddings include:
 
@@ -98,8 +98,7 @@ Common types of embeddings include:
 - image: Images can be represented as embeddings to capture visual features, allowing for tasks like object recognition.
 Embeddings are central to representing complex, high-dimensional data in a form easily processable by machine learning models. They can be trained on large datasets and then used as features for various tasks, and are used by LLMs.
 
-Embedding models are designed to convert input into a numerical form, called an embedding. Embeddings are numerical representations of the input.
-Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there is an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is OpenAI embeddings.
+Embedding models are designed to convert input into a numerical form, called an embedding. Embeddings are numerical representations of the input. Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there is an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is OpenAI embeddings.
 
 PostgreSQL can gain the capabilities of [generating vector embeddings with Azure AI extension OpenAI integration](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-openai).
 
@@ -129,7 +128,7 @@ Image generation models are models that generate images. These models are often 
 
 ## Search
 
-Now you might be wondering, why are we talking about Search with AI?  It is because search is core to the way models work.
+Why Search with AI? It turns out that search is core to the way we interact with models and how they work.
 
 ### Text Search
 
@@ -147,7 +146,7 @@ Here is an example of a semantic search. Let us say you were looking to buy a ca
 
 As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
 
-Building semantic search capability on your data using GenAI and Flexible Server involves the following steps:
+Building semantic search capability on custom data using GenAI and Azure Database for Flexible Server involves the following steps:
 
 - Identify the search scenarios. Identify the data fields that will be involved in search.
 - For every data field involved in search, create a corresponding vector field of type embedding.
@@ -165,24 +164,24 @@ Hybrid search is the combination of Semantic Search and Text Search. This typica
 
 A vector is a mathematical concept used in linear algebra and geometry to represent quantities that have both magnitude and direction. In the context of machine learning, vectors are often used to represent data points or features. Some key vector attributes and operations include:
 
-- Dimension: The dimension of a vector is the number of elements that it contains. In the example above, vector1 and vector2 are both two-dimensional since they each have two elements. You can only visualize vectors with three dimensions or less, but, vectors can have any number of dimensions. In fact, as you'll see later, vectors that encode words and text tend to have hundreds or thousands of dimensions.
+- Dimension: The dimension of a vector is the number of elements that it contains. In the example above, vector1 and vector2 are both two-dimensional since they each have two elements. It is simple to visualize vectors with three dimensions or less, but, vectors can have many more than simply three dimensions. In fact, as explored later, vectors that encode words and text tend to have hundreds or thousands of dimensions.
 
-- Magnitude: The magnitude of a vector is a non-negative number that represents the vector's size or length. You can also refer to the magnitude of a vector as the norm, and you can denote it with ||v|| or |v|. There are many different definitions of magnitude or norm, but the most common is the Euclidean norm or 2-norm. You'll learn how to compute this later.
+- Magnitude: The magnitude of a vector is a non-negative number that represents the vector's size or length. Magnitude can also be refered to as the `norm`, and can be denoted with ||v|| or |v|. There are many different definitions of magnitude or norm, but the most common is the Euclidean norm or 2-norm.
 
 - Unit vector: A unit vector is a vector with a magnitude of one. In the example above, vector1 and vector2 are unit vectors.
 
-- Direction: The direction of a vector specifies the line along which the vector points. You can represent direction using angles, unit vectors, or coordinates in different coordinate systems.
+- Direction: The direction of a vector specifies the line along which the vector points. Direction can be represented using angles, unit vectors, or coordinates in different coordinate systems.
 
-- Dot product (scalar product): The dot product of two vectors, u and v, is a number given by u ⋅ v = ||u|| ||v|| cos(θ), where θ is the angle between the two vectors. Another way to compute the dot product is to do an element-wise multiplication of u and v and sum the results. The dot product is one of the most important and widely used vector operations because it measures the similarity between two vectors. You'll see more of this later.
+- Dot product (scalar product): The dot product of two vectors, u and v, is a number given by u ⋅ v = ||u|| ||v|| cos(θ), where θ is the angle between the two vectors. Another way to compute the dot product is to do an element-wise multiplication of u and v and sum the results. The dot product is one of the most important and widely used vector operations because it measures the similarity between two vectors.
 
-- Orthogonal vectors: Vectors are orthogonal if their dot product is zero, meaning that they're at a 90 degree angle to each other. You can think of orthogonal vectors as being completely unrelated to each other.
+- Orthogonal vectors: Vectors are orthogonal if their dot product is zero, meaning that they are at a 90 degree angle to each other. Think of orthogonal vectors as being completely unrelated to each other.
 
-- Dense vector: A vector is considered dense if most of its elements are non-zero. Later, you'll see that words and text are most usefully represented with dense vectors because each dimension encodes meaningful information.
+- Dense vector: A vector is considered dense if most of its elements are non-zero. Words and text are most usefully represented with dense vectors because each dimension encodes meaningful information.
 
 ### Vector Similarity
 
 Euclidean distance – The straight-line distance between points.
-L1 (Manhattan) distance – The sum of the differences of all the vector components. L1 distance measures how many orthogonal city blocks you need to traverse from point A to point B.
+L1 (Manhattan) distance – The sum of the differences of all the vector components. L1 distance measures how many orthogonal city blocks required to traverse from point A to point B.
 L-infinity (chessboard) distance – The number of moves a King would make on an n-dimensional chessboard. It is different than Euclidean distance on the diagonals—a diagonal step on a 2-dimensional chessboard is 1.41 Euclidean units away, but 2 L-infinity units away.
 Inner product – The product of the magnitudes of two vectors and the cosine of the angle between them. Usually used for natural language processing (NLP) vector similarity.
 Cosine similarity – The cosine of the angle between two vectors in a vector space.
@@ -190,13 +189,13 @@ Hamming distance – For binary-coded vectors, the number of bits that differ be
 
 ### Cosine Similiarity
 
-Cosine similarity is a measure of similarity between two vectors, you'll also hear this referred to as nearest neighbor search. To perform a cosine similarity search you need to vectorize for query text using the OpenAI Embedding API. Then calculate the cosine similarity between the query vector and each vector in the Embedding Index. Remember, the Embedding Index has a vector for each YouTube transcript text segment. Finally, sort the results by cosine similarity and the text segments with the highest cosine similarity are the most like the query.
+Cosine similarity is a measure of similarity between two vectors, this is referred to as nearest neighbor search. To perform a cosine similarity search, vectorize the query text using the OpenAI Embedding API. Then calculate the cosine similarity between the query vector and each vector in the Embedding Index. Remember, the Embedding Index has a vector for each YouTube transcript text segment. Finally, sort the results by cosine similarity and the text segments with the highest cosine similarity are the most like the query.
 
 From a mathematic perspective, cosine similarity measures the cosine of the angle between two vectors projected in a multidimensional space. This measurement is beneficial, because if two documents are far apart by Euclidean distance because of size, they could still have a smaller angle between them and therefore higher cosine similarity. For more information about cosine similarity equations, see [Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity?WT.mc_id=academic-105485-koreyst).
 
 ### Vector Storage
 
-Once you have generated embeddings, you will want to store them somewhere. This could be in memory locally, or in memory remotely. It could also be persisted to disk storage. We will explore several types of storage mechanisms (such as PostgreSQL) in a later section.
+Once embeddings have been generated, they must be stored somewhere. This could be in memory locally, or in memory remotely. It could also be persisted to disk storage. We will explore several types of storage mechanisms (such as PostgreSQL) in a later section.
 
 ## Improving Results
 
@@ -217,7 +216,7 @@ Fine-tuning is a process that leverages transfer learning to adapt the model to 
 
     - Using fine-tuned models. A business would like to use fine-tuned less capable models (like embedding models) rather than high performance models, resulting in a more cost effective and fast solution.
 
-    - Considering latency. Latency is important for a specific use-case, so it is not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
+    - Considering latency. Latency is important for a specific use-case, so it is not possible to use very long prompts or the number of examples that should be learned from the model does not fit with the prompt length limit.
 
     - Staying up to date. A business has a lot of high-quality data and ground truth labels and the resources required to maintain this data up to date over time.
 

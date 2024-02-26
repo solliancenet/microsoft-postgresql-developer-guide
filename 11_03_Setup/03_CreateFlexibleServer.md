@@ -13,13 +13,13 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
 ### Create private network Flexible Server
 
 - Browse to the Azure Portal
-- Select your lab resource group
+- Select the lab resource group
 - Select **Create**
 - Search for **PostgreSQL**, then select **Azure Database for PostgreSQL Flexible Server**
 - Select **Create**
 - In the drop down, select **Flexible Server**
 - Select **Create**
-- Select your lab subscription and resource group
+- Select the lab subscription and resource group
 - For the name, type **pgsqldevSUFFIXflex**
 - For the PostgreSQL version, select **16**
 - For the admin username, type **wsuser**

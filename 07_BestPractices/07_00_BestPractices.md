@@ -4,7 +4,7 @@
 
 Organizations developing cloud apps backed by Azure Database for PostgreSQL Flexible Server should consider implementing the following best practices. Note, that this list is not comprehensive.
 
-Consult the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/) for more information regarding the core principles of efficient cloud workloads. You can assess your existing Azure workloads for Well-Architected Framework compliance with the [Azure Well-Architected Review utility.](https://learn.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment)
+Consult the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/) for more information regarding the core principles of efficient cloud workloads. Assess existing Azure workloads for Well-Architected Framework compliance with the [Azure Well-Architected Review utility.](https://learn.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment)
 
 ### 1. Co-locate resources
 
@@ -20,7 +20,7 @@ To ensure that containerized applications function optimally, verify that applic
 
 Developers can identify container resource issues using monitoring utilities, like [Container insights,](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) which supports Azure Kubernetes Service, Azure Container Instances, on-premises Kubernetes clusters, and more.
 
-- Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
+- Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can assist in identify resource bottlenecks.
 
 - Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.
 
@@ -59,8 +59,8 @@ Teams must be diligent with sizing their Flexible Server instances to be cost-ef
 
 Flexible Server instances can be resized after creation. Azure stops database VM instances and needs up to 120 seconds to scale compute resources.
 
-Use Azure Monitor Metrics to determine if you need to scale your Flexible Server instance. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make your scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://wiki.postgresql.org/wiki/SysBench)
+Use Azure Monitor Metrics to determine if an Flexible Server instance requires to be scaled. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://wiki.postgresql.org/wiki/SysBench)
 
 ### 7. Utilize Reserved Capacity
 
-In addition to resizing your instances, you can also prepay for your compute resources with reserved capacity. With Azure Database for PostgreSQL Flexible Server reserved capacity, you make an upfront commitment on PostgreSQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL Flexible Server reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/azure/postgresql/single-server/concept-reserved-pricing).
+In addition to resizing instances, compute resources can also be prepaid with reserved capacity. With Azure Database for PostgreSQL Flexible Server reserved capacity, an upfront commitment on PostgreSQL server can be made for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL Flexible Server reserved capacity, it is required to specify the Azure region, deployment type, performance tier, and term. For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/azure/postgresql/single-server/concept-reserved-pricing).

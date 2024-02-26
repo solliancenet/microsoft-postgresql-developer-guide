@@ -1,6 +1,6 @@
 ## Responsible AI
 
-It is easy to be fascinated with AI and Generative AI in particular, but you need to consider how you would use it responsibly. You need to consider things like how to ensure the output is fair, non-harmful and more. This chapter aims to provide you with mentioned context, what to consider, and how to take active steps to improve your AI usage.
+It is easy to be fascinated with AI and Generative AI in particular, but consider what might be needed to use it responsibly. Consider things like how to ensure the output is fair, non-harmful and more. This chapter aims to provide this background context, what to consider, and how to take active steps to improve application AI usage.
 
 ## Principles
 
@@ -23,7 +23,7 @@ Check out the YouTube video [AI in a Minute: Responsible AI](https://youtu.be/fH
 
 Hallucinations are a term used to describe when an LLM produces content that is either completely nonsensical or something we know is factually wrong based on other sources of information.
 
-In many cases, AI can provide confident and thorough answers. Unfortunately, these answers can also be incorrect. For individuals that may be new to your application and data, AI answers can be persuasive enough to not be questioned and treated as fact. The consequences of this can lead to the AI system being unreliable and negatively impact the reputation of your users and company as a whole.
+In many cases, AI can provide confident and thorough answers. Unfortunately, these answers can also be incorrect. For individuals that may be new to an application and data, AI answers can be persuasive enough to not be questioned and treated as fact. The consequences of this can lead to the AI system being unreliable and negatively impact the reputation of users and company as a whole.
 
 With each iteration of any given LLM, there have been several performance improvements around minimizing hallucinations. However, even with these improvements, we as application builders and users still need to remain aware of these limitations.
 
@@ -61,7 +61,7 @@ Focus on the type of product or content the model with be used on. For example, 
 
 It is now time to find ways where we can prevent or limit the potential harm caused by the model and its responses. We can look at this in 4 different layers:
 
-- **Model**. Choosing the right model for the right use case. Larger and more complex models like GPT-4 can cause more of a risk of harmful content when applied to smaller and more specific use cases. Using your training data to fine-tune also reduces the risk of harmful content.
+- **Model**. Choosing the right model for the right use case. Larger and more complex models like GPT-4 can cause more of a risk of harmful content when applied to smaller and more specific use cases. Using custom training data to fine-tune also reduces the risk of harmful content.
 
 - **Safety System**. A safety system is a set of tools and configurations on the platform serving the model that help mitigate harm. An example of this is the content filtering system on the Azure OpenAI service. Systems should also detect jailbreak attacks and unwanted activity like requests from bots.
 
@@ -71,6 +71,6 @@ It is now time to find ways where we can prevent or limit the potential harm cau
 
 ### Operationalize AI
 
-Building an operational practice around your AI applications is one of the final stages. This includes partnering with other parts of your company, like Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
+Building an operational practice around AI applications is one of the final stages. This includes partnering with other parts of the organization, such as Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
 
-Working with LLMs can be challenging because you typically do not have control over the data the model is trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.
+Working with LLMs can be challenging because as it is not typical to have control over the data the model is trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.

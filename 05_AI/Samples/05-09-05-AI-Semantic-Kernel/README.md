@@ -6,12 +6,12 @@ TODO
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 

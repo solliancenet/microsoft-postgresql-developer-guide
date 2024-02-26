@@ -95,7 +95,7 @@ Running the database layer in a container is better than running it in a VM, but
 
 Follow the [AKS with PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex) guide to deploy the application and database.
 
-#### Start your application modernization journey
+#### Start the application modernization journey
 
 To reiterate, it is recommended to follow the application modernization developer journey from start to finish in the following order:
 
@@ -111,4 +111,4 @@ To reiterate, it is recommended to follow the application modernization develope
 
 ###### Determining the evolutionary waypoint
 
-In this module, we have explored the evolution from classic development and deployment to current modern development and deployment methods. As a review, be sure to reference this information to find your starting point and pick your final target.
+In this module, we have explored the evolution from classic development and deployment to current modern development and deployment methods. As a review, be sure to reference this information to find a starting point and pick the final target.

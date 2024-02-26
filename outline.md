@@ -10,7 +10,7 @@ Introduction
 		
 		Architectural examples and samples.
 	
-	What the guide is, what the guide isn't.
+	What the guide is, what the guide is not.
 	
 		Learn to build, test and deploy Azure PostgreSQL projects.
 		

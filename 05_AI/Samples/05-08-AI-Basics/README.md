@@ -26,18 +26,18 @@
 
 [Generative AI](https://learn.microsoft.com/training/paths/introduction-generative-ai/) is a form of artificial intelligence in which [large language models](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-overview#large-language-model-llm) (LLMs) are trained to generate original content based on natural language input. LLMs are designed to understand and generate human-like language output and are known for their ability to perform a wide range of natural language understanding and generation tasks. Generative AI has a wide range of applications for data-driven applications, including semantic search, recommendation systems, and content generation, such as summarization, among many others.
 
-In this lab, you take advantage of [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) and the [Azure AI Language service](https://learn.microsoft.com/azure/ai-services/language-service/) to integrate rich generative AI capabilities directly into your Azure Database for PostgreSQL Flexible Server using the [Azure AI Extension](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-overview). The `azure_ai` extension adds the ability to leverage LLMs directly from your database.
+In this lab, you take advantage of [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) and the [Azure AI Language service](https://learn.microsoft.com/azure/ai-services/language-service/) to integrate rich generative AI capabilities directly into your Azure Database for PostgreSQL Flexible Server using the [Azure AI Extension](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-overview). The `azure_ai` extension adds the ability to leverage LLMs directly from a database.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -539,7 +539,3 @@ It is crucial that you clean up any resources you created for these labs once yo
     ![On the Overview blade of the resource group. The Delete resource group button is highlighted.](media/resource-group-delete.png)
 
 4. In the confirmation dialog, enter the name of the resource group you created to confirm and then select **Delete**.
-
-## Summary
-
-Congratulations! You have completed the **Generative AI with Azure Database for PostgreSQL Flexible Server** hands-on lab. In this lab, you explored the powerful extensibility of Azure Database for PostgreSQL Flexible Server by installing and using the `azure_ai` extension to directly add the power of generative AI and large language models into your database.

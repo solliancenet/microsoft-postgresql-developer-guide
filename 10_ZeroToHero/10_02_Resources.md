@@ -2,7 +2,7 @@
 
 ### Call to Action
 
-Thanks for downloading and reading this Azure Database for PostgreSQL Flexible Server developer guide. We encourage to to continue your learning by reviewing the following links to documentation pages and creating a free azure account to practice with.
+Thanks for downloading and reading this Azure Database for PostgreSQL Flexible Server developer guide. We encourage further learning by reviewing the following links to documentation pages and creating a free azure account to practice with.
 
 - [Review homepage](https://aka.ms/postgresql)
 - [Documentation](https://aka.ms/PostgreSQLdocs)
@@ -24,7 +24,7 @@ Thanks for downloading and reading this Azure Database for PostgreSQL Flexible S
 
 ### Find a partner to assist in migrating
 
-This guide introduced and covered several advanced development and deployment concepts that may be new to you or your organization. If at anypoint you need help there are many experts in the community with a proven migration and modernization track record.
+This guide introduced and covered several advanced development and deployment concepts that may be new to the reader. If at anypoint help is needed, reference the many experts in the community with proven migration and modernization track records.
 
 Feel free to [search for a Microsoft Partner](https://www.microsoft.com/solution-providers/home) or [Microsoft MVP](https://mvp.microsoft.com/MvpSearch) to help with finding the most appropriate migration strategy.
 

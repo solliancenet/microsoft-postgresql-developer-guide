@@ -12,11 +12,11 @@ Both server misconfiguration issues and network access issues can prevent client
 
 #### Outdataed Azure CLI
 
-Always ensure that you are running the latest Azure CLI. If using older versions, you can run into issues such as:
+Always ensure that the Azure CLI being used is the latest version. When using older versions, it is possible to run into issues such as:
 
-- `The parameter PrivateDnsZoneArguments is required, and must be provided by customer``, this means you may be running an older version of Azure CLI.
+- `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`
 
-You can upgrade your Azure CLI by executing the following if your currency version is `2.11.0` or higher:
+Upgrade the Azure CLI by executing the following commands (upgrade is available in version `2.11.0` or higher):
 
 ```powershell
 az upgrade
@@ -24,30 +24,30 @@ az upgrade
 
 #### Outdated SDK
 
-PostgreSQL has gone through many changes over the years. In some cases parameters have been deprecated and/or removed. You will need to ensure that your SDK supports the target PostgreSQL versoin.
+PostgreSQL has gone through many changes over the years. In some cases parameters have been deprecated and/or removed. Ensure the SDK version supports the target PostgreSQL version.
 
 #### Misconfiguration
 
 - Administrators use the database admin user specified during server creation to create new databases and add new users. If the admin user credentials were not recorded, administrators can easily reset the admin password using the Azure portal.
   - Logging in with the administrator account can help debug other access issues, like confirming if a given user exists.
 
-If you receive permission denied errors, ensure you are connecting to the correct database with the correct username and password and have the proper permissions assigned.
+For permission denied errors, check the connection string is connecting to the correct database with the correct username and password and have the proper permissions assigned.
 
 #### Collation Defaults
 
 After migrating from a source instance to Azure Database for PostgreSQL Flexible Server be cognizant of the collation settings.
 
-Flexible Server uses `en_US.utf8`. The Postgres documentation states that "The LC_COLLATE and LC_CTYPE variables affect the sort order of indexes". You may need to rebuild the indexes.
+Flexible Server uses `en_US.utf8`. The Postgres documentation states that "The LC_COLLATE and LC_CTYPE variables affect the sort order of indexes". If the collation is mismatched, rebuild the indexes.
 
 #### SSL Connectivity
 
-Most on-premises applications that are migrated to cloud-based services will not have the supporting connection string information for SSL based connections. In most cases, you will need to download the SSL certificate for the server(s) and include them as part of your application deployments.
+Most on-premises applications that are migrated to cloud-based services will not have the supporting connection string information for SSL based connections. In most cases, it will be necessary to download the SSL certificate for the server(s) and include them as part of the application deployments.
 
-SSL certificate best practice is to expire these certifcates on a set period. If you have migrated your applications to use SSL, ensure that the certificate is valid. You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
+SSL certificate best practice is to expire these certifcates on a set period. For applications that use SSL, ensure that the certificate is valid. As a best practice, put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
 
 For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/azure/postgresql/single-server/concepts-certificate-rotation).
 
-When working with other Azure services such as Azure Synapse or Azure Data Factory, ensure you select the SSL option that requires encryption otherwise you will get a connection error.
+When working with other Azure services such as Azure Synapse or Azure Data Factory, be sure to select the SSL option that requires encryption otherwise a connection error will occur.
 
 #### Network access issues
 
@@ -80,7 +80,7 @@ There are several troubleshooting tools available for Azure Database for Postgre
 
 For the latest information, reference [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-troubleshooting-guides).
 
-Additionally, you can utilize the monitoring metrics to further investigate any resource related issues. Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) for more information.
+Additionally, monitoring metrics can be used to further investigate any resource related issues. Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) for more information.
 
 ### Unsupported PostgreSQL features
 
@@ -100,23 +100,23 @@ For more information, reference [Handling transient connectivity errors for Azur
 
 ### Platform issues
 
-- On occasion, Azure experiences outages. Use [Azure Service Health](https://azure.microsoft.com/features/service-health/) to determine if an Azure outage impacts PostgreSQL workloads in your region or datacenter.
+- On occasion, Azure experiences outages. Use [Azure Service Health](https://azure.microsoft.com/features/service-health/) to determine if an Azure outage impacts PostgreSQL workloads in a region or datacenter.
 
 - Azure's periodic updates can impact the availability of applications. Flexible Server allows administrators [to set custom maintenance schedules.](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-maintenance)
 
-- Implement retry logic in your applications to mitigate transient connectivity issues:
+- Implement retry logic in applications to mitigate transient connectivity issues:
   
   - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
 
-- If your instance loses access to the Azure Key Vault with a customer managed key, you may get a `UserErrorMissingPermissionsOnSecretStore` error. Ensure that the managed identity is added with permission to the key vault.
+- If an instance losses access to the Azure Key Vault with a customer managed key, a `UserErrorMissingPermissionsOnSecretStore` error will likely occur. Ensure that the managed identity is added with permission to the key vault.
 
-- **SQL Errors** : Ensure that you are running your SQL queries against a supported PostgreSQL version.
+- **SQL Errors** : Ensure that SQL queries are running against a supported PostgreSQL version.
 
 - **Connection Errors** : Ensure that the database name case-sensitivity is set correctly.
 
-- **Vacuum taking too long** : Ensure that you have the proper compute tier to support the vacuum options.
+- **Vacuum taking too long** : Ensure the proper compute tier is being used to support the vacuum options.
 
-- **Restart** When in doubt, attempt to restart the server during a maintenence window and see if your issue resolves itself.
+- **Restart** When in doubt, attempt to restart the server during a maintenence window and see if the issue resolves itself.
 
 ### Troubleshoot app issues in Azure App Service
 
@@ -125,9 +125,9 @@ For more information, reference [Handling transient connectivity errors for Azur
 - In Azure App Service, certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when configuring the app settings.
 [Environment variables and app settings in Azure App Service](https://learn.microsoft.com/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet)
 
-- **HTTP vs HTTPS** Ensure that you are using the right http endpoint (`http` vs `https`).
+- **HTTP vs HTTPS** Ensure that its the right http endpoint (`http` vs `https`).
 
-- **Missing application configuration values** : Ensure that you have set all configuration values in the App Service or Azure Key Vault.
+- **Missing application configuration values** : Ensure all configuration values are located in the App Service configuration, App Configuration or Azure Key Vault.
 
 - **App is running very slow** : Check to see if the App Service is running in the same region as the PostgreSQL server.
 
@@ -135,11 +135,11 @@ For more information, reference [Handling transient connectivity errors for Azur
 
 ### App debugging
 
-Following software development best practices makes your code simpler to develop, test, debug, and deploy. Here are some strategies to resolve application issues.
+The following software development best practices makes code simpler to develop, test, debug, and deploy. Here are some strategies to resolve application issues.
 
 - Use logging utilities wisely to help troubleshoot failures without impairing app performance. Structured logging utilities, like PHP's native logging functions or third-party tools, such as [KLogger](https://github.com/katzgrau/KLogger), can write logs to the console, to files, or to central repositories. Monitoring tools can parse these logs and alert anomalies.
 
-- In development environments, remote debugging tools like [XDebug](https://xdebug.org/docs/) may be useful. You can set breakpoints and step through code execution. [Apps running on Azure App Service PHP and Container instances can take advantage of XDebug.](https://azureossd.github.io/2020/05/05/debugging-php-application-on-azure-app-service-linux/)
+- In development environments, remote debugging tools like [XDebug](https://xdebug.org/docs/) may be useful. Use and set breakpoints to step through code execution. [Apps running on Azure App Service PHP and Container instances can take advantage of XDebug.](https://azureossd.github.io/2020/05/05/debugging-php-application-on-azure-app-service-linux/)
   
   - Users of Visual Studio Code can install XDebug's [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug).
 
@@ -154,11 +154,11 @@ Following software development best practices makes your code simpler to develop
 
 ### Additional support
 
-- In the Azure portal, navigate to the **Diagnose and solve problems** tab of your Azure Database for PostgreSQL Flexible Server instance for suggestions regarding common connectivity, performance, and availability issues.
+- In the Azure portal, navigate to the **Diagnose and solve problems** tab of the Azure Database for PostgreSQL Flexible Server instance for suggestions regarding common connectivity, performance, and availability issues.
 
   ![This image demonstrates the Diagnose and solve problems tab of a Flexible Server instance in the Azure portal.](./media/troubleshoot-problems-portal.png "Diagnose and solve problems")
 
-  This experience integrates with Azure Resource Health to demonstrate how Azure outages affect your provisioned resources.
+  This experience integrates with Azure Resource Health to demonstrate how Azure outages affect provisioned resources.
 
   ![This image demonstrates how Azure Resource Health correlates Azure service outages with the customer's provisioned resources.](./media/resource-health-integration.png "Azure Resource Health integration")
 
@@ -166,7 +166,7 @@ Following software development best practices makes your code simpler to develop
 
 ### Opening a support ticket
 
-If you need assistance with an Azure Database for PostgreSQL Flexible Server issue, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Microsoft. Be sure to select the correct product and provide as much information as possible, so the proper resources is assigned to your ticket.
+For assistance with an Azure Database for PostgreSQL Flexible Server issue, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Microsoft. Be sure to select the correct product and provide as much information as possible, so the proper resources is assigned to the ticket.
 
 ![This image shows how to open a detailed support ticket for Microsoft from the Azure portal.](media/open-a-support%20ticket.png "Opening a detailed support ticket for Microsoft")
 

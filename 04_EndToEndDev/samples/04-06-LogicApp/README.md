@@ -6,13 +6,13 @@ Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Serv
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Local install of Azure Database for PostgreSQL Flexible Server
 - Virtual Networks
 - Logic App
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -83,7 +83,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - For the name, type **pgsqldevSUFFIXflexpriv**
 - For the TTL, select **30**  and for units select **seconds**
 - For the IP address, type the IP for the random `A` record
-- It can take some time for the DNS to become available, on the **paw-1** virtual machine. If you want to speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
+- It can take some time for the DNS to become available, on the **paw-1** virtual machine. To speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in Notepad++
   - Add the following to the file:
 
     ```text
@@ -137,11 +137,11 @@ choco install psqlodbc
 - **IMPORTANT** Ensure that the region is the same as where the virtual network for the database instance is located
 - Select **Configure**
 
-> NOTE: If you did not select the correct region, you can uninstall/reinstall, or perform the following steps:
+> NOTE: If the wrong region was selected, it will be necessary to uninstall/reinstall, or perform the following steps:
 
-  - Navigate to: C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway
-  - Delete the Gateway.bin file, and then restarting the service in task manager
-  - Open the Gateway app from the Start menu.
+- Navigate to: C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway
+- Delete the Gateway.bin file, and then restart the service in Task Manager
+- Open the Gateway app from the Start menu.
 
 ## Exercise 6: Configure the Logic Apps Gateway
 
@@ -155,7 +155,7 @@ choco install psqlodbc
 
 ## Exercise 7: Install npgsql
 
-- You can download `npgsql` from [here](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi)
+- Download `npgsql` from [here](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi)
   - `Npgsql-4.0.12.msi` is also available in the repo alongside this README.md file
 - Install the software to support the data gateway
 
@@ -169,7 +169,7 @@ We have already created a Logic App that uses a timer trigger to check for new O
 - Under **Development Tools**, select **API connections**
 - Select **office365**
 - Under **General**, select **Edit API Connection**
-- Under the **Display Name** to your lab user email address
+- Under the **Display Name** to the lab user email address
 - Select **Authorize**, login using the lab credentials
 - Select **Save**
 - Select the **azureblob** connection
@@ -188,7 +188,7 @@ We have already created a Logic App that uses a timer trigger to check for new O
 
 ### Create a Logic App (Optional)
 
-This step has already been done for you, but if you would like to create the logic app from scratch the steps are provided here.
+These steps have already been completed via the ARM template, however, they can be used to create the logic app from scratch:
 
 - Select **Blank template**
 - For the trigger, select **Recurrence**. Keep the default values
@@ -217,7 +217,7 @@ This step has already been done for you, but if you would like to create the log
 - Select **Sign in**
 - Sign in with the lab user credentials
 - For the `To`, type the lab user email
-- For the subject, enter **New Order Recieved**
+- For the subject, enter **New Order Received**
 - For the body, select **Add dynamic content**, then select **Current item**
 - For the logic app, select **Save**
 
@@ -249,7 +249,7 @@ This step has already been done for you, but if you would like to create the log
 
 - Browse to the **pgsqldevSUFFIXlinux** app service
 - Under **Settings**, select **Configuration**
-- Edit the app setting value for **DB_HOST** to the ip address recorded above.
+- Edit the app setting value for **DB_HOST** to the IP address recorded above.
 - Select **Save**
 
 ### Add virtual network peering

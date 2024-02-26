@@ -6,5 +6,5 @@ Similar to the reference architecture, case studies provide a view into how othe
 
 - Understand the most common uses of a product.
 - Reference customers' architecture.
-- Justify and validate your use cases based on the use case studies.
+- Justify and validate use cases based on the use case studies.
 - Attend conferences to learn how others are using the product(s).

@@ -96,7 +96,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
       ![Git Credential Manager](media/git-credential-manager-for-windows.png)
 
-      If you make a mistake entering the credentials, you will have to open Credential Manager to update the credentials.
+      If a mistake is made entering the credentials, use the Credential Manager to update the credentials.
 
    - The following output should display in the command window:
 
@@ -135,7 +135,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
       ![Update APP_URL value](media/update-app-url-env.png)
 
-12. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true. Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. So we need to save your own Nginx configure file under /home path.
+12. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true. Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. Due to this, save the Nginx configure file under the `/home` path.
 
     ```bash
     cp /etc/nginx/sites-enabled/default /home/default
@@ -159,7 +159,7 @@ The deployment strategy applied in this sample application focuses on updating p
       service nginx restart
       ```
 
-15. Your configuration needs to survive an App Service restart. Update the App Service Startup Command.
+15. The configuration needs to survive an App Service restart. Update the App Service Startup Command.
 
        - Navigate to the **Settings** section.
        - Select **Configuration**.
@@ -231,7 +231,7 @@ The application should now be available and show some sample data, however the w
 
 ### What happens to my app during an Azure deployment?
 
-All the officially supported deployment methods make changes to the files in the /home/site/wwwroot folder of the app. These files are used to run the application. The web framework of  choice may use a subdirectory as the site root. For example, Laravel, uses the public/ subdirectory as the site root.
+All the officially supported deployment methods make changes to the files in the /home/site/wwwroot folder of the app. These files are used to run the application. The web framework of choice may use a subdirectory as the site root. For example, Laravel, uses the public/ subdirectory as the site root.
 
 The environment variable could be set globally or at the project level. Setting the environment variables at the project level, when possible, allows for deployment independence and reduces the likelihood of dependency collision.
 

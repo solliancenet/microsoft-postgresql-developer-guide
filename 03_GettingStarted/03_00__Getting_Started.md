@@ -60,4 +60,4 @@ Leverage the [extension for PostgreSQL](https://learn.microsoft.com/azure-data-s
 
 ## Cost saving tip
 
->![Note icon](media/note.png "Note") **Note:** When you are done developing for the day, you can stop Azure Database for Flexible Server. This feature helps keep the organizational costs low.
+>![Note icon](media/note.png "Note") **Note:** When done developing for the day, stop the Azure Database for Flexible Server. This feature helps keep the organizational costs low.

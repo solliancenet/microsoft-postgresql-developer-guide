@@ -1,18 +1,18 @@
 # Hands-on Lab: Azure Synapse Analytics with PostgreSQL
 
-In this hands-on lab you will utilize Azure Synapse Analytics to connect to your Azure Database for PostgreSQL Flexible Server and create Power BI reports from the data.
+In this hands-on lab, Azure Synapse Analytics will be used to connect to a Azure Database for PostgreSQL Flexible Server and create Power BI reports from the data.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
-- Azure Synpase Analytics
+- Azure Synapse Analytics
 - Azure Database for PostgreSQL Flexible Server
 - Power BI Workspace
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -29,12 +29,12 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 ## Exercise 1: Create PostgreSQL Linked Service
 
 - Create a new Azure Synapse Analytics workspace
-- Navigate to the **pgsqldevSUFFIX** Azure Synapce Analytics Workspace
+- Navigate to the **pgsqldevSUFFIX** Azure Synapse Analytics Workspace
 - Under **Security**, select **Networking**
 - Check the **Allow Azure services and resources to access this workspace** checkbox
 - Select the **+ Add client IP**
 - Select **Save**
-- Select **Overview**, then n the **Getting started** area, select the **Open** link for Synapse Studio
+- Select **Overview**, then in the **Getting started** area, select the **Open** link for Synapse Studio
 - Login if prompted.
 - Select the **Manage** tab
 - Under **External connections** select **Linked services**
@@ -47,13 +47,13 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 - For the database name, type **contosostore**
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
-- Select **Test connection**, ensure a success message is displayed.
+- Select **Test connection**, then ensure a success message is displayed.
 - Select **Create**
 
 ## Exercise 2: Create PowerBI Workspace
 
 - Open the Power BI Portal, https://powerbi.microsoft.com
-- Sign in with your lab credentials
+- Sign in with the lab credentials
 - In the left navigation, expand **Workspaces**
 - Select **Create a workspace**
 - For the name, type **PostgreSQL**
@@ -105,16 +105,16 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 
 - Select **File->Publish**
 - Select **Publish to Power BI**
-- When prompted, login with your lab credentials
+- When prompted, login with yotheur lab credentials
 - Select the **PostgreSQL** workspace
 - Select **Select**
 - Select the **Open 'PostgreSQL.pbix' in Power BI** link
-- Login using your lab credentials.
+- Login using the lab credentials.
 - Ensure the **PostgreSQL** workspace is selected
 - Select the **PostgreSQL** semantic model
 - In the **Tables** window, select the **public users** table
 - Select **Create paginated report**
-- Select **File->Save**, save the report as **Contoso Users**
+- Select **File->Save**, then save the report as **Contoso Users**
 - Select **Save**, the report should load in the synapse workspace.
 
 ## Exercise 7: Create PowerBI Report in Azure Synapse

@@ -1147,11 +1147,11 @@ There are some limitations to firewall rules, reference [Troubleshoot
 firewall problems] for the latest information. The two most important
 items to note:
 
--   Firewall doesn't support allowing dynamic IP addresses : This can
+-   Firewall does not support allowing dynamic IP addresses : This can
     occur when your ISP cycles your public IP address for you client(s).
--   Firewall rules aren't available for IPv6 format: The firewall rules
+-   Firewall rules are not available for IPv6 format: The firewall rules
     must be in IPv4 format. If you specify firewall rules in IPv6
-    format, you'll get a validation error.
+    format, you will get a validation error.
 
 When connecting from other Azure services, it is likely you will not be
 away of the IP addresses these services use. You can utilize the **Allow
@@ -5464,7 +5464,7 @@ Azure. We will then show how easy it is to deploy an LLM in Azure.
 A Large Language Model (LLM) is a type of AI model trained on massive
 amounts of text data to understand and generate human-like language.
 LLMs are typically based on deep learning architectures, such as
-Transformers, and they're known for their ability to perform a wide
+Transformers, and they are known for their ability to perform a wide
 range of natural language understanding and generation tasks. LLMs can
 be categorized based on their architecture, training data, and use case.
 Understanding how a model was built help in selecting the right model
@@ -5652,7 +5652,7 @@ Embeddings are a concept in machine learning and natural language
 processing (NLP) that involve representing objects, such as words,
 documents, or entities, as vectors in a multi-dimensional space. These
 vectors are often dense, meaning that they have a high number of
-dimensions, and they're learned through various techniques, including
+dimensions, and they are learned through various techniques, including
 neural networks. Embeddings aim to capture semantic relationships and
 similarities between objects in a continuous vector space.
 
@@ -5803,7 +5803,7 @@ points or features. Some key vector attributes and operations include:
     it contains. In the example above, vector1 and vector2 are both
     two-dimensional since they each have two elements. You can only
     visualize vectors with three dimensions or less, but generally,
-    vectors can have any number of dimensions. In fact, as you'll see
+    vectors can have any number of dimensions. In fact, as you will see
     later, vectors that encode words and text tend to have hundreds or
     thousands of dimensions.
 
@@ -5812,7 +5812,7 @@ points or features. Some key vector attributes and operations include:
     magnitude of a vector as the norm, and you can denote it with
     \|\|v\|\| or \|v\|. There are many different definitions of
     magnitude or norm, but the most common is the Euclidean norm or
-    2-norm. You'll learn how to compute this later.
+    2-norm. You will learn how to compute this later.
 
 -   Unit vector: A unit vector is a vector with a magnitude of one. In
     the example above, vector1 and vector2 are unit vectors.
@@ -5827,15 +5827,15 @@ points or features. Some key vector attributes and operations include:
     product is to do an element-wise multiplication of u and v and sum
     the results. The dot product is one of the most important and widely
     used vector operations because it measures the similarity between
-    two vectors. You'll see more of this later on.
+    two vectors. You will see more of this later on.
 
 -   Orthogonal vectors: Vectors are orthogonal if their dot product is
-    zero, meaning that they're at a 90 degree angle to each other. You
+    zero, meaning that they are at a 90 degree angle to each other. You
     can think of orthogonal vectors as being completely unrelated to
     each other.
 
 -   Dense vector: A vector is considered dense if most of its elements
-    are non-zero. Later on, you'll see that words and text are most
+    are non-zero. Later on, you will see that words and text are most
     usefully represented with dense vectors because each dimension
     encodes meaningful information.
 
@@ -5857,7 +5857,7 @@ of bits that differ between the two vectors.
 
 ## Cosine Similiarity
 
-Cosine similarity is a measure of similarity between two vectors, you'll
+Cosine similarity is a measure of similarity between two vectors, you will
 also hear this referred to as nearest neighbor search. To perform a
 cosine similarity search you need to vectorize for query text using the
 OpenAI Embedding API. Then calculate the cosine similarity between the
@@ -5917,7 +5917,7 @@ if:
 
     - Using fine-tuned models. A business would like to use fine-tuned less capable models (like embedding models) rather than high performance models, resulting in a more cost effective and fast solution.
 
-    - Considering latency. Latency is important for a specific use-case, so it's not possible to use very long prompts or the number of examples that should be learned from the model doesn't fit with the prompt length limit.
+    - Considering latency. Latency is important for a specific use-case, so it's not possible to use very long prompts or the number of examples that should be learned from the model does not fit with the prompt length limit.
 
     - Staying up to date. A business has a lot of high-quality data and ground truth labels and the resources required to maintain this data up to date over time.
 
@@ -6125,7 +6125,7 @@ Prompts have now become the primary programming interface for generative
 AI apps. Prompts tell the models what to do and influencing the quality
 of returned responses. How you write your prompt to the LLM matters, a
 carefully crafted prompt can achieve a better result than one that
-isn't.
+is not.
 
 Users can now interact with models using familiar paradigms like chat,
 without needing any technical expertise or training. Most of these
@@ -6545,7 +6545,7 @@ considering prompt length limits. This is supported by Vector database
 tools (like Azure Vector Search) that retrieve the useful chunks from
 varied pre-defined data sources and add them to the prompt Context.
 
-This technique is very helpful when a business doesn't have enough data,
+This technique is very helpful when a business does not have enough data,
 enough time, or resources to fine-tune an LLM, but still wishes to
 improve performance on a specific workload and reduce risks of
 fabrications, i.e., mystification of reality or harmful content.
@@ -6603,7 +6603,7 @@ a database. So what can a developer build with a text generation app?
     write code.
 
 Chat applications have become integrated into our daily lives, offering
-more than just a means of casual conversation. They're integral parts of
+more than just a means of casual conversation. They are integral parts of
 customer service, technical support, and even sophisticated advisory
 systems. It's likely that you have gotten some help from a chat
 application not too long ago. As we integrate more advanced technologies
@@ -6869,7 +6869,7 @@ scalability and maintenance concerns.
     building them yourself allows you to focus on other aspects of your
     application that you may find more important, such as business
     logic.
--   Better performance: When building functionality from scratch, you'll
+-   Better performance: When building functionality from scratch, you will
     eventually ask yourself "How does it scale? Is this application
     capable of handling a sudden influx of users?" Well maintained SDK
     and APIs often have built in solutions for these concerns.
@@ -7002,7 +7002,7 @@ Supported index types are:
 -   **HNSW** - creates a multilayer graph. It has better query
     performance than IVFFlat (in terms of speed-recall tradeoff), but
     has slower build times and uses more memory. Also, an index can be
-    created without any data in the table since there isn't a training
+    created without any data in the table since there is not a training
     step like IVFFlat.
 -   **IVFFlat** - divides vectors into lists, and then searches a subset
     of those lists that are closest to the query vector. It has faster
@@ -10107,7 +10107,7 @@ components.
 In the extreme event of a serious threat to the service caused by the
 PostgreSQL database engine vulnerability identified in the retired
 database version, Azure might choose to stop your database server to
-secure the service. In such case, you'll be notified to upgrade the
+secure the service. In such case, you will be notified to upgrade the
 server before bringing the server online.
 
 For the latest information on the versioning policy, see [Azure Database

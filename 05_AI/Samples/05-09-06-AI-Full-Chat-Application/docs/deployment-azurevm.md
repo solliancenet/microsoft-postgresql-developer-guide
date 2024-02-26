@@ -7,7 +7,7 @@
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to your Azure subscription.
+Follow the steps below to deploy the solution to an Azure subscription.
 
 1. Run the following script to provision a development VM with Visual Studio 2022 Community and required dependencies preinstalled.
 
@@ -24,7 +24,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
     The deployed VM name used in deployment is libxarwttxjdevm
     ```
 
-2. Use RDP to remote into the freshly provisioned VM with the username `BYDtoChatGPTUser` and the password you provided earlier on. 
+2. Use RDP to remote into the freshly provisioned VM with the username `BYDtoChatGPTUser` and the password provided earlier.
 
 3. Add the `BYDtoChatGPTUser` account to the `docker-users` local group on the VM. Sign out and sign back in to the VM to apply the changes.
 

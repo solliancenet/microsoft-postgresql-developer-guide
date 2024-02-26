@@ -11,13 +11,13 @@ The input of a large language model is known as prompt, while the output is know
 
 Outputs of Generative AI models are not perfect and in some cases the creativity of the model can work against it. When this happens, the resulting output can be a combination of words that the human user can interpret as a mystification of reality, or even offensive.
 
-Generative AI is not intelligent per se. When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit. The idea is to provide enough context when you prompt to ensure you get the responses you require.
+Generative AI is not intelligent per se. When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit. The idea is to provide enough context for a prompt to ensure the responses required.
 
 Check out the YouTube video [AI in a Minute: Prompt Engineering](https://youtu.be/vGdyePbGNaE) - What it means, how to apply it.
 
 ### What is a prompt
 
-Prompts have now become the primary programming interface for generative AI apps. Prompts tell the models what to do and influencing the quality of returned responses. How you write your prompt to the LLM matters, a carefully crafted prompt can achieve a better result than one that isn't.
+Prompts have now become the primary programming interface for generative AI apps. Prompts tell the models what to do and influencing the quality of returned responses. How a prompt is written matters greatly to the LLM, a carefully crafted prompt can achieve a better result than one that is not.
 
 Users can now interact with models using familiar paradigms like chat, without needing any technical expertise or training. Most of these models are prompt-based. They send a text input (prompt) and get back the AI response (completion). They can then "chat with the AI" iteratively, in multi-turn conversations, refining their prompt till the response matches their expectations.
 
@@ -44,7 +44,7 @@ So why do we need prompt engineering? The answer lies in the fact that current L
 
 Let us see this in action in the OpenAI or Azure OpenAI Playground:
 
-- Use the same prompt with different LLM deployments (e.g, OpenAI, Azure OpenAI, Hugging Face) - did you see the variations?
+- Use the same prompt with different LLM deployments (e.g, OpenAI, Azure OpenAI, Hugging Face) - were there variations?
 - Use the same prompt repeatedly with the same LLM deployment (e.g., Azure OpenAI playground) - how did these variations differ?
 
 ### Anatomy of a prompt
@@ -59,11 +59,11 @@ So why is prompt engineering important? To answer that question, we first need t
 
 An LLM sees prompts as a sequence of tokens where different models (or versions of a model) can tokenize the same prompt in different ways. Since LLMs are trained on tokens (and not on raw text), the way prompts get tokenized has a direct impact on the quality of the generated response.
 
-To get an intuition for how tokenization works, try tools like the [OpenAI Tokenizer](https://platform.openai.com/tokenizer?WT.mc_id=academic-105485-koreyst). This tools allows you to copy in your prompt and see how that gets converted into tokens. It is worth paying attention to how whitespace characters and punctuation marks are handled. Each model and version of a model will generate different results.
+To get an intuition for how tokenization works, try tools like the [OpenAI Tokenizer](https://platform.openai.com/tokenizer?WT.mc_id=academic-105485-koreyst). This tool allows a prompt to be analyzed to see how it gets converted into tokens. It is worth paying attention to how whitespace characters and punctuation marks are handled. Each model and version of a model will generate different results.
 
 Once a prompt is tokenized, the primary function of the Foundation model is to predict the token in that sequence. Since LLMs are trained on massive text datasets, they have a good sense of the statistical relationships between tokens and can make that prediction with some confidence. Note that they do not understand the meaning of the words in the prompt or token; they just see a pattern they can "complete" with their next prediction. They can continue predicting the sequence till terminated by user intervention or some pre-established condition.
 
-Want to see how prompt-based completion works? Enter a prompt into the [Azure OpenAI Studio Chat Playground](https://oai.azure.com/playground?WT.mc_id=academic-105485-koreyst) with the default settings. The system is configured to treat prompts as requests for information - so you should see a completion that satisfies this context.
+Want to see how prompt-based completion works? Enter a prompt into the [Azure OpenAI Studio Chat Playground](https://oai.azure.com/playground?WT.mc_id=academic-105485-koreyst) with the default settings. The system is configured to treat prompts as requests for information and any requests will generate a completion that satisfies this context.
 
 But what if the user wanted to see something specific that met some criteria or task objective? This is where instruction-tuned LLMs come into the picture.
 
@@ -114,10 +114,10 @@ There are some basic techniques that we can use to prompt an LLM. Let us explore
 
 - Few shot prompting, this is the most basic form of prompting. It is a single prompt with a few examples.
 - Chain-of-thought, this type of prompting tells the LLM how to break down a problem into steps.
-- Generated knowledge, to improve the response of a prompt, you can provide generated facts or knowledge additionally to your prompt.
+- Generated knowledge, to improve the response of a prompt, provide generated facts or knowledge to the prompt.
 - Least to most, like chain-of-thought, this technique is about breaking down a problem into a series of steps and then ask these steps to be performed in order.
 - Self-refine, this technique is about critiquing the LLM's output and then asking it to improve.
-- Maieutic prompting. What you want here is to ensure the LLM answer is correct and you ask it to explain various parts of the answer. This is a form of self-refine.
+- Maieutic prompting. To ensure the LLM answer is correct, ask it to explain various parts of the answer. This is a form of self-refinement.
 
 ### Few-shot prompting
 
@@ -127,7 +127,7 @@ Pre-trained LLMs work very well on generalized natural language tasks, even by c
 - One-shot : the prompt includes only one example
 - Few-shot : it includes multiple examples
 
-This style of prompting is very simple, it may consist of a single prompt and possibly a few examples. This technique is probably what you are using as you are starting to learn about LLMs. Here's an example:
+This style of prompting is very simple, it may consist of a single prompt and possibly a few examples. This technique is probably what most use when starting to learn about LLMs. Here's an example:
 
 - Prompt: "What is Algebra?"
 - Answer: "Algebra is a branch of mathematics that studies mathematical symbols and the rules for manipulating these symbols."
@@ -145,28 +145,28 @@ For example:
 - Prompt: "Lisa has 7 apples, throws 1 apple, gives 4 apples to Bart and Bart gives one back: 7 -1 = 6 6 -4 = 2 2 +1 = 3
 Alice has 5 apples, throws 3 apples, gives 2 to Bob and Bob gives one back, how many apples does Alice have?" Answer: 1
 
-Note how we write substantially longer prompts with another example, a calculation and then the original prompt and we arrive at the correct answer 1. As you can see chain-of-thought is a very powerful technique.
+Note how we write substantially longer prompts with another example, a calculation and then the original prompt and we arrive at the correct answer 1. Chain-of-thought is a very powerful technique.
 
 ### Generated Knowledge
 
-Many times when you want to construct a prompt, you want to do so using your own company's data. You want part of the prompt to be from the company and the other part should be the actual prompt you are interested in.
+Many times a construction of a prompt will include using a company's data. Part of the prompt will be from the company and the other part should be the actual prompt from the user.
 
 ### Least to most
 
-The idea with Least-to-most prompting is to break down a bigger problem into subproblems. That way, you help guide the LLM on how to "conquer" the bigger problem.
+The idea with Least-to-most prompting is to break down a bigger problem into subproblems. That way, the LLM has a guide on how to "conquer" the bigger problem.
 
 ### Self refine
 
-With generative AIs and LLMs, you cannot trust the output. You need to verify it. After all, the LLM is just presenting you what's the next most likely thing to say, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
+With generative AIs and LLMs, be default, do not trust the output. Always verify it. After all, the LLM is just presenting what the next most likely thing to say is, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
 
-How it works is that you follow the following steps:
+It works by performing the following steps:
 
 - Initial prompt asking the LLM to solve a problem
 - LLM answers
-- You critique the answer and ask the AI to improve
+- Critique the answer and ask the AI to improve
 - LLM answers again, this time considering the critique and suggest solutions it came up with
 
-You can repeat this process as many times as you want.
+Repeat this process as many times as necessary.
 
 ### Maieutic prompting
 
@@ -176,7 +176,7 @@ Maieutic prompting is a technique that is like self-refine but it is more about 
 - For each part of the answer, ask the LLM to explain it more in depth.
 - If there are inconsistencies, discard the parts that are inconsistent.
 
-Repeat 2 and 3 until you have gone through all the parts and you are satisfied with the answer.
+Repeat 2 and 3 until all the parts are explained and a satisfying answer is provided.
 
 ### Temperature
 
@@ -193,29 +193,29 @@ Now that we know how prompts can be constructed, we can start thinking about how
 
 Prompt Engineering is a trial-and-error process so keep three broad guiding factors in mind:
 
-- **Domain Understanding Matters**. Response accuracy and relevance is a function of the domain in which that application or user operates. Apply your intuition and domain expertise to customize techniques further. For instance, define domain-specific personalities in your system prompts, or use domain-specific templates in your user prompts. Provide secondary content that reflects domain-specific contexts, or use domain-specific cues and examples to guide the model towards familiar usage patterns.
+- **Domain Understanding Matters**. Response accuracy and relevance is a function of the domain in which that application or user operates. Apply intuition and domain expertise to customize techniques further. For instance, define domain-specific personalities in  system prompts, or use domain-specific templates in user prompts. Provide secondary content that reflects domain-specific contexts, or use domain-specific cues and examples to guide the model towards familiar usage patterns.
 
-- **Model Understanding Matters**. We know models are stochastic by nature. But model implementations can also vary in terms of the training dataset they use (pre-trained knowledge), the capabilities they provide (e.g., via API or SDK) and the type of content they are optimized for (e.g, code vs. images vs. text). Understand the strengths and limitations of the model you are using, and use that knowledge to prioritize tasks or build customized templates that are optimized for the model's capabilities.
+- **Model Understanding Matters**. We know models are stochastic by nature. But model implementations can also vary in terms of the training dataset they use (pre-trained knowledge), the capabilities they provide (e.g., via API or SDK) and the type of content they are optimized for (e.g, code vs. images vs. text). Understand the strengths and limitations of the model being used, and use that knowledge to prioritize tasks or build customized templates that are optimized for the model's capabilities.
 
-- **Iteration & Validation Matters**. Models are evolving rapidly, and so are the techniques for prompt engineering. As a domain expert, you may have other context or criteria your specific application, that may not apply to the broader community. Use prompt engineering tools & techniques to "jump start" prompt construction, then iterate and validate the results using your own intuition and domain expertise. Record your insights and create a knowledge base (e.g, prompt libraries) that can be used as a new baseline by others, for faster iterations in the future.
+- **Iteration & Validation Matters**. Models are evolving rapidly, and so are the techniques for prompt engineering. As a domain expert, there may be other context or criteria for the specific application, that may not apply to the broader community. Use prompt engineering tools & techniques to "jump start" prompt construction, then iterate and validate the results using intuition and domain expertise. Record insights and create a knowledge base (e.g, prompt libraries) that can be used as a new baseline by others, for faster iterations in the future.
 
 Additionally there are some other good practices to consider when prompting an LLM:
 
-- **Specify context**. Context matters, the more you can specify like domain, topic, etc. the better.
-- **Limit the output**. If you want a specific number of items or a specific length, specify it.
-Specify both what and how. Remember to mention both what you want and how you want it, for example "Create a Python Web API with routes products and customers, divide it into 3 files".
-- **Use templates**. Often, you will want to enrich your prompts with data from your company. Use templates to do this. Templates can have variables that you replace with actual data.
-- **Spell correctly**. LLMs might provide you with a correct response, but if you spell correctly, you will get a better response.
+- **Specify context**. Context matters, the more specific and targeted information like domain, topic, etc. the better.
+- **Limit the output**. If a specific number of items or a specific length is required, specify it.
+Specify both what and how. Remember to mention both the **want** and **how**, for example "Create a Python Web API with routes products and customers, divide it into 3 files".
+- **Use templates**. Often, it will be necessary to enrich prompts with private personal or corporate data. Use templates to do this. Templates can have variables that are replaced with actual data.
+- **Spell correctly**. LLMs might provide a correct response to a prompt, but if everything is spelled correctly, better responses will be provided.
 
 ### AI Best Practices
 
 - **Evaluate the latest models** : New model generations are likely to have improved features and quality - but may also incur higher costs. Evaluate them for impact, then make migration decisions.
-- **Separate instructions & context** : Check if your model/provider defines delimiters to distinguish instructions, primary and secondary content more clearly. This can help models assign weights more accurately to tokens.
+- **Separate instructions & context** : Check if the model/provider defines delimiters to distinguish instructions, primary and secondary content more clearly. This can help models assign weights more accurately to tokens.
 - **Be specific and clear** : Give more details about the desired context, outcome, length, format, style etc. This will improve both the quality and consistency of responses. Capture recipes in reusable templates.
-- **Be descriptive, use examples** : Models may respond better to a "show and tell" approach. Start with a zero-shot approach where you give it an instruction (but no examples) then try few-shot as a refinement, providing a few examples of the desired output. Use analogies.
+- **Be descriptive, use examples** : Models may respond better to a "show and tell" approach. Start with a zero-shot approach where an instruction is provided (but no examples) then try few-shot as a refinement, providing a few examples of the desired output. Use analogies.
 - **Use cues to jumpstart completions** : Nudge it towards a desired outcome by giving it some leading words or phrases that it can use as a starting point for the response.
-- **Double Down** : Sometimes you may need to repeat yourself to the model. Give instructions before and after your primary content, use an instruction and a cue, etc. Iterate & validate to see what works.
-- **Order Matters** : The order in which you present information to the model may impact the output, even in the learning examples, thanks to recency bias. Try different options to see what works best.
+- **Double Down** : Sometimes it may be necessary to repeat a prompt to the model. Give instructions before and after the primary content, use an instruction and a cue, etc. Iterate & validate to see what works.
+- **Order Matters** : The order in which information is presented to the model may impact the output, even in the learning examples, thanks to recency bias. Try different options to see what works best.
 - **Give the model an “out”** : Give the model a fallback completion response it can provide if it cannot complete the task for any reason. This can reduce chances of models generating false or fabricated responses.
 
-As with any best practice, remember that your mileage may vary based on the model, the task and the domain. Use these as a starting point, and iterate to find what works best for you. Constantly re-evaluate your prompt engineering process as new models and tools become available, with a focus on process scalability and response quality.
+As with any best practice, remember that mileage may vary based on the model, the task and the domain. Use these as a starting point, and iterate to find what works best. Constantly re-evaluate the prompt engineering process as new models and tools become available, with a focus on process scalability and response quality.

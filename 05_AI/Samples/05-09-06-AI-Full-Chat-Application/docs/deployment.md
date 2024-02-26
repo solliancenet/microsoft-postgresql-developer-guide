@@ -1,6 +1,6 @@
 # Deployment
 
-Users can deploy this solution from three locations, local machine, virtual machine, or from Cloud Shell. See [Deployment choices](#deployment-choices) for more information on why you would use those two installation options instructions. By default this should install from your local machine so you can have the code locally to run and debug.
+Users can deploy this solution from three locations: local machine, virtual machine, or from Cloud Shell. See [Deployment choices](#deployment-choices) for more information. By default, this should be installed from a local development machine so the code will be available locally to run and debug.
 
 ## Prerequisites
 
@@ -10,15 +10,15 @@ Users can deploy this solution from three locations, local machine, virtual mach
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
-- Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
+- Visual Studio 2022 (only needed if planning to run/debug the solution locally)
 
->**NOTE**: Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Installation requires the choice of an Azure Region. Make sure to set the region to the one used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to your Azure subscription.
+Follow the steps below to deploy the solution to an Azure subscription.
 
-1. Ensure all the prerequisites are installed. 
+1. Ensure all the prerequisites are installed.
 
 2. Clone the repository:
 
@@ -33,7 +33,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
     git checkout cognitive-search-vector
     ```
 
-4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into your choice of Azure Kubeternetes Service or Azure Container Apps, and import data into Azure Cosmos DB.
+4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into one of Azure Kubeternetes Service (AKS) or Azure Container Apps (ACA), and import data into Azure Cosmos DB.
 
 ### Deploy with Azure Kubernetes Service
 
@@ -56,7 +56,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
         -openAiEmbeddingsDeployment <ada-002-model-name>
     ```
 
-    To validate the deployment using AKS run the following script. When the script it complete it will also output this value. You can simply click on it to launch the app. 
+    To validate the deployment using AKS run the following script. When the script is complete it will also output this value. Click on it to launch the app. 
 
     > ```pwsh
     >  az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
@@ -87,16 +87,15 @@ Follow the steps below to deploy the solution to your Azure subscription.
     >  az containerapp show -n <aca-name> -g <resource-group-name>
     >  ```
 
-
 ## Deployment choices
 
 The following table summarizes the deployment choices available for the solution:
 
  Deployment type | Description | When to use
 --- | --- | ---
-[Standard](./deployment-standard.md) | Use your local development environment to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) and you have a local development environment available.
-[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to your Azure subscription. | Best suited for quick deployment. All you need is an Azure subscription and a browser. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
-[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) but you do not have a local development environment available. The Azure VM deployment type requires additional setup steps. If you are involved in managing the infrastructure that enables Azure VM deployments for your team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
+[Standard](./deployment-standard.md) | Use the local development environment to deploy the solution to an Azure subscription. | Best suited for situations where the flexibility of a full development environment is required (e.g. to customize the solution) and a local development environment is available.
+[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to an Azure subscription. | Best suited for quick deployment. All you need is an Azure subscription and a browser. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
+[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) but you do not have a local development environment available. The Azure VM deployment type requires additional setup steps. If you are involved in managing the infrastructure that enables Azure VM deployments for a team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
 
 ## Deployment validation
 

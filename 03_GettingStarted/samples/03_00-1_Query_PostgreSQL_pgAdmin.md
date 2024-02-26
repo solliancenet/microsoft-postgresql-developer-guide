@@ -8,7 +8,7 @@ There are multiple ways of accomplishing each database task in pgAdmin, includin
 
 Follow one of the methods in the [Create a Flexible Server database](./03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md) document to create a Flexible Server resource. Remember the admin username and password for the Flexible Server resource for use later in this section.
 
-Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/download/). Alternatively, you can use a package manager like [Chocolatey](https://community.chocolatey.org/packages/pgadmin4) and [WinGet](https://winget.run/search?query=pgAdmin) for Windows-based machines, as well as [Homebrew](https://formulae.brew.sh/cask/pgadmin4) for macOS. For Linux-based machines, you can use **yum** or **apt-get** to install pgAdmin.
+Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/download/). Alternatively, use a package manager like [Chocolatey](https://community.chocolatey.org/packages/pgadmin4) and [WinGet](https://winget.run/search?query=pgAdmin) for Windows-based machines, as well as [Homebrew](https://formulae.brew.sh/cask/pgadmin4) for macOS. For Linux-based machines, use **yum** or **apt-get** to install pgAdmin.
 
 ![The pgAdmin splash screen.](media/pgadmin-splash.png "The pgAdmin splash screen")
 
@@ -22,7 +22,7 @@ Download pgAdmin tool from the [pgAdmin Downloads](https://www.pgadmin.org/downl
 
     ![pgAdmin instructions are displayed on the Connect screen of the Flexible Server resource in the Azure Portal.](media/pgadmin4-connection-instructions.png "pgAdmin server connection instructions")
 
-4. On your desktop, open the pgAdmin application and follow the instructions from the Azure Portal.
+4. On the target desktop, open the `pgAdmin` application and follow the instructions from the Azure Portal.
 
     ![The pgAdmin application will display with a connection to the Azure Database for PostgreSQL Flexible Server.](media/flexible-server-connected.png "Connection established to Flexible Server in pgAdmin")
 

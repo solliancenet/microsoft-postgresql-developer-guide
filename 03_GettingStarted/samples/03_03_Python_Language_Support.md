@@ -39,7 +39,7 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
     pip install azure-mgmt-rdbms
     ```
 
-2. Create a file named `create_flexible_server_database.py` and paste the following code into it. Replace the placeholders for `subscription_id`, `resource_group_name`, and `server_name` to reflect your environment.
+2. Create a file named `create_flexible_server_database.py` and paste the following code into it. Replace the placeholders for `subscription_id`, `resource_group_name`, and `server_name` to reflect the environment.
 
       ```python
       from azure.identity import DefaultAzureCredential
@@ -52,7 +52,7 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
       server_name = "<server_name>"
       database_name = "inventory"
 
-      # Authenticate with your Azure account
+      # Authenticate with Azure account
       credential = DefaultAzureCredential()
       # Create PostgreSQL management client
       postgres_client = PostgreSQLManagementClient(credential, subscription_id)
@@ -76,7 +76,7 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
 
 Refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/connect-python). for detailed instructions on how to get started with Python and Azure Database for PostgreSQL Flexible Server. This article covers connecting to the database, creating a table, and performing CRUD operations.
 
-You can also reference the Python sample (06-02-FunctionApp-Python) in this developer guide.
+Reference the Python sample (06-02-FunctionApp-Python) in this developer guide.
 
 ### Further information
 
@@ -94,4 +94,4 @@ postgres_client.databases.begin_delete(
 ).result()
 ```
 
-If you created a Python Virtual Environment, simply enter `deactivate` into the console to remove it.
+If a Python Virtual Environment was created, enter `deactivate` into the console to remove it.

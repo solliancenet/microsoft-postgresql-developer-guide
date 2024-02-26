@@ -40,7 +40,7 @@ Here are a few other notable advantages of Flexible Server.
 
 - [Read replicas:](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-read-replicas) Read replicas help teams scale their applications by providing read-only copies of the data updated on the primary node. Often, applications that run on elastic, autoscaling services, like Azure App Service, couple well with read replicas.
   
-- [Input-output operations per second (IOPS):](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#iops) IOPS can be configured based on your performance needs.
+- [Input-output operations per second (IOPS):](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#iops) IOPS can be configured based on performance needs.
 
   ![This image demonstrates server IOPS configuration.](media/postgresql_iops_configuration.png "Configuring server IOPS")
 
@@ -64,4 +64,4 @@ To estimate the TCO for Azure Database for PostgreSQL Flexible Server:
 Azure provides a [detailed list of the limitations of Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits). Here are a few notable ones.
 
 - Users are not provided host or OS access to view or modify configuration files such as postgresql.conf
-- You cannot create or load your own extension in Azure Database for PostgreSQL Flexible Server.
+- It is not possible to load custom extensions in Azure Database for PostgreSQL Flexible Server.

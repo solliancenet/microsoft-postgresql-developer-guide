@@ -24,7 +24,7 @@ Reddit uses PostgreSQL for the ThingDB model and other basic database oriented t
 
 The Spotify infrastructure uses several technologies for storage: Cassandra, PostgreSQL and memcached.
 
-If the feature’s data needs to be partitioned, then the squad has to implement the sharding themselves in their services, however many services rely on Cassandra doing full replicas of data between sites. Setting up a full storage cluster with replication and failover between sites is complicated so we are building infrastructure to setup and maintain multi site Cassandra or postgreSQL clusters as one unit. For people building apps on the Spotify API there will be a storage as a service option that will not require any setup of any clusters. The storage as a service option will be limited to a very simple key-value stores.
+If the feature's data needs to be partitioned, then the squad has to implement the sharding themselves in their services, however many services rely on Cassandra doing full replicas of data between sites. Setting up a full storage cluster with replication and failover between sites is complicated so we are building infrastructure to setup and maintain multi site Cassandra or postgreSQL clusters as one unit. For people building apps on the Spotify API there will be a storage as a service option that will not require any setup of any clusters. The storage as a service option will be limited to a very simple key-value stores.
 
 ### International Space Station
 
@@ -32,4 +32,4 @@ PostgreSQL has also reached space. NASA explored using Nagios on the Space Stati
 
 ## 3rd party Azure solutions / Azure Marketplace
 
-The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=postgres&page=1) provides thousands of certified apps on Azure tailored to meet customer needs. Using `postgres` as the search criteria, you can see many apps that utilize PostgreSQL available.
+The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=postgres&page=1) provides thousands of certified apps on Azure tailored to meet customer needs. Using `postgres` as the search criteria, review the various available applications that utilize PostgreSQL.

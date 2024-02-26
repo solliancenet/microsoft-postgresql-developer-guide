@@ -2,21 +2,21 @@
 
 The integration of embeddings generated using Azure OpenAI and Azure Database for PostgreSQL Flexible Server with the pgvector open-source extension for PostgreSQL presents a powerful and efficient solution for optimizing the product catalog similarity search experience. By using ML models and vector embeddings, businesses can enhance the accuracy and speed of similarity searches, personalized recommendations, and fraud detection, which ultimately leads to improved user satisfaction and a more personalized experience.
 
-The use of pgvector provides scalability to query large datasets and also integrates with PostgreSQL’s existing features. Whether you’re navigating through extensive e-commerce product catalogs or delivering highly relevant recommendations, the combination of Azure OpenAI and pgvector equips organizations with the tools they need to succeed in a dynamic and data-driven world.
+The use of pgvector provides scalability to query large datasets and also integrates with PostgreSQL's existing features. Whether navigating through extensive e-commerce product catalogs or delivering highly relevant recommendations, the combination of Azure OpenAI and pgvector equips organizations with the tools they need to succeed in a dynamic and data-driven world.
 
-PostgreSQL’s extensibility makes it possible for developers to build new data types and indexing mechanisms as workloads continue to evolve. As we continue to see new innovations in AI and ML, we can use PostgreSQL for building applications that harness the power of these new AI/ML models.
+PostgreSQL's extensibility makes it possible for developers to build new data types and indexing mechanisms as workloads continue to evolve. As we continue to see new innovations in AI and ML, we can use PostgreSQL for building applications that harness the power of these new AI/ML models.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
 - Azure Machine Learning Studio
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 

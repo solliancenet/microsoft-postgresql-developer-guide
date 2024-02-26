@@ -1,18 +1,18 @@
 # Hands-on Lab: Azure Data Factory with PostgreSQL
 
-In this hands-on lab you will use Azure Data Factory to connect to your Azure Database for PostgreSQL Flexible Server.
+In this hands-on lab, Azure Data Factory will be used to connect to an Azure Database for PostgreSQL Flexible Server.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure Data Factory
 - Azure Database for PostgreSQL Flexible Server
 - Storage Account
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -38,7 +38,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Select **Test connection**, ensure that a success message is displayed.
 - Select **Create**
 
-> NOTE: Currently you cannot use a MSI to connect to PostgreSQL from ADF.
+> NOTE: Currently an MSI can not be used to connect to PostgreSQL from ADF.
 
 - Select **Linked services**, select the **+ New** button
 - For the type, select **Azure Data Lake Storage Gen2**
@@ -86,7 +86,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Select the **Sink** tab, then select the **orders_storage** data set
 - Select the main pipeline canvas (click the white area around the copy data activity), then select **Parameters**
 - Select **+ New**
-- For the name, tyep **LastCreateDate**
+- For the name, type **LastCreateDate**
 - For the type, select **String**
 - For the default value, type **@trigger().scheduledTime**
 
@@ -96,21 +96,21 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Select **New/Edit**
 - Select the **Choose trigger** dropdown, then select **+New**
 - For the name, type **UserScheduleTrigger**
-- For the recurrance, select **1 day**
+- For the recurrence, select **1 day**
 - Select **OK**
 - For the pipeline parameter value, type **@trigger().scheduledTime**
 - Select **OK**
 
 ## Exercise 6: Publish Artifacts
 
-- Select **Publish all**, in the dialog you should see four artifacts.
+- Select **Publish all**, in the dialog notice four artifacts.
 - Select **Publish**
 
 ## Exercise 7: Test the pipeline
 
 - In the middle top area, select the **Trigger (1)** button
 - Select **Trigger now**
-- For the `LastCreateDate`, type the begining of the current year (ex. `1/1/2024`)
+- For the `LastCreateDate`, type the beginning of the current year (ex. `1/1/2024`)
 - Select **OK**
 - Open a new browser window to the Azure Portal
 - Browse to the **pgsqldevSUFFIX** storage account

@@ -9,7 +9,7 @@
 3. Expand **Databases->ContosoStore**
 4. Export the `contosostore` database
    1. Right-click the `contosostore` database, select **Backup...**
-      >> Note: If you receive the error that the *Utility not found*, you will need to add the Binary path for PostgreSQL 16. Find this by going to **File->Preferences->Paths->Binary paths** and adding the path to the PostgreSQL 16 binaries: `C:\Program Files\PostgreSQL\16\bin` and pressing **Save**.
+      >> Note: If the error that the *Utility not found* is displayed, add the Binary path for PostgreSQL 16. Find this by going to **File->Preferences->Paths->Binary paths** and adding the path to the PostgreSQL 16 binaries: `C:\Program Files\PostgreSQL\16\bin` and pressing **Save**.
 
       ![The Preferences screen displays with the PostgreSQL 16 pth highlighted.](media/set_binary_path.png "Binary path for PostgreSQL 16")
 

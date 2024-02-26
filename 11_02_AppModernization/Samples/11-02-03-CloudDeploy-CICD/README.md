@@ -36,7 +36,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 6. Press **ENTER** (be sure to replace ORG_NAME)
 7. In the dialog, login using the Microsoft Entra credentials for the repo. The files will get pushed to the repo.
 
-   > NOTE:  If using sensitive credentials, be sure you remove them or delete the virtual machine when you are finished with the developer guide content.
+   > NOTE:  If using sensitive credentials, be sure to remove them or delete the virtual machine when finished with the developer guide content.
 
 8. Switch back to Azure Dev Ops, refresh the repo, all the repo files should be visible.
 
@@ -55,7 +55,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 9. For the service connection name, type **PostgreSQLDev**
 10. Select **Grant access permission to all pipelines**
-10.Select **Save**
+11. Select **Save**
 
 ### Create Pipeline
 
@@ -68,7 +68,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 7. Select **Continue**
 8. Select **Run**
 
-> **NOTE** Check that your Dev Ops repo is setup with the appropriate branch (`master` vs `main`). Update the YAML and supporting steps accordingly.
+> **NOTE** Check the Dev Ops repo is setup with the appropriate branch (`master` vs `main`). Update the YAML and supporting steps accordingly.
 
 ### Create Release
 
@@ -81,7 +81,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 7. For the source, select **contosostore**
 8. Select **Add**
 9. Select the **Lighting** icon to add an trigger
-10. Select **Enabled** for the `Creates a release every time a new build is avaiable`
+10. Select **Enabled** for the `Creates a release every time a new build is available`
 11. Select the **1 job, 1 task** link
 12. Select the **PostgreSQLDev** connection
 13. For **App type**, select **Web App on Linux**
@@ -101,12 +101,12 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 ### Perform the deployment
 
-1. Select **Pipelines**
-2. Select the **contosostore** pipeline, then select **Run pipeline**
-3. Select **Run**
-4. Select **Releases**
-5. Select the **PostgreSQL Dev** pipeline
-6. The release should show as being deployed, wait for the pipeline to complete execution
+1. Select **Pipelines**.
+2. Select the **contosostore** pipeline, then select **Run pipeline**.
+3. Select **Run**.
+4. Select **Releases**.
+5. Select the **PostgreSQL Dev** pipeline.
+6. The release should show as being deployed, wait for the pipeline to complete execution.
 
 ### Test the DevOps deployment
 
@@ -117,15 +117,15 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 ### Create Github repo
 
-1. Browse to `https://github.com`
-2. Login with GitHub credentials
-3. In the top right, select the **+** then select **New repository**
-4. For the name, type **contosostore**
-5. Select **Create repository**
+1. Browse to `https://github.com`.
+2. Login with GitHub credentials.
+3. In the top right, select the **+** then select **New repository**.
+4. For the name, type **contosostore**.
+5. Select **Create repository**.
 
 ### Upload the application
 
-1. Switch to Visual Studio code
+1. Switch to Visual Studio code.
 2. In the terminal window, run the following:
 
     ```powershell

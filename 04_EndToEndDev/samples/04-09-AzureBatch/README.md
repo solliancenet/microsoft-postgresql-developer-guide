@@ -1,17 +1,17 @@
 # Hands-on Lab: Azure Batch with PostgreSQL
 
-In this hands-on lab you will utilize Azure Batch to connect to your Azure Database for PostgreSQL Flexible Server.
+In this hands-on lab, Azure Batch will be used to connect to an Azure Database for PostgreSQL Flexible Server.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure Batch
 - Azure Database for PostgreSQL Flexible Server
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -32,7 +32,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Navigate back to the Azure Batch instance
 - Under **Settings**, select **Identity**
 - Select **System assigned**
-- Select **Save**, in the dialog select **Yes**
+- Select **Save**, and then from the dialog select **Yes**
 
 ## Exercise 2: Create a Batch Job
 
@@ -89,7 +89,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ## Exercise 6: Setup Managed Identity (certificate)
 
-The steps above utilize hardcoded values to gain access to the target database instance. It is possible to setup a managed identity with Azure Batch such that credentials can be retrieved at runtime using a managed identity of the Azure Batch node pool.
+The steps above utilize hardcoded values to gain access to the target database instance. It is possible to set up a managed identity with Azure Batch such that credentials can be retrieved at runtime using a managed identity of the Azure Batch node pool.
 
 - On the **paw-1** virtual machine, run the following:
 
@@ -172,7 +172,7 @@ write-host "AppId: $appId"
   - Under **Features**, select **Pools**
   - Select the **main** pool
   - Under **Settings**, select **Certificates**
-  - For the thumbprint, select the certificate thumbprint that you just created
+  - For the thumbprint, select the certificate thumbprint of the newly created certificate
   - For the store location, select **LocalMachine**
   - Select **Save**
   - Under **General**, select **Nodes**
@@ -187,7 +187,7 @@ write-host "AppId: $appId"
 - For **Key permissions**, select **Get** and **List**
 - For **Secret permissions**, select **Get**, **List** and **Set**
 - For the **Select principal**, select **None selected**
-- Add your username
+- Add the lab username
 - Select **Save**
 - Select **Add**
 - Select **Secrets**

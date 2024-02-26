@@ -6,13 +6,13 @@ In the previous Function App samples, the connection information is embedded int
 
 ### Required Resources
 
-You will need several resources to perform this lab. These include:
+Several resources are required to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
 - Azure Database for PostgreSQL Flexible Server
 
-You can create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
@@ -38,7 +38,7 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 - Under **Security**, select **Authentication**
 - Ensure **Assign access to** is set to `PostgreSQL and Microsoft Entra authentication`
 - Select **Add Microsoft Entra Admins**
-- Select your lab credentials
+- Select the lab credentials
 - Select **Select**
 - Select **Save**
 
@@ -82,7 +82,7 @@ $AzAccessToken.Token
 - Create a new server connection, right-click **Servers**, select **Register**
 - For the name, type **azureadPostgreSQL**
 - For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
-- For the username, type your user UPN (aka your email address for your lab account)
+- For the username, type the lab user UPN (aka the email address for the lab account)
 - Select the **Advanced** tab, for the password exec command, type the following:
 
 ```cmd
@@ -121,7 +121,7 @@ psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d 
 
 ## Exercise 5: Entra Users and Groups (Optional)
 
-You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL Flexible Server. If you have access to create groups, you can attempt these next set of labs:
+Microsoft Entra Groups can be used to assign permissions in Azure Database for PostgreSQL Flexible Server. If the lab account has access to create Microsoft Entra groups, it is possible to attempt the next set of steps:
 
 - Switch to the Azure Portal
 - Open the **Microsoft Entra ID** app
@@ -135,7 +135,7 @@ You can use Microsoft Entra Groups to assign permissions in Azure Database for P
 - Switch back to the **paw-1** virtual machine
 - Switch to Windows PowerShell with psql as the Microsoft Entra user from above
 
-> NOTE: You can only assign roles using an authenticated Microsoft Entra User (not a PostgreSQL user)
+> NOTE: It is only possible to assign roles using an authenticated Microsoft Entra User (not a PostgreSQL user)
 
 - Attempt to assign the group access to the database with the following script (it should fail):
   - First parameter `true` = isAdmin
@@ -145,28 +145,27 @@ You can use Microsoft Entra Groups to assign permissions in Azure Database for P
 select * from pgaadauth_create_principal('Test_PG_Admins', true, false);
 ```
 
-> NOTE: This is equilent to executing `CREATE ROLE "Test_PG_Admins" LOGIN CREATEROLE CREATEDB in role azure_pg_admin;` and since you are not a super user, you must use the portal to assign this level of permissions. You can however add non-admin users by changing the first parameters to `false`.
+> NOTE: This is equilvalent to executing `CREATE ROLE "Test_PG_Admins" LOGIN CREATEROLE CREATEDB in role azure_pg_admin;`.  An Azure database user is not a super user, therefore the Azure Portal must be used to assign this level of permissions. It is possible to add non-admin users by changing the first parameters to `false`.
 
-- You can find the current Microsoft Entra users by running the following:
+- Find the current Microsoft Entra users by running the following:
 
 ```psql
 select * from pgaadauth_list_principals(false);
 ```
 
-- Is is possible to add Microsoft Entra users to the database (be sure to use their primary UPN/Email address):
+- It is possible to add Microsoft Entra users to the database (be sure to use their primary UPN/Email address):
 
 ```psql
 select * from pgaadauth_create_principal('chris@contoso.com', false, false);
 ```
 
-- Switch to Windows PowerShell
-- You can now connect to the database using the following:
+- Switch to Windows PowerShell, then connect to the database using the following command:
 
 ```powershell
 
 ```
 
-> NOTE: If you have a PostgreSQL instance that is on a private network, you would need to open an outbound path (also a route if using route tables) to the **AzureActiveDirectory** service tag.
+> NOTE: If the Azure Database for PostgreSQL Flexible Server instance that is on a private network, be sure to create an outbound path (also a route if using route tables) to the **AzureActiveDirectory** service tag.
 
 ## Exercise 6: Utilize MSI Authentication
 

@@ -6,7 +6,7 @@ Before jumping into Azure Database for PostgreSQL Flexible Server, it is importa
 
 [PostgreSQL](https://www.postgresql.org/) is an open source object-relational database management system based on [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL). PostgreSQL supports a rich set of SQL query capabilities and offers excellent performance and security for multiple data workloads. Its ability to run on all major operating systems combined with the abilty to extend via addons have made PostgreSQL a popular option with many organizations. Customers can use existing programming frameworks and languages to connect easily with PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix](https://www.postgresql.org/about/featurematrix/) for a more in-depth review of PostgreSQL's features.
 
-You can also watch the [Introduction to Azure Database for PostgreSQL Flexible Server](https://youtu.be/NSEmJfUgNzE) online video.
+Watch the [Introduction to Azure Database for PostgreSQL Flexible Server](https://youtu.be/NSEmJfUgNzE) online video.
 
 ## Comparison with other RDBMS offerings
 

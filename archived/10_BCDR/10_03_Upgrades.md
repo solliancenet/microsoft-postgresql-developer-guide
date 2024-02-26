@@ -20,6 +20,6 @@ Before PostgreSQL version 10, the PostgreSQL versioning policy considered a majo
 
 As the community won't be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL Flexible Server won't patch the retired database engine for any bugs or security issues, or otherwise take security measures with regard to the retired database engine. You might experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 
-In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop your database server to secure the service. In such case, you'll be notified to upgrade the server before bringing the server online.
+In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop your database server to secure the service. In such case, you will be notified to upgrade the server before bringing the server online.
 
 For the latest information on the versioning policy, see [Azure Database for PostgreSQL versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy)

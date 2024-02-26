@@ -1,6 +1,6 @@
 # 10 / Zero to Hero
 
-We have reached the end of the guide. You have the content and tutorials to assess your application and database evolution the target needs. Take a moment to determine the required steps to move your application architecture to the next level. Architecture modernization and operational monitoring are an iterative processes and we hope you refer to this guide often.
+We have reached the end of the guide. Hopefully the content and hands-on tutorials have helped with assessing what an application and database deployment is required. Take a moment to determine the required steps to move an application architecture to the next level. Architecture modernization and operational monitoring are an iterative processes and we hope this guide is reference to often.
 
 ## Summary of tasks
 
