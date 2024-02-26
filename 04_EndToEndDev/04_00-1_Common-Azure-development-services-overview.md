@@ -90,14 +90,14 @@ Azure Event Hubs facilitates the ingestion and replay of event data. It is optim
 
 #### Putting it together
 
-Using the above technologies, you can build an e-commerce site can use Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
+Using the above technologies, you can build an e-commerce site can use Service Bus to process an order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item shipped.
 
 ### Cron jobs
 
 Developers use cron jobs to run operations on a schedule. They are often useful for administrative tasks, like taking site backups. Azure Functions and Logic Apps support cron jobs:
 
 - [Azure Functions:](https://learn.microsoft.com/azure/azure-functions/functions-bindings-timer) The timer trigger executes a function on a schedule. Azure Functions supports more complex scheduling tasks, like specifying the cron job time precision.
-- [Logic Apps:](https://learn.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) Logic Apps supports Recurrence triggers and Sliding Window triggers. Recurrence triggers run Logic Apps on a schedule, while Sliding Window triggers extend Recurrence triggers by executing occurrences that were missed (e.g., the Logic App was disabled).
+- [Logic Apps:](https://learn.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) Logic Apps supports Recurrence triggers and Sliding Window triggers. Recurrence triggers run Logic Apps on a schedule, while Sliding Window triggers extend Recurrence triggers by executing occurrences that were missed (e.g., the Logic App is disabled).
 
 ### WebJobs
 

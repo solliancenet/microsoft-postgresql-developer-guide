@@ -73,7 +73,7 @@ Now that containerized versions of the application exists, they can now be hoste
 
 ## Multi-container single app service deployment
 
-In the previous steps, a container instance was created for each of the containers, however, it is possible to create a multi-container instance where all services are encapsulated into one container instance using Azure CLI.
+In the previous steps, each container received a container instance, however, it is possible to create a multi-container instance where all services are encapsulated into one container instance using Azure CLI.
 
 1. Create the following `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\docker-compose-contoso.yml` file, be sure to replace the `SUFFIX`:
 

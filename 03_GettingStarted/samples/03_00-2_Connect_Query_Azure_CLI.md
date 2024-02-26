@@ -98,7 +98,7 @@ In this section, we will continue in the PSQL interactive shell to update and de
     UPDATE products SET quantity = 200 WHERE name = 'banana';
     ```
 
-    ![The PSQL prompt shows the products update query update was successful.](media/cli_psql_products_update.png "PSQL update product query result")
+    ![The PSQL prompt shows the products update query update is successful.](media/cli_psql_products_update.png "PSQL update product query result")
 
 2. Run the `SELECT` statement again to verify the `banana` product quantity is updated.
 

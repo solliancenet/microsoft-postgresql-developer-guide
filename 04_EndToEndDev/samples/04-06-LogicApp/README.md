@@ -75,14 +75,14 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 
 Several private DNS Zones were created as part of the ARM template deployment, here it will be necessary to link those to the virtual networks so DNS resolution of private vnet and private endpoint resources become resolvable by other resources (such as virtual machines).
 
-- Browse to the **private.postgres.database.azure.com** private dns zone
+- Browse to the **private.postgres.database.azure.com** private DNS zone
 - Under **Settings**, select **Virtual network links**, notice an auto-created link (from the resource creation above)
 - Select the **Overview** link
 - Record the database IP Address (it should be something like `10.4.0.4`)
 - Select **Record set**
 - For the name, type **pgsqldevSUFFIXflexpriv**
 - For the TTL, select **30**  and for units select **seconds**
-- For the ip address, type the IP that was added for the random `A` record
+- For the IP address, type the IP for the random `A` record
 - It can take some time for the DNS to become available, on the **paw-1** virtual machine. If you want to speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
   - Add the following to the file:
 

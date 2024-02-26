@@ -98,12 +98,9 @@ The following table summarizes the deployment choices available for the solution
 [Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to your Azure subscription. | Best suited for quick deployment. All you need is an Azure subscription and a browser. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
 [Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) but you do not have a local development environment available. The Azure VM deployment type requires additional setup steps. If you are involved in managing the infrastructure that enables Azure VM deployments for your team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
 
-
-
-
 ## Deployment validation
 
-Use the steps below to validate that the solution was deployed successfully.
+Use the steps below to validate that the solution deployed successfully.
 
 Once the deployment script completes, the Application Insights `traces` query should display the following sequence of events:
 
@@ -125,7 +122,7 @@ Finally, you should be able to see the Cognitive Search index being populated wi
 
 Use the steps below to monitor the solution with Application Insights:
 
-1. Navigate to the `Application Insights` resource that was created as part of the deployment.
+1. Navigate to the `Application Insights` resource created as part of the deployment.
 
 2. Select the `Logs` section and create a new query with the following statement. Change the "Time range" setting on top tool bar to reflect the required time range. Click the `Run` button to execute the query:
 

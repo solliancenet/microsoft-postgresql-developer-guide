@@ -172,7 +172,7 @@ write-host "AppId: $appId"
   - Under **Features**, select **Pools**
   - Select the **main** pool
   - Under **Settings**, select **Certificates**
-  - For the thumbprint, select the certificate thumbprint that was just created
+  - For the thumbprint, select the certificate thumbprint that you just created
   - For the store location, select **LocalMachine**
   - Select **Save**
   - Under **General**, select **Nodes**

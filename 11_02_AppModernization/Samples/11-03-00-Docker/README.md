@@ -293,7 +293,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
     docker compose up
     ```
 
-10. Switch back to the pgadmin window. Attemp to re-run the `select count(*) from orders` query, notice that the database has the same orders as when it was started before. This is because the container's data was lost when it was stopped/removed.
+10. Switch back to the `pgadmin` window. Attempt to re-run the `select count(*) from orders` query, notice that the database has the same orders as when it first started. This is because the container's data is lost when it is stopped/removed.
 
 ## Fix Storage persistence
 

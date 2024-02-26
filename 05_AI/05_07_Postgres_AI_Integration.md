@@ -226,7 +226,7 @@ Some examples of services include:
 - **Chat**: used to create a conversational experience
 - **Text embedding generation**: used to encode natural language into embeddings
 
-Each type of service can support multiple models from different sources at the same time, making it possible to switch between different models, depending on the task and the preference of the user. If no specific service or model is specified, the kernel will default to the first service and model that was defined.
+Each type of service can support multiple models from different sources at the same time, making it possible to switch between different models, depending on the task and the preference of the user. If no specific service or model is specified, the kernel will default to the first service and model defined.
 
 Semantic Functions are used as the method to interact with a LLM through Semantic Kernel. A semantic function expects a natural language input and uses an LLM to interpret what is being asked, then act accordingly to return a response. In Semantic Kernel, a semantic function is composed of two components:
 

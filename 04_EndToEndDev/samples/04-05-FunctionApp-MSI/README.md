@@ -1,6 +1,6 @@
-# Hands-on Lab: Securing Azure Function Apps
+# Hands-on Lab: Securing Azure Function Apps With Managed Identity
 
-In the previous Function App samples, the connection information was embedded into the function app code. As was covered in the traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault. Here we will utilize the features of Azure to use Managed Identities to connect to the database.
+In the previous Function App samples, the connection information is embedded into the function app code. As covered in the application modernization traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault. Here we will utilize the features of Azure to use Managed Identities to connect to the database.
 
 ## Setup
 

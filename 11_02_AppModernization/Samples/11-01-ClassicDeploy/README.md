@@ -1,6 +1,6 @@
 # AppMod 01 : Classic Deployment to PHP enabled IIS server
 
-This is a simple app that runs PHP code to connect to a PostgreSQL database. These tasks will be performed on the **paw-1** virtual machine that was deployed via the ARM template.
+This is a simple app that runs PHP code to connect to a PostgreSQL database. These tasks will be performed on the **paw-1** virtual machine deployed via the ARM template.
 
 ## Database Deployment
 
@@ -23,13 +23,13 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
     php artisan key:generate
     ```
 
-3. Several tables should get created and will be populated with sample data:
+3. Several tables will be created and populated with sample data:
 
     ![This screen shot shows the results of the above commands.](./media/php_setup.png "Powershell window with results displayed")
 
 ## Test the PHP Setup
 
-1. In the **paw-1** virtual machine, open a chrome browser window
+1. In the **paw-1** virtual machine, open a Chrome browser window
 2. Navigate to `http://localhost:8080/info.php`, the PHP version and configuration should be displayed.
 
     ![This image demonstrates the PHP configuration page.](./media/php_info.png "PHP configuration page")
@@ -40,14 +40,14 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ## Test the Store Application
 
-1. Open a chrome browser window
-2. Navigate to `http://localhost:8080`, the store front will load with a random user.
+1. Open a Chrome browser window
+2. Navigate to `http://localhost:8080`, the storefront will load with a random user.
 
     ![This image demonstrates the loading screen for the Contoso NoshNow app.](./media/noshnow-app-load.png "Loading screen with random user")
 
 ## Manual Deployment
 
-The above resources were deployed as part of the ARM template and supporting scripts. In order to setup a developer machine manually, do the following:
+The above resources were deployed as part of the ARM template and supporting scripts. To setup a developer machine manually, do the following:
 
 ### Windows Setup
 

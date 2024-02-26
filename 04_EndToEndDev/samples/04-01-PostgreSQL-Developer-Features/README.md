@@ -575,13 +575,13 @@ With this change, many queries you were performing using these joins will now ru
 
     ![Alt text](media/02_parallel_hash_full_join_14.png)
 
-Full JOINs are commonly used to find the differences between 2 tables. Prior to Postgres 16, parallelism was not implemented for full hash JOINs, which made them slower to execute. [(link to commit)](https://github.com/postgres/postgres/commit/11c2d6fdf)
+Full JOINs are commonly used to find the differences between 2 tables. Prior to Postgres 16, parallelism did not exist for full hash JOINs, which made them slower to execute. [(link to commit)](https://github.com/postgres/postgres/commit/11c2d6fdf)
 
 ### Task 2: Allow aggregate functions string_agg() and array_agg() to be parallelized
 
 Aggregate functions typically perform some kind of mathematical operation on a column or set of columns. If you were to calculate several aggregates at once, you could probably imagine that doing each one in a serialized manner would likely take much longer than doing it in a parallel manner.
 
-Not all aggregate functions have supported this type of optimization, as such with the `string_agg()` and `array_agg()` functions. In PostgreSQL 16, this support was added and per the description on the code commit "adds combine, serial and deserial functions for the array_agg() and string_agg() aggregate functions, thus allowing these aggregates to partake in partial aggregations. This allows both parallel aggregation to take place when these aggregates are present and also allows additional partition-wise aggregation plan shapes to include plans that require additional aggregation once the partially aggregated results from the partitions have been combined."
+Not all aggregate functions have supported this type of optimization, as with the `string_agg()` and `array_agg()` functions. In PostgreSQL 16, this support has been added and per the description on the code commit "adds combine, serial and deserial functions for the array_agg() and string_agg() aggregate functions, thus allowing these aggregates to partake in partial aggregations. This allows both parallel aggregation to take place when these aggregates are present and also allows additional partition-wise aggregation plan shapes to include plans that require additional aggregation once the partially aggregated results from the partitions have been combined."
 
 The following is an example of a query that performs aggregates with the two functions included. If this were to run on a pre-16 version, the query would be much slower than in version 16.
 
@@ -641,7 +641,7 @@ For a more in-depth look at the code change for this feature, reference [here](h
 
 ### Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query
 
-Previously, attempting to get an execution plan for a parameterized query was complicated. For example, using a prepared statement will have several executions which may require you to execute all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
+Previously, attempting to get an execution plan for a parameterized query proved to be complicated. For example, using a prepared statement will have several executions which may require you to execute all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
 
 1. Run the following command to attempt to get an execution plan for a parameterized query using the pre-16 method:
 
@@ -661,7 +661,7 @@ Previously, attempting to get an execution plan for a parameterized query was co
 
     ![Alt text](media/02_04_query_02.png)
 
-    > Note the use of the parenthesis. The old way (shown above) was to not utilize parenthesis and is only for backwards compatibility. Newer options such as `GENERIC_PLAN` will only work with the new syntax.
+    > Note the use of the parenthesis. The old way (shown above) did not utilize parenthesis and is only for backwards compatibility. Newer options such as `GENERIC_PLAN` will only work with the new syntax.
 
 As you can see above, you can use parameter placeholders like `$1` instead of an unknown or variable value. However, there are certain restrictions:
 
