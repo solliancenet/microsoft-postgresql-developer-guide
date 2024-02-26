@@ -36,7 +36,7 @@ This is a trial-and-error process that requires user intuition and effort to get
 
 So why do we need prompt engineering? The answer lies in the fact that current LLMs pose a number of challenges that make reliable and consistent completions more challenging to achieve without putting effort into prompt construction and optimization. For instance:
 
-- Model responses are stochastic. The same prompt will likely produce different responses with different models or model versions. And it may even produce different results with the same model at different times. Prompt engineering techniques can help us minimize these variations by providing better guardrails.
+- Model responses are stochastic. The same prompt will produce different responses with different models or model versions. And it may even produce different results with the same model at different times. Prompt engineering techniques can help us minimize these variations by providing better guardrails.
 
 - Models can fabricate responses. Models are pre-trained with large but finite datasets, meaning they lack knowledge about concepts outside that training scope. As a result, they can produce completions that are inaccurate, imaginary, or directly contradictory to known facts. Prompt engineering techniques help users identify and mitigate such fabrications e.g., by asking AI for citations or reasoning.
 
@@ -83,7 +83,7 @@ We've seen why prompt engineering is important - now let us understand how promp
 
 ### Primary Content
 
-In the above examples, the prompt was fairly open-ended, allowing the LLM to decide what part of its pre-trained dataset was relevant. With the primary content design pattern, the input text is divided into two parts:
+In the above examples, the prompt was open-ended, allowing the LLM to decide what part of its pre-trained dataset was relevant. With the primary content design pattern, the input text is divided into two parts:
 
 - An instruction (action)
 - Relevant content (that influences action)
@@ -104,7 +104,7 @@ A prompt template is a pre-defined recipe for a prompt that can be stored and re
 
 In it's more complex form like [this example](https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/?WT.mc_id=academic-105485-koreyst) from LangChain it contains placeholders that can be replaced with data from a variety of sources (user input, system context, external data sources etc.) to generate a prompt dynamically. This allows us to create a library of reusable prompts that can be used to drive consistent user experiences programmatically at scale.
 
-Finally, the real value of templates lies in the ability to create and publish prompt libraries for vertical application domains - where the prompt template is now optimized to reflect application-specific context or examples that make the responses more relevant and accurate for the targeted user audience. The [Prompts For Edu](https://github.com/microsoft/prompts-for-edu?WT.mc_id=academic-105485-koreyst) repository is a great example of this approach, curating a library of prompts for the education domain with emphasis on key objectives like lesson planning, curriculum design, student tutoring etc.
+Finally, the real value of templates lies in the ability to create and publish prompt libraries for vertical application domains - where the prompt template is now optimized to reflect application-specific context or examples that make the responses more relevant and accurate for the targeted user audience. The [Prompts For Edu](https://github.com/microsoft/prompts-for-edu?WT.mc_id=academic-105485-koreyst) repository is a fantastic example of this approach, curating a library of prompts for the education domain with emphasis on key objectives like lesson planning, curriculum design, student tutoring etc.
 
 ### Prompting Techniques
 

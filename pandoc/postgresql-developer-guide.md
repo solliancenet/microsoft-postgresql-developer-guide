@@ -146,8 +146,8 @@ software---including operating systems, middleware, and applications.
 
 ### Containers
 
-While much more lightweight, containers are similar to VMs and can be
-started and stopped in a few seconds. Containers also offer tremendous
+While much more lightweight, containers are like VMs and can be started
+and stopped in a few seconds. Containers also offer tremendous
 portability, making them ideal for developing an application locally on
 a development machine and then hosting it in the cloud, in test, and
 later in production. Containers can even run on-premises or in other
@@ -1520,8 +1520,8 @@ steps in the [Quickstart: Connect and query with Azure CLI with Azure
 Database for PostgreSQL Flexible Server - Flexible Server] article.
 
 The Azure CLI supports running queries interactively, via the
-`az postgres flexible-server connect` command, which is similar to
-running queries interactively against a PostgreSQL instance through the
+`az postgres flexible-server connect` command, which is like running
+queries interactively against a PostgreSQL instance through the
 PostgreSQL CLI (also known as the PSQL Tool). Alternatively, It is also
 possible to run an individual SQL query or a SQL file using the
 `az postgres flexible-server execute` command.
@@ -1951,10 +1951,10 @@ into the console to remove it.
 
 #### .NET
 
-This would not be a comprehensive guide without some mention of .NET. You
-can utilize the popular framework called `Npgsql` from .NET applications
-to make calls to Azure Database for PostgreSQL Flexible Server
-instances.
+This would not be a comprehensive guide without some mention of .NET.
+You can utilize the popular framework called `Npgsql` from .NET
+applications to make calls to Azure Database for PostgreSQL Flexible
+Server instances.
 
 For an example, reference [Quickstart: Use .NET (C#) to connect and
 query data in Azure Database for PostgreSQL - Flexible Server].
@@ -2755,7 +2755,7 @@ minutes for the queries to start to be recorded.
 
 10. Run each of the following commands to see the imported data after
     its transformation. Note that we did not fully expand the JSON into
-    all possible columns so as to show the new JSON syntax later:
+    all columns so as to show the new JSON syntax later:
 
     ``` sql
     select * from listings limit 10;
@@ -2839,8 +2839,7 @@ new SQL standard JSON functions.
     ![Alt text][66]
 
 5.  When combining the above, you can create intricate `CASE` statements
-    based on the target type (in the event that it could be multiple
-    types):
+    based on the target type (if it could be multiple types):
 
     ``` sql
     SELECT
@@ -3029,10 +3028,9 @@ Types.]
 
 The `ANY_VALUE()` function is a PostgreSQL aggregate function that helps
 optimize queries when utilizing GROUP BY clauses. The function will
-return an arbitrary non-null value in a given set of values. It
-effectively informs PostgreSQL that any value from the group is
-acceptable, resolving the ambiguity and allowing the query to execute
-successfully.
+return an arbitrary non-null value tot of values. It effectively informs
+PostgreSQL that any value from the group is acceptable, resolving the
+ambiguity and allowing the query to execute successfully.
 
 Prior to PostgreSQL 16, when using GROUP BY, all non-aggregated columns
 from the SELECT statement were included in the GROUP BY clause as well.
@@ -3134,7 +3132,7 @@ was converted to the `DEFAULT` value from the column definition.
 
 In general, the more things you can do in parallel the faster you will
 get results. As is the case when performing `FULL` and internal
-`RIGHT OUTER` joins. Previous to PostgreSQL these would not have been
+`RIGHT OUTER` joins. Before PostgreSQL 16 these would not have been
 executed in parallel and the costs were more to perform than the
 parallelization setup.
 
@@ -3294,8 +3292,8 @@ For a more in-depth look at the code change for this feature, reference
 ### Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query
 
 Previously, attempting to get an execution plan for a parameterized
-query was fairly complicated. For example, using a prepared statement
-will have several executions which may required you to execute all the
+query was complicated. For example, using a prepared statement will have
+several executions which may required you to execute all the
 sub-executions separately and then put the results together. Using the
 new PG16 feature will eliminate those extra steps when attempting to
 find performance issues with parameterized queries.
@@ -3678,7 +3676,7 @@ Developer Guide Setup documentation:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install [Visual Studio 2022 Community Edition]
@@ -3784,8 +3782,8 @@ steps.
 
 -   When prompted, select **Allow**
 
--   Open a browser window to the function endpoint, it will be similar
-    to the following:
+-   Open a browser window to the function endpoint, it will be like the
+    following:
 
 ``` text
 http://localhost:7071/api/ShowDatabasesFunction
@@ -3901,7 +3899,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
@@ -4178,7 +4176,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
@@ -4281,7 +4279,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
@@ -4539,7 +4537,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   [Chocolaty Installer]
@@ -5066,7 +5064,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install [Power BI Desktop]
@@ -5707,7 +5705,7 @@ technology company known for its pioneering work in the field of
 artificial intelligence and machine learning. Their mission is to ensure
 that artificial general intelligence (AGI), which refers to highly
 autonomous AI systems that can outperform humans in most economically
-valuable work, benefits all of humanity. OpenAI brought to market
+valuable work, benefits all humanity. OpenAI brought to market
 state-of-the-art generative models such as GPT-3, GPT-3.5 and GPT-4
 (Generative Pretrained Transformer).
 
@@ -5990,10 +5988,10 @@ points or features. Some key vector attributes and operations include:
 -   Dimension: The dimension of a vector is the number of elements that
     it contains. In the example above, vector1 and vector2 are both
     two-dimensional since they each have two elements. You can only
-    visualize vectors with three dimensions or less, but generally,
-    vectors can have any number of dimensions. In fact, as you'll see
-    later, vectors that encode words and text tend to have hundreds or
-    thousands of dimensions.
+    visualize vectors with three dimensions or less, but, vectors can
+    have any number of dimensions. In fact, as you'll see later, vectors
+    that encode words and text tend to have hundreds or thousands of
+    dimensions.
 
 -   Magnitude: The magnitude of a vector is a non-negative number that
     represents the vector's size or length. You can also refer to the
@@ -6015,7 +6013,7 @@ points or features. Some key vector attributes and operations include:
     product is to do an element-wise multiplication of u and v and sum
     the results. The dot product is one of the most important and widely
     used vector operations because it measures the similarity between
-    two vectors. You'll see more of this later on.
+    two vectors. You'll see more of this later.
 
 -   Orthogonal vectors: Vectors are orthogonal if their dot product is
     zero, meaning that they're at a 90 degree angle to each other. You
@@ -6023,14 +6021,14 @@ points or features. Some key vector attributes and operations include:
     each other.
 
 -   Dense vector: A vector is considered dense if most of its elements
-    are non-zero. Later on, you'll see that words and text are most
+    are non-zero. Later, you'll see that words and text are most
     usefully represented with dense vectors because each dimension
     encodes meaningful information.
 
 ### Vector Similarity
 
 Euclidean distance -- The straight-line distance between points. L1
-(Manhattan) distance -- The sum of the differences of all of the vector
+(Manhattan) distance -- The sum of the differences of all the vector
 components. L1 distance measures how many orthogonal city blocks you
 need to traverse from point A to point B. L-infinity (chessboard)
 distance -- The number of moves a King would make on an n-dimensional
@@ -6052,7 +6050,7 @@ OpenAI Embedding API. Then calculate the cosine similarity between the
 query vector and each vector in the Embedding Index. Remember, the
 Embedding Index has a vector for each YouTube transcript text segment.
 Finally, sort the results by cosine similarity and the text segments
-with the highest cosine similarity are the most similar to the query.
+with the highest cosine similarity are the most like the query.
 
 From a mathematic perspective, cosine similarity measures the cosine of
 the angle between two vectors projected in a multidimensional space.
@@ -6065,7 +6063,7 @@ information about cosine similarity equations, see [Cosine similarity].
 
 Once you have generated embeddings, you will want to store them
 somewhere. This could be in memory locally, or in memory remotely. It
-could also be persisted to disk storage. We will explore various types
+could also be persisted to disk storage. We will explore several types
 of storage mechanisms (such as PostgreSQL) in a later section.
 
 ## Improving Results
@@ -6126,7 +6124,7 @@ Azure OpenAI supports several models, however due to the ever changing
 landscape, these models are subject to change. To see the latest models
 available, reference [Azure OpenAI Service models]. \## Responsible AI
 
-It is easy to be fascinated with AI and generative AI in particular, but
+It is easy to be fascinated with AI and Generative AI in particular, but
 you need to consider how you would use it responsibly. You need to
 consider things like how to ensure the output is fair, non-harmful and
 more. This chapter aims to provide you with mentioned context, what to
@@ -6347,7 +6345,7 @@ current LLMs pose a number of challenges that make reliable and
 consistent completions more challenging to achieve without putting
 effort into prompt construction and optimization. For instance:
 
--   Model responses are stochastic. The same prompt will likely produce
+-   Model responses are stochastic. The same prompt will produce
     different responses with different models or model versions. And it
     may even produce different results with the same model at different
     times. Prompt engineering techniques can help us minimize these
@@ -6443,9 +6441,9 @@ more effective prompt design.
 
 ### Primary Content
 
-In the above examples, the prompt was fairly open-ended, allowing the
-LLM to decide what part of its pre-trained dataset was relevant. With
-the primary content design pattern, the input text is divided into two
+In the above examples, the prompt was open-ended, allowing the LLM to
+decide what part of its pre-trained dataset was relevant. With the
+primary content design pattern, the input text is divided into two
 parts:
 
 -   An instruction (action)
@@ -6596,8 +6594,8 @@ You can repeat this process as many times as you want.
 
 ### Maieutic prompting
 
-Maieutic prompting is a technique that is similar to self-refine but it
-is more about asking the LLM to explain itself. The goal is to reduce
+Maieutic prompting is a technique that is like self-refine but it is
+more about asking the LLM to explain itself. The goal is to reduce
 inconsistencies in the LLM's output so to ensure it arrives at the
 correct answer. The workflow to follow is:
 
@@ -6811,7 +6809,7 @@ considerations pertinent to ensuring responsible AI deployment.
 There is more to LLMs than text generation. It is also possible to
 generate images from text descriptions. Having images as a modality can
 be highly useful in a number of areas from MedTech, architecture,
-tourism, game development and more. In this chapter, we will look into
+tourism, game development and more. In this chapter, we will investigate
 the two most popular image generation models, DALL-E and Midjourney.
 DALL-E and Midjourney allow you to use prompts to generate images.
 
@@ -6919,17 +6917,17 @@ You can use Copilot driven functionalities as a feature in your app
 screens to enable users to uncover insights through conversational
 interactions.
 
-Copilots are available in all of the Power Platform products: Power
-Apps, Power Automate, Power BI, Power Pages and Power Virtual Agents. AI
+Copilots are available in all the Power Platform products: Power Apps,
+Power Automate, Power BI, Power Pages and Power Virtual Agents. AI
 Builder is available in Power Apps and Power Automate.
 
 ## External Applications with function calling
 
 Before function calling, responses from an LLM were unstructured and
 inconsistent. Developers were required to write complex validation code
-to make sure they are able to handle each variation of a response. Users
-could not get answers like "What is the current weather in Stockholm?".
-This is because models were limited to the time the data was trained on.
+to make sure they can handle each variation of a response. Users could
+not get answers like "What is the current weather in Stockholm?". This
+is because models were limited to the time the data was trained on.
 
 Function Calling is a feature of the Azure Open AI Service to overcome
 to the following limitations:
@@ -6956,7 +6954,7 @@ app like:
     function named get_completed(student_name: string, assignment: int,
     current_status: string)
 -   Creating Structured Data. Users can take a block of text or CSV and
-    use the LLM to extract important information from it. For example, a
+    use the LLM to extract valuable information from it. For example, a
     student can convert a Wikipedia article about peace agreements to
     create AI flash cards. This can be done by using a function called
     get_important_facts(agreement_name: string, date_signed: string,
@@ -7113,15 +7111,14 @@ Some key characteristics of vector databases:
     for vector operations and similarity search. These query languages
     allow users to express their search criteria efficiently.
 -   **Similarity Search**: They excel at similarity searches, allowing
-    users to find data points that are similar to a given query point.
-    This characteristic is valuable in search and recommendation
-    systems.
+    users to find data points that are like a given query point. This
+    characteristic is valuable in search and recommendation systems.
 -   **Geospatial Data Handling**: Some vector databases are designed for
     geospatial data, making them well-suited for applications like
     location-based services, GIS (Geographic Information Systems), and
     map-related tasks.
 -   **Support for Diverse Data Types**: Vector databases can store and
-    manage various types of data, including vectors, images, text and
+    manage several types of data, including vectors, images, text and
     more.
 
 PostgreSQL instances can gain the capabilities of a vector database with
@@ -7393,11 +7390,11 @@ memory_store = PostgresMemoryStore(connection_string=connection_string, default_
 await memory_store.create_collection_async(collection_name='aboutMe')
 ```
 
-And when using the SQLToolkit in LangChain, it looks similar to the
-following. This code will attempt to use the data in the `SQLDatabase`
-object acheive the prompt goals. This includes analyzie the table
-structure and then reasoning over it to find the data needed to provide
-the appropriate context to later steps:
+And when using the SQLToolkit in LangChain, it looks like the following.
+This code will attempt to use the data in the `SQLDatabase` object
+acheive the prompt goals. This includes analyzie the table structure and
+then reasoning over it to find the data needed to provide the
+appropriate context to later steps:
 
 ``` python
 db = SQLDatabase.from_uri(connection_string)
@@ -7491,9 +7488,9 @@ the chat history, things will quickly break down. One way to avoid this
 is to store our memory as separate chunks and only load information that
 we think may be relevant into the current prompt.
 
-When it comes to **PostresSQL** and Semantic Kernel, similar to
-LangChain, you can use PostgreSQL as a vector store or a memory store
-(chat/context history):
+When it comes to **PostresSQL** and Semantic Kernel, like LangChain, you
+can use PostgreSQL as a vector store or a memory store (chat/context
+history):
 
 ``` python
 kernel = sk.Kernel()
@@ -7616,7 +7613,7 @@ Developer Guide Setup documentation:
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual
+All this is done already in the lab setup scripts for the Lab virtual
 machine, but is provided here for reference.
 
 -   Install pgAdmin
@@ -8099,7 +8096,7 @@ The `listings` table is now ready to store embeddings. Using the
     is to prevent the calls from exceeding the call rate limit of the
     Azure OpenAI service. The `throw_on_error` parameter is false,
     allowing the query to proceed if the rate limit is exceeded. If you
-    exceed the limit, you will see a warning similar to the following:
+    exceed the limit, you will see a warning like the following:
 
     ``` sql
     WARNING:  azure_ai::azure_ai: 429: Requests to the Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms. Operation under Azure OpenAI API version 2023-05-15 have exceeded call rate limit of your current OpenAI S0 pricing tier. Please retry after 1 second. Please go here: https://aka.ms/oai/quotaincrease if you would like to further increase the default rate limit.
@@ -8307,7 +8304,7 @@ function to evaluate reviews of Airbnb listings.
     \d+ azure_cognitive.sentiment_analysis_result
     ```
 
-    The output of that command should look similar to the following:
+    The output of that command should look like the following:
 
     ``` sql
                      Composite type "azure_cognitive.sentiment_analysis_result"
@@ -10118,7 +10115,7 @@ industry both in terms of breadth (total number of offerings), as well
 as depth (number of customer-facing services in assessment scope). Azure
 compliance offerings are grouped into four segments: globally
 applicable, US government, industry specific, and region/country
-specific. Compliance offerings are based on various types of assurances,
+specific. Compliance offerings are based on several types of assurances,
 including formal certifications, attestations, validations,
 authorizations, and assessments produced by independent third-party
 auditing firms, as well as contractual amendments, self-assessments and
@@ -10170,7 +10167,7 @@ tests regularly and highly suggests automating them to minimize any
 errors in the process or setup. Tests can be run in the application
 build or deployment process.
 
-This chapter discusses the various types of tests you can run against
+This chapter discusses the several types of tests you can run against
 Azure Database for PostgreSQL Flexible Server application and database.
 Running tests ensures the optimal performance of your application and
 database deployments.

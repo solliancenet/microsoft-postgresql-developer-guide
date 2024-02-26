@@ -2,7 +2,7 @@
 
 Testing is a crucial part of the application development lifecycle. Architects, developers, and administrators should continually assess and evaluate their applications for *availability* (minimal downtime) and *resiliency* (recovery from failure). Microsoft recommends performing tests regularly and highly suggests automating them to minimize any errors in the process or setup.  Tests can be run in the application build or deployment process. 
 
-This chapter discusses the various types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database.  Running tests ensures the optimal performance of your application and database deployments.
+This chapter discusses the several types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database.  Running tests ensures the optimal performance of your application and database deployments.
 
 ## Approaches
 

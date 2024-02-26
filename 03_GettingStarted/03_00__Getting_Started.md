@@ -28,7 +28,7 @@ Developers have various code editor tools to choose from to complete their IT pr
 
 ### Visual Studio Code
 
-A very popular tool is Visual Studio Code (VS Code). VS Code is an open-source, cross-platform text editor. It offers useful utilities for various languages through extensions. Download VS Code from the [Microsoft download page.](https://code.visualstudio.com/download)
+Visual Studio Code (VS Code) is an open-source, cross-platform text editor. It offers useful utilities for various languages through extensions. Download VS Code from the [Microsoft download page.](https://code.visualstudio.com/download)
 
 ![A simple screenshot of Visual Studio Code.](media/VSCode_screenshot.png "Visual Studio Code")
 

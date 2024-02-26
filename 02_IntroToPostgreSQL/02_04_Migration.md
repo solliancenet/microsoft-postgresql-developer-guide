@@ -20,4 +20,4 @@ You can choose between two migration paths:
 
 - **Offline Migration** – In an offline migration, all applications connecting to your source instance are stopped and the database(s) is copied to flexible server.
 
-- **Online Migration** - In an online migration, applications connecting to your source instance are not stopped while database(s) are copied to the target server. The initial copy of the databases is followed by replication to keep the target server in sync with the source server. A cutover is performed when the target server is in complete sync with the source server resulting in minimal downtime.
+- **Online Migration** - In an online migration, applications connecting to your source instance are not stopped while database(s) are copied to the target server. The initial copy of the databases is followed by replication to keep the target server synchronized with the source server. A cutover is performed when the target server is in complete sync with the source server resulting in minimal downtime.

@@ -29,7 +29,7 @@ For example, when using LangChain with dataframe agents and the SQL Toolkits wit
 In a text generation app, you can use natural language to interact with the app. Benefits of using a text generation model with an app is that you can now interact with a model that has been trained on a vast corpus of information, whereas a traditional app might be limited on what's in a database.  So what can a developer build with a text generation app?
 
 - **A chatbot**. A chatbot answering questions about topics, like your company and its products could be a good match.
-- **Helper**. LLMs are great at things like summarizing text, getting insights from text, producing text like resumes and more.
+- **Helper**. LLMs are fantastic at things like summarizing text, getting insights from text, producing text like resumes and more.
 - **Code assistant**. Depending on the language model you use, you can build a code assistant that helps you write code. For example, you can use a product like GitHub Copilot as well as ChatGPT to help you write code.
 
 Chat applications have become integrated into our daily lives, offering more than just a means of casual conversation. They're integral parts of customer service, technical support, and even sophisticated advisory systems. It is likely that you have gotten some help from a chat application not too long ago. As we integrate more advanced technologies like generative AI into these platforms, the complexity increases and so does the challenges.
@@ -38,9 +38,9 @@ As we move further into an age defined by automation and seamless human-machine 
 
 ## Image Generation
 
-There is more to LLMs than text generation. It is also possible to generate images from text descriptions. Having images as a modality can be highly useful in a number of areas from MedTech, architecture, tourism, game development and more. In this chapter, we will look into the two most popular image generation models, DALL-E and Midjourney. DALL-E and Midjourney allow you to use prompts to generate images.
+There is more to LLMs than text generation. It is also possible to generate images from text descriptions. Having images as a modality can be highly useful in a number of areas from MedTech, architecture, tourism, game development and more. In this chapter, we will investigate the two most popular image generation models, DALL-E and Midjourney. DALL-E and Midjourney allow you to use prompts to generate images.
 
-Image generation applications are a great way to explore the capabilities of Generative AI. They can be used for, for example:
+Image generation applications are a fantastic way to explore the capabilities of Generative AI. They can be used for, for example:
 
 - Image editing and synthesis. You can generate images for a variety of use cases, such as image editing and image synthesis.
 - Applied to a variety of industries. They can also be used to generate images for a variety of industries like Medtech, Tourism, Game development and more.
@@ -95,7 +95,7 @@ Copilots are available in all the Power Platform products: Power Apps, Power Aut
 
 ## External Applications with function calling
 
-Before function calling, responses from an LLM were unstructured and inconsistent. Developers were required to write complex validation code to make sure they are able to handle each variation of a response. Users could not get answers like "What is the current weather in Stockholm?". This is because models were limited to the time the data was trained on.
+Before function calling, responses from an LLM were unstructured and inconsistent. Developers were required to write complex validation code to make sure they can handle each variation of a response. Users could not get answers like "What is the current weather in Stockholm?". This is because models were limited to the time the data was trained on.
 
 Function Calling is a feature of the Azure Open AI Service to overcome to the following limitations:
 
@@ -104,9 +104,9 @@ Function Calling is a feature of the Azure Open AI Service to overcome to the fo
 
 There are many different use cases where function calls can improve your app like:
 
-- Calling External Tools. Chatbots are great at providing answers to questions from users. By using function calling, the chatbots can use messages from users to complete certain tasks. For example, a student can ask the chatbot to "Send email to my instructor saying I need more assistance with this subject". This can make a function call to send_email(to: string, body: string)
+- Calling External Tools. Chatbots are fantastic at providing answers to questions from users. By using function calling, the chatbots can use messages from users to complete certain tasks. For example, a student can ask the chatbot to "Send email to my instructor saying I need more assistance with this subject". This can make a function call to send_email(to: string, body: string)
 - Create API or Database Queries. Users can find information using natural language that gets converted into a formatted query or API request. An example of this could be a teacher who requests "Who are the students that completed the last assignment" which could call a function named get_completed(student_name: string, assignment: int, current_status: string)
-- Creating Structured Data. Users can take a block of text or CSV and use the LLM to extract important information from it. For example, a student can convert a Wikipedia article about peace agreements to create AI flash cards. This can be done by using a function called get_important_facts(agreement_name: string, date_signed: string, parties_involved: list)
+- Creating Structured Data. Users can take a block of text or CSV and use the LLM to extract valuable information from it. For example, a student can convert a Wikipedia article about peace agreements to create AI flash cards. This can be done by using a function called get_important_facts(agreement_name: string, date_signed: string, parties_involved: list)
 
 ## User Experience (UX)
 
@@ -143,7 +143,7 @@ To maintain the high-quality performance an application, it is essential to keep
 
 ## Libraries and SDKs
 
-When building an AI integreated application, a great first step is to assess what is already out there. Using SDKs and APIs to build chat applications is an advantageous strategy for a variety of reasons. By integrating well-documented SDKs and APIs, you are strategically positioning your application for long-term success, addressing scalability and maintenance concerns.
+When building an AI integreated application, a fantastic first step is to assess what is already out there. Using SDKs and APIs to build chat applications is an advantageous strategy for a variety of reasons. By integrating well-documented SDKs and APIs, you are strategically positioning your application for long-term success, addressing scalability and maintenance concerns.
 
 - Expedites the development process and reduces overhead: Relying on pre-built functionalities instead of the expensive process of building them yourself allows you to focus on other aspects of your application that you may find more important, such as business logic.
 - Better performance: When building functionality from scratch, you'll eventually ask yourself "How does it scale? Is this application capable of handling a sudden influx of users?" Well maintained SDK and APIs often have built in solutions for these concerns.

@@ -641,7 +641,7 @@ For a more in-depth look at the code change for this feature, reference [here](h
 
 ### Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query
 
-Previously, attempting to get an execution plan for a parameterized query was fairly complicated.  For example, using a prepared statement will have several executions which may required you to execute all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
+Previously, attempting to get an execution plan for a parameterized query was  complicated.  For example, using a prepared statement will have several executions which may required you to execute all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
 
 1. Run the following command to attempt to get an execution plan for a parameterized query using the pre-16 method:
 
@@ -674,7 +674,7 @@ As you can see above, you can use parameter placeholders like `$1` instead of an
 
 Per the [postgresql documentation](https://www.postgresql.org/docs/devel/monitoring-stats.html#MONITORING-PG-STAT-IO-VIEW) : "The pg_stat_io view will contain one row for each combination of backend type, target I/O object, and I/O context, showing cluster-wide I/O statistics. Combinations which do not make sense are omitted.
 
-Currently, I/O on relations (e.g. tables, indexes) is tracked. However, relation I/O which bypasses shared buffers (e.g. when moving a table from one tablespace to another) is currently not tracked."
+Currently, I/O on relations (e.g., tables, indexes) is tracked. However, relation I/O which bypasses shared buffers (e.g., when moving a table from one tablespace to another) is currently not tracked."
 
 1. Run the following command to clear the stats and see the information available, you should see all zeros:
 

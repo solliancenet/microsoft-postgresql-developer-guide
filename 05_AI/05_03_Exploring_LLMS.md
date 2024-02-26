@@ -20,7 +20,7 @@ Your choice of model comes down to three major areas:
 
 When it comes to data, a differnt model will be required based on if it is text, audio, video, image generation and so forth.
 
-    - **Audio** : Whisper-type models are a great choice as they are general-purpose and aimed at speech recognition. Audio models are trained on diverse audio and can perform multilingual speech recognition. Learn more about Whisper type models [here](https://platform.openai.com/docs/models/whisper?WT.mc_id=academic-105485-koreyst).
+    - **Audio** : Whisper-type models are a fantastic choice as they are general-purpose and aimed at speech recognition. Audio models are trained on diverse audio and can perform multilingual speech recognition. Learn more about Whisper type models [here](https://platform.openai.com/docs/models/whisper?WT.mc_id=academic-105485-koreyst).
 
     - **Images** : For image generation, DALL-E and Midjourney are two very well-known choices. DALL-E is offered by Azure OpenAI. Read more about DALL-E [here](https://platform.openai.com/docs/models/dall-e?WT.mc_id=academic-105485-koreyst).
 
@@ -196,7 +196,7 @@ From a mathematic perspective, cosine similarity measures the cosine of the angl
 
 ### Vector Storage
 
-Once you have generated embeddings, you will want to store them somewhere.  This could be in memory locally, or in memory remotely.  It could also be persisted to disk storage.  We will explore various types of storage mechanisms (such as PostgreSQL) in a later section.
+Once you have generated embeddings, you will want to store them somewhere.  This could be in memory locally, or in memory remotely.  It could also be persisted to disk storage.  We will explore several types of storage mechanisms (such as PostgreSQL) in a later section.
 
 ## Improving Results
 

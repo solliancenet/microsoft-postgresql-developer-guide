@@ -60,7 +60,7 @@ PostgreSQL audit log information is also available.
 
 ### Workbooks
 
-As mentioned previously, Workbooks is a simple canvas to visualize data from different sources, like Log Analytics workspace. It is possible to view performance and storage metrics all in a single pane.
+As mentioned previously, a Workbook is a simple canvas to visualize data from various sources, like Log Analytics workspace. It is possible to view performance and storage metrics all in a single pane.
 
 ![This image shows Azure Monitor Workbooks visualizations.](media/workbook-example.png "Visualizations in Azure Monitor Workbooks")
 
@@ -280,7 +280,7 @@ Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure
 
 ## Security
 
-Moving to cloud-based services does not mean the entire Internet will have access to it at all times. Azure provides best-in-class security that ensures data workloads are continually protected from bad actors and rogue programs. Additionally, Azure provides several certifications that ensure your resources are compliant with local and industry regulations, an important factor for many organizations today.
+Moving to cloud-based services does not mean the entire Internet will have access to it at all times. Azure provides best-in-class security that ensures data workloads are continually protected from bad actors and rogue programs. Additionally, Azure provides several certifications that ensure your resources are compliant with local and industry regulations, a crucial factor for many organizations today.
 
 Organizations must take proactive security measures to protect their workloads in today's geopolitical environment.  Azure simplifies many of these complex tasks and requirements through the various security and compliance resources provided out of the box.  This section will focus on many of these tools.
 
@@ -320,7 +320,7 @@ In addition to all the topics discussed above, the Azure Database for PostgreSQL
 
 ### Compliance
 
-To help customers achieve compliance with national/regional and industry specific regulations and requirements Azure Database for PostgreSQL - Flexible Server build upon Microsoft Azure’s compliance offerings to provide the most rigorous compliance certifications to customers at service general availability. To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific. Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments and customer guidance documents produced by Microsoft. More detailed information about Azure compliance offerings is available from the [Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+To help customers achieve compliance with national/regional and industry specific regulations and requirements Azure Database for PostgreSQL - Flexible Server build upon Microsoft Azure’s compliance offerings to provide the most rigorous compliance certifications to customers at service general availability. To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific. Compliance offerings are based on several types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments and customer guidance documents produced by Microsoft. More detailed information about Azure compliance offerings is available from the [Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
 For a list of compliance certifications, reference [Security and Compliance Certifications in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compliance).
 
@@ -348,7 +348,7 @@ This section discussed many tools Microsoft Azure provided to give an organizati
 
 Testing is a crucial part of the application development lifecycle. Architects, developers, and administrators should continually assess and evaluate their applications for *availability* (minimal downtime) and *resiliency* (recovery from failure). Microsoft recommends performing tests regularly and highly suggests automating them to minimize any errors in the process or setup.  Tests can be run in the application build or deployment process. 
 
-This chapter discusses the various types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database.  Running tests ensures the optimal performance of your application and database deployments.
+This chapter discusses the several types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database.  Running tests ensures the optimal performance of your application and database deployments.
 
 ### Functional testing
 
@@ -487,7 +487,7 @@ After developers benchmark their PostgreSQL Flexible Server workloads, they can 
 
 ### Summary + Checklist
 
-Caching is a very common way to increase the performance of applications. Through disk or memory-based cache, a developer and architect should always be on the lookout for deterministic areas that can be cached. Azure CDN provides caching via POP servers to users of global-scale web apps.
+Caching is a common way to increase the performance of applications. Through disk or memory-based cache, a developer and architect should always be on the lookout for deterministic areas that can be cached. Azure CDN provides caching via POP servers to users of global-scale web apps.
 
 Lastly, an important balance should be struck between performance of the cache and costs.
 

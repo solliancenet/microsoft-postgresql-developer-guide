@@ -12,7 +12,7 @@ Some key characteristics of vector databases:
 - **Query Languages**: They provide query languages and APIs tailored for vector operations and similarity search. These query languages allow users to express their search criteria efficiently.
 - **Similarity Search**: They excel at similarity searches, allowing users to find data points that are like a given query point. This characteristic is valuable in search and recommendation systems.
 - **Geospatial Data Handling**: Some vector databases are designed for geospatial data, making them well-suited for applications like location-based services, GIS (Geographic Information Systems), and map-related tasks.
-- **Support for Diverse Data Types**: Vector databases can store and manage various types of data, including vectors, images, text and more.
+- **Support for Diverse Data Types**: Vector databases can store and manage several types of data, including vectors, images, text and more.
 
 PostgreSQL instances can gain the capabilities of a vector database with the help of the `pgvector` extension.
 
