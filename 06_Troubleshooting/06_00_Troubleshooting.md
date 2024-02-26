@@ -12,7 +12,7 @@ Both server misconfiguration issues and network access issues can prevent client
 
 #### Outdataed Azure CLI
 
-Always ensure that you are running the latest Azure CLI.  If using older versions, you can run into issues such as:
+Always ensure that you are running the latest Azure CLI. If using older versions, you can run into issues such as:
 
 - `The parameter PrivateDnsZoneArguments is required, and must be provided by customer``, this means you may be running an older version of Azure CLI.
 
@@ -24,7 +24,7 @@ az upgrade
 
 #### Outdated SDK
 
-PostgreSQL has gone through many changes over the years.  In some cases parameters have been deprecated and/or removed.  You will need to ensure that your SDK supports the target PostgreSQL versoin.
+PostgreSQL has gone through many changes over the years. In some cases parameters have been deprecated and/or removed. You will need to ensure that your SDK supports the target PostgreSQL versoin.
 
 #### Misconfiguration
 
@@ -41,9 +41,9 @@ Flexible Server uses `en_US.utf8`. The Postgres documentation states that "The L
 
 #### SSL Connectivity
 
-Most on-premises applications that are migrated to cloud-based services will not have the supporting connection string information for SSL based connections.  In most cases, you will need to download the SSL certificate for the server(s) and include them as part of your application deployments.
+Most on-premises applications that are migrated to cloud-based services will not have the supporting connection string information for SSL based connections. In most cases, you will need to download the SSL certificate for the server(s) and include them as part of your application deployments.
 
-SSL certificate best practice is to expire these certifcates on a set period.  If you have migrated your applications to use SSL, ensure that the certificate is valid.  You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
+SSL certificate best practice is to expire these certifcates on a set period. If you have migrated your applications to use SSL, ensure that the certificate is valid. You should put an event in the operations calendar that will let administrators and developers know that the SSL certificate is going to expire.
 
 For more information, review [Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server](https://learn.microsoft.com/azure/postgresql/single-server/concepts-certificate-rotation).
 
@@ -59,7 +59,7 @@ When working with other Azure services such as Azure Synapse or Azure Data Facto
 
 - Use a fully qualified domain name instead of an IP address in connection strings.
 
-- Use [Azure Network Watcher](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) to debug traffic flows in virtual networks. 
+- Use [Azure Network Watcher](https://learn.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) to debug traffic flows in virtual networks.
   
   >![Note icon](media/note.png "Note") **Note:** It does not support PaaS services, but it is still a helpful tool for IaaS configurations
   
@@ -67,7 +67,7 @@ When working with other Azure services such as Azure Synapse or Azure Data Facto
 
 ### Resource issues
 
-If the application experiences transient connectivity issues, perhaps the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained. Monitor resource usage and determine whether the instance needs to be scaled up.  
+If the application experiences transient connectivity issues, perhaps the resources of the Azure Database for PostgreSQL Flexible Server instance are constrained. Monitor resource usage and determine whether the instance needs to be scaled up. 
 
 There are several troubleshooting tools available for Azure Database for PostgreSQL Flexible Server that focus on resource analysis. Some items that are coverd include:
 
@@ -80,7 +80,7 @@ There are several troubleshooting tools available for Azure Database for Postgre
 
 For the latest information, reference [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-troubleshooting-guides).
 
-Additionally, you can utilize the monitoring metrics to further investigate any resource related issues.  Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) for more information.
+Additionally, you can utilize the monitoring metrics to further investigate any resource related issues. Reference [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) for more information.
 
 ### Unsupported PostgreSQL features
 
@@ -108,7 +108,7 @@ For more information, reference [Handling transient connectivity errors for Azur
   
   - To provide resiliency against more severe failures, like Azure service outages, implement the [circuit breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker) to avoid wasting application resources on operations that are likely to fail
 
-- If your instance loses access to the Azure Key Vault with a customer managed key, you may get a `UserErrorMissingPermissionsOnSecretStore` error.  Ensure that the managed identity is added with permission to the key vault.
+- If your instance loses access to the Azure Key Vault with a customer managed key, you may get a `UserErrorMissingPermissionsOnSecretStore` error. Ensure that the managed identity is added with permission to the key vault.
 
 - **SQL Errors** : Ensure that you are running your SQL queries against a supported PostgreSQL version.
 
@@ -166,7 +166,7 @@ Following software development best practices makes your code simpler to develop
 
 ### Opening a support ticket
 
-If you need assistance with an Azure Database for PostgreSQL Flexible Server issue, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Microsoft.  Be sure to select the correct product and provide as much information as possible, so the proper resources is assigned to your ticket.
+If you need assistance with an Azure Database for PostgreSQL Flexible Server issue, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with Microsoft. Be sure to select the correct product and provide as much information as possible, so the proper resources is assigned to your ticket.
 
 ![This image shows how to open a detailed support ticket for Microsoft from the Azure portal.](media/open-a-support%20ticket.png "Opening a detailed support ticket for Microsoft")
 

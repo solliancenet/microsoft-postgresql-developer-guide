@@ -8,7 +8,7 @@ This section describes tools to interact with Azure Database for PostgreSQL Flex
 
 2. Use [pgAdmin](./03_00-1_Query_PostgreSQL_pgAdmin.md) or the [Azure CLI](./03_00-2_Connect_Query_Azure_CLI.md) to create the `inventory` database on the Flexible Server.
 
-3. Moreover, install and setup PHP from the [downloads page](https://windows.php.net/download/). These instructions were tested with PHP 8.0.30 (any PHP 8.0 version should work). Optionally use a tool such as [XAMPP](https://www.apachefriends.org/download.html) to greatly simplify the installation process.
+3. Moreover, install and setup PHP from the [downloads page](https://windows.php.net/download/). These instructions have been tested with PHP 8.0.30 (any PHP 8.0 version should work). Optionally use a tool such as [XAMPP](https://www.apachefriends.org/download.html) to greatly simplify the installation process.
 
 Prior to running the example code, the `php.ini` file needs to uncomment the `extension=pgsql` line by removing the leading semi-colon. This will include the PostgreSQL extension in the PHP runtime.
 

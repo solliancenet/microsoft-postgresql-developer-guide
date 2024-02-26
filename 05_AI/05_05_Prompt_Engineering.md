@@ -9,15 +9,15 @@ The input of a large language model is known as prompt, while the output is know
         - A chunk of code + the task of doing something with it such as explaining and documenting it.
         - A comment asking to generate a piece of code performing a specific task.
 
-Outputs of Generative AI models are not perfect and in some cases the creativity of the model can work against it.  When this happens, the resulting output can be a combination of words that the human user can interpret as a mystification of reality, or even offensive.
+Outputs of Generative AI models are not perfect and in some cases the creativity of the model can work against it. When this happens, the resulting output can be a combination of words that the human user can interpret as a mystification of reality, or even offensive.
 
-Generative AI is not intelligent per se.  When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit.  The idea is to provide enough context when you prompt to ensure you get the responses you require.
+Generative AI is not intelligent per se. When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit. The idea is to provide enough context when you prompt to ensure you get the responses you require.
 
 Check out the YouTube video [AI in a Minute: Prompt Engineering](https://youtu.be/vGdyePbGNaE) - What it means, how to apply it.
 
 ### What is a prompt
 
-Prompts have now become the primary programming interface for generative AI apps.  Prompts tell the models what to do and influencing the quality of returned responses. How you write your prompt to the LLM matters, a carefully crafted prompt can achieve a better result than one that isn't.
+Prompts have now become the primary programming interface for generative AI apps. Prompts tell the models what to do and influencing the quality of returned responses. How you write your prompt to the LLM matters, a carefully crafted prompt can achieve a better result than one that isn't.
 
 Users can now interact with models using familiar paradigms like chat, without needing any technical expertise or training. Most of these models are prompt-based. They send a text input (prompt) and get back the AI response (completion). They can then "chat with the AI" iteratively, in multi-turn conversations, refining their prompt till the response matches their expectations.
 
@@ -32,7 +32,7 @@ We can think of Prompt Engineering as a 2-step process:
 - Designing the initial prompt for a given model and objective
 - Refining the prompt iteratively to improve the quality of the response
 
-This is a trial-and-error process that requires user intuition and effort to get optimal results. 
+This is a trial-and-error process that requires user intuition and effort to get optimal results.
 
 So why do we need prompt engineering? The answer lies in the fact that current LLMs pose a number of challenges that make reliable and consistent completions more challenging to achieve without putting effort into prompt construction and optimization. For instance:
 
@@ -83,7 +83,7 @@ We've seen why prompt engineering is important - now let us understand how promp
 
 ### Primary Content
 
-In the above examples, the prompt was open-ended, allowing the LLM to decide what part of its pre-trained dataset was relevant. With the primary content design pattern, the input text is divided into two parts:
+In the above examples, the prompt is open-ended, allowing the LLM to decide what part of its pre-trained dataset is relevant. With the primary content design pattern, the input text is divided into two parts:
 
 - An instruction (action)
 - Relevant content (that influences action)

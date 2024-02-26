@@ -10,7 +10,7 @@ In 2010, Apple replaced MySQL with Postgres as an embedded database in OS X Lion
 
 ### Instacart
 
-Instacart uses PostgreSQL for a majority of their systems.  It is interesting to note that they do not use pgBouncer and opted to utilize another open-source tool called `PgCat`.  At the time of their decision it was based on "Pgbouncer does connection pooling very well but does not support replica failover and has limited support for load balancing.".  Reference [Adopting PgCat: A Nextgen Postgres Proxy](https://www.instacart.com/company/how-its-made/adopting-pgcat-a-nextgen-postgres-proxy/#:~:text=At%20Instacart%2C%20we%20use%20Postgresql,optimization%20and%20vertically%20scaling%20instances).
+Instacart uses PostgreSQL for a majority of their systems. It is interesting to note that they do not use pgBouncer and opted to utilize another open-source tool called `PgCat`. At the time of their decision it was based on "Pgbouncer does connection pooling very well but does not support replica failover and has limited support for load balancing.". Reference [Adopting PgCat: A Nextgen Postgres Proxy](https://www.instacart.com/company/how-its-made/adopting-pgcat-a-nextgen-postgres-proxy/#:~:text=At%20Instacart%2C%20we%20use%20Postgresql,optimization%20and%20vertically%20scaling%20instances).
 
 ### Instagram
 

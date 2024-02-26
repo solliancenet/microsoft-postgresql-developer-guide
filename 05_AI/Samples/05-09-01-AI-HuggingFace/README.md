@@ -1,4 +1,4 @@
-# Hands on lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server
+# Hands-on Lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server
 
 The integration of embeddings generated using Azure OpenAI and Azure Database for PostgreSQL Flexible Server with the pgvector open-source extension for PostgreSQL presents a powerful and efficient solution for optimizing the product catalog similarity search experience. By using ML models and vector embeddings, businesses can enhance the accuracy and speed of similarity searches, personalized recommendations, and fraud detection, which ultimately leads to improved user satisfaction and a more personalized experience.
 
@@ -10,7 +10,7 @@ PostgreSQL’s extensibility makes it possible for developers to build new data 
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
@@ -22,7 +22,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All of this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension

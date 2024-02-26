@@ -1,12 +1,12 @@
-# Hands on Lab: Azure Synapse Analytics with PostgreSQL
+# Hands-on Lab: Azure Synapse Analytics with PostgreSQL
 
-In this hands on lab you will utilize Azure Synapse Analytics to connect to your Azure Database for PostgreSQL Flexible Server and create Power BI reports from the data.
+In this hands-on lab you will utilize Azure Synapse Analytics to connect to your Azure Database for PostgreSQL Flexible Server and create Power BI reports from the data.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure Synpase Analytics
 - Azure Database for PostgreSQL Flexible Server
@@ -22,7 +22,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 

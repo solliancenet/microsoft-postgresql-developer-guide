@@ -104,14 +104,14 @@ Now that a containerized version of the applications exists, it can now be hoste
     }
     ```
 
-19.  Select **Save**
-20.  Browse to the **pgsqldevSUFFIX-app-web** app service url, the web site will load but it has database errors.
+19. Select **Save**
+20. Browse to the **pgsqldevSUFFIX-app-web** app service url, the web site will load but it has database errors.
 
 ## Troubleshooting
 
 1. If no results are displayed, review the logs for each container instance
    1. Browse to the app service
    2. Under **Monitoring**, select **Log stream**
-   3. Review the startup logs, notice that the database instance did not respond to an HTTP request on port 5432.  This is because an app service container will only work with HTTP based container images unless it is a multicontainer deployment.
+   3. Review the startup logs, notice that the database instance did not respond to an HTTP request on port 5432. This is because an app service container will only work with HTTP based container images unless it is a multicontainer deployment.
 2. Change the application settings for the web container to point to the Azure Database for PostgreSQL Flexible Server instance
 3. Refresh the web site, it should now load successfully.

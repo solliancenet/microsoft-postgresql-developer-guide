@@ -16,7 +16,7 @@ Some key characteristics of vector databases:
 
 PostgreSQL instances can gain the capabilities of a vector database with the help of the `pgvector` extension.
 
-When considering developing low cost proof of concepts (PoCs), PostgreSQL offers one of the lowest costs when it comes vector search.  Additionally, when using the free tiers of the services, Azure Database for PostgreSQL Flexible Server has more storage than Azure AI Search (32GB vs 50MB).
+When considering developing low cost proof of concepts (PoCs), PostgreSQL offers one of the lowest costs when it comes vector search. Additionally, when using the free tiers of the services, Azure Database for PostgreSQL Flexible Server has more storage than Azure AI Search (32GB vs 50MB).
 
 ### pgvector extension
 
@@ -87,7 +87,7 @@ If you co-locate your database instance in the same region as your Azure Open AI
 
 If you will be performing a lot of vector embedding operations, ensure you resources are located as close as possible to each other.
 
-Also be aware that you are subject to certain request limits for embedding endpoints in Azure Open AI.  If you send in too many queries, you will start to receive 429 errors.  Reference [Azure OpenAI Service quotas and limits](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits).
+Also be aware that you are subject to certain request limits for embedding endpoints in Azure Open AI. If you send in too many queries, you will start to receive 429 errors. Reference [Azure OpenAI Service quotas and limits](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits).
 
 ### Other vector databases
 
@@ -95,7 +95,7 @@ In production, the Embedding Index would be stored in a vector database such as 
 
 ### Hybrid Search
 
-In addition or searching on vectors, you can combine other content and metadata to further refine the results that are provided to the target models.  This can be helpful for creating category or metadata-based containers in your data.
+In addition or searching on vectors, you can combine other content and metadata to further refine the results that are provided to the target models. This can be helpful for creating category or metadata-based containers in your data.
 
 ### Integration with AI Frameworks
 
@@ -104,7 +104,7 @@ PostgreSQL is supported by several popular AI frameworks including:
 - [Langchain](https://www.langchain.com/)
 - [Semantic Kernal](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 
-Note that these two frameworks are incredibly new and continuing to evolve. You should be very causious of samples of code you find on the internet as the SDKs have changed and continue to change with every git commit.  Be sure you review what version the code sample actually targets, as it may not work with the latest versions.
+Note that these two frameworks are incredibly new and continuing to evolve. You should be very causious of samples of code you find on the internet as the SDKs have changed and continue to change with every git commit. Be sure you review what version the code sample actually targets, as it may not work with the latest versions.
 
 #### LangChain
 
@@ -112,9 +112,9 @@ LangChain is an open source framework for building AI applications using languag
 
 Language models excel at responding to user prompts in a general context, but do not perform well when used in a specific domain they were never trained on. Prompts are text strings that are used to help guide an LLM to the target response. For example, an LLM can provide a detailed answer in terms of how to approach the solution to a problem. However, it cannot provide any realtime information of the solution without added context.
 
-To support these types of scenerios, agents must integrate the organizations specific data sources and then apply prompt engineering tactis.  Prompt engineering refines inputs to a generative model with a specific structure and context.
+To support these types of scenerios, agents must integrate the organizations specific data sources and then apply prompt engineering tactis. Prompt engineering refines inputs to a generative model with a specific structure and context.
 
-LangChain's large set of open source code streamlines many of the intermediate steps when developing AI applications.  Using LangChain makes the process of prompt engineering much more efficient. Using its out of box capabilities, it is possible to effortlessly create applications such as chatbots, question-answering, content generation, summarizers, and more.
+LangChain's large set of open source code streamlines many of the intermediate steps when developing AI applications. Using LangChain makes the process of prompt engineering much more efficient. Using its out of box capabilities, it is possible to effortlessly create applications such as chatbots, question-answering, content generation, summarizers, and more.
 
 When using PostgreSQL with LangChain there three potential uses:
 
@@ -122,7 +122,7 @@ When using PostgreSQL with LangChain there three potential uses:
 - Memory Store
 - LangChain SqlToolkit
 
-For example, the following psudo code shows how to create a retreiver that can be used in LangChain chains.  Everything is taken care of for you other than populating the PostgreSQL vector collection:
+For example, the following psudo code shows how to create a retreiver that can be used in LangChain chains. Everything is taken care of for you other than populating the PostgreSQL vector collection:
 
 ```python
 connection_string = f'postgresql+psycopg2://{username}:{password}@{host}:{port}/{dbname}'
@@ -169,23 +169,23 @@ llm_chain = ConversationalRetrievalChain.from_llm(
 answer = llm_chain.invoke(question, return_only_outputs=True)['answer']
 ```
 
-In the above example, the `PGVector` module is being used.  It has serveral helpful features when working with PostgreSQL and vectors that you do not have to build from scratch.  For instance, you can use the module to automatically create the table structure for your vector collections. 
+In the above example, the `PGVector` module is being used. It has serveral helpful features when working with PostgreSQL and vectors that you do not have to build from scratch. For instance, you can use the module to automatically create the table structure for your vector collections.
 
 A typical table would contain the following:
 
 - uuid: unique ID of the vector
 - collection_id: collection ID referencing the collection table
 - embedding: a field of type vector that stores the embedding (1536 dimensions)
-- document: chunk of text that was vectorized
+- document: chunk of text that is vectorized
 - cmetadata: JSON field with a link to the source file
 - custom_id: an id that is unique for each run
 
-When using LangChain with PGVector, you will be up and running very quickly but you will also be limited to what has been implemented in the modules.  For example, as of this writing:
+When using LangChain with PGVector, you will be up and running very quickly but you will also be limited to what has been implemented in the modules. For example, as of this writing:
 
 - Without custom coding or reverting to SQL statements, you can only search one collection at a time
 - Performing searchs will be limited to `cosine similarity` and `exact nearest neighbor`.
 
-When it comes to using it as a memory store, you simply allow for the searching of the items that are necessary to add context to your final prompt.  In the following example, you are using Semantic Kernel in python to create a `PostgreMemoryStore`:
+When it comes to using it as a memory store, you simply allow for the searching of the items that are necessary to add context to your final prompt. In the following example, you are using Semantic Kernel in python to create a `PostgreMemoryStore`:
 
 ```python
 from semantic_kernel.connectors.memory.postgres import PostgresMemoryStore
@@ -197,7 +197,7 @@ memory_store = PostgresMemoryStore(connection_string=connection_string, default_
 await memory_store.create_collection_async(collection_name='aboutMe')
 ```
 
-And when using the SQLToolkit in LangChain, it looks like the following.  This code will attempt to use the data in the `SQLDatabase` object acheive the prompt goals.  This includes analyzie the table structure and then reasoning over it to find the data needed to provide the appropriate context to later steps:
+And when using the SQLToolkit in LangChain, it looks like the following. This code will attempt to use the data in the `SQLDatabase` object acheive the prompt goals. This includes analyzie the table structure and then reasoning over it to find the data needed to provide the appropriate context to later steps:
 
 ```python
 db = SQLDatabase.from_uri(connection_string)
@@ -216,9 +216,9 @@ agent_executor = create_sql_agent(
 
 Semantic Kernel is an SDK that integrates Large Language Models (LLMs) like OpenAI, Azure OpenAI, and Hugging Face with conventional programming languages like C#, Python, and Java. Semantic Kernel achieves this by allowing you to define plugins that can be chained together in just a few lines of code.
 
-A key concept in Semantic Kernel is the kernel itself. It is the main object used to orchestrate  LLM based workflows. A kernel by itself has very limited functionality; all of its features are largely powered by external components. The kernel acts as a processing engine that fulfils a request by invoking appropriate components to complete the given task.  This gives Semantic Kernel is its ability to automatically orchestrate plugins with AI. 
+A key concept in Semantic Kernel is the kernel itself. It is the main object used to orchestrate  LLM based workflows. A kernel by itself has very limited functionality; all of its features are largely powered by external components. The kernel acts as a processing engine that fulfils a request by invoking appropriate components to complete the given task. This gives Semantic Kernel is its ability to automatically orchestrate plugins with AI.
 
-To make the kernel useful, you will connect one or more AI models, which will enable the kernel to understand and generate natural language.  Semantic Kernel provides out-of-the-box connectors that make it easy to inject AI models from different sources, such as OpenAI, Azure OpenAI, and Hugging Face. These models are then used to provide services to the kernel during its execution.
+To make the kernel useful, you will connect one or more AI models, which will enable the kernel to understand and generate natural language. Semantic Kernel provides out-of-the-box connectors that make it easy to inject AI models from different sources, such as OpenAI, Azure OpenAI, and Hugging Face. These models are then used to provide services to the kernel during its execution.
 
 Some examples of services include:
 
@@ -247,7 +247,7 @@ generate_continent_text = kernel.create_semantic_function(
 )
 ```
 
-When interacting with chat bots, one of the key aspects that makes the experience feel more natural is the ability to retain the context of our previous chats. It all of our chat context history was stored in system RAM then once we shut down the system it would be gone forever. For more intelligent designs, it can be useful to be able to build and persist both short and long term memory for our models to access.  One must take care when feeding all of the previous interactions into a future prompt. Models tend to have a fixed size context window (8K, 16K, 32K etc) which determines how large the prompts can be.  If you continue to pass all of the chat history, things will quickly break down. One way to avoid this is to store our memory as separate chunks and only load information that we think may be relevant into the current prompt.
+When interacting with chat bots, one of the key aspects that makes the experience feel more natural is the ability to retain the context of our previous chats. If all of our chat context history is stored in system RAM then once we shut down the system it would be gone forever. For more intelligent designs, it can be useful to be able to build and persist both short and long term memory for our models to access. One must take care when feeding all of the previous interactions into a future prompt. Models tend to have a fixed size context window (8K, 16K, 32K etc) which determines how large the prompts can be. If you continue to pass all of the chat history, things will quickly break down. One way to avoid this is to store our memory as separate chunks and only load information that we think may be relevant into the current prompt.
 
 When it comes to **PostresSQL** and Semantic Kernel, like LangChain, you can use PostgreSQL as a vector store or a memory store (chat/context history):
 
@@ -279,7 +279,7 @@ In addition to all the basic connectors, you have the ability to make Semantic K
 
  Semantic Kernel provides Planner objects, which can dynamically create chains of functions to achieve goals. With Semantic Kernel planners, you can ask an LLM to generate a plan that potentially achieves a user's unique goal. Once the plan is generated, Semantic Kernel will execute the plan for the user and return the results.
 
- A planner typically takes a user prompt and a kernel and uses the kernel's available services to create a plan of how to perform the task.  Plugins tend to be the main building blocks of plans. The planner relies heavily on the plugin descriptions provided. If plugins and functions do not have clear and appropriate descriptions, the planner may not use them correctly (or at all) when building a plan. The planner can combine functions in various and seemingly random ways (remember a LLM is driving) so it is important to ensure that you only expose functions that you really want the planner to consider for usage.
+ A planner typically takes a user prompt and a kernel and uses the kernel's available services to create a plan of how to perform the task. Plugins tend to be the main building blocks of plans. The planner relies heavily on the plugin descriptions provided. If plugins and functions do not have clear and appropriate descriptions, the planner may not use them correctly (or at all) when building a plan. The planner can combine functions in various and seemingly random ways (remember a LLM is driving) so it is important to ensure that you only expose functions that you really want the planner to consider for usage.
 
  It is also a best practice to run your plan several times to ensure you are getting consisent and appropriate responses.
 

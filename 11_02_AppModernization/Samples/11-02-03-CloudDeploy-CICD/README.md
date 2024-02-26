@@ -1,6 +1,6 @@
 # AppMod 05 : Deployment via CI/CD
 
-This is a simple app that runs PHP code to connect to a PostgreSQL database.  Both the application and database are deployed via Docker containers.
+This is a simple app that runs PHP code to connect to a PostgreSQL database. Both the application and database are deployed via Docker containers.
 
 ## Azure DevOps Option
 
@@ -34,7 +34,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     ```
 
 6. Press **ENTER** (be sure to replace ORG_NAME)
-7. In the dialog, login using the Microsoft Entra credentials for the repo.  The files will get pushed to the repo.
+7. In the dialog, login using the Microsoft Entra credentials for the repo. The files will get pushed to the repo.
 
    > NOTE:  If using sensitive credentials, be sure you remove them or delete the virtual machine when you are finished with the developer guide content.
 
@@ -68,7 +68,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
 7. Select **Continue**
 8. Select **Run**
 
-> **NOTE** Check that your Dev Ops repo is setup with the appropriate branch (`master` vs `main`).  Update the YAML and supporting steps accordingly.
+> **NOTE** Check that your Dev Ops repo is setup with the appropriate branch (`master` vs `main`). Update the YAML and supporting steps accordingly.
 
 ### Create Release
 
@@ -140,7 +140,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     git push -u origin main
     ```
 
-4. In the dialog, login using GitHub credentials for the repo.  The files get pushed to the repo.
+4. In the dialog, login using GitHub credentials for the repo. The files get pushed to the repo.
 5. Switch back to GitHub, refresh the repo, the files should display.
 
 ### Generate Credentials

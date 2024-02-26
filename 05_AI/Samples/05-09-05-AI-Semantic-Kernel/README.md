@@ -1,4 +1,4 @@
-# Hands on lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
+# Hands-on Lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
 
 TODO
 
@@ -6,7 +6,7 @@ TODO
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
@@ -17,7 +17,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All of this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All of this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension

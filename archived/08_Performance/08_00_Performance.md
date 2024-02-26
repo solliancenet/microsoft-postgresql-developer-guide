@@ -25,7 +25,7 @@ As previously discussed in the monitoring section of this guide, monitoring metr
 
 If CPU and memory do not seem to be the issue, administrators can explore database-based options such as indexing and query modifications for poor-performing queries. In order to gain access to this data, you should follow the steps in the [Troubleshoot and identify slow-running queries in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-identify-slow-queries) documentation.
 
-Once enabled, you can utilize wither the QueryStore or AzureDiagnostics logs to find poor-performing queries. Please note that verbose logging tends to cause performance issues, especially if you log ALL statements or set `log_min_duration_statement` to 0. This impacts both the server performance and storage consumption. It is better to set the duration to something more managable such as `1000` or higher.  This implies that a query that takes longer than 1 second should be logged.
+Once enabled, you can utilize wither the QueryStore or AzureDiagnostics logs to find poor-performing queries. Please note that verbose logging tends to cause performance issues, especially if you log ALL statements or set `log_min_duration_statement` to 0. This impacts both the server performance and storage consumption. It is better to set the duration to something more managable such as `1000` or higher. This implies that a query that takes longer than 1 second should be logged.
 
 The following psql statement can help you find slow queries:
 
@@ -45,7 +45,7 @@ AzureDiagnostics
 | top 5 by query_time_d desc
 ```
 
-In addition to the server parameters and extensions, Azure Database for PostgreSQL Flexible Server has some other options to collect query stats including the **pg_stat_statements** extension.  
+In addition to the server parameters and extensions, Azure Database for PostgreSQL Flexible Server has some other options to collect query stats including the **pg_stat_statements** extension. 
 
 ## Upgrading the tier
 
@@ -75,7 +75,7 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 
 This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions* and there's no customer action required to use this capability.
 
-There are some situations where near-zero scaling may not work and the regular scaling operation would need to be taken.  See [Limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-scaling-resources#limitations).
+There are some situations where near-zero scaling may not work and the regular scaling operation would need to be taken. See [Limitations](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-scaling-resources#limitations).
 
 ## Azure Database for PostgreSQL Flexible Server memory recommendations
 
@@ -93,9 +93,9 @@ Geo-restore can be used to recover from a service outage in the primary region.
 
 ## Moving regions with Virtual Endpoints
 
-In addition to Geo-restore, you can also utilize replication.  A newer feature to Azure Database for PostgreSQL Flexible Server is the concept of [virtual endpoints](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas#virtual-endpoints-preview).  This allows you to create [multiple replicas](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas) in different regions that are synchronized behind the scenes.  You will then create a virtual endpoint that layers over the top of the instances and provides a single DNS endpoint for your application to point.
+In addition to Geo-restore, you can also utilize replication. A newer feature to Azure Database for PostgreSQL Flexible Server is the concept of [virtual endpoints](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas#virtual-endpoints-preview). This allows you to create [multiple replicas](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas) in different regions that are synchronized behind the scenes. You will then create a virtual endpoint that layers over the top of the instances and provides a single DNS endpoint for your application to point.
 
-If a region were to go down, you simply failover to your read replica in another region by `promoting` a read replica.  The virtual endpoint with then be updated to point to the new primary replica without having to make any changes to your application's connection strings.
+If a region were to go down, you simply failover to your read replica in another region by `promoting` a read replica. The virtual endpoint with then be updated to point to the new primary replica without having to make any changes to your application's connection strings.
 
 ## Server parameters
 
@@ -127,7 +127,7 @@ For more information, review [Major Version Upgrade for PostgreSQL Flexible Serv
 
 ## Customizing the application container runtime
 
-When using containers for your PostgreSQL and container based applications, the platform choice has a huge impact on your performance limits. In most cases, creating a custom application container (such as with PHP) can improve performance versus the out-of-the-box official platform containers.  It is important to determine if the effort of building a custom image will be worth the performance gain from the work.  Also, keep in mind recent versions of containers tend to perform better than older versions.
+When using containers for your PostgreSQL and container based applications, the platform choice has a huge impact on your performance limits. In most cases, creating a custom application container (such as with PHP) can improve performance versus the out-of-the-box official platform containers. It is important to determine if the effort of building a custom image will be worth the performance gain from the work. Also, keep in mind recent versions of containers tend to perform better than older versions.
 
 ![Read more icon](media/read-more.png "Read more")  [Container insights overview](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)
 

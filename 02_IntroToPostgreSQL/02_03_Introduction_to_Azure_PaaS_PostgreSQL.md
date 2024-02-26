@@ -2,7 +2,7 @@
 
 Developers can deploy PostgreSQL on Azure through Virtual Machines (IaaS) or Azure Database for PostgreSQL Flexible Server (PaaS). Azure Database for PostgreSQL Flexible Server offers high availability, automated backups, and meets compliance requirements. Operational administrators do not have the operational overhead of managing the OS and the DB engine. They do not need to worry about OS patching, database backups, or server security. Administrators only need to manage the applications and data. Developers can focus on schema design, building queries, and optimizing query performance.
 
-Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Editions 11 through 16, making it flexible for most cloud migrations.  With the latest performance changes in PostgreSQL 16, it makes a lot of sense to migrate any existing workloads to this latest version.
+Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Editions 11 through 16, making it flexible for most cloud migrations. With the latest performance changes in PostgreSQL 16, it makes a lot of sense to migrate any existing workloads to this latest version.
 
 For the latest version support and policy information, reference [Azure Database for PostgreSQL Flexible Server versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy).
 

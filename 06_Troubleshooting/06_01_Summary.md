@@ -1,6 +1,6 @@
 ## 06 / Summary
 
-This section helped pinpoint some of the most common issues a team may run into when hosting your PostgreSQL based applications in the cloud.  These included items from connectivity, deployment, and performance.
+This section helped pinpoint some of the most common issues a team may run into when hosting your PostgreSQL based applications in the cloud. These included items from connectivity, deployment, and performance.
 
 ### Checklist
 

@@ -2518,9 +2518,9 @@ microservices.
     to the next state.
 -   Utilize modern development and deployment methodologies.
 
-# Hands on Lab: Working with the latest developer capabilities of PostgreSQL
+# Hands-on Lab: Working with the latest developer capabilities of PostgreSQL
 
--   [Hands on Lab: Working with the latest developer capabilities of
+-   [Hands-on Lab: Working with the latest developer capabilities of
     PostgreSQL][48]
     -   [Prerequisites][49]
     -   [Exercise 1: Setup and Configuration][50]
@@ -2592,7 +2592,7 @@ minutes for the queries to start to be recorded.
 
 ### Task 2: Create tables and data
 
-1.  In your Windows-based lab virtual machine, open a command prompt
+1.  In your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 2.  Run the following command to connect to your database, be sure to
@@ -3359,7 +3359,7 @@ from one tablespace to another) is currently not tracked."
     ![Alt text][90]
 
 2.  Using `pgbench` you can generate some IO data (\~750MB of data). In
-    your Windows-based lab virtual machine, open a command prompt
+    your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 3.  Type the following. Be sure to replace the `PREFIX` and `REGION`
@@ -3552,7 +3552,7 @@ dynamic and do not require an instance restart.
 7.  In the top right, select the time to be **Last 30 minutes** then
     select **Apply**.
 
-8.  In your Windows-based lab virtual machine, open a command prompt
+8.  In your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 9.  Run the following commands to execute a `pgbench` test directly
@@ -3652,9 +3652,9 @@ PostgreSQL - Flexible Server].
 For a more in-depth look at the code change for this feature, reference
 [here][96].
 
-# Hands on Lab: Azure Function with PostgreSQL (.NET)
+# Hands-on Lab: Azure Function with PostgreSQL (.NET)
 
-In this hands on lab you will create an HTTP Function Application using
+In this hands-on lab you will create an HTTP Function Application using
 Visual Studio and .NET. The HTTP Function Application will connect to an
 Azure Database for PostgreSQL Flexible Server and display database
 information.
@@ -3663,7 +3663,7 @@ information.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure App Service Plan (Linux)
 -   Azure App Service (Linux)
@@ -3796,7 +3796,7 @@ http://localhost:7071/api/ShowDatabasesFunction
 Now that the function app is created and working locally, the next step
 is to publish the function app to Azure.
 
--   Right click the project, select **Publish**
+-   Right-click the project, select **Publish**
 
 -   Select **Azure**, then select **Next**
 
@@ -3871,9 +3871,9 @@ https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabases
     from the Visual Studio publish profile, consult the [Microsoft
     documentation] for the manual setup steps
 
-# Hands on Lab: Azure Function with PostgreSQL (Python)
+# Hands-on Lab: Azure Function with PostgreSQL (Python)
 
-In this hands on lab you will create an HTTP Function Application using
+In this hands-on lab you will create an HTTP Function Application using
 Visual Studio Code and Python. The HTTP Function Application will
 connect to an Azure Database for PostgreSQL Flexible Server and display
 database information.
@@ -3882,7 +3882,7 @@ database information.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure App Service Plan (Linux)
 -   Azure App Service (Linux)
@@ -4147,7 +4147,7 @@ func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force
     -   The Azure Function Apps instance must be using extension version
         `4`, as that is the what the local core tools support
 
-# Hands on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)
+# Hands-on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)
 
 Function apps can be containerized and deployed to AKS. These steps will
 walk through this process so it can be applied later if this is
@@ -4157,7 +4157,7 @@ something the architecture demands.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure App Service Plan (Linux)
 -   Azure App Service (Linux)
@@ -4250,7 +4250,7 @@ func kubernetes deploy --name "showdatabasesfunction" --registry "pgsqldevSUFFIX
     into a container and pushed to the target registry. It should also
     now be deployed to the AKS cluster in the `keda` namespace.
 
-# Hands on Lab: Securing Azure Function Apps
+# Hands-on Lab: Securing Azure Function Apps
 
 In the previous function apps the connection information was embedded
 into the function app code. As was covered in the traditional deployment
@@ -4262,7 +4262,7 @@ Managed Identities to connect to the database.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure App Service Plan (Linux)
 -   Azure App Service (Linux)
@@ -4340,7 +4340,7 @@ $AzAccessToken.Token
 ```
 
 -   Open the pgAdmin
--   Create a new server connection, right click **Servers**, select
+-   Create a new server connection, right-click **Servers**, select
     **Register**
 -   For the name, type **azureadPostgreSQL**
 -   For the hostname, type the DNS of the Azure Database for PostgreSQL
@@ -4356,7 +4356,7 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 
 -   For the password exec expiration, type `3480`
 -   Select **Save**
--   Right click the new server, select **Connect**
+-   Right-click the new server, select **Connect**
 
 > NOTE: `pgadmin` does have a password limit and the access token will
 > exceed this limit. If for some reason pgadmin will not connect, fall
@@ -4503,7 +4503,7 @@ identity:
 https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabasesFunction?code=APPKEY
 ```
 
-# Hands on Lab: Logic Apps with PostgreSQL
+# Hands-on Lab: Logic Apps with PostgreSQL
 
 Logic Apps can be used to connect to Azure Database for PostgreSQL
 Flexible Server instances and perform actions such as SELECT, INSERT,
@@ -4520,7 +4520,7 @@ private endpoint.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Local install of Azure Database for PostgreSQL Flexible Server
 -   Virtual Networks
@@ -4905,16 +4905,16 @@ the logic app from scratch the steps are provided here.
 -   Browse to Outlook Online (https://outlook.office.com), wait for 5
     minutes for an email to show up with the order details.
 
-# Hands on Lab: Azure Data Factory with PostgreSQL
+# Hands-on Lab: Azure Data Factory with PostgreSQL
 
-In this hands on lab you will use Azure Data Factory to connect to your
+In this hands-on lab you will use Azure Data Factory to connect to your
 Azure Database for PostgreSQL Flexible Server.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Data Factory
 -   Azure Database for PostgreSQL Flexible Server
@@ -5037,9 +5037,9 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 -   Select the **orders** container
 -   Notice that a new file is created that contains the exported data.
 
-# Hands on Lab: Azure Synapse Analytics with PostgreSQL
+# Hands-on Lab: Azure Synapse Analytics with PostgreSQL
 
-In this hands on lab you will utilize Azure Synapse Analytics to connect
+In this hands-on lab you will utilize Azure Synapse Analytics to connect
 to your Azure Database for PostgreSQL Flexible Server and create Power
 BI reports from the data.
 
@@ -5047,7 +5047,7 @@ BI reports from the data.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Synpase Analytics
 -   Azure Database for PostgreSQL Flexible Server
@@ -5179,16 +5179,16 @@ machine, but is provided here for reference.
 -   Save the report as **Contoso Categories**
 -   Select **Save**, the report should load in the synapse workspace.
 
-# Hands on Lab: Azure Batch with PostgreSQL
+# Hands-on Lab: Azure Batch with PostgreSQL
 
-In this hands on lab you will utilize Azure Batch to connect to your
+In this hands-on lab you will utilize Azure Batch to connect to your
 Azure Database for PostgreSQL Flexible Server.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Batch
 -   Azure Database for PostgreSQL Flexible Server
@@ -7601,7 +7601,7 @@ your database.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8480,7 +8480,7 @@ Flexible Server by installing and using the `azure_ai` extension to
 directly add the power of generative AI and large language models into
 your database.
 
-# Hands on lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server
+# Hands-on Lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server
 
 The integration of embeddings generated using Azure OpenAI and Azure
 Database for PostgreSQL Flexible Server with the pgvector open-source
@@ -8508,7 +8508,7 @@ models.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8534,7 +8534,7 @@ machine, but is provided here for reference.
 -   Open the `ai_hugging_face.ipynb` notebook in Visual Studio Code.
 -   Follow the instructions in the notebook to run each cell.
 
-# Hands on lab: LangChain with Azure Database for PostgreSQL Flexible Server (RAG/ReAct)
+# Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (RAG/ReAct)
 
 TODO
 
@@ -8542,7 +8542,7 @@ TODO
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8568,7 +8568,7 @@ machine, but is provided here for reference.
 -   Open the `ai_langchain.ipynb` notebook.
 -   Follow the instructions in the notebook.
 
-# Hands on Lab: Receipes with Open AI
+# Hands-on Lab: Receipes with Open AI
 
 TODO
 
@@ -8576,7 +8576,7 @@ TODO
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8602,7 +8602,7 @@ machine, but is provided here for reference.
 -   Open the `ai_receipes.ipynb` notebook.
 -   Follow the instructions in the notebook.
 
-# Hands on lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)
+# Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)
 
 TODO
 
@@ -8610,7 +8610,7 @@ TODO
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8636,7 +8636,7 @@ machine, but is provided here for reference.
 -   Open the `ai_langchain_vectordb.ipynb` notebook.
 -   Follow the instructions in the notebook.
 
-# Hands on lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
+# Hands-on Lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
 
 TODO
 
@@ -8644,7 +8644,7 @@ TODO
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -8669,7 +8669,7 @@ machine, but is provided here for reference.
 -   Open the `ai_semantic_kernel.ipynb` notebook.
 -   Follow the instructions in the notebook.
 
-# Hands on Lab: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI
+# Hands-on Lab: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI
 
 This solution demonstrates how to design and implement a RAG Pattern
 solution that incorporates PostgreSQL with Azure OpenAI Service and
@@ -8697,7 +8697,7 @@ ported over to PostgreSQL.
 
 ### Required Resources
 
-You will need several resource to perform this lab. These include:
+You will need several resources to perform this lab. These include:
 
 -   Azure Database for PostgreSQL Flexible Server
 -   Azure OpenAI enabled subscription
@@ -13680,7 +13680,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Explore PostgreSQL Developer samples]: #explore-postgresql-developer-samples
   {#toc-explore-postgresql-developer-samples}
   [04 / Summary]: #summary-2 {#toc-summary-2}
-  [Hands on Lab: Working with the latest developer capabilities of PostgreSQL]:
+  [Hands-on Lab: Working with the latest developer capabilities of PostgreSQL]:
     #hands-on-lab-working-with-the-latest-developer-capabilities-of-postgresql
   {#toc-hands-on-lab-working-with-the-latest-developer-capabilities-of-postgresql}
   [Prerequisites]: #prerequisites {#toc-prerequisites}
@@ -13698,7 +13698,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-6-pgbouncer-optional}
   [Exercise 6: Other Features (Optional)]: #exercise-6-other-features-optional
   {#toc-exercise-6-other-features-optional}
-  [Hands on Lab: Azure Function with PostgreSQL (.NET)]: #hands-on-lab-azure-function-with-postgresql-.net
+  [Hands-on Lab: Azure Function with PostgreSQL (.NET)]: #hands-on-lab-azure-function-with-postgresql-.net
   {#toc-hands-on-lab-azure-function-with-postgresql-.net}
   [Setup]: #setup-4 {#toc-setup-4}
   [Exercise 1: Create the Function Application]: #exercise-1-create-the-function-application
@@ -13708,7 +13708,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Exercise 3: Test the Function App in the Azure portal]: #exercise-3-test-the-function-app-in-the-azure-portal
   {#toc-exercise-3-test-the-function-app-in-the-azure-portal}
   [Troubleshooting]: #troubleshooting-1 {#toc-troubleshooting-1}
-  [Hands on Lab: Azure Function with PostgreSQL (Python)]: #hands-on-lab-azure-function-with-postgresql-python
+  [Hands-on Lab: Azure Function with PostgreSQL (Python)]: #hands-on-lab-azure-function-with-postgresql-python
   {#toc-hands-on-lab-azure-function-with-postgresql-python}
   [1]: #setup-5 {#toc-setup-5}
   [2]: #exercise-1-create-the-function-application-1
@@ -13718,7 +13718,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [4]: #exercise-3-test-the-function-app-in-the-azure-portal-1
   {#toc-exercise-3-test-the-function-app-in-the-azure-portal-1}
   [5]: #troubleshooting-2 {#toc-troubleshooting-2}
-  [Hands on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)]:
+  [Hands-on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)]:
     #hands-on-lab-deploy-azure-function-app-to-azure-kubernetes-service-aks
   {#toc-hands-on-lab-deploy-azure-function-app-to-azure-kubernetes-service-aks}
   [6]: #setup-6 {#toc-setup-6}
@@ -13730,7 +13730,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-3-ensure-docker-connection}
   [Exercise 4: Configure Function App as Container]: #exercise-4-configure-function-app-as-container
   {#toc-exercise-4-configure-function-app-as-container}
-  [Hands on Lab: Securing Azure Function Apps]: #hands-on-lab-securing-azure-function-apps
+  [Hands-on Lab: Securing Azure Function Apps]: #hands-on-lab-securing-azure-function-apps
   {#toc-hands-on-lab-securing-azure-function-apps}
   [7]: #setup-7 {#toc-setup-7}
   [Exercise 1: Enable PostgreSQL Microsoft Entra Authentication]: #exercise-1-enable-postgresql-microsoft-entra-authentication
@@ -13746,7 +13746,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-5-entra-users-and-groups-optional}
   [Exercise 6: Utilize MSI Authentication]: #exercise-6-utilize-msi-authentication
   {#toc-exercise-6-utilize-msi-authentication}
-  [Hands on Lab: Logic Apps with PostgreSQL]: #hands-on-lab-logic-apps-with-postgresql
+  [Hands-on Lab: Logic Apps with PostgreSQL]: #hands-on-lab-logic-apps-with-postgresql
   {#toc-hands-on-lab-logic-apps-with-postgresql}
   [8]: #setup-8 {#toc-setup-8}
   [Exercise 1: Create a Private Endpoint Flexible Server]: #exercise-1-create-a-private-endpoint-flexible-server
@@ -13769,7 +13769,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-9-configure-supporting-items}
   [Exercise 10: Test Trigger]: #exercise-10-test-trigger
   {#toc-exercise-10-test-trigger}
-  [Hands on Lab: Azure Data Factory with PostgreSQL]: #hands-on-lab-azure-data-factory-with-postgresql
+  [Hands-on Lab: Azure Data Factory with PostgreSQL]: #hands-on-lab-azure-data-factory-with-postgresql
   {#toc-hands-on-lab-azure-data-factory-with-postgresql}
   [9]: #setup-9 {#toc-setup-9}
   [Exercise 1: Create Linked Services]: #exercise-1-create-linked-services
@@ -13786,7 +13786,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-6-publish-artifacts}
   [Exercise 7: Test the pipeline]: #exercise-7-test-the-pipeline
   {#toc-exercise-7-test-the-pipeline}
-  [Hands on Lab: Azure Synapse Analytics with PostgreSQL]: #hands-on-lab-azure-synapse-analytics-with-postgresql
+  [Hands-on Lab: Azure Synapse Analytics with PostgreSQL]: #hands-on-lab-azure-synapse-analytics-with-postgresql
   {#toc-hands-on-lab-azure-synapse-analytics-with-postgresql}
   [10]: #setup-10 {#toc-setup-10}
   [Exercise 1: Create PostgreSQL Linked Service]: #exercise-1-create-postgresql-linked-service
@@ -13803,7 +13803,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-6-publish-the-powerbi-report-to-power-bi-online}
   [Exercise 7: Create PowerBI Report in Azure Synapse]: #exercise-7-create-powerbi-report-in-azure-synapse
   {#toc-exercise-7-create-powerbi-report-in-azure-synapse}
-  [Hands on Lab: Azure Batch with PostgreSQL]: #hands-on-lab-azure-batch-with-postgresql
+  [Hands-on Lab: Azure Batch with PostgreSQL]: #hands-on-lab-azure-batch-with-postgresql
   {#toc-hands-on-lab-azure-batch-with-postgresql}
   [11]: #setup-11 {#toc-setup-11}
   [Exercise 1: Configure Batch Service]: #exercise-1-configure-batch-service
@@ -13864,36 +13864,36 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Exercise 6: Clean up]: #exercise-6-clean-up
   {#toc-exercise-6-clean-up}
   [Summary]: #summary-3 {#toc-summary-3}
-  [Hands on lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server]:
+  [Hands-on Lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server]:
     #hands-on-lab-using-hugging-face-with-azure-database-for-postgresql-flexible-server
   {#toc-hands-on-lab-using-hugging-face-with-azure-database-for-postgresql-flexible-server}
   [13]: #setup-13 {#toc-setup-13}
   [Exercise 1: Hugging Face with Images]: #exercise-1-hugging-face-with-images
   {#toc-exercise-1-hugging-face-with-images}
-  [Hands on lab: LangChain with Azure Database for PostgreSQL Flexible Server (RAG/ReAct)]:
+  [Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (RAG/ReAct)]:
     #hands-on-lab-langchain-with-azure-database-for-postgresql-flexible-server-ragreact
   {#toc-hands-on-lab-langchain-with-azure-database-for-postgresql-flexible-server-ragreact}
   [14]: #setup-14 {#toc-setup-14}
   [Exercise 1: LangChain with PostgreSQL]: #exercise-1-langchain-with-postgresql
   {#toc-exercise-1-langchain-with-postgresql}
-  [Hands on Lab: Receipes with Open AI]: #hands-on-lab-receipes-with-open-ai
+  [Hands-on Lab: Receipes with Open AI]: #hands-on-lab-receipes-with-open-ai
   {#toc-hands-on-lab-receipes-with-open-ai}
   [15]: #setup-15 {#toc-setup-15}
   [Exercise 1: Receipes with Open AI]: #exercise-1-receipes-with-open-ai
   {#toc-exercise-1-receipes-with-open-ai}
-  [Hands on lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)]:
+  [Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)]:
     #hands-on-lab-langchain-with-azure-database-for-postgresql-flexible-server-vectordb
   {#toc-hands-on-lab-langchain-with-azure-database-for-postgresql-flexible-server-vectordb}
   [16]: #setup-16 {#toc-setup-16}
   [Exercise 1: LangChain with PostgreSQL (VectorDB)]: #exercise-1-langchain-with-postgresql-vectordb
   {#toc-exercise-1-langchain-with-postgresql-vectordb}
-  [Hands on lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server]:
+  [Hands-on Lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server]:
     #hands-on-lab-semantic-kernel-with-azure-database-for-postgresql-flexible-server
   {#toc-hands-on-lab-semantic-kernel-with-azure-database-for-postgresql-flexible-server}
   [17]: #setup-17 {#toc-setup-17}
   [Exercise 1: Semantic Kernel]: #exercise-1-semantic-kernel
   {#toc-exercise-1-semantic-kernel}
-  [Hands on Lab: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI]:
+  [Hands-on Lab: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI]:
     #hands-on-lab-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai
   {#toc-hands-on-lab-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai}
   [18]: #setup-18 {#toc-setup-18}

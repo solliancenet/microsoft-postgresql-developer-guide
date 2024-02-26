@@ -160,5 +160,5 @@ In the previous steps, a container instance was created for each of the containe
     ```
 
 3. Switch back to the Azure Portal, browse to the Azure App Service.
-4. If troubleshooting is needed, view the container logs by browsing to `https://pgsqldevSUFFIX-linux.scm.azurewebsites.net/api/logs/docker`.  
+4. If troubleshooting is needed, view the container logs by browsing to `https://pgsqldevSUFFIX-linux.scm.azurewebsites.net/api/logs/docker`. 
 5. Copy the path to the docker file and paste it into a new browser window, review the logs and fix any errors.

@@ -1,8 +1,8 @@
 # 07 / Testing
 
-Testing is a crucial part of the application development lifecycle. Architects, developers, and administrators should continually assess and evaluate their applications for *availability* (minimal downtime) and *resiliency* (recovery from failure). Microsoft recommends performing tests regularly and highly suggests automating them to minimize any errors in the process or setup.  Tests can be run in the application build or deployment process. 
+Testing is a crucial part of the application development lifecycle. Architects, developers, and administrators should continually assess and evaluate their applications for *availability* (minimal downtime) and *resiliency* (recovery from failure). Microsoft recommends performing tests regularly and highly suggests automating them to minimize any errors in the process or setup. Tests can be run in the application build or deployment process. 
 
-This chapter discusses the several types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database.  Running tests ensures the optimal performance of your application and database deployments.
+This chapter discusses the several types of tests you can run against Azure Database for PostgreSQL Flexible Server application and database. Running tests ensures the optimal performance of your application and database deployments.
 
 ## Approaches
 
@@ -24,7 +24,7 @@ Teams can include [Selenium tests in Azure DevOps.](https://techcommunity.micros
 
 ### Resiliency and version testing
 
-Testers can only execute so many test cases within a time period.  Users tend to test application functionality not imagined by the development or test teams. Allowing real users to test the application while limiting deployment downtime and version risk can be difficult. One strategy to test for resiliency is the `blue-green` method. The latest version of an application operates in a second production environment. Developers test the most recent version in the second production environment by adding some production users to the new version. If the new version functions adequately, the second environment begins handling more production user requests. Developers can roll back the application by serving requests from the older environment if an unexpected error occurs.
+Testers can only execute so many test cases within a time period. Users tend to test application functionality not imagined by the development or test teams. Allowing real users to test the application while limiting deployment downtime and version risk can be difficult. One strategy to test for resiliency is the `blue-green` method. The latest version of an application operates in a second production environment. Developers test the most recent version in the second production environment by adding some production users to the new version. If the new version functions adequately, the second environment begins handling more production user requests. Developers can roll back the application by serving requests from the older environment if an unexpected error occurs.
 
 ![This image shows how to implement a Blue/Green test using Azure Traffic Manager.](media/azure-traffic-manager-blue-green.png "Azure Traffic Manager Blue/Green test")
 
@@ -46,7 +46,7 @@ Load testing determines an application's performance as load increases. Load tes
 
 #### Stress testing
 
-Stress testing determines the maximum load a system can handle before failure. A proper stress testing approach would be to perform stress testing at different Azure service tiers and determine appropriate thresholds when scaling within those tiers.  This will give administrators an idea of how to build alerts for monitoring if the application starts to approach these known limits.  Knowing your acceptable low and high stress range levels is necessary to minimize costs (by selecting the appropriate tier and scaling) and thereby provide a positive user experience.
+Stress testing determines the maximum load a system can handle before failure. A proper stress testing approach would be to perform stress testing at different Azure service tiers and determine appropriate thresholds when scaling within those tiers. This will give administrators an idea of how to build alerts for monitoring if the application starts to approach these known limits. Knowing your acceptable low and high stress range levels is necessary to minimize costs (by selecting the appropriate tier and scaling) and thereby provide a positive user experience.
 
 #### Performance testing tools
 

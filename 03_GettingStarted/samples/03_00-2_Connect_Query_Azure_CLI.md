@@ -58,7 +58,7 @@ In this section, we will use the `az postgres flexible-server execute` command t
 
     ![The cloud shell toolbar displays with the Upload/Download files button highlighted.](media/cloud-shell-upload-download-files.png "Upload/Download files")
 
-3. Execute the following command to run the `products.sql` script that was just uploaded.
+3. Execute the following command to run the `products.sql` script that you uploaded.
 
     ```bash
     az postgres flexible-server execute -n <server-name> -u <username> -p <password> -d inventory -f products.sql
@@ -100,7 +100,7 @@ In this section, we will continue in the PSQL interactive shell to update and de
 
     ![The PSQL prompt shows the products update query update was successful.](media/cli_psql_products_update.png "PSQL update product query result")
 
-2. Run the `SELECT` statement again to verify the `banana` product quantity was updated.
+2. Run the `SELECT` statement again to verify the `banana` product quantity is updated.
 
     ```sql
     SELECT * FROM products;
@@ -112,7 +112,7 @@ In this section, we will continue in the PSQL interactive shell to update and de
     DELETE FROM products WHERE name = 'orange';
     ```
 
-4. Run the `SELECT` statement again to verify the `orange` product was deleted.
+4. Run the `SELECT` statement again to verify the `orange` product is deleted.
 
     ```sql
     SELECT * FROM products;
@@ -128,7 +128,7 @@ In this section, we will continue in the PSQL interactive shell to update and de
 
 ### SQL Files
 
-In addtion to running interactive commands, you can also execute SQL files.  This can be accomplished by using the `--file-path` argument in the Azure CLI command.
+In addtion to running interactive commands, you can also execute SQL filesThis can be accomplished by using the `--file-path` argument in the Azure CLI command.
 
 ### Clean up - Delete the database
 

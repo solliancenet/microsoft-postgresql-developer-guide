@@ -1,10 +1,10 @@
 ## Language Models
 
-In this section we will explore the different types of LLMs that exist today along with how you can test different models for your use case in Azure.  We will then show how easy it is to deploy an LLM in Azure.
+In this section we will explore the different types of LLMs that exist today along with how you can test different models for your use case in Azure. We will then show how easy it is to deploy an LLM in Azure.
 
 ### Large Languange Models (LLMs)
 
-A Large Language Model (LLM) is a type of AI model trained on massive amounts of text data to understand and generate human-like language. LLMs are typically based on deep learning architectures, such as Transformers, and they're known for their ability to perform a wide range of natural language understanding and generation tasks. LLMs can be categorized based on their architecture, training data, and use case. Understanding how a model was built help in selecting the right model for the target scenario.  It will also help with understanding how to test, iterate, and improve the model performance.
+A Large Language Model (LLM) is a type of AI model trained on massive amounts of text data to understand and generate human-like language. LLMs are typically based on deep learning architectures, such as Transformers, and they're known for their ability to perform a wide range of natural language understanding and generation tasks. LLMs can be categorized based on their architecture, training data, and use case. Understanding how a model is designed will help in selecting the right model for the target scenario. It will also help with understanding how to test, iterate, and improve the model performance.
 
 Key characteristics and capabilities of Large Language Models include:
 
@@ -67,9 +67,9 @@ These efficiency advantages directly relate to cost savings of training and runn
 
 ### Services vs Models
 
-The world of AI can be confusing to someone learning all the terms and history.  It is important to be able to distingish beween a service and a model. A service is a product that is offered as a combination of models, data, and other components. A model is the core component of a service.
+The world of AI can be confusing to someone learning all the terms and history. It is important to be able to distingish beween a service and a model. A service is a product that is offered as a combination of models, data, and other components. A model is the core component of a service.
 
-Services are often optimized for production use and tend to be easier to use than models.  They may have APIs or graphical user interfaces. Services are not always available for free, and may require a subscription or payment. These payments help pay for the equipment and resources and well as the optimizing of expenses and scaling needs required to support the service.
+Services are often optimized for production use and tend to be easier to use than models. They may have APIs or graphical user interfaces. Services are not always available for free, and may require a subscription or payment. These payments help pay for the equipment and resources and well as the optimizing of expenses and scaling needs required to support the service.
 
 For example, Microsoft Azure OpenAI offers pay-as-you-go plans which allow developers to be charged proportionally to how much they use the service. In addtion to access to the models and service, Azure OpenAI offers enterprise-grade security and a responsible AI framework in addition to the models' capabilities.
 
@@ -77,11 +77,11 @@ Models are the Neural Network, with the parameters, weights, and others needed c
 
 ### Open vs Closed Source
 
-Another way to categorize LLMs is whether they are open or closed source.  Open source meaning the code is published for everyone to see, such as on GitHub, versus a closed source where the developer keeps and own the source code.
+Another way to categorize LLMs is whether they are open or closed source. Open source meaning the code is published for everyone to see, such as on GitHub, versus a closed source where the developer keeps and own the source code.
 
 Open-source models are made available to the public and can be used by anyone. They are often made available by the company that created them, or by the research community. These models are allowed to be inspected, modified, and customized for the various use cases in LLMs. However, they are not always optimized for production use, and may not be as performant as proprietary models. Plus, funding for open-source models can be limited, and they may not be maintained long term or may not be updated with the latest research. Examples of popular open source models include Alpaca, Bloom and LLaMA.
 
-Closed-source models are models that are owned by an individual and/or company and are not made available to the public. These models are often optimized for production use. However, they are not allowed to be inspected, modified, or customized for different use cases. They are not always available for free and may require a subscription or payment to use them. Additionally, users do not have control over the data that is used to train the model.  This means they should entrust the model owner with ensuring commitment to data privacy and responsible use of AI (topics we explore in later sections). Examples of popular proprietary models include OpenAI models, Google Bard or Claude 2.
+Closed-source models are models that are owned by an individual and/or company and are not made available to the public. These models are often optimized for production use. However, they are not allowed to be inspected, modified, or customized for different use cases. They are not always available for free and may require a subscription or payment to use them. Additionally, users do not have control over the data that is used to train the model. This means they should entrust the model owner with ensuring commitment to data privacy and responsible use of AI (topics we explore in later sections). Examples of popular proprietary models include OpenAI models, Google Bard or Claude 2.
 
 ### LLM Outputs
 
@@ -98,7 +98,7 @@ Common types of embeddings include:
 - image: Images can be represented as embeddings to capture visual features, allowing for tasks like object recognition.
 Embeddings are central to representing complex, high-dimensional data in a form easily processable by machine learning models. They can be trained on large datasets and then used as features for various tasks, and are used by LLMs.
 
-Embedding models are designed to convert input into a numerical form, called an embedding.  Embeddings are numerical representations of the input.
+Embedding models are designed to convert input into a numerical form, called an embedding. Embeddings are numerical representations of the input.
 Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there is an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is OpenAI embeddings.
 
 PostgreSQL can gain the capabilities of [generating vector embeddings with Azure AI extension OpenAI integration](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-openai).
@@ -109,7 +109,7 @@ Text and code generation models are models that generate text or code. These mod
 
 ### Speech to Text, Text to Speech
 
-Using LLMs to process audio to text has become very common.  There are several benefits to using AI to do this:
+Using LLMs to process audio to text has become very common. There are several benefits to using AI to do this:
 
 - Improved accuracy: LLMs can improve the accuracy of speech recognition systems in noisy environments.
 - Accents: LLMs are more robust to accents than traditional speech recognition systems. This is because LLMs are trained on a massive dataset of text from a variety of speakers.
@@ -129,11 +129,11 @@ Image generation models are models that generate images. These models are often 
 
 ## Search
 
-Now you might be wondering, why are we talking about Search with AI?  It is because search is core to the way models work.  
+Now you might be wondering, why are we talking about Search with AI?  It is because search is core to the way models work.
 
 ### Text Search
 
-Before embedding models created vectors, search engines worked by creating indexes of content using ranking functions.  The most common ranking function being Okapi BM25 (BM25).
+Before embedding models created vectors, search engines worked by creating indexes of content using ranking functions. The most common ranking function being Okapi BM25 (BM25).
 
 BM25 is a bag-of-words retrieval function that ranks a set of documents based on the query terms appearing in each document, regardless of their proximity within the document. It is a family of scoring functions with slightly different components and parameters.
 
@@ -159,7 +159,7 @@ Building semantic search capability on your data using GenAI and Flexible Server
 
 ### Hybrid search
 
-Hybrid search is the combination of Semantic Search and Text Search.  This typically involves adding some metadata to the stored vectors.  This can allow for faster and more releveant recall in some cases.
+Hybrid search is the combination of Semantic Search and Text Search. This typically involves adding some metadata to the stored vectors. This can allow for faster and more releveant recall in some cases.
 
 ## Vectors
 
@@ -196,13 +196,13 @@ From a mathematic perspective, cosine similarity measures the cosine of the angl
 
 ### Vector Storage
 
-Once you have generated embeddings, you will want to store them somewhere.  This could be in memory locally, or in memory remotely.  It could also be persisted to disk storage.  We will explore several types of storage mechanisms (such as PostgreSQL) in a later section.
+Once you have generated embeddings, you will want to store them somewhere. This could be in memory locally, or in memory remotely. It could also be persisted to disk storage. We will explore several types of storage mechanisms (such as PostgreSQL) in a later section.
 
 ## Improving Results
 
-With a firm understading of the various pre-trained models, using tools like Azure Machine Learning can enable developers to compare different models, evaluate them on test data, improve performance and deploy manually or via a service.  But when should developers consider fine-tuning a model rather than using a pre-trained one? Fine-tuned models come with extra costs in terms of the hardware and time that is necessary to train them.  If the costs outweigh the benefits, then what might be other approaches to improve model performance on specific workloads?
+With a firm understading of the various pre-trained models, using tools like Azure Machine Learning can enable developers to compare different models, evaluate them on test data, improve performance and deploy manually or via a service. But when should developers consider fine-tuning a model rather than using a pre-trained one? Fine-tuned models come with extra costs in terms of the hardware and time that is necessary to train them. If the costs outweigh the benefits, then what might be other approaches to improve model performance on specific workloads?
 
-It turns out there are several approaches a business can use to get the results they need from an LLM wether it is pre-trained or fine-tuned.  The most common in order of each and cheap to most difficult and expensive are:
+It turns out there are several approaches a business can use to get the results they need from an LLM wether it is pre-trained or fine-tuned. The most common in order of each and cheap to most difficult and expensive are:
 
     - Prompt Engineering
     - Retrieval augmented generation (RAG)
@@ -229,4 +229,4 @@ Training an LLM from scratch is without a doubt the most difficult and the most 
 
 [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) is the most common and practical way to gain access to various Large Language Models.
 
-Azure OpenAI supports several models, however due to the ever changing landscape, these models are subject to change.  To see the latest models available, reference [Azure OpenAI Service models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models).
+Azure OpenAI supports several models, however due to the ever changing landscape, these models are subject to change. To see the latest models available, reference [Azure OpenAI Service models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models).

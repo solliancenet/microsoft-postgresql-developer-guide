@@ -1,12 +1,12 @@
-# Hands on Lab: Securing Azure Function Apps
+# Hands-on Lab: Securing Azure Function Apps
 
-In the previous function apps the connection information was embedded into the function app code.  As was covered in the traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault.  Here we will utilize the features of Azure to use Managed Identities to connect to the database.
+In the previous Function App samples, the connection information was embedded into the function app code. As was covered in the traditional deployment models, it is a best practice to remove this information and place it into Azure Key Vault. Here we will utilize the features of Azure to use Managed Identities to connect to the database.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
@@ -22,10 +22,10 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
-- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
@@ -79,11 +79,11 @@ $AzAccessToken.Token
 ```
 
 - Open the pgAdmin
-- Create a new server connection, right click **Servers**, select **Register**
+- Create a new server connection, right-click **Servers**, select **Register**
 - For the name, type **azureadPostgreSQL**
 - For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
 - For the username, type your user UPN (aka your email address for your lab account)
-- Select the **Advanced** tab, for the password exec command, type:
+- Select the **Advanced** tab, for the password exec command, type the following:
 
 ```cmd
 powershell -file "C:\temp\GetAzADToken.ps1"
@@ -91,9 +91,9 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 
 - For the password exec expiration, type `3480`
 - Select **Save**
-- Right click the new server, select **Connect**
+- Right-click the new server, select **Connect**
 
-> NOTE: `pgadmin` does have a password limit and the access token will exceed this limit.  If for some reason pgadmin will not connect, fall back to using `psql`
+> NOTE: `pgadmin` does have a password limit and the access token will exceed this limit. If for some reason pgadmin will not connect, fall back to using `psql`
 
 - Run the following to get an access token (be sure to login using a PostgreSQL admin with the proper Tenant ID when generating the access token):
 
@@ -111,7 +111,7 @@ psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d 
 - Browse to the `` Azure Database for PostgreSQL Flexible Server
 - Under **Security**, select **Authentication**
 - Select **Add Microsoft Entra Admin**
-- Search for the `APP_ID` from above.  Select it and the select **Select**
+- Search for the `APP_ID` from above. Select it and then select **Select**
 - Select **Save**
 - The same could be performed using psql. From a psql connection, run the following, replace the `APP_ID` with the one copied from above:
 
@@ -121,11 +121,11 @@ psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d 
 
 ## Exercise 5: Entra Users and Groups (Optional)
 
-You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL Flexible Server.  If you have access to create groups, you can attempt these next set of labs:
+You can use Microsoft Entra Groups to assign permissions in Azure Database for PostgreSQL Flexible Server. If you have access to create groups, you can attempt these next set of labs:
 
 - Switch to the Azure Portal
 - Open the **Microsoft Entra ID** app
-- Under **Manage** select **Groups**
+- Under **Manage**, select **Groups**
 - Select **New Group**
 - For the group type, select **Security**
 - Enter a group name (ex. **Test_PG_Admins**)
@@ -145,7 +145,7 @@ You can use Microsoft Entra Groups to assign permissions in Azure Database for P
 select * from pgaadauth_create_principal('Test_PG_Admins', true, false);
 ```
 
-> NOTE: This is equilent to executing `CREATE ROLE "Test_PG_Admins" LOGIN CREATEROLE CREATEDB in role azure_pg_admin;` and since you are not a super user, you must use the portal to assign this level of permissions.  You can however add non-admin users by changing the first parameters to `false`.
+> NOTE: This is equilent to executing `CREATE ROLE "Test_PG_Admins" LOGIN CREATEROLE CREATEDB in role azure_pg_admin;` and since you are not a super user, you must use the portal to assign this level of permissions. You can however add non-admin users by changing the first parameters to `false`.
 
 - You can find the current Microsoft Entra users by running the following:
 
@@ -200,7 +200,7 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
 func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force --python
 ```
 
-Browse to the function endpoint and see the data (the output of the previous command will include this information).  The function app is now running as a managed identity and connecting to the database using that identity:
+Browse to the function endpoint and see the data (the output of the previous command will include this information). The function app is now running as a managed identity and connecting to the database using that identity:
 
 ```text
 https://pgsqldevSUFFIX-ShowDatabasesFunction.azurewebsites.net/api/ShowDatabasesFunction?code=APPKEY

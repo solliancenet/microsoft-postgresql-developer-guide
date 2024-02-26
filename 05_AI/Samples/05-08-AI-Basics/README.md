@@ -32,7 +32,7 @@ In this lab, you take advantage of [Azure OpenAI](https://learn.microsoft.com/az
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
 - Azure OpenAI enabled subscription
@@ -43,7 +43,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install pgAdmin
 
@@ -162,7 +162,7 @@ In this task, you use the [psql command-line utility](https://www.postgresql.org
 
 The `azure_ai` extension allows you to integrate Azure OpenAI and Azure Cognitive Services into your database. To enable the extension in your database, follow the steps below:
 
-1. Verify that the extension was successfully added to the allowlist by running the following from the `psql` command prompt:
+1. Verify that the extension is successfully added to the allowlist by running the following from the `psql` command prompt:
 
     ```sql
     SHOW azure.extensions;
@@ -283,7 +283,7 @@ The `listings` table is now ready to store embeddings. Using the `azure_openai.c
     | timeout_ms | `integer` | 3600000 | Timeout in milliseconds after which the operation is stopped. |
     | throw_on_error | `boolean` | true | Flag indicating whether the function should, on error, throw an exception resulting in a rollback of the wrapping transactions. |
 
-2. The first argument required by the `azure_openai.create_embeddings()` function is the `deployment_name`. This name was assigned when you deployed the embedding model in your Azure OpenAI account. To retrieve this value, return to [Azure OpenAI Studio](https://oai.azure.com/) and select **Deployments** under **Management** in the left-hand navigation menu. On the **Deployments** page, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
+2. The first argument required by the `azure_openai.create_embeddings()` function is the `deployment_name`. This name is assigned when you deploy the embedding model in your Azure OpenAI account. To retrieve this value, return to [Azure OpenAI Studio](https://oai.azure.com/) and select **Deployments** under **Management** in the left-hand navigation menu. On the **Deployments** page, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
 
     ![The embeddings deployment for the text-embedding-ada-002 model is highlighted on the Deployments tab in Azure OpenAI Studio.](media/azure-openai-studio-deployments-embeddings.png)
 

@@ -1,6 +1,6 @@
 # AppMod 09 : Utilize AKS and Azure Database for PostgreSQL Flexible Server
 
-Rather than managing the database volumes for a PostgreSQL server instance, it is possible to utilize Azure Database for PostgreSQL Flexible Server in order to use a platform as a service approach.  This will remove the need to have a database server container and a volumne to be persisted.
+Rather than managing the database volumes for a PostgreSQL server instance, it is possible to utilize Azure Database for PostgreSQL Flexible Server in order to use a platform as a service approach. This will remove the need to have a database server container and a volumne to be persisted.
 
 ## Push images to Azure Container Registry
 

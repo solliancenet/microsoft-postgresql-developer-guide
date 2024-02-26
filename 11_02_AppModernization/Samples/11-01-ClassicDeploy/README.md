@@ -47,7 +47,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ## Manual Deployment
 
-The above resources were deployed as part of the ARM template and supporting scripts.  In order to setup a developer machine manually, do the following:
+The above resources were deployed as part of the ARM template and supporting scripts. In order to setup a developer machine manually, do the following:
 
 ### Windows Setup
 

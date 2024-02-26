@@ -1,6 +1,6 @@
 # AppMod 04 : Cloud Deployment to Azure App Service
 
-This is a simple app that runs PHP code to connect to a PostgreSQL database.  The application and database must be migrated to Azure App Service and Azure Database for PostgreSQL Flexible Server.
+This is a simple app that runs PHP code to connect to a PostgreSQL database. The application and database must be migrated to Azure App Service and Azure Database for PostgreSQL Flexible Server.
 
 ## Basic Deployment
 

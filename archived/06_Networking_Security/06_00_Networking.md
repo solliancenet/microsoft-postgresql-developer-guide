@@ -6,7 +6,7 @@ Azure Database for PostgreSQL Flexible Server provides several mechanisms to sec
 
 ## Public vs. Private Access
 
-As with any cloud-based resources, it can be exposed to the Internet or be locked down to only be accessible by Azure connections resources. However, it does not have to be just Azure-based resources.  VPNs and Express route circuits can be used to provide access to Azure resources from on-premises environments. The following section describes how to configure Azure Database for PostgreSQL Flexible Server instances for network connectivity.
+As with any cloud-based resources, it can be exposed to the Internet or be locked down to only be accessible by Azure connections resources. However, it does not have to be just Azure-based resources. VPNs and Express route circuits can be used to provide access to Azure resources from on-premises environments. The following section describes how to configure Azure Database for PostgreSQL Flexible Server instances for network connectivity.
 
 ### Public Access
 

@@ -1,6 +1,6 @@
 ## Application monitoring
 
-It is important to monitor the uptime, performance, and understand usage patterns once an application has been deployed.  [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) is a feature that provides extensible application performance management (APM) and monitoring for web-based applications.
+It is important to monitor the uptime, performance, and understand usage patterns once an application has been deployed. [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) is a feature that provides extensible application performance management (APM) and monitoring for web-based applications.
 
 Application insights monitoring is very flexible in that it supports a wide variety of platforms, including .NET, Node.js, Java, and Python as well as apps hosted on-premises or on any public cloud. Just about any application can take advantage of this powerful monitoring tool.
 

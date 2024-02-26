@@ -25,7 +25,7 @@ Like Azure App Service, Function Apps support multiple programming languages. De
 
 For long-running, stateful serverless architectures, such as when human intervention is necessary, Azure provides the Durable Functions extension. Consult the [documentation](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp) for more information about architectures with Durable Functions.
 
-#### Resources
+#### Azure Functions Resources
 
 - [Introduction to Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
 - [Azure Functions hosting options](https://learn.microsoft.com/azure/azure-functions/functions-scale)
@@ -39,7 +39,7 @@ Azure Logic Apps provide integration services for enterprises, connecting applic
 
 Azure Logic Apps interface with external systems through *managed connectors*. Microsoft provides a managed connector for PostgreSQL databases, but this connector cannot easily be used for Azure Database for PostgreSQL Flexible Server, as the PostgreSQL managed connector accesses local PostgreSQL databases through a data gateway.
 
-#### Resources
+#### Azure Logic Apps Resources
 
 - [What is a Azure Logic App?](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Compare Azure Functions and Azure Logic Apps](https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps)
@@ -53,7 +53,7 @@ While microservices apps offer major benefits, they require advanced tools and k
 
 On Azure, organizations often deploy microservices to Azure Kubernetes Service through CI/CD platforms, such as GitHub Actions.
 
-#### Resources
+#### Microservies Resources
 
 - [Build microservices on Azure](https://learn.microsoft.com/azure/architecture/microservices/)
 - [Using domain analysis to model microservices](https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis)
@@ -65,7 +65,7 @@ Azure API Management allows organizations to manage and securely expose their AP
 
 Like other Azure resources, API Management offers comprehensive RBAC support, accommodating internal administrative and development staff and external users. Moreover, as API Management integrates with APIs hosted in environments outside Azure, organizations can self-host the API gateway while retaining the Azure management plane APIs.
 
-#### Resources
+#### API Management Resources
 
 - [About API Management](https://learn.microsoft.com/azure/api-management/api-management-key-concepts)
 - [Self-hosted gateway overview](https://learn.microsoft.com/azure/api-management/self-hosted-gateway-overview)
@@ -78,11 +78,11 @@ Azure provides different services for relaying *messages* and *events*. When one
 
 #### Azure Event Grid
 
-Azure Event Grid is a serverless publish-subscribe system that integrates well with Azure and non-Azure services. As an event-based system, it simply relays state changes to subscribers; it does not contain the actual data that was changed.
+Azure Event Grid is a serverless publish-subscribe system that integrates well with Azure and non-Azure services. As an event-based system, it simply relays state changes to subscribers; it does not contain the actual data that changed.
 
 #### Azure Service Bus
 
-Azure Service Bus provides a *queue* capability to pass each message to one consumer (first-in-first-out queue). Moreover, Service Bus includes pub-sub functionality, allowing more than one consumer to receive a message.  
+Azure Service Bus provides a *queue* capability to pass each message to one consumer (first-in-first-out queue). Moreover, Service Bus includes pub-sub functionality, allowing more than one consumer to receive a message.
 
 #### Azure Event Hubs
 

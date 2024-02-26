@@ -2518,9 +2518,9 @@ microservices.
     to the next state.
 -   Utilize modern development and deployment methodologies.
 
-# Hands on Lab: Working with the latest developer capabilities of PostgreSQL
+# Hands-on Lab: Working with the latest developer capabilities of PostgreSQL
 
--   [Hands on Lab: Working with the latest developer capabilities of
+-   [Hands-on Lab: Working with the latest developer capabilities of
     PostgreSQL][41]
     -   [Prerequisites][42]
     -   [Exercise 1: Setup and Configuration][43]
@@ -2592,7 +2592,7 @@ minutes for the queries to start to be recorded.
 
 ### Task 2: Create tables and data
 
-1.  In your Windows-based lab virtual machine, open a command prompt
+1.  In your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 2.  Run the following command to connect to your database, be sure to
@@ -3361,7 +3361,7 @@ from one tablespace to another) is currently not tracked."
     ![Alt text][83]
 
 2.  Using `pgbench` you can generate some IO data (\~750MB of data). In
-    your Windows-based lab virtual machine, open a command prompt
+    your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 3.  Type the following. Be sure to replace the `PREFIX` and `REGION`
@@ -3554,7 +3554,7 @@ dynamic and do not require an instance restart.
 7.  In the top right, select the time to be **Last 30 minutes** then
     select **Apply**.
 
-8.  In your Windows-based lab virtual machine, open a command prompt
+8.  In your Windows-based lab virtual machine open a command prompt
     window, in the windows search area, type **cmd** and select it.
 
 9.  Run the following commands to execute a `pgbench` test directly
@@ -3788,7 +3788,7 @@ http://localhost:7071/api/AddCustomerFunction
 Now that the function app is created and working locally, the next step
 is to publish the function app to Azure.
 
--   Right click the project, select **Publish**
+-   Right-click the project, select **Publish**
 
 -   Select **Azure**, then select **Next**
 
@@ -4248,7 +4248,7 @@ $AzAccessToken.Token
 ```
 
 -   Open the pgAdmin
--   Create a new server connection, right click **Servers**, select
+-   Create a new server connection, right-click **Servers**, select
     **Register**
 -   For the name, type **azureadPostgreSQL**
 -   For the hostname, type the DNS of the Azure Database for PostgreSQL
@@ -4264,7 +4264,7 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 
 -   For the password exec expiration, type `3480`
 -   Select **Save**
--   Right click the new server, select **Connect**
+-   Right-click the new server, select **Connect**
 
 > NOTE: `pgadmin` does have a password limit and the access token will
 > exceed this limit. If for some reason pgadmin will not connect, fall
@@ -13266,7 +13266,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Explore PostgreSQL Developer samples]: #explore-postgresql-developer-samples
   {#toc-explore-postgresql-developer-samples}
   [04 / Summary]: #summary-2 {#toc-summary-2}
-  [Hands on Lab: Working with the latest developer capabilities of PostgreSQL]:
+  [Hands-on Lab: Working with the latest developer capabilities of PostgreSQL]:
     #hands-on-lab-working-with-the-latest-developer-capabilities-of-postgresql
   {#toc-hands-on-lab-working-with-the-latest-developer-capabilities-of-postgresql}
   [Prerequisites]: #prerequisites {#toc-prerequisites}

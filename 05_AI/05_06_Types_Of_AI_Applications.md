@@ -12,7 +12,7 @@ This technique is very helpful when a business doesn't have enough data, enough 
 
 ### CoT
 
-Chain of Thought (CoT) prompting is relatively new prompting method, that encourages the LLM to explain its reasoning.  The main idea of CoT is that by giving the LLM some few shot examples where the reasoning process is explained, the LLM will also show the reasoning process when answering the prompt. This often leads to more accurate results.
+Chain of Thought (CoT) prompting is relatively new prompting method, that encourages the LLM to explain its reasoning. The main idea of CoT is that by giving the LLM some few shot examples where the reasoning process is explained, the LLM will also show the reasoning process when answering the prompt. This often leads to more accurate results.
 
 Importantly, it has been shown that CoT only yields performance gains when used with models of ∼100B parameters. Smaller models wrote illogical chains of thought, which had worse accuracy than standard prompting. Models usually get performance boosts from CoT prompting in a manner proportional to the size of the model.
 
@@ -20,13 +20,13 @@ Importantly, it has been shown that CoT only yields performance gains when used 
 
 ReAct is inspired by the synergies between `reasoning` and `acting` which allow humans to learn new tasks and make decisions or reasoning. ReAct is a general paradigm that combines reasoning and acting when working with LLMs. ReAct prompts LLMs to generate verbal reasoning traces and actions for a task. This allows the system to perform dynamic reasoning to create, maintain, and adjust plans for acting while also enabling interaction to external environments to incorporate additional information into the reasoning.
 
-The first step is to select cases from a training set and compose ReAct-format outcomes. These are used as few-shot examples in the prompts. The examples consist of multiple thought-action-observation steps.  
+The first step is to select cases from a training set and compose ReAct-format outcomes. These are used as few-shot examples in the prompts. The examples consist of multiple thought-action-observation steps. 
 
-For example, when using LangChain with dataframe agents and the SQL Toolkits with debugging, you can see the output of how the thought, action and observation interactions work.  That is typcially done over many iterations until you achive the desired outcome.
+For example, when using LangChain with dataframe agents and the SQL Toolkits with debugging, you can see the output of how the thought, action and observation interactions work. That is typcially done over many iterations until you achive the desired outcome.
 
 ## Text Generation
 
-In a text generation app, you can use natural language to interact with the app. Benefits of using a text generation model with an app is that you can now interact with a model that has been trained on a vast corpus of information, whereas a traditional app might be limited on what's in a database.  So what can a developer build with a text generation app?
+In a text generation app, you can use natural language to interact with the app. Benefits of using a text generation model with an app is that you can now interact with a model that has been trained on a vast corpus of information, whereas a traditional app might be limited on what's in a database. So what can a developer build with a text generation app?
 
 - **A chatbot**. A chatbot answering questions about topics, like your company and its products could be a good match.
 - **Helper**. LLMs are fantastic at things like summarizing text, getting insights from text, producing text like resumes and more.
@@ -66,7 +66,7 @@ Generative AI can be used for a variety of different areas including low code, b
 
 Building apps and solutions has become more easier for traditional developers and non-developers through the use of Low Code Development Platforms. Low Code Development Platforms enable you to build apps and solutions with little to no code. This is achieved by providing a visual development environment that enables you to drag and drop components to build apps and solutions. This enables you to build apps and solutions faster and with less resources.
 
-The Power Platform provides organizations with the opportunity to empower their teams to build their own solutions through an intuitive low-code or no-code environment. This environment helps simplify the process of building solutions. With Power Platform, solutions can be built in days or weeks instead of months or years. Power Platform consists of five key products: 
+The Power Platform provides organizations with the opportunity to empower their teams to build their own solutions through an intuitive low-code or no-code environment. This environment helps simplify the process of building solutions. With Power Platform, solutions can be built in days or weeks instead of months or years. Power Platform consists of five key products:
 
 - Power Apps
 - Power Automate
@@ -95,7 +95,7 @@ Copilots are available in all the Power Platform products: Power Apps, Power Aut
 
 ## External Applications with function calling
 
-Before function calling, responses from an LLM were unstructured and inconsistent. Developers were required to write complex validation code to make sure they can handle each variation of a response. Users could not get answers like "What is the current weather in Stockholm?". This is because models were limited to the time the data was trained on.
+Before function calling, responses from an LLM were unstructured and inconsistent. Developers were required to write complex validation code to make sure they can handle each variation of a response. Users could not get answers like "What is the current weather in Stockholm?". This is because models were limited to the data available at that moment in time.
 
 Function Calling is a feature of the Azure Open AI Service to overcome to the following limitations:
 

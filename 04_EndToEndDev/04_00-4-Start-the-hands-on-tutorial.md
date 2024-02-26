@@ -4,11 +4,11 @@
 
 The first step to exploring the evolution of PostgreSQL Application development is to get the environment set up and configure the infrastructure.
 
-We provided two ARM templates that can be deployed that will set up the environment.  The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. In the template, you specify the resources to deploy and the properties for those resources.
+We provided two ARM templates that can be deployed that will set up the environment. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. In the template, you specify the resources to deploy and the properties for those resources.
 
-One is a **basic deployment** of services that are exposed to the internet and the other is a more secure environment that utilizes private endpoints and VNet integrations.  It also includes items like Azure Firewall and other security-related configurations.
+One is a **basic deployment** of services that are exposed to the internet and the other is a more secure environment that utilizes private endpoints and VNet integrations. It also includes items like Azure Firewall and other security-related configurations.
 
-The basic template is the cheaper way to go and should work without any configuration.  The **secure template** will have much higher costs and will require special configuration and changes to get the samples to work properly.
+The basic template is the cheaper way to go and should work without any configuration. The **secure template** will have much higher costs and will require special configuration and changes to get the samples to work properly.
 
 #### How to deploy a local ARM template
 
@@ -38,7 +38,7 @@ Below are two methods of deploying an ARM template:
 - Select the **Review + create** button.
 - Check for validation errors. For example, you may have exceeded your quota for that subscription and region.
 
-Another option for deploying infrastructure using a template is to use Azure CLI or PowerShell.  Here is a tutorial guide:
+Another option for deploying infrastructure using a template is to use Azure CLI or PowerShell. Here is a tutorial guide:
 
 [Tutorial: Deploy a local ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-cli)
 
@@ -49,13 +49,13 @@ This is an optional step if you have your development environment already set up
 - [Basic Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
 - [Secure Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template-secure.json)
 
-> [!NOTE](media/note-icon.png)  Due to the number of software packages to be installed, the deployment of the template may fail due a time out of the VM extension `winExtension` on the -win11 and -paw-1 virtual machines.  On each of these virtual machines, the log for the installation of the software is located at `C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt` to follow the progress.
+> [!NOTE](media/note-icon.png)  Due to the number of software packages to be installed, the deployment of the template may fail due a time out of the VM extension `winExtension` on the -win11 and -paw-1 virtual machines. On each of these virtual machines, the log for the installation of the software is located at `C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt` to follow the progress.
 
 #### Step 2 - Explore the development environment
 
-Once the template has been deployed, several resources will be deployed to support the developer journey.  Not all of these will be used but are provided in case other paths would like to be explored.
+Once the template has been deployed, several resources will be deployed to support the developer journey. Not all of these will be used but are provided in case other paths would like to be explored.
 
-As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities.  Login to this virtual machine by doing the following:
+As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities. Login to this virtual machine by doing the following:
 
 - Open Azure Portal
 - Browse to your resource group
@@ -66,11 +66,11 @@ As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been de
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed.  Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder.  
+Once in the virtual machine, notice that all the necessary development tools have already been installed. Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder. 
 
 ### Developer Samples
 
-Additionally, some problems are solved by more than just a web application and a database backend.  Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities that have connectivity to Azure Database for PostgreSQL Flexible Server.
+Additionally, some problems are solved by more than just a web application and a database backend. Microsoft Azure provides several compute engines with varying degrees of features and administrative abilities that have connectivity to Azure Database for PostgreSQL Flexible Server.
 
 - [PostgreSQL Developer Features](samples/04-01-PostgreSQL-Developer-Features/README.md)
 - [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview)
@@ -86,6 +86,6 @@ Additionally, some problems are solved by more than just a web application and a
 
 ### App Modernization
 
-In addition to the samples above, you can also optionally choose to take an in-depth journey through an Application Modernization series of samples.  This is provided in the lab samples appendix.
+In addition to the samples above, you can also optionally choose to take an in-depth journey through an Application Modernization series of samples. This is provided in the lab samples appendix.
 
 - [Application Modernization](../10_02_AppModernization/10_02_AppModernization.md)

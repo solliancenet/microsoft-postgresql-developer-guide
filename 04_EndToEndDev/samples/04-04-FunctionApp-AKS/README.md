@@ -1,12 +1,12 @@
-# Hands on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)
+# Hands-on Lab: Deploy Azure Function App to Azure Kubernetes Service (AKS)
 
-Function apps can be containerized and deployed to AKS.  These steps will walk through this process so it can be applied later if this is something the architecture demands.
+Function apps can be containerized and deployed to AKS. These steps will walk through this process so it can be applied later if this is something the architecture demands.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
@@ -24,7 +24,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
@@ -85,4 +85,4 @@ func init --docker-only --python
 func kubernetes deploy --name "showdatabasesfunction" --registry "pgsqldevSUFFIX.azurecr.io"
 ```
 
-- After following the above steps, the function app has been turned into a container and pushed to the target registry.  It should also now be deployed to the AKS cluster in the `keda` namespace.
+- After following the above steps, the function app has been turned into a container and pushed to the target registry. It should also now be deployed to the AKS cluster in the `keda` namespace.

@@ -8,7 +8,7 @@ Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data f
 
 ![This image shows the Activity Logs icon.](media/activity-logs.png "Activity logs icon")
 
-The Activity log is a [platform log](https://learn.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. The Activity log includes  information like when a resource is modified or when a virtual machine was started.
+The Activity log is a [platform log](https://learn.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. The Activity log includes information like when a resource is modified or when a virtual machine started.
 
 Event examples:
 
@@ -19,7 +19,7 @@ Event examples:
 
 ![This image shows the Azure Log Analytics icon.](media/log-analytics-icon.png "Azure Log Analytics icon")
 
-Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can use Log Analytics queries to retrieve records that match particular criteria.  Use the query results to identify trends, analyze patterns, and provide insights. Users can create charts to visualize important data in the portal.
+Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can use Log Analytics queries to retrieve records that match particular criteria. Use the query results to identify trends, analyze patterns, and provide insights. Users can create charts to visualize important data in the portal.
 
 Query examples:
 

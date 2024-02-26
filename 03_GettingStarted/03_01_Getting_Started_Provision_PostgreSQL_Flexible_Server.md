@@ -18,7 +18,7 @@ Running the CLI commands from [Azure Cloud Shell](https://shell.azure.com) is pr
 
 TODO: Update to Microsoft Repo
 
-Azure provides a [Quickstart document](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template) with a basic ARM template for a Flexible Server deployment. We have also provided an ARM template to support the applications explored in this guide (https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json). The Azure sample template requires additional parameters to run. It can be deployed with the `New-AzResourceGroupDeployment` PowerShell command in the Quickstart or the `az deployment group create` CLI command.  You can also paste it into a new deployment in the Azure Portal.
+Azure provides a [Quickstart document](https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template) with a basic ARM template for a Flexible Server deployment. We have also provided an ARM template to support the applications explored in this guide (https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json). The Azure sample template requires additional parameters to run. It can be deployed with the `New-AzResourceGroupDeployment` PowerShell command in the Quickstart or the `az deployment group create` CLI command. You can also paste it into a new deployment in the Azure Portal.
 
 ### Bicep
 
@@ -50,7 +50,7 @@ After creating an Azure Database for Flexible Server, there are several configur
 
 ### Storage
 
-Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-types). When increasing storage, the default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you are managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.  
+Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-types). When increasing storage, the default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you are managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.
 
 > NOTE: After you increase the storage size, you cannot go back to a smaller storage size.
 
@@ -76,7 +76,7 @@ Every time a new connection is created, PostgreSQL spawns a new process using th
 
 - Protect your instance from massive number of connections. In pgbouncer, you can set the maximum number of connections to the Postgres server. If an external system tries to open more connections than the maximum number of allowed connections, PgBouncer will reject the connection before reaching the upstream database server.
 
-> NOTE: PgBouncer is not used to speed up queries.  As you will read in later sections, Azure Database for PostgreSQL Flexible Server has other tools to help find and assist with improving query performance.
+> NOTE: PgBouncer is not used to speed up queries. As you will read in later sections, Azure Database for PostgreSQL Flexible Server has other tools to help find and assist with improving query performance.
 
 For an example of real world PgBouncer usage, reference [Scaling the GitLab database](https://about.gitlab.com/blog/2017/10/02/scaling-the-gitlab-database/).
 
@@ -104,26 +104,26 @@ For more information, review:
 - [Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-networking-private)
 - [Azure Database for PostgreSQL Flexible Server Networking with Private Link - Preview](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-networking-private-link)
 
-We explore working with VNET Integration in the `Logic App` developer lab.  This lab will setup an Azure Gateway in a Virtual Machine to allow a cloud-based Logic App access to a private network Azure Database for PostgreSQL instance.
+We explore working with VNET Integration in the `Logic App` developer lab. This lab will setup an Azure Gateway in a Virtual Machine to allow a cloud-based Logic App access to a private network Azure Database for PostgreSQL instance.
 
 ### Firewall Rules
 
 With public access, the Azure Database for PostgreSQL Flexible Server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level firewall rules. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With private access no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL Flexible Server.
 
-There are some limitations to firewall rules, reference [Troubleshoot firewall problems](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules#troubleshoot-firewall-problems) for the latest information.  The two most important items to note:
+There are some limitations to firewall rules, reference [Troubleshoot firewall problems](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules#troubleshoot-firewall-problems) for the latest information. The two most important items to note:
 
 - Firewall doesn't support allowing dynamic IP addresses : This can occur when your ISP cycles your public IP address for you client(s).
 - Firewall rules aren't available for IPv6 format: The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, you'll get a validation error.
 
-When connecting from other Azure services, it is likely you will not be away of the IP addresses these services use.  You can utilize the **Allow public access from any Azure service within Azure to this server** option.  However, this option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you are using this option, make sure your sign-in and user permissions limit access to only authorized users.
+When connecting from other Azure services, it is likely you will not be away of the IP addresses these services use. You can utilize the **Allow public access from any Azure service within Azure to this server** option. However, this option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you are using this option, make sure your sign-in and user permissions limit access to only authorized users.
 
 ### SSL
 
-Once you have an Azure Database for PostgreSQL Flexible Server instance created, you will want to connect to it.  The next few sections will show you how to connect from various languages.  All of them will have the option to connect with or without SSL.
+Once you have an Azure Database for PostgreSQL Flexible Server instance created, you will want to connect to it. The next few sections will show you how to connect from various languages. All of them will have the option to connect with or without SSL.
 
 Most of the libraries support SSL connectivity, but modifying your applications to support SSL connectivity can be non-trival.
 
-In all cases, you will need to download the SSL certificate from `https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem`.  How your store and reference the certificate will be the varying factor.
+In all cases, you will need to download the SSL certificate from `https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem`. How your store and reference the certificate will be the varying factor.
 
 For example, with `psql`, your connection string will look something like the following:
 
@@ -148,11 +148,11 @@ An Azure Database for PostgreSQL Flexible Server has default databases:
 
 ### Microsoft Entra Authentication
 
-In addition to basic PostgreSQL usernames and passwords, you can utilize Azure Entra authentication to login to the PostgreSQL instance.  This must be enabled via the Portal, Azure CLI, PowerShell, or REST APIs.
+In addition to basic PostgreSQL usernames and passwords, you can utilize Azure Entra authentication to login to the PostgreSQL instance. This must be enabled via the Portal, Azure CLI, PowerShell, or REST APIs.
 
 Once enabled, you can utilize basic Microsoft Entra flows to generate access tokens that are then used as the password for the connection.
 
-There are some drawbacks to utilizing this approach.  One such drawback is the token will expire typically after about 60 minutes.  Unless you have a mechanism to re-try and get a new token, you may run into broken application flows.
+There are some drawbacks to utilizing this approach. One such drawback is the token will expire typically after about 60 minutes. Unless you have a mechanism to re-try and get a new token, you may run into broken application flows.
 
 Reference the pgAdmin retry using the **Advanced** tab and `password exec` feature in the [06-04-FunctionApp-MSI] developer lab.
 
@@ -160,11 +160,11 @@ For more information, reference [Microsoft Entra authentication with PostgreSQL 
 
 ### Managed Service Identities (MSI)
 
-When Microsoft Entra Authentication is enabled, you can assign other service managed identities (both system and user) to be able to access the PostgreSQL instance.  These can be assigned in the same way as assigning Entra Administrators or they can be given granular permissions.  
+When Microsoft Entra Authentication is enabled, you can assign other service managed identities (both system and user) to be able to access the PostgreSQL instance. These can be assigned in the same way as assigning Entra Administrators or they can be given granular permissions.
 
-It is also possible to assign Entra groups to Azure Database for PostgreSQL roles and permissions.  You may find it easier to create a group and then add the MSI to the group. After assigning to a group, you would then assign the permissions to the group rather than the individual identities.
+It is also possible to assign Entra groups to Azure Database for PostgreSQL roles and permissions. You may find it easier to create a group and then add the MSI to the group. After assigning to a group, you would then assign the permissions to the group rather than the individual identities.
 
-When working with MSI, be sure you follow the steps for Azure Database for Flexible Server and not steps that might be related to other instance types.  It can be confusing when browsing articles on the internet or even the Microsoft Docs pages.
+When working with MSI, be sure you follow the steps for Azure Database for Flexible Server and not steps that might be related to other instance types. It can be confusing when browsing articles on the internet or even the Microsoft Docs pages.
 
 Reference [FunctionApp-MSI] developer lab for examples on how to do this. You can also reference [Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-with-managed-identity) and [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-azure-ad-users).
 
@@ -174,7 +174,7 @@ Reference [FunctionApp-MSI] developer lab for examples on how to do this. You ca
 
 The [Salted Challenge Response Authentication Mechanism (SCRAM)](https://datatracker.ietf.org/doc/html/rfc5802) greatly improves the security of password-based user authentication by adding several key security features that prevent rainbow-table attacks, man-in-the-middle attacks, and stored password attacks, while also adding support for multiple hashing algorithms and passwords that contain non-ASCII characters.
 
-Your client driver must be able to support SCRAM in order to utilize it.  You can find a list of drivers and their ability to support SCRAM [here](https://wiki.postgresql.org/wiki/List_of_drivers).  Most, if not all, of the latest versions of the clients support SCRAM.
+Your client driver must be able to support SCRAM in order to utilize itYou can find a list of drivers and their ability to support SCRAM [here](https://wiki.postgresql.org/wiki/List_of_drivers)Most, if not all, of the latest versions of the clients support SCRAM.
 
 ### Row-Level Security
 
@@ -188,4 +188,4 @@ Flexible Server supports all `contrib` extensions and more. Please refer to [Pos
 
 ### Limitations
 
-As you read above, not all PostgreSQL features are available in Azure Database for PostgreSQL Flexible Server.  To read more about these limitations, reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits).
+As you read above, not all PostgreSQL features are available in Azure Database for PostgreSQL Flexible Server. To read more about these limitations, reference [Limits in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-limits)..

@@ -66,7 +66,7 @@ This code must be run in a terminal or notebook that is authenticated to Azure. 
       ).result()
       ```
 
-3. Run the code and then verify the database was created.
+3. Run the code and then verify the database is created.
 
     ```bash
     python create_flexible_server_database.py
@@ -94,4 +94,4 @@ postgres_client.databases.begin_delete(
 ).result()
 ```
 
-If a Python Virtual Environment was created, simply enter `deactivate` into the console to remove it.
+If you created a Python Virtual Environment, simply enter `deactivate` into the console to remove it.

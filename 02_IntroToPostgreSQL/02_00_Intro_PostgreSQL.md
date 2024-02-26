@@ -1,6 +1,6 @@
 # 02 / Introduction to Azure Database for PostgreSQL Flexible Server
 
-Before jumping into Azure Database for PostgreSQL Flexible Server, it is important to understand some PostgreSQL history. Also, it is important to cover the various PostgreSQL hosting options and their pros and cons.  As part of this guide, we will cover Artificial Intelligence (AI) and how Azure Database for PostgreSQL Flexible Server plays in this exciting space.
+Before jumping into Azure Database for PostgreSQL Flexible Server, it is important to understand some PostgreSQL history. Also, it is important to cover the various PostgreSQL hosting options and their pros and cons. As part of this guide, we will cover Artificial Intelligence (AI) and how Azure Database for PostgreSQL Flexible Server plays in this exciting space.
 
 ## What is PostgreSQL?
 
@@ -12,7 +12,7 @@ You can also watch the [Introduction to Azure Database for PostgreSQL Flexible S
 
 Though PostgreSQL has a distinct set of advantages, it does compete with other typical relational database offerings. Though the emphasis of this guide is operating PostgreSQL on Azure to architect scalable applications, it is important to be aware of other potential offerings such as [MySQL](https://www.mysql.com/) and [MariaDB](https://mariadb.org/).
 
-In addition to the most popular relational database systems, new products have emerged to support vector-based systems for AI purposes.  Because PostgresSQL also has this capability, it will be important to review these other offerings and how PostgreSQL compares to them.
+In addition to the most popular relational database systems, new products have emerged to support vector-based systems for AI purposes. Because PostgresSQL also has this capability, it will be important to review these other offerings and how PostgreSQL compares to them.
 
 ## PostgreSQL hosting options
 
@@ -71,6 +71,6 @@ PostgreSQL offers a [Docker image](https://hub.docker.com/_/postgres) to operate
 
 ### Cloud PaaS
 
-PostgreSQL databases can be deployed on public cloud platforms by utilizing VMs, container runtimes, and Kubernetes. However, these platforms require a middle ground of customer management.  If a fully managed environment is required, cloud providers offer their own managed PostgreSQL products, such as Amazon RDS for PostgreSQL and Google Cloud SQL for PostgreSQL.  Microsoft Azure offers Azure Database for PostgreSQL Flexible Server.
+PostgreSQL databases can be deployed on public cloud platforms by utilizing VMs, container runtimes, and Kubernetes. However, these platforms require a middle ground of customer management. If a fully managed environment is required, cloud providers offer their own managed PostgreSQL products, such as Amazon RDS for PostgreSQL and Google Cloud SQL for PostgreSQL. Microsoft Azure offers Azure Database for PostgreSQL Flexible Server.
 
 - **Video** - [Introducing Azure Database for PostgreSQL and Azure Database for MySQL](https://www.youtube.com/watch?v=ElKfEurMi9E)

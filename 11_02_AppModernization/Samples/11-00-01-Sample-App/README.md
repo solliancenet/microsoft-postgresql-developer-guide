@@ -50,7 +50,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
    - Create a unique web app name.
 
-   - Select the runtime stack.  The web app is only tested with PHP 8.x.
+   - Select the runtime stack. The web app is only tested with PHP 8.x.
 
    - Create the resources.
 
@@ -135,7 +135,7 @@ The deployment strategy applied in this sample application focuses on updating p
 
       ![Update APP_URL value](media/update-app-url-env.png)
 
-12. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true.  Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. So we need to save your own Nginx configure file under /home path.
+12. Copy the Nginx default to the home default. By default, App Service set WEBSITES_ENABLE_APP_SERVICE_STORAGE = true. Files stored in /home path are persisted in an Azure Storage file share, which can survive restart and shared across scale instances. So we need to save your own Nginx configure file under /home path.
 
     ```bash
     cp /etc/nginx/sites-enabled/default /home/default

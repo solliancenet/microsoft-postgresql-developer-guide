@@ -1,12 +1,12 @@
-# Hands on Lab: Logic Apps with PostgreSQL
+# Hands-on Lab: Logic Apps with PostgreSQL
 
-Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE.  However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events.  In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway.  This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
+Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE. However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events. In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway. This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Local install of Azure Database for PostgreSQL Flexible Server
 - Virtual Networks
@@ -22,7 +22,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - [Chocolaty Installer](https://chocolatey.org/install)
 - [PostgreSQL 16](https://www.postgresql.org/download/)
@@ -83,7 +83,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - For the name, type **pgsqldevSUFFIXflexpriv**
 - For the TTL, select **30**  and for units select **seconds**
 - For the ip address, type the IP that was added for the random `A` record
-- It can take some time for the DNS to become available, on the **paw-1** virtual machine.  If you want to speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
+- It can take some time for the DNS to become available, on the **paw-1** virtual machine. If you want to speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
   - Add the following to the file:
 
     ```text
@@ -156,7 +156,7 @@ choco install psqlodbc
 ## Exercise 7: Install npgsql
 
 - You can download `npgsql` from [here](https://github.com/npgsql/npgsql/releases/download/v4.0.12/Npgsql-4.0.12.msi)
-  - `Npgsql-4.0.12.msi` is also available in the repo along side this README.md file
+  - `Npgsql-4.0.12.msi` is also available in the repo alongside this README.md file
 - Install the software to support the data gateway
 
 ## Exercise 8: Configure the Logic App
@@ -199,7 +199,7 @@ This step has already been done for you, but if you would like to create the log
 - Select **Get Rows**
 - Update the step variables:
   - For the name, type **PostgreSQLflex**
-  - For the server, type **pgsqldevSUFFIXflexpriv.postgres.database.azure.com**.  
+  - For the server, type **pgsqldevSUFFIXflexpriv.postgres.database.azure.com**. 
 
   > **Note** It may be necessary to put the private IP address if DNS resolution does not kick in in a reasonable amount of time.
 

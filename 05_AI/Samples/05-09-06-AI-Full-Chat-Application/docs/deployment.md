@@ -12,16 +12,16 @@ Users can deploy this solution from three locations, local machine, virtual mach
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
 - Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
 
->**NOTE**: Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services.  See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 ## Deployment steps
 
 Follow the steps below to deploy the solution to your Azure subscription.
 
-1. Ensure all the prerequisites are installed.  
+1. Ensure all the prerequisites are installed. 
 
 2. Clone the repository:
-   
+
     ```cmd
     git clone https://github.com/Azure/Vector-Search-AI-Assistant.git
     ```
@@ -35,14 +35,16 @@ Follow the steps below to deploy the solution to your Azure subscription.
 
 4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into your choice of Azure Kubeternetes Service or Azure Container Apps, and import data into Azure Cosmos DB.
 
-    ### Deploy with Azure Kubernetes Service
+### Deploy with Azure Kubernetes Service
+
     This script will deploy all services including a new Azure OpenAI account and AKS
 
     ```pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id> -deployAks 1
     ```
 
-    ### Deploy with pre-existing Azure OpenAI service with Azure Kubernetes Service
+### Deploy with pre-existing Azure OpenAI service with Azure Kubernetes Service
+
     This script will deploy using a pre-existing Azure OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002 models and AKS
 
     ```pwsh
@@ -58,7 +60,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
 
     > ```pwsh
     >  az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
-    >  ```	 
+    >  ```
 
 
     ### Deploy with Azure Container Apps
@@ -107,7 +109,7 @@ Once the deployment script completes, the Application Insights `traces` query sh
 
 ![API initialization sequence of events](../img/initialization-trace.png)
 
-Next, you should be able to see multiple entries referring to the vectorization of the data that was imported into Cosmos DB:
+Next, you should be able to see multiple entries referring to the vectorization of the data imported into Cosmos DB:
 
 ![API vectorization sequence of events](../img/initialization-embedding.png)
 

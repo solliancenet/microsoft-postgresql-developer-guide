@@ -74,4 +74,3 @@ It is now time to find ways where we can prevent or limit the potential harm cau
 Building an operational practice around your AI applications is one of the final stages. This includes partnering with other parts of your company, like Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
 
 Working with LLMs can be challenging because you may not always have control over the data the model was trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.
-

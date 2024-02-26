@@ -1,12 +1,12 @@
-# Hands on Lab: Azure Function with PostgreSQL (Python)
+# Hands-on Lab: Azure Function with PostgreSQL (Python)
 
-In this hands on lab you will create an HTTP Function Application using Visual Studio Code and Python.  The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
+In this hands-on lab you will create an HTTP Function Application using Visual Studio Code and Python. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
@@ -22,7 +22,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
@@ -142,7 +142,7 @@ cnx = psycopg2.connect(database="postgres",
 
 ## Exercise 2: Deploy the Function Application
 
-Now that the Function App is created and working locally, the next step is to publish the Function App to Azure.  This will require some small changes.
+Now that the Function App is created and working locally, the next step is to publish the Function App to Azure. This will require some small changes.
 
 - Add the following to the Python code:
 
@@ -185,7 +185,7 @@ az account set --subscription 'SUBSCRIPTION NAME'
 func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction
 ```
 
-- If you previously deployed the dotnet version, you should get an error about the function runtime.  Run the following to force the deployment and change the runtime to python:
+- If you previously deployed the dotnet version, you should get an error about the function runtime. Run the following to force the deployment and change the runtime to python:
 
 ```PowerShell
 az functionapp config set --name pgsqldevSUFFIX-ShowDatabasesFunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'

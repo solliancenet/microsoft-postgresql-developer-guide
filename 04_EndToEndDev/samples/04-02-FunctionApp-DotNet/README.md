@@ -1,12 +1,12 @@
-# Hands on Lab: Azure Function with PostgreSQL (.NET)
+# Hands-on Lab: Azure Function with PostgreSQL (.NET)
 
-In this hands on lab you will create an HTTP Function Application using Visual Studio and .NET.  The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
+In this hands-on lab you will create an HTTP Function Application using Visual Studio and .NET. The HTTP Function Application will connect to an Azure Database for PostgreSQL Flexible Server and display database information.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure App Service Plan (Linux)
 - Azure App Service (Linux)
@@ -18,7 +18,7 @@ You can create these resources using the PostgreSQL Flexible Server Developer Gu
 
 ### Software pre-requisites
 
-All this is done already in the lab setup scripts for the Lab virtual machine, but is provided here for reference.
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
   - Expand the **Download Visual Studio with .NET** dropdown for an installation package with the .NET SDK
@@ -117,7 +117,7 @@ http://localhost:7071/api/ShowDatabasesFunction
 
 Now that the function app is created and working locally, the next step is to publish the function app to Azure.
 
-- Right click the project, select **Publish**
+- Right-click the project, select **Publish**
 - Select **Azure**, then select **Next**
 - For the target, select **Azure Function App (Linux)**
 

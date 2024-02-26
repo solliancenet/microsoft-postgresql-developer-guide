@@ -10,7 +10,7 @@
 
 Follow the steps below to deploy the solution to your Azure subscription.
 
-1. Create a cloud shell PowerShell environment in a tenant that contains the target subscription.  
+1. Create a cloud shell PowerShell environment in a tenant that contains the target subscription. 
 
 2. Clone the repository:
    
@@ -31,7 +31,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
     chmod +x ./scripts/*
     ```
 
-5.  Execute the `CloudShell-Deploy.ps1` script. This will provision all of the required infrastructure, deploy the API and web app services into AKS, and import data into Cosmos DB.
+5. Execute the `CloudShell-Deploy.ps1` script. This will provision all of the required infrastructure, deploy the API and web app services into AKS, and import data into Cosmos DB.
 
     ```pwsh
     ./scripts/CloudShell-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id>

@@ -2,7 +2,7 @@
 
 ### From on-premises to Flexible Server
 
-Migration from external sources such as other cloud providers or instances running on-premises will require the movement of database artifacts and data.  There are currenctly serveral tools available to do this:
+Migration from external sources such as other cloud providers or instances running on-premises will require the movement of database artifacts and data. There are currenctly serveral tools available to do this:
 
 - Database tools
   - [Azure Database Migration Service (DMS)](https://learn.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)
@@ -10,11 +10,11 @@ Migration from external sources such as other cloud providers or instances runni
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli)
 
-In addition to any migration pre-requisities, you must also ensure that a network path exists between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance.  This can be more complicated than at first glance depending on a number of different network topology possibilies.
+In addition to any migration pre-requisities, you must also ensure that a network path exists between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance. This can be more complicated than at first glance depending on a number of different network topology possibilies.
 
 ### Offline vs Online migrations
 
-For smaller and less used databases, the migration process is likely to be quick and effortless.  However, in larger and more heavily used environments, the choice of how you migrate will be a vital decision to ensure applications and end users are not subject to lengthy downtime and productivity loss.
+For smaller and less used databases, the migration process is likely to be quick and effortless. However, in larger and more heavily used environments, the choice of how you migrate will be a vital decision to ensure applications and end users are not subject to lengthy downtime and productivity loss.
 
 You can choose between two migration paths:
 

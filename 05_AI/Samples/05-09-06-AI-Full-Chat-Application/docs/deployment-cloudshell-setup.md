@@ -25,7 +25,7 @@ Before users in your team can deploy the solution using Cloud Shell, you need to
     git commit -m "Updated ACR details for Cloud Shell deployment"
     git push
     ```
-   
+
 6. Execute the `Prepare-CloudShell-Deploy.ps1` script. This will build the portal and API Docker images and push them to the ACR instance created in step 1.
 
 
@@ -33,7 +33,7 @@ Before users in your team can deploy the solution using Cloud Shell, you need to
     ./scripts/Prepare-CloudShell-Deploy.ps1 -resourceGroup <rg_name> -acrName <acr_name> -subscription <target_subscription_id>
     ```
 
-    `<rg_name>` is the name of the resource group where the ACR instance was created in step 1.
+    `<rg_name>` is the name of the resource group where of the ACR instance created in step 1.
 
     `<acr_name>` is the name of the ACR instance created in step 1.
 

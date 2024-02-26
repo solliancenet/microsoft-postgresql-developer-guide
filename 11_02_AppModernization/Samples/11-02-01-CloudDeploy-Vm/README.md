@@ -13,7 +13,7 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
    ![This image demonstrates the VM IP address in the Overview tab.](./media/vm-ip-address.png "VM IP address")
 
 4. Open a browser to the virtual machine ip address (ex `http:\\IP_ADDRESS:8080`)
-5. A **ERR_CONNECTION_TIMED_OUT** error should occur.  This is because the network security group on the virtual machine does not allow port 8080 access.
+5. A **ERR_CONNECTION_TIMED_OUT** error should occur. This is because the network security group on the virtual machine does not allow port 8080 access.
 
 ## Open Port 8080
 
@@ -46,7 +46,7 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 ## Edit .env file
 
 1. Open the `c:\labfiles\microsoft-postgres-developer-guide\artifacts\sample-php-app\.env` file
-2. Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine and remove the port `8080`.  
+2. Edit the `APP_URL` to the `IP_ADDRESS` of the virtual machine and remove the port `8080`. 
 3. Change the http protocol to `https` in order to properly load the application over SSL, example: https://IP_ADDRESS
 4. Save the file.
 

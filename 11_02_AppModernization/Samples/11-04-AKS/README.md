@@ -27,7 +27,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     az aks get-credentials --name "pgsqldev$suffix" --resource-group $resourceGroupName
     ```
 
-3. Run the following commands to deploy the containers (be sure to update the variable values). Note that you must be able to create rbac in the Microsoft Entra tenant to run these commands.  If you do not have this access, you will need to enable the anonymous access to the container registry using (`az acr update --name myregistry --anonymous-pull-enabled false`):
+3. Run the following commands to deploy the containers (be sure to update the variable values). Note that you must be able to create rbac in the Microsoft Entra tenant to run these commands. If you do not have this access, you will need to enable the anonymous access to the container registry using (`az acr update --name myregistry --anonymous-pull-enabled false`):
 
     ```powershell
     $acr = Get-AzContainerRegistry -Name $acrName -ResourceGroupName $resourceGroupName;
@@ -57,7 +57,7 @@ Now that a containerized version of the applications exists, it can now be hoste
     
     ```
 
-> NOTE: You could also use the Azure Key Vault provider for AKS to utilize secrets.  Reference [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/). Additionally, consider using [Managed Identities](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/identity-access-modes/) for your pods.
+> NOTE: You could also use the Azure Key Vault provider for AKS to utilize secrets. Reference [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/). Additionally, consider using [Managed Identities](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/identity-access-modes/) for your pods.
 
 4. Create a managed disk:
 
@@ -232,7 +232,7 @@ az aks nodepool start --resource-group $resourceGroupName --cluster-name $resour
 
 ## Create a deployment
 
-Kubernetes deployments allow for the creation of multiple instances of pods and containers in case nodes or pods crash unexpectiantly.  
+Kubernetes deployments allow for the creation of multiple instances of pods and containers in case nodes or pods crash unexpectiantly. 
 
 1. Review the `C:\labfiles\microsoft-postgresql-developer-guide\artifacts\11-04-AKS\store-web-deployment.yaml` file be sure to replace the Azure Container Registry link:
 

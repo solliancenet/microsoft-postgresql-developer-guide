@@ -1,6 +1,6 @@
 # AppMod 07 : Migrate to Docker Containers
 
-This is a simple app that runs PHP code to connect to a PostgreSQL database.  Both the application and database are deployed via Docker containers.
+This is a simple app that runs PHP code to connect to a PostgreSQL database. Both the application and database are deployed via Docker containers.
 
 ## Migrate Application to Docker
 
@@ -293,11 +293,11 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
     docker compose up
     ```
 
-10. Switch back to the pgadmin window.  Attemp to re-run the `select count(*) from orders` query, notice that the database has the same orders as when it was started before.  This is because the container's data was lost when it was stopped/removed.
+10. Switch back to the pgadmin window. Attemp to re-run the `select count(*) from orders` query, notice that the database has the same orders as when it was started before. This is because the container's data was lost when it was stopped/removed.
 
 ## Fix Storage persistence
 
-1. Modify the `docker-compose.yml` docker compose file, notice how we are creating and adding a volume to the database container.  We also added the pgadmin continer:
+1. Modify the `docker-compose.yml` docker compose file, notice how we are creating and adding a volume to the database container. We also added the pgadmin continer:
 
   ```yaml
   version: '3.8'
@@ -350,8 +350,8 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.  Bo
   ```
 
 2. Create some more orders
-3. Restart the containers.  Notice that data is now persisted.  
-4. It is now up to the administrators to ensure the database volume is maintained for the length of the solution.  If this volume is ever deleted, the data will be lost!
+3. Restart the containers. Notice that data is now persisted. 
+4. It is now up to the administrators to ensure the database volume is maintained for the length of the solution. If this volume is ever deleted, the data will be lost!
 
 ## Save the images to Azure Container Registry (ACR)
 

@@ -1,12 +1,12 @@
-# Hands on Lab: Azure Batch with PostgreSQL
+# Hands-on Lab: Azure Batch with PostgreSQL
 
-In this hands on lab you will utilize Azure Batch to connect to your Azure Database for PostgreSQL Flexible Server.
+In this hands-on lab you will utilize Azure Batch to connect to your Azure Database for PostgreSQL Flexible Server.
 
 ## Setup
 
 ### Required Resources
 
-You will need several resource to perform this lab.  These include:
+You will need several resources to perform this lab. These include:
 
 - Azure Batch
 - Azure Database for PostgreSQL Flexible Server
@@ -59,12 +59,12 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Select **+Add**
 - For the name, type **app01_PostgreSQL**
 - For the version, type **1.0.0***
-- For the applciation package, browse to the zip file that was just created.
+- For the application package, browse to the newly created zip file.
 - Select **Submit**
 
 ## Exercise 4: Create a Batch Task
 
-- Under **General** select **Jobs**
+- Under **General**, select **Jobs**
 - Select the new **PostgreSQL_job**
 - Under **General**, select **Tasks**
 - Select **+ Add**
@@ -89,7 +89,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ## Exercise 6: Setup Managed Identity (certificate)
 
-The steps above utilize hardcoded values to gain access to the target database instance.  It is possible to setup a managed identity with Azure Batch such that credentials can be retrieved at runtime using a managed identity of the Azure Batch node pool.
+The steps above utilize hardcoded values to gain access to the target database instance. It is possible to setup a managed identity with Azure Batch such that credentials can be retrieved at runtime using a managed identity of the Azure Batch node pool.
 
 - On the **paw-1** virtual machine, run the following:
 
