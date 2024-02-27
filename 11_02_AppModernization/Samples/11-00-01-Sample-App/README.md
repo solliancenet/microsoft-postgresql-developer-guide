@@ -211,7 +211,7 @@ The application should now be available and show some sample data, however the w
    - DB_USERNAME
    - DB_PASSWORD
   
-5. Run the `php artisan migrate` command to create the tables in the contosonoshnow database. Note: Ensure you are in the `/home/site/wwwroot` directory when executing this command.
+5. Run the `php artisan migrate` command to create the tables in the contosonoshnow database. Note: Ensure the command path is in the `/home/site/wwwroot` directory when executing this command.
 
    ```bash
    php artisan migrate

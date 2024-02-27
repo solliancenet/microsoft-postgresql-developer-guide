@@ -519,9 +519,9 @@ Notice every entry from the source file with the default of '\D' is converted to
 
 ### Task 1: Allow parallelization of FULL and internal RIGHT OUTER hash joins
 
-In general, the more things you can do in parallel the faster you will get results. As is the case when performing `FULL` and internal `RIGHT OUTER` joins. Before PostgreSQL 16 these would not have been executed in parallel and the costs were more to perform than the parallelization setup.
+In general, the more things performed in parallel the faster the results. As is the case when performing `FULL` and internal `RIGHT OUTER` joins. Before PostgreSQL 16 these would not have been executed in parallel and the costs were more to perform than the parallelization setup.
 
-With this change, many queries you were performing using these joins will now run drastically faster.
+With this change, many queries that were performing using these joins will now run drastically faster.
 
 1. Switch to pgAdmin.
 2. Run the following commands to set up some sample tables and data on the PG16 instance.
@@ -542,7 +542,7 @@ With this change, many queries you were performing using these joins will now ru
     from generate_series(1,3000000) x;
     ```
 
-3. Ensure that your instance is enabled and configured for parallel hash joins, this is the default for instances, but depending is always worth verifying. You should see the following values.
+3. Ensure that the server instance is enabled and configured for parallel hash joins, this is the default setting, but it is always worth verifying. The following values should be the defaults:
    - parallel_type_cost = `0.1`
    - parallel_setup_cost = `1000`
    - max_parallel_workers_per_gather = `2`
@@ -557,7 +557,7 @@ With this change, many queries you were performing using these joins will now ru
 
     > NOTE: If the table values are very small, the effort of doing a parallel operation may be more than the effort to do a non-parallel execution. The tables and rows above should be enough to generate a Parallel Hash Full Join plan.
 
-4. Run the following command to see the execution plan of the select statement, note that we are disabling the calculation of costs to ensure that you see the parallel hash full join in the execution plan. This is because the costs to do parallel for this query may be higher than simply doing a regular hash full join:
+4. Run the following command to see the execution plan of the select statement, note that we are disabling the calculation of costs to ensure the parallel hash full join shows in the execution plan. This is because the costs to do parallel for this query may be higher than simply doing a regular hash full join:
 
     ```sql
     EXPLAIN (costs off)
@@ -567,11 +567,11 @@ With this change, many queries you were performing using these joins will now ru
     ON lt.x = rt.x;
     ```
 
-5. In the execution plan, you should notice the use of a `Parallel Hash Full Join`. 
+5. In the execution plan, notice the use of a `Parallel Hash Full Join`.
 
     ![Alt text](media/parallel_full_outer_join.png)
 
-6. In previous versions of PostgreSQL, you would see a regular `Hash Full Join`.
+6. In previous versions of PostgreSQL, a regular `Hash Full Join` would be shown.
 
     ![Alt text](media/02_parallel_hash_full_join_14.png)
 
@@ -579,7 +579,7 @@ Full JOINs are commonly used to find the differences between 2 tables. Prior to 
 
 ### Task 2: Allow aggregate functions string_agg() and array_agg() to be parallelized
 
-Aggregate functions typically perform some kind of mathematical operation on a column or set of columns. If you were to calculate several aggregates at once, you could probably imagine that doing each one in a serialized manner would likely take much longer than doing it in a parallel manner.
+Aggregate functions typically perform some kind of mathematical operation on a column or set of columns. When calculating several aggregates at once, it is easy to imagine that doing each one in a serialized manner would likely take much longer than doing it in a parallel manner.
 
 Not all aggregate functions have supported this type of optimization, as with the `string_agg()` and `array_agg()` functions. In PostgreSQL 16, this support has been added and per the description on the code commit "adds combine, serial and deserial functions for the array_agg() and string_agg() aggregate functions, thus allowing these aggregates to partake in partial aggregations. This allows both parallel aggregation to take place when these aggregates are present and also allows additional partition-wise aggregation plan shapes to include plans that require additional aggregation once the partially aggregated results from the partitions have been combined."
 
@@ -629,11 +629,11 @@ The following is an example of a query that performs aggregates with the two fun
         y;
     ```
 
-4. In 16+, you will see a `Finalize GroupAggregate`:
+4. In 16+, a `Finalize GroupAggregate` will be displayed:
 
     ![Alt text](media/02_03_query_03.png)
 
-5. In pre-16 instances, you would see a `HashAggregate` (feel free to test on the PG14 instance):
+5. In pre-16 instances, a `HashAggregate` will display (feel free to test on the PG14 instance):
 
     ![Alt text](media/02_03_query_02.png)
 
@@ -641,7 +641,7 @@ For a more in-depth look at the code change for this feature, reference [here](h
 
 ### Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query
 
-Previously, attempting to get an execution plan for a parameterized query proved to be complicated. For example, using a prepared statement will have several executions which may require you to execute all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
+Previously, attempting to get an execution plan for a parameterized query proved to be complicated. For example, using a prepared statement will have several executions which may require the execution of all the sub-executions separately and then put the results together. Using the new PG16 feature will eliminate those extra steps when attempting to find performance issues with parameterized queries.
 
 1. Run the following command to attempt to get an execution plan for a parameterized query using the pre-16 method:
 
@@ -649,7 +649,7 @@ Previously, attempting to get an execution plan for a parameterized query proved
     EXPLAIN SELECT * FROM listings WHERE listing_id = $1;
     ```
 
-2. You should get an error.
+2. An error should display.
 
     ![Alt text](media/02_04_query_01.png)
 
@@ -663,10 +663,10 @@ Previously, attempting to get an execution plan for a parameterized query proved
 
     > Note the use of the parenthesis. The old way (shown above) did not utilize parenthesis and is only for backwards compatibility. Newer options such as `GENERIC_PLAN` will only work with the new syntax.
 
-As you can see above, you can use parameter placeholders like `$1` instead of an unknown or variable value. However, there are certain restrictions:
+As displayed above, it is possible to use parameter placeholders like `$1` instead of an unknown or variable value. However, there are certain restrictions:
 
-- You can use parameters only with the statements SELECT, INSERT, UPDATE, DELETE and VALUES.
-- You can only use parameters instead of constants (literals). You can't use parameters instead of identifiers (object names) or keywords, among other things.
+- Use parameters only with the statements SELECT, INSERT, UPDATE, DELETE and VALUES.
+- Only use parameters instead of constants (literals). It is not possible to use parameters instead of identifiers (object names) or keywords, among other things.
 
 ### Task 4: Using pg_stat_io for enhanced IO monitoring
 
@@ -676,7 +676,7 @@ Per the [postgresql documentation](https://www.postgresql.org/docs/devel/monitor
 
 Currently, I/O on relations (e.g., tables, indexes) is tracked. However, relation I/O which bypasses shared buffers (e.g., when moving a table from one tablespace to another) is currently not tracked."
 
-1. Run the following command to clear the stats and see the information available, you should see all zeros:
+1. Run the following command to clear the stats and see the information available, notice all zeros are displayed:
 
     ```sql
     select pg_stat_reset_shared('io');
@@ -686,14 +686,14 @@ Currently, I/O on relations (e.g., tables, indexes) is tracked. However, relatio
 
     ![Alt text](media/02_pg_stat_01.png)
 
-2. Using `pgbench` you can generate some IO data (~750MB of data). In your Windows-based lab virtual machine open a command prompt window, in the Windows search area, type **cmd** and select it.
-3. Type the following. Be sure to replace the `PREFIX` and `REGION` tokens. On Windows you can find the `pgbench` tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, you can install it using `sudo apt-get install postgresql-contrib`:
+2. Using `pgbench` it is possible to generate IO data (~750MB of data). In the Windows-based lab virtual machine open a command prompt window, in the Windows search area, type **cmd** and select it.
+3. Type the following. Be sure to replace the `PREFIX` and `REGION` tokens. On Windows the `pgbench` tool can be found in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`:
 
     ```sql
     pgbench -i -s 50 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
-    > NOTE: In Azure Cloud Shell, you will need to check the version to ensure it is compatable with your target version (`pgbench --version`)
+    > NOTE: In Azure Cloud Shell, check the version to ensure it is compatable with the target server version (`pgbench --version`)
 
 4. Again, run the previous command to see the newly generated IO information.
 
@@ -704,7 +704,7 @@ Currently, I/O on relations (e.g., tables, indexes) is tracked. However, relatio
     order by writes desc;
     ```
 
-5. You should see the backend_type `client_backend` values change to be much higher:
+5. Notice the backend_type `client_backend` values changed to be much higher:
 
     ![Alt text](media/pg_stat_io.png)
 
@@ -727,7 +727,7 @@ Currently, I/O on relations (e.g., tables, indexes) is tracked. However, relatio
     order by writes desc;
     ```
 
-9. Review the backendtype of `client_backend`, object of `relation`, context of `normal` and the `extends` column value. Because you were adding data to an existing table, you are performing `extends` operations.
+9. Review the backendtype of `client_backend`, object of `relation`, context of `normal` and the `extends` column value. Because the previous queries were adding data to an existing table, these are shown as `extends` operations.
 
 Some common uses for this data include:
 
@@ -738,7 +738,7 @@ Some common uses for this data include:
 
 ### Task 1 : Setup Publication
 
-1. You will need to assign the `REPLICATION` permission in order to set up replication. Run the following on the **PREFIX-pg-flex-REGION-16** server:
+1. Assign the `REPLICATION` permission to the user in order to set up replication. Run the following on the **PREFIX-pg-flex-REGION-16** server:
 
     ```sql
     ALTER ROLE s2admin WITH REPLICATION;
@@ -756,7 +756,7 @@ Some common uses for this data include:
 
 ### Task 2: Setup Subscriber
 
-1. On the **PREFIX-pg-flex-REGION-14** server for the `airbnb` database, run the following. It will set up the subscription (you should already have the tables from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
+1. On the **PREFIX-pg-flex-REGION-14** server for the `airbnb` database, run the following. It will set up the subscription (the tables should already exist from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
 
     ```sql
     CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=PREFIX-pg-flex-REGION-16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Seattle123Seattle123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
@@ -797,9 +797,9 @@ References:
 
 ### Task 1: Enable PgBouncer and PgBouncer Metrics
 
-You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and do not require an instance restart.
+PgBouncer metrics can be used to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and do not require an instance restart.
 
-- Browse to the Azure Portal and your **PREFIX-pg-flex-REGION-16** resource.
+- Browse to the Azure Portal and the **PREFIX-pg-flex-REGION-16** resource.
 - Under **Settings**, select **Server parameters**.
 - Search for the `pgbouncer.enabled` dynamic parameters.
 - Toggle the setting to `TRUE`.
@@ -819,14 +819,14 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 5. Select **Add metric**.
 6. Under the **PGBOUNCER** category, select **Active client connections**.
 7. In the top right, select the time to be **Last 30 minutes** then select **Apply**.
-8. In your Windows-based lab virtual machine open a command prompt window, in the windows search area, type **cmd** and select it.
-9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Seattle123Seattle123`. Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with your lab information. On Windows you can find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on ubuntu, you can install it using `sudo apt-get install postgresql-contrib`::
+8. In the Windows-based lab virtual machine open a command prompt window, in the windows search area, type **cmd** and select it.
+9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Seattle123Seattle123`. Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with the lab information. On Windows, the pgbench tool can be found in the `C:\Program Files\PostgreSQL\16\bin` directory, on ubuntu, install it using `sudo apt-get install postgresql-contrib`::
 
     ```sql
     pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
-10. Switch back to the Metrics window, after a minute, you should see the `active connections` increase.
+10. Switch back to the Metrics window, after a minute, notice the `active connections` increase.
 
     ![Alt text](media/02_pgbouncer_01.png)
 
@@ -835,13 +835,13 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 ### Task 3: Performance with PgBouncer
 
 1. Switch back to the Windows command prompt.
-2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Seattle123Seattle123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with your lab information:
+2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Seattle123Seattle123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with the lab information:
 
     ```sql
     pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
     ```
 
-3. Switch back to the metrics window. After a minute, you should see that the server `active connections` will max out and the PgBouncer `active client connections` will increase to handle the load on behalf of the server.
+3. Switch back to the metrics window. After a minute, notice the server `active connections` will max out and the PgBouncer `active client connections` will increase to handle the load on behalf of the server.
 
     ![Alt text](media/02_pgbouncer_02.png)
 
@@ -849,11 +849,11 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 ### Task 1: Use new VACUUM options to improve VACUUM performance
 
-The PostgreSQL `VACUUM` command is used to garbage-collect and analyze databases. It works by removing `dead` tuples left over by large changes to a database (such as frequently updated tables). By removing the gaps between the data, you can speed up the performance of specific operations and increase your disk space.
+The PostgreSQL `VACUUM` command is used to garbage-collect and analyze databases. It works by removing `dead` tuples left over by large changes to a database (such as frequently updated tables). By removing the gaps between the data, there will be an increase of the performance of specific operations and increase of the available disk space.
 
 One of the new features of `VACUUM` in Postgres 16 is the ability to update the cost limit on the fly. This will allow people who run large production databases that may be running out of disk space a bit too quickly; which if to occur, would likely take down the production system. to get VACUUM to execute faster. During a `VACUUM` it could be that it is not running as fast as it needs to because of the cost limit.
 
-By allowing the change during the operation, you can speed up the `VACUUM` operation without restarting it.
+By allowing the change during the operation, it is possible to speed up the `VACUUM` operation without restarting it.
 
 These server parameters are called `vacuum_cost*` or `auto_vacuum_vacuum_cost*`. The default for the `vacuum_cost_limit` is `200` and `auto_vacuum_vacuum_cost` is `-1` which indicates to use the default vacuum cost limit.
 

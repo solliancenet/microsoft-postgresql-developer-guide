@@ -94,8 +94,8 @@ The following table summarizes the deployment choices available for the solution
  Deployment type | Description | When to use
 --- | --- | ---
 [Standard](./deployment-standard.md) | Use the local development environment to deploy the solution to an Azure subscription. | Best suited for situations where the flexibility of a full development environment is required (e.g. to customize the solution) and a local development environment is available.
-[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to an Azure subscription. | Best suited for quick deployment. All you need is an Azure subscription and a browser. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
-[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) but you do not have a local development environment available. The Azure VM deployment type requires additional setup steps. If you are involved in managing the infrastructure that enables Azure VM deployments for a team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
+[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to an Azure subscription. | Best suited for quick deployment. An Azure subscription and a browser is required. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
+[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to an Azure subscription. | Best suited for situations where the flexibility of a full development environment is required (e.g. to customize the solution) but a local development environment is not available. The Azure VM deployment type requires additional setup steps. If involved in managing the infrastructure that enables Azure VM deployments for a team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
 
 ## Deployment validation
 
@@ -105,11 +105,11 @@ Once the deployment script completes, the Application Insights `traces` query sh
 
 ![API initialization sequence of events](../img/initialization-trace.png)
 
-Next, you should be able to see multiple entries referring to the vectorization of the data imported into Cosmos DB:
+Next, review the multiple entries referring to the vectorization of the data imported into Cosmos DB:
 
 ![API vectorization sequence of events](../img/initialization-embedding.png)
 
-Finally, you should be able to see the Cognitive Search index being populated with the vectorized data:
+Finally, review the Cognitive Search index being populated with the vectorized data:
 
 ![Cognitive Search index populated with vectorized data](../img/initialization-vector-index.png)
 

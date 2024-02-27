@@ -44,14 +44,14 @@ Please note this is a sample application. It is intended to demonstrate how to u
 1. Fork this repository to a GitHub account.
 1. Depending on how using the ARM Template or Bicep, modify this variable in one of those files to point to the fork of this repository, "webSiteRepository": "https://github.com/Azure-Samples/cosmosdb-chatgpt.git"
 1. If using the Deploy to Azure button below, also modify this README.md file to change the path for the Deploy To Azure button to the local repository.
-1. If you deploy this application without making either of these changes, you can update the repository by disconnecting and connecting an external git repository pointing to the fork.
+1. If the application is deployed without making either of these changes, the repository can be updated by disconnecting and connecting an external git repository pointing to the fork.
 
 The provided ARM or Bicep Template will provision the following resources:
 1. Azure Database for PostgreSQL Flexible Server.
 1. Azure App service. This will be configured for CI/CD to the forked GitHub repository. This service can also be configured to run on App Service free tier.
-1. Azure Open AI account. You must also specify a name for the deployment of the "text-davinci-003" model which is used by this application.
+1. Azure Open AI account. Specify a name for the deployment of the "text-davinci-003" model which will be used by the application.
 
-Note: You must have access to Azure Open AI service from the subscription before attempting to deploy this application.
+Note: Access to an Azure Open AI service from the subscription is required before attempting to deploy this application.
 
 All connection information for PostgreSQL and Open AI is zero-touch and injected as environment variables in the Azure App Service instance at deployment time.
 
