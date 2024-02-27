@@ -142,7 +142,7 @@ This is still a popular way of indexing documents, but let us also explore how G
 
 Semantic search is a search technique that uses the semantics, or meaning, of the words in a query to return relevant results.
 
-Here is an example of a semantic search. Let us say you were looking to buy a car, you might search for 'my dream car', semantic search understands that you are not dreaming about a car, but rather you are looking to buy your ideal car. Semantic search understands your intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
+Here is an example of a semantic search. Suppose a person is looking to buy a car, they might search for 'my dream car', and semantic search understands that they are not dreaming about a car, but rather looking to buy an ideal car. Semantic search understands the intention and returns relevant results. The alternative is keyword search which would literally search for dreams about cars and often returns irrelevant results.
 
 As we have already discussed above, text embeddings are a text representation technique used in natural language processing. Text embeddings are semantic numerical representations of text. Embeddings are used to represent data in a way that is easy for a machine to understand. There are many models for building text embeddings
 
