@@ -16,7 +16,7 @@ To facilitate developers' adoption of Azure, Microsoft offers a [free subscripti
 
 ### PostgreSQL on Azure hosting options
 
-The concepts Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) typically define the public cloud provider and the enterprise customer resource responsibilities. Both approaches are common ways to host PostgreSQL on Azure.
+The concepts of Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) typically define the public cloud provider and the enterprise customer resource responsibilities. Both approaches are common ways to host PostgreSQL on Azure.
 
 ![This diagram shows the cloud adoption strategy.](media/cloud-adoption-strategies.png "Cloud adoption strategy")
 
@@ -42,15 +42,15 @@ The Azure DBaaS PostgreSQL offering is [Azure Database for PostgreSQL Flexible S
 
 The service generally provides more flexibility and server configuration customizations based on user requirements. The flexible server architecture allows users to collocate the database engine with the client tier for lower latency and choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to stop/start the server and a burstable compute tier ideal for workloads that do not need full compute capacity continuously.
 
-![Alt text](media/overview-flexible-server.png)
+![PostgreSQL and Availablity Zones](media/overview-flexible-server.png)
 
-The Azure Database for PostgreSQL Flexible Server is available in most Azure regions, however, when looking for specific set of supported features, reference the [latest documentation](https://learn.microsoft.com/azure/postgresql/flexible-server/overview#azure-regions).
+The Azure Database for PostgreSQL Flexible Server is available in most Azure regions, however, when looking for a specific set of supported features, reference the [latest documentation](https://learn.microsoft.com/azure/postgresql/flexible-server/overview#azure-regions).
 
-Within an Azure Database for PostgreSQL Flexible Server, it is possible to create one or multiple databases. In some cases, it might be appropriate to create a single database per server to utilize all the available resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage).
+Within an Azure Database for PostgreSQL Flexible Server, it is possible to create one or multiple databases. In some cases, it might be appropriate to create a single database per server to utilize all the available resources or create multiple databases to share the resources. The pricing is structured per server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage).
 
 #### PaaS (Containers)
 
-In addition to the IaaS and PaaS options mentioned above, it is possible to choose to host container based instances inside PaaS-based services such as Azure Container Instances and Azure App Services.
+In addition to the IaaS and PaaS options mentioned above, it is possible to choose to host container-based instances inside PaaS-based services such as Azure Container Instances and Azure App Services.
 
 #### Video reference
 

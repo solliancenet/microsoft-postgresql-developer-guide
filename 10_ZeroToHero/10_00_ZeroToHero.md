@@ -1,6 +1,6 @@
 # 10 / Zero to Hero
 
-We have reached the end of the guide. Hopefully the content and hands-on tutorials have helped with assessing what an application and database deployment is required. Take a moment to determine the required steps to move an application architecture to the next level. Architecture modernization and operational monitoring are an iterative processes and we hope this guide is reference to often.
+We have reached the end of the guide. Hopefully, the content and hands-on tutorials have helped with assessing what application and database deployment is required. Take a moment to determine the required steps to move an application architecture to the next level. Architecture modernization and operational monitoring are iterative processes and we hope this guide is referenced too often.
 
 ## Summary of tasks
 
@@ -13,6 +13,6 @@ We have reached the end of the guide. Hopefully the content and hands-on tutoria
 - Secure the virtual networks.
 - Monitor the applications and database workloads for performance.
 - Perform regular testing.
-- Ensure up policies and procedures are setup and configured for auditing application and database workloads.
-- Setup backup and restore based on RTO and RPO objectives.
-- Be familiar with potential issues, how to troubleshoot, and remediate them.
+- Ensure policies and procedures are set up and configured for auditing application and database workloads.
+- Set up backup and restore based on RTO and RPO objectives.
+- Be familiar with potential issues, and how to troubleshoot, and remediate them.

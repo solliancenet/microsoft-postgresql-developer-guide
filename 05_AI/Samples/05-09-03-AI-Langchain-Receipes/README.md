@@ -21,7 +21,7 @@ All of this is done already in the lab setup scripts for the Lab virtual machine
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
-- Install the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install the latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell)
 
 ## Exercise 1: Vector Similarity with PostgreSQL
 

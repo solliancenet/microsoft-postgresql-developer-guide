@@ -18,9 +18,9 @@ Developers can significantly improve application performance by reducing the num
 
 To ensure that containerized applications function optimally, verify that application containers are allocated sufficient resources. It may be necessary to adjust application parameters for container environments, like Java heap size parameters.
 
-Developers can identify container resource issues using monitoring utilities, like [Container insights,](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) which supports Azure Kubernetes Service, Azure Container Instances, on-premises Kubernetes clusters, and more.
+Developers can identify container resource issues using monitoring utilities, like [Container Insights,](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) which supports Azure Kubernetes Service, Azure Container Instances, on-premises Kubernetes clusters, and more.
 
-- Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can assist in identify resource bottlenecks.
+- Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can assist in identifying resource bottlenecks.
 
 - Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.
 
@@ -36,7 +36,7 @@ Microsoft also recommends securing data in motion through SSL for applications t
 
 Given that cloud environments are more likely to encounter transient faults, like network connectivity interruptions or service timeouts, applications must implement logic to deal with them, typically by retrying requests after a delay.
 
-Applications must first determine if a fault is transient or more persistent. Typically, API responses indicate the nature of the issue, sometimes even specifying a retry interval. If the fault is transient, applications must retry requests without consuming excessive resources. Common retry strategies including sending requests at regular intervals, exponential intervals, or random intervals. If a given number of retry requests fail, applications consider the operation failed.
+Applications must first determine if a fault is transient or more persistent. Typically, API responses indicate the nature of the issue, sometimes even specifying a retry interval. If the fault is transient, applications must retry requests without consuming excessive resources. Common retry strategies include sending requests at regular intervals, exponential intervals, or random intervals. If a given number of retry requests fail, applications consider the operation failed.
 
 Azure SDKs typically provide native support for retrying service requests. Consult the documentation's [list of per-service retry recommendations.](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific)
 
@@ -59,8 +59,8 @@ Teams must be diligent with sizing their Flexible Server instances to be cost-ef
 
 Flexible Server instances can be resized after creation. Azure stops database VM instances and needs up to 120 seconds to scale compute resources.
 
-Use Azure Monitor Metrics to determine if an Flexible Server instance requires to be scaled. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://wiki.postgresql.org/wiki/SysBench)
+Use Azure Monitor Metrics to determine if a Flexible Server instance requires to be scaled. Monitor metrics like **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to make scaling decisions. To test database performance under realistic application load, consider utilities like [sysbench.](https://wiki.postgresql.org/wiki/SysBench)
 
 ### 7. Utilize Reserved Capacity
 
-In addition to resizing instances, compute resources can also be prepaid with reserved capacity. With Azure Database for PostgreSQL Flexible Server reserved capacity, an upfront commitment on PostgreSQL server can be made for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL Flexible Server reserved capacity, it is required to specify the Azure region, deployment type, performance tier, and term. For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/azure/postgresql/single-server/concept-reserved-pricing).
+In addition to resizing instances, compute resources can also be prepaid with reserved capacity. With Azure Database for PostgreSQL Flexible Server reserved capacity, an upfront commitment on PostgreSQL server can be made for a one or three-year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL Flexible Server reserved capacity, it is required to specify the Azure region, deployment type, performance tier, and term. For more information, see [Prepay for Azure Database for PostgreSQL compute resources with reserved capacity](https://learn.microsoft.com/azure/postgresql/single-server/concept-reserved-pricing).

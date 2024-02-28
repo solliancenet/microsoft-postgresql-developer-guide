@@ -4,7 +4,7 @@
 
 - Azure subscription
 - Subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
-- Azure Cloud Shell environment (follow [these instructions](https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart?tabs=azurecli) to setup the Cloud Shell)
+- Azure Cloud Shell environment (follow [these instructions](https://learn.microsoft.com/azure/cloud-shell/quickstart?tabs=azurecli) to setup the Cloud Shell)
 
 ## Deployment steps
 
@@ -43,6 +43,6 @@ Follow the steps below to deploy the solution an Azure subscription.
     ./scripts/CloudShell-Deploy.ps1 -resourceGroup "ms-cosmosdb-openai" -location eastus -subscription "00000000-0000-0000-0000-000000000000"
     ```
 
->**NOTE**: The `<location>` specified must point to a region that supports the Azure OpenAI service. Find the list of supported regions [here](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=cognitive-services).
+>**NOTE**: The `<location>` specified must point to a region that supports the Azure OpenAI service. Find the list of supported regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
 
 >**NOTE**: If the repo was already closed using the Cloud Shell it is recommendeded to remove the `VectorSearchAiAssistant` folder from the home directory before cloning the repository again. Do this by running `rm ./VectorSearchAiAssistant -r -f` in the Cloud Shell.

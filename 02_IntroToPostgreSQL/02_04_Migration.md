@@ -2,7 +2,7 @@
 
 ### From on-premises to Flexible Server
 
-Migration from external sources such as other cloud providers or instances running on-premises will require the movement of database artifacts and data. There are currenctly serveral tools available to do this:
+Migration from external sources such as other cloud providers or instances running on-premises will require the movement of database artifacts and data. There are currently several tools available to do this:
 
 - Database tools
   - [Azure Database Migration Service (DMS)](https://learn.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)
@@ -10,7 +10,7 @@ Migration from external sources such as other cloud providers or instances runni
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli)
 
-In addition to any migration pre-requisities, a network path must exist between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance. This can be more complicated than at first glance depending on a number of different network topology possibilies.
+In addition to any migration pre-requisites, a network path must exist between the on-premises instance/tool and the remote Azure Database for PostgreSQL Flexible Server instance. This can be more complicated than at first glance depending on several different network topology possibilities.
 
 ### Offline vs Online migrations
 

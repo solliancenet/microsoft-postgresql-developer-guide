@@ -31,7 +31,7 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
-- Install latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell)
 - Install [Docker Desktop (Windows)](https://www.docker.com/products/docker-desktop/#)
 
 ## Exercise 1: Ensure Docker is started

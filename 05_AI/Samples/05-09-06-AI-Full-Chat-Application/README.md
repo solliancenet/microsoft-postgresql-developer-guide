@@ -25,7 +25,7 @@ Create these resources using the PostgreSQL Flexible Server Developer Guide Setu
 All of this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install Visual Studio
-- Install latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell)
 
 ## Exercise 1: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI
 

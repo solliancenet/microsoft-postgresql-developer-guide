@@ -4,7 +4,7 @@ Before jumping into Azure Database for PostgreSQL Flexible Server, it is importa
 
 ## What is PostgreSQL?
 
-[PostgreSQL](https://www.postgresql.org/) is an open source object-relational database management system based on [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL). PostgreSQL supports a rich set of SQL query capabilities and offers excellent performance and security for multiple data workloads. Its ability to run on all major operating systems combined with the abilty to extend via addons have made PostgreSQL a popular option with many organizations. Customers can use existing programming frameworks and languages to connect easily with PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix](https://www.postgresql.org/about/featurematrix/) for a more in-depth review of PostgreSQL's features.
+[PostgreSQL](https://www.postgresql.org/) is an open-source object-relational database management system based on [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL). PostgreSQL supports a rich set of SQL query capabilities and offers excellent performance and security for multiple data workloads. Its ability to run on all major operating systems combined with the abilty to extend via addons have made PostgreSQL a popular option with many organizations. Customers can use existing programming frameworks and languages to connect easily with PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix](https://www.postgresql.org/about/featurematrix/) for a more in-depth review of PostgreSQL's features.
 
 Watch the [Introduction to Azure Database for PostgreSQL Flexible Server](https://youtu.be/NSEmJfUgNzE) online video.
 
@@ -24,11 +24,11 @@ PostgreSQL is a cross-platform offering, and corporations can utilize their on-p
 
 One benefit to choosing a cloud-hosted environment over on-premises configurations is there are no significant upfront costs. Organizations can choose to pay monthly subscription fees as pay-as-you-go or to commit to a certain usage level for discounts. Maintenance, OS software updates, security, and support all fall into the responsibility of the cloud provider so IT staff are not required to utilize precious time troubleshooting hardware or software issues.
 
-**Pros**
+#### Pros
 
 - Highly configurable environment
 
-**Cons**
+#### Cons
 
 - Upfront capital expenditures
 - OS and hardware maintenance
@@ -39,32 +39,32 @@ One benefit to choosing a cloud-hosted environment over on-premises configuratio
 
 Migrating an organization's infrastructure to an IaaS solution helps reduce maintenance of on-premises data centers, save money on hardware costs, and gain real-time business insights. IaaS solutions allow IT resources to scale up and down with demand. They also help to quickly provision new applications and increase the reliability of the existing underlying infrastructure.
 
-IaaS lets organizations bypass the cost and complexity of buying and managing physical servers and datacenter infrastructure. Each resource is offered as a separate service component and only requires paying for resources for as long as they are needed. A cloud computing service provider like Microsoft Azure manages the infrastructure, while organizations purchase, install, configure, and manage their own software—including operating systems, middleware, and applications.
+IaaS lets organizations bypass the cost and complexity of buying and managing physical servers and data center infrastructure. Each resource is offered as a separate service component and only requires paying for resources for as long as they are needed. A cloud computing service provider like Microsoft Azure manages the infrastructure, while organizations purchase, install, configure, and manage their own software—including operating systems, middleware, and applications.
 
-**Pros**
+#### Pro
 
 - Highly configurable environment
 - Fast deployment of additional servers
 - Reduction in operation center costs
 
-**Cons**
+#### Cons
 
 - OS and middleware administration costs
 
 ### Containers
 
-While much more lightweight, containers are like VMs and can be started and stopped in a few seconds. Containers also offer tremendous portability, making them ideal for developing an application locally on a development machine and then hosting it in the cloud, in test, and later in production. Containers can even run  on-premises or in other clouds. This flexibility is possible because the development environment machine travels with the container. The application runs in a consistent manner. Containerized applications are flexible, cost-effective, and deploy quickly.
+While much more lightweight, containers are like VMs and can be started and stopped in a few seconds. Containers also offer tremendous portability, making them ideal for developing an application locally on a development machine and then hosting it in the cloud, in test, and later in production. Containers can even run on-premises or in other clouds. This flexibility is possible because the development environment machine travels with the container. The application runs in a consistent manner. Containerized applications are flexible, cost-effective, and deploy quickly.
 
 PostgreSQL offers a [Docker image](https://hub.docker.com/_/postgres) to operate PostgreSQL in customized and containerized applications. A container-based PostgreSQL instance can persist data to the hosting environment via the container runtime, allowing for high availability across container instances and environments.
 
-**Pros**
+#### Pro
 
 - Application scalability
 - Portability between environments
 - Automated light-weight fast deployments
 - Reduced operating costs
 
-**Cons**
+#### Cons
 
 - Networking and configuration complexity
 - Container monitoring

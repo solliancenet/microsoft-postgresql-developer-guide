@@ -85,7 +85,7 @@ For more information, review the following:
 
 Co-locate database instance in the same region as the Azure Open AI instance to gain some performance enhancements. When performing a lot of vector embedding operations, ensure resources are located as close as possible to each other.
 
-Also be aware that users are subject to certain request limits for embedding endpoints in Azure Open AI. When too many queries are sent http 429 errors will be presented. Reference [Azure OpenAI Service quotas and limits](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits).
+Also be aware that users are subject to certain request limits for embedding endpoints in Azure Open AI. When too many queries are sent http 429 errors will be presented. Reference [Azure OpenAI Service quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits).
 
 ### Other vector databases
 
@@ -100,7 +100,7 @@ In addition or searching on vectors, it is possible to combine other content and
 PostgreSQL is supported by several popular AI frameworks including:
 
 - [Langchain](https://www.langchain.com/)
-- [Semantic Kernal](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
+- [Semantic Kernal](https://learn.microsoft.com/semantic-kernel/overview/)
 
 Note that these two frameworks are incredibly new and continuing to evolve. Be very cautionous of samples of code found on the internet as the SDKs have likely changed and continue to change with every git commit. Be sure to review what version the code sample actually targets, as it may not work with the latest versions.
 

@@ -64,7 +64,7 @@ As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been de
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed. Additionally, the supporting GitHub repository has been downloaded that includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder. 
+Once in the virtual machine, notice that all the necessary development tools have already been installed. Additionally, the supporting GitHub repository has been downloaded which includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder. 
 
 ### Developer Samples
 

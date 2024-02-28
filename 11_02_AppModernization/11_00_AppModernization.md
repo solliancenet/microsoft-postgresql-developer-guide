@@ -1,17 +1,17 @@
 # Application Modernization Journey
 
 - [Application Modernization Journey](#application-modernization-journey)
-  - [Classic deployment](#classic-deployment)
-  - [Azure VM deployment](#azure-vm-deployment)
-  - [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server](#simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server)
-  - [Continuous Integration (CI) and Continuous Delivery (CD)](#continuous-integration-ci-and-continuous-delivery-cd)
-  - [Containerizing layers with Docker](#containerizing-layers-with-docker)
-  - [Azure Container Instances (ACI)](#azure-container-instances-aci)
-  - [App Service Containers](#app-service-containers)
-  - [Azure Kubernetes Service (AKS)](#azure-kubernetes-service-aks)
-  - [AKS with PostgreSQL Flexible Server](#aks-with-postgresql-flexible-server)
-    - [Start your application modernization journey](#start-your-application-modernization-journey)
-      - [Determining the evolutionary waypoint](#determining-the-evolutionary-waypoint)
+    - [Classic deployment](#classic-deployment)
+    - [Azure VM deployment](#azure-vm-deployment)
+    - [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server](#simple-app-service-deployment-with-azure-database-for-postgresql-flexible-server)
+    - [Continuous Integration (CI) and Continuous Delivery (CD)](#continuous-integration-ci-and-continuous-delivery-cd)
+    - [Containerizing layers with Docker](#containerizing-layers-with-docker)
+    - [Azure Container Instances (ACI)](#azure-container-instances-aci)
+    - [App Service Containers](#app-service-containers)
+    - [Azure Kubernetes Service (AKS)](#azure-kubernetes-service-aks)
+    - [AKS with PostgreSQL Flexible Server](#aks-with-postgresql-flexible-server)
+      - [Start the application modernization journey](#start-the-application-modernization-journey)
+          - [Determining the evolutionary waypoint](#determining-the-evolutionary-waypoint)
 
 Let us discuss the journey overview. The journey will start with a classic deployment to a typical web and database server on a `physical` or `virtualized` host operating system. Next, explore the evolution of the potential deployment options from a simple web app deployed to App Service through a complex progression ending with the application running as containers in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL Flexible Server hosting the database.
 
@@ -19,13 +19,13 @@ The following scenarios will be discussed and demonstrated as part of this Azure
 
 ### Classic deployment
 
-In a classic deployment, development and operations staff will typically set up a web server (such as Internet Information Services (IIS), Apache, or NGINX) on physical or virtualized **on-premises** hardware. 
+In a classic deployment, development and operations staff will typically set up a web server (such as Internet Information Services (IIS), Apache, or NGINX) on physical or virtualized **on-premises** hardware.
 
 Some web servers are relatively easier to set up than others. The complexity depends on what the target operating system is and what features the application and database are using, for example, SSL/TLS.
 
 In addition to the web server, it is also necessary to install and configure the physical PostgreSQL database server. This includes creating the schema and the application users that will be used to access the target database(s).
 
-As part of our sample application and supporting Azure Landing zone created by the ARM templates, most of this gets set up automatically. Once the software is installed and configured, it is up to the developer to deploy the application and database on the system. Classical deployments tend to be manual such that the files are copied to the target production web server and then deploy the database schema and supported data via PostgreSQL tools or the pgAdmin tool.
+As part of our sample application and supporting Azure Landing zone created by the ARM templates, most of this gets set up automatically. Once the software is installed and configured, it is up to the developer to deploy the application and database on the system. Classical deployments tend to be manual such that the files are copied to the target production web server and then deployed the database schema and supported data via PostgreSQL tools or the pgAdmin tool.
 
 The biggest advantage of a classic on-premises deployment is the infrastructure team will have full control of the environment. The biggest weakness is they must also maintain every aspect of the environment as well.
 
@@ -43,7 +43,7 @@ Follow the [Azure VM deployment](https://github.com/azure/azure-postgresql/tree/
 
 If supporting the operating system and the various other software is not a preferred approach, the next evolutionary path is to remove the operating system and web server from the list of setup and configuration steps. This can be accomplished by utilizing the Platform as a Service (PaaS) offerings of Azure App Service and Azure Database for PostgreSQL Flexible Server.
 
-However, modernizing an application and migrating them to these aforementioned services may introduce some relatively small application changes.
+However, modernizing an application and migrating it to these aforementioned services may introduce some relatively small application changes.
 
 Follow the [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc) guide to deploy the application and database.
 
@@ -57,7 +57,7 @@ Follow the [Continuous Integration (CI) and Continuous Delivery (CD)](https://gi
 
 ### Containerizing layers with Docker
 
-By building the application and database with a specific target environment in mind, it will need to be assumed that the operations team will have deployed and configured that same environment to support the application and data workload. If they missed any items, the application will either not load or may error during runtime.
+By building the application and database with a specific target environment in mind, it will need to be assumed that the operations team will have deployed and configured that same environment to support the application and data workload. If they miss any items, the application will either not load or may error during runtime.
 
 Containers solve the potential issue of misconfiguration of the target environment. By containerizing the application and data, the application will run exactly as intended. Containers can also more easily be scaled using tools such as Kubernetes.
 

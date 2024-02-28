@@ -23,7 +23,7 @@ Check out the YouTube video [AI in a Minute: Responsible AI](https://youtu.be/fH
 
 Hallucinations are a term used to describe when an LLM produces content that is either completely nonsensical or something we know is factually wrong based on other sources of information.
 
-In many cases, AI can provide confident and thorough answers. Unfortunately, these answers can also be incorrect. For individuals that may be new to an application and data, AI answers can be persuasive enough to not be questioned and treated as fact. The consequences of this can lead to the AI system being unreliable and negatively impact the reputation of users and company as a whole.
+In many cases, AI can provide confident and thorough answers. Unfortunately, these answers can also be incorrect. For individuals who may be new to an application and data, AI answers can be persuasive enough to not be questioned and treated as fact. The consequences of this can lead to the AI system being unreliable and negatively impact the reputation of users and the company as a whole.
 
 With each iteration of any given LLM, there have been several performance improvements around minimizing hallucinations. However, even with these improvements, we as application builders and users still need to remain aware of these limitations.
 
@@ -35,7 +35,7 @@ Harmful content can be defined as:
 
 - Providing instructions or encouraging self-harm or harm to certain groups.
 - Hateful or demeaning content.
-- Guiding planning any type of attack or violent acts.
+- Guiding planning of any type of attack or violent acts.
 - Providing instructions on how to find illegal content or commit illegal acts.
 - Displaying sexually explicit content.
 
@@ -45,7 +45,7 @@ For example, the [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-
 
 ### Lack of Fairness
 
-Fairness is defined as **ensuring that an AI system is free from bias and discrimination and that they treat everyone fairly and equally**. In the world of Generative AI, we want to ensure that exclusionary worldviews of marginalized groups are not reinforced by the model's output.
+Fairness is defined as **ensuring that an AI system is free from bias and discrimination and **that treats everyone fairly** and equally**. In the world of Generative AI, we want to ensure that exclusionary worldviews of marginalized groups are not reinforced by the model's output.
 
 These types of outputs are not only destructive to building positive product experiences for our users, but they also cause further societal harm. As application builders, we should always keep a wide and diverse user base in mind when building solutions with Generative AI.
 
@@ -55,7 +55,7 @@ These types of outputs are not only destructive to building positive product exp
 
 In software testing, we test the expected actions of a user on an application. Similarly, testing a diverse set of prompts users are most likely going to use is a good way to measure potential harm.
 
-Focus on the type of product or content the model with be used on. For example, if the product is an educational product, it would be good to prepare a list of education-related prompts. This could be to cover a certain subject, historical facts, and prompts about student life.
+Focus on the type of product or content the model with be used on. For example, if the product is educational, it would be good to prepare a list of education-related prompts. This could be to cover a certain subject, historical facts, and prompts about student life.
 
 ### Mitigate Potential Harms
 
@@ -71,6 +71,6 @@ It is now time to find ways where we can prevent or limit the potential harm cau
 
 ### Operationalize AI
 
-Building an operational practice around AI applications is one of the final stages. This includes partnering with other parts of the organization, such as Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
+Building an operational practice around AI applications is one of the final stages. This includes partnering with other parts of the organization, such as Legal and Security, to ensure we are compliant with all regulatory policies. Before launching any AI-integrated product, build plans around delivery, handling incidents, and rollback to prevent any harm to our users or company.
 
-Working with LLMs can be challenging because as it is not typical to have control over the data the model is trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.
+Working with LLMs can be challenging because it is not typical to have control over the data the model is trained on. Regardless, we should always evaluate the model's performance and outputs. It is still important to measure the model's accuracy, similarity, groundedness, and relevance of the output. This helps provide transparency and trust to stakeholders and users.

@@ -2,7 +2,7 @@
 
 With a firm understanding of why millions of organizations choose Azure, and the database deployment models (IaaS vs. PaaS), the next step is to provide more detail about **how** developers interact with Azure.
 
-The [Azure Fundamentals Microsoft Learn Module](https://learn.microsoft.com/learn/modules/intro-to-azure-fundamentals/) demonstrates how IaaS and PaaS classifies Azure services. Moreover, Azure empowers flexible *hybrid cloud* deployments and supports a variety of common tools, such as Visual Studio, PowerShell, and the Azure CLI, to manage Azure environments.
+The [Azure Fundamentals Microsoft Learn Module](https://learn.microsoft.com/learn/modules/intro-to-azure-fundamentals/) demonstrates how IaaS and PaaS classify Azure services. Moreover, Azure empowers flexible *hybrid cloud* deployments and supports a variety of common tools, such as Visual Studio, PowerShell, and the Azure CLI, to manage Azure environments.
 
   ![IaaS and PaaS Azure service classification and categories](./media/azure-services.png "Categories of Azure services")
 
@@ -21,7 +21,7 @@ Azure provides a flexible resource hierarchy to simplify cost management and sec
 
 - **[Management groups](https://learn.microsoft.com/azure/governance/management-groups/overview)**: Management groups consolidate multiple Azure subscriptions for compliance and security purposes.
 - **Subscriptions**: Subscriptions govern cost control and access management. Azure users cannot provision Azure resources without a subscription.
-- **[Resource groups](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)**: Resource groups consolidate the individual Azure resources for a given deployment. All provisioned Azure resources belong to one resource group. In this guide, it will be required to provision a *resource group* in an *subscription* to hold the required resources.
+- **[Resource groups](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)**: Resource groups consolidate the individual Azure resources for a given deployment. All provisioned Azure resources belong to one resource group. In this guide, it will be required to provision a *resource group* in a *subscription* to hold the required resources.
   - Resource groups are placed in a geographic location that determines where metadata about that resource group is stored.
 - **Resources**: An Azure resource is an instance of a service. An Azure resource belongs to one resource group located in one subscription.
   - Most Azure resources are provisioned in a particular region.
@@ -108,7 +108,7 @@ All paths lead to the Azure REST APIs. However, if the need arises to build cust
 
 #### Infrastructure as Code
 
-[Infrastructure as Code (IaC)](https://learn.microsoft.com/devops/deliver/what-is-infrastructure-as-code) provides a way to describe or declare what infrastructure looks like using descriptive code. The infrastructure code is the desired state. The environment will be built when the code runs and completes. One of the main benefits of IaC is that it is human readable. Once the environment code is proven and tested, it can be versioned and saved into source code control. Developers can review the environment changes over time.
+[Infrastructure as Code (IaC)](https://learn.microsoft.com/devops/deliver/what-is-infrastructure-as-code) provides a way to describe or declare what infrastructure looks like using descriptive code. The infrastructure code is the desired state. The environment will be built when the code runs and completes. One of the main benefits of IaC is that it is human-readable. Once the environment code is proven and tested, it can be versioned and saved into source code control. Developers can review the environment changes over time.
 
 ##### ARM templates
 
@@ -118,7 +118,7 @@ All paths lead to the Azure REST APIs. However, if the need arises to build cust
 
 ##### Bicep
 
-Reading, updating, and managing the ARM template JSON code can be difficult for a reasonably sized environment. What if a tool existed that translates simple declarative statements into ARM templates? Better yet, what if there that tool took existing ARM templates and translated them into a simple configuration? [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview) is a domain-specific language (DSL) that uses a declarative syntax to deploy Azure resources. Bicep files define the infrastructure to deploy to Azure and then use that file throughout the development lifecycle to repeatedly deploy infrastructure changes. Resources are deployed consistently.
+Reading, updating, and managing the ARM template JSON code can be difficult for a reasonably sized environment. What if a tool existed that translates simple declarative statements into ARM templates? Better yet, what if that tool took existing ARM templates and translated them into a simple configuration? [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview) is a domain-specific language (DSL) that uses a declarative syntax to deploy Azure resources. Bicep files define the infrastructure to deploy to Azure and then use that file throughout the development lifecycle to repeatedly deploy infrastructure changes. Resources are deployed consistently.
 
 By using the Azure CLI it is possible to decompile ARM templates to Bicep using the following:
 
@@ -161,4 +161,4 @@ Azure provides [multiple support plans for businesses](https://azure.microsoft.c
 
 - [Azure Certifications and Exams](https://learn.microsoft.com/learn/certifications/browse/?products=azure)
 - [Microsoft Learn](https://learn.microsoft.com/learn/)
-  - [Azure Fundamentals (AZ-900) Learning Path](https://learn.microsoft.com/learn/paths/az-900-describe-cloud-concepts/)
+- [Azure Fundamentals (AZ-900) Learning Path](https://learn.microsoft.com/learn/paths/az-900-describe-cloud-concepts/)

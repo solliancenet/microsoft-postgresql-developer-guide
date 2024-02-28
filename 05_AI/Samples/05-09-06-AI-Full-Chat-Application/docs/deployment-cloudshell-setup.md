@@ -2,7 +2,7 @@
 
 Before users in on a team can deploy the solution using Cloud Shell, it is necessary to perform the following steps:
 
-1. Create an Azure Container Registry (ACR) instance in the target subscription. Ensure anonymous pull access is enabled on the ACR instance (see [here](https://learn.microsoft.com/en-us/azure/container-registry/anonymous-pull-access) for more information).
+1. Create an Azure Container Registry (ACR) instance in the target subscription. Ensure anonymous pull access is enabled on the ACR instance (see [here](https://learn.microsoft.com/azure/container-registry/anonymous-pull-access) for more information).
 
 2. Clone the repository:
 

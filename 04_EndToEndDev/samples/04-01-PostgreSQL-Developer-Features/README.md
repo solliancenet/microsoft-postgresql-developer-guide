@@ -26,7 +26,7 @@
     - [Task 1: Enable PgBouncer and PgBouncer Metrics](#task-1-enable-pgbouncer-and-pgbouncer-metrics)
     - [Task 2: Performance without PgBouncer](#task-2-performance-without-pgbouncer)
     - [Task 3: Performance with PgBouncer](#task-3-performance-with-pgbouncer)
-  - [Exercise 6: Other Features (Optional)](#exercise-6-other-features-optional)
+  - [Exercise 7: Other Features (Optional)](#exercise-7-other-features-optional)
     - [Task 1: Use new VACUUM options to improve VACUUM performance](#task-1-use-new-vacuum-options-to-improve-vacuum-performance)
 
 This lab will explore several new developer and infrastructure features of PostgreSQL 16.
@@ -189,12 +189,12 @@ In this task, server parameters will be configured to ensure support for the Que
     > NOTE: We are storing data in the tables as JSONB for lab purposes. In the real world, it may not be appropriate. With normal columns, PostgreSQL maintains statistics about the distributions of values in each column of the table – most common values (MCV), NULL entries, histogram of distribution. Based on this data, the PostgreSQL query planner makes smart decisions on the plan to use for the query. At this point, PostgreSQL does not store any stats for JSONB columns or keys. This can sometimes result in poor choices like using nested loop joins vs. hash joins.
 
 7. Switch to pgAdmin.
-8. Navigate to **Databases->airbnb->Schemas->public->Tables**.
+8. Navigate to **Databases->Airbnb->Schemas->public->Tables**.
 9. Right-click the **Tables** node, then select **Query Tool**.
 
     ![Alt text](media/query_tool.png)
 
-10. Run each of the following commands to see the imported data after its transformation. Note that we did not fully expand the JSON into all columns so as to show the new JSON syntax later:
+10. Run each of the following commands to see the imported data after its transformation. Note that we did not fully expand the JSON into all columns to show the new JSON syntax later:
 
     ```sql
     select * from listings limit 10;
@@ -845,7 +845,7 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 
     ![Alt text](media/02_pgbouncer_02.png)
 
-## Exercise 6: Other Features (Optional)
+## Exercise 7: Other Features (Optional)
 
 ### Task 1: Use new VACUUM options to improve VACUUM performance
 

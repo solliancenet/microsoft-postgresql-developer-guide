@@ -1284,7 +1284,7 @@ attribute by another `superuser`. With this permission, a user can
 bypass RLS for all tables in Postgres, as is `superuser`. That
 permission cannot be assigned in Azure Database for PostgreSQL -
 Flexible Server, since administrator role has no superuser privileges,
-as common in cloud based PaaS PostgreSQL service.
+as common in cloud-based PaaS PostgreSQL service.
 
 ### Extensions
 
@@ -14231,9 +14231,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Troubleshoot firewall problems]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules#troubleshoot-firewall-problems
   [Secure connectivity with TLS and SSL]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-networking-ssl-tls
   [Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server]:
-    https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-with-managed-identity
+    https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-with-managed-identity
   [Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server]:
-    https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-manage-azure-ad-users
+    https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-azure-ad-users
   [Salted Challenge Response Authentication Mechanism (SCRAM)]: https://datatracker.ietf.org/doc/html/rfc5802
   [here]: https://wiki.postgresql.org/wiki/List_of_drivers
   [PostgreSQL extensions]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-extensions
@@ -14506,7 +14506,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     ./media/select-function-from-portal.png "Selecting the Function"
   [This image demonstrates the logs of a successful Function App invocation.]:
     ./media/function-app-logs.png "Function App invocation logs"
-  [97]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell
+  [97]: https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell
   [Docker Desktop (Windows)]: https://www.docker.com/products/docker-desktop/#
   [Chocolaty Installer]: https://chocolatey.org/install
   [PostgreSQL 16]: https://www.postgresql.org/download/
@@ -14519,16 +14519,16 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This image demonstrates the recurrence trigger parameters for the Logic Apps instance.]:
     ./media/recurrence-logic-apps-trigger.png
     "Recurrence trigger parameters"
-  [Power BI Desktop]: https://www.microsoft.com/en-us/download/details.aspx?id=58494
-  [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure]: https://learn.microsoft.com/en-us/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal
-  [Deploy a Django application to Azure by using PostgreSQL]: https://learn.microsoft.com/en-us/training/modules/django-deployment/?source=recommendations
-  [98]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?source=recommendations&tabs=clone
+  [Power BI Desktop]: https://www.microsoft.com/download/details.aspx?id=58494
+  [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure]: https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal
+  [Deploy a Django application to Azure by using PostgreSQL]: https://learn.microsoft.com/training/modules/django-deployment/?source=recommendations
+  [98]: https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?source=recommendations&tabs=clone
   [Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server]:
-    https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/tutorial-django-aks-database
+    https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-aks-database
   [Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL]:
-    https://learn.microsoft.com/en-us/azure/app-service/tutorial-java-quarkus-postgresql-app
+    https://learn.microsoft.com/azure/app-service/tutorial-java-quarkus-postgresql-app
   [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity]:
-    https://learn.microsoft.com/en-us/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?tabs=flexible
+    https://learn.microsoft.com/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?tabs=flexible
   [AI in a Minute: Generative AI]: https://youtu.be/om7iYSucLrk
   [AI in a Minute: Large Language Models]: https://youtu.be/FSoQyJEvHiU
   [AI in a Minute: Prompt Engineering]: https://youtu.be/vGdyePbGNaE
@@ -14539,9 +14539,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure OpenAI]: https://learn.microsoft.com/azure/ai-services/openai/overview
   [generating vector embeddings with Azure AI extension OpenAI integration]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-openai
-  [Speech service documentation]: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview
+  [Speech service documentation]: https://learn.microsoft.com/azure/ai-services/speech-service/overview
   [Azure Speech Studio]: https://speech.microsoft.com/
-  [Azure AI Studio models registry]: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog
+  [Azure AI Studio models registry]: https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog
   [Cosine similarity]: https://en.wikipedia.org/wiki/Cosine_similarity?WT.mc_id=academic-105485-koreyst
   [Azure OpenAI Service models]: https://learn.microsoft.com/azure/ai-services/openai/concepts/models
   [Azure AI Content Safety]: https://learn.microsoft.com/azure/ai-services/content-safety/overview?WT.mc_id=academic-105485-koreyst
@@ -14559,9 +14559,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-overview
   [Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-integrate-azure-ai
-  [Azure OpenAI Service quotas and limits]: https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits
+  [Azure OpenAI Service quotas and limits]: https://learn.microsoft.com/azure/ai-services/openai/quotas-limits
   [Langchain]: https://www.langchain.com/
-  [Semantic Kernal]: https://learn.microsoft.com/en-us/semantic-kernel/overview/
+  [Semantic Kernal]: https://learn.microsoft.com/semantic-kernel/overview/
   [Basic AI with Azure Database for PostgreSQL Flexible Server]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
   [99]: #hands-on-lab-generative-ai-with-azure-database-for-postgresql-flexible-server
   [100]: #exercise-1-add-azure-ai-and-vector-extensions-to-allowlist
@@ -14864,7 +14864,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [What are Azure Pipelines?]: https://learn.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops#:~:text=Azure%20Pipelines%20automatically%20builds%20and,ship%20it%20to%20any%20target
   [What is Azure Load Testing?]: https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl
   [Overview of business continuity with Azure Database for PostgreSQL - Flexible Server]:
-    https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-business-continuity
+    https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-business-continuity
   [Manage scheduled maintenance settings using the Azure Portal (Flexible Server)]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal
   [View service health notifications in the Azure Portal]: https://learn.microsoft.com/azure/service-health/service-notifications

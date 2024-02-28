@@ -7,7 +7,7 @@ Azure Database for PostgreSQL Flexible Server supports PostgreSQL Community Edit
 For the latest version support and policy information, reference [Azure Database for PostgreSQL Flexible Server versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy).
 
 **Control Plane**
-As the image below demonstrates, Azure Resource Manager handles resource configuration, meaning that standard Azure management tools, such as the CLI, PowerShell, and ARM templates, are still applicable. This is commonly referred to as the *control plane*.
+As the image below demonstrates Azure Resource Manager handles resource configuration, meaning that standard Azure management tools, such as the CLI, PowerShell, and ARM templates, are still applicable. This is commonly referred to as the *control plane*.
 
 **Data Plane**
 For managing database objects and access controls at the server and database levels, standard PostgreSQL management tools, such as [pgAdmin](https://www.pgadmin.org/), still apply. This is known as the *data plane*.

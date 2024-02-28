@@ -2,11 +2,11 @@
 
 ### Monitoring
 
-Once the application and database are deployed, the next phase is to manage the new cloud-based data workload and supporting resources. Microsoft proactively performs the necessary monitoring and actions to ensure the databases are highly available and performed at the expecting level.
+Once the application and database are deployed, the next phase is to manage the new cloud-based data workload and supporting resources. Microsoft proactively performs the necessary monitoring and actions to ensure the databases are highly available and performed at the expected level.
 
-Flexible server is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, each providing 30 days of history. Alerts can be configureed on metrics. The service exposes host server metrics to monitor resource utilization and allows configuring slow query logs. Using these tools, it is possible to quickly optimize workloads and configure the server for the best performance.
+Flexible server is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, each providing 30 days of history. Alerts can be configured on metrics. The service exposes host server metrics to monitor resource utilization and allows configuring slow query logs. Using these tools, it is possible to quickly optimize workloads and configure the server for the best performance.
 
-Azure can to monitor all of these types of operational activities using tools such as [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview), [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/platform/design-logs-deployment), and [Azure Sentinel](https://learn.microsoft.com/azure/sentinel/overview). In addition to the Azure-based tools, external security information and event management (SIEM) systems can be configured to consume these logs as well.
+Azure can monitor all of these types of operational activities using tools such as [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview), [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/platform/design-logs-deployment), and [Azure Sentinel](https://learn.microsoft.com/azure/sentinel/overview). In addition to the Azure-based tools, external security information and event management (SIEM) systems can be configured to consume these logs as well.
 
 Administrators should [plan their monitoring strategy](https://learn.microsoft.com/azure/azure-monitor/best-practices-plan) and resource configuration for the best results. Some data collection and features are free, while others have associated costs. Focus on maximizing the applications' performance and reliability. Identify the data and logs that indicate the highest potential signs of failure to optimize costs. See [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information on planning monitoring costs.
 
@@ -14,13 +14,13 @@ Administrators should [plan their monitoring strategy](https://learn.microsoft.c
 
 Application Insights comes with a free allowance that tends to be relatively large enough to cover the development and publishing of an app for a small number of users. As a best practice, setting a limit can prevent more data than necessary from being processed and keep costs low.
 
-Larger volumes of telemetry are charged by the gigabyte and should be monitored closely to ensure the finance department does not get a larger than expected Azure invoice. [Manage usage and costs for Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pricing)
+Larger volumes of telemetry are charged by the gigabyte and should be monitored closely to ensure the finance department does not get a larger-than-expected Azure invoice. [Manage usage and costs for Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pricing)
 
 ## Monitoring database operations
 
 Azure can be configured to monitor Azure Database for PostgreSQL Flexible Server instances and databases. This includes items such as metrics and logs.
 
-### Azure Database for PostgreSQL Flexible Server overview
+### Azure Database for PostgreSQL Flexible Server Overview
 
 The Azure Portal resource overview excellent overview of the PostgreSQL metrics. This high-level dashboard provides insight into the typical database monitoring counters, like CPU, IO, Query Count, etc.
 
@@ -44,7 +44,7 @@ Diagnostic settings allow for the re-route of platform logs and metrics continuo
 
 ### Log Analytics
 
-Once Diagnostic Settings are configued, it is possible to navigate to the Log Analytics workspace and perform specific filtered queries on interesting categories. Looking for slow queries?  Using KQL it is possible to find them.
+Once Diagnostic Settings are configured, it is possible to navigate to the Log Analytics workspace and perform specific filtered queries on interesting categories. Looking for slow queries?  Using KQL it is possible to find them.
 
 ![This image shows a KQL query.](media/azure-diagnostic-query.png "Sample KQL query")
 
@@ -83,13 +83,13 @@ Finally, the `slow_query_log` can be set to show slow queries in the PostgreSQL 
 
 ### Resource health
 
-It is essential to know if the PostgreSQL service has experienced a downtime and the related details. Resource health can assist with this information. If additional assistance is needed, a contact support link is available.
+It is essential to know if the PostgreSQL service has experienced downtime and the related details. Resource health can assist with this information. If additional assistance is needed, a contact support link is available.
 
 ![This image shows Azure Resource Health.](media/resource-health-example.png "Azure Resource Health")
 
 ### Activity logs
 
-This area captures the administrative events captured over a period of time.
+This area captures the administrative events captured over some time.
 
 ![This image shows administrative events in the Azure Activity Log.](media/activity-logs-example.png "Administrative events")
 
@@ -129,7 +129,7 @@ For more information on basic PostgreSQL logs, reference [Logs in Azure Database
 
 In addition to metrics, it is also possible to enable PostgreSQL logs to be ingested into Azure Monitor. While metrics are better suited for real-time decision-making, logs are also useful for deriving insights. One source of logs generated by Flexible Server is PostgreSQL audit logs, which indicate connections, DDL and DML operations, and more. Many businesses utilize audit logs to meet compliance requirements, but enabling audit logs can impact performance.
 
-PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is disabled](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit) in Azure Database for PostgreSQL Flexible Server by default. Server level logging can be enabled by adding the `pgaudit` server extension and then modifiying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit).
+PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is [disabled](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit) in the Azure Database for PostgreSQL Flexible Server by default. Server-level logging can be enabled by adding the `pgaudit` server extension and then modifying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit).
 
 ![Alt text](media/shared-preload-libraries.png)
 
@@ -178,17 +178,17 @@ It is also possible to change the prefix of the log by changing the `log_line_pr
 
 ### Azure Advisor
 
-The Azure Advisor system uses telemetry to issue performance and reliability recommendations for the PostgreSQL database. Azure Database for PostgreSQL Flexible Server prioritize the following types of recommendations:
+The Azure Advisor system uses telemetry to issue performance and reliability recommendations for the PostgreSQL database. Azure Database for PostgreSQL Flexible Server prioritizes the following types of recommendations:
 
 - **Performance**: To improve the speed of the PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see Advisor Performance recommendations.
-- **Reliability**: To ensure and improve the continuity of the business-critical databases. This includes storage limits, and connection limits. For more information, see Advisor Reliability recommendations.
+- **Reliability**: To ensure and improve the continuity of the business-critical databases. This includes storage limits and connection limits. For more information, see Advisor Reliability recommendations.
 - **Cost**: To optimize and reduce the overall Azure spending. This includes server right-sizing recommendations. For more information, see Advisor Cost recommendations.
 
 For the latest information reference [Azure Advisor for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-advisor-recommendations).
 
 ### Azure Database for PostgreSQL Flexible Server Release Notes
 
-Typically each month a new set of release notes are published for Flexible Server. Read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes) document.
+Typically each month a new set of release notes is published for Flexible Server. Read more about these by reviewing the [Release notes - Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes) document.
 
 ## Networking
 
@@ -225,7 +225,7 @@ As mentioned, Azure Database for PostgreSQL Flexible Server supports public conn
 
 ## Virtual Network Hierarchy
 
-An Azure virtual network is similar to a on-premises network. It provides network isolation for workloads. Each virtual network has a private IP allocation block. Choosing an allocation block is an important consideration, especially if the environment requires multiple virtual networks to be joined.
+An Azure virtual network is similar to an on-premises network. It provides network isolation for workloads. Each virtual network has a private IP allocation block. Choosing an allocation block is an important consideration, especially if the environment requires multiple virtual networks to be joined.
 
 >![Warning](media/warning.png "warning") **Warning:**  The allocation blocks of the virtual networks cannot overlap. It is best practice to choose allocation blocks from [RFC 1918.](https://datatracker.ietf.org/doc/html/rfc1918)
 
@@ -233,7 +233,7 @@ An Azure virtual network is similar to a on-premises network. It provides networ
 
 Each virtual network is further segmented into subnets. Subnets improve virtual network organization and security, just as they do on-premises.
 
-When moving an application to Azure along with the PostgreSQL workload, there will likely multiple virtual networks set up in a hub and spoke pattern that will require [Virtual Network Peering](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to be configured. Virtual networks are joined through *peering*. The peered virtual networks can reside in the same or different Azure regions.
+When moving an application to Azure along with the PostgreSQL workload, there will likely be multiple virtual networks set up in a hub and spoke pattern that will require [Virtual Network Peering](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to be configured. Virtual networks are joined through *peering*. The peered virtual networks can reside in the same or different Azure regions.
 
 Lastly, it is possible to access resources in a virtual network from on-premises. Some organizations opt to use VPN connections through [Azure VPN Gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways), which sends encrypted traffic over the Internet. Others opt for [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction), which establishes a private connection to Azure through a service provider.
 
@@ -261,9 +261,7 @@ For more information on configuring Private Access for Flexible Server, referenc
 - [Azure Portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-private-endpoint-portal)
 - [Azure CLI](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-cli)
 
-Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer) connection pooler. Onced enabled, connect applications to the database server via PgBouncer using the same hostname with port 6432.
-
-## Networking best practices for Flexible Server
+Flexible server also has a [builtin PgBouncer](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer) connection pooler. Once enabled, connect applications to the database server via PgBouncer using the same hostname with port 6432.Networking Best Practices for Flexible Server
 
 - If deploying an application in an Azure region that supports *Availability Zones*, deploy the application and the Flexible Server instance in the same zone to minimize latency.
 
@@ -290,7 +288,7 @@ Azure Database for PostgreSQL Flexible Server offers various encryption features
 
 Data stored in the Azure Database for PostgreSQL Flexible Server instances are encrypted at rest by default. Any automated backups are also encrypted to prevent potential leakage of data to unauthorized parties. This encryption is typically performed with a key generated when the Azure Database for PostgreSQL Flexible Server instance is created.
 
-Encryption of these artifacts is done using a Microsoft managed key by default, however it is possible to use customer managed keys. This can be accomplished by using Azure Key Vault and managed identities. The key must be contiuously accessible or the server will go into an `inaccessible` state.
+Encryption of these artifacts is done using a Microsoft-managed key by default, however it is possible to use customer-managed keys. This can be accomplished by using Azure Key Vault and managed identities. The key must be continuously accessible or the server will go into an `inaccessible` state.
 
 Reference [Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-data-encryption) for the latest information and [Create and manage Azure Database for PostgreSQL - Flexible Server with data encrypted by Customer Managed Keys (CMK) using Azure portal](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-create-server-customer-managed-key-portal).
 
@@ -306,11 +304,11 @@ Disparate components require a holistic solution to provide a complete picture o
 
 [Microsoft Sentinel](https://learn.microsoft.com/azure/sentinel/overview) is the security tool that provides the needed connectors to bring all security log data into one place and then provide a view into how an attack may have started.
 
-Microsoft Sentinel works with Azure Log Analytics and other Microsoft security services to provide a log storage, query, and alerting solution. Through machine learning, artificial intelligence, and user behavior analytics (UEBA), Microsoft Sentinel provides a higher understanding of potential issues or incidents that may not have seen with a disconnected environment.
+Microsoft Sentinel works with Azure Log Analytics and other Microsoft security services to provide a log storage, query, and alerting solution. Through machine learning, artificial intelligence, and user behavior analytics (UEBA), Microsoft Sentinel provides a higher understanding of potential issues or incidents that may not have seen in a disconnected environment.
 
 ### Microsoft Purview
 
-Data privacy has evolved into a organizational priority over the past few years. Determining where sensitive information lives across the data estate is a requirement in today's privacy-centered society.
+Data privacy has evolved into an organizational priority over the past few years. Determining where sensitive information lives across the data estate is a requirement in today's privacy-centered society.
 
 [Microsoft Purview](https://learn.microsoft.com/azure/purview/overview) can scan the data estate, including Azure Database for PostgreSQL Flexible Server instances, to find personally identifiable information or other sensitive information types. This data can then be analyzed, classified and lineage defined across cloud-based resources.
 
@@ -320,7 +318,7 @@ In addition to all the topics discussed above, the Azure Database for PostgreSQL
 
 ### Compliance
 
-To help customers achieve compliance with national/regional and industry specific regulations and requirements Azure Database for PostgreSQL - Flexible Server build upon Microsoft Azure's compliance offerings to provide the most rigorous compliance certifications to customers at service general availability. To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific. Compliance offerings are based on several types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments and customer guidance documents produced by Microsoft. More detailed information about Azure compliance offerings is available from the [Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+To help customers achieve compliance with national/regional and industry-specific regulations and requirements Azure Database for PostgreSQL - Flexible Server built upon Microsoft Azure's compliance offerings to provide the most rigorous compliance certifications to customers at service general availability. To help customers meet their compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry-specific, and region/country specific. Compliance offerings are based on several types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments and customer guidance documents produced by Microsoft. More detailed information about Azure compliance offerings is available from the [Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
 For a list of compliance certifications, reference [Security and Compliance Certifications in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compliance).
 
@@ -328,9 +326,9 @@ Protecting the data and control plane is just another piece to the puzzle of hav
 
 Deciding what risks the organization can accept will typically help guide what security features discussed in this section should be enabled and paid for.
 
-If the data is vital, important and business critical, everything possible should be done to ensure its protected and secure.
+If the data is vital, important and business-critical, everything possible should be done to ensure it's protected and secure.
 
-This section discussed many tools Microsoft Azure provided to give an organization peace of mind that the cloud-based workload will be just as secure as if running it on-premises.
+This section discussed many tools Microsoft Azure provides to give an organization peace of mind that the cloud-based workload will be just as secure as if running it on-premises.
 
 ## Security checklist
 
@@ -358,15 +356,15 @@ Functional testing ensures that an app functions as documented in the user and b
 
 [Selenium](https://www.selenium.dev/) automates functional tests for web apps. Developers can create web application test scripts in several supported languages, like Ruby, Java, Python, and C#. Once scripts are developed, the Selenium WebDriver executes the scripts using browser-specific APIs. Teams can operate parallel Selenium tests on different devices using [Selenium Grid](https://www.selenium.dev/documentation/grid/).
 
-To get started with Selenium, developers can install the [Selenium IDE](https://www.selenium.dev/selenium-ide/) to generate testing scripts from browser interactions. The Selenium IDE is not intended for production tests. Still, it can speed up the development of  test script creation tasks.
+To get started with Selenium, developers can install the [Selenium IDE](https://www.selenium.dev/selenium-ide/) to generate testing scripts from browser interactions. The Selenium IDE is not intended for production tests. Still, it can speed up the development of test script creation tasks.
 
-Teams can include [Selenium tests in Azure DevOps.](https://techcommunity.microsoft.com/t5/testingspot-blog/continuous-testing-with-selenium-and-azure-devops/ba-p/3143366). The screenshot below demonstrates a Selenium test running in a DevOps Pipeline.
+Teams can include [Selenium tests in Azure DevOps](https://techcommunity.microsoft.com/t5/testingspot-blog/continuous-testing-with-selenium-and-azure-devops/ba-p/3143366). The screenshot below demonstrates a Selenium test running in a DevOps Pipeline.
 
 ![This image demonstrates screenshots from a Selenium test in Azure DevOps.](./media/selenium-test-azure-devops.png "Selenium test screenshots")
 
 ### Resiliency and version testing
 
-Testers can only execute so many test cases within a time period. Users tend to test application functionality not imagined by the development or test teams. Allowing real users to test the application while limiting deployment downtime and version risk can be difficult. One strategy to test for resiliency is the `blue-green` method. The latest version of an application operates in a second production environment. Developers test the most recent version in the second production environment by adding some production users to the new version. If the new version functions adequately, the second environment begins handling more production user requests. Developers can roll back the application by serving requests from the older environment if an unexpected error occurs.
+Testers can only execute so many test cases within a set period. Users tend to test application functionality not imagined by the development or test teams. Allowing real users to test the application while limiting deployment downtime and version risk can be difficult. One strategy to test for resiliency is the `blue-green` method. The latest version of an application operates in a second production environment. Developers test the most recent version in the second production environment by adding some production users to the new version. If the new version functions adequately, the second environment begins handling more production user requests. Developers can roll back the application by serving requests from the older environment if an unexpected error occurs.
 
 ![This image shows how to implement a Blue/Green test using Azure Traffic Manager.](media/azure-traffic-manager-blue-green.png "Azure Traffic Manager Blue/Green test")
 
@@ -394,7 +392,7 @@ Stress testing determines the maximum load a system can handle before failure. A
 
 ### Apache JMeter
 
-[Apache JMeter](https://jmeter.apache.org/) is an open source tool to test that systems function and perform well under load. It can test web applications, REST APIs, databases, and more. JMeter provides a GUI and a CLI, and it can export test results in a variety of formats, including HTML and JSON.
+[Apache JMeter](https://jmeter.apache.org/) is an open-source tool to test that a system functions and performs well under load. It can test web applications, REST APIs, databases, and more. JMeter provides a GUI and a CLI, and it can export test results in a variety of formats, including HTML and JSON.
 
 The image below demonstrates one approach to operating JMeter at scale using Azure Container Instances. The `jmeter-load-test` pipeline manages the test infrastructure and provides the test definition to the **JMeter Controller**.
 
@@ -404,7 +402,7 @@ It is also possible to run JMeter load tests using [Azure Load Testing Preview.]
 
 ### K6
 
-[Grafana K6](https://k6.io/) is a load testing tool hosted locally or in the cloud. Developers script tests using ES6 JavaScript. Supporting over 20 integrations, including [Azure DevOps Pipelines](https://techcommunity.microsoft.com/t5/azure-devops/load-testing-with-azure-devops-and-k6/m-p/2489134), K6 is a popular choice for many teams.
+[Grafana K6](https://k6.io/) is a load-testing tool hosted locally or in the cloud. Developers script tests using ES6 JavaScript. Supporting over 20 integrations, including [Azure DevOps Pipelines](https://techcommunity.microsoft.com/t5/azure-devops/load-testing-with-azure-devops-and-k6/m-p/2489134), K6 is a popular choice for many teams.
 
 ## Testing data capture tools
 
@@ -454,7 +452,7 @@ The following resources are helpful for exploring various approaches to using th
 
 - [What is Azure Load Testing?](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing?wt.mc_id=loadtesting_acompara4_webpage_cnl)
 
-Testing applications after they have been deployed to an existing or a new environment is a vital step in the development cycle. It could prevent unwanted downtime or lost of application functionality.
+Testing applications after they have been deployed to an existing or a new environment is a vital step in the development cycle. It could prevent unwanted downtime or loss of application functionality.
 
 ### Checklist
 
@@ -475,7 +473,7 @@ The following are some basic tips for how to increase or ensure the performance 
 
 - Ensure the input/output operations per second (IOPS) are sufficient for the application needs. Keep the IO latency low.
 - Create and tune the table indexes. Avoid full table scans.
-- Performance regular database maintenance.
+- Performance of regular database maintenance.
 - Make sure the application/clients (e.g. App Service) are physically located as close as possible to the database. Reduce network latency.
 - Use accelerated networking for the application server when using an Azure virtual machine, Azure Kubernetes, or App Services.
 - Use connection pooling when possible. Avoid creating new connections for each application request. Balance workloads with multiple read replicas as demand requires without any changes in application code.
@@ -489,7 +487,7 @@ After developers benchmark their PostgreSQL Flexible Server workloads, they can 
 
 Caching is a common way to increase the performance of applications. Through disk or memory-based cache, a developer and architect should always be on the lookout for deterministic areas that can be cached. Azure CDN provides caching via POP servers to users of global-scale web apps.
 
-Lastly, an important balance should be struck between performance of the cache and costs.
+Lastly, an important balance should be struck between the performance of the cache and costs.
 
 #### Performance Checklist
 
@@ -503,7 +501,7 @@ Lastly, an important balance should be struck between performance of the cache a
 
 ## BCDR
 
-Azure Database for PostgreSQL Flexible Server offers several BCDR options that meets or exceeds any RPO or RTO objectives. These include:
+Azure Database for PostgreSQL Flexible Server offers several BCDR options that meet or exceed any RPO or RTO objectives. These include:
 
 - Automatic backups
 - Zone redundant high availability
@@ -513,7 +511,7 @@ Azure Database for PostgreSQL Flexible Server offers several BCDR options that m
 - Geo-redundant backups
 - Geo-Replication (Read replicas)
 
-Reference [Overview of business continuity with Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-business-continuity) for the latest information.
+Reference [Overview of business continuity with Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-business-continuity) for the latest information.
 
 ### Configure maintenance scheduling and alerting
 
@@ -521,15 +519,15 @@ Reference [Overview of business continuity with Azure Database for PostgreSQL - 
 - [View service health notifications in the Azure Portal](https://learn.microsoft.com/azure/service-health/service-notifications)
 - [Configure resource health alerts using Azure Portal](https://learn.microsoft.com/azure/service-health/resource-health-alert-monitor-guide)
 
-### 
+### Platform as a Service
 
 Since Azure Database for PostgreSQL Flexible Server is a PaaS offering, administrators are not responsible for the management of the updates on the operating system or the PostgreSQL software. Also, administrators need to plan for database version upgrades. Cloud providers are continuously upgrading and improving their supported offerings. Older versions eventually fall into the unsupported status.
 
-![Warning](media/warning.png) **Warning:** It is important to be aware the upgrade process can be random. During deployment, the PostgreSQL server workloads will stop be processed on the server. Plan for these downtimes by rerouting the workloads to a read replica in the event the particular instance goes into maintenance mode.
+![Warning](media/warning.png) **Warning:** It is important to be aware the upgrade process can be random. During deployment, the PostgreSQL server workloads will stop being processed on the server. Plan for these downtimes by rerouting the workloads to a read replica in the event the particular instance goes into maintenance mode.
 
 >![Note icon](media/note.png "Note") **Note:** This style of failover architecture may require changes to the applications data layer to support this type of failover scenario. If the read replica is maintained as a read replica and is not promoted, the application will only be able to read data and it may fail when any operation attempts to write information to the database.
 
-The [planned maintenance notification](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#planned-maintenance-notification) feature will inform resource owners up to 72 hours in advance of installation of an update or critical security patch. Database administrators may need to notify application users of planned and unplanned maintenance.
+The [planned maintenance notification](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#planned-maintenance-notification) feature will inform resource owners up to 72 hours in advance of the installation of an update or critical security patch. Database administrators may need to notify application users of planned and unplanned maintenance.
 
 >![Note icon](media/note.png "Note") **Note:** Azure Database for PostgreSQL Flexible Server maintenance notifications are incredibly important. The database maintenance can take the database and connected applications down for a brief period of time.
 
@@ -541,23 +539,23 @@ Before PostgreSQL version 10, the PostgreSQL versioning policy considered a majo
 
 ## Running retired versions
 
-As the community won't be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL Flexible Server won't patch the retired database engine for any bugs or security issues, or otherwise take security measures with regard to the retired database engine. It is possible to experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
+As the community won't be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL Flexible Server won't patch the retired database engine for any bugs or security issues, or otherwise take security measures concerning the retired database engine. It is possible to experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 
-In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop the database server to secure the service. In such case, a notification to upgrade the server before bringing the server online will be displayed.
+In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop the database server to secure the service. In such a case, a notification to upgrade the server before bringing the server online will be displayed.
 
 For the latest information on the versioning policy, see [Azure Database for PostgreSQL versioning policy](https://learn.microsoft.com/azure/postgresql/single-server/concepts-version-policy)
 
 ### Summary + Checklist
 
-A solid BCDR plan is critical for every organization. The operation team should leverage strategies covered in this chapter to ensure business continuity. Downtime events are not only disaster events, but also include normal scheduled maintenance. This chapter pointed out that platform as a service instances such as Azure Database for PostgreSQL Flexible Server still have some downtime that must be taken into consideration. Older versions of PostgreSQL will trigger end-of-life (EOL) support. A plan should be developed to ensure that the possibility of upgrades will not take applications offline. Consider using read only replicas that will maintain the application availability during these downtimes. To support these types of architectures, the applications may need to be able to gracefully support the failover to read-only nodes when users attempt to perform write based activities.
+A solid BCDR plan is critical for every organization. The operation team should leverage strategies covered in this chapter to ensure business continuity. Downtime events are not only disaster events but also include normal scheduled maintenance. This chapter pointed out that platform as a service instances such as Azure Database for PostgreSQL Flexible Server still have some downtime that must be taken into consideration. Older versions of PostgreSQL will trigger end-of-life (EOL) support. A plan should be developed to ensure that the possibility of upgrades will not take applications offline. Consider using read-only replicas that will maintain the application availability during these downtimes. To support these types of architectures, the applications may need to be able to gracefully support the failover to read-only nodes when users attempt to perform write-based activities.
 
 #### Checklist
 
-- Perform backups regularly, ensure the backup frequency meets requirements.
-- Setup read replicas for read intensive workloads and regional failover.
+- Perform backups regularly, and ensure the backup frequency meets requirements.
+- Set up read replicas for read-intensive workloads and regional failover.
 - Use resource locks to prevent accidental deletions.
 - Create resource locks on resource groups.
-- Implement a load balancing strategy for applications for quick failover.
+- Implement a load-balancing strategy for applications for quick failover.
 - Be aware that service outages will occur and plan appropriately.
-- Develop a scheduled maintenance plan and setup maintenance notifications.
+- Develop a scheduled maintenance plan and set up maintenance notifications.
 - Develop a database version upgrade plan.

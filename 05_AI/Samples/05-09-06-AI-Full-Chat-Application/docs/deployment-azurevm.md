@@ -57,4 +57,4 @@ Follow the steps below to deploy the solution to an Azure subscription.
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id>
     ```
 
->**NOTE**: Make sure to set the `<location>` value to a region that supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Make sure to set the `<location>` value to a region that supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.

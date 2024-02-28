@@ -1,6 +1,6 @@
 ## Prompt Engineering
 
-The input of a large language model is known as prompt, while the output is known as a completion. Completion is a term that refers to the model mechanism of generating the next token to complete the current input. In the next few sections, we will dive deep into what is a prompt and how to design it in a way to get the most out of our model. But for now, let us just say that a prompt may include:
+The input of a large language model is known as a prompt, while the output is known as a completion. Completion is a term that refers to the model mechanism of generating the next token to complete the current input. In the next few sections, we will dive deep into what is a prompt and how to design it in a way to get the most out of our model. But for now, let us just say that a prompt may include:
 
     - An instruction: specifying the type of output we expect from the model. This instruction sometimes might embed some examples or some additional data.
     - A question: asked in the form of a conversation with an agent.
@@ -9,15 +9,15 @@ The input of a large language model is known as prompt, while the output is know
         - A chunk of code + the task of doing something with it such as explaining and documenting it.
         - A comment asking to generate a piece of code performing a specific task.
 
-Outputs of Generative AI models are not perfect and in some cases the creativity of the model can work against it. When this happens, the resulting output can be a combination of words that the human user can interpret as a mystification of reality, or even offensive.
+Outputs of Generative AI models are not perfect and in some cases, the creativity of the model can work against it. When this happens, the resulting output can be a combination of words that the human user can interpret as a mystification of reality, or even offensive.
 
-Generative AI is not intelligent per se. When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it is should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented in a persuasive and confident manner. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit. The idea is to provide enough context for a prompt to ensure the responses required.
+Generative AI is not intelligent per se. When compared to the more comprehensive definition of intelligence, including critical and creative reasoning or emotional intelligence; it is not deterministic, and it should not be considered trustworthy, since fabrications, such as erroneous references, content, and statements, may be combined with correct information, and presented persuasively and confidently. Prompt engineering is a method designed to deal with some of these limitations, or at least mitigate them a bit. The idea is to provide enough context for a prompt to ensure the responses required.
 
 Check out the YouTube video [AI in a Minute: Prompt Engineering](https://youtu.be/vGdyePbGNaE) - What it means, how to apply it.
 
 ### What is a prompt
 
-Prompts have now become the primary programming interface for generative AI apps. Prompts tell the models what to do and influencing the quality of returned responses. How a prompt is written matters greatly to the LLM, a carefully crafted prompt can achieve a better result than one that is not.
+Prompts have now become the primary programming interface for generative AI apps. Prompts tell the models what to do and influence the quality of returned responses. How a prompt is written matters greatly to the LLM, a carefully crafted prompt can achieve a better result than one that is not.
 
 Users can now interact with models using familiar paradigms like chat, without needing any technical expertise or training. Most of these models are prompt-based. They send a text input (prompt) and get back the AI response (completion). They can then "chat with the AI" iteratively, in multi-turn conversations, refining their prompt till the response matches their expectations.
 
@@ -69,9 +69,9 @@ But what if the user wanted to see something specific that met some criteria or 
 
 ### Instruction Tuned LLMs
 
-An Instruction Tuned LLM starts with the foundation model and fine-tunes it with examples or input/output pairs (e.g., multi-turn "messages") that can contain clear instructions - and the response from the AI attempt to follow that instruction.
+An Instruction Tuned LLM starts with the foundation model and fine-tunes it with examples or input/output pairs (e.g., multi-turn "messages") that can contain clear instructions - and the response from the AI attempts to follow that instruction.
 
-This uses techniques like Reinforcement Learning with Human Feedback (RLHF) that can train the model to follow instructions and learn from feedback so that it produces responses that are better-suited to practical applications and more-relevant to user objectives.
+This uses techniques like Reinforcement Learning with Human Feedback (RLHF) that can train the model to follow instructions and learn from feedback so that it produces responses that are better suited to practical applications and more relevant to user objectives.
 
 ### Prompt Construction
 
@@ -79,7 +79,7 @@ We've seen why prompt engineering is important - now let us understand how promp
 
 - Basic prompt - A text input sent to the model with no other context.
 - Complex prompt -  A collection of messages with input/output pairs reflecting user input and assistant response along with system message setting the context for assistant behavior or personality.
-- Instruction prompt - Using extra text to specify a task output in more detail, providing better guidance to the AI. For example, asking for a resopnse in JSON.
+- Instruction prompt - Using extra text to specify a task output in more detail, providing better guidance to the AI. For example, asking for a response in JSON.
 
 ### Primary Content
 
@@ -102,7 +102,7 @@ Another technique for using primary content is to provide cues rather than examp
 
 A prompt template is a pre-defined recipe for a prompt that can be stored and reused as needed, to drive more consistent user experiences at scale. In its simplest form, it is simply a collection of prompt examples like [this one](https://platform.openai.com/examples?WT.mc_id=academic-105485-koreyst) from OpenAI that provides both the interactive prompt components (user and system messages) and the API-driven request format - to support reuse.
 
-In it's more complex form like [this example](https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/?WT.mc_id=academic-105485-koreyst) from LangChain it contains placeholders that can be replaced with data from a variety of sources (user input, system context, external data sources etc.) to generate a prompt dynamically. This allows us to create a library of reusable prompts that can be used to drive consistent user experiences programmatically at scale.
+In its more complex form like [this example](https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/?WT.mc_id=academic-105485-koreyst) from LangChain it contains placeholders that can be replaced with data from a variety of sources (user input, system context, external data sources etc.) to generate a prompt dynamically. This allows us to create a library of reusable prompts that can be used to drive consistent user experiences programmatically at scale.
 
 Finally, the real value of templates lies in the ability to create and publish prompt libraries for vertical application domains - where the prompt template is now optimized to reflect application-specific context or examples that make the responses more relevant and accurate for the targeted user audience. The [Prompts For Edu](https://github.com/microsoft/prompts-for-edu?WT.mc_id=academic-105485-koreyst) repository is a fantastic example of this approach, curating a library of prompts for the education domain with emphasis on key objectives like lesson planning, curriculum design, student tutoring etc.
 
@@ -149,7 +149,7 @@ Note how we write substantially longer prompts with another example, a calculati
 
 ### Generated Knowledge
 
-Many times a construction of a prompt will include using a company's data. Part of the prompt will be from the company and the other part should be the actual prompt from the user.
+Many times the construction of a prompt will include using a company's data. Part of the prompt will be from the company and the other part should be the actual prompt from the user.
 
 ### Least to most
 
@@ -157,7 +157,7 @@ The idea with Least-to-most prompting is to break down a bigger problem into sub
 
 ### Self refine
 
-With generative AIs and LLMs, be default, do not trust the output. Always verify it. After all, the LLM is just presenting what the next most likely thing to say is, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
+With generative AIs and LLMs, by default, do not trust the output. Always verify it. After all, the LLM is just presenting what the next most likely thing to say is, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.
 
 It works by performing the following steps:
 
@@ -170,10 +170,10 @@ Repeat this process as many times as necessary.
 
 ### Maieutic prompting
 
-Maieutic prompting is a technique that is like self-refine but it is more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:
+Maieutic prompting is a technique that is like self-refine but it is more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output to ensure it arrives at the correct answer. The workflow to follow is:
 
 - Ask the LLM to answer a question
-- For each part of the answer, ask the LLM to explain it more in depth.
+- For each part of the answer, ask the LLM to explain it more in-depth.
 - If there are inconsistencies, discard the parts that are inconsistent.
 
 Repeat 2 and 3 until all the parts are explained and a satisfying answer is provided.
@@ -184,7 +184,7 @@ Ok, so we've decided we want to limit the output to be more predictable, that is
 
 Temperature is a value between 0 and 1, where 0 is the most deterministic and 1 is the most varied. The default value is 0.7.
 
-### Prompt Engineering Best Practics
+### Prompt Engineering Best Practices
 
 Now that we know how prompts can be constructed, we can start thinking about how to design them to reflect best practices. We can think about this in two parts:
 
@@ -193,7 +193,7 @@ Now that we know how prompts can be constructed, we can start thinking about how
 
 Prompt Engineering is a trial-and-error process so keep three broad guiding factors in mind:
 
-- **Domain Understanding Matters**. Response accuracy and relevance is a function of the domain in which that application or user operates. Apply intuition and domain expertise to customize techniques further. For instance, define domain-specific personalities in  system prompts, or use domain-specific templates in user prompts. Provide secondary content that reflects domain-specific contexts, or use domain-specific cues and examples to guide the model towards familiar usage patterns.
+- **Domain Understanding Matters**. Response accuracy and relevance are a function of the domain in which that application or user operates. Apply intuition and domain expertise to customize techniques further. For instance, define domain-specific personalities in system prompts, or use domain-specific templates in user prompts. Provide secondary content that reflects domain-specific contexts, or use domain-specific cues and examples to guide the model toward familiar usage patterns.
 
 - **Model Understanding Matters**. We know models are stochastic by nature. But model implementations can also vary in terms of the training dataset they use (pre-trained knowledge), the capabilities they provide (e.g., via API or SDK) and the type of content they are optimized for (e.g, code vs. images vs. text). Understand the strengths and limitations of the model being used, and use that knowledge to prioritize tasks or build customized templates that are optimized for the model's capabilities.
 
@@ -216,6 +216,6 @@ Specify both what and how. Remember to mention both the **want** and **how**, fo
 - **Use cues to jumpstart completions** : Nudge it towards a desired outcome by giving it some leading words or phrases that it can use as a starting point for the response.
 - **Double Down** : Sometimes it may be necessary to repeat a prompt to the model. Give instructions before and after the primary content, use an instruction and a cue, etc. Iterate & validate to see what works.
 - **Order Matters** : The order in which information is presented to the model may impact the output, even in the learning examples, thanks to recency bias. Try different options to see what works best.
-- **Give the model an “out”** : Give the model a fallback completion response it can provide if it cannot complete the task for any reason. This can reduce chances of models generating false or fabricated responses.
+- **Give the model an “out”** : Give the model a fallback completion response it can provide if it cannot complete the task for any reason. This can reduce the chances of models generating false or fabricated responses.
 
 As with any best practice, remember that mileage may vary based on the model, the task and the domain. Use these as a starting point, and iterate to find what works best. Constantly re-evaluate the prompt engineering process as new models and tools become available, with a focus on process scalability and response quality.

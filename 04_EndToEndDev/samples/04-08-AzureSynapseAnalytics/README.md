@@ -24,7 +24,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
-- Install [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
+- Install [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=58494)
 
 ## Exercise 1: Create PostgreSQL Linked Service
 
