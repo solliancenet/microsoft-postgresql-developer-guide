@@ -2600,7 +2600,7 @@ minutes for the queries to start to be recorded.
     you can use pgAdmin to open a psql window):
 
     ``` cmd
-    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U s2admin -d airbnb
+    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U wsuser -d airbnb
     ```
 
 3.  Run the following commands to create some temp tables and import the
@@ -3370,7 +3370,7 @@ from one tablespace to another) is currently not tracked."
     install it using `sudo apt-get install postgresql-contrib`:
 
     ``` sql
-    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U wsuser -d airbnb
     ```
 
     > NOTE: In Azure Cloud Shell, you will need to check the version to
@@ -3438,7 +3438,7 @@ Some common uses for this data include:
     **pgsqldevSUFFIXflex16** server:
 
     ``` sql
-    ALTER ROLE s2admin WITH REPLICATION;
+    ALTER ROLE wsuser WITH REPLICATION;
     ```
 
 2.  On the **pgsqldevSUFFIXflex16** server for the `airbnb`
@@ -3461,7 +3461,7 @@ Some common uses for this data include:
     replace the `PREFIX` and `REGION` values:
 
     ``` sql
-    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
+    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=wsuser password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
     ```
 
 ### Task 3: Sync Data
@@ -3566,7 +3566,7 @@ dynamic and do not require an instance restart.
     you can install it using `sudo apt-get install postgresql-contrib`::
 
     ``` sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U wsuser -d airbnb
     ```
 
 10. Switch back to the Metrics window, after a minute, you should see
@@ -3587,7 +3587,7 @@ dynamic and do not require an instance restart.
     with your lab information:
 
     ``` sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U wsuser -d airbnb
     ```
 
 3.  Switch back to the metrics window. After a minute, you should see
@@ -7604,7 +7604,7 @@ Cloud Shell][101] to connect to your database.
     highlighted.]
 
 4.  At the Cloud Shell prompt, replace the `{your_password}` token with
-    the password you assigned to the `s2admin` user when creating your
+    the password you assigned to the `wsuser` user when creating your
     database, then run the command. If you followed the instructions in
     Lab 1, the password should be `Solliance123`.
 

@@ -67,7 +67,7 @@ In this task, server parameters will be configured to ensure support for the Que
 5. Set the value to `logical`.
 6. Select **Save**.
 7. Select **Save & Restart**.
-8. **Repeat the same steps** for any replicas and the **pgsqldevSUFFIXflex14**** instance.
+8. **Repeat the same steps** for any replicas and the **pgsqldevSUFFIXflex14** instance.
 
 ### Task 2: Create tables and data
 
@@ -78,8 +78,10 @@ In this task, server parameters will be configured to ensure support for the Que
 2. Run the following command to connect to the database, be sure to replace `PREFIX` and `REGION` with the lab information (optionally use pgAdmin to open a `psql` window). On Windows, find the `pgbench` tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`.  When prompted, enter the password (`Solliance123`):
 
     ```cmd
-    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U s2admin -d airbnb
+    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U wsuser -d airbnb
     ```
+
+    > NOTE: If you get an error when connecting, ensure that your client machine IP Address has been allowed access.
 
 3. Run the following commands to create some temp tables and import the JSON and CSV data to the server.  Notice the usage of `json` files to do the import using the `COPY` command. Once into a temporary table, we then do some massaging:
 
@@ -710,7 +712,7 @@ Currently, I/O on relations (e.g. tables, indexes) is tracked. However, relation
 3. Run the following command. Be sure to replace the `PREFIX` and `REGION` tokens. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`. When prompted, enter the `Solliance123` password:
 
     ```sql
-    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U wsuser -d airbnb
     ```
 
     > NOTE: In Azure Cloud Shell, check the version to ensure it is compatable with the target version (`pgbench --version`)
@@ -761,7 +763,7 @@ Some common uses for this data include:
 1. Assign the `REPLICATION` permission to the user in order to set up replication.  Run the following on the **pgsqldevSUFFIXflex16** server:
 
     ```sql
-    ALTER ROLE s2admin WITH REPLICATION;
+    ALTER ROLE wsuser WITH REPLICATION;
     ```
 
 2. On the **pgsqldevSUFFIXflex16** server for the `airbnb` database, run the following to create a publication, add a table to it and then create a slot:
@@ -779,7 +781,7 @@ Some common uses for this data include:
 1. On the **pgsqldevSUFFIXflex14** server for the `airbnb` database, run the following.  It will set up the subscription (the tables should have been created from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
 
     ```sql
-    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
+    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=wsuser password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
     ```
 
 ### Task 3: Sync Data
@@ -852,7 +854,7 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Solliance123`.  Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with the lab information. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`::
 
     ```sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U wsuser -d airbnb
     ```
 
 10. Switch back to the Metrics window, and after a minute, notice the `active connections` increase.
@@ -867,7 +869,7 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Solliance123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with the lab information:
 
     ```sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U wsuser -d airbnb
     ```
 
 3. Switch back to the metrics window.  After a minute, the server `active connections` will max out and the PgBouncer `active client connections` will increase to handle the load on behalf of the server.
