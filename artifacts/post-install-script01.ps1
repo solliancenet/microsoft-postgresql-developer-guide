@@ -209,9 +209,39 @@ git clone https://github.com/solliancenet/$workshopName.git $workshopName
 #do the deployment...
 Connect-AzAccount -Identity
 
+$subscription = Get-AzSubscription
+$subscriptionId = $subscription.Id
+
 #setup the sql database.
 #get the database server name
 $servers = Get-AzPostgreSqlFlexibleServer -SubscriptionId $subscriptionId
+
+$ipAddress = (Invoke-WebRequest -uri "https://ifconfig.me/ip" -UseBasicParsing).Content 
+
+$resourceGroups = Get-AzResourceGroup
+$ResourceGroupName = $resourceGroups[0].ResourceGroupName
+$suffix = $resourceGroups[0].tags["Suffix"]
+
+#add the VM ip address
+foreach($server in $servers)
+{
+  $serverName = $server.Name
+  New-AzPostgreSqlFlexibleServerFirewallRule -FirewallRuleName $([Guid]::newguid().tostring())  -StartIpAddress '0.0.0.0' -EndIpAddress '0.0.0.0' -ServerName $serverName  -ResourceGroupName $ResourceGroupName
+
+  New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-linux-1-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-linux-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-win11-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-win11" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+
+  #add vm ip addresses
+  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-paw-1-pip" | Select-Object -ExpandProperty ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-paw-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+}
 
 foreach($server in $servers)
 {
@@ -220,29 +250,6 @@ foreach($server in $servers)
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
 }
 
-$ipAddress = (Invoke-WebRequest -uri "https://ifconfig.me/ip" -UseBasicParsing).Content 
-
-$resourceGroups = Get-AzResourceGroup
-$ResourceGroupName = $resourceGroups[0].ResourceGroupName
-$suffix = $resourceGroups[0].tags["suffix"]
-
-#add the VM ip address
-foreach($server in $servers)
-{
-  New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
-
-  #add vm ip addresses
-  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-linux-1-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-linux-1" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
-
-  #add vm ip addresses
-  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-win11-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-win11" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
-
-  #add vm ip addresses
-  $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsql$($suffix)-paw-1-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-paw-1" -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
-}
 
 #run composer on app path
 cd "$path";
@@ -282,16 +289,6 @@ else
   InstallDockerDesktop $global:localusername;
 }
 
-# Template deployment
-$rg = (Get-AzResourceGroup | Where-Object { $_.ResourceGroupName -like "*postgres" });
-$resourceGroupName = $rg.ResourceGroupName
-$region = $rg.Location;
-$deploymentId =  $rg.Tags["DeploymentId"]
-
-$sub = Get-AzSubscription;
-
-$subscriptionId = $sub.SubscriptionId;
-
 $servers = Get-AzPostgreSqlFlexibleServer
 $serverName = $servers[0].name
 
@@ -307,6 +304,6 @@ $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
 
 #set the password
 $env:PGPASSWORD=$password
-psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U s2admin -p 5432 -a -w -f $filePath
+psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
 
 Stop-Transcript
