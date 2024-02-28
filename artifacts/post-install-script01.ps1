@@ -142,6 +142,8 @@ InstallPostgres14
 
 InstallPython "3.11";
 
+InstallPgAdmin
+
 #install composer globally
 Write-Host "Install composer." -ForegroundColor Green -Verbose
 choco install composer
@@ -204,13 +206,16 @@ ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
 Write-Host "Download Git repo." -ForegroundColor Green -Verbose
 git clone https://github.com/solliancenet/$workshopName.git $workshopName
 
+#do the deployment...
+Connect-AzAccount -Identity
+
 #setup the sql database.
 #get the database server name
 $servers = Get-AzPostgreSqlFlexibleServer -SubscriptionId $subscriptionId
 
 foreach($server in $servers)
 {
-  set PGPASSWORD="Solliance123"
+  set PGPASSWORD=$password
   $server = "$($server.name).postgres.database.azure.com"
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
 }
@@ -276,5 +281,32 @@ else
 
   InstallDockerDesktop $global:localusername;
 }
+
+# Template deployment
+$rg = (Get-AzResourceGroup | Where-Object { $_.ResourceGroupName -like "*postgres" });
+$resourceGroupName = $rg.ResourceGroupName
+$region = $rg.Location;
+$deploymentId =  $rg.Tags["DeploymentId"]
+
+$sub = Get-AzSubscription;
+
+$subscriptionId = $sub.SubscriptionId;
+
+$servers = Get-AzPostgreSqlFlexibleServer
+$serverName = $servers[0].name
+
+$databaseName = "airbnb"
+
+New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
+
+New-AzPostgreSqlFlexibleServerFirewallRule -FirewallRuleName $([Guid]::newguid().tostring())  -StartIpAddress '0.0.0.0' -EndIpAddress '0.0.0.0' -ServerName $serverName  -ResourceGroupName $ResourceGroupName
+
+$filePath = "c:\labfiles\$workshopName\artifacts\data\airbnb.sql"
+
+$env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+
+#set the password
+$env:PGPASSWORD=$password
+psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U s2admin -p 5432 -a -w -f $filePath
 
 Stop-Transcript

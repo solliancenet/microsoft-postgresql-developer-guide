@@ -47,24 +47,24 @@ Another option for deploying infrastructure using a template is to use Azure CLI
 - [Basic Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json)
 - [Secure Template](https://github.com/Azure/azure-PostgreSQL/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template-secure.json)
 
-> [!NOTE](media/note-icon.png)  Due to the number of software packages to be installed, the deployment of the template may fail due a time out of the VM extension `winExtension` on the -win11 and -paw-1 virtual machines. On each of these virtual machines, the log for the installation of the software is located at `C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt` to follow the progress.
+Due to the number of software packages to be installed, the deployment of the template may fail due to a time out of the VM extension `winExtension` on the -win11 and -paw-1 virtual machines. On each of these virtual machines, the log for the installation of the software is located at `C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension.txt` to follow the progress.
 
 #### Step 2 - Explore the development environment
 
 Once the template has been deployed, several resources will be deployed to support the developer journey. Not all of these will be used but are provided in case other paths would like to be explored.
 
-As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has been deployed that will be used to perform all the activities. Login to this virtual machine by doing the following:
+As part of the deployment, a **pgsqldevSUFFIX-win11** virtual machine has been deployed that will be used to perform all the activities. Login to this virtual machine by doing the following:
 
 - Open Azure Portal
 - Browse to the resource group
-- Select the **pgsqldevSUFFIX-paw1** virtual machine
+- Select the **pgsqldevSUFFIX-win11** virtual machine
 - Select **Connect->RDP**
 - Select **Download RDP file**
 - Open the downloaded file, select **Connect**
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 
-Once in the virtual machine, notice that all the necessary development tools have already been installed. Additionally, the supporting GitHub repository has been downloaded which includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-paw1** machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder. 
+Once in the virtual machine, notice that all the necessary development tools have already been installed. Additionally, the supporting GitHub repository has been downloaded which includes all the artifacts needed to start the developer journey. These files can be found on the **pgsqldevSUFFIX-win11** virtual machine in the `C:\labfiles\microsoft-postgresql-developer-samples` folder.
 
 ### Developer Samples
 

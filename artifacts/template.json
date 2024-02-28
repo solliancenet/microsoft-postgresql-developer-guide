@@ -3,12 +3,12 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "administratorLogin": {
-        "type": "String",
+        "type": "string",
         "defaultValue": "wsuser",
         "metadata": { "description": "" }
       },
       "administratorLoginPassword": {
-        "type": "String",
+        "type": "string",
         "defaultValue": "Solliance123",
         "metadata": { "description": "" }
       },

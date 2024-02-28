@@ -2,7 +2,13 @@
 
 1. Clone the [whitepaper GitHub repository](https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git) to the development machine.
 
-2. Install the [PowerShell Azure module](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-6.6.0) if not already installed.
+    ```cmd
+    mkdir c:\labfiles
+    cd c:\labfiles
+    git clone https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git
+    ```
+
+2. Install the [PowerShell Azure module](https://learn.microsoft.com/powershell/azure/install-az-ps) if not already installed.
 
     > [PowerShell Core](https://github.com/PowerShell/PowerShell)  is a cross-platform tool that is useful for managing Azure resources through the `Az` module.
 
@@ -15,10 +21,12 @@
 1. Use Azure PowerShell to create a new resource group. Substitute the `rgName` and `location` parameters with the name of the resource group and its location, respectively.
 
     ```powershell
-    $rgName = ""
-    $location = ""
+    $rgName = "RESOURCE_GROUP_NAME"
+    $location = "REGION"
     New-AzResourceGroup -Name $rgName -Location $location
     ```
+
+> NOTE:  Because of some automation account mapping settings, these templates are designed to only be deployed to `eastus2`, `eastus`, `southcentralus`, `westcentralus`, `westus2`, `westus`, `northcentralus`
 
 ## Deploy the ARM Template
 
@@ -32,7 +40,7 @@
     - The `prefix` specifies a unique identifier for Azure resources
     - The `administratorLogin` specifies the login for the Azure resources (such as PostgreSQL and the VM)
     - The `administratorLoginPassword` specifies the password for the deployed Azure resources
-    - The `location` set to an Azure environment closest to the users
+    - The `location` should be set to an Azure environment closest to the users
 
 3. If deploying the [insecure ARM template](../Artifacts/template.json) (`template.json`), edit the associated [parameters file](../Artifacts/template.parameters.json) (`template.parameters.json`).
     - The `uniqueSuffix` specifies a unique identifier for Azure resources
@@ -40,8 +48,6 @@
     - The `administratorLoginPassword` specifies the password for the deployed Azure resources
     - The `vmSize` specifies the VM tier
     - The `dnsPrefix` specifies the DNS prefix for the load balancer public IP address
-
-    > NOTE:  Because of some automation account mapping settings, these templates are designed to only be deployed to `eastus2`, `eastus`, `southcentralus`, `westcentralus`, `westus2`, `westus`, `northcentralus`
 
 4. If deploying the secure ARM template, issue the following command from the repository root.
 

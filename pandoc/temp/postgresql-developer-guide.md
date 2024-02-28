@@ -2301,13 +2301,13 @@ Once the template has been deployed, several resources will be deployed
 to support the developer journey. Not all of these will be used but are
 provided in case other paths would like to be explored.
 
-As part of the deployment, a **pgsqldevSUFFIX-paw1** virtual machine has
+As part of the deployment, a **pgsqldevSUFFIX-win11** virtual machine has
 been deployed that will be used to perform all the activities. Login to
 this virtual machine by doing the following:
 
 -   Open Azure Portal
 -   Browse to your resource group
--   Select the **pgsqldevSUFFIX-paw1** virtual machine
+-   Select the **pgsqldevSUFFIX-win11** virtual machine
 -   Select **Connect-\>RDP**
 -   Select **Download RDP file**
 -   Open the downloaded file, select **Connect**
@@ -2318,7 +2318,7 @@ Once in the virtual machine, notice that all the necessary development
 tools have already been installed. Additionally, the supporting GitHub
 repository has been downloaded that includes all the artifacts needed to
 start the developer journey. These files can be found on the
-**pgsqldevSUFFIX-paw1** machine in the
+**pgsqldevSUFFIX-win11** machine in the
 `C:\labfiles\microsoft-postgresql-developer-samples` folder.
 
 ### Developer Samples
@@ -2580,7 +2580,7 @@ exercises. You are going to enable query store now as it takes a few
 minutes for the queries to start to be recorded.
 
 1.  Switch to the Azure Portal.
-2.  Browse to your primary **PREFIX-pg-flex-REGION-16** instance or
+2.  Browse to your primary **pgsqldevSUFFIXflex16** instance or
     writer endpoint.
 3.  Under **Settings**, select **Server parameters**.
 4.  Browse for the `wal_level` parameters.
@@ -2588,7 +2588,7 @@ minutes for the queries to start to be recorded.
 6.  Select **Save**.
 7.  Select **Save & Restart**.
 8.  **Repeat the same steps** for any replicas and for the
-    **PREFIX-pg-flex-REGION-14** instance.
+    **pgsqldevSUFFIXflex14** instance.
 
 ### Task 2: Create tables and data
 
@@ -2600,7 +2600,7 @@ minutes for the queries to start to be recorded.
     you can use pgAdmin to open a psql window):
 
     ``` cmd
-    psql -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -U s2admin -d airbnb
+    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U s2admin -d airbnb
     ```
 
 3.  Run the following commands to create some temp tables and import the
@@ -3370,7 +3370,7 @@ from one tablespace to another) is currently not tracked."
     install it using `sudo apt-get install postgresql-contrib`:
 
     ``` sql
-    pgbench -i -s 50 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
     > NOTE: In Azure Cloud Shell, you will need to check the version to
@@ -3435,13 +3435,13 @@ Some common uses for this data include:
 
 1.  You will need to assign the `REPLICATION` permission in order to
     setup replication. Run the following on the
-    **PREFIX-pg-flex-REGION-16** server:
+    **pgsqldevSUFFIXflex16** server:
 
     ``` sql
     ALTER ROLE s2admin WITH REPLICATION;
     ```
 
-2.  On the **PREFIX-pg-flex-REGION-16** server for the `airbnb`
+2.  On the **pgsqldevSUFFIXflex16** server for the `airbnb`
     database, run the following to create a publication, add a table to
     it and then create a slot:
 
@@ -3455,18 +3455,18 @@ Some common uses for this data include:
 
 ### Task 2: Setup Subcsriber
 
-1.  On the **PREFIX-pg-flex-REGION-14** server for the `airbnb`
+1.  On the **pgsqldevSUFFIXflex14** server for the `airbnb`
     database, run the following. It will setup the subscription (you
     should already have the tables from the lab setup). Be sure to
     replace the `PREFIX` and `REGION` values:
 
     ``` sql
-    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=PREFIX-pg-flex-REGION-16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Seattle123Seattle123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
+    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
     ```
 
 ### Task 3: Sync Data
 
-1.  On the **PREFIX-pg-flex-REGION-16** server, run the following to add
+1.  On the **pgsqldevSUFFIXflex16** server, run the following to add
     some rows to the `calendar` table:
 
     ``` sql
@@ -3479,7 +3479,7 @@ Some common uses for this data include:
     INSERT INTO CALENDAR values (241032, '2024-01-07', 85, 't');
     ```
 
-2.  On the **PREFIX-pg-flex-REGION-14** server, run the following,
+2.  On the **pgsqldevSUFFIXflex14** server, run the following,
     notice that the row has replicated to from 16 to 14 instance:
 
     ``` sql
@@ -3517,7 +3517,7 @@ metrics to work, both the server parameters pgbouncer.enabled and
 metrics.pgbouncer_diagnostics must be enabled. These parameters are
 dynamic and do not require an instance restart.
 
--   Browse to the Azure Portal and your **PREFIX-pg-flex-REGION-16**
+-   Browse to the Azure Portal and your **pgsqldevSUFFIXflex16**
     resource.
 
 -   Under **Settings**, select **Server parameters**.
@@ -3538,7 +3538,7 @@ dynamic and do not require an instance restart.
 
 1.  Switch to the Azure Portal.
 
-2.  Browse to the `PREFIX-pg-flex-REGION-16.postgres.database.azure.com`
+2.  Browse to the `pgsqldevSUFFIXflex16.postgres.database.azure.com`
     instance.
 
 3.  Under **Monitoring** select **Metrics**.
@@ -3559,14 +3559,14 @@ dynamic and do not require an instance restart.
 
 9.  Run the following commands to execute a `pgbench` test directly
     against the database server, when prompted enter the password
-    `Seattle123Seattle123`. Notice the use of the `-c` parameter that
+    `Solliance123`. Notice the use of the `-c` parameter that
     will create 100 different connections, be sure to replace `PREFIX`
     with your lab information. On Windows you can find the pgbench tool
     in the `C:\Program Files\PostgreSQL\16\bin` directory, on ubuntu,
     you can install it using `sudo apt-get install postgresql-contrib`::
 
     ``` sql
-    pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
 10. Switch back to the Metrics window, after a minute, you should see
@@ -3582,12 +3582,12 @@ dynamic and do not require an instance restart.
 
 2.  Run the following commands to execute a `pgbench` test against the
     PgBouncer instance, when prompted enter the password
-    `Seattle123Seattle123`. Notice the change of the port to the
+    `Solliance123`. Notice the change of the port to the
     PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION`
     with your lab information:
 
     ``` sql
-    pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
     ```
 
 3.  Switch back to the metrics window. After a minute, you should see
@@ -7606,7 +7606,7 @@ Cloud Shell][101] to connect to your database.
 4.  At the Cloud Shell prompt, replace the `{your_password}` token with
     the password you assigned to the `s2admin` user when creating your
     database, then run the command. If you followed the instructions in
-    Lab 1, the password should be `Seattle123Seattle123`.
+    Lab 1, the password should be `Solliance123`.
 
 5.  Connect to your database using the `psql` command-line utility by
     entering the following at the prompt:

@@ -8,7 +8,7 @@ Developers can deploy PostgreSQL-backed apps to Azure on a Windows or Linux envi
 
 #### Resources
 
-- [App Service overview](https://learn.microsoft.com/azure/app-service/overview)
+- [App Service Overview](https://learn.microsoft.com/azure/app-service/overview)
 - [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal)
 - [Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?tabs=clone)
 - [Deploying to App Services](https://github.com/azure/azure-postgresql/blob/master/DeveloperGuide/step-1-sample-apps/README.md)
@@ -41,19 +41,19 @@ Azure Logic Apps interface with external systems through *managed connectors*. M
 
 #### Azure Logic Apps Resources
 
-- [What is a Azure Logic App?](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview)
+- [What is an Azure Logic App?](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Compare Azure Functions and Azure Logic Apps](https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps)
 - [Logic Apps with PostgreSQL](https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp)
 
 ### Microservices
 
-Organizations deploy microservices architectures to offer resilient, scalable, developer-friendly applications. Unlike traditional monolithic apps, each service operates independently and can be updated without redeploying the app. Each service also manages its own persistence layer, meaning that service teams can perform database schema updates without affecting other services.
+Organizations deploy microservices architectures to offer resilient, scalable, developer-friendly applications. Unlike traditional monolithic apps, each service operates independently and can be updated without redeploying the app. Each service also manages its persistence layer, meaning that service teams can perform database schema updates without affecting other services.
 
 While microservices apps offer major benefits, they require advanced tools and knowledge of distributed systems. Organizations utilize domain analysis to define optimal boundaries between services.
 
 On Azure, organizations often deploy microservices to Azure Kubernetes Service through CI/CD platforms, such as GitHub Actions.
 
-#### Microservies Resources
+### Microservices Resources
 
 - [Build microservices on Azure](https://learn.microsoft.com/azure/architecture/microservices/)
 - [Using domain analysis to model microservices](https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis)
@@ -72,7 +72,7 @@ Like other Azure resources, API Management offers comprehensive RBAC support, ac
 
 ### Event-driven - Azure Event Grid vs. Service Bus vs. Event Hubs
 
-Event-driven apps create, ingest, and process events (state changes) in real time. Event producers and event consumers are loosely coupled, and every consumer sees every event. Event-driven architectures can perform complex event handling, such as aggregations over time, and operate with large volumes of data produced rapidly.
+Event-driven apps create, ingest, and process events (state changes) in real-time. Event producers and event consumers are loosely coupled, and every consumer sees every event. Event-driven architectures can perform complex event handling, such as aggregations over time, and operate with large volumes of data produced rapidly.
 
 Azure provides different services for relaying *messages* and *events*. When one system sends a message to another, it expects the receiving system to handle the message in a particular way and respond. However, with events, the publisher does not care how the event is handled.
 
@@ -86,7 +86,7 @@ Azure Service Bus provides a *queue* capability to pass each message to one cons
 
 #### Azure Event Hubs
 
-Azure Event Hubs facilitates the ingestion and replay of event data. It is optimized for processing millions of events per second. Event Hubs supports multiple consumers through *consumer groups*, which point to certain locations in the stream.
+Azure Event Hubs facilitates the ingestion and replay of event data. It is optimized for processing millions of events per second. Event Hubs support multiple consumers through *consumer groups*, which point to certain locations in the stream.
 
 #### Putting it all together
 

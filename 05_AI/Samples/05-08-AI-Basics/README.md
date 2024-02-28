@@ -148,7 +148,7 @@ In this task, the [psql command-line utility](https://www.postgresql.org/docs/cu
 
     ![The Connection strings page of the Azure Cosmos DB Cluster resource is highlighted. On the Connection strings page, the copy to clipboard button to the right of the psql connection string is highlighted.](media/postgresql-connection-details-psql.png)
 
-4. At the Cloud Shell prompt, replace the `{your_password}` token with the password assigned to the `s2admin` user when creating the database, then run the command. If using the lab setup, the password should be `Seattle123Seattle123`.
+4. At the Cloud Shell prompt, replace the `{your_password}` token with the password assigned to the `s2admin` user when creating the database, then run the command. If using the lab setup, the password should be `Solliance123`.
 
 5. Connect to the database using the `psql` command-line utility by entering the following at the prompt:
 

@@ -1,7 +1,9 @@
 # Hands-on Lab: Working with the latest developer capabilities of Postgres 16
 
 - [Hands-on Lab: Working with the latest developer capabilities of Postgres 16](#hands-on-lab-working-with-the-latest-developer-capabilities-of-postgres-16)
-  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+    - [Required Resources](#required-resources)
+    - [Software pre-requisites](#software-pre-requisites)
   - [Exercise 1: Setup and Configuration](#exercise-1-setup-and-configuration)
     - [Task 1: Configure Server Parameters](#task-1-configure-server-parameters)
     - [Task 2: Create tables and data](#task-2-create-tables-and-data)
@@ -31,9 +33,24 @@
 
 In this lab, several new developer and infrastructure features of PostgreSQL 16 will be explored.
 
-## Prerequisites
+## Setup
 
-- Perform Lab 01 steps
+### Required Resources
+
+Several resources are required to perform this lab. These include:
+
+- Azure Database for PostgreSQL Flexible Server (Version 14)
+- Azure Database for PostgreSQL Flexible Server (Version 16)
+
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
+### Software pre-requisites
+
+All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
+
+- Install [pgAdmin](https://www.pgadmin.org/download/)
 
 ## Exercise 1: Setup and Configuration
 
@@ -44,24 +61,24 @@ In this exercise, some tables will be created and the COPY command will be used 
 In this task, server parameters will be configured to ensure support for the Query Store and logical replication in subsequent labs. It is necessary to enable Query Store now as it takes a few minutes for the queries to start to be recorded.
 
 1. Switch to the Azure Portal.
-2. Browse to the primary **PREFIX-pg-flex-REGION-16** instance or writer endpoint.
+2. Browse to the primary **pgsqldevSUFFIXflex16** instance or writer endpoint.
 3. Under **Settings**, select **Server parameters**.
 4. Browse for the `wal_level` parameters.
 5. Set the value to `logical`.
 6. Select **Save**.
 7. Select **Save & Restart**.
-8. **Repeat the same steps** for any replicas and for the **PREFIX-pg-flex-REGION-14** instance.
+8. **Repeat the same steps** for any replicas and the **pgsqldevSUFFIXflex14**** instance.
 
 ### Task 2: Create tables and data
 
-1. In the Windows-based lab virtual machine, open a command prompt window, in the Windows search area, type **cmd** and select it.
+1. In the Windows-based lab virtual machine (**pgsqldevSUFFIX-win11**), open a command prompt window, in the Windows search area, type **cmd** and select it.
 
     ![Open the Windows command prompt](media/windows_cmd_prompt.png)
 
-2. Run the following command to connect to the database, be sure to replace `PREFIX` and `REGION` with the lab information (optionally use pgAdmin to open a `psql` window). On Windows, find the `pgbench` tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`.  When prompted, enter the password (`Seattle123Seattle123`):
+2. Run the following command to connect to the database, be sure to replace `PREFIX` and `REGION` with the lab information (optionally use pgAdmin to open a `psql` window). On Windows, find the `pgbench` tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`.  When prompted, enter the password (`Solliance123`):
 
     ```cmd
-    psql -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -U s2admin -d airbnb
+    psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U s2admin -d airbnb
     ```
 
 3. Run the following commands to create some temp tables and import the JSON and CSV data to the server.  Notice the usage of `json` files to do the import using the `COPY` command. Once into a temporary table, we then do some massaging:
@@ -689,11 +706,11 @@ Currently, I/O on relations (e.g. tables, indexes) is tracked. However, relation
 
     ![Query results showing no activity](media/02_pg_stat_01.png)
 
-2. `pgbench` can be used to generate IO data (~750MB of data). In the Windows-based lab virtual machine, open a command prompt window, in the Windows search area, type **cmd** and select it.
-3. Run the following command. Be sure to replace the `PREFIX` and `REGION` tokens. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`. When prompted, enter the `Seattle123Seattle123` password:
+2. `pgbench` can be used to generate IO data (~750MB of data). In the Windows-based lab virtual machine (**pgsqldevSUFFIX-win11**), open a command prompt window, in the Windows search area, type **cmd** and select it.
+3. Run the following command. Be sure to replace the `PREFIX` and `REGION` tokens. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`. When prompted, enter the `Solliance123` password:
 
     ```sql
-    pgbench -i -s 50 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -i -s 50 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
     > NOTE: In Azure Cloud Shell, check the version to ensure it is compatable with the target version (`pgbench --version`)
@@ -741,13 +758,13 @@ Some common uses for this data include:
 
 ### Task 1: Setup Publication
 
-1. Assign the `REPLICATION` permission to the user in order to set up replication.  Run the following on the **PREFIX-pg-flex-REGION-16** server:
+1. Assign the `REPLICATION` permission to the user in order to set up replication.  Run the following on the **pgsqldevSUFFIXflex16** server:
 
     ```sql
     ALTER ROLE s2admin WITH REPLICATION;
     ```
 
-2. On the **PREFIX-pg-flex-REGION-16** server for the `airbnb` database, run the following to create a publication, add a table to it and then create a slot:
+2. On the **pgsqldevSUFFIXflex16** server for the `airbnb` database, run the following to create a publication, add a table to it and then create a slot:
 
     ```sql
     create publication my_pub;
@@ -759,15 +776,15 @@ Some common uses for this data include:
 
 ### Task 2: Setup Subscriber
 
-1. On the **PREFIX-pg-flex-REGION-14** server for the `airbnb` database, run the following.  It will set up the subscription (the tables should have been created from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
+1. On the **pgsqldevSUFFIXflex14** server for the `airbnb` database, run the following.  It will set up the subscription (the tables should have been created from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
 
     ```sql
-    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=PREFIX-pg-flex-REGION-16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Seattle123Seattle123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
+    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=s2admin password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
     ```
 
 ### Task 3: Sync Data
 
-1. On the **PREFIX-pg-flex-REGION-16** server, run the following to add some rows to the `calendar` table:
+1. On the **pgsqldevSUFFIXflex16** server, run the following to add some rows to the `calendar` table:
 
     ```sql
     INSERT INTO CALENDAR values (241032, '2024-01-01', 85, 't');
@@ -779,7 +796,7 @@ Some common uses for this data include:
     INSERT INTO CALENDAR values (241032, '2024-01-07', 85, 't');
     ```
 
-2. On the **PREFIX-pg-flex-REGION-14** server, run the following, and notice that the row has replicated from 16 to 14 instance:
+2. On the **pgsqldevSUFFIXflex14** server, run the following, and notice that the row has replicated from 16 to 14 instance:
 
     ```sql
     SELECT * 
@@ -802,7 +819,7 @@ References:
 
 PgBouncer metrics can be used to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and don't require an instance restart.
 
-- Browse to the Azure Portal and the **PREFIX-pg-flex-REGION-16** resource.
+- Browse to the Azure Portal and the **pgsqldevSUFFIXflex16** resource.
 - Under **Settings**, select **Server parameters**.
 - Search for the `pgbouncer.enabled` dynamic parameters.
 - Toggle the setting to `TRUE`.
@@ -816,7 +833,7 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 ### Task 2: Performance without PgBouncer
 
 1. Switch to the Azure Portal.
-2. Browse to the `PREFIX-pg-flex-REGION-16.postgres.database.azure.com` instance.
+2. Browse to the `pgsqldevSUFFIXflex16.postgres.database.azure.com` instance.
 3. Under **Monitoring** select **Metrics**.
 
     ![Select the Metrics link](media/monitoring_metrics.png)
@@ -827,15 +844,15 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 
 5. Select **Add metric**.
 6. Under the **PGBOUNCER** category, select **Active client connections**.
-7. In the top right, select the time to be **Last 30 minutes** then select **Apply**.
+7. In the top right, select the time to **Last 30** minutes** then select **Apply**.
 
     ![Select the Active client connections under PGBOUNCER](media/metrics_set_30_minutes.png)
 
-8. In the Windows-based lab virtual machine, open a command prompt window, in the Windows search area, type **cmd** and select it.
-9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Seattle123Seattle123`.  Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with the lab information. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`::
+8. In the Windows-based lab virtual machine (**pgsqldevSUFFIX-win11**), open a command prompt window, in the Windows search area, type **cmd** and select it.
+9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Solliance123`.  Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with the lab information. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`::
 
     ```sql
-    pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U s2admin -d airbnb
     ```
 
 10. Switch back to the Metrics window, and after a minute, notice the `active connections` increase.
@@ -847,10 +864,10 @@ PgBouncer metrics can be used to monitor the performance of the PgBouncer proces
 ### Task 3: Performance with PgBouncer
 
 1. Switch back to the Windows command prompt.
-2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Seattle123Seattle123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with the lab information:
+2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Solliance123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with the lab information:
 
     ```sql
-    pgbench -c 100 -T 180 -h PREFIX-pg-flex-REGION-16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
+    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U s2admin -d airbnb
     ```
 
 3. Switch back to the metrics window.  After a minute, the server `active connections` will max out and the PgBouncer `active client connections` will increase to handle the load on behalf of the server.

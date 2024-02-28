@@ -27,21 +27,21 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
-- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
-- Install latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install the latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell)
 - Install [Docker Desktop (Windows)](https://www.docker.com/products/docker-desktop/#)
 
 ## Exercise 1: Ensure Docker is started
 
-- Open Docker Desktop, ensure that it is running.
+- Open Docker Desktop, and ensure that it is running.
 
 ## Exercise 2: Setup AKS (KEDA)
 
 - Open a new Visual Studio Code window to the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-04-FunctionApp-AKS` folder
-- Open a new terminal window, ensure that an AKS connection is present:
+- Open a new terminal window, and ensure that an AKS connection is present:
 
 ```Powershell
 $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
@@ -73,7 +73,7 @@ func kubernetes install
 
 ## Exercise 4: Configure Function App as Container
 
-- Run the following command to setup the docker file
+- Run the following command to set up the docker file
 
 ```PowerShell
 func init --docker-only --python

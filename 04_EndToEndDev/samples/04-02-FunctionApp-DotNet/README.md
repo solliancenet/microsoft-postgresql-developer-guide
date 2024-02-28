@@ -40,12 +40,12 @@ The application here is based on an Http Trigger that will then make a call into
 - For the name, type **ShowDatabasesFunction**
 - Select the project path
 - Select **Next**
-- For the functions works, select **.NET 8.0 Isloated**
+- For the functions works, select **.NET 8.0 Isolated**
 - For the function type, select **Http Trigger**
 - For the Storage account, select **Storage Emulator**
 - For the authorization level, select **Function**
 - Select **Create**
-- Open the **Function1.cs** file, update the function class (in `Function1.cs`) to the following. This Function completes the following tasks when its HTTP endpoint receives a request:
+- Open the **Function1.cs** file, and update the function class (in `Function1.cs`) to the following. This Function completes the following tasks when its HTTP endpoint receives a request:
   - Connecting to the Azure Database for PostgreSQL Flexible Server instance provisioned in the ARM template
   - Generating a list of databases on the PostgreSQL instance
   - Building a formatted response
@@ -124,7 +124,7 @@ Now that the function app is created and working locally, the next step is to pu
     ![This image demonstrates choosing the Azure Function App Linux deployment option.](./media/choose-linux-function-app.png "Azure Function App Linux")
 
 - Select **Next**
-- Select the **Sign in** button, login using the lab credentials
+- Select the **Sign in** button, log in using the lab credentials
 - Select the account, subscription and resource group
 - Select the **pgsqldevSUFFIX-ShowDatabasesFunction** function app
 - Select **Finish**

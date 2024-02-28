@@ -25,7 +25,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
-- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extention
+- Install the [`Azure Functions`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
 - Install the [Azure Functions core tools MSI](https://go.microsoft.com/fwlink/?linkid=2174087)
@@ -119,7 +119,7 @@ def ShowDatabasesFunction(req: func.HttpRequest) -> func.HttpResponse:
     http://localhost:7071/api/ShowDatabasesFunction
     ```
 
-- The data will be displayed, however, it is over non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
+- The data will be displayed, however, it will be over the non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
 - Add the following lines to the Python code to utilize the Flexible Server public certificate and support connections over TLS 1.2:
 
 ```python
@@ -185,7 +185,7 @@ az account set --subscription 'SUBSCRIPTION NAME'
 func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction
 ```
 
-- If the previous dotnet version was deployed, then an error about the function runtime should be displayed. Run the following to force the deployment and change the runtime to python:
+- If the previous dotnet version was deployed, then an error about the function runtime should be displayed. Run the following to force the deployment and change the runtime to Python:
 
 ```PowerShell
 az functionapp config set --name pgsqldevSUFFIX-ShowDatabasesFunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
@@ -216,7 +216,7 @@ func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force
 
 ## Troubleshooting
 
-- If the Function App works locally, but fails in the cloud, ensure that the Azure environment is configured properly:
+- If the Function App works locally but fails in the cloud, ensure that the Azure environment is configured properly:
   - The `requirements.txt` file must reference the PostgreSQL Python connector
   - The Flexible Server instance must provide access to all Azure resources
   - The Azure Function Apps instance must be using extension version `4`, as that is what the local core tools support

@@ -10,14 +10,14 @@ Once completed, use the Azure CLI to deploy the template.
 az deployment group create --resource-group [RESOURCE GROUP] --template-file ./PostgreSQL-flexible-server-template.json --parameters @PostgreSQL-flexible-server-template.parameters.json
 ```
 
-### Create private network Flexible Server
+### Create Private network Flexible Server
 
 - Browse to the Azure Portal
 - Select the lab resource group
 - Select **Create**
 - Search for **PostgreSQL**, then select **Azure Database for PostgreSQL Flexible Server**
-- Select **Create**
-- In the drop down, select **Flexible Server**
+- Select **Create*
+- In the drop-down, select **Flexible Server**
 - Select **Create**
 - Select the lab subscription and resource group
 - For the name, type **pgsqldevSUFFIXflex**
@@ -29,6 +29,6 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
 - Select the lab subscription
 - Select the **pgsqldevSUFFIX-db** virtual network
 - Select the **default** subnet
-- For the private dns zone, select **private.postgres.database.azure.com**
+- For the private DNS zone, select **private.postgres.database.azure.com**
 - Select **Review + create**
 - Select **Create**

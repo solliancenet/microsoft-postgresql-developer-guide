@@ -95,7 +95,7 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 
 > NOTE: `pgadmin` does have a password limit and the access token will exceed this limit. If for some reason pgadmin will not connect, fall back to using `psql`
 
-- Run the following to get an access token (be sure to login using a PostgreSQL admin with the proper Tenant ID when generating the access token):
+- Run the following to get an access token (be sure to log in using a PostgreSQL admin with the proper Tenant ID when generating the access token):
 
 ```powershell
 az login
@@ -105,7 +105,7 @@ $env:PGPASSWORD=$(az account get-access-token --resource https://ossrdbms-aad.da
 psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d postgres
 ```
 
-## Exercise 4: Add MSI to Database
+## Exercise 4: Add MSI to the Database
 
 - Switch to the Azure Portal
 - Browse to the `` Azure Database for PostgreSQL Flexible Server
@@ -113,7 +113,7 @@ psql -h pgsqldevSUFFIXflex16.postgres.database.azure.com -U user@contoso.com -d 
 - Select **Add Microsoft Entra Admin**
 - Search for the `APP_ID` from above. Select it and then select **Select**
 - Select **Save**
-- The same could be performed using psql. From a psql connection, run the following, replace the `APP_ID` with the one copied from above:
+- The same could be performed using psql. From a psql connection, run the following, then replace the `APP_ID` with the one copied from above:
 
     ```sql
     select * from pgaadauth_create_principal('APP_ID', false, false);
