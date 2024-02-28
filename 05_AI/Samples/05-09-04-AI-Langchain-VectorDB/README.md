@@ -1,6 +1,6 @@
 # Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)
 
-TODO
+In this lab, LangChain will be used to chunk and embed various documents using PGVector and OpenAI embeddings. The embeddings will be added to a PostgreSQL database using PGVector.  Once loaded, LangChain will be used to create a Chain that queries the newly added documents.
 
 ## Setup
 
@@ -9,8 +9,7 @@ TODO
 Several resources are required to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
-- Azure OpenAI enabled subscription
-- Azure Machine Learning Studio
+- Azure OpenAI-enabled subscription
 
 Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
@@ -23,7 +22,7 @@ All of this is done already in the lab setup scripts for the Lab virtual machine
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
-- Install latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
 
 ## Exercise 1: LangChain with PostgreSQL (VectorDB)
 

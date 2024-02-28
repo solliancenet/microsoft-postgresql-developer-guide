@@ -1,6 +1,6 @@
 # Hands-on Lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
 
-TODO
+In this lab, Semantic Kernel will be used in combination with a PostgreSQL memory store.
 
 ## Setup
 
@@ -9,7 +9,7 @@ TODO
 Several resources are required to perform this lab. These include:
 
 - Azure Database for PostgreSQL Flexible Server
-- Azure OpenAI enabled subscription
+- Azure OpenAI-enabled subscription
 
 Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation:
 
@@ -22,7 +22,7 @@ All of this is done already in the lab setup scripts for the Lab virtual machine
 - Install [Visual Studio Code](https://code.visualstudio.com/download)
 - Install the [`Python`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension
 - Install [Python 3.11.x](https://www.python.org/downloads/)
-- Install latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
+- Install the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=powershell)
 
 ## Exercise 1: Semantic Kernel
 

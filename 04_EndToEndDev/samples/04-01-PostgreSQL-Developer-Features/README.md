@@ -20,7 +20,7 @@
     - [Task 4: Using pg\_stat\_io for enhanced IO monitoring](#task-4-using-pg_stat_io-for-enhanced-io-monitoring)
   - [Exercise 5: Logical Replication](#exercise-5-logical-replication)
     - [Task 1 : Setup Publication](#task-1--setup-publication)
-    - [Task 2: Setup Subcsriber](#task-2-setup-subcsriber)
+    - [Task 2: Setup Subscriber](#task-2-setup-subscriber)
     - [Task 3: Sync Data](#task-3-sync-data)
   - [Exercise 6: PgBouncer (Optional)](#exercise-6-pgbouncer-optional)
     - [Task 1: Enable PgBouncer and PgBouncer Metrics](#task-1-enable-pgbouncer-and-pgbouncer-metrics)
@@ -89,7 +89,7 @@ In this task, server parameters will be configured to ensure support for the Que
     \COPY temp_reviews (data) FROM PROGRAM 'curl https://solliancepublicdata.blob.core.windows.net/ms-postgresql-labs/reviews.json'
     ```
 
-    ![Alt text](media/02_01_02_copy.png)
+    ![Results of the copy commands](media/02_01_02_copy.png)
 
 5. Run the following command to create the main tables:
 
@@ -190,7 +190,7 @@ In this task, server parameters will be configured to ensure support for the Que
 
 7. Switch to pgAdmin.
 8. Navigate to **Databases->airbnb->Schemas->public->Tables**.
-9. Right-click the **Tables** node, select **Query Tool**.
+9. Right-click the **Tables** node, then select **Query Tool**.
 
     ![Alt text](media/query_tool.png)
 
