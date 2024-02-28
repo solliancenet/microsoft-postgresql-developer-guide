@@ -1,6 +1,6 @@
 # Hands-on Lab: Logic Apps with PostgreSQL
 
-Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE. However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events. In order for the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway. This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
+Logic Apps can be used to connect to Azure Database for PostgreSQL Flexible Server instances and perform actions such as SELECT, INSERT, DELETE and UPDATE. However, Logic Apps do not have any direct integrations that allow for triggers that fire from PostgreSQL DDL or DML events. For the PostgreSQL actions to connect to the PostgreSQL instance, it is necessary to install a Logic Apps Gateway. This can be done with Azure instances, but the Azure Database for PostgreSQL Flexible Server will need private endpoints enabled and the gateway will need to run in a virtual machine that can access that private endpoint.
 
 ## Setup
 

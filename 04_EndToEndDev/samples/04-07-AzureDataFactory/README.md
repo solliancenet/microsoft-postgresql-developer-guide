@@ -25,7 +25,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Switch to the Azure Portal, browse to the **pgsqldevSUFFIX** Azure Data Factory instance
 - Select **Launch Studio**
 - In the left navigation, select the **Manage** tab
-- Select **Linked servics**, select the **+ New** button
+- Select **Linked services**, select the **+ New** button
 - For the type, select **Azure Database for PostgreSQL**, then select **Continue**
 - For the name, type **ContosoStore**
 - For the account selection, select **From Azure Subscription**
@@ -35,7 +35,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - For the username, type **wsuser**
 - For the password, type **Solliance123**
 - For the encryption methods, select **RequestSSL**
-- Select **Test connection**, ensure that a success message is displayed.
+- Select **Test connection** and ensure that a success message is displayed.
 - Select **Create**
 
 > NOTE: Currently an MSI can not be used to connect to PostgreSQL from ADF.
@@ -50,7 +50,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ## Exercise 2: Create Dataset (PostgreSQL)
 
-- Seelct the **Author** tab
+- Select the **Author** tab
 - Select the **+** button, then select **Data Set**
 - For the type, select **Azure Database for PostgreSQL**
 - Select **Continue**

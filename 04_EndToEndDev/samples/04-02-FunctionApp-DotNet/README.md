@@ -55,10 +55,9 @@ This application is based on an **Http Trigger** that will then make a call into
 ```csharp
     public static class ShowDatabasesFunction
     {
-        [FunctionName("ShowDatabasesFunction")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        [Function("ShowDatabasesFunction")]
+        public static string Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestData req)
         {
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder
             {
@@ -87,7 +86,7 @@ This application is based on an **Http Trigger** that will then make a call into
                 }
             }
 
-            return new OkObjectResult(responseMessage);
+            return responseMessage;
         }
     }
 ```
@@ -97,15 +96,10 @@ This application is based on an **Http Trigger** that will then make a call into
 - Search for **Npgsql**, select it, then select **Install**.
 - Select **Apply**.
 - Select **Ok** if prompted.
-- Repeat for the following Nuget packages:
-  - Microsoft.Azure.WebJobs.Core
-  - Microsoft.AspNetCore.Mvc.Abstractions
-  - Microsoft.AspNetCore.Mvc.Core
 - At the top of `Function1.cs` file, add the following `using` references.
 
     ```csharp
     using Npgsql;
-    using Microsoft.AspNetCore.Http;
     ```
 
 - Press **F5** to start the function.

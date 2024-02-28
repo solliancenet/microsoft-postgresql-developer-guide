@@ -1185,7 +1185,7 @@
             "hyperV": false,
             "siteConfig": {
                 "numberOfWorkers": 1,
-                "linuxFxVersion": "DOTNET|3.1",
+                "linuxFxVersion": "DOTNET|8",
                 "acrUseManagedIdentityCreds": false,
                 "alwaysOn": false,
                 "http20Enabled": false,

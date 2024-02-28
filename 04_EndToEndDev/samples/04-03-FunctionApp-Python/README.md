@@ -34,12 +34,15 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 
 The application here is based on an HTTP Trigger that will then make a call into the Azure Database for PostgreSQL Flexible Server instance and add some records. To create this function perform the following steps.
 
-- Open Visual Studio Code, type **Ctrl-Shift-P**
+- Open Visual Studio Code, if prompted, select a theme, then select **Mark Done**
+- Type **Ctrl-Shift-P**
 - Select **Azure Functions: Create New Project**
 
     ![This image demonstrates how to create a new Function App project.](./media/create-function-app-vscode.png "New Function App project")
 
-- Select the project path (ex `c:\temp\python-function`)
+    > NOTE: If Azure Functions does not display, install the "Azure Function" extension.
+
+- Select the project path (ex `c:\labfiles`)
 - For the language, select **Python**
 - For the model, select **Model V2**
 - Select the **python 3.11.x** option
@@ -50,7 +53,8 @@ The application here is based on an HTTP Trigger that will then make a call into
 - For the name, type **ShowDatabasesFunction**, press **ENTER**
 - For the authorization level, select **FUNCTION**
 - Select **Open in current window**
-- Update the function code in `function_app.py` to the following, ensuring that the connection information is replaced. This Function completes the following tasks when its HTTP endpoint receives a request:
+- If prompted, select **Trust the authors of all files...**, then select **Yes, I trust the authors**
+- Update the function code in `function_app.py` to the following, ensuring that the connection information `SUFFIX` is replaced. This Function completes the following tasks when its HTTP endpoint receives a request:
   - Connecting to the PostgreSQL Flexible Server instance provisioned in the ARM template
   - Generating a list of databases on the PostgreSQL instance
   - Building a formatted response
@@ -119,7 +123,8 @@ def ShowDatabasesFunction(req: func.HttpRequest) -> func.HttpResponse:
     http://localhost:7071/api/ShowDatabasesFunction
     ```
 
-- The data will be displayed, however, it will be over the non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access. Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
+- The data will be displayed, however, it will be over the non-SSL connection. Azure recommends that Flexible Server clients use the service's public SSL certificate for secure access.
+- Download the [Azure SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the Function App project root directory
 - Add the following lines to the Python code to utilize the Flexible Server public certificate and support connections over TLS 1.2:
 
 ```python
@@ -179,22 +184,27 @@ az login
 az account set --subscription 'SUBSCRIPTION NAME'
 ```
 
-- Switch to the terminal window and run the following from the repository root:
+- Switch to the terminal window and run the following from the repository root, be sure to replace `SUFFIX`:
 
 ```PowerShell
-func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction
+cd C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-03-FunctionApp-Python
+func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --python --force
 ```
 
-- If the previous dotnet version was deployed, then an error about the function runtime should be displayed. Run the following to force the deployment and change the runtime to Python:
+- If the previous dotnet version was deployed, then an error about the function runtime should be displayed. Run the following to force the deployment and change the runtime to Python, be sure to replace `RESOURCEGROUPNAME`:
 
 ```PowerShell
-az functionapp config set --name pgsqldevSUFFIX-ShowDatabasesFunction --resource-group RESOURCEGROPUNAME --linux-fx-version '"Python|3.11"'
+$resource_group_name = 'RESOURCEGROUPNAME'
+$app_name = "pgsqldevSUFFIX-ShowDatabasesFunction"
+az functionapp config appsettings set --name $app_name -g $resource_group_name --settings FUNCTIONS_WORKER_RUNTIME="Python"
+
+az functionapp config set --name $app_name --resource-group $resource_group_name --linux-fx-version '"Python|3.11"'
 ```
 
 - Retry the deployment:
 
 ```PowerShell
-func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --force
+func azure functionapp publish pgsqldevSUFFIX-ShowDatabasesFunction --python --force
 ```
 
 ## Exercise 3: Test the Function App in the Azure portal
