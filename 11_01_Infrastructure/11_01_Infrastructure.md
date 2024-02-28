@@ -131,9 +131,9 @@ In addition to metrics, it is also possible to enable PostgreSQL logs to be inge
 
 PostgreSQL has a robust built-in audit log feature available through the `pgaudit` extension. This [audit log feature is [disabled](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit) in the Azure Database for PostgreSQL Flexible Server by default. Server-level logging can be enabled by adding the `pgaudit` server extension and then modifying various server parameters. For information on configuring these parameters, reference [Audit logging in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-audit).
 
-![Alt text](media/shared-preload-libraries.png)
+![Shared preload libraries](media/shared-preload-libraries.png)
 
-![Alt text](media/pgaudit-config.png)
+![PGAUDIT configuration](media/pgaudit-config.png)
 
 Once enabled, logs can be accessed through [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/platform/design-logs-deployment). The following KQL query can be used to access `AUDIT:` based logs:
 
@@ -206,7 +206,7 @@ By default, Azure Database for PostgreSQL Flexible Server allows access to inter
 
 The first line of defense for protecting a PostgreSQL instance access is to implement [firewall rules](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules). IP addresses can be limited to only valid locations when accessing the instance via internal or external IPs. If a PostgreSQL instance's purpose is to serve internal applications, then [restrict public access](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-deny-public-network-access).
 
-![Alt text](media/firewall-rule-diagram.png)
+![Firewall rule diagram](media/firewall-rule-diagram.png)
 
 Firewall rules are set at the server level, meaning that they govern network access to all databases on the server instance. While it is best practice to create rules that allow specific IP addresses or ranges to access the instance, developers can also enable network access from all Azure resources. This feature is useful for Azure services without fixed public IP addresses, such as [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) that use public networks to access the server and databases.
 

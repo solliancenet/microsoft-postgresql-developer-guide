@@ -14,7 +14,7 @@ By default, Azure Database for PostgreSQL Flexible Server allows access to inter
 
 The first line of defense for protecting a PostgreSQL instance access is to implement [firewall rules](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-firewall-rules). IP addresses can be limited to only valid locations when accessing the instance via internal or external IPs. If a PostgreSQL instance's purpose is to serve internal applications, then [restrict public access](https://learn.microsoft.com/azure/postgresql/flexible-server/howto-deny-public-network-access).
 
-![Alt text](media/firewall-rule-diagram.png)
+![Firewall rule diagram](media/firewall-rule-diagram.png)
 
 Firewall rules are set at the server level, meaning that they govern network access to all databases on the server instance. While it is best practice to create rules that allow specific IP addresses or ranges to access the instance, developers can also enable network access from all Azure resources. This feature is useful for Azure services without fixed public IP addresses, such as [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) that use public networks to access the server and databases.
 
