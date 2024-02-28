@@ -170,10 +170,6 @@ $extensions = @("ms-vscode-deploy-azure.azure-deploy",
 
 InstallVisualStudioCode $extensions;
 
-InstallVisualStudio "community" "2022";
-
-Install7z;
-
 InstallFiddler;
 
 InstallPowerBI;
@@ -181,8 +177,6 @@ InstallPowerBI;
 Uninstall-AzureRm -ea SilentlyContinue
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";C:\Program Files\PostgreSQL\16\bin"
-
-InstallGithubDesktop
 
 cd "c:\labfiles";
 
@@ -228,6 +222,10 @@ foreach($server in $servers)
   $serverName = $server.Name
   New-AzPostgreSqlFlexibleServerFirewallRule -FirewallRuleName $([Guid]::newguid().tostring())  -StartIpAddress '0.0.0.0' -EndIpAddress '0.0.0.0' -ServerName $serverName  -ResourceGroupName $ResourceGroupName
 
+  $databaseName = "airbnb"
+
+  New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
+
   New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
 
   #add vm ip addresses
@@ -245,11 +243,10 @@ foreach($server in $servers)
 
 foreach($server in $servers)
 {
-  set PGPASSWORD=$password
+  set PGPASSWORD="Solliance123"
   $server = "$($server.name).postgres.database.azure.com"
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
 }
-
 
 #run composer on app path
 cd "$path";
@@ -257,7 +254,7 @@ composer install;
 
 $windowsVersion = (Get-WmiObject -class Win32_OperatingSystem).Caption
 
-if ($windowsVersion -like "*Windows Server 2019*")
+if ($windowsVersion -like "*Windows Server 2019*" -or $windowsVersion -like "*Windows Server 2022*")
 {
     #for windows server 2019
   Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
@@ -281,22 +278,13 @@ if ($windowsVersion -like "*Windows Server 2019*")
 else
 {
   #for windows 10/11...
-  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") 
+  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") -NoRestart
 
   #to add the user to docker group
   $global:localusername = "wsuser";
 
   InstallDockerDesktop $global:localusername;
 }
-
-$servers = Get-AzPostgreSqlFlexibleServer
-$serverName = $servers[0].name
-
-$databaseName = "airbnb"
-
-New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
-
-New-AzPostgreSqlFlexibleServerFirewallRule -FirewallRuleName $([Guid]::newguid().tostring())  -StartIpAddress '0.0.0.0' -EndIpAddress '0.0.0.0' -ServerName $serverName  -ResourceGroupName $ResourceGroupName
 
 $filePath = "c:\labfiles\$workshopName\artifacts\data\airbnb.sql"
 
@@ -305,5 +293,13 @@ $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
 #set the password
 $env:PGPASSWORD=$password
 psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+
+InstallGithubDesktop
+
+InstallVisualStudio "community" "2022";
+
+choco install visualstudio2022-workload-azure
+
+Install7z;
 
 Stop-Transcript

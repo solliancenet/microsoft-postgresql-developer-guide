@@ -20,15 +20,7 @@
     - [Task 2: Allow aggregate functions string\_agg() and array\_agg() to be parallelized](#task-2-allow-aggregate-functions-string_agg-and-array_agg-to-be-parallelized)
     - [Task 3: Add EXPLAIN option GENERIC\_PLAN to display the generic plan for a parameterized query](#task-3-add-explain-option-generic_plan-to-display-the-generic-plan-for-a-parameterized-query)
     - [Task 4: Using pg\_stat\_io for enhanced IO monitoring](#task-4-using-pg_stat_io-for-enhanced-io-monitoring)
-  - [Exercise 5: Logical Replication](#exercise-5-logical-replication)
-    - [Task 1: Setup Publication](#task-1-setup-publication)
-    - [Task 2: Setup Subscriber](#task-2-setup-subscriber)
-    - [Task 3: Sync Data](#task-3-sync-data)
-  - [Exercise 6: PgBouncer (Optional)](#exercise-6-pgbouncer-optional)
-    - [Task 1: Enable PgBouncer and PgBouncer Metrics](#task-1-enable-pgbouncer-and-pgbouncer-metrics)
-    - [Task 2: Performance without PgBouncer](#task-2-performance-without-pgbouncer)
-    - [Task 3: Performance with PgBouncer](#task-3-performance-with-pgbouncer)
-  - [Exercise 6: Other Features (Optional)](#exercise-6-other-features-optional)
+  - [Exercise 5: Other Features (Optional)](#exercise-5-other-features-optional)
     - [Task 1: Use new VACUUM options to improve VACUUM performance](#task-1-use-new-vacuum-options-to-improve-vacuum-performance)
 
 In this lab, several new developer and infrastructure features of PostgreSQL 16 will be explored.
@@ -210,13 +202,25 @@ In this task, server parameters will be configured to ensure support for the Que
 
     > NOTE: We are storing data in the tables as JSONB for lab purposes.  In the real world, it may not be appropriate. With normal columns, PostgreSQL maintains statistics about the distributions of values in each column of the table – most common values (MCV), NULL entries, histogram of distribution. Based on this data, the PostgreSQL query planner makes smart decisions on the plan to use for the query. At this point, PostgreSQL does not store any stats for JSONB columns or keys. This can sometimes result in poor choices like using nested loop joins vs. hash joins.
 
-7. Switch to pgAdmin.
-8. Navigate to **Databases->airbnb->Schemas->public->Tables**.
-9. Right-click the **Tables** node, then select **Query Tool**.
+7. Open `pgAdmin`
+8. Right-click the **Servers** node, then select **Register->Server**.
+  
+    ![Register a new server in pgAdmin](media/01_14_pg_admin_register.png)
+
+9. For name, type **PREFIX-pg-flex-REGION-16**, and be sure to replace `PREFIX` with the lab information.
+10. Select the **Connection** tab.
+11. For the **host name/address**, paste the server name copied from above.
+12. For the username, type **s2admin**.
+13. For the password, type **Seattle123Seattle123**.
+14. Select **Save password?** to toggle it on.
+15. Select **Save**.
+16. Again, repeat for the **PREFIX-pg-flex-REGION-14** instance.
+17. Navigate to **Databases->airbnb->Schemas->public->Tables**.
+18. Right-click the **Tables** node, then select **Query Tool**.
 
     ![Open the Query Tool](media/query_tool.png)
 
-10. Run each of the following commands to see the imported data after its transformation.  Note that we did not fully expand the JSON into all possible columns so as to show the new JSON syntax later:
+19. Run each of the following commands to see the imported data after its transformation.  Note that we did not fully expand the JSON into all possible columns so as to show the new JSON syntax later:
 
     ```sql
     select * from listings limit 10;
@@ -756,127 +760,7 @@ Some common uses for this data include:
 - Review if high evictions are occurring.  If so, shared buffers should be increased.
 - Large number of fsyncs by client backends could indicate misconfiguration of the shared buffers and/or the checkpointer.
 
-## Exercise 5: Logical Replication
-
-### Task 1: Setup Publication
-
-1. Assign the `REPLICATION` permission to the user in order to set up replication.  Run the following on the **pgsqldevSUFFIXflex16** server:
-
-    ```sql
-    ALTER ROLE wsuser WITH REPLICATION;
-    ```
-
-2. On the **pgsqldevSUFFIXflex16** server for the `airbnb` database, run the following to create a publication, add a table to it and then create a slot:
-
-    ```sql
-    create publication my_pub;
-    
-    alter publication my_pub add table listings;
-    alter publication my_pub add table calendar;
-    alter publication my_pub add table reviews;
-    ```
-
-### Task 2: Setup Subscriber
-
-1. On the **pgsqldevSUFFIXflex14** server for the `airbnb` database, run the following.  It will set up the subscription (the tables should have been created from the lab setup). Be sure to replace the `PREFIX` and `REGION` values:
-
-    ```sql
-    CREATE SUBSCRIPTION my_pub_subscription CONNECTION 'host=pgsqldevSUFFIXflex16.postgres.database.azure.com port=5432 dbname=airbnb user=wsuser password=Solliance123' PUBLICATION my_pub WITH (copy_data=true, enabled=true, create_slot=true, slot_name='my_pub_slot');
-    ```
-
-### Task 3: Sync Data
-
-1. On the **pgsqldevSUFFIXflex16** server, run the following to add some rows to the `calendar` table:
-
-    ```sql
-    INSERT INTO CALENDAR values (241032, '2024-01-01', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-02', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-03', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-04', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-05', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-06', 85, 't');
-    INSERT INTO CALENDAR values (241032, '2024-01-07', 85, 't');
-    ```
-
-2. On the **pgsqldevSUFFIXflex14** server, run the following, and notice that the row has replicated from 16 to 14 instance:
-
-    ```sql
-    SELECT * 
-    FROM calendar
-    ORDER BY date desc
-    limit 50;
-    ```
-
-    ![Results showing the data is being replicated.](media/02_05_replication.png)
-
-## Exercise 6: PgBouncer (Optional)
-
-PgBouncer is a well-known and supported 3rd party open-source, community-developed project. PgBouncer is commonly used to reduce resource overhead by managing a pool of connections to PostgreSQL, making it ideal for environments with high concurrency and frequent short-lived connections. It enables optimization by reducing the load on PostgreSQL server caused by too many connections.
-
-References:
-
-- <https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer>
-
-### Task 1: Enable PgBouncer and PgBouncer Metrics
-
-PgBouncer metrics can be used to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a 1-minute interval and has up to 93 days of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name. PgBouncer metrics are disabled by default. For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and metrics.pgbouncer_diagnostics must be enabled. These parameters are dynamic and don't require an instance restart.
-
-- Browse to the Azure Portal and the **pgsqldevSUFFIXflex16** resource.
-- Under **Settings**, select **Server parameters**.
-- Search for the `pgbouncer.enabled` dynamic parameters.
-- Toggle the setting to `TRUE`.
-
-    ![Server parameters setting are shown.](media/02_03_enable_pgbouncer.png)
-
-- Search for the `metrics.pgbouncer_diagnostics` dynamic parameters.
-- Toggle the setting to `ON`.
-- Select **Save**.
-
-### Task 2: Performance without PgBouncer
-
-1. Switch to the Azure Portal.
-2. Browse to the `pgsqldevSUFFIXflex16.postgres.database.azure.com` instance.
-3. Under **Monitoring** select **Metrics**.
-
-    ![Select the Metrics link](media/monitoring_metrics.png)
-
-4. For the **Metric**, under the **TRAFFIC** category, select **Active connections**.
-
-    ![Select the Active Connection under TRAFFIC](media/traffic_active_connections.png)
-
-5. Select **Add metric**.
-6. Under the **PGBOUNCER** category, select **Active client connections**.
-7. In the top right, select the time to **Last 30** minutes** then select **Apply**.
-
-    ![Select the Active client connections under PGBOUNCER](media/metrics_set_30_minutes.png)
-
-8. In the Windows-based lab virtual machine (**pgsqldevSUFFIX-win11**), open a command prompt window, in the Windows search area, type **cmd** and select it.
-9. Run the following commands to execute a `pgbench` test directly against the database server, when prompted enter the password `Solliance123`.  Notice the use of the `-c` parameter that will create 100 different connections, be sure to replace `PREFIX` with the lab information. On Windows, find the pgbench tool in the `C:\Program Files\PostgreSQL\16\bin` directory, on Ubuntu, install it using `sudo apt-get install postgresql-contrib`::
-
-    ```sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 5432 -U wsuser -d airbnb
-    ```
-
-10. Switch back to the Metrics window, and after a minute, notice the `active connections` increase.
-
-    ![Graph of active connections increasing.](media/02_pgbouncer_01.png)
-
-11. Stop the test or wait for it to finish.
-
-### Task 3: Performance with PgBouncer
-
-1. Switch back to the Windows command prompt.
-2. Run the following commands to execute a `pgbench` test against the PgBouncer instance, when prompted enter the password `Solliance123`. Notice the change of the port to the PgBouncer port of `6432`, be sure to replace `PREFIX` and `REGION` with the lab information:
-
-    ```sql
-    pgbench -c 100 -T 180 -h pgsqldevSUFFIXflex16.postgres.database.azure.com -p 6432 -U wsuser -d airbnb
-    ```
-
-3. Switch back to the metrics window.  After a minute, the server `active connections` will max out and the PgBouncer `active client connections` will increase to handle the load on behalf of the server.
-
-    ![Graph of active connections and active connections increasing.](media/02_pgbouncer_02.png)
-
-## Exercise 6: Other Features (Optional)
+## Exercise 5: Other Features (Optional)
 
 ### Task 1: Use new VACUUM options to improve VACUUM performance
 
