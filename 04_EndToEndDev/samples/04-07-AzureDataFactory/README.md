@@ -20,6 +20,10 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 - [TODO]()
 
+### Restore the Database
+
+TODO
+
 ## Exercise 1: Create Linked Services
 
 - Switch to the Azure Portal, browse to the **pgsqldevSUFFIX** Azure Data Factory instance

@@ -26,6 +26,10 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 
 - Install [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=58494)
 
+### Restore the Database
+
+TODO
+
 ## Exercise 1: Create PostgreSQL Linked Service
 
 - Create a new Azure Synapse Analytics workspace.
