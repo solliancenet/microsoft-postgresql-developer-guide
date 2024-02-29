@@ -66,7 +66,9 @@ input-files:
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\04_00-4-Start-the-hands-on-tutorial.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\04_00-5_CI_CD.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\04_00-6-Summary.md
-- C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-01-PostgreSQL-Developer-Features\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-01-00-PostgreSQL-Developer-Features\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-01-01-pgBouncer\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-01-02-Logical-Replication\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-02-FunctionApp-DotNet\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-03-FunctionApp-Python\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-04-FunctionApp-AKS\README.md
@@ -90,6 +92,15 @@ input-files:
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-04-AI-Langchain-VectorDB\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-05-AI-Semantic-Kernel\README.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment-azurevm.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment-azurevm-setup.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment-cloudshell.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment-cloudshell-setup.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\docs\deployment-standard.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\scripts\README.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\Search\LICENSE.md
+- C:\github\solliancenet\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\Search\readme.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\06_Troubleshooting\06_00_Troubleshooting.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\06_Troubleshooting\06_01_Summary.md
 - C:\github\solliancenet\microsoft-postgresql-developer-guide\07_BestPractices\07_00_BestPractices.md

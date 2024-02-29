@@ -72,7 +72,7 @@ Like other Azure resources, API Management offers comprehensive RBAC support, ac
 
 ### Event-driven - Azure Event Grid vs. Service Bus vs. Event Hubs
 
-Event-driven apps create, ingest, and process events (state changes) in real-time. Event producers and event consumers are loosely coupled, and every consumer sees every event. Event-driven architectures can perform complex event handling, such as aggregations over time, and operate with large volumes of data produced rapidly.
+Event-driven apps create, ingest, and process events (state changes) in real time. Event producers and event consumers are loosely coupled, and every consumer sees every event. Event-driven architectures can perform complex event handling, such as aggregations over time, and operate with large volumes of data produced rapidly.
 
 Azure provides different services for relaying *messages* and *events*. When one system sends a message to another, it expects the receiving system to handle the message in a particular way and respond. However, with events, the publisher does not care how the event is handled.
 
