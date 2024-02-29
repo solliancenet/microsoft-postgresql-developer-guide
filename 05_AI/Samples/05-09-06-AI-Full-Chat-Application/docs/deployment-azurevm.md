@@ -7,7 +7,7 @@
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to an Azure subscription.
+Follow the steps below to deploy the solution to your Azure subscription.
 
 1. Run the following script to provision a development VM with Visual Studio 2022 Community and required dependencies preinstalled.
 
@@ -24,7 +24,7 @@ Follow the steps below to deploy the solution to an Azure subscription.
     The deployed VM name used in deployment is libxarwttxjdevm
     ```
 
-2. Use RDP to remote into the freshly provisioned VM with the username `BYDtoChatGPTUser` and the password provided earlier.
+2. Use RDP to remote into the freshly provisioned VM with the username `BYDtoChatGPTUser` and the password you provided earlier on.  
 
 3. Add the `BYDtoChatGPTUser` account to the `docker-users` local group on the VM. Sign out and sign back in to the VM to apply the changes.
 
@@ -57,4 +57,4 @@ Follow the steps below to deploy the solution to an Azure subscription.
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id>
     ```
 
->**NOTE**: Make sure to set the `<location>` value to a region that supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Make sure to set the `<location>` value to a region that supports Azure OpenAI services.  See [Azure OpenAI service regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.

@@ -1,10 +1,10 @@
 # AppMod 01 : Classic Deployment to PHP enabled IIS server
 
-This is a simple app that runs PHP code to connect to a PostgreSQL database. These tasks will be performed on the **paw-1** virtual machine deployed via the ARM template.
+This is a simple app that runs PHP code to connect to a PostgreSQL database. These tasks will be performed on the **pgsqldevSUFFIX-win11** virtual machine deployed via the ARM template.
 
 ## Database Deployment
 
-1. On the **paw-1** virtual machine, open a Windows PowerShell window
+1. On the **pgsqldevSUFFIX-win11** virtual machine, open a Windows PowerShell window
 2. Run the following commands to create the database (type `yes` when prompted). Note that the developer guide repo should be cloned to the `c:\labfiles` directory:
 
     ```PowerShell
@@ -29,7 +29,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ## Test the PHP Setup
 
-1. In the **paw-1** virtual machine, open a Chrome browser window
+1. In the **pgsqldevSUFFIX-win11** virtual machine, open a Chrome browser window
 2. Navigate to `http://localhost:8080/info.php`, the PHP version and configuration should be displayed.
 
     ![This image demonstrates the PHP configuration page.](./media/php_info.png "PHP configuration page")

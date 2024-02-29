@@ -4,6 +4,7 @@
   - [Setup](#setup)
     - [Required Resources](#required-resources)
     - [Software pre-requisites](#software-pre-requisites)
+    - [Setup Database](#setup-database)
   - [Exercise 1: Add Azure AI and Vector extensions to allowlist](#exercise-1-add-azure-ai-and-vector-extensions-to-allowlist)
   - [Exercise 2: Create an Azure OpenAI resource](#exercise-2-create-an-azure-openai-resource)
     - [Task 1: Provision an Azure OpenAI service](#task-1-provision-an-azure-openai-service)
@@ -24,7 +25,6 @@
   - [Exercise 6: Execute a final query to tie it all together (Optional)](#exercise-6-execute-a-final-query-to-tie-it-all-together-optional)
     - [Task 1: Connect to the database using pgAdmin](#task-1-connect-to-the-database-using-pgadmin)
     - [Task 2: Execute a query and view results on a map](#task-2-execute-a-query-and-view-results-on-a-map)
-  - [Exercise 6: Clean up](#exercise-6-clean-up)
 
 [Generative AI](https://learn.microsoft.com/training/paths/introduction-generative-ai/) is a form of artificial intelligence in which [large language models](https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-overview#large-language-model-llm) (LLMs) are trained to generate original content based on natural language input. LLMs are designed to understand and generate human-like language output and are known for their ability to perform a wide range of natural language understanding and generation tasks. Generative AI has a wide range of applications for data-driven applications, including semantic search, recommendation systems, and content generation, such as summarization, among many others.
 
@@ -48,6 +48,22 @@ Create these resources using the PostgreSQL Flexible Server Developer Guide Setu
 All this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
 
 - Install pgAdmin
+
+### Setup Database
+
+- Run the following to set up the `airbnb` database, be sure to replace `SUFFIX`:
+
+    ```powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data\airbnb.sql"
+    
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+    
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName="pgsqldevSUFFIXflex16"
+    $databaseName="airbnb"
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U s2admin -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Add Azure AI and Vector extensions to allowlist
 
@@ -523,19 +539,3 @@ In this task, run a final query that ties together the work.
 3. Select one of the three points displayed on the map to view details about the location, including the average positive, neutral, and negative sentiment scores across all ratings for the property.
 
     ![The Geometry Viewer tab is highlighted and a property point is highlighted on the map.](media/pgadmin-final-query-geometry-viewer.png)
-
-## Exercise 6: Clean up
-
-It is crucial that any deployed resources are cleaned up once finished using them. Charges will be generated for the configured capacity, not how much the database is used. To delete the resource group and all resources created for this lab, follow the instructions below:
-
-1. Open a web browser and navigate to the [Azure portal](https://portal.azure.com/), and on the home page, select **Resource groups** under Azure services.
-
-    ![Resource groups is highlighted under Azure services in the Azure portal.](media/azure-portal-home-azure-services-resource-groups.png)
-
-2. In the filter for any field search box, enter the name of the resource group created for these labs, and then select the resource group from the list.
-
-3. In the **Overview** pane, select **Delete resource group**.
-
-    ![On the Overview blade of the resource group. The Delete resource group button is highlighted.](media/resource-group-delete.png)
-
-4. In the confirmation dialog, enter the name of the resource group to confirm and then select **Delete**.

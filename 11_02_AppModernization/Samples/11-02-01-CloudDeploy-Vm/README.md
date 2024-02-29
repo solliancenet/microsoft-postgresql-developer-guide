@@ -7,7 +7,7 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 ## Test the Application #1
 
 1. Open a browser to the Azure Portal
-2. Navigate to the **paw-1** virtual machine
+2. Navigate to the **pgsqldevSUFFIX-win11** virtual machine
 3. In the **Essentials** section, copy the public IP Address
 
    ![This image demonstrates the VM IP address in the Overview tab.](./media/vm-ip-address.png "VM IP address")
@@ -17,7 +17,7 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 
 ## Open Port 8080
 
-1. Navigate to the **Paw-1** machine, select it
+1. Navigate to the **pgsqldevSUFFIX-win11** machine, select it
 2. Under **Networking**, select **Network settings**
 3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option
 
@@ -32,7 +32,7 @@ The app is running in an Azure VM and the App needs to be exposed to the interne
 ## Test the Application #2
 
 1. Retry connecting to the web application (ex `http:\\IP_ADDRESS:8080`), notice another timeout error
-2. Switch back to the **paw-1** machine, run the following PowerShell command:
+2. Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell command:
 
    ```PowerShell
    New-NetFirewallRule -DisplayName 'Port 8080' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8080
@@ -85,7 +85,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 
 ## Open Port 443
 
-1. In the Azure Portal, navigate to the **Paw-1** machine, select it
+1. In the Azure Portal, navigate to the **pgsqldevSUFFIX-win11** machine, select it
 2. Under **Networking**, select **Network settings**
 3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option
 
@@ -100,7 +100,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 ## Test the Application #3
 
 1. Retry connecting to the web application (ex `https:\\IP_ADDRESS:443`), an error should occur.
-2. Switch back to the **paw-1** machine, run the following PowerShell:
+2. Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell:
 
    ```PowerShell
    New-NetFirewallRule -DisplayName 'Port 443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443

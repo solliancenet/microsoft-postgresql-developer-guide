@@ -41,12 +41,16 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 ## Exercise 2: Setup AKS (KEDA)
 
 - Open a new Visual Studio Code window to the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-04-FunctionApp-AKS` folder
-- Open a new terminal window, and ensure that an AKS connection is present:
+- Open a new terminal window, and ensure that an AKS connection is present, be sure to replace the `SUFFIX`:
 
 ```Powershell
 $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
 
+az login
+
 az aks install-cli
+
+az account set --subscription "SUBSCRIPTION_NAME"
 
 az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
 ```
@@ -65,7 +69,7 @@ func kubernetes install
 2. Browse to the **pgsqldevSUFFIX** Azure Container Registry
 3. Under **Settings**, select **Access keys**
 4. Copy the username and password
-5. In the terminal windows, run the following:
+5. In the terminal windows, run the following, be sure to replace the `acrName`, `username` and `password`:
 
     ```powershell
     docker login {acrName}.azurecr.io -u {username} -p {password}

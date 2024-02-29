@@ -14,8 +14,8 @@ namespace VectorSearchAiAssistant.Service.Services
 
                 Instructions:
                 - Only answer questions related to the information provided below,
-                - Do not reference any product, customer, or salesOrder data not provided below.
-                - If you are unsure of an answer, you can say ""I do not know"" or ""I'm not sure"" and recommend users search themselves.
+                - Don't reference any product, customer, or salesOrder data not provided below.
+                - If you're unsure of an answer, you can say ""I don't know"" or ""I'm not sure"" and recommend users search themselves.
 
                 Text of relevant information:".NormalizeLineEndings()
             },

@@ -17,7 +17,7 @@ function validate {
     }
 
     if ([string]::IsNullOrEmpty($acrLogin))  {
-        Write-Host "ACR login server cannot be found. Are you using right ACR ($acrName) and RG ($resourceGroup)?" -ForegroundColor Red
+        Write-Host "ACR login server can't be found. Are you using right ACR ($acrName) and RG ($resourceGroup)?" -ForegroundColor Red
         $valid=$false
     }
 

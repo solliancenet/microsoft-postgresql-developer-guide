@@ -34,19 +34,16 @@ namespace VectorSearchAiAssistant.Service.Services
         readonly Dictionary<string, Type> _memoryTypes;
 
         private readonly IRAGService _ragService;
-        private readonly ICognitiveSearchService _cognitiveSearchService;
         private readonly PostgreSQLSettings _settings;
         private readonly ILogger _logger;
 
         public PostgreSQLService(
             IRAGService ragService,
-            ICognitiveSearchService cognitiveSearchService,
             IOptions<PostgreSQLSettings> settings, 
             ILogger<PostgreSQLService> logger)
         {
             _ragService = ragService;
-            _cognitiveSearchService = cognitiveSearchService;
-
+            
             _settings = settings.Value;
             ArgumentException.ThrowIfNullOrEmpty(_settings.ConnectionString);
             ArgumentException.ThrowIfNullOrEmpty(_settings.Database);

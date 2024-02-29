@@ -19,11 +19,7 @@ choco feature enable -n allowGlobalConfirmation
 choco install az.powershell
 
 #install PostgreSQL
-choco install PostgreSQL-cli
-
-#install .net connector
-choco install PostgreSQL-connector -y
-#Install-package PostgreSQL.Data
+choco install psqlodbc
 
 #get environment variables
 $vaultName = $env:Batch_VaultName;
@@ -34,21 +30,19 @@ $TenantId = $env:Batch_TenantId;
 #login to azure using certificatre
 Connect-AzAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 
-[void][System.Reflection.Assembly]::LoadWithPartialName("PostgreSQL.Data") 
-
 $server = Get-AzKeyVaultSecret -VaultName $vaultName -Name "DB-SERVER" -AsPlainText;
 $database = Get-AzKeyVaultSecret -VaultName $vaultName -Name "DB-DATABASE" -AsPlainText;
 $user = Get-AzKeyVaultSecret -VaultName $vaultName -Name "DB-USER" -AsPlainText;
 $password = Get-AzKeyVaultSecret -VaultName $vaultName -Name "DB-PASSWORD" -AsPlainText;
 
 #run the queries...
-$myconnection = New-Object PostgreSQL.Data.PostgreSQLClient.PostgreSQLConnection
+$myconnection = New-Object System.Data.Odbc.OdbcConnection;
 
-$myconnection.ConnectionString = "server=$server;user id=$user;password=$password;database=$database;pooling=false"
+$myconnection.ConnectionString = "DRIVER={PostgreSQL};server=$server;port=5432;uid=$user;pwd=$password;database=$database;sslmode=required"
 
 $myconnection.Open()
 
-$mycommand = New-Object PostgreSQL.Data.PostgreSQLClient.PostgreSQLCommand
+$mycommand = New-Object System.Data.Odbc.OdbcCommand
 $mycommand.Connection = $myconnection
 $mycommand.CommandText = "SELECT datname FROM pg_catalog.pg_database;"
 $myreader = $mycommand.ExecuteReader();
@@ -57,13 +51,10 @@ $res = "";
 
 while($myreader.Read())
 { 
-    $res += $myreader.GetString(0) 
+    $res += $myreader.GetString(0) + "`n";
 }
 
 $myconnection.Close()
 
 #write out to a file...
 add-content "data.txt" $res;
-
-#output to the stdout...
-write-host $res;

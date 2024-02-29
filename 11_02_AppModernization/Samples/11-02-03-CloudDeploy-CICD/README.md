@@ -16,7 +16,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 1. In the new project, select **Repos**
 2. In the **Push an existing repository from command line** section, select the **Copy** button
-3. In the **Paw-1** virtual machine, switch to Visual Studio code
+3. In the **pgsqldevSUFFIX-win11** virtual machine, switch to Visual Studio code
 4. In the terminal window, run the following:
 
     ```powershell
@@ -90,7 +90,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 
 ### Commit some changes
 
-1. Switch back to the **paw-1** virtual machine
+1. Switch back to the **pgsqldevSUFFIX-win11** virtual machine
 2. Run the following:
 
     ```powershell

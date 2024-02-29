@@ -4,7 +4,7 @@
 
 #### Export the data
 
-1. In the **paw-1** virtual machine, open **pgAdmin**
+1. In the **pgsqldevSUFFIX-win11** virtual machine, open **pgAdmin**
 2. Connect to the local Postgres 16 instance using `wsuser` with `Solliance123` password
 3. Expand **Databases->ContosoStore**
 4. Export the `contosostore` database

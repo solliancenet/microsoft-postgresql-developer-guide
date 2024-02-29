@@ -4226,7 +4226,7 @@ az ad sp list --display-name pgsqldevSUFFIX-addcustomerfunction --query [*].appI
 
 ## Login to the Azure Database with Microsoft Entra credentials
 
--   Switch to the **paw-1** virtual machine
+-   Switch to the **pgsqldevSUFFIX-win11** virtual machine
 -   Create a file called `c:\temp\GetAzADTOken.ps1` and paste the
     following into it:
 
@@ -4319,7 +4319,7 @@ groups, you can attempt these next set of labs:
 -   Select the **No members selected** link
 -   Search for the `APP_ID` and select it, then select **Select**
 -   Select **Create**
--   Switch back to the **paw-1** virtual machine
+-   Switch back to the **pgsqldevSUFFIX-win11** virtual machine
 -   Switch to Windows PowerShell with psql as the Microsoft Entra user
     from above
 
@@ -4524,7 +4524,7 @@ machines).
 -   For the ip address, type the IP that was added for the random `A`
     record
 -   It can take some time for the DNS to become available, on the
-    **paw-1** virtual machine. If you want to speed up the process, open
+    **pgsqldevSUFFIX-win11** virtual machine. If you want to speed up the process, open
     the `C:\Windows\System32\drivers\etc\HOSTS` file in notepad++
     -   Add the following to the file:
 
@@ -4534,7 +4534,7 @@ machines).
 
 ## Configure the new Flexible Server instance
 
--   Switch to the **paw-1** virtual machine
+-   Switch to the **pgsqldevSUFFIX-win11** virtual machine
 
 -   Open a command prompt window and enter the following command to
     initiate a connection to the Flexible Server instance. Provide
@@ -4769,7 +4769,7 @@ logic app from scratch the steps are provided here.
 
 ## Test Trigger
 
--   On the **paw-1** virtual machine
+-   On the **pgsqldevSUFFIX-win11** virtual machine
 -   Add the following to the `hosts` file:
 
 ``` text
@@ -4961,7 +4961,7 @@ logic app from scratch the steps are provided here.
 
 ## Create PowerBI Desktop Report (Dataset)
 
--   Switch to the **paw-1** virtual machine
+-   Switch to the **pgsqldevSUFFIX-win11** virtual machine
 -   Open **Power BI Desktop**
 -   Select **Get data**
 -   Select **PostgreSQL database**
@@ -5106,7 +5106,7 @@ database instance. It is possible to setup a managed identity with Azure
 Batch such that credentials can be retrieved at runtime using a managed
 identity of the Azure Batch node pool.
 
--   On the **paw-1** virtual machine, run the following:
+-   On the **pgsqldevSUFFIX-win11** virtual machine, run the following:
 
 ``` powershell
 choco install openssl -y
@@ -10939,12 +10939,12 @@ problem when deployed to AKS.]
 # Classic Deployment to PHP enabled IIS server
 
 This is a simple app that runs PHP code to connect to a PostgreSQL
-database. These tasks will be performed on the **paw-1** virtual machine
+database. These tasks will be performed on the **pgsqldevSUFFIX-win11** virtual machine
 that was deployed via the ARM template.
 
 ## Database Deployment
 
-1.  On the **paw-1** virtual machine, open a Windows PowerShell window
+1.  On the **pgsqldevSUFFIX-win11** virtual machine, open a Windows PowerShell window
 
 2.  Run the following commands to create the database (type `yes` when
     prompted). Note that the developer guide repo should be cloned to
@@ -10973,7 +10973,7 @@ that was deployed via the ARM template.
 
 ## Test the PHP Setup
 
-1.  In the **paw-1** virtual machine, open a chrome browser window
+1.  In the **pgsqldevSUFFIX-win11** virtual machine, open a chrome browser window
 
 2.  Navigate to `http://localhost:8080/info.php`, the PHP version and
     configuration should be displayed.
@@ -11044,7 +11044,7 @@ internet via port 80 in order results to display.
 
 1.  Open a browser to the Azure Portal
 
-2.  Navigate to the **paw-1** virtual machine
+2.  Navigate to the **pgsqldevSUFFIX-win11** virtual machine
 
 3.  In the **Essentials** section, copy the public IP Address
 
@@ -11059,7 +11059,7 @@ internet via port 80 in order results to display.
 
 ## Open Port 8080
 
-1.  Navigate to the **Paw-1** machine, select it
+1.  Navigate to the **pgsqldevSUFFIX-win11** machine, select it
 
 2.  Under **Networking**, select **Network settings**
 
@@ -11081,7 +11081,7 @@ internet via port 80 in order results to display.
 1.  Retry connecting to the web application (ex
     `http:\\IP_ADDRESS:8080`), notice another timeout error
 
-2.  Switch back to the **paw-1** machine, run the following PowerShell
+2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell
     command:
 
     ``` powershell
@@ -11152,7 +11152,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 
 ## Open Port 443
 
-1.  In the Azure Portal, navigate to the **Paw-1** machine, select it
+1.  In the Azure Portal, navigate to the **pgsqldevSUFFIX-win11** machine, select it
 
 2.  Under **Networking**, select **Network settings**
 
@@ -11174,7 +11174,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 1.  Retry connecting to the web application (ex
     `https:\\IP_ADDRESS:443`), an error should occur.
 
-2.  Switch back to the **paw-1** machine, run the following PowerShell:
+2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell:
 
     ``` powershell
     New-NetFirewallRule -DisplayName 'Port 443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
@@ -11219,7 +11219,7 @@ highlighted.]
 
 ### Deploy the Application
 
-1.  Switch to the **Paw-1** virtual machine remote desktop.
+1.  Switch to the **pgsqldevSUFFIX-win11** virtual machine remote desktop.
 
 2.  Open a terminal window, run the following to deploy the zip to
     Azure, run these commands one at a time and observe:
@@ -11707,7 +11707,7 @@ containers.
 2.  In the **Push an existing repository from command line** section,
     select the **Copy** button
 
-3.  In the **Paw-1** virtual machine, switch to Visual Studio code
+3.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to Visual Studio code
 
 4.  In the terminal window, run the following:
 
@@ -11800,7 +11800,7 @@ containers.
 
 ### Commit some changes
 
-1.  Switch back to the **paw-1** virtual machine
+1.  Switch back to the **pgsqldevSUFFIX-win11** virtual machine
 
 2.  Run the following:
 
@@ -12323,7 +12323,7 @@ docker compose up
 
 4.  Copy the username and password
 
-5.  In the **paw-1** virtual machine, switch to a powershell window and
+5.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to a powershell window and
     run the following:
 
     ``` powershell
@@ -13112,7 +13112,7 @@ kubectl create -f store-web-development.yaml
 
 ### Export the data
 
-1.  In the **paw-1** virtual machine, open **pgAdmin**
+1.  In the **pgsqldevSUFFIX-win11** virtual machine, open **pgAdmin**
 2.  Connect to the local Postgres 16 instance using `wsuser` with
     `Solliance123` password
 3.  Expand **Databases-\>ContosoStore**

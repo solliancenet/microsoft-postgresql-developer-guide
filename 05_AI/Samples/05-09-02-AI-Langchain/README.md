@@ -16,6 +16,10 @@ Create these resources using the PostgreSQL Flexible Server Developer Guide Setu
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
+Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
+
+- [TODO]()
+
 ### Software pre-requisites
 
 All of this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
@@ -27,5 +31,5 @@ All of this is done already in the lab setup scripts for the Lab virtual machine
 
 ## Exercise 1: LangChain with PostgreSQL
 
-- Open the `ai_langchain.ipynb` notebook.
+- Open the `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-02-Langchain\ai_langchain.ipynb` notebook.
 - Follow the instructions in the notebook.

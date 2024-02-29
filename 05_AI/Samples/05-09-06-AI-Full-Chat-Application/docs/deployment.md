@@ -1,6 +1,6 @@
 # Deployment
 
-Users can deploy this solution from three locations: local machine, virtual machine, or from Cloud Shell. See [Deployment choices](#deployment-choices) for more information. By default, this should be installed from a local development machine so the code will be available locally to run and debug.
+Users can deploy this solution from three locations, local machine, virtual machine, or from Cloud Shell. See [Deployment choices](#deployment-choices) for more information on why you would use those two installation options instructions. By default this should install from your local machine so you can have the code locally to run and debug.
 
 ## Prerequisites
 
@@ -10,18 +10,18 @@ Users can deploy this solution from three locations: local machine, virtual mach
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
-- Visual Studio 2022 (only needed if planning to run/debug the solution locally)
+- Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
 
->**NOTE**: Installation requires the choice of an Azure Region. Make sure to set the region to the one used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>**NOTE**: Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services.  See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to an Azure subscription.
+Follow the steps below to deploy the solution to your Azure subscription.
 
-1. Ensure all the prerequisites are installed.
+1. Ensure all the prerequisites are installed.  
 
 2. Clone the repository:
-
+   
     ```cmd
     git clone https://github.com/Azure/Vector-Search-AI-Assistant.git
     ```
@@ -33,18 +33,16 @@ Follow the steps below to deploy the solution to an Azure subscription.
     git checkout cognitive-search-vector
     ```
 
-4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into one of Azure Kubeternetes Service (AKS) or Azure Container Apps (ACA), and import data into Azure Cosmos DB.
+4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into your choice of Azure Kubeternetes Service or Azure Container Apps, and import data into Azure Cosmos DB.
 
-### Deploy with Azure Kubernetes Service
-
+    ### Deploy with Azure Kubernetes Service
     This script will deploy all services including a new Azure OpenAI account and AKS
 
     ```pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id> -deployAks 1
     ```
 
-### Deploy with pre-existing Azure OpenAI service with Azure Kubernetes Service
-
+    ### Deploy with pre-existing Azure OpenAI service with Azure Kubernetes Service
     This script will deploy using a pre-existing Azure OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002 models and AKS
 
     ```pwsh
@@ -56,11 +54,11 @@ Follow the steps below to deploy the solution to an Azure subscription.
         -openAiEmbeddingsDeployment <ada-002-model-name>
     ```
 
-    To validate the deployment using AKS run the following script. When the script is complete it will also output this value. Click on it to launch the app. 
+    To validate the deployment using AKS run the following script. When the script it complete it will also output this value. You can simply click on it to launch the app. 
 
     > ```pwsh
     >  az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
-    >  ```
+    >  ```	 
 
 
     ### Deploy with Azure Container Apps
@@ -87,29 +85,33 @@ Follow the steps below to deploy the solution to an Azure subscription.
     >  az containerapp show -n <aca-name> -g <resource-group-name>
     >  ```
 
+
 ## Deployment choices
 
 The following table summarizes the deployment choices available for the solution:
 
  Deployment type | Description | When to use
 --- | --- | ---
-[Standard](./deployment-standard.md) | Use the local development environment to deploy the solution to an Azure subscription. | Best suited for situations where the flexibility of a full development environment is required (e.g. to customize the solution) and a local development environment is available.
-[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to an Azure subscription. | Best suited for quick deployment. An Azure subscription and a browser is required. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
-[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to an Azure subscription. | Best suited for situations where the flexibility of a full development environment is required (e.g. to customize the solution) but a local development environment is not available. The Azure VM deployment type requires additional setup steps. If involved in managing the infrastructure that enables Azure VM deployments for a team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
+[Standard](./deployment-standard.md) | Use your local development environment to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) and you have a local development environment available.
+[Cloud Shell](./deployment-cloudshell.md) | Use Azure Cloud Shell to deploy the solution to your Azure subscription. | Best suited for quick deployment. All you need is an Azure subscription and a browser. However, this does require additional setup steps. For more information see, [Prepare Cloud Shell Setup](./deployment-cloudshell-setup.md)
+[Azure VM](./deployment-azurevm.md) | Use an Azure VM to deploy the solution to your Azure subscription. | Best suited for situations where you need the flexibility of a full development environment (e.g. to customize the solution) but you don't have a local development environment available. The Azure VM deployment type requires additional setup steps. If you are involved in managing the infrastructure that enables Azure VM deployments for your team, see [Prepare Azure VM Setup](./deployment-azurevm-setup.md) for more information.
+
+
+
 
 ## Deployment validation
 
-Use the steps below to validate that the solution deployed successfully.
+Use the steps below to validate that the solution was deployed successfully.
 
 Once the deployment script completes, the Application Insights `traces` query should display the following sequence of events:
 
 ![API initialization sequence of events](../img/initialization-trace.png)
 
-Next, review the multiple entries referring to the vectorization of the data imported into Cosmos DB:
+Next, you should be able to see multiple entries referring to the vectorization of the data that was imported into Cosmos DB:
 
 ![API vectorization sequence of events](../img/initialization-embedding.png)
 
-Finally, review the Cognitive Search index being populated with the vectorized data:
+Finally, you should be able to see the Cognitive Search index being populated with the vectorized data:
 
 ![Cognitive Search index populated with vectorized data](../img/initialization-vector-index.png)
 
@@ -121,7 +123,7 @@ Finally, review the Cognitive Search index being populated with the vectorized d
 
 Use the steps below to monitor the solution with Application Insights:
 
-1. Navigate to the `Application Insights` resource created as part of the deployment.
+1. Navigate to the `Application Insights` resource that was created as part of the deployment.
 
 2. Select the `Logs` section and create a new query with the following statement. Change the "Time range" setting on top tool bar to reflect the required time range. Click the `Run` button to execute the query:
 

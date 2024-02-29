@@ -22,7 +22,19 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 ### Restore the Database
 
-TODO
+- Run the following command to create the `contosostore` database, be sure to replace the `SUFFIX`:
+
+    ```powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data.sql"
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+    
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName = "pgsqldevSUFFIXflex16"
+    $databaseName = "contosostore"
+
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Create Linked Services
 
@@ -85,7 +97,7 @@ TODO
 - Select the **Source** tab, then select the **orders_database** data set
 - For the **Use query**, select **Query**
 - Place the mouse in the text area, select **Add dynamic content**
-- For the query text, type **select * from orders where created_at >= '@pipeline().parameters.LastCreateDate'**
+- For the query text, type **@concat('select * from orders where created_at >=''', pipeline().parameters.LastCreateDate, '''')**
 - Select **OK**
 - Select the **Sink** tab, then select the **orders_storage** data set
 - Select the main pipeline canvas (click the white area around the copy data activity), then select **Parameters**
@@ -114,7 +126,7 @@ TODO
 
 - In the middle top area, select the **Trigger (1)** button
 - Select **Trigger now**
-- For the `LastCreateDate`, type the beginning of the current year (ex. `1/1/2024`)
+- For the `LastCreateDate`, type the beginning of the current year (ex. `1/1/2020`)
 - Select **OK**
 - Open a new browser window to the Azure Portal
 - Browse to the **pgsqldevSUFFIX** storage account

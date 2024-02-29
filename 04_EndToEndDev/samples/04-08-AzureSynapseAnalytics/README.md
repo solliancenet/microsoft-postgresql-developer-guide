@@ -28,7 +28,19 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 
 ### Restore the Database
 
-TODO
+- Run the following command to create the `contosostore` database, be sure to replace the `SUFFIX`:
+
+    ```powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data.sql"
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+    
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName = "pgsqldevSUFFIXflex16"
+    $databaseName = "contosostore"
+
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Create PostgreSQL Linked Service
 
@@ -51,6 +63,7 @@ TODO
 - For the database name, type **contosostore**.
 - For the username, type **wsuser**.
 - For the password, type **Solliance123**.
+- For the encryption method, select **RequestSSL**
 - Select **Test connection**, then ensure a success message is displayed.
 - Select **Create**.
 
@@ -59,7 +72,7 @@ TODO
 - Open the Power BI Portal, https://powerbi.microsoft.com.
 - Sign in with the lab credentials.
 - In the left navigation, expand **Workspaces**.
-- Select **Create a workspace**.
+- Select **+ New workspace**.
 - For the name, type **PostgreSQL**.
 - Select **Apply**.
 
@@ -88,12 +101,12 @@ TODO
 
 ## Exercise 5: Create PowerBI Desktop Report (Dataset)
 
-- Switch to the **paw-1** virtual machine.
-- Open **Power BI Desktop**.
-- Select **Get data**.
-- Select **PostgreSQL database**.
+- Switch to the **pgsqldevSUFFIX-win11** virtual machine.
+- Open **Power BI Desktop**, then select **New Report**
+- In the ribbon, select **Get data**, then select **More**
+- Select **Azure Databse for PostgreSQL**.
 - Select **Connect**.
-- For the server name, enter **pgsqldevSUFFIXflex16**.
+- For the server name, enter **pgsqldevSUFFIXflex16.postgres.database.azure.com**.
 - For the database, select **contosostore**.
 - Select **OK**.
 - Select the **Database** tab.
@@ -119,10 +132,11 @@ TODO
 - In the **Tables** window, select the **public users** table.
 - Select **Create paginated report**.
 - Select **File->Save**, then save the report as **Contoso Users**.
-- Select **Save**, the report should load in the Azure Synapse workspace.
+- Select **Save**, the report should load in the workspace.
 
 ## Exercise 7: Create PowerBI Report in Azure Synapse
 
+- Switch back to Azure Synapse
 - Select the **Develop** tab.
 - Select the **+** button.
 - Select **Power BI report**.
@@ -132,4 +146,4 @@ TODO
 - Select the `id`, `name` and `img` fields.
 - Select **File->Save as**.
 - Save the report as **Contoso Categories**.
-- Select **Save**, the report should load in the Azuer Synapse workspace.
+- Select **Save**, the report should load in the Azure Synapse workspace.

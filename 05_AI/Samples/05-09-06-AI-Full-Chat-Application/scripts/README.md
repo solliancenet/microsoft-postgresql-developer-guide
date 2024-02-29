@@ -30,7 +30,7 @@ Deployment using AKS instead of ACA requires the addition of the argument `-depl
 
 ## Deployments using an existing OpenAI service
 
-For deployments that need to use an existing OpenAI service, run the following from the `scripts`. This will provision all of the necessary infrastruction except the Azure OpenAI service and will deploy the API and frontend to an AKS cluster via Helm.
+For deployments that need to use an existing OpenAI service, run the following from the `scripts`.  This will provision all of the necessary infrastruction except the Azure OpenAI service and will deploy the API and frontend to an AKS cluster via Helm.
 
 ```pwsh
 .\Unified-Deploy.ps1 -resourceGroup <resource-group-name> `

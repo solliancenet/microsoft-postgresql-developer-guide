@@ -48,7 +48,7 @@ All this is done already in the lab setup scripts for the Lab virtual machine bu
 - Under **Settings**, select **Identity**
 - For the **System assigned** identity, toggle to **On**
 - Select **Save**, then select **Yes**
-- Run the following to get the application id, replace the `SUFFIX`:
+- Run the following to get the application id, be sure to replace the `SUFFIX`:
 
 ```powershell
 az ad sp list --display-name pgsqldevSUFFIX-ShowDatabasesFunction --query [*].appId --out tsv
@@ -56,10 +56,10 @@ az ad sp list --display-name pgsqldevSUFFIX-ShowDatabasesFunction --query [*].ap
 
 - Copy the value for later use
 
-## Exercise 3: Login to the Azure Database with Microsoft Entra credentials
+## Exercise 3: Log in to the Azure Database with Microsoft Entra credentials
 
-- Switch to the **paw-1** virtual machine
-- Create a file called `c:\temp\GetAzADTOken.ps1` and paste the following into it:
+- Switch to the **pgsqldevSUFFIX-win11** virtual machine
+- Create a file called `c:\temp\GetAzADToken.ps1` and paste the following into it:
 
 ```PowerShell
 If ($null -eq (Get-AzContext)) {
@@ -80,7 +80,7 @@ $AzAccessToken.Token
 
 - Open the pgAdmin
 - Create a new server connection, right-click **Servers**, select **Register**
-- For the name, type **azureadPostgreSQL**
+- For the name, type **AzureADPostgreSQL**
 - For the hostname, type the DNS of the Azure Database for PostgreSQL Flexible Server (ex `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
 - For the username, type the lab user UPN (aka the email address for the lab account)
 - Select the **Advanced** tab, for the password exec command, type the following:
@@ -95,7 +95,7 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 
 > NOTE: `pgadmin` does have a password limit and the access token will exceed this limit. If for some reason pgadmin will not connect, fall back to using `psql`
 
-- Run the following to get an access token (be sure to log in using a PostgreSQL admin with the proper Tenant ID when generating the access token):
+- In a PowerShell windows, run the following to get an access token (be sure to log in using a PostgreSQL admin with the proper Tenant ID when generating the access token), be sure to replace `SUFFIX`:
 
 ```powershell
 az login
@@ -132,7 +132,7 @@ Microsoft Entra Groups can be used to assign permissions in Azure Database for P
 - Select the **No members selected** link
 - Search for the `APP_ID` and select it, then select **Select**
 - Select **Create**
-- Switch back to the **paw-1** virtual machine
+- Switch back to the **pgsqldevSUFFIX-win11** virtual machine
 - Switch to Windows PowerShell with psql as the Microsoft Entra user from above
 
 > NOTE: It is only possible to assign roles using an authenticated Microsoft Entra User (not a PostgreSQL user)
@@ -170,7 +170,7 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
 ## Exercise 6: Utilize MSI Authentication
 
 - Open the `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-05-FunctionApp-MSI` function app folder in Visual Studio Code
-- Add the following code to get an access token \ password for the managed identity:
+- Review the code to get an access token \ password for the managed identity in the `\ShowDatabasesFunction\__init__.py` file:
 
     ```python
     from azure.identity import DefaultAzureCredential, AzureCliCredential, ChainedTokenCredential, ManagedIdentityCredential
@@ -180,7 +180,7 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
     access_token = token.token
     ```
 
-- Update the connection code to use the application id and the access token:
+- Notice how the access_token is used as the password. Update the connection code to use the `application id` and the access token. Be sure to replace `SUFFIX`:
 
     ```python
     # Connect to PostgreSQL

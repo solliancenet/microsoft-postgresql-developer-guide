@@ -15,7 +15,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. The
 
 ### Deploy the Application
 
-1. Switch to the **Paw-1** virtual machine remote desktop.
+1. Switch to the **pgsqldevSUFFIX-win11** virtual machine remote desktop.
 2. Open a terminal window, run the following to deploy the zip to Azure, run these commands one at a time and observe:
 
     > NOTE: The virtual machine is running under a Managed Identity with `owner` access to the resource group.

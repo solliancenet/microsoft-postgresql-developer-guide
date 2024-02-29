@@ -83,7 +83,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 - For the name, type **pgsqldevSUFFIXflexpriv**
 - For the TTL, select **30**  and for units select **seconds**
 - For the IP address, type the IP for the random `A` record
-- It can take some time for the DNS to become available, on the **paw-1** virtual machine. To speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in Notepad++
+- It can take some time for the DNS to become available, on the **pgsqldevSUFFIX-win11** virtual machine. To speed up the process, open the `C:\Windows\System32\drivers\etc\HOSTS` file in Notepad++
   - Add the following to the file:
 
     ```text
@@ -92,7 +92,7 @@ Several private DNS Zones were created as part of the ARM template deployment, h
 
 ## Exercise 3: Configure the new Flexible Server instance
 
-- Switch to the **paw-1** virtual machine
+- Switch to the **pgsqldevSUFFIX-win11** virtual machine
 - Open a command prompt window and enter the following command to initiate a connection to the Flexible Server instance. Provide `Solliance123` as the password, when prompted. Be sure to replace the `SUFFIX`:
 
   ```PowerShell
@@ -284,7 +284,7 @@ These steps have already been completed via the ARM template, however, they can 
 
 ## Exercise 10: Test Trigger
 
-- On the **paw-1** virtual machine
+- On the **pgsqldevSUFFIX-win11** virtual machine
 - Add the following to the `hosts` file:
 
 ```text

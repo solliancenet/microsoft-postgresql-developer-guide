@@ -359,7 +359,7 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database. Bot
 2. Browse to the **pgsqldevSUFFIX** Azure Container Registry
 3. Under **Settings**, select **Access keys**
 4. Copy the username and password
-5. In the **paw-1** virtual machine, switch to a powershell window and run the following:
+5. In the **pgsqldevSUFFIX-win11** virtual machine, switch to a powershell window and run the following:
 
     ```powershell
     az login --identity

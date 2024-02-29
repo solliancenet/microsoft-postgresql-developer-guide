@@ -22,7 +22,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 ## Exercise 1: Configure Batch Service
 
 - Browse to the Azure Portal.
-- Select the `pgsqldevSUFFIX` batch service.
+- Select the `pgsqldevSUFFIX` batch account.
 - Under **Features** select **Pools**.
 - Ensure a pool called **main** is displayed, if not create it.
 - Select the **main** pool.
@@ -57,7 +57,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 - Switch to the Azure Portal and the Azure Batch instance.
 - Under **Features** select **Applications**.
 - Select **+Add**.
-- For the name, type **app01_PostgreSQL**.
+- For the Application Id/Name, type **app01_PostgreSQL**.
 - For the version, type **1.0.0***.
 - For the application package, browse to the newly created zip file.
 - Select **Submit**.
@@ -65,7 +65,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 ## Exercise 4: Create a Batch Task
 
 - Under **General**, select **Jobs**.
-- Select the new **PostgreSQL_job**.
+- Select the new **PostgreSQL_job**, click **Refresh** if the job is not displayed.
 - Under **General**, select **Tasks**.
 - Select **+ Add**.
 - For the task id, type **main_01**.
@@ -76,7 +76,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
     powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders.ps1')
     ```
 
-- For the **User identity**, select **Pool autouser, Admin**.
+- For the **Elevation level**, select **Pool autouser, Admin**.
 - Select the **Application packages** link.
 - Select the **app01_PostgreSQL** package and version **1.0.0**.
 - Select **Select**.
@@ -91,7 +91,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 The steps above utilize hardcoded values to gain access to the target database instance. It is possible to set up a managed identity with Azure Batch such that credentials can be retrieved at runtime using a managed identity of the Azure Batch node pool.
 
-- On the **paw-1** virtual machine, run the following:
+- On the **pgsqldevSUFFIX-win11** virtual machine, run the following:
 
 ```powershell
 choco install openssl -y
@@ -142,7 +142,7 @@ $newADApplication = New-AzADApplication -DisplayName "Batch Key Vault Access" -c
 $newAzureAdPrincipal = New-AzADServicePrincipal -DisplayName $newAdApplication.AppId -CertValue $credValue -StartDate $cer.NotBefore -EndDate $cer.NotAfter;
 ```
 
-- Run the following to grant permission to the new service principal:
+- Run the following to grant permission to the new service principal, be sure to replace the `SUFFIX`:
 
 ```PowerShell
 Set-AzKeyVaultAccessPolicy -VaultName 'pgsqldevSUFFIX-kv' -ServicePrincipalName $newAzureAdPrincipal.AppId -PermissionsToSecrets 'Get'
@@ -158,7 +158,6 @@ $appId = $newAzureAdPrincipal.AppId
 write-host "Thumbprint: $thumbprint"
 write-host "TenantId: $tenantId"
 write-host "AppId: $appId"
-
 ```
 
 - Upload the PFX certificate to Azure Batch
@@ -177,7 +176,7 @@ write-host "AppId: $appId"
   - Select **Save**
   - Under **General**, select **Nodes**
   - Select the ellipses for the single node, select **Reboot**
-  - Select **Reboot**, continue on with the next few steps
+  - Select **Reboot**, continue with the next few steps
 
 ### Create Key Vault values
 
@@ -209,7 +208,7 @@ write-host "AppId: $appId"
 - For the command line, type the following:
 
     ```powershell
-    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders_secure.ps1')
+    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\postgresql_copy_orders_secure.ps1')
     ```
 
 - For the **User identity**, select **Pool autouse, Admin**.
