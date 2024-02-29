@@ -15,7 +15,7 @@ namespace ChatServiceWebApi
 
 
             builder.Services.AddOptions<PostgreSQLSettings>()
-                .Bind(builder.Configuration.GetSection("MSPostgreSQLOpenAI:PostgreSQL"));
+                .Bind(builder.Configuration.GetSection("MSPostgreSQLOpenAI:PostgreSQLSearch"));
 
             builder.Services.AddOptions<SemanticKernelRAGServiceSettings>()
                 .Bind(builder.Configuration.GetSection("MSPostgreSQLOpenAI"));

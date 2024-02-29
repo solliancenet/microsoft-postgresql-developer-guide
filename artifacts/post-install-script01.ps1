@@ -225,6 +225,9 @@ foreach($server in $servers)
   $databaseName = "airbnb"
   New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
 
+  $databaseName = "chat"
+  New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
+
   $databaseName = "contosostore"
   New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
 

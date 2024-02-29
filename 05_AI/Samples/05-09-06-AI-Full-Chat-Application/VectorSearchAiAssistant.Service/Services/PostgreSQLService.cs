@@ -216,7 +216,7 @@ namespace VectorSearchAiAssistant.Service.Services
                 cmd.Connection = connection;
                 cmd.CommandText = $"insert into session (sessionId, data) values (@p1, @p2)";
                 cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Text, session.Id);
-                cmd.Parameters.AddWithValue("p2", NpgsqlDbType.Jsonb, session);
+                cmd.Parameters.AddWithValue("p2", NpgsqlDbType.Jsonb, JsonConvert.SerializeObject(session));
                 cmd.Parameters.Add(new NpgsqlParameter { ParameterName = "ret", Direction = System.Data.ParameterDirection.ReturnValue });
                 cmd.ExecuteNonQuery();
             }
@@ -323,11 +323,11 @@ namespace VectorSearchAiAssistant.Service.Services
             using (connection)
             {
                 cmd.Connection = connection;
-                cmd.CommandText = $"update session set data[\"name\"] = '{name}' where sessionid = '{id}'";
+                cmd.CommandText = $"update session set data[\"name\"] = '{name}' where sessionId = '{id}'";
                 await cmd.ExecuteNonQueryAsync();
             }
 
-            return GetSessions($"select * from session where sessionid = '{id}'")[0];
+            return GetSessions($"select * from session where sessionId = '{id}'")[0];
         }
 
         /// <summary>
@@ -350,7 +350,7 @@ namespace VectorSearchAiAssistant.Service.Services
                         case "Message":
                             Message message = (Message)obj;
                             cmd.CommandText = $@"
-                            INSERT INTO message (id, sessionid, data)
+                            INSERT INTO message (id, sessionId, data)
                             VALUES(@p1, @p2, @p3)
                             ON CONFLICT (id)
                             DO UPDATE SET data=@p3";
@@ -363,9 +363,9 @@ namespace VectorSearchAiAssistant.Service.Services
                         case "Session":
                             Session session = (Session)obj;
                             cmd.CommandText = $@"
-                            INSERT INTO session (sessionid, data)
+                            INSERT INTO session (sessionId, data)
                             VALUES(@p1, @p2)
-                            ON CONFLICT (sessionid)
+                            ON CONFLICT (sessionId)
                             DO UPDATE SET data=@p2";
                             cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Text, session.SessionId);
                             //cmd.Parameters.AddWithValue("p2", NpgsqlDbType.Jsonb, session);
@@ -390,7 +390,7 @@ namespace VectorSearchAiAssistant.Service.Services
             using (connection)
             {
                 cmd.Connection = connection;
-                cmd.CommandText = $"delete from session where id = '{sessionId}'";
+                cmd.CommandText = $"delete from session where sessionId = '{sessionId}'";
                 await cmd.ExecuteNonQueryAsync();
             }
         }
@@ -410,7 +410,7 @@ namespace VectorSearchAiAssistant.Service.Services
                 cmd.Connection= connection;
                 cmd.CommandText = $"insert into product (id, data) values ('{product.id}', @p1)" +
                     $"ON CONFLICT (id) DO UPDATE SET data=@p1";
-                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, product);
+                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, JsonConvert.SerializeObject(product));
                 //cmd.Parameters.Add(new NpgsqlParameter { ParameterName = "ret", Direction = System.Data.ParameterDirection.ReturnValue });
                 await cmd.ExecuteNonQueryAsync();
                 //product.id = cmd.Parameters["ret"].Value.ToString();
@@ -435,7 +435,7 @@ namespace VectorSearchAiAssistant.Service.Services
                 cmd.Connection = connection;
                 cmd.CommandText = $"insert into customer values ('{customer.id}', @p1)" +
                     $"ON CONFLICT (id) DO UPDATE SET data=@p1";
-                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, customer);
+                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, JsonConvert.SerializeObject(customer));
                 //cmd.Parameters.Add(new NpgsqlParameter { ParameterName = "ret", Direction = System.Data.ParameterDirection.ReturnValue });
                 await cmd.ExecuteNonQueryAsync();
                 //customer.id = cmd.Parameters["ret"].Value.ToString();
@@ -460,7 +460,7 @@ namespace VectorSearchAiAssistant.Service.Services
                 cmd.Connection = connection;
                 cmd.CommandText = $"insert into salesorder values ('{salesOrder.id}', @p1)" + 
                     $"ON CONFLICT (id) DO UPDATE SET data=@p1";
-                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, salesOrder);
+                cmd.Parameters.AddWithValue("p1", NpgsqlDbType.Jsonb, JsonConvert.SerializeObject(salesOrder));
                 //cmd.Parameters.Add(new NpgsqlParameter { ParameterName = "ret", Direction = System.Data.ParameterDirection.ReturnValue });
                 await cmd.ExecuteNonQueryAsync();
                 //salesOrder.id = cmd.Parameters["ret"].Value.ToString();

@@ -67272,49 +67272,5 @@
         "_etag": "\"c6028a06-0000-0800-0000-614a16e50000\"",
         "_attachments": "attachments/",
         "_ts": 1632245477
-    },
-    {
-        "id": "57529AC7-023A-47CE-B63A-F78C382CB050",
-        "type": "salesOrder",
-        "customerId": "505006DB-9234-4AD1-A0E5-8A3A068009D5",
-        "orderDate": "2011-10-31T00:00:00",
-        "shipDate": "2011-11-07T00:00:00",
-        "details": [
-            {
-                "sku": "LJ-0192-X",
-                "name": "Long-Sleeve Logo Jersey, XL",
-                "price": 28.8404,
-                "quantity": 4
-            },
-            {
-                "sku": "FR-R72R-52",
-                "name": "ML Road Frame - Red, 52",
-                "price": 356.898,
-                "quantity": 5
-            },
-            {
-                "sku": "BK-R50B-60",
-                "name": "Road-650 Black, 60",
-                "price": 419.4589,
-                "quantity": 1
-            },
-            {
-                "sku": "BK-R93R-56",
-                "name": "Road-150 Red, 56",
-                "price": 2146.962,
-                "quantity": 4
-            },
-            {
-                "sku": "BK-R68R-58",
-                "name": "Road-450 Red, 58",
-                "price": 874.794,
-                "quantity": 5
-            },
-            {
-                "sku": "BK-R50R-62",
-                "name": "Road-650 Red, 62",
-                "price": 419.4589,
-                "quantity": 9
-            },
-            {
-                "sku": "BK-R5
+    }
+]
