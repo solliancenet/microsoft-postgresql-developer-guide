@@ -1,49 +1,47 @@
-﻿using Microsoft.Azure.Cosmos.Fluent;
+﻿using Azure.Search.Documents;
+using Azure.Search.Documents.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Logging;
-using VectorSearchAiAssistant.Service.Models.Chat;
-using VectorSearchAiAssistant.Service.Interfaces;
-using VectorSearchAiAssistant.Service.Models.Search;
 using Microsoft.Extensions.Options;
-using VectorSearchAiAssistant.Service.Models.ConfigurationOptions;
-using Newtonsoft.Json.Linq;
-using VectorSearchAiAssistant.Service.Models;
-using VectorSearchAiAssistant.Service.Utils;
-using System.Diagnostics;
-using Castle.Core.Resource;
-using VectorSearchAiAssistant.SemanticKernel.Models;
-using Npgsql;
-using System.Drawing;
-using NpgsqlTypes;
+using Microsoft.SemanticKernel.AI.Embeddings;
+using Microsoft.SemanticKernel.Connectors.Postgres;
 using Newtonsoft.Json;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
+using Npgsql;
+using NpgsqlTypes;
+using Pgvector;
+using System.Diagnostics;
+using VectorSearchAiAssistant.SemanticKernel.TextEmbedding;
+using VectorSearchAiAssistant.Service.Interfaces;
+using VectorSearchAiAssistant.Service.Models;
+using VectorSearchAiAssistant.Service.Models.Chat;
+using VectorSearchAiAssistant.Service.Models.ConfigurationOptions;
+using VectorSearchAiAssistant.Service.Models.Search;
 using Message = VectorSearchAiAssistant.Service.Models.Chat.Message;
-using System.Threading;
 
 namespace VectorSearchAiAssistant.Service.Services
 {
     /// <summary>
     /// Service to access PostgreSQL.
     /// </summary>
-    public class PostgreSQLService : IPostgreSQLService
+    public class PostgreSQLService : IPostgreSQLService, ICognitiveSearchService
     {
+        private PostgresDbClient _client;
         private NpgsqlConnection _connection;
         private NpgsqlDataSource _dataSource;
         private readonly Database _database;
         readonly Dictionary<string, Type> _memoryTypes;
 
-        private readonly IRAGService _ragService;
+        private IRAGService _ragService;
+        //readonly PostgreSQLSearchSettings _settings;
         private readonly PostgreSQLSettings _settings;
-        private readonly ILogger _logger;
+        readonly ILogger _logger;
 
         public PostgreSQLService(
             IRAGService ragService,
-            IOptions<PostgreSQLSettings> settings, 
+        IOptions<PostgreSQLSettings> settings, 
             ILogger<PostgreSQLService> logger)
         {
-            _ragService = ragService;
-            
+            _ragService = ragService;   
             _settings = settings.Value;
             ArgumentException.ThrowIfNullOrEmpty(_settings.ConnectionString);
             ArgumentException.ThrowIfNullOrEmpty(_settings.Database);
@@ -65,6 +63,7 @@ namespace VectorSearchAiAssistant.Service.Services
                 PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
             };
 
+
             var dataSourceBuilder = new NpgsqlDataSourceBuilder(_settings.ConnectionString);
             dataSourceBuilder.EnableDynamicJson();
             dataSourceBuilder.UseVector();
@@ -72,8 +71,66 @@ namespace VectorSearchAiAssistant.Service.Services
 
             _memoryTypes = ModelRegistry.Models.ToDictionary(m => m.Key, m => m.Value.Type);
 
+            _client = new PostgresDbClient(_dataSource, "public", _settings.VectorSize);
+            _client.CreateTableAsync(_settings.IndexName).Wait();
+
             _logger.LogInformation("PostgreSQL service initialized.");
-        }  
+        }
+
+        /// <summary>
+        /// Initialize the underlying Azure Cognitive Search index.
+        /// </summary>
+        /// <param name="typesToIndex">The object types supported by the index.</param>
+        /// <returns></returns>
+        public async Task Initialize(List<Type> types)
+        {
+            try
+            {
+                //https://github.com/pgvector/pgvector-dotnet
+
+                //create the table
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = _dataSource.OpenConnection();
+
+                _client.CreateTableAsync(_settings.IndexName).Wait();
+
+                _logger.LogInformation($"Created the {_settings.IndexName} index.");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"An error occurred while trying to build the {_settings.IndexName} index: {e}");
+            }
+        }
+
+        public async Task IndexItem(object item)
+        {
+            await _ragService.AddMemory(item, item.GetType().Name);
+        }
+
+        public async Task<Response<SearchResults<SearchDocument>>> SearchAsync(SearchOptions options)
+        {
+            var connection = _dataSource.OpenConnection();
+
+            await using (var cmd = new NpgsqlCommand($"SELECT * FROM {_settings.IndexName} ORDER BY embedding <-> $1 LIMIT 5", connection))
+            {
+                foreach (var vq in options.VectorQueries)
+                {
+                    float[] in_vectors = null;
+                    var embedding = new Vector(in_vectors);
+                    cmd.Parameters.AddWithValue(embedding);
+
+                    await using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Console.WriteLine(reader.GetValue(0));
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
 
         public async Task Initalize()
         {
@@ -84,7 +141,7 @@ namespace VectorSearchAiAssistant.Service.Services
 
             _connection.ReloadTypes();
 
-            await using (var cmd = new NpgsqlCommand("CREATE TABLE vectors (id serial PRIMARY KEY, embedding vector(1536))", _connection))
+            await using (var cmd = new NpgsqlCommand("CREATE TABLE vectors (key serial PRIMARY KEY, embedding vector(1536))", _connection))
             {
                 await cmd.ExecuteNonQueryAsync();
             }
@@ -402,6 +459,8 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created product item.</returns>
         public async Task<Product> InsertProductAsync(Product product)
         {
+            await IndexItem(product);
+
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -427,6 +486,8 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created customer item.</returns>
         public async Task<Customer> InsertCustomerAsync(Customer customer)
         {
+            IndexItem(customer);
+
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -452,6 +513,8 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created sales order item.</returns>
         public async Task<SalesOrder> InsertSalesOrderAsync(SalesOrder salesOrder)
         {
+            //IndexItem(salesOrder);
+
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -563,6 +626,11 @@ namespace VectorSearchAiAssistant.Service.Services
             }
 
             return result[0];
+        }
+
+        Task<Azure.Response<SearchResults<SearchDocument>>> ICognitiveSearchService.SearchAsync(SearchOptions searchOptions)
+        {
+            throw new NotImplementedException();
         }
     }
 }

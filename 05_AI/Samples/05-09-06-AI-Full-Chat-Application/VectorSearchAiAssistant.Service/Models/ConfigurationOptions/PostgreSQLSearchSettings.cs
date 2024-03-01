@@ -8,6 +8,7 @@ namespace VectorSearchAiAssistant.Service.Models.ConfigurationOptions
 {
     public record PostgreSQLSearchSettings
     {
+        public required string Schema { get; init; }
         public required string IndexName { get; init; }
 
         public required int VectorSize { get; init; }

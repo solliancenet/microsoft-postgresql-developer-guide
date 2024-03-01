@@ -15,5 +15,10 @@ namespace VectorSearchAiAssistant.Service.Models.ConfigurationOptions
         public required string Database { get; init; }
 
         public bool EnableTracing { get; init; }
+
+        public required string IndexName { get; init; }
+
+        public required int VectorSize { get; init; }
+        public required int MaxVectorSearchResults { get; init; }
     }
 }

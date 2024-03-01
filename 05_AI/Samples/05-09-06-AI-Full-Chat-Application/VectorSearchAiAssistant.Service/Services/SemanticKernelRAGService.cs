@@ -74,7 +74,7 @@ public class SemanticKernelRAGService : IRAGService
             _settings.OpenAI.Endpoint,
             _settings.OpenAI.Key);
         */
-
+        
         builder.WithAzureTextEmbeddingGenerationService(
             _settings.OpenAI.EmbeddingsDeployment,
             _settings.OpenAI.Endpoint,
@@ -88,12 +88,17 @@ public class SemanticKernelRAGService : IRAGService
 
         _semanticKernel = builder.Build();
 
+        PostgresMemoryStore _postgresqlMemoryStore = new PostgresMemoryStore(
+                _settings.PostgreSQLSearch.ConnectionString,
+                _settings.PostgreSQLSearch.VectorSize,
+                _settings.PostgreSQLSearch.Schema,
+                _settings.PostgreSQLSearch.IndexName);
+
+        
         // The long-term memory uses an Azure Cognitive Search memory store
         _longTermMemory = new VectorMemoryStore(
             _settings.PostgreSQLSearch.IndexName,
-            new PostgresMemoryStore(
-                _settings.PostgreSQLSearch.ConnectionString,
-                _settings.PostgreSQLSearch.VectorSize),
+            _postgresqlMemoryStore,
             _semanticKernel.GetService<ITextEmbeddingGeneration>(),
             loggerFactory.CreateLogger<VectorMemoryStore>());
 

@@ -8,9 +8,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.SemanticKernel.AI.Embeddings;
 using Microsoft.SemanticKernel.Memory;
+using Newtonsoft.Json;
 using Npgsql;
 using Pgvector;
+using VectorSearchAiAssistant.SemanticKernel.TextEmbedding;
 
 namespace Microsoft.SemanticKernel.Connectors.Postgres;
 
@@ -31,7 +34,7 @@ public class PostgresMemoryStore : IMemoryStore, IDisposable
     /// <param name="connectionString">Postgres database connection string.</param>
     /// <param name="vectorSize">Embedding vector size.</param>
     /// <param name="schema">Database schema of collection tables.</param>
-    public PostgresMemoryStore(string connectionString, int vectorSize, string schema = DefaultSchema)
+    public PostgresMemoryStore(string connectionString, int vectorSize, string schema = DefaultSchema, string indexName = "index")
     {
         NpgsqlDataSourceBuilder dataSourceBuilder = new(connectionString);
         dataSourceBuilder.EnableDynamicJson();
@@ -42,7 +45,7 @@ public class PostgresMemoryStore : IMemoryStore, IDisposable
         //ensure pgvector extension is installed
         this._postgresDbClient.EnsurePgVectorExtensionInstalled();
 
-        this.CreateCollectionAsync("index").Wait();
+        this.CreateCollectionAsync(indexName).Wait();
     }
 
     /// <summary>

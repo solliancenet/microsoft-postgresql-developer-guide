@@ -23,11 +23,12 @@ public static class PostgresMemoryBuilderExtensions
         this MemoryBuilder builder,
         string connectionString,
         int vectorSize,
-        string schema = PostgresMemoryStore.DefaultSchema)
+        string schema = PostgresMemoryStore.DefaultSchema,
+        string indexName = "index")
     {
         builder.WithMemoryStore((_) =>
         {
-            return new PostgresMemoryStore(connectionString, vectorSize, schema);
+            return new PostgresMemoryStore(connectionString, vectorSize, schema, indexName);
         });
 
         return builder;
