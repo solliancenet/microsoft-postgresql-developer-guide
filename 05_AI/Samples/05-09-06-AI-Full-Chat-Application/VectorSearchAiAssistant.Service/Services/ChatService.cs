@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Castle.Core.Resource;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using VectorSearchAiAssistant.Service.Constants;
 using VectorSearchAiAssistant.Service.Interfaces;
@@ -219,6 +220,15 @@ public class ChatService : IChatService
         ArgumentNullException.ThrowIfNullOrEmpty(product.categoryId);
 
         await _postgreSQLService.InsertProductAsync(product);
+
+        try
+        {
+            await _ragService.AddMemory(product, product.name);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error attempting to add memory");
+        }
     }
 
     public async Task AddCustomer(Customer customer)
@@ -228,6 +238,15 @@ public class ChatService : IChatService
         ArgumentNullException.ThrowIfNullOrEmpty(customer.customerId);
 
         await _postgreSQLService.InsertCustomerAsync(customer);
+
+        try
+        {
+            await _ragService.AddMemory(customer, customer.firstName);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error attempting to add memory");
+        }
     }
 
     public async Task AddSalesOrder(SalesOrder salesOrder)

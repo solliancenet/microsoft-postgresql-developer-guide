@@ -1,5 +1,6 @@
 ﻿using Azure.Search.Documents;
 using Azure.Search.Documents.Models;
+using Castle.Core.Resource;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -103,6 +104,11 @@ namespace VectorSearchAiAssistant.Service.Services
         }
 
         public async Task IndexItem(object item)
+        {
+            await _ragService.AddMemory(item, item.GetType().Name);
+        }
+
+        public async Task RemoveItem(object item)
         {
             await _ragService.AddMemory(item, item.GetType().Name);
         }
@@ -240,6 +246,35 @@ namespace VectorSearchAiAssistant.Service.Services
                 foreach (string message in messages)
                 {
                     result.Add(JsonConvert.DeserializeObject<Message>(message));
+                }
+            }
+
+            return result;
+        }
+
+        public List<Product> GetProducts(string sql)
+        {
+            List<Product> result = new List<Product>();
+            using var cmd = new NpgsqlCommand();
+            NpgsqlConnection connection = _dataSource.OpenConnection();
+
+            using (connection)
+            {
+                cmd.CommandText = sql;
+                cmd.Connection = connection;
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                List<string> messages = new List<string>();
+
+                while (reader.Read())
+                {
+                    messages.Add(reader["data"].ToString());
+                }
+
+                reader.Close();
+
+                foreach (string message in messages)
+                {
+                    result.Add(JsonConvert.DeserializeObject<Product>(message));
                 }
             }
 
@@ -459,8 +494,6 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created product item.</returns>
         public async Task<Product> InsertProductAsync(Product product)
         {
-            await IndexItem(product);
-
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -486,8 +519,6 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created customer item.</returns>
         public async Task<Customer> InsertCustomerAsync(Customer customer)
         {
-            IndexItem(customer);
-
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -513,8 +544,6 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <returns>Newly created sales order item.</returns>
         public async Task<SalesOrder> InsertSalesOrderAsync(SalesOrder salesOrder)
         {
-            //IndexItem(salesOrder);
-
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
@@ -540,14 +569,14 @@ namespace VectorSearchAiAssistant.Service.Services
         /// <param name="categoryId">The category Id of the product to delete.</param>
         /// <returns></returns>
         public async Task DeleteProductAsync(string productId, string categoryId)
-        {
+        {   
             using var cmd = new NpgsqlCommand();
             NpgsqlConnection connection = _dataSource.OpenConnection();
 
             using (connection)
             {
                 cmd.Connection = connection;
-                cmd.CommandText = $"delete from product where productId = {productId}";
+                cmd.CommandText = $"delete from product where id = '{productId}'";
                 await cmd.ExecuteNonQueryAsync();
             }
         }

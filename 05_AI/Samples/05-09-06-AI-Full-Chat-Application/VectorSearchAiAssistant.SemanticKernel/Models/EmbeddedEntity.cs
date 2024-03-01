@@ -11,6 +11,7 @@ namespace VectorSearchAiAssistant.SemanticKernel.Models
     public class EmbeddedEntity
     {
         [SearchableField(IsKey = true, IsFilterable = true)]
+        [EmbeddingField(Label = "Id")]
         public string id { get; set; }
 
         [SearchableField(IsFilterable = true, IsFacetable = true)]

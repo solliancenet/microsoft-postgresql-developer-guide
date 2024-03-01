@@ -170,7 +170,7 @@ public class SemanticKernelRAGService : IRAGService
         var memories = await memoryPlugin.RecallAsync(
             userPrompt,
             _settings.CognitiveSearch.IndexName,
-            0.8,
+            0.6,
             _settings.CognitiveSearch.MaxVectorSearchResults);
 
         // Read the resulting user prompt embedding as soon as possible
