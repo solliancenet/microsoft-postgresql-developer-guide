@@ -1,6 +1,19 @@
 # AppMod 02 : Migrate to Azure Container Instances (ACI)
 
-Now that containerized versions of the application exists, they can now be hosted in several resource types in Azure. Here, we explore Azure Container Instances (ACI).
+Now that containerized versions of the application exist, they can now be hosted in several resource types in Azure. Here, we explore Azure Container Instances (ACI).
+
+## Required Resources
+
+Several resources are required to perform this lab. These include:
+
+- Development Server with web server and PHP
+- Composer
+- Azure App Service (Linux)
+- Azure Container Registry
+
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation. **Note the last section that requires you to run the provided setup PowerShell script**:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
 ## Push images to Azure Container Registry
 
@@ -160,5 +173,5 @@ In the previous steps, each container received a container instance, however, it
     ```
 
 3. Switch back to the Azure Portal, browse to the Azure App Service.
-4. If troubleshooting is needed, view the container logs by browsing to `https://pgsqldevSUFFIX-linux.scm.azurewebsites.net/api/logs/docker`. 
+4. If troubleshooting is needed, view the container logs by browsing to `https://pgsqldevSUFFIX-linux.scm.azurewebsites.net/api/logs/docker`.
 5. Copy the path to the docker file and paste it into a new browser window, review the logs and fix any errors.

@@ -4,28 +4,41 @@ This is a simple app that runs PHP code to connect to a PostgreSQL database.
 
 The app is running in an Azure VM and the App needs to be exposed to the internet via port 80 in order results to display.
 
+## Required Resources
+
+You will need to have completed the [Classic Deploy](../11-01-ClassicDeploy/README.md) steps to complete this lab.
+
+Several resources are required to perform this lab. These include:
+
+- Azure Virtual Machine (Development Server with web server and PHP)
+- Composer
+
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation. **Note the last section that requires you to run the provided setup PowerShell script**:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
+
 ## Test the Application #1
 
-1. Open a browser to the Azure Portal
-2. Navigate to the **pgsqldevSUFFIX-win11** virtual machine
-3. In the **Essentials** section, copy the public IP Address
+1. Open a browser to the Azure Portal.
+2. Navigate to the **pgsqldevSUFFIX-win11** virtual machine.
+3. In the **Essentials** section, copy the public IP Address.
 
    ![This image demonstrates the VM IP address in the Overview tab.](./media/vm-ip-address.png "VM IP address")
 
-4. Open a browser to the virtual machine ip address (ex `http:\\IP_ADDRESS:8080`)
+4. Open a browser to the virtual machine ip address (ex `http:\\IP_ADDRESS:8080`).
 5. A **ERR_CONNECTION_TIMED_OUT** error should occur. This is because the network security group on the virtual machine does not allow port 8080 access.
 
 ## Open Port 8080
 
-1. Navigate to the **pgsqldevSUFFIX-win11** machine, select it
-2. Under **Networking**, select **Network settings**
-3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option
+1. Navigate to the **pgsqldevSUFFIX-win11** machine, select it.
+2. Under **Networking**, select **Network settings**.
+3. In the **Rules** section, expand the **Create port rule** button and select the **Inbound port rule** option.
 
    ![This image demonstrates the Create port rule button.](./media/create-port-rule.png "Create port rule")
 
-4. For the destination port, type **8080**
-5. For the name, type **Port_8080**
-6. Select **Add**
+4. For the destination port, type **8080**.
+5. For the name, type **Port_8080**.
+6. Select **Add**.
 
    ![This image demonstrates the added inbound security rule.](./media/nsg-rule.png "New inbound security rule")
 

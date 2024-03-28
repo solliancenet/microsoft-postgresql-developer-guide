@@ -120,20 +120,6 @@ InstallGit
         
 InstallAzureCli
 
-InstallIIs
-
-Install7z
-
-InstallWebPI
-
-$version = "8.0.13"
-InstallPhp $version;
-
-#this is now retired...
-InstallWebPIPhp "PHP80x64,UrlRewrite2,ARRv3_0"
-
-InstallUrlRewrite
-
 #will get port 5432
 InstallPostgres16
 
@@ -143,13 +129,6 @@ InstallPostgres14
 InstallPython "3.11";
 
 InstallPgAdmin
-
-#install composer globally
-Write-Host "Install composer." -ForegroundColor Green -Verbose
-choco install composer
-
-Write-Host "Install opensll." -ForegroundColor Green -Verbose
-choco install openssl
 
 Write-Host "Install Azure Functions core tools." -ForegroundColor Green -Verbose
 choco install azure-functions-core-tools
@@ -184,18 +163,6 @@ $branchName = "main";
 $workshopName = "microsoft-postgresql-developer-guide";
 $repoUrl = "solliancenet/$workshopName";
 
-#must be done before configure php
-$path = "C:\labfiles\$workshopName\sample-php-app";
-mkdir $path -ea SilentlyContinue;
-$port = "8080";
-AddPhpApplication $path $port;
-
-ConfigurePhp "C:\tools\php80\php.ini";
-ConfigurePhp "C:\tools\php81\php.ini";
-ConfigurePhp "C:\tools\php82\php.ini";
-ConfigurePhp "C:\tools\php83\php.ini";
-ConfigurePhp "C:\Program Files\PHP\v8.0\php.ini";
-
 #download the git repo...
 Write-Host "Download Git repo." -ForegroundColor Green -Verbose
 git clone https://github.com/solliancenet/$workshopName.git $workshopName
@@ -220,6 +187,9 @@ $suffix = $resourceGroups[0].tags["Suffix"]
 foreach($server in $servers)
 {
   $serverName = $server.Name
+
+  Write-Host "Setup Flexible Server [$serverName]." -ForegroundColor Green -Verbose
+
   New-AzPostgreSqlFlexibleServerFirewallRule -FirewallRuleName $([Guid]::newguid().tostring())  -StartIpAddress '0.0.0.0' -EndIpAddress '0.0.0.0' -ServerName $serverName  -ResourceGroupName $ResourceGroupName
 
   $databaseName = "airbnb"
@@ -253,44 +223,6 @@ foreach($server in $servers)
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
 }
 
-#run composer on app path
-cd "$path";
-composer install;
-
-$windowsVersion = (Get-WmiObject -class Win32_OperatingSystem).Caption
-
-if ($windowsVersion -like "*Windows Server 2019*" -or $windowsVersion -like "*Windows Server 2022*")
-{
-    #for windows server 2019
-  Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
-
-  Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
-
-  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") 
-
-  #set experminetal...
-  $content = '{
-    "experimental": true,
-    "debug": true,
-      "hosts":  [
-                    "npipe://"
-                ]
-  }'
-
-  set-content "C:\ProgramData\docker\config\daemon.json" $content;
-  restart-service docker;
-}
-else
-{
-  #for windows 10/11...
-  Enable-WindowsOptionalFeature -Online -FeatureName $("VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux") -NoRestart
-
-  #to add the user to docker group
-  $global:localusername = "wsuser";
-
-  InstallDockerDesktop $global:localusername;
-}
-
 $filePath = "c:\labfiles\$workshopName\artifacts\data\airbnb.sql"
 
 $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
@@ -299,12 +231,8 @@ $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
 $env:PGPASSWORD=$password
 psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
 
-InstallGithubDesktop
-
 InstallVisualStudio "community" "2022";
 
 choco install visualstudio2022-workload-azure
-
-Install7z;
 
 Stop-Transcript

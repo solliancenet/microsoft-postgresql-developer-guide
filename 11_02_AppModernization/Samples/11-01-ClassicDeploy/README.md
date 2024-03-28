@@ -1,6 +1,18 @@
-# AppMod 01 : Classic Deployment to PHP enabled IIS server
+# AppMod 01 : Classic Deployment to PHP-enabled IIS server
 
 This is a simple app that runs PHP code to connect to a PostgreSQL database. These tasks will be performed on the **pgsqldevSUFFIX-win11** virtual machine deployed via the ARM template.
+
+## Required Resources
+
+Several resources are required to perform this lab. These include:
+
+- Development Server with web server and PHP
+- Composer
+- PostgreSQL 14+
+
+Create these resources using the PostgreSQL Flexible Server Developer Guide Setup documentation. **Note the last section that requires you to run the provided setup PowerShell script**:
+
+- [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
 ## Database Deployment
 
@@ -74,7 +86,7 @@ The above resources were deployed as part of the ARM template and supporting scr
 5. Install OpenSSL
 6. Install Docker
 7. Install PHP Extensions (PostgreSQL, mbstring, xml, bcmath, etc)
-8. Configure PHP 8.0
+8. Configure PHP 8.x
 9. Copy the web application files to the `/var/www/mydomain/htdocs/public` folder
 10. Update the nginx conf file for redirects
 11. Install PostgreSQL and create the `contosostore` database

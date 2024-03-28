@@ -233,8 +233,6 @@ This solution can be run locally post-Azure deployment. To do so, use the steps 
     Invoke-RestMethod -Uri "http://$($env:API_URL)/products" -Method Put -Body $jsonBody -ContentType "application/json"
     ```
 
-> Note the `id` of `00001` and `categoryId` of `C48B4EF4-D352-4CD2-BCB8-CE89B7DFA642`.  We will need these values in a later step.
-
 1. Return to the AI Assistant and type, "Can you list all of your socks again?". This time you should see a new product, "Cosmic Socks, M"
 2. Run the following command to remove the previous product:
 

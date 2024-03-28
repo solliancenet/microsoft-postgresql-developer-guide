@@ -16,6 +16,15 @@
 
 3. Utilize the `Connect-AzAccount` to interactively authenticate the Azure PowerShell environment with Azure.
 
+## Ensure Resource Providers
+
+1. Open the Azure Portal
+2. Browse to your lab subscription
+3. Under **Settings**, select **Resource providers**
+4. Search for **Microsoft.OperationsManagement**
+5. Select it
+6. Select **Register**
+
 ## Create a Lab Resource Group
 
 1. Use Azure PowerShell to create a new resource group. Substitute the `rgName` and `location` parameters with the name of the resource group and its location, respectively.
@@ -58,3 +67,16 @@
     ```
 
     Use `template.json` and `template.parameters.json` for the insecure ARM template deployment.
+
+## Setup Application Modernization
+
+If you are exploring the application modernization labs, you will also need to run the script to setup the extra components.
+
+1. Connect to the **paw-1** virtual machine
+2. Open a PowerShell window
+3. Browse to the **C:\labfiles\microsoft-postgres-docs-project\artifacts** directory
+4. Run the following command:
+
+```powershell
+app-modernization-setup.ps1
+```
