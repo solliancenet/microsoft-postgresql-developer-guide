@@ -472,17 +472,21 @@
             {
               "name": "agentpool",
               "count": "[variables('kubernetesAgentCount')]",
+              "enableAutoScaling": true,
               "osDiskSizeGB": "[variables('kubernetesAgentOsDiskSizeGB')]",
               "vmSize": "[variables('kubernetesAgentVmSize')]",
-              "storageProfile": "ManagedDisks",
               "type": "VirtualMachineScaleSets",
               "maxCount": 5,
               "minCount": 2,
               "orchestratorVersion": "[variables('kubernetesVersion')]",
-              "enableNodePublicIP": false,
               "mode": "System",
               "osType": "Linux",
-              "osSKU": "Ubuntu"
+              "osSKU": "Ubuntu",
+              "maxPods": 110,
+              "availabilityZones": [],
+              "nodeTaints": [],
+              "enableNodePublicIP": false,
+              "tags": {}
             }
           ],
           "networkProfile": {
@@ -1615,7 +1619,7 @@
               "autoUpgradeMinorVersion": true,
               "settings": {
                 "fileUris": [
-                    "https://raw.githubusercontent.com/solliancenet/specktra-install-scripts/main/postgres-sql-dev-guide/post-install-script01.ps1"
+                    "https://raw.githubusercontent.com/solliancenet/microsoft-postgresql-developer-guide/main/artifacts/post-install-script01.ps1"
                 ]
               },
               "protectedSettings": {
@@ -1727,7 +1731,7 @@
               "protectedSettings": {
                 "commandToExecute": "[concat('sh post-install-script01.sh ', variables('shPostInstallParameters'))]",
                 "fileUris": [
-                  "https://raw.githubusercontent.com/solliancenet/specktra-install-scripts/main/postgres-sql-dev-guide/post-install-script01.sh"
+                  "https://raw.githubusercontent.com/solliancenet/microsoft-postgresql-developer-guide/main/artifacts/post-install-script01.sh"
                 ],
                 "managedIdentity": {}
               }
@@ -1803,7 +1807,7 @@
             }
           ],
           "networkSecurityGroup": {
-            "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', concat(variables('resourceName'), '-paw-1-nsg'))]"
+            "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', concat(variables('resourceName'), '-linux-nsg'))]"
           },
           "dnsSettings": {}
         }
@@ -1831,6 +1835,30 @@
       {
         "type": "Microsoft.Network/networkSecurityGroups",
         "name": "[concat(variables('resourceName'),'-win-11-nsg')]",
+        "apiVersion": "2021-02-01",
+        "location": "[variables('location')]",
+        "properties": {
+          "securityRules": [
+            {
+              "name": "RDP",
+              "properties": {
+                "priority": 1000,
+                "protocol": "Tcp",
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "sourcePortRange": "*",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "3389"
+              }
+            }
+          ]
+        },
+        "dependsOn": []
+      },
+      {
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "[concat(variables('resourceName'),'-linux-nsg')]",
         "apiVersion": "2021-02-01",
         "location": "[variables('location')]",
         "properties": {

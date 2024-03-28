@@ -37,6 +37,10 @@
 
 > NOTE:  Because of some automation account mapping settings, these templates are designed to only be deployed to `eastus2`, `eastus`, `southcentralus`, `westcentralus`, `westus2`, `westus`, `northcentralus`
 
+### Verify capacity
+
+Be sure to validate that your subscription can deploy resources in the target region.  In some cases, the template will not create all resources if you have not enabled them.  Reference [Resolve capacity errors for Azure Database for PostgreSQL Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-resolve-capacity-errors?tabs=portal).
+
 ## Deploy the ARM Template
 
 1. There are two ARM templates provided with the whitepaper.
