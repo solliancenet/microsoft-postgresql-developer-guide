@@ -218,6 +218,9 @@ foreach($server in $servers)
 
 foreach($server in $servers)
 {
+  $serverName = $server.Name
+  Write-Host "Setting up contosostore [$serverName]." -ForegroundColor Green -Verbose
+
   set PGPASSWORD="Solliance123"
   $server = "$($server.name).postgres.database.azure.com"
   psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
@@ -227,8 +230,11 @@ $filePath = "c:\labfiles\$workshopName\artifacts\data\airbnb.sql"
 
 $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
 
+Write-Host "Setting up airbnb [$serverName]." -ForegroundColor Green -Verbose
+
 #set the password
 $env:PGPASSWORD=$password
+$serverName = "pgsqldev$suffix"
 psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
 
 InstallVisualStudio "community" "2022";
