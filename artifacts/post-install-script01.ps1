@@ -201,29 +201,19 @@ foreach($server in $servers)
   $databaseName = "contosostore"
   New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
 
-  New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $server -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+  New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
 
   #add vm ip addresses
   $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-linux-1-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-linux-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-linux-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress -ea SilentlyContinue
 
   #add vm ip addresses
   $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-win11-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-win11" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-win11" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress -ea SilentlyContinue
 
   #add vm ip addresses
   $publicIpAddress = Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Name "pgsqldev$($suffix)-paw-1-pip" | Select-Object -ExpandProperty ipAddress
-  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-paw-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
-}
-
-foreach($server in $servers)
-{
-  $serverName = $server.Name
-  Write-Host "Setting up contosostore [$serverName]." -ForegroundColor Green -Verbose
-
-  set PGPASSWORD="Solliance123"
-  $server = "$($server.name).postgres.database.azure.com"
-  psql -h $server -U wsuser -d postgres -c "CREATE DATABASE contosostore;"
+  New-AzPostgreSqlFirewallRule -Name "pgsql$($suffix)-paw-1" -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress -ea SilentlyContinue
 }
 
 $filePath = "c:\labfiles\$workshopName\artifacts\data\airbnb.sql"
@@ -234,7 +224,7 @@ Write-Host "Setting up airbnb [$serverName]." -ForegroundColor Green -Verbose
 
 #set the password
 $env:PGPASSWORD=$password
-$serverName = "pgsqldev$suffix"
+$serverName = "pgsqldev$($suffix)flex14"
 psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
 
 InstallVisualStudio "community" "2022";
