@@ -75,6 +75,27 @@
         }
       },
       {
+        "type": "Microsoft.CognitiveServices/accounts",
+        "apiVersion": "2023-10-01-preview",
+        "name": "[variables('resourceName')]",
+        "location": "[resourceGroup().location]",
+        "sku": {
+            "name": "S1"
+        },
+        "kind": "TextTranslation",
+        "identity": {
+            "type": "None"
+        },
+        "properties": {
+            "networkAcls": {
+                "defaultAction": "Allow",
+                "virtualNetworkRules": [],
+                "ipRules": []
+            },
+            "publicNetworkAccess": "Enabled"
+        }
+    },
+      {
         "type": "Microsoft.Network/privateDnsZones",
         "apiVersion": "2018-09-01",
         "name": "PostgreSQL.database.azure.com",
@@ -892,22 +913,6 @@
                 "delegations": [],
                 "privateEndpointNetworkPolicies": "Enabled",
                 "privateLinkServiceNetworkPolicies": "Enabled"
-              }
-            }
-          ],
-          "virtualNetworkPeerings": [
-            {
-              "name": "web-to-hub",
-              "properties": {
-                "peeringState": "Connected",
-                "remoteVirtualNetwork": {
-                  "id": "[resourceId('Microsoft.Network/virtualNetworks', concat(variables('resourceName'),'-hub'))]"
-                },
-                "allowVirtualNetworkAccess": true,
-                "allowForwardedTraffic": true,
-                "allowGatewayTransit": true,
-                "useRemoteGateways": false,
-                "remoteAddressSpace": { "addressPrefixes": ["10.0.0.0/16"] }
               }
             }
           ],

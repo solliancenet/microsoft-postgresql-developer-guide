@@ -201,6 +201,12 @@ foreach($server in $servers)
   $databaseName = "contosostore"
   New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
 
+  $databaseName = "products"
+  New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
+
+  $databaseName = "ailabs"
+  New-AzPostgreSqlFlexibleServerDatabase -Name $databaseName -ResourceGroupName $ResourceGroupName -ServerName $serverName
+
   New-AzPostgreSqlFirewallRule -Name AllowMyIP -ServerName $serverName -ResourceGroupName $ResourceGroupName -StartIPAddress $ipAddress -EndIPAddress $ipAddress
 
   #add vm ip addresses
