@@ -20,10 +20,6 @@ Create these resources using the PostgreSQL Flexible Server Developer Guide Setu
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
-- [TODO]()
-
 ### Software pre-requisites
 
 All of this is done already in the lab setup scripts for the Lab virtual machine but is provided here for reference.
@@ -33,10 +29,11 @@ All of this is done already in the lab setup scripts for the Lab virtual machine
 
 ### Database Setup
 
-1. Open a browser window to the **TODO** Azure Database for PostgreSQL Flexible Server
+1. Open a browser window to the **pgsqldevSUFFIXflex16** Azure Database for PostgreSQL Flexible Server
 2. Under **Settings**, select **Server parameters**
 3. Search for **extensions**
-4. Select the **VECTOR** extension, select **Save**
+4. In the dropdown, ensure the **VECTOR** extension is checked
+5. Select **Save**
 
 ### Container Creation and File Upload
 
@@ -160,9 +157,15 @@ This solution can be run locally post-Azure deployment. To do so, use the steps 
 
 ## Exercise 2: Load Data
 
-1. Run the following script to setup the customer and product data. The `ChatWebServiceApi` will need to be running to execute this successfully:
+1. Create the database tables
+    - Open pgAdmin and connect to the `` instance
+    - Run the `C:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\data\database.sql` script
+2. Run the following script to setup the customer and product data. The `ChatWebServiceApi` will need to be running to execute this successfully:
 
     ```powershell
+
+    cd C:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\data
+
     $env:API_URL = "localhost:63280"
     
     #load the customers.json file

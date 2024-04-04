@@ -415,7 +415,7 @@ namespace VectorSearchAiAssistant.Service.Services
             using (connection)
             {
                 cmd.Connection = connection;
-                cmd.CommandText = $"update session set data[\"name\"] = '{name}' where sessionId = '{id}'";
+                cmd.CommandText = $"update session set data[\"Name\"] = '{name}' where sessionId = '{id}'";
                 await cmd.ExecuteNonQueryAsync();
             }
 
