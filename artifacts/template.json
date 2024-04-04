@@ -77,7 +77,25 @@
       {
         "type": "Microsoft.CognitiveServices/accounts",
         "apiVersion": "2023-10-01-preview",
-        "name": "[variables('resourceName')]",
+        "name": "[concat(variables('resourceName'), 'ai')]",
+        "location": "[resourceGroup().location]",
+        "sku": {
+            "name": "S0"
+        },
+        "kind": "OpenAI",
+        "properties": {
+            "networkAcls": {
+                "defaultAction": "Allow",
+                "virtualNetworkRules": [],
+                "ipRules": []
+            },
+            "publicNetworkAccess": "Enabled"
+        }
+    },
+      {
+        "type": "Microsoft.CognitiveServices/accounts",
+        "apiVersion": "2023-10-01-preview",
+        "name": "[concat(variables('resourceName'), 'text')]",
         "location": "[resourceGroup().location]",
         "sku": {
             "name": "S1"

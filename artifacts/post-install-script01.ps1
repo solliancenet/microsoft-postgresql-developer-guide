@@ -229,8 +229,25 @@ $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
 Write-Host "Setting up airbnb [$serverName]." -ForegroundColor Green -Verbose
 
 #set the password
+$databaseName = "airbnb"
 $env:PGPASSWORD=$password
 $serverName = "pgsqldev$($suffix)flex14"
+psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+
+$filePath = "c:\labfiles\$workshopName\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\data\database.sql"
+
+Write-Host "Setting up chat [$serverName]." -ForegroundColor Green -Verbose
+
+#set the password
+$databaseName = "chat"
+$env:PGPASSWORD=$password
+$serverName = "pgsqldev$($suffix)flex14"
+psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+
+#set the password
+$databaseName = "chat"
+$env:PGPASSWORD=$password
+$serverName = "pgsqldev$($suffix)flex16"
 psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
 
 InstallVisualStudio "community" "2022";

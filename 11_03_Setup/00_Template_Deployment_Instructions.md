@@ -43,6 +43,8 @@ Be sure to validate that your subscription can deploy resources in the target re
 
 ## Deploy the ARM Template
 
+The deployment with take about ~75 minutes to setup the Virtual Machine used for the labs and samples.
+
 1. There are two ARM templates provided with the whitepaper.
 
     - The secure deployment uses private endpoints to securely access the PostgreSQL database instances through private IP addresses. It costs roughly ... per month.
