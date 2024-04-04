@@ -16,10 +16,6 @@ Create these resources using the PostgreSQL Flexible Server Developer Guide Setu
 
 - [Deployment Instructions](../../../11_03_Setup/00_Template_Deployment_Instructions.md)
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
-- [TODO]()
-
 ### Restore the Database
 
 - Run the following command to create the `contosostore` database, be sure to replace the `SUFFIX`:

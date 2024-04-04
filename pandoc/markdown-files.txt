@@ -85,3 +85,4 @@ C:\github\solliancenet\microsoft-postgresql-developer-guide\11_03_Setup\00_Templ
 C:\github\solliancenet\microsoft-postgresql-developer-guide\11_03_Setup\01_PushImagesToAcr.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\11_03_Setup\02_MigrateDatabase.md
 C:\github\solliancenet\microsoft-postgresql-developer-guide\11_03_Setup\03_CreateFlexibleServer.md
+C:\github\solliancenet\microsoft-postgresql-developer-guide\11_03_Setup\04_CleanUp.md

@@ -70,7 +70,7 @@ PostgreSQL databases. Reference the latest [PostgreSQL Feature Matrix]
 for a more in-depth review of PostgreSQL's features.
 
 Watch the [Introduction to Azure Database for PostgreSQL Flexible
-Server][39] online video.
+Server][43] online video.
 
 ## Comparison with other RDBMS offerings
 
@@ -279,7 +279,7 @@ exposed by Azure is sufficient, and access to the OS and filesystem is
 unnecessary.
 
 The Azure DBaaS PostgreSQL offering is [Azure Database for PostgreSQL
-Flexible Server][40]. It supports many of the common administration
+Flexible Server][44]. It supports many of the common administration
 tools and programming languages.
 
 The service generally provides more flexibility and server configuration
@@ -444,7 +444,7 @@ create, modify, or delete resources.
 
 ##### Azure Marketplace
 
-[Azure Marketplace][41] is an online store that contains thousands of IT
+[Azure Marketplace][45] is an online store that contains thousands of IT
 software applications and services built by industry-leading technology
 companies. In Azure Marketplace, it is possible to find, try, buy, and
 deploy the software and services needed to build innovative solutions
@@ -646,7 +646,7 @@ for PostgreSQL Flexible Server.]
 ### Flexible Server video introduction
 
 > ![Watch icon] **Watch:** [Introduction to Azure Database for
-> PostgreSQL Flexible Server][39]
+> PostgreSQL Flexible Server][43]
 
 ### Cost management
 
@@ -754,7 +754,7 @@ this:
     -   [Azure Database Migration Service (DMS)]
     -   [pg_dump and pg_restore]
 -   [Azure Portal]
--   [Azure CLI][42]
+-   [Azure CLI][46]
 
 In addition to any migration pre-requisites, a network path must exist
 between the on-premises instance/tool and the remote Azure Database for
@@ -822,7 +822,7 @@ account.][750 hours of Azure Database for PostgreSQL Flexible Server on a Bursta
 
 ## Azure subscriptions and limits
 
-As explained in the [Introduction to Azure resource management][43],
+As explained in the [Introduction to Azure resource management][47],
 subscriptions are a critical component of the Azure hierarchy: resources
 cannot be provisioned without an Azure subscription, and although the
 cloud is highly scalable, it is not possible to provision an unlimited
@@ -876,7 +876,7 @@ extensions. Download VS Code from the [Microsoft download page.]
 
 ![A simple screenshot of Visual Studio Code.]
 
-The [PostgreSQL][44] extension allows developers to:
+The [PostgreSQL][48] extension allows developers to:
 
 -   Management of PostgreSQL connections
 -   List Servers/Database/Functions/Tables/Columns (primary key/type)
@@ -958,7 +958,7 @@ context is already authenticated with Azure.
 
 TODO: Update to Microsoft Repo
 
-Azure provides a [Quickstart document][45] with a basic ARM template for
+Azure provides a [Quickstart document][49] with a basic ARM template for
 a Flexible Server deployment. We have also provided an ARM template to
 support the applications explored in this guide
 (https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-0-create-development-vm/basic-template/template.json).
@@ -978,7 +978,7 @@ Azure Resource Manager (ARM) templates. Bicep uses the same template
 language as ARM and JSON but with a cleaner syntax and improved type
 safety. Bicep is a fantastic way to deploy Azure resources, including
 Azure Database for PostgreSQL Flexible Server. Azure provides a
-[Quickstart document][46] with Bicep code for a Flexible Server
+[Quickstart document][50] with Bicep code for a Flexible Server
 deployment.
 
 ### Terraform
@@ -1320,7 +1320,7 @@ many of these tools within pgAdmin.
 
 ### Setup
 
-Follow one of the methods in the [Create a Flexible Server database][47]
+Follow one of the methods in the [Create a Flexible Server database][51]
 document to create a Flexible Server resource. Remember the admin
 username and password for the Flexible Server resource for use later in
 this section.
@@ -1334,7 +1334,7 @@ machines, as well as [Homebrew] for macOS. For Linux-based machines, use
 
 ### Connect pgAdmin to Azure Database for PostgreSQL Flexible Server
 
-1.  In the [Azure Portal][48], navigate to the Flexible Server resource
+1.  In the [Azure Portal][52], navigate to the Flexible Server resource
     created in the previous section.
 
 2.  From the left-hand menu, select **Connect**.
@@ -1494,7 +1494,7 @@ spreadsheet-like format. This data is editable in-line.
     ```
 
     ![The pgAdmin Query Tool displays with the SQL statement to query
-    the products table having executed successfully.][49]
+    the products table having executed successfully.][53]
 
 3.  Close the Query Tool tab.
 
@@ -1530,7 +1530,7 @@ possible to run an individual SQL query or a SQL file using the
 
 While the Azure Quickstart article mentioned above demonstrates how to
 provision a Flexible Server instance using the CLI, any of the presented
-provisioning methods in the [Create a Flexible Server database][47]
+provisioning methods in the [Create a Flexible Server database][51]
 section are possible.
 
 Running the CLI commands from the [Azure Cloud Shell] is preferable, as
@@ -1553,7 +1553,7 @@ In this section, we will create a new database named `inventory` on the
 Flexible Server instance using the Azure CLI
 `az postgres flexible-server db create` command.
 
-1.  Retrieve the existing server name from the [Azure Portal][48] by
+1.  Retrieve the existing server name from the [Azure Portal][52] by
     navigating to the Flexible Server resource. The server name is
     displayed on the Overview page or in the header of the resource
     page. Do not include `.postgres.database.azure.com` in the server
@@ -1562,7 +1562,7 @@ Flexible Server instance using the Azure CLI
     ![The server name is displayed on the Overview page of the Flexible
     Server resource.]
 
-2.  Open an [Azure Cloud Shell][50] window and run the following command
+2.  Open an [Azure Cloud Shell][54] window and run the following command
     to create the **inventory** database on the Flexible Server. Replace
     the `<resource-group>` and `<server-name>` placeholders with the
     resource group and server name from the previous step.
@@ -1729,9 +1729,9 @@ PostgreSQL Flexible Server through PHP.
 ### Setup
 
 1.  Follow one of the methods in the [Create a Flexible Server
-    database][47] document to create a Flexible Server instance.
+    database][51] document to create a Flexible Server instance.
 
-2.  Use [pgAdmin][51] or the [Azure CLI][52] to create the `inventory`
+2.  Use [pgAdmin][55] or the [Azure CLI][56] to create the `inventory`
     database on the Flexible Server.
 
 3.  Moreover, install and setup PHP from the [downloads page]. These
@@ -1768,12 +1768,12 @@ and PostgreSQL references.
 ### Cleanup
 
 This document introduced the `inventory` database. To remove the
-database, use [pgAdmin][51] or the [Azure CLI][52] to drop the database.
+database, use [pgAdmin][55] or the [Azure CLI][56] to drop the database.
 
 ## Java
 
 This section describes tools to interact with Azure Database for
-PostgreSQL Flexible Server through [Java][53].
+PostgreSQL Flexible Server through [Java][57].
 
 ### Getting started
 
@@ -1803,7 +1803,7 @@ Service, and Azure Spring Cloud from their Maven workflows.
 
 > ![Note icon] **Note:** Application patterns with Azure Functions,
 > Azure App Service, and Azure Spring Cloud are addressed in the [04 /
-> End to End application development][54] story.
+> End to End application development][58] story.
 
 #### Spring Data JPA
 
@@ -1827,11 +1827,11 @@ Flexible Server using the `psycopg2` library on Python 3.
 
 ### Setup
 
-Follow one of the methods in the [Create a Flexible Server database][47]
+Follow one of the methods in the [Create a Flexible Server database][51]
 document to create a Flexible Server resource. Remember the admin
 username and password for the Flexible Server resource.
 
-Moreover, install Python 3.8 or above from the [Downloads page][55].
+Moreover, install Python 3.8 or above from the [Downloads page][59].
 
 A text editor like Visual Studio Code will greatly help.
 
@@ -1977,7 +1977,7 @@ npm list
 #### Ruby
 
 It is also possible to connect to PostgreSQL using the Ruby module `pg`.
-It can be downloaded from [here][56].
+It can be downloaded from [here][60].
 
 #### Go
 
@@ -1988,7 +1988,7 @@ vary.
 #### Rust
 
 Use the PostgreSQL driver for Rust to connect and query data in Azure
-Database for PostgreSQL. It can be downloaded from [here][57].
+Database for PostgreSQL. It can be downloaded from [here][61].
 
 #### Others
 
@@ -2111,7 +2111,7 @@ Service through CI/CD platforms, such as GitHub Actions.
 
 -   [Build microservices on Azure]
 -   [Using domain analysis to model microservices]
--   [Deploying a Laravel app backed by a Java REST API to AKS][58]
+-   [Deploying a Laravel app backed by a Java REST API to AKS][62]
 
 ### API Management
 
@@ -2471,7 +2471,7 @@ Both [Azure Pipelines] and [GitHub Actions] support automated ARM
 template deployments. Moreover, through the [Azure Service Operator],
 development teams can provision Azure resources from Kubernetes,
 integrating infrastructure management into existing Kubernetes release
-pipelines. [Here][59] is a Microsoft sample provisioning Flexible Server
+pipelines. [Here][63] is a Microsoft sample provisioning Flexible Server
 from Kubernetes.
 
 ## 04 / Summary
@@ -2517,24 +2517,24 @@ microservices.
 # Hands-on Lab: Working with the latest developer capabilities of Postgres 16
 
 -   [Hands-on Lab: Working with the latest developer capabilities of
-    Postgres 16][60]
-    -   [Setup][61]
-        -   [Required Resources]
+    Postgres 16][64]
+    -   [Setup][65]
+        -   [Required Resources][66]
         -   [Software pre-requisites]
-    -   [Exercise 1: Setup and Configuration][62]
+    -   [Exercise 1: Setup and Configuration][67]
         -   [Task 1: Configure Server Parameters]
         -   [Task 2: Create tables and data]
-    -   [Exercise 2: Developer Features][63]
+    -   [Exercise 2: Developer Features][68]
         -   [Task 1: Add SQL/JSON object checks]
         -   [Task 2: Exploring JSON_ARRAY, JSON_ARRAYAGG and
             JSON_OBJECT]
         -   [Task 3: Creating Indexes]
         -   [Task 4: Using Full Text + GIN indexes]
         -   [Task 5: Aggregate function ANY_VALUE()]
-    -   [Exercise 3: COPY Features][64]
+    -   [Exercise 3: COPY Features][69]
         -   [Task 1: Allow a COPY FROM value to map to a column's
             DEFAULT]
-    -   [Exercise 4: Performance Features][65]
+    -   [Exercise 4: Performance Features][70]
         -   [Task 1: Allow parallelization of FULL and internal RIGHT
             OUTER hash joins]
         -   [Task 2: Allow aggregate functions string_agg() and
@@ -2542,7 +2542,7 @@ microservices.
         -   [Task 3: Add EXPLAIN option GENERIC_PLAN to display the
             generic plan for a parameterized query]
         -   [Task 4: Using pg_stat_io for enhanced IO monitoring]
-    -   [Exercise 5: Other Features (Optional)][66]
+    -   [Exercise 5: Other Features (Optional)][71]
         -   [Task 1: Use new VACUUM options to improve VACUUM
             performance]
 
@@ -2844,7 +2844,7 @@ new SQL standard JSON functions.
        listings LIMIT 1;
     ```
 
-    ![Results from the query][67]
+    ![Results from the query][72]
 
 3.  In Postgres 16, it is now possible to use the SQL standard `IS JSON`
     syntax. The `IS JSON` checks include checks for values, arrays,
@@ -2859,7 +2859,7 @@ new SQL standard JSON functions.
        listings LIMIT 1;
     ```
 
-    ![Results from the query][68]
+    ![Results from the query][73]
 
 4.  Additionally, new functions allow for queries to be more granular
     about the type of JSON.
@@ -2874,7 +2874,7 @@ new SQL standard JSON functions.
     	listings;
     ```
 
-    ![Results from the query][69]
+    ![Results from the query][74]
 
 5.  When combining the above, it is possible to create intricate `CASE`
     statements based on the target type (if it could be multiple types):
@@ -2902,7 +2902,7 @@ new SQL standard JSON functions.
        listings;
     ```
 
-    ![Results from the query][70]
+    ![Results from the query][75]
 
 6.  Finally, much of the basic JSON functionality that has existed
     pre-PG16 is still available and can also be used. In this example,
@@ -2937,7 +2937,7 @@ and now PostgreSQL 16 will be reviewed.
        listings;
     ```
 
-    ![Results from the query are displayed.][71]
+    ![Results from the query are displayed.][76]
 
     ``` sql
     SELECT
@@ -2946,7 +2946,7 @@ and now PostgreSQL 16 will be reviewed.
         listings;
     ```
 
-    ![Results from the query are displayed.][72]
+    ![Results from the query are displayed.][77]
 
 2.  It is also possible to convert regular types into JSON using the
     `JSON_OBJECT` function. The following will take several data types
@@ -2956,7 +2956,7 @@ and now PostgreSQL 16 will be reviewed.
     SELECT json_object(ARRAY[1, 'a', true, row(2, 'b', false)]::TEXT[]);
     ```
 
-    ![Results from the query are displayed.][73]
+    ![Results from the query are displayed.][78]
 
 3.  Additionally, use the `json_agg` combined with `row_to_json` to
     convert a series of columns in a select statement into json:
@@ -2971,7 +2971,7 @@ and now PostgreSQL 16 will be reviewed.
         bedrooms
     ```
 
-    ![Results from the query are displayed.][74]
+    ![Results from the query are displayed.][79]
 
 There are many other types of functions and operators in PostgreSQL that
 can be utilized when working with JSON data. Reference the latest
@@ -2993,7 +2993,7 @@ Indexes help increase query performance.
         and l.listing_id = 241032
     ```
 
-    ![Results from the query are displayed.][75]
+    ![Results from the query are displayed.][80]
 
 2.  Create an index on the \`listing_id\`\` column:
 
@@ -3012,7 +3012,7 @@ Indexes help increase query performance.
         and l.listing_id = 241032
     ```
 
-    ![Results from the query are displayed.][76]
+    ![Results from the query are displayed.][81]
 
 ### Task 4: Using Full Text + GIN indexes
 
@@ -3043,7 +3043,7 @@ Types.]
     WHERE ts_summary @@ to_tsquery('amazing');
     ```
 
-    ![Results from the query are displayed.][77]
+    ![Results from the query are displayed.][82]
 
 3.  In pgAdmin, run the following command:
 
@@ -3060,7 +3060,7 @@ Types.]
     WHERE ts_summary @@ to_tsquery('amazing');
     ```
 
-    ![Results from the query are displayed.][78]
+    ![Results from the query are displayed.][83]
 
 ### Task 5: Aggregate function ANY_VALUE()
 
@@ -3089,7 +3089,7 @@ added in the GROUP BY clause.
         BY l.city;
     ```
 
-    ![Results from the query are displayed.][79]
+    ![Results from the query are displayed.][84]
 
 2.  Modify the query to utilize the new `ANY_VALUE` function:
 
@@ -3104,7 +3104,7 @@ added in the GROUP BY clause.
         BY l.city;
     ```
 
-    ![Results from the query are displayed.][80]
+    ![Results from the query are displayed.][85]
 
 3.  Keep in mind that the `ANY_VALUE` is the selection of a non-null
     item from the group, and does not act the same with the full
@@ -3120,7 +3120,7 @@ added in the GROUP BY clause.
         by l.city, l.zipcode;
     ```
 
-    ![Results from the query are displayed.][81]
+    ![Results from the query are displayed.][86]
 
 ## Exercise 3: COPY Features
 
@@ -3161,7 +3161,7 @@ data into a table using a common token in the source data.
         default_test;
     ```
 
-    ![Results from the query are displayed.][82]
+    ![Results from the query are displayed.][87]
 
 Notice every entry from the source file with the default of '`\D`{=tex}'
 was converted to the `DEFAULT` value from the column definition.
@@ -3299,7 +3299,7 @@ query would be much slower than in version 16.
         y;
     ```
 
-    ![Results from the query are displayed.][83]
+    ![Results from the query are displayed.][88]
 
 3.  Review the `EXPLAIN` plan details, notice the `HashAggregate` plan
     and the costs:
@@ -3319,15 +3319,15 @@ query would be much slower than in version 16.
 
 4.  In 16+, notice the use of a `Finalize GroupAggregate`:
 
-    ![Results from the query are displayed.][84]
+    ![Results from the query are displayed.][89]
 
 5.  In pre-16 instances, a `HashAggregate` would display (feel free to
     test on the PG14 instance):
 
-    ![Results from the query are displayed.][85]
+    ![Results from the query are displayed.][90]
 
 For a more in-depth look at the code change for this feature, reference
-[here][86].
+[here][91].
 
 ### Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query
 
@@ -3356,7 +3356,7 @@ find performance issues with parameterized queries.
     EXPLAIN (GENERIC_PLAN) SELECT * FROM listings WHERE listing_id = $1;
     ```
 
-    ![Results from the query are displayed.][87]
+    ![Results from the query are displayed.][92]
 
     > Note the use of the parenthesis. The old way (shown above) was to
     > not utilize parenthesis and is only for backwards compatibility.
@@ -3522,15 +3522,15 @@ autovacuum features read [Autovacuum Tuning in Azure Database for
 PostgreSQL - Flexible Server].
 
 For a more in-depth look at the code change for this feature, reference
-[here][88].
+[here][93].
 
 # Hands-on Lab: Working with PgBouncer
 
--   [Hands-on Lab: Working with PgBouncer][89]
-    -   [Setup][61]
-        -   [Required Resources]
+-   [Hands-on Lab: Working with PgBouncer][94]
+    -   [Setup][65]
+        -   [Required Resources][66]
         -   [Software pre-requisites]
-    -   [Exercise 1: PgBouncer][90]
+    -   [Exercise 1: PgBouncer][95]
         -   [Task 1: Enable PgBouncer and PgBouncer Metrics]
         -   [Task 2: Performance without PgBouncer]
         -   [Task 3: Performance with PgBouncer]
@@ -3672,11 +3672,11 @@ dynamic and don't require an instance restart.
 # Hands-on Lab: Working with the latest developer capabilities of Postgres 16
 
 -   [Hands-on Lab: Working with the latest developer capabilities of
-    Postgres 16][60]
-    -   [Setup][61]
-        -   [Required Resources]
+    Postgres 16][64]
+    -   [Setup][65]
+        -   [Required Resources][66]
         -   [Software pre-requisites]
-    -   [Exercise 1: Logical Replication][91]
+    -   [Exercise 1: Logical Replication][96]
         -   [Task 1: Setup Publication]
         -   [Task 2: Setup Subscriber]
         -   [Task 3: Sync Data]
@@ -4023,7 +4023,7 @@ machine but is provided here for reference.
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Azure Functions`] extension
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
+-   Install [Python 3.11.x][59]
 -   Install the [Azure Functions core tools MSI]
 
 ## Exercise 1: Create the Function Application
@@ -4305,10 +4305,6 @@ Guide Setup documentation:
 
 -   [Deployment Instructions]
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
-
 ### Software pre-requisites
 
 All this is done already in the lab setup scripts for the Lab virtual
@@ -4317,9 +4313,9 @@ machine but is provided here for reference.
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Azure Functions`] extension
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
+-   Install [Python 3.11.x][59]
 -   Install the [Azure Functions core tools MSI]
--   Install the latest [Azure CLI][92]
+-   Install the latest [Azure CLI][97]
 -   Install [Docker Desktop (Windows)]
 
 ## Exercise 1: Ensure Docker is started
@@ -4332,12 +4328,16 @@ machine but is provided here for reference.
     `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-04-FunctionApp-AKS`
     folder
 -   Open a new terminal window, and ensure that an AKS connection is
-    present:
+    present, be sure to replace the `SUFFIX`:
 
 ``` powershell
 $resourceGroupName = "YOUR_RESOURCEGROUP_NAME";
 
+az login
+
 az aks install-cli
+
+az account set --subscription "SUBSCRIPTION_NAME"
 
 az aks get-credentials --name "pgsqldevSUFFIX" --resource-group $resourceGroupName
 ```
@@ -4360,7 +4360,8 @@ func kubernetes install
 
 4.  Copy the username and password
 
-5.  In the terminal windows, run the following:
+5.  In the terminal windows, run the following, be sure to replace the
+    `acrName`, `username` and `password`:
 
     ``` powershell
     docker login {acrName}.azurecr.io -u {username} -p {password}
@@ -4409,10 +4410,6 @@ Guide Setup documentation:
 
 -   [Deployment Instructions]
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
-
 ### Software pre-requisites
 
 All this is done already in the lab setup scripts for the Lab virtual
@@ -4421,7 +4418,7 @@ machine but is provided here for reference.
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Azure Functions`] extension
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
+-   Install [Python 3.11.x][59]
 -   Install the [Azure Functions core tools MSI]
 -   Install [pgAdmin][pgAdmin Downloads]
 
@@ -4444,7 +4441,8 @@ machine but is provided here for reference.
 -   Under **Settings**, select **Identity**
 -   For the **System assigned** identity, toggle to **On**
 -   Select **Save**, then select **Yes**
--   Run the following to get the application id, replace the `SUFFIX`:
+-   Run the following to get the application id, be sure to replace the
+    `SUFFIX`:
 
 ``` powershell
 az ad sp list --display-name pgsqldevSUFFIX-ShowDatabasesFunction --query [*].appId --out tsv
@@ -4452,10 +4450,10 @@ az ad sp list --display-name pgsqldevSUFFIX-ShowDatabasesFunction --query [*].ap
 
 -   Copy the value for later use
 
-## Exercise 3: Login to the Azure Database with Microsoft Entra credentials
+## Exercise 3: Log in to the Azure Database with Microsoft Entra credentials
 
 -   Switch to the **pgsqldevSUFFIX-win11** virtual machine
--   Create a file called `c:\temp\GetAzADTOken.ps1` and paste the
+-   Create a file called `c:\temp\GetAzADToken.ps1` and paste the
     following into it:
 
 ``` powershell
@@ -4478,7 +4476,7 @@ $AzAccessToken.Token
 -   Open the pgAdmin
 -   Create a new server connection, right-click **Servers**, select
     **Register**
--   For the name, type **azureadPostgreSQL**
+-   For the name, type **AzureADPostgreSQL**
 -   For the hostname, type the DNS of the Azure Database for PostgreSQL
     Flexible Server (ex
     `pgsqldevSUFFIXflex16.postgres.database.azure.com`)
@@ -4499,9 +4497,9 @@ powershell -file "C:\temp\GetAzADToken.ps1"
 > exceed this limit. If for some reason pgadmin will not connect, fall
 > back to using `psql`
 
--   Run the following to get an access token (be sure to log in using a
-    PostgreSQL admin with the proper Tenant ID when generating the
-    access token):
+-   In a PowerShell windows, run the following to get an access token
+    (be sure to log in using a PostgreSQL admin with the proper Tenant
+    ID when generating the access token), be sure to replace `SUFFIX`:
 
 ``` powershell
 az login
@@ -4602,8 +4600,8 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
     `C:\labfiles\microsoft-postgresql-developer-guide\04_EndToEndDev\samples\04-05-FunctionApp-MSI`
     function app folder in Visual Studio Code
 
--   Add the following code to get an access token  password for the
-    managed identity:
+-   Review the code to get an access token  password for the managed
+    identity in the `\ShowDatabasesFunction\__init__.py` file:
 
     ``` python
     from azure.identity import DefaultAzureCredential, AzureCliCredential, ChainedTokenCredential, ManagedIdentityCredential
@@ -4613,8 +4611,9 @@ select * from pgaadauth_create_principal('chris@contoso.com', false, false);
     access_token = token.token
     ```
 
--   Update the connection code to use the application id and the access
-    token:
+-   Notice how the access_token is used as the password. Update the
+    connection code to use the `application id` and the access token. Be
+    sure to replace `SUFFIX`:
 
     ``` python
     # Connect to PostgreSQL
@@ -4668,10 +4667,6 @@ Create these resources using the PostgreSQL Flexible Server Developer
 Guide Setup documentation:
 
 -   [Deployment Instructions]
-
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
 
 ### Software pre-requisites
 
@@ -4782,8 +4777,8 @@ machines).
 -   For the TTL, select **30** and for units select **seconds**
 -   For the IP address, type the IP for the random `A` record
 -   It can take some time for the DNS to become available, on the
-    **pgsqldevSUFFIX-win11** virtual machine. To speed up the process, open the
-    `C:\Windows\System32\drivers\etc\HOSTS` file in Notepad++
+    **pgsqldevSUFFIX-win11** virtual machine. To speed up the process,
+    open the `C:\Windows\System32\drivers\etc\HOSTS` file in Notepad++
     -   Add the following to the file:
 
         ``` text
@@ -5062,13 +5057,22 @@ Guide Setup documentation:
 
 -   [Deployment Instructions]
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
-
 ### Restore the Database
 
-TODO
+-   Run the following command to create the `contosostore` database, be
+    sure to replace the `SUFFIX`:
+
+    ``` powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data.sql"
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName = "pgsqldevSUFFIXflex16"
+    $databaseName = "contosostore"
+
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Create Linked Services
 
@@ -5138,8 +5142,8 @@ TODO
     set
 -   For the **Use query**, select **Query**
 -   Place the mouse in the text area, select **Add dynamic content**
--   For the query text, type **select \* from orders where created_at
-    \>= '@pipeline().parameters.LastCreateDate'**
+-   For the query text, type **@concat('select \* from orders where
+    created_at \>=''', pipeline().parameters.LastCreateDate,'''')**
 -   Select **OK**
 -   Select the **Sink** tab, then select the **orders_storage** data set
 -   Select the main pipeline canvas (click the white area around the
@@ -5170,7 +5174,7 @@ TODO
 -   In the middle top area, select the **Trigger (1)** button
 -   Select **Trigger now**
 -   For the `LastCreateDate`, type the beginning of the current year
-    (ex. `1/1/2024`)
+    (ex. `1/1/2020`)
 -   Select **OK**
 -   Open a new browser window to the Azure Portal
 -   Browse to the **pgsqldevSUFFIX** storage account
@@ -5199,10 +5203,6 @@ Guide Setup documentation:
 
 -   [Deployment Instructions]
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
-
 ### Software pre-requisites
 
 All this is done already in the lab setup scripts for the Lab virtual
@@ -5212,7 +5212,20 @@ machine but is provided here for reference.
 
 ### Restore the Database
 
-TODO
+-   Run the following command to create the `contosostore` database, be
+    sure to replace the `SUFFIX`:
+
+    ``` powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data.sql"
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName = "pgsqldevSUFFIXflex16"
+    $databaseName = "contosostore"
+
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U wsuser -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Create PostgreSQL Linked Service
 
@@ -5240,6 +5253,7 @@ TODO
 -   For the database name, type **contosostore**.
 -   For the username, type **wsuser**.
 -   For the password, type **Solliance123**.
+-   For the encryption method, select **RequestSSL**
 -   Select **Test connection**, then ensure a success message is
     displayed.
 -   Select **Create**.
@@ -5249,7 +5263,7 @@ TODO
 -   Open the Power BI Portal, https://powerbi.microsoft.com.
 -   Sign in with the lab credentials.
 -   In the left navigation, expand **Workspaces**.
--   Select **Create a workspace**.
+-   Select **+ New workspace**.
 -   For the name, type **PostgreSQL**.
 -   Select **Apply**.
 
@@ -5280,11 +5294,12 @@ TODO
 ## Exercise 5: Create PowerBI Desktop Report (Dataset)
 
 -   Switch to the **pgsqldevSUFFIX-win11** virtual machine.
--   Open **Power BI Desktop**.
--   Select **Get data**.
--   Select **PostgreSQL database**.
+-   Open **Power BI Desktop**, then select **New Report**
+-   In the ribbon, select **Get data**, then select **More**
+-   Select **Azure Databse for PostgreSQL**.
 -   Select **Connect**.
--   For the server name, enter **pgsqldevSUFFIXflex16**.
+-   For the server name, enter
+    **pgsqldevSUFFIXflex16.postgres.database.azure.com**.
 -   For the database, select **contosostore**.
 -   Select **OK**.
 -   Select the **Database** tab.
@@ -5311,11 +5326,11 @@ TODO
 -   In the **Tables** window, select the **public users** table.
 -   Select **Create paginated report**.
 -   Select **File-\>Save**, then save the report as **Contoso Users**.
--   Select **Save**, the report should load in the Azure Synapse
-    workspace.
+-   Select **Save**, the report should load in the workspace.
 
 ## Exercise 7: Create PowerBI Report in Azure Synapse
 
+-   Switch back to Azure Synapse
 -   Select the **Develop** tab.
 -   Select the **+** button.
 -   Select **Power BI report**.
@@ -5326,7 +5341,7 @@ TODO
 -   Select the `id`, `name` and `img` fields.
 -   Select **File-\>Save as**.
 -   Save the report as **Contoso Categories**.
--   Select **Save**, the report should load in the Azuer Synapse
+-   Select **Save**, the report should load in the Azure Synapse
     workspace.
 
 # Hands-on Lab: Azure Batch with PostgreSQL
@@ -5348,14 +5363,10 @@ Guide Setup documentation:
 
 -   [Deployment Instructions]
 
-Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
-
--   [TODO]
-
 ## Exercise 1: Configure Batch Service
 
 -   Browse to the Azure Portal.
--   Select the `pgsqldevSUFFIX` batch service.
+-   Select the `pgsqldevSUFFIX` batch account.
 -   Under **Features** select **Pools**.
 -   Ensure a pool called **main** is displayed, if not create it.
 -   Select the **main** pool.
@@ -5392,7 +5403,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 -   Switch to the Azure Portal and the Azure Batch instance.
 -   Under **Features** select **Applications**.
 -   Select **+Add**.
--   For the name, type **app01_PostgreSQL**.
+-   For the Application Id/Name, type **app01_PostgreSQL**.
 -   For the version, type **1.0.0**\*.
 -   For the application package, browse to the newly created zip file.
 -   Select **Submit**.
@@ -5401,7 +5412,8 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
 
 -   Under **General**, select **Jobs**.
 
--   Select the new **PostgreSQL_job**.
+-   Select the new **PostgreSQL_job**, click **Refresh** if the job is
+    not displayed.
 
 -   Under **General**, select **Tasks**.
 
@@ -5417,7 +5429,7 @@ Clone of the PostgreSQL Developer Guide Repo to `c:\labfiles`:
     powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders.ps1')
     ```
 
--   For the **User identity**, select **Pool autouser, Admin**.
+-   For the **Elevation level**, select **Pool autouser, Admin**.
 
 -   Select the **Application packages** link.
 
@@ -5493,7 +5505,8 @@ $newADApplication = New-AzADApplication -DisplayName "Batch Key Vault Access" -c
 $newAzureAdPrincipal = New-AzADServicePrincipal -DisplayName $newAdApplication.AppId -CertValue $credValue -StartDate $cer.NotBefore -EndDate $cer.NotAfter;
 ```
 
--   Run the following to grant permission to the new service principal:
+-   Run the following to grant permission to the new service principal,
+    be sure to replace the `SUFFIX`:
 
 ``` powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'pgsqldevSUFFIX-kv' -ServicePrincipalName $newAzureAdPrincipal.AppId -PermissionsToSecrets 'Get'
@@ -5529,7 +5542,7 @@ write-host "AppId: $appId"
     -   Select **Save**
     -   Under **General**, select **Nodes**
     -   Select the ellipses for the single node, select **Reboot**
-    -   Select **Reboot**, continue on with the next few steps
+    -   Select **Reboot**, continue with the next few steps
 
 ### Create Key Vault values
 
@@ -5568,7 +5581,7 @@ write-host "AppId: $appId"
 -   For the command line, type the following:
 
     ``` powershell
-    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\PostgreSQL_copy_orders_secure.ps1')
+    powershell powershell -command ("(Get-ChildItem Env:AZ_BATCH_APP_PACKAGE_app01_PostgreSQL#1.0.0).Value" + '\applications\postgresql_copy_orders_secure.ps1')
     ```
 
 -   For the **User identity**, select **Pool autouse, Admin**.
@@ -5603,7 +5616,7 @@ presented in this PostgreSQL Developer Guide samples.
     Azure][building a Python web application with Flask or Django with Azure Database for PostgreSQL Flexible Server]
 -   [Deploy a Django application to Azure by using PostgreSQL]
 -   [Tutorial: Deploy Django app with App Service and Azure Database for
-    PostgreSQL - Flexible Server][93]
+    PostgreSQL - Flexible Server][98]
 -   [Tutorial: Deploy Django app on AKS with Azure Database for
     PostgreSQL - Flexible Server]
 -   [Tutorial: Build a Quarkus web app with Azure App Service on Linux
@@ -7696,35 +7709,36 @@ consisent and appropriate responses.
 # Hands-on Lab: Generative AI with Azure Database for PostgreSQL Flexible Server
 
 -   [Hands-on Lab: Generative AI with Azure Database for PostgreSQL
-    Flexible Server][94]
-    -   [Setup][61]
-        -   [Required Resources]
+    Flexible Server][99]
+    -   [Setup][65]
+        -   [Required Resources][66]
         -   [Software pre-requisites]
+        -   [Setup Database]
     -   [Exercise 1: Add Azure AI and Vector extensions to
-        allowlist][95]
-    -   [Exercise 2: Create an Azure OpenAI resource][96]
+        allowlist][100]
+    -   [Exercise 2: Create an Azure OpenAI resource][101]
         -   [Task 1: Provision an Azure OpenAI service]
         -   [Task 2: Deploy an embedding model]
-    -   [Exercise 3: Install and configure the `azure_ai` extension][97]
+    -   [Exercise 3: Install and configure the `azure_ai`
+        extension][102]
         -   [Task 1: Connect to the database using psql in the Azure
             Cloud Shell]
         -   [Task 2: Install the `azure_ai` extension]
         -   [Task 3: Review the objects contained within the `azure_ai`
             extension]
         -   [Task 4: Set the Azure OpenAI endpoint and key]
-    -   [Exercise 4: Generate vector embeddings with Azure OpenAI][98]
+    -   [Exercise 4: Generate vector embeddings with Azure OpenAI][103]
         -   [Task 1: Enable vector support with the pgvector extension]
         -   [Task 2: Generate and store vector embeddings]
         -   [Task 3: Perform a vector similarity search]
-    -   [Exercise 5: Integrate Azure AI Services][99]
+    -   [Exercise 5: Integrate Azure AI Services][104]
         -   [Task 1: Provision an Azure AI Language service]
         -   [Task 2: Set the Azure AI Language service endpoint and key]
         -   [Task 3: Analyze the sentiment of reviews]
     -   [Exercise 6: Execute a final query to tie it all together
-        (Optional)][100]
+        (Optional)][105]
         -   [Task 1: Connect to the database using pgAdmin]
         -   [Task 2: Execute a query and view results on a map]
-    -   [Exercise 6: Clean up][101]
 
 [Generative AI] is a form of artificial intelligence in which [large
 language models] (LLMs) are trained to generate original content based
@@ -7762,6 +7776,23 @@ All this is done already in the lab setup scripts for the Lab virtual
 machine but is provided here for reference.
 
 -   Install pgAdmin
+
+### Setup Database
+
+-   Run the following to set up the `airbnb` database, be sure to
+    replace `SUFFIX`:
+
+    ``` powershell
+    $filePath = "c:\labfiles\microsoft-postgresql-developer-guide\artifacts\data\airbnb.sql"
+
+    $env:Path += ';C:\Program Files\PostgreSQL\16\bin'
+
+    #set the password
+    $env:PGPASSWORD="Solliance123"
+    $serverName="pgsqldevSUFFIXflex16"
+    $databaseName="airbnb"
+    psql -h "$($serverName).postgres.database.azure.com" -d $databaseName -U s2admin -p 5432 -a -w -f $filePath
+    ```
 
 ## Exercise 1: Add Azure AI and Vector extensions to allowlist
 
@@ -7921,7 +7952,7 @@ database and configured to connect to the Azure OpenAI service.
 ### Task 1: Connect to the database using psql in the Azure Cloud Shell
 
 In this task, the [psql command-line utility] will be used from the
-[Azure Cloud Shell][102] to connect to the database.
+[Azure Cloud Shell][106] to connect to the database.
 
 1.  In order to connect, the connection details for the database will be
     required. Navigate to the Azure Database for PostgreSQL Flexible
@@ -7932,7 +7963,7 @@ In this task, the [psql command-line utility] will be used from the
     left-hand navigation menu in the Azure portal.]
 
 2.  With the **Connect** page open, select the **Cloud Shell** icon in
-    the Azure portal toolbar to open a new [Cloud Shell][102] pane at
+    the Azure portal toolbar to open a new [Cloud Shell][106] pane at
     the top of the browser window.
 
     ![The Cloud Shell icon is highlighted in the Azure portal toolbar
@@ -8120,7 +8151,7 @@ models.
 
 [Embeddings][vector embeddings] are a concept in machine learning and
 natural language processing (NLP) that involves representing objects,
-such as words, documents, or entities, as [vectors][103] in a
+such as words, documents, or entities, as [vectors][107] in a
 multi-dimensional space. Embeddings allow machine learning models to
 evaluate how closely related information is. This technique efficiently
 identifies relationships and similarities between data, allowing
@@ -8276,7 +8307,7 @@ between two inputs in the original format.
     CREATE INDEX ON listings USING hnsw (description_vector vector_cosine_ops);
     ```
 
-2.  With everything now in place, execute a [cosine similarity][104]
+2.  With everything now in place, execute a [cosine similarity][108]
     search query against the database. Run the query below to do a
     vector similarity search against listing descriptions. The
     embeddings are generated for an input question and then cast to a
@@ -8300,7 +8331,7 @@ schema of the `azure_ai` extension provide a rich set of AI Language
 features accessible directly from the database. The functionalities
 include sentiment analysis, language detection, key phrase extraction,
 entity recognition, and text summarization. These capabilities are
-enabled through the [Azure AI Language service][105].
+enabled through the [Azure AI Language service][109].
 
 To review the complete list of Azure AI capabilities accessible through
 the extension, view the [Integrate Azure Database for PostgreSQL
@@ -8308,7 +8339,7 @@ Flexible Server with Azure Cognitive Services documentation].
 
 ### Task 1: Provision an Azure AI Language service
 
-An [Azure AI Language][105] service is required to take advantage of the
+An [Azure AI Language][109] service is required to take advantage of the
 `azure_ai` extensions cognitive functions. In this exercise, an Azure AI
 Language service will be provisioned.
 
@@ -8325,7 +8356,7 @@ Language service will be provisioned.
 
     ![On the Azure portal's create a resource screen, Storage is
     highlighted in the left-hand menu and Storage account is highlighted
-    under Popular Azure services.][106]
+    under Popular Azure services.][110]
 
 4.  On the **Select additional features** dialog, select **Continue to
     create your resource**.
@@ -8577,32 +8608,6 @@ In this task, run a final query that ties together the work.
     ![The Geometry Viewer tab is highlighted and a property point is
     highlighted on the map.]
 
-## Exercise 6: Clean up
-
-It is crucial that any deployed resources are cleaned up once finished
-using them. Charges will be generated for the configured capacity, not
-how much the database is used. To delete the resource group and all
-resources created for this lab, follow the instructions below:
-
-1.  Open a web browser and navigate to the [Azure
-    portal][Microsoft Azure], and on the home page, select **Resource
-    groups** under Azure services.
-
-    ![Resource groups is highlighted under Azure services in the Azure
-    portal.]
-
-2.  In the filter for any field search box, enter the name of the
-    resource group created for these labs, and then select the resource
-    group from the list.
-
-3.  In the **Overview** pane, select **Delete resource group**.
-
-    ![On the Overview blade of the resource group. The Delete resource
-    group button is highlighted.]
-
-4.  In the confirmation dialog, enter the name of the resource group to
-    confirm and then select **Delete**.
-
 # Hands-on Lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server
 
 The integration of embeddings generated using Azure OpenAI and Azure
@@ -8623,9 +8628,8 @@ and data-driven world.
 
 PostgreSQL's extensibility makes it possible for developers to build new
 data types and indexing mechanisms as workloads continue to evolve. As
-we continue to see new innovations in AI and ML, we can use PostgreSQL
-for building applications that harness the power of these new AI/ML
-models.
+we continue to see innovations in AI and ML, we can use PostgreSQL for
+building applications that harness the power of these new AI/ML models.
 
 ## Setup
 
@@ -8649,12 +8653,14 @@ machine but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
--   Install latest [Azure CLI][92]
+-   Install [Python 3.11.x][59]
+-   Install the latest [Azure CLI][97]
 
 ## Exercise 1: Hugging Face with Images
 
--   Open the `ai_hugging_face.ipynb` notebook in Visual Studio Code.
+-   Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-01-AI-HuggingFace\ai_hugging_face.ipynb`
+    notebook in Visual Studio Code.
 -   Follow the instructions in the notebook to run each cell.
 
 # Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (RAG/ReAct)
@@ -8688,12 +8694,14 @@ machine but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
--   Install the latest [Azure CLI][92]
+-   Install [Python 3.11.x][59]
+-   Install the latest [Azure CLI][97]
 
 ## Exercise 1: LangChain with PostgreSQL
 
--   Open the `ai_langchain.ipynb` notebook.
+-   Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-02-Langchain\ai_langchain.ipynb`
+    notebook.
 -   Follow the instructions in the notebook.
 
 # Hands-on Lab: Vector Similarity with PostgreSQL
@@ -8724,12 +8732,14 @@ machine but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
--   Install the latest [Azure CLI][92]
+-   Install [Python 3.11.x][59]
+-   Install the latest [Azure CLI][97]
 
 ## Exercise 1: Vector Similarity with PostgreSQL
 
--   Open the `ai_receipes.ipynb` notebook.
+-   Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-03-AI-Langchain-Receipes\ai_receipes.ipynb`
+    notebook.
 -   Follow the instructions in the notebook.
 
 # Hands-on Lab: LangChain with Azure Database for PostgreSQL Flexible Server (VectorDB)
@@ -8760,12 +8770,14 @@ machine but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
--   Install the latest [Azure CLI][92]
+-   Install [Python 3.11.x][59]
+-   Install the latest [Azure CLI][97]
 
 ## Exercise 1: LangChain with PostgreSQL (VectorDB)
 
--   Open the `ai_langchain_vectordb.ipynb` notebook.
+-   Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-04-AI-Langchain-VectorDB\ai_langchain_vectordb.ipynb`
+    notebook.
 -   Follow the instructions in the notebook.
 
 # Hands-on Lab: Semantic Kernel with Azure Database for PostgreSQL Flexible Server
@@ -8794,12 +8806,14 @@ machine but is provided here for reference.
 
 -   Install [Visual Studio Code][Microsoft download page.]
 -   Install the [`Python`] extension
--   Install [Python 3.11.x][55]
--   Install the latest [Azure CLI][92]
+-   Install [Python 3.11.x][59]
+-   Install the latest [Azure CLI][97]
 
 ## Exercise 1: Semantic Kernel
 
--   Open the `ai_semantic_kernel.ipynb` notebook.
+-   Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-01-AI-HuggingFace\i_semantic_kernel.ipynb`
+    notebook.
 -   Follow the instructions in the notebook.
 
 # Hands-on Lab: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI
@@ -8849,21 +8863,325 @@ All of this is done already in the lab setup scripts for the Lab virtual
 machine but is provided here for reference.
 
 -   Install Visual Studio
--   Install latest [Azure CLI][92]
+-   Install the latest [Azure CLI][97]
 
-## Exercise 1: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI
+### Database Setup
 
--   Clone the `TODO` repository
--   Follow the instructions to deploy the environment
--   Update the configuration and run the project
+1.  Open a browser window to the **pgsqldevSUFFIXflex16** Azure Database
+    for PostgreSQL Flexible Server
+2.  Under **Settings**, select **Server parameters**
+3.  Search for **extensions**
+4.  In the dropdown, ensure the **VECTOR** extension is checked
+5.  Select **Save**
+
+### Container Creation and File Upload
+
+1.  Run the following to uplaod the system and memory prompts:
+
+    ``` powershell
+    cd C:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\Scripts
+    $resourceGroupName = "RESOURCE_GROUP_NAME"
+    $location = "LOCATION"
+    az account set --subscription "SUBSCRIPTION_NAME"
+    .\UploadSystemPrompts.ps1 -resourceGroup $resourceGroupName -location $location
+    ```
+
+## Exercise 1: Setup Solution
+
+### Task 1: Open and configure project
+
+1.  Open the
+    `c:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\VectorSearchAiAssistance.sln`
+    solution file.
+2.  Before you can start debugging, you need to set the startup
+    projects. To do this, right-click on the solution in the Solution
+    Explorer and select `Configure Startup Projects...`. In the dialog
+    that opens, select `Multiple startup projects` and set the `Action`
+    for the `ChatServiceWebApi` and `Search` projects to `Start`.
+3.  Select **OK**
+
+### Task 2: Configure local settings
+
+This solution can be run locally post-Azure deployment. To do so, use
+the steps below.
+
+1.  In the `Search` project, make sure the content of the
+    `appsettings.json` file is similar to this:
+
+    ``` json
+    {
+        "DetailedErrors": true,
+        "Logging": {
+            "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+        },
+        "AllowedHosts": "*",
+        "MSPostgreSQLOpenAI": {
+            "ChatManager": {
+                "APIUrl": "https://localhost:63279",
+                "APIRoutePrefix": ""
+            }
+        }
+    }
+    ```
+
+2.  In the `ChatServiceWebApi` project, make sure the content of the
+    `appsettings.json` file is similar to this:
+
+    ``` json
+    {
+        "Logging": {
+            "LogLevel": {
+                "Default": "Information",
+                "Microsoft.AspNetCore": "Warning"
+            }
+        },
+        "AllowedHosts": "*",
+        "MSPostgreSQLOpenAI": {
+            "CognitiveSearch": {
+                "IndexName": "vector-index",
+                "MaxVectorSearchResults": 10
+            },
+            "OpenAI": {
+                "CompletionsDeployment": "completions",
+                "CompletionsDeploymentMaxTokens": 4096,
+                "EmbeddingsDeployment": "embeddings",
+                "EmbeddingsDeploymentMaxTokens": 8191,
+                "ChatCompletionPromptName": "RetailAssistant.Default",
+                "ShortSummaryPromptName": "Summarizer.TwoWords",
+                "PromptOptimization": {
+                    "CompletionsMinTokens": 50,
+                    "CompletionsMaxTokens": 300,
+                    "SystemMaxTokens": 1500,
+                    "MemoryMinTokens": 500,
+                    "MemoryMaxTokens": 2500,
+                    "MessagesMinTokens": 1000,
+                    "MessagesMaxTokens": 3000
+                }
+            },
+            "DurableSystemPrompt": {
+                "BlobStorageContainer": "system-prompt"
+            }
+        }
+    }
+    ```
+
+-   In the `ChatServiceWebApi` project, create an
+    `appsettings.Development.json` file with the following content
+    (replace all `<...>` placeholders with the values from your
+    deployment):
+
+    ``` json
+    {
+        "MSPostgreSQLOpenAI": {
+            "CognitiveSearch": {
+                "Endpoint": "https://<...>.search.windows.net",
+                "Key": "<...>"
+            },
+            "OpenAI": {
+                "Endpoint": "https://<...>.openai.azure.com/",
+                "Key": "<...>"
+            },
+            "DurableSystemPrompt": {
+                "BlobStorageConnection": "<...>"
+            },
+            "BlobStorageMemorySource": {
+                "ConfigBlobStorageConnection": "<...>"
+            },
+            "CognitiveSearchMemorySource": {
+                "Endpoint": "https://<...>.search.windows.net",
+                "Key": "<...>",
+                "ConfigBlobStorageConnection": "<...>"
+            }
+        }
+    }
+    ```
+
+    > **NOTE**: The `BlobStorageConnection` and
+    > `ConfigBlobStorageConnection` values can be found in the Azure
+    > Portal by navigating to the Storage Account created by the
+    > deployment (the one that has a container named `system-prompt`)
+    > and selecting the `Access keys` blade. The value is the
+    > `Connection string` for the `key1` key.
+    > `CognitiveSearchMemorySource` has the same values and
+    > `CognitiveSearch` section.
+
+4.  Also, make sure the newly created `appsettings.Development.json`
+    file is copied to the output directory. To do this, right-click on
+    the file in the Solution Explorer and select `Properties`. In the
+    properties window, set the `Copy to Output Directory` property to
+    `Copy always`.
+
+5.  You are now ready to start debugging the solution locally. To do
+    this, press `F5` or select `Debug > Start Debugging` from the menu.
+
+    **NOTE**: With Visual Studio, you can also use alternate ways to
+    manage the secrets and configuration. For example, you can use the
+    `Manage User Secrets` option from the context menu of the
+    `ChatWebServiceApi` project to open the `secrets.json` file and add
+    the configuration values there.
+
+## Exercise 2: Load Data
+
+1.  Create the database tables
+
+    -   Open pgAdmin and connect to the \`\` instance
+    -   Run the
+        `C:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\data\database.sql`
+        script
+
+2.  Run the following script to setup the customer and product data. The
+    `ChatWebServiceApi` will need to be running to execute this
+    successfully:
+
+    ``` powershell
+
+    cd C:\labfiles\microsoft-postgresql-developer-guide\05_AI\Samples\05-09-06-AI-Full-Chat-Application\data
+
+    $env:API_URL = "localhost:63280"
+
+    #load the customers.json file
+    $customers = Get-Content -Path "customers.json" -Raw | ConvertFrom-Json
+
+    #load the products.json file
+    $products = Get-Content -Path "products.json" -Raw | ConvertFrom-Json
+
+    #make call to the api to upload each customer
+    foreach ($customer in $customers) 
+    {
+        $body = $customer | ConvertTo-Json
+        Invoke-RestMethod -Uri "http://$($env:API_URL)/customers" -Method Put -Body $body -ContentType "application/json"
+    }
+
+    #make call to the api to upload each product
+    foreach ($product in $products) {
+        $body = $product | ConvertTo-Json
+        Invoke-RestMethod -Uri "http://$($env:API_URL)/products" -Method Put -Body $body -ContentType "application/json"
+    }
+    ```
+
+## Exercise 3: Test the Chat Application
+
+1.  Browse to the web application for the solution in your browser.
+
+2.  Click \[+ Create New Chat\] button to create a new chat session.
+
+3.  Type in your questions in the text box and press Enter. Some sample
+    questions you can ask:
+
+    -   What kind of socks do you have available?
+    -   Do you have any customers from Canada? Where in Canada are they
+        from?
+    -   What kinds of bikes are in your product inventory?
+
+## Exercise 4: Add New Data
+
+1.  Start a new chat session in the web application.
+2.  In the chat text box, type: "Can you list all of your socks?". The
+    AI Assistant will list 4 different socks of two types, racing and
+    mountain.
+3.  Using either CURL or Postman, send the following payload in a PUT
+    request with a `Content-Type` header value of `application/json` to
+    `https://<chat-service-hostname>/products` to add a product.
+
+### Curl Command
+
+1.  You can use the following commands to add a product to the database:
+
+    ``` pwsh
+    $jsonBody = '{
+        "id": "00001",
+        "categoryId": "C48B4EF4-D352-4CD2-BCB8-CE89B7DFA642",
+        "categoryName": "Clothing, Socks",
+        "sku": "SO-R999-M",
+        "name": "Cosmic Racing Socks, M",
+        "description": "The product called Cosmic Racing Socks, M",
+        "price": 6.00,
+        "tags": [
+            {
+                "id": "51CD93BF-098C-4C25-9829-4AD42046D038",
+                "name": "Tag-25"
+            },
+            {
+                "id": "5D24B427-1402-49DE-B79B-5A7013579FBC",
+                "name": "Tag-76"
+            },
+            {
+                "id": "D4EC9C09-75F3-4ADD-A6EB-ACDD12C648FA",
+                "name": "Tag-153"
+            }
+        ]
+    }'
+
+    Invoke-RestMethod -Uri "http://$($env:API_URL)/products" -Method Put -Body $jsonBody -ContentType "application/json"
+    ```
+
+2.  Return to the AI Assistant and type, "Can you list all of your socks
+    again?". This time you should see a new product, "Cosmic Socks, M"
+
+3.  Run the following command to remove the previous product:
+
+    ``` pwsh
+    $env:API_URL = "localhost:63280"
+    Invoke-RestMethod -Uri "http://$($env:API_URL)/products/00001?categoryId=C48B4EF4-D352-4CD2-BCB8-CE89B7DFA642" -Method Delete -Body $jsonBody -ContentType "application/json"
+    ```
+
+4.  Open a **new** chat session and ask the same question again. This
+    time it should show the original list of socks in the product
+    catalog.
+
+**Note:** Using the same chat session after adding them will sometimes
+result in the Cosmic Socks not being returned. If that happens, start a
+new chat session and ask the same question. Also, sometimes after
+removing the socks, they will continue to be returned by the AI
+Assistant. If that occurs, also start a new chat session. The reason
+this occurs is that previous prompts and completions are sent to OpenAI
+to allow it to maintain conversational context. Because of this, it will
+sometimes use previous completions as a background for generating
+subsequent responses.
+
+```{=html}
+<p align="center">
+```
+`<img src="img/socks.png" width="100%">`{=html}
+```{=html}
+</p>
+```
+## Exercise 5: Deployment
+
+1.  This solution deploys to Azure Kubernetes Service (AKS) using the
+    following script.
+
+    ``` pwsh
+    $resourceGroupName = "RESOURCE_GROUP_NAME"
+    $location = "LOCATION"
+    $subscriptionId = "SUBSCRIPTION_ID"
+    ./scripts/Unified-Deploy.ps1 -deployAks 1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id>
+    ```
+
+There are many options for deployment, including using an existing Azure
+OpenAI account and models. For deployment options and prerequisites,
+please see [How to Deploy] page.
+
+## Clean-up
+
+Delete the resource group to delete all deployed resources.
+
+## Resources
+
+-   [Upcoming blog post announcement]
+-   [OpenAI Platform documentation]
+-   [Azure OpenAI Service documentation]
 
 # Deployment
 
-Users can deploy this solution from three locations: local machine,
-virtual machine, or from Cloud Shell. See [Deployment choices][107] for
-more information. By default, this should be installed from a local
-development machine so the code will be available locally to run and
-debug.
+Users can deploy this solution from three locations, local machine,
+virtual machine, or from Cloud Shell. See [Deployment choices][111] for
+more information on why you would use those two installation options
+instructions. By default this should install from your local machine so
+you can have the code locally to run and debug.
 
 ## Prerequisites
 
@@ -8874,17 +9192,18 @@ debug.
 -   Docker Desktop
 -   Azure CLI ([v2.51.0 or greater])
 -   [Helm 3.11.1 or greater] (for AKS deployment)
--   Visual Studio 2022 (only needed if planning to run/debug the
+-   Visual Studio 2022 (only needed if you plan to run/debug the
     solution locally)
 
 > **NOTE**: Installation requires the choice of an Azure Region. Make
-> sure to set the region to the one used in the `<location>` value below
-> supports Azure OpenAI services. See [Azure OpenAI service regions] for
-> more information.
+> sure to set region you select which is used in the `<location>` value
+> below supports Azure OpenAI services. See [Azure OpenAI service
+> regions] for more information.
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to an Azure subscription.
+Follow the steps below to deploy the solution to your Azure
+subscription.
 
 1.  Ensure all the prerequisites are installed.
 
@@ -8903,23 +9222,23 @@ Follow the steps below to deploy the solution to an Azure subscription.
 
 4.  Run the following script to provision the infrastructure and deploy
     the API and frontend. This will provision all of the required
-    infrastructure, deploy the API and web app services into one of
-    Azure Kubeternetes Service (AKS) or Azure Container Apps (ACA), and
-    import data into Azure Cosmos DB.
+    infrastructure, deploy the API and web app services into your choice
+    of Azure Kubeternetes Service or Azure Container Apps, and import
+    data into Azure Cosmos DB.
 
-### Deploy with Azure Kubernetes Service
+    \### Deploy with Azure Kubernetes Service This script will deploy
+    all services including a new Azure OpenAI account and AKS
 
-    This script will deploy all services including a new Azure OpenAI account and AKS
-
-    ```pwsh
+    ``` pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id> -deployAks 1
     ```
 
-### Deploy with pre-existing Azure OpenAI service with Azure Kubernetes Service
+    \### Deploy with pre-existing Azure OpenAI service with Azure
+    Kubernetes Service This script will deploy using a pre-existing
+    Azure OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002
+    models and AKS
 
-    This script will deploy using a pre-existing Azure OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002 models and AKS
-
-    ```pwsh
+    ``` pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> `
         -subscription <target_subscription_id> -deployAks 1 `
         -openAiName <openai-account> `
@@ -8928,24 +9247,28 @@ Follow the steps below to deploy the solution to an Azure subscription.
         -openAiEmbeddingsDeployment <ada-002-model-name>
     ```
 
-    To validate the deployment using AKS run the following script. When the script is complete it will also output this value. Click on it to launch the app. 
+    To validate the deployment using AKS run the following script. When
+    the script it complete it will also output this value. You can
+    simply click on it to launch the app.
 
-    > ```pwsh
+    > ``` pwsh
     >  az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
-    >  ```
+    > ```
 
+    \### Deploy with Azure Container Apps This script will deploy all
+    services including a new Azure OpenAI account using Azure Container
+    Apps. (This can be a good option for users not familiar with AKS)
 
-    ### Deploy with Azure Container Apps
-    This script will deploy all services including a new Azure OpenAI account using Azure Container Apps. (This can be a good option for users not familiar with AKS)
-
-    ```pwsh
+    ``` pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> -subscription <target_subscription_id> -deployAks 0
     ```
 
-    ### Deploy with pre-existing Azure OpenAI service with Azure Container Apps
-    This script will deploy using a pre-existing Azure OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002 models and AKS
+    \### Deploy with pre-existing Azure OpenAI service with Azure
+    Container Apps This script will deploy using a pre-existing Azure
+    OpenAI account and pre-deployed GPT 3.5 Turbo and ADA-002 models and
+    AKS
 
-    ```pwsh
+    ``` pwsh
     ./scripts/Unified-Deploy.ps1 -resourceGroup <rg_name> -location <location> `
         -subscription <target_subscription_id> -deployAks 0 `
         -openAiName <openai-account> `
@@ -8954,10 +9277,8 @@ Follow the steps below to deploy the solution to an Azure subscription.
         -openAiEmbeddingsDeployment <ada-002-model-name>
     ```
 
-    To validate the deployment to ACA run the following script. 
-    > ```pwsh
-    >  az containerapp show -n <aca-name> -g <resource-group-name>
-    >  ```
+    To validate the deployment to ACA run the following script. \>
+    `pwsh  >  az containerapp show -n <aca-name> -g <resource-group-name>  >`
 
 ## Deployment choices
 
@@ -8967,64 +9288,66 @@ solution:
   -----------------------------------------------------------------------
   Deployment type         Description             When to use
   ----------------------- ----------------------- -----------------------
-  [Standard]              Use the local           Best suited for
-                          development environment situations where the
-                          to deploy the solution  flexibility of a full
-                          to an Azure             development environment
-                          subscription.           is required (e.g. to
+  [Standard]              Use your local          Best suited for
+                          development environment situations where you
+                          to deploy the solution  need the flexibility of
+                          to your Azure           a full development
+                          subscription.           environment (e.g. to
                                                   customize the solution)
-                                                  and a local development
-                                                  environment is
+                                                  and you have a local
+                                                  development environment
                                                   available.
 
   [Cloud Shell]           Use Azure Cloud Shell   Best suited for quick
-                          to deploy the solution  deployment. An Azure
-                          to an Azure             subscription and a
-                          subscription.           browser is required.
-                                                  However, this does
-                                                  require additional
+                          to deploy the solution  deployment. All you
+                          to your Azure           need is an Azure
+                          subscription.           subscription and a
+                                                  browser. However, this
+                                                  does require additional
                                                   setup steps. For more
                                                   information see,
                                                   [Prepare Cloud Shell
-                                                  Setup][108]
+                                                  Setup]
 
   [Azure VM]              Use an Azure VM to      Best suited for
-                          deploy the solution to  situations where the
-                          an Azure subscription.  flexibility of a full
-                                                  development environment
-                                                  is required (e.g. to
+                          deploy the solution to  situations where you
+                          your Azure              need the flexibility of
+                          subscription.           a full development
+                                                  environment (e.g. to
                                                   customize the solution)
-                                                  but a local development
-                                                  environment is not
-                                                  available. The Azure VM
-                                                  deployment type
-                                                  requires additional
-                                                  setup steps. If
-                                                  involved in managing
-                                                  the infrastructure that
+                                                  but you don't have a
+                                                  local development
+                                                  environment available.
+                                                  The Azure VM deployment
+                                                  type requires
+                                                  additional setup steps.
+                                                  If you are involved in
+                                                  managing the
+                                                  infrastructure that
                                                   enables Azure VM
-                                                  deployments for a team,
-                                                  see [Prepare Azure VM
-                                                  Setup][109] for more
-                                                  information.
+                                                  deployments for your
+                                                  team, see [Prepare
+                                                  Azure VM Setup][112]
+                                                  for more information.
   -----------------------------------------------------------------------
 
 ## Deployment validation
 
-Use the steps below to validate that the solution deployed successfully.
+Use the steps below to validate that the solution was deployed
+successfully.
 
 Once the deployment script completes, the Application Insights `traces`
 query should display the following sequence of events:
 
 ![API initialization sequence of events]
 
-Next, review the multiple entries referring to the vectorization of the
-data imported into Cosmos DB:
+Next, you should be able to see multiple entries referring to the
+vectorization of the data that was imported into Cosmos DB:
 
 ![API vectorization sequence of events]
 
-Finally, review the Cognitive Search index being populated with the
-vectorized data:
+Finally, you should be able to see the Cognitive Search index being
+populated with the vectorized data:
 
 ![Cognitive Search index populated with vectorized data]
 
@@ -9037,8 +9360,8 @@ vectorized data:
 
 Use the steps below to monitor the solution with Application Insights:
 
-1.  Navigate to the `Application Insights` resource created as part of
-    the deployment.
+1.  Navigate to the `Application Insights` resource that was created as
+    part of the deployment.
 
 2.  Select the `Logs` section and create a new query with the following
     statement. Change the "Time range" setting on top tool bar to
@@ -9067,7 +9390,8 @@ Use the steps below to monitor the solution with Application Insights:
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to an Azure subscription.
+Follow the steps below to deploy the solution to your Azure
+subscription.
 
 1.  Run the following script to provision a development VM with Visual
     Studio 2022 Community and required dependencies preinstalled.
@@ -9089,7 +9413,7 @@ Follow the steps below to deploy the solution to an Azure subscription.
     ```
 
 2.  Use RDP to remote into the freshly provisioned VM with the username
-    `BYDtoChatGPTUser` and the password provided earlier.
+    `BYDtoChatGPTUser` and the password you provided earlier on.
 
 3.  Add the `BYDtoChatGPTUser` account to the `docker-users` local group
     on the VM. Sign out and sign back in to the VM to apply the changes.
@@ -9129,13 +9453,13 @@ Follow the steps below to deploy the solution to an Azure subscription.
     ```
 
 > **NOTE**: Make sure to set the `<location>` value to a region that
-> supports Azure OpenAI services. See [Azure OpenAI service regions] for
-> more information.
+> supports Azure OpenAI services. See [Azure OpenAI service
+> regions][113] for more information.
 
 # Prepare Azure VM Setup
 
-Before users can deploy the solution using Azure VM, the following steps
-must be performed:
+Before users in your team can deploy the solution using Azure VM, you
+need to perform the following steps:
 
 1.  Create an Azure Storage account in the target subscription.
 
@@ -9161,9 +9485,9 @@ must be performed:
     on the VM.
 
 6.  Open the `vmdeploy.json` file from the `arm` folder with the text
-    editor of choice. In line 219, update the value of the `fileUris`
-    property to point to the `VMScriptExtension.ps1` script uploaded in
-    step 5.
+    editor of your choice. In line 219, update the value of the
+    `fileUris` property to point to the `VMScriptExtension.ps1` script
+    uploaded in step 5.
 
 7.  Save the changes to the `vmdeploy` script, commit them to the
     `cognitive-search-vector` branch, and push the changes to the remote
@@ -9182,11 +9506,12 @@ must be performed:
 -   Subscription access to Azure OpenAI service. Start here to [Request
     Access to Azure OpenAI Service]
 -   Azure Cloud Shell environment (follow [these instructions] to setup
-    the Cloud Shell)
+    your Cloud Shell)
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution an Azure subscription.
+Follow the steps below to deploy the solution to your Azure
+subscription.
 
 1.  Create a cloud shell PowerShell environment in a tenant that
     contains the target subscription.
@@ -9225,22 +9550,22 @@ Follow the steps below to deploy the solution an Azure subscription.
     ```
 
 > **NOTE**: The `<location>` specified must point to a region that
-> supports the Azure OpenAI service. Find the list of supported regions
-> [here][110].
+> supports the Azure OpenAI service. You can find the list of supported
+> regions [here][114].
 
-> **NOTE**: If the repo was already closed using the Cloud Shell it is
-> recommendeded to remove the `VectorSearchAiAssistant` folder from the
-> home directory before cloning the repository again. Do this by running
-> `rm ./VectorSearchAiAssistant -r -f` in the Cloud Shell.
+> **NOTE**: If you already used the Cloud Shell in the target
+> subscription, it is recommended to remove the
+> `VectorSearchAiAssistant` folder from the home directory before
+> cloning the repository again. You can do this by running
+> `rm ./VectorSearchAiAssistant -r -f` in the Cloud Shell. \# Prepare
+> Cloud Shell Setup
 
-# Prepare Cloud Shell Setup
-
-Before users in on a team can deploy the solution using Cloud Shell, it
-is necessary to perform the following steps:
+Before users in your team can deploy the solution using Cloud Shell, you
+need to perform the following steps:
 
 1.  Create an Azure Container Registry (ACR) instance in the target
     subscription. Ensure anonymous pull access is enabled on the ACR
-    instance (see [here][111] for more information).
+    instance (see [here][115] for more information).
 
 2.  Clone the repository:
 
@@ -9256,9 +9581,9 @@ is necessary to perform the following steps:
     ```
 
 4.  Open the `CloudShell-Deploy.ps1` script from the `scripts` folder
-    with the text editor of choice. In lines 4 and 5, update the default
-    values for the parameters `acrName` and `acrResourceGroup` with the
-    values corresponding to the ACR instance created in step 1.
+    with the text editor of your choice. In lines 4 and 5, update the
+    default values for the parameters `acrName` and `acrResourceGroup`
+    with the values corresponding to the ACR instance created in step 1.
 
 5.  Save the changes to the `CloudShell-Deploy.ps1` script, commit them
     to the `cognitive-search-vector` branch, and push the changes to the
@@ -9277,24 +9602,20 @@ is necessary to perform the following steps:
     ./scripts/Prepare-CloudShell-Deploy.ps1 -resourceGroup <rg_name> -acrName <acr_name> -subscription <target_subscription_id>
     ```
 
-    `<rg_name>` is the name of the resource group where of the ACR
-    instance created in step 1.
+    `<rg_name>` is the name of the resource group where the ACR instance
+    was created in step 1.
 
     `<acr_name>` is the name of the ACR instance created in step 1.
 
     `<target_subscription_id>` is the ID of the target subscription.
 
     This is an example of the command above:
+    `pwsh  ./scripts/Prepare-CloudShell-Deploy.ps1 -resourceGroup "ms-byd-to-chatgpt" -acrName "bydtochatgptcr" -subscription "00000000-0000-0000-0000-000000000000"`
 
-    ``` pwsh
-    ./scripts/Prepare-CloudShell-Deploy.ps1 -resourceGroup "ms-byd-to-chatgpt" -acrName "bydtochatgptcr" -subscription "00000000-0000-0000-0000-000000000000"
-    ```
-
-> **NOTE**: Make sure to pull the latest changes from the
-> `cognitive-search-vector` branch and rerun step 4 each time an update
-> occurs.
-
-# Deployment - Standard
+> **NOTE**: Make sure you pull the latest changes from the
+> `cognitive-search-vector` branch and rerun step 4 above each time you
+> want to update the portal and API Docker images in the ACR instance as
+> a result of changes made to the code. \# Deployment - Standard
 
 ## Prerequisites
 
@@ -9305,17 +9626,18 @@ is necessary to perform the following steps:
 -   Docker Desktop
 -   Azure CLI ([v2.51.0 or greater])
 -   [Helm 3.11.1 or greater] (for AKS deployment)
--   Visual Studio 2022 (only needed if there is a requirement to
-    run/debug the solution locally)
+-   Visual Studio 2022 (only needed if you plan to run/debug the
+    solution locally)
 
 > **NOTE**: Installation requires the choice of an Azure Region. Make
-> sure to set the region to the one used in the `<location>` value below
-> supports Azure OpenAI services. See [Azure OpenAI service regions] for
-> more information.
+> sure to set region you select which is used in the `<location>` value
+> below supports Azure OpenAI services. See [Azure OpenAI service
+> regions] for more information.
 
 ## Deployment steps
 
-Follow the steps below to deploy the solution to the Azure subscription.
+Follow the steps below to deploy the solution to your Azure
+subscription.
 
 1.  Ensure all the prerequisites are installed.
 
@@ -9334,8 +9656,8 @@ Follow the steps below to deploy the solution to the Azure subscription.
 
 4.  Run the following script to provision the infrastructure and deploy
     the API and frontend. This will provision all of the required
-    infrastructure, deploy the API and web app services into Azure
-    Kubeternetes Service (AKS) or Azure Container Apps (ACA), and import
+    infrastructure, deploy the API and web app services into your choice
+    of Azure Kubeternetes Service or Azure Container Apps, and import
     data into Azure Cosmos DB.
 
     \### Deploy with Azure Kubernetes Service This script will deploy
@@ -9542,9 +9864,9 @@ cd deploy/powershell
 # PostgreSQL + OpenAI ChatGPT
 
 This sample application combines PostgreSQL with OpenAI ChatGPT with a
-Blazor Server front-end for an intelligent chatbot application that
-shows off how to build a simple chat application with OpenAi ChatGPT and
-PostgreSQL.
+Blazor Server front-end for an intelligent chat bot application that
+shows off how you can build a simple chat application with OpenAi
+ChatGPT and PostgreSQL.
 
 ![Cosmos DB + ChatGPT user interface]
 
@@ -9558,26 +9880,26 @@ When a new prompt is sent to the Azure OpenAI service, some of the
 conversation history is sent with it. This provides context allowing
 ChatGPT to respond as though it is having a conversation. The length of
 this conversation history can be configured from appsettings.json with
-the `OpenAiMaxTokens` value which is then translated to a maximum
+the `OpenAiMaxTokens` value that is then translated to a maximum
 conversation string length that is 1/2 of this value.
 
 Please note that the "text-davinci-003" model used by this sample has a
-maximum of 4096 tokens. Tokens are used in both the request and response
+maximum of 4096 tokens. Token are used in both the request and reponse
 from the service. Overriding the maxConversationLength to values
-approaching the maximum token value could result in completions that
-contain little to no text if all of it has been used in the request.
+approaching maximum token value could result in completions that contain
+little to no text if all of it has been used in the request.
 
 The history for all prompts and completions for each chat session is
-stored in PostgreSQL. Deleting a chat session in the UI will delete its
+stored in PostgreSQL. Deleting a chat session in the UI will delete it's
 corresponding data as well.
 
 The application will also summarize the name of the chat session by
-asking ChatGPT to provide a one or two-word summary of the first prompt.
-This allows for the easy identification of different chat sessions.
+asking ChatGPT to provide a one or two word summary of the first prompt.
+This allows you to easily identity different chat sessions.
 
 Please note this is a sample application. It is intended to demonstrate
 how to use PostgreSQL and Azure OpenAI ChatGPT together. It is not
-intended for production or other large-scale use
+intended for production or other large scale use
 
 ## Getting Started
 
@@ -9585,58 +9907,62 @@ intended for production or other large-scale use
 
 -   Azure Subscription
 -   Subscription access to Azure OpenAI service. Start here to [Request
-    Access to Azure OpenAI Service]
--   Visual Studio, VS Code, or some editor to edit or view the source
-    for this sample.
+    Acces to Azure OpenAI
+    Service][Request Access to Azure OpenAI Service]
+-   Visual Studio, VS Code, or some editor if you want to edit or view
+    the source for this sample.
 
 ### Installation
 
-1.  Fork this repository to a GitHub account.
-2.  Depending on how using the ARM Template or Bicep, modify this
-    variable in one of those files to point to the fork of this
-    repository, "webSiteRepository":
+1.  Fork this repository to your own GitHub account.
+2.  Depending on whether you deploy using the ARM Template or Bicep,
+    modify this variable in one of those files to point to your fork of
+    this repository, "webSiteRepository":
     "https://github.com/Azure-Samples/cosmosdb-chatgpt.git"
 3.  If using the Deploy to Azure button below, also modify this
     README.md file to change the path for the Deploy To Azure button to
-    the local repository.
-4.  If the application is deployed without making either of these
-    changes, the repository can be updated by disconnecting and
-    connecting an external git repository pointing to the fork.
+    your local repository.
+4.  If you deploy this application without making either of these
+    changes, you can update the repository by disconnecting and
+    connecting an external git repository pointing to your fork.
 
 The provided ARM or Bicep Template will provision the following
 resources: 1. Azure Database for PostgreSQL Flexible Server. 1. Azure
-App service. This will be configured for CI/CD to the forked GitHub
+App service. This will be configured for CI/CD to your forked GitHub
 repository. This service can also be configured to run on App Service
-free tier. 1. Azure Open AI account. Specify a name for the deployment
-of the "text-davinci-003" model which will be used by the application.
+free tier. 1. Azure Open AI account. You must also specify a name for
+the deployment of the "text-davinci-003" model which is used by this
+application.
 
-Note: Access to an Azure Open AI service from the subscription is
-required before attempting to deploy this application.
+Note: You must have access to Azure Open AI service from your
+subscription before attempting to deploy this application.
 
 All connection information for PostgreSQL and Open AI is zero-touch and
 injected as environment variables in the Azure App Service instance at
 deployment time.
 
-[![Deploy to Azure]][112]
+[![Deploy to Azure]][116]
 
 ### Quickstart
 
-1.  After deployment, go to the resource group for the deployment and
+1.  After deployment, go to the resource group for your deployment and
     open the Azure App Service in the Azure Portal. Click the web url to
     launch the website.
 2.  Click + New Chat to create a new chat session.
-3.  Type a question in the text box and press Enter.
+3.  Type your question in the text box and press Enter.
 
 ## Clean up
 
-To remove all the resources used by this sample, first manually delete
-the deployed model within the Azure AI service. Then delete the resource
-group for the deployment. This will delete all remaining resources.
+To remove all the resources used by this sample, you must first manually
+delete the deployed model within the Azure AI service. You can then
+delete the resource group for your deployment. This will delete all
+remaining resources.
 
 ## Resources
 
--   [Open AI Platform documentation]
--   [Azure Open AI Service documentation]
+-   [Open AI Platform documentation][OpenAI Platform documentation]
+-   [Azure Open AI Service
+    documentation][Azure OpenAI Service documentation]
 
 # 06 / Troubleshooting
 
@@ -10326,7 +10652,7 @@ They would then replicate that database on the ground.
 
 ## 3rd party Azure solutions / Azure Marketplace
 
-The [Azure Marketplace][113] provides thousands of certified apps on
+The [Azure Marketplace][117] provides thousands of certified apps on
 Azure tailored to meet customer needs. Using `postgres` as the search
 criteria, review the various available applications that utilize
 PostgreSQL.
@@ -10400,7 +10726,7 @@ reviewing the following links to documentation pages and creating a free
 Azure account to practice with.
 
 -   [Review homepage]
--   [Documentation][114]
+-   [Documentation][118]
 -   [How to deploy on Azure Free
     Account][750 hours of Azure Database for PostgreSQL Flexible Server on a Burstable B1MS instance with 32GB storage for free]
 -   [Azure Pricing Calculator, TCO Calculator]
@@ -10821,7 +11147,7 @@ private IP allocation block. Choosing an allocation block is an
 important consideration, especially if the environment requires multiple
 virtual networks to be joined.
 
-> ![Warning][115] **Warning:** The allocation blocks of the virtual
+> ![Warning][119] **Warning:** The allocation blocks of the virtual
 > networks cannot overlap. It is best practice to choose allocation
 > blocks from [RFC 1918.]
 
@@ -10883,8 +11209,8 @@ resolution for the Flexible Server instances.
 For more information on configuring Private Access for Flexible Server,
 reference the following:
 
--   [Azure Portal][116]
--   [Azure CLI][117]
+-   [Azure Portal][120]
+-   [Azure CLI][121]
 
 Flexible server also has a [builtin
 PgBouncer][PgBouncer in Azure Database for PostgreSQL - Flexible Server]
@@ -10897,7 +11223,7 @@ Best Practices for Flexible Server
     instance in the same zone to minimize latency.
 
 > For a review of availability zones, consult the [Introduction to Azure
-> Database for PostgreSQL Flexible Server][118] document.
+> Database for PostgreSQL Flexible Server][122] document.
 
 -   Organize the components of the application into multiple virtual
     networks, such as in a [hub and spoke configuration.] Employ virtual
@@ -11378,7 +11704,7 @@ need to plan for database version upgrades. Cloud providers are
 continuously upgrading and improving their supported offerings. Older
 versions eventually fall into the unsupported status.
 
-![Warning][119] **Warning:** It is important to be aware the upgrade
+![Warning][123] **Warning:** It is important to be aware the upgrade
 process can be random. During deployment, the PostgreSQL server
 workloads will stop being processed on the server. Plan for these
 downtimes by rerouting the workloads to a read replica in the event the
@@ -11469,7 +11795,7 @@ when users attempt to perform write-based activities.
 
 # Application Modernization Journey
 
--   [Application Modernization Journey][120]
+-   [Application Modernization Journey][124]
     -   [Classic deployment]
     -   [Azure VM deployment]
     -   [Simple App Service deployment with Azure Database for
@@ -11525,7 +11851,7 @@ infrastructure team will have full control of the environment. The
 biggest weakness is they must also maintain every aspect of the
 environment as well.
 
-Follow the [Classic deployment][121] guide to deploy the application and
+Follow the [Classic deployment][125] guide to deploy the application and
 database.
 
 ### Azure VM deployment
@@ -11545,7 +11871,7 @@ configuration options with just a few clicks of the mouse. This is in
 contrast to the relatively complex and extra work needed to enable these
 types of services on-premises.
 
-Follow the [Azure VM deployment][122] guide to deploy the application
+Follow the [Azure VM deployment][126] guide to deploy the application
 and database.
 
 ### Simple App Service deployment with Azure Database for PostgreSQL Flexible Server
@@ -11562,7 +11888,7 @@ aforementioned services may introduce some relatively small application
 changes.
 
 Follow the [Simple App Service deployment with Azure Database for
-PostgreSQL Flexible Server][123] guide to deploy the application and
+PostgreSQL Flexible Server][127] guide to deploy the application and
 database.
 
 ### Continuous Integration (CI) and Continuous Delivery (CD)
@@ -11579,7 +11905,7 @@ that can connect to the target environment and deploy the release
 artifacts.
 
 Follow the [Continuous Integration (CI) and Continuous Delivery
-(CD)][124] guide to deploy the application and database.
+(CD)][128] guide to deploy the application and database.
 
 ### Containerizing layers with Docker
 
@@ -11599,7 +11925,7 @@ but once the build environment is set up and working, it is possible to
 push container updates very quickly to multi-region load-balanced
 environments.
 
-Follow the [Containerizing layers with Docker][125] guide to deploy the
+Follow the [Containerizing layers with Docker][129] guide to deploy the
 application and database.
 
 ### Azure Container Instances (ACI)
@@ -11612,7 +11938,7 @@ Azure Container Instances can deploy one container at a time or multiple
 containers to keep the application, API, and data contained in the same
 resource.
 
-Follow the [Azure Container Instances (ACI)][126] guide to deploy the
+Follow the [Azure Container Instances (ACI)][130] guide to deploy the
 application and database.
 
 ### App Service Containers
@@ -11624,7 +11950,7 @@ containers and multi-container apps through Docker Compose files.
 Containers give teams added flexibility beyond the platforms supported
 directly by App Service.
 
-Follow the [App Service Containers][127] guide to deploy the application
+Follow the [App Service Containers][131] guide to deploy the application
 and database.
 
 ### Azure Kubernetes Service (AKS)
@@ -11642,7 +11968,7 @@ numerous benefits:
 -   In supported regions, co-locating Flexible Server and AKS nodes in
     the same availability zone minimizes latency.
 
-Follow the [Azure Kubernetes Service (AKS)][128] guide to deploy the
+Follow the [Azure Kubernetes Service (AKS)][132] guide to deploy the
 application and database to AKS.
 
 ### AKS with PostgreSQL Flexible Server
@@ -11660,15 +11986,15 @@ guide to deploy the application and database.
 To reiterate, it is recommended to follow the application modernization
 developer journey from start to finish in the following order:
 
-1.  [Classic deployment][121]
-2.  [Azure VM Deployment][122]
+1.  [Classic deployment][125]
+2.  [Azure VM Deployment][126]
 3.  [Simple App Service Deployment with Azure Database for PostgreSQL
-    Flexible Server][123]
-4.  [Continuous Integration / Continuous Delivery][124]
-5.  [Containerizing layers with Docker][125]
-6.  [Azure Container Instances (ACI)][126]
-7.  [App Service Containers][127]
-8.  [Azure Kubernetes Service (AKS)][128]
+    Flexible Server][127]
+4.  [Continuous Integration / Continuous Delivery][128]
+5.  [Containerizing layers with Docker][129]
+6.  [Azure Container Instances (ACI)][130]
+7.  [App Service Containers][131]
+8.  [Azure Kubernetes Service (AKS)][132]
 9.  [AKS with Azure Database for PostgreSQL Flexible
     Server][Basic AI with Azure Database for PostgreSQL Flexible Server]
 
@@ -11753,7 +12079,7 @@ each step will help provide additional context and learning
 opportunities. The scripts will create an environment in a few minutes
 rather than requiring to walk through lengthy setup exercises.
 
-The Azure App Service uses this [Docker image][129] for its 8.x
+The Azure App Service uses this [Docker image][133] for its 8.x
 container builds.
 
 > ![Warning] **Warning**: Outdated runtimes are periodically removed
@@ -11762,7 +12088,7 @@ container builds.
 > maintaining organization or found to have significant vulnerabilities.
 > These options are hidden to guide customers to the latest runtimes
 > where they will be the most successful. Older Azure App Service Docker
-> images can be found [here][130].
+> images can be found [here][134].
 
 ### Sample application deployment steps
 
@@ -12043,7 +12369,7 @@ dependency collision.
 -   Select the App Service in the Azure Portal. In the **Monitoring**
     section, select **Log Stream**.
 -   [Troubleshoot connection issues to Azure Database for PostgreSQL
-    Flexible Server][131]
+    Flexible Server][135]
 -   Running `php -i` at the Azure App Service SSH console will provide
     valuable configuration information.
 -   Azure App Service 8.0 php.ini location -
@@ -12118,7 +12444,7 @@ not recommended for production scenarios; access can be limited to
 target Azure resources through the Azure portal or other management
 tools.
 
-> Consult the [Microsoft documentation][132] for information on how to
+> Consult the [Microsoft documentation][136] for information on how to
 > configure private access for PostgreSQL Flexible Server from Azure
 > Kubernetes Service. This example uses public access for simplicity.
 
@@ -12251,15 +12577,30 @@ displayed.
 ![This image demonstrates that the Laravel app functions without a
 problem when deployed to AKS.]
 
-# AppMod 01 : Classic Deployment to PHP enabled IIS server
+# AppMod 01 : Classic Deployment to PHP-enabled IIS server
 
 This is a simple app that runs PHP code to connect to a PostgreSQL
-database. These tasks will be performed on the **pgsqldevSUFFIX-win11** virtual machine
-deployed via the ARM template.
+database. These tasks will be performed on the **pgsqldevSUFFIX-win11**
+virtual machine deployed via the ARM template.
+
+## Required Resources
+
+Several resources are required to perform this lab. These include:
+
+-   Development Server with web server and PHP
+-   Composer
+-   PostgreSQL 14+
+
+Create these resources using the PostgreSQL Flexible Server Developer
+Guide Setup documentation. **Note the last section that requires you to
+run the provided setup PowerShell script**:
+
+-   [Deployment Instructions]
 
 ## Database Deployment
 
-1.  On the **pgsqldevSUFFIX-win11** virtual machine, open a Windows PowerShell window
+1.  On the **pgsqldevSUFFIX-win11** virtual machine, open a Windows
+    PowerShell window
 
 2.  Run the following commands to create the database (type `yes` when
     prompted). Note that the developer guide repo should be cloned to
@@ -12287,7 +12628,8 @@ deployed via the ARM template.
 
 ## Test the PHP Setup
 
-1.  In the **pgsqldevSUFFIX-win11** virtual machine, open a Chrome browser window
+1.  In the **pgsqldevSUFFIX-win11** virtual machine, open a Chrome
+    browser window
 
 2.  Navigate to `http://localhost:8080/info.php`, the PHP version and
     configuration should be displayed.
@@ -12340,7 +12682,7 @@ following:
 5.  Install OpenSSL
 6.  Install Docker
 7.  Install PHP Extensions (PostgreSQL, mbstring, xml, bcmath, etc)
-8.  Configure PHP 8.0
+8.  Configure PHP 8.x
 9.  Copy the web application files to the
     `/var/www/mydomain/htdocs/public` folder
 10. Update the nginx conf file for redirects
@@ -12348,9 +12690,24 @@ following:
 
 # AppMod 02 : Migrate to Azure Container Instances (ACI)
 
-Now that containerized versions of the application exists, they can now
+Now that containerized versions of the application exist, they can now
 be hosted in several resource types in Azure. Here, we explore Azure
 Container Instances (ACI).
+
+## Required Resources
+
+Several resources are required to perform this lab. These include:
+
+-   Development Server with web server and PHP
+-   Composer
+-   Azure App Service (Linux)
+-   Azure Container Registry
+
+Create these resources using the PostgreSQL Flexible Server Developer
+Guide Setup documentation. **Note the last section that requires you to
+run the provided setup PowerShell script**:
+
+-   [Deployment Instructions]
 
 ## Push images to Azure Container Registry
 
@@ -12536,18 +12893,34 @@ database.
 The app is running in an Azure VM and the App needs to be exposed to the
 internet via port 80 in order results to display.
 
+## Required Resources
+
+You will need to have completed the [Classic Deploy] steps to complete
+this lab.
+
+Several resources are required to perform this lab. These include:
+
+-   Azure Virtual Machine (Development Server with web server and PHP)
+-   Composer
+
+Create these resources using the PostgreSQL Flexible Server Developer
+Guide Setup documentation. **Note the last section that requires you to
+run the provided setup PowerShell script**:
+
+-   [Deployment Instructions]
+
 ## Test the Application #1
 
-1.  Open a browser to the Azure Portal
+1.  Open a browser to the Azure Portal.
 
-2.  Navigate to the **pgsqldevSUFFIX-win11** virtual machine
+2.  Navigate to the **pgsqldevSUFFIX-win11** virtual machine.
 
-3.  In the **Essentials** section, copy the public IP Address
+3.  In the **Essentials** section, copy the public IP Address.
 
     ![This image demonstrates the VM IP address in the Overview tab.]
 
 4.  Open a browser to the virtual machine ip address (ex
-    `http:\\IP_ADDRESS:8080`)
+    `http:\\IP_ADDRESS:8080`).
 
 5.  A **ERR_CONNECTION_TIMED_OUT** error should occur. This is because
     the network security group on the virtual machine does not allow
@@ -12555,20 +12928,20 @@ internet via port 80 in order results to display.
 
 ## Open Port 8080
 
-1.  Navigate to the **pgsqldevSUFFIX-win11** machine, select it
+1.  Navigate to the **pgsqldevSUFFIX-win11** machine, select it.
 
-2.  Under **Networking**, select **Network settings**
+2.  Under **Networking**, select **Network settings**.
 
 3.  In the **Rules** section, expand the **Create port rule** button and
-    select the **Inbound port rule** option
+    select the **Inbound port rule** option.
 
     ![This image demonstrates the Create port rule button.]
 
-4.  For the destination port, type **8080**
+4.  For the destination port, type **8080**.
 
-5.  For the name, type **Port_8080**
+5.  For the name, type **Port_8080**.
 
-6.  Select **Add**
+6.  Select **Add**.
 
     ![This image demonstrates the added inbound security rule.]
 
@@ -12577,8 +12950,8 @@ internet via port 80 in order results to display.
 1.  Retry connecting to the web application (ex
     `http:\\IP_ADDRESS:8080`), notice another timeout error
 
-2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell
-    command:
+2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the
+    following PowerShell command:
 
     ``` powershell
     New-NetFirewallRule -DisplayName 'Port 8080' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8080
@@ -12648,7 +13021,8 @@ As part of any secured web application, SSL/TLS should be enabled.
 
 ## Open Port 443
 
-1.  In the Azure Portal, navigate to the **pgsqldevSUFFIX-win11** machine, select it
+1.  In the Azure Portal, navigate to the **pgsqldevSUFFIX-win11**
+    machine, select it
 
 2.  Under **Networking**, select **Network settings**
 
@@ -12663,14 +13037,15 @@ As part of any secured web application, SSL/TLS should be enabled.
 
 6.  Select **Add**
 
-    ![This image demonstrates the added inbound security rule.][133]
+    ![This image demonstrates the added inbound security rule.][137]
 
 ## Test the Application #3
 
 1.  Retry connecting to the web application (ex
     `https:\\IP_ADDRESS:443`), an error should occur.
 
-2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the following PowerShell:
+2.  Switch back to the **pgsqldevSUFFIX-win11** machine, run the
+    following PowerShell:
 
     ``` powershell
     New-NetFirewallRule -DisplayName 'Port 443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
@@ -12690,7 +13065,7 @@ As part of any secured web application, SSL/TLS should be enabled.
 8.  The results should display
 
     ![This image demonstrates the application running in the
-    browser.][134]
+    browser.][138]
 
 # AppMod 04 : Cloud Deployment to Azure App Service
 
@@ -12715,7 +13090,8 @@ highlighted.]
 
 ### Deploy the Application
 
-1.  Switch to the **pgsqldevSUFFIX-win11** virtual machine remote desktop.
+1.  Switch to the **pgsqldevSUFFIX-win11** virtual machine remote
+    desktop.
 
 2.  Open a terminal window, run the following to deploy the zip to
     Azure, run these commands one at a time and observe:
@@ -13203,7 +13579,8 @@ containers.
 2.  In the **Push an existing repository from command line** section,
     select the **Copy** button
 
-3.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to Visual Studio code
+3.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to Visual
+    Studio code
 
 4.  In the terminal window, run the following:
 
@@ -13957,8 +14334,8 @@ docker compose up
 
 4.  Copy the username and password
 
-5.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to a powershell window and
-    run the following:
+5.  In the **pgsqldevSUFFIX-win11** virtual machine, switch to a
+    powershell window and run the following:
 
     ``` powershell
     az login --identity
@@ -14332,6 +14709,15 @@ kubectl create -f store-web-development.yaml
 3.  Utilize the `Connect-AzAccount` to interactively authenticate the
     Azure PowerShell environment with Azure.
 
+## Ensure Resource Providers
+
+1.  Open the Azure Portal
+2.  Browse to your lab subscription
+3.  Under **Settings**, select **Resource providers**
+4.  Search for **Microsoft.OperationsManagement**
+5.  Select it
+6.  Select **Register**
+
 ## Create a Lab Resource Group
 
 1.  Use Azure PowerShell to create a new resource group. Substitute the
@@ -14349,7 +14735,17 @@ kubectl create -f store-web-development.yaml
 > `southcentralus`, `westcentralus`, `westus2`, `westus`,
 > `northcentralus`
 
+### Verify capacity
+
+Be sure to validate that your subscription can deploy resources in the
+target region. In some cases, the template will not create all resources
+if you have not enabled them. Reference [Resolve capacity errors for
+Azure Database for PostgreSQL Flexible Server].
+
 ## Deploy the ARM Template
+
+The deployment with take about \~75 minutes to setup the Virtual Machine
+used for the labs and samples.
 
 1.  There are two ARM templates provided with the whitepaper.
 
@@ -14373,7 +14769,7 @@ kubectl create -f store-web-development.yaml
         the users
 
 3.  If deploying the [insecure ARM template] (`template.json`), edit the
-    associated [parameters file][135] (`template.parameters.json`).
+    associated [parameters file][139] (`template.parameters.json`).
 
     -   The `uniqueSuffix` specifies a unique identifier for Azure
         resources
@@ -14396,6 +14792,22 @@ kubectl create -f store-web-development.yaml
 
     Use `template.json` and `template.parameters.json` for the insecure
     ARM template deployment.
+
+## Setup Application Modernization
+
+If you are exploring the application modernization labs, you will also
+need to run the script to setup the extra components.
+
+1.  Connect to the **paw-1** virtual machine
+2.  Open a PowerShell window
+3.  Browse to the
+    \*\*C:`\labfiles`{=tex}`\microsoft`{=tex}-postgres-docs-project`\artifacts*`{=tex}\*
+    directory
+4.  Run the following command:
+
+``` powershell
+app-modernization-setup.ps1
+```
 
 ## Push images to Azure Container Registry
 
@@ -14543,6 +14955,32 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
 -   Select **Review + create**
 -   Select **Create**
 
+## Clean up
+
+It is crucial that any deployed resources are cleaned up once finished
+using them. Charges will be generated for the configured capacity, not
+how much the database is used. To delete the resource group and all
+resources created for this lab, follow the instructions below:
+
+1.  Open a web browser and navigate to the [Azure
+    portal][Microsoft Azure], and on the home page, select **Resource
+    groups** under Azure services.
+
+    ![Resource groups are highlighted under Azure services in the Azure
+    portal.]
+
+2.  In the filter for any field search box, enter the name of the
+    resource group created for these labs, and then select the resource
+    group from the list.
+
+3.  In the **Overview** pane, select **Delete resource group**.
+
+    ![On the Overview blade of the resource group. The Delete resource
+    group button is highlighted.]
+
+4.  In the confirmation dialog, enter the name of the resource group to
+    confirm and then select **Delete**.
+
   [01 / Azure PostgreSQL Developer Guide]: #azure-postgresql-developer-guide
   {#toc-azure-postgresql-developer-guide}
   [02 / Introduction to Azure Database for PostgreSQL Flexible Server]: #introduction-to-azure-database-for-postgresql-flexible-server
@@ -14655,9 +15093,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-exercise-1-enable-postgresql-microsoft-entra-authentication}
   [Exercise 2: Create Managed Identity]: #exercise-2-create-managed-identity
   {#toc-exercise-2-create-managed-identity}
-  [Exercise 3: Login to the Azure Database with Microsoft Entra credentials]:
-    #exercise-3-login-to-the-azure-database-with-microsoft-entra-credentials
-  {#toc-exercise-3-login-to-the-azure-database-with-microsoft-entra-credentials}
+  [Exercise 3: Log in to the Azure Database with Microsoft Entra credentials]:
+    #exercise-3-log-in-to-the-azure-database-with-microsoft-entra-credentials
+  {#toc-exercise-3-log-in-to-the-azure-database-with-microsoft-entra-credentials}
   [Exercise 4: Add MSI to the Database]: #exercise-4-add-msi-to-the-database
   {#toc-exercise-4-add-msi-to-the-database}
   [Exercise 5: Entra Users and Groups (Optional)]: #exercise-5-entra-users-and-groups-optional
@@ -14787,8 +15225,6 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Exercise 6: Execute a final query to tie it all together (Optional)]:
     #exercise-6-execute-a-final-query-to-tie-it-all-together-optional
   {#toc-exercise-6-execute-a-final-query-to-tie-it-all-together-optional}
-  [Exercise 6: Clean up]: #exercise-6-clean-up
-  {#toc-exercise-6-clean-up}
   [Hands-on Lab: Using Hugging Face with Azure Database for PostgreSQL Flexible Server]:
     #hands-on-lab-using-hugging-face-with-azure-database-for-postgresql-flexible-server
   {#toc-hands-on-lab-using-hugging-face-with-azure-database-for-postgresql-flexible-server}
@@ -14822,9 +15258,18 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     #hands-on-lab-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai
   {#toc-hands-on-lab-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai}
   [22]: #setup-21 {#toc-setup-21}
-  [Exercise 1: Full Chat Application with Semantic Kernel, PostgreSQL, Azure Open AI]:
-    #exercise-1-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai
-  {#toc-exercise-1-full-chat-application-with-semantic-kernel-postgresql-azure-open-ai}
+  [Exercise 1: Setup Solution]: #exercise-1-setup-solution
+  {#toc-exercise-1-setup-solution}
+  [Exercise 2: Load Data]: #exercise-2-load-data
+  {#toc-exercise-2-load-data}
+  [Exercise 3: Test the Chat Application]: #exercise-3-test-the-chat-application
+  {#toc-exercise-3-test-the-chat-application}
+  [Exercise 4: Add New Data]: #exercise-4-add-new-data
+  {#toc-exercise-4-add-new-data}
+  [Exercise 5: Deployment]: #exercise-5-deployment
+  {#toc-exercise-5-deployment}
+  [Clean-up]: #clean-up {#toc-clean-up}
+  [Resources]: #resources-1 {#toc-resources-1}
   [Deployment]: #deployment {#toc-deployment}
   [Prerequisites]: #prerequisites {#toc-prerequisites}
   [Deployment steps]: #deployment-steps {#toc-deployment-steps}
@@ -14843,10 +15288,6 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-deployment---cloud-shell}
   [25]: #prerequisites-2 {#toc-prerequisites-2}
   [26]: #deployment-steps-2 {#toc-deployment-steps-2}
-  [Prepare Cloud Shell Setup]: #prepare-cloud-shell-setup
-  {#toc-prepare-cloud-shell-setup}
-  [Deployment - Standard]: #deployment---standard
-  {#toc-deployment---standard}
   [27]: #prerequisites-3 {#toc-prerequisites-3}
   [28]: #deployment-steps-3 {#toc-deployment-steps-3}
   [29]: #deployment-1 {#toc-deployment-1}
@@ -14860,8 +15301,8 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-postgresql-openai-chatgpt}
   [Features]: #features {#toc-features}
   [Getting Started]: #getting-started-3 {#toc-getting-started-3}
-  [Clean up]: #clean-up {#toc-clean-up}
-  [Resources]: #resources-1 {#toc-resources-1}
+  [Clean up]: #clean-up-1 {#toc-clean-up-1}
+  [30]: #resources-2 {#toc-resources-2}
   [06 / Troubleshooting]: #troubleshooting-3 {#toc-troubleshooting-3}
   [Common PostgreSQL issues]: #common-postgresql-issues
   {#toc-common-postgresql-issues}
@@ -14885,7 +15326,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [10 / Zero to Hero]: #zero-to-hero {#toc-zero-to-hero}
   [Summary of tasks]: #summary-of-tasks {#toc-summary-of-tasks}
   [10 / Final Summary]: #final-summary {#toc-final-summary}
-  [30]: #resources-2 {#toc-resources-2}
+  [31]: #resources-3 {#toc-resources-3}
   [11 / Appendix]: #appendix {#toc-appendix}
   [Infrastructure Concepts]: #infrastructure-concepts
   {#toc-infrastructure-concepts}
@@ -14922,8 +15363,10 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-recommended-content-2}
   [Deploying a Laravel app backed by a Java REST API to AKS]: #deploying-a-laravel-app-backed-by-a-java-rest-api-to-aks
   {#toc-deploying-a-laravel-app-backed-by-a-java-rest-api-to-aks}
-  [AppMod 01 : Classic Deployment to PHP enabled IIS server]: #appmod-01-classic-deployment-to-php-enabled-iis-server
+  [AppMod 01 : Classic Deployment to PHP-enabled IIS server]: #appmod-01-classic-deployment-to-php-enabled-iis-server
   {#toc-appmod-01-classic-deployment-to-php-enabled-iis-server}
+  [Required Resources]: #required-resources-18
+  {#toc-required-resources-18}
   [Database Deployment]: #database-deployment {#toc-database-deployment}
   [Test the PHP Setup]: #test-the-php-setup {#toc-test-the-php-setup}
   [Test the Store Application]: #test-the-store-application
@@ -14931,6 +15374,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Manual Deployment]: #manual-deployment {#toc-manual-deployment}
   [AppMod 02 : Migrate to Azure Container Instances (ACI)]: #appmod-02-migrate-to-azure-container-instances-aci
   {#toc-appmod-02-migrate-to-azure-container-instances-aci}
+  [32]: #required-resources-19 {#toc-required-resources-19}
   [Push images to Azure Container Registry]: #push-images-to-azure-container-registry
   {#toc-push-images-to-azure-container-registry}
   [Run images in ACI]: #run-images-in-aci {#toc-run-images-in-aci}
@@ -14939,6 +15383,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-multi-container-single-app-service-deployment}
   [AppMod 03 : Cloud Deployment to Azure VM]: #appmod-03-cloud-deployment-to-azure-vm
   {#toc-appmod-03-cloud-deployment-to-azure-vm}
+  [33]: #required-resources-20 {#toc-required-resources-20}
   [Test the Application #1]: #test-the-application-1
   {#toc-test-the-application-1}
   [Open Port 8080]: #open-port-8080 {#toc-open-port-8080}
@@ -14981,12 +15426,12 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [GitHub Option]: #github-option {#toc-github-option}
   [AppMod 06 : Migrate to Azure App Service Containers]: #appmod-06-migrate-to-azure-app-service-containers
   {#toc-appmod-06-migrate-to-azure-app-service-containers}
-  [31]: #push-images-to-azure-container-registry-1
+  [34]: #push-images-to-azure-container-registry-1
   {#toc-push-images-to-azure-container-registry-1}
   [Run images in Azure App Service]: #run-images-in-azure-app-service
   {#toc-run-images-in-azure-app-service}
   [Test the containers]: #test-the-containers {#toc-test-the-containers}
-  [32]: #troubleshooting-4 {#toc-troubleshooting-4}
+  [35]: #troubleshooting-4 {#toc-troubleshooting-4}
   [AppMod 07 : Migrate to Docker Containers]: #appmod-07-migrate-to-docker-containers
   {#toc-appmod-07-migrate-to-docker-containers}
   [Migrate Application to Docker]: #migrate-application-to-docker
@@ -15007,30 +15452,35 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   {#toc-save-the-images-to-azure-container-registry-acr}
   [AppMod 08 : Migrate to Azure Kubernetes Services (AKS)]: #appmod-08-migrate-to-azure-kubernetes-services-aks
   {#toc-appmod-08-migrate-to-azure-kubernetes-services-aks}
-  [33]: #push-images-to-azure-container-registry-2
+  [36]: #push-images-to-azure-container-registry-2
   {#toc-push-images-to-azure-container-registry-2}
   [Run images in Azure Kubernetes Service (AKS)]: #run-images-in-azure-kubernetes-service-aks
   {#toc-run-images-in-azure-kubernetes-service-aks}
   [Add services]: #add-services {#toc-add-services}
   [Create a Loadbalancer]: #create-a-loadbalancer
   {#toc-create-a-loadbalancer}
-  [34]: #test-the-images-1 {#toc-test-the-images-1}
+  [37]: #test-the-images-1 {#toc-test-the-images-1}
   [Create a deployment]: #create-a-deployment {#toc-create-a-deployment}
-  [35]: #extra-resources-1 {#toc-extra-resources-1}
-  [36]: #push-images-to-azure-container-registry-3
+  [38]: #extra-resources-1 {#toc-extra-resources-1}
+  [39]: #push-images-to-azure-container-registry-3
   {#toc-push-images-to-azure-container-registry-3}
   [Run images in AKS]: #run-images-in-aks {#toc-run-images-in-aks}
-  [37]: #getting-started-4 {#toc-getting-started-4}
+  [40]: #getting-started-4 {#toc-getting-started-4}
+  [Ensure Resource Providers]: #ensure-resource-providers
+  {#toc-ensure-resource-providers}
   [Create a Lab Resource Group]: #create-a-lab-resource-group
   {#toc-create-a-lab-resource-group}
   [Deploy the ARM Template]: #deploy-the-arm-template
   {#toc-deploy-the-arm-template}
-  [38]: #push-images-to-azure-container-registry-4
+  [Setup Application Modernization]: #setup-application-modernization
+  {#toc-setup-application-modernization}
+  [41]: #push-images-to-azure-container-registry-4
   {#toc-push-images-to-azure-container-registry-4}
   [Migrate the on-premises database]: #migrate-the-on-premises-database
   {#toc-migrate-the-on-premises-database}
   [Flexible Server deployment sample ARM template]: #flexible-server-deployment-sample-arm-template
   {#toc-flexible-server-deployment-sample-arm-template}
+  [42]: #clean-up-2 {#toc-clean-up-2}
   [PostgreSQL]: https://www.postgresql.org/
   [Microsoft Azure]: https://portal.azure.com/
   [The diagram shows the progression of development evolution in the guide.]:
@@ -15039,7 +15489,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
   [Structured Query Language (SQL)]: https://en.wikipedia.org/wiki/SQL
   [PostgreSQL Feature Matrix]: https://www.postgresql.org/about/featurematrix/
-  [39]: https://youtu.be/NSEmJfUgNzE
+  [43]: https://youtu.be/NSEmJfUgNzE
   [MySQL]: https://www.mysql.com/
   [MariaDB]: https://mariadb.org/
   [Docker image]: https://hub.docker.com/_/postgres
@@ -15059,7 +15509,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This diagram shows the cloud adoption strategy.]: media/cloud-adoption-strategies.png
     "Cloud adoption strategy"
   [Choose the right PostgreSQL server option in Azure]: https://learn.microsoft.com/azure/postgresql/flexible-server/overview-postgres-choose-server-options
-  [40]: https://azure.microsoft.com/services/PostgreSQL/#features
+  [44]: https://azure.microsoft.com/services/PostgreSQL/#features
   [PostgreSQL and Availablity Zones]: media/overview-flexible-server.png
   [latest documentation]: https://learn.microsoft.com/azure/postgresql/flexible-server/overview#azure-regions
   [Compute and Storage options]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage
@@ -15093,7 +15543,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure mobile app]: https://azure.microsoft.com/get-started/azure-portal/mobile-app/
   [The picture shows the initial Azure service list.]: media/azure-portal-services.png
     "Azure portal Services"
-  [41]: https://learn.microsoft.com/marketplace/azure-marketplace-overview
+  [45]: https://learn.microsoft.com/marketplace/azure-marketplace-overview
   [The picture shows an example of Azure Marketplace search results.]: media/azure-marketplace-search-results.png
     "Azure Marketplace Results"
   [Shows an example of the Azure CLI.]: media/azure-cli-example.png
@@ -15160,22 +15610,22 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure Database Migration Service (DMS)]: https://learn.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online
   [pg_dump and pg_restore]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore
   [Azure Portal]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal
-  [42]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli
+  [46]: https://learn.microsoft.com/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli
   [\$200 free credit for developers to trial Azure]: https://azure.microsoft.com/free
-  [43]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure_resource_mgmt.md
+  [47]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure_resource_mgmt.md
   [Azure's comprehensive list of service and subscription limits]: https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
   [Microsoft docs]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-azure-ad-authentication
   [Microsoft download page.]: https://code.visualstudio.com/download
   [A simple screenshot of Visual Studio Code.]: media/VSCode_screenshot.png
     "Visual Studio Code"
-  [44]: https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres
+  [48]: https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres
   [extension for PostgreSQL]: https://learn.microsoft.com/azure-data-studio/quickstart-postgres
   [Quickstart document]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-portal
   [Azure's quickstart guide]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-cli
   [`flexible-server create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-create
   [`flexible-server db create`]: https://learn.microsoft.com/cli/azure/postgres/flexible-server/db?view=azure-cli-latest#az-postgres-flexible-server-db-create
-  [45]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template
-  [46]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-bicep
+  [49]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-arm-template
+  [50]: https://learn.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-bicep
   [article]: https://learn.microsoft.com/azure/developer/terraform/deploy-postgresql-flexible-server-database?tabs=azure-cli
   [Azure managed disks]: https://learn.microsoft.com/azure/virtual-machines/disks-types
   [some limitations]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage#premium-ssd-v2-early-preview-limitations
@@ -15198,14 +15648,14 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Salted Challenge Response Authentication Mechanism (SCRAM)]: https://datatracker.ietf.org/doc/html/rfc5802
   [here]: https://wiki.postgresql.org/wiki/List_of_drivers
   [PostgreSQL extensions]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-extensions#extension-versions
-  [47]: ./03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md
+  [51]: ./03_00_Getting_Started_Provision_PostgreSQL_Flexible_Server.md
   [pgAdmin Downloads]: https://www.pgadmin.org/download/
   [Chocolatey]: https://community.chocolatey.org/packages/pgadmin4
   [WinGet]: https://winget.run/search?query=pgAdmin
   [Homebrew]: https://formulae.brew.sh/cask/pgadmin4
   [The pgAdmin splash screen.]: media/pgadmin-splash.png
     "The pgAdmin splash screen"
-  [48]: https://portal.azure.com
+  [52]: https://portal.azure.com
   [pgAdmin instructions are displayed on the Connect screen of the Flexible Server resource in the Azure Portal.]:
     media/pgadmin4-connection-instructions.png
     "pgAdmin server connection instructions"
@@ -15237,7 +15687,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [The pgAdmin Query Tool displays with the SQL statement to delete a record from the products table having executed successfully.]:
     media/query-tool-delete-record.png
     "Query Tool with DELETE statement"
-  [49]: media/query-tool-select-all-after-delete.png
+  [53]: media/query-tool-select-all-after-delete.png
     "Query Tool with SELECT statement"
   [The inventory database context window displays with the Delete item highlighted.]:
     media/delete-inventory-db.png
@@ -15247,7 +15697,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [The server name is displayed on the Overview page of the Flexible Server resource.]:
     media/azure-portal-flexible-server-overview-server-name.png
     "Azure Portal server name"
-  [50]: https://shell.azure.com/
+  [54]: https://shell.azure.com/
   [The Azure CLI displays the command to create a new database.]: media/az-postgres-flexible-server-create-database.png
     "Azure CLI create database"
   [The Azure CLI displays the command to create a new table.]: media/az-postgres-flexible-server-create-table.png
@@ -15269,8 +15719,8 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Exit the PSQL interactive shell"
   [The Azure CLI displays the command to delete the database.]: media/az-postgres-flexible-server-delete-database.png
     "Azure CLI delete database"
-  [51]: ./03_00-1_Query_PostgreSQL_pgAdmin.md
-  [52]: ./03_00-2_Connect_Query_Azure_CLI.md
+  [55]: ./03_00-1_Query_PostgreSQL_pgAdmin.md
+  [56]: ./03_00-2_Connect_Query_Azure_CLI.md
   [downloads page]: https://windows.php.net/download/
   [XAMPP]: https://www.apachefriends.org/download.html
   [Quickstart: Use PHP to connect and query data in Azure Database for PostgreSQL - Single Server]:
@@ -15279,7 +15729,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Introduction to PDO]: https://www.php.net/manual/en/intro.pdo.php
   [Configure a PHP app for Azure App Service]: https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
   [php.ini directives]: https://www.php.net/manual/en/ini.list.php
-  [53]: https://learn.microsoft.com/azure/developer/java/?view=azure-java-stable
+  [57]: https://learn.microsoft.com/azure/developer/java/?view=azure-java-stable
   [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/PostgreSQL/flexible-server/connect-java?tabs=passwordless
   [Eclipse]: https://www.eclipse.org/downloads/
@@ -15287,12 +15737,12 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [directly from Eclipse]: https://learn.microsoft.com/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app
   [Maven]: https://maven.apache.org/guides/getting-started/index.html
   [Maven Plugins]: https://learn.microsoft.com/training/modules/develop-azure-functions-app-with-maven-plugin/
-  [54]: #end-to-end-application-development
+  [58]: #end-to-end-application-development
   [Spring Data JPA]: https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
   [full tutorial]: https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server
   [sample application]: https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql
   [deploy the application to Azure App Service]: https://learn.microsoft.com/azure/spring-apps/quickstart?tabs=Azure-portal%2CAzure-CLI%2CConsumption-workload&pivots=sc-enterprise
-  [55]: https://www.python.org/downloads/
+  [59]: https://www.python.org/downloads/
   [Instructions]: https://python.land/virtual-environments/virtualenv
   [Azure SDK for Python]: https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview
   [management (control plane)]: https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview#create-and-manage-azure-resources-with-management-libraries
@@ -15305,9 +15755,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     https://learn.microsoft.com/azure/app-service/tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=azure-portal
   [Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/connect-csharp
-  [56]: https://rubygems.org/gems/pg/
+  [60]: https://rubygems.org/gems/pg/
   [Pure Go Postgres driver (pq)]: https://github.com/lib/pq
-  [57]: https://github.com/sfackler/rust-postgres
+  [61]: https://github.com/sfackler/rust-postgres
   [connection libraries for PostgreSQL Flexible Server]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-connection-libraries
   [Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?tabs=clone
@@ -15323,7 +15773,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Logic Apps with PostgreSQL]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/06-05-LogicApp
   [Build microservices on Azure]: https://learn.microsoft.com/azure/architecture/microservices/
   [Using domain analysis to model microservices]: https://learn.microsoft.com/azure/architecture/microservices/model/domain-analysis
-  [58]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
+  [62]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-1-sample-apps/sample-php-app-rest
   [About API Management]: https://learn.microsoft.com/azure/api-management/api-management-key-concepts
   [Self-hosted gateway overview]: https://learn.microsoft.com/azure/api-management/self-hosted-gateway-overview
   [Azure Functions:]: https://learn.microsoft.com/azure/azure-functions/functions-bindings-timer
@@ -15363,23 +15813,23 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Azure Pipelines]: https://learn.microsoft.com/azure/azure-resource-manager/templates/add-template-to-azure-pipelines
   [GitHub Actions]: https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-github-actions
   [Azure Service Operator]: https://azure.github.io/azure-service-operator/
-  [59]: https://github.com/Azure/azure-service-operator/blob/main/docs/v1/services/postgresql/postgresql.md
-  [60]: #hands-on-lab-working-with-the-latest-developer-capabilities-of-postgres-16
-  [61]: #setup
-  [Required Resources]: #required-resources
+  [63]: https://github.com/Azure/azure-service-operator/blob/main/docs/v1/services/postgresql/postgresql.md
+  [64]: #hands-on-lab-working-with-the-latest-developer-capabilities-of-postgres-16
+  [65]: #setup
+  [66]: #required-resources
   [Software pre-requisites]: #software-pre-requisites
-  [62]: #exercise-1-setup-and-configuration
+  [67]: #exercise-1-setup-and-configuration
   [Task 1: Configure Server Parameters]: #task-1-configure-server-parameters
   [Task 2: Create tables and data]: #task-2-create-tables-and-data
-  [63]: #exercise-2-developer-features
+  [68]: #exercise-2-developer-features
   [Task 1: Add SQL/JSON object checks]: #task-1-add-sqljson-object-checks
   [Task 2: Exploring JSON_ARRAY, JSON_ARRAYAGG and JSON_OBJECT]: #task-2-exploring-json_array-json_arrayagg-and-json_object
   [Task 3: Creating Indexes]: #task-3-creating-indexes
   [Task 4: Using Full Text + GIN indexes]: #task-4-using-full-text--gin-indexes
   [Task 5: Aggregate function ANY_VALUE()]: #task-5-aggregate-function-any_value
-  [64]: #exercise-3-copy-features
+  [69]: #exercise-3-copy-features
   [Task 1: Allow a COPY FROM value to map to a column's DEFAULT]: #task-1-allow-a-copy-from-value-to-map-to-a-columns-default
-  [65]: #exercise-4-performance-features
+  [70]: #exercise-4-performance-features
   [Task 1: Allow parallelization of FULL and internal RIGHT OUTER hash joins]:
     #task-1-allow-parallelization-of-full-and-internal-right-outer-hash-joins
   [Task 2: Allow aggregate functions string_agg() and array_agg() to be parallelized]:
@@ -15387,7 +15837,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Task 3: Add EXPLAIN option GENERIC_PLAN to display the generic plan for a parameterized query]:
     #task-3-add-explain-option-generic_plan-to-display-the-generic-plan-for-a-parameterized-query
   [Task 4: Using pg_stat_io for enhanced IO monitoring]: #task-4-using-pg_stat_io-for-enhanced-io-monitoring
-  [66]: #exercise-5-other-features-optional
+  [71]: #exercise-5-other-features-optional
   [Task 1: Use new VACUUM options to improve VACUUM performance]: #task-1-use-new-vacuum-options-to-improve-vacuum-performance
   [Deployment Instructions]: ../../../11_03_Setup/00_Template_Deployment_Instructions.md
   [Open the Windows command prompt]: media/windows_cmd_prompt.png
@@ -15400,44 +15850,44 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Results from calendar table]: media/02_01_top_reviews.png
   [Function Json]: https://www.postgresql.org/docs/16/functions-json.html
   [Results from the query]: media/02_02_json_01.png
-  [67]: media/02_02_json_02.png
-  [68]: media/02_02_json_03.png
-  [69]: media/02_02_json_04.png
-  [70]: media/02_primary_address.png
+  [72]: media/02_02_json_02.png
+  [73]: media/02_02_json_03.png
+  [74]: media/02_02_json_04.png
+  [75]: media/02_primary_address.png
   ["?" operator]: https://www.postgresql.org/docs/9.5/functions-json.html
   [Results from the query are displayed.]: media/02_01_query_02.png
-  [71]: media/02_02_json_05.png
-  [72]: media/02_02_json_06.png
-  [73]: media/02_02_json_07.png
-  [74]: media/02_bedrooms_json_query.png
-  [75]: media/02_03_pre_index.png
-  [76]: media/02_03_after_index.png
+  [76]: media/02_02_json_05.png
+  [77]: media/02_02_json_06.png
+  [78]: media/02_02_json_07.png
+  [79]: media/02_bedrooms_json_query.png
+  [80]: media/02_03_pre_index.png
+  [81]: media/02_03_after_index.png
   [Full Text Search]: https://www.postgresql.org/docs/current/textsearch.html
   [GiST and GIN Index Types.]: https://www.postgresql.org/docs/9.1/textsearch-indexes.html
-  [77]: media/02_03_tsquery.png
-  [78]: media/02_03_tsquery_2.png
-  [79]: media/02_02_aggregate.png
-  [80]: media/02_02_aggregate_02.png
-  [81]: media/02_group_by.png
+  [82]: media/02_03_tsquery.png
+  [83]: media/02_03_tsquery_2.png
+  [84]: media/02_02_aggregate.png
+  [85]: media/02_02_aggregate_02.png
+  [86]: media/02_group_by.png
   [Sampling of the file contents.]: media/02_02_copy_from_default.png
-  [82]: media/02_default_values.png
+  [87]: media/02_default_values.png
   [Execution plan with a parallel hash full join]: media/parallel_full_outer_join.png
   [Execution plan with a hash full join]: media/02_parallel_hash_full_join_14.png
   [(link to commit)]: https://github.com/postgres/postgres/commit/11c2d6fdf
-  [83]: media/02_03_query_01.png
-  [84]: media/02_03_query_03.png
-  [85]: media/02_03_query_02.png
-  [86]: https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=16fd03e956540d1b47b743f6a84f37c54ac93dd4
+  [88]: media/02_03_query_01.png
+  [89]: media/02_03_query_03.png
+  [90]: media/02_03_query_02.png
+  [91]: https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=16fd03e956540d1b47b743f6a84f37c54ac93dd4
   [An error is displayed from the query.]: media/02_04_query_01.png
-  [87]: media/02_04_query_02.png
+  [92]: media/02_04_query_02.png
   [postgresql documentation]: https://www.postgresql.org/docs/devel/monitoring-stats.html#MONITORING-PG-STAT-IO-VIEW
   [Query results showing no activity]: media/02_pg_stat_01.png
   [Query results with IO activity displayed.]: media/pg_stat_io.png
   [Autovacuum Tuning in Azure Database for PostgreSQL - Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-autovacuum-tuning
-  [88]: https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=7d71d3dd080b9b147402db3365fe498f74704231
-  [89]: #hands-on-lab-working-with-pgbouncer
-  [90]: #exercise-1-pgbouncer
+  [93]: https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=7d71d3dd080b9b147402db3365fe498f74704231
+  [94]: #hands-on-lab-working-with-pgbouncer
+  [95]: #exercise-1-pgbouncer
   [Task 1: Enable PgBouncer and PgBouncer Metrics]: #task-1-enable-pgbouncer-and-pgbouncer-metrics
   [Task 2: Performance without PgBouncer]: #task-2-performance-without-pgbouncer
   [Task 3: Performance with PgBouncer]: #task-3-performance-with-pgbouncer
@@ -15447,7 +15897,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Select the Active client connections under PGBOUNCER]: media/metrics_set_30_minutes.png
   [Graph of active connections increasing.]: media/02_pgbouncer_01.png
   [Graph of active connections and active connections increasing.]: media/02_pgbouncer_02.png
-  [91]: #exercise-1-logical-replication
+  [96]: #exercise-1-logical-replication
   [Task 1: Setup Publication]: #task-1-setup-publication
   [Task 2: Setup Subscriber]: #task-2-setup-subscriber
   [Task 3: Sync Data]: #task-3-sync-data
@@ -15474,7 +15924,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     ./media/select-function-from-portal.png "Selecting the Function"
   [This image demonstrates the logs of a successful Function App invocation.]:
     ./media/function-app-logs.png "Function App invocation logs"
-  [92]: https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell
+  [97]: https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=powershell
   [Docker Desktop (Windows)]: https://www.docker.com/products/docker-desktop/#
   [Chocolaty Installer]: https://chocolatey.org/install
   [PostgreSQL 16]: https://www.postgresql.org/download/
@@ -15489,7 +15939,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "Recurrence trigger parameters"
   [Power BI Desktop]: https://www.microsoft.com/download/details.aspx?id=58494
   [Deploy a Django application to Azure by using PostgreSQL]: https://learn.microsoft.com/training/modules/django-deployment/?source=recommendations
-  [93]: https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?source=recommendations&tabs=clone
+  [98]: https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?source=recommendations&tabs=clone
   [Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/tutorial-django-aks-database
   [Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL]:
@@ -15530,30 +15980,30 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Langchain]: https://www.langchain.com/
   [Semantic Kernal]: https://learn.microsoft.com/semantic-kernel/overview/
   [Basic AI with Azure Database for PostgreSQL Flexible Server]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/05-CloudDeploy-PostgreSQLFlex
-  [94]: #hands-on-lab-generative-ai-with-azure-database-for-postgresql-flexible-server
-  [95]: #exercise-1-add-azure-ai-and-vector-extensions-to-allowlist
-  [96]: #exercise-2-create-an-azure-openai-resource
+  [99]: #hands-on-lab-generative-ai-with-azure-database-for-postgresql-flexible-server
+  [Setup Database]: #setup-database
+  [100]: #exercise-1-add-azure-ai-and-vector-extensions-to-allowlist
+  [101]: #exercise-2-create-an-azure-openai-resource
   [Task 1: Provision an Azure OpenAI service]: #task-1-provision-an-azure-openai-service
   [Task 2: Deploy an embedding model]: #task-2-deploy-an-embedding-model
-  [97]: #exercise-3-install-and-configure-the-azure_ai-extension
+  [102]: #exercise-3-install-and-configure-the-azure_ai-extension
   [Task 1: Connect to the database using psql in the Azure Cloud Shell]:
     #task-1-connect-to-the-database-using-psql-in-the-azure-cloud-shell
   [Task 2: Install the `azure_ai` extension]: #task-2-install-the-azure_ai-extension
   [Task 3: Review the objects contained within the `azure_ai` extension]:
     #task-3-review-the-objects-contained-within-the-azure_ai-extension
   [Task 4: Set the Azure OpenAI endpoint and key]: #task-4-set-the-azure-openai-endpoint-and-key
-  [98]: #exercise-4-generate-vector-embeddings-with-azure-openai
+  [103]: #exercise-4-generate-vector-embeddings-with-azure-openai
   [Task 1: Enable vector support with the pgvector extension]: #task-1-enable-vector-support-with-the-pgvector-extension
   [Task 2: Generate and store vector embeddings]: #task-2-generate-and-store-vector-embeddings
   [Task 3: Perform a vector similarity search]: #task-3-perform-a-vector-similarity-search
-  [99]: #exercise-5-integrate-azure-ai-services
+  [104]: #exercise-5-integrate-azure-ai-services
   [Task 1: Provision an Azure AI Language service]: #task-1-provision-an-azure-ai-language-service
   [Task 2: Set the Azure AI Language service endpoint and key]: #task-2-set-the-azure-ai-language-service-endpoint-and-key
   [Task 3: Analyze the sentiment of reviews]: #task-3-analyze-the-sentiment-of-reviews
-  [100]: #exercise-6-execute-a-final-query-to-tie-it-all-together-optional
+  [105]: #exercise-6-execute-a-final-query-to-tie-it-all-together-optional
   [Task 1: Connect to the database using pgAdmin]: #task-1-connect-to-the-database-using-pgadmin
   [Task 2: Execute a query and view results on a map]: #task-2-execute-a-query-and-view-results-on-a-map
-  [101]: #exercise-6-clean-up
   [Generative AI]: https://learn.microsoft.com/training/paths/introduction-generative-ai/
   [large language models]: https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-overview#large-language-model-llm
   [Azure AI Language service]: https://learn.microsoft.com/azure/ai-services/language-service/
@@ -15578,7 +16028,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [The Deploy model dialog is displayed with text-embedding-ada-002 selected in the select a model box, 2 (default) specified in the model version box, and embeddings entered for the deployment name.]:
     media/azure-openai-studio-deployments-deploy-model-dialog.png
   [psql command-line utility]: https://www.postgresql.org/docs/current/app-psql.html
-  [102]: https://learn.microsoft.com/azure/cloud-shell/overview
+  [106]: https://learn.microsoft.com/azure/cloud-shell/overview
   [The Connect menu item is highlighted under Settings in the left-hand navigation menu in the Azure portal.]:
     media/azure-postgres-connect.png
   [The Cloud Shell icon is highlighted in the Azure portal toolbar and a Cloud Shell window is open at the top of the browser window.]:
@@ -15590,17 +16040,17 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [The Azure OpenAI service's Keys and Endpoints page is selected and highlighted, with the KEY 1 and Endpoint copy to clipboard buttons highlighted.]:
     media/azure-openai-keys-and-endpoints.png
   [generate embeddings with Azure OpenAI]: https://learn.microsoft.com/azure/ai-services/openai/how-to/embeddings
-  [103]: https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-overview#vectors
+  [107]: https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-overview#vectors
   [enable vector support in the database]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-use-pgvector#enable-extension
   [The embeddings deployment for the text-embedding-ada-002 model is highlighted on the Deployments tab in Azure OpenAI Studio.]:
     media/azure-openai-studio-deployments-embeddings.png
   [HNSW]: https://github.com/pgvector/pgvector#hnsw
-  [104]: https://learn.microsoft.com/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity
+  [108]: https://learn.microsoft.com/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity
   [vector operator]: https://github.com/pgvector/pgvector#vector-operators
-  [105]: https://learn.microsoft.com/azure/ai-services/language-service/overview
+  [109]: https://learn.microsoft.com/azure/ai-services/language-service/overview
   [Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services documentation]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/generative-ai-azure-cognitive
-  [106]: media/create-a-resource-language-service.png
+  [110]: media/create-a-resource-language-service.png
   [The continue to create your resource button is highlighted on the select additional features dialog.]:
     media/create-a-resource-language-service-select-additional-features.png
   [The Basics tab of the Create Language dialog is displayed and populated with the values specified above.]:
@@ -15617,32 +16067,31 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     media/pgadmin-final-query-data-output.png
   [The Geometry Viewer tab is highlighted and a property point is highlighted on the map.]:
     media/pgadmin-final-query-geometry-viewer.png
-  [Resource groups is highlighted under Azure services in the Azure portal.]:
-    media/azure-portal-home-azure-services-resource-groups.png
-  [On the Overview blade of the resource group. The Delete resource group button is highlighted.]:
-    media/resource-group-delete.png
-  [107]: #deployment-choices
+  [How to Deploy]: ./docs/deployment.md
+  [Upcoming blog post announcement]: https://devblogs.microsoft.com/cosmosdb/
+  [OpenAI Platform documentation]: https://platform.openai.com/docs/introduction/overview
+  [Azure OpenAI Service documentation]: https://learn.microsoft.com/azure/cognitive-services/openai/
+  [111]: #deployment-choices
   [Request Access to Azure OpenAI Service]: https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu
   [v2.51.0 or greater]: https://docs.microsoft.com/cli/azure/install-azure-cli
   [Helm 3.11.1 or greater]: https://helm.sh/docs/intro/install/
   [Azure OpenAI service regions]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all
   [Standard]: ./deployment-standard.md
   [Cloud Shell]: ./deployment-cloudshell.md
-  [108]: ./deployment-cloudshell-setup.md
+  [Prepare Cloud Shell Setup]: ./deployment-cloudshell-setup.md
   [Azure VM]: ./deployment-azurevm.md
-  [109]: ./deployment-azurevm-setup.md
+  [112]: ./deployment-azurevm-setup.md
   [API initialization sequence of events]: ../img/initialization-trace.png
   [API vectorization sequence of events]: ../img/initialization-embedding.png
   [Cognitive Search index populated with vectorized data]: ../img/initialization-vector-index.png
   [Application Insights query]: ../img/monitoring-traces.png
-  [these instructions]: https://learn.microsoft.com/azure/cloud-shell/quickstart?tabs=azurecli
-  [110]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services
-  [111]: https://learn.microsoft.com/azure/container-registry/anonymous-pull-access
+  [113]: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all
+  [these instructions]: https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart?tabs=azurecli
+  [114]: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=cognitive-services
+  [115]: https://learn.microsoft.com/en-us/azure/container-registry/anonymous-pull-access
   [Cosmos DB + ChatGPT user interface]: screenshot.png
   [Deploy to Azure]: https://aka.ms/deploytoazurebutton.png
-  [112]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fcosmosdb-chatgpt%2Fmain%2Fazuredeploy.json
-  [Open AI Platform documentation]: https://platform.openai.com/docs/introduction/overview
-  [Azure Open AI Service documentation]: https://learn.microsoft.com/azure/cognitive-services/openai/
+  [116]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fcosmosdb-chatgpt%2Fmain%2Fazuredeploy.json
   [Troubleshoot connection issues to Azure Database for PostgreSQL Flexible Server]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-troubleshoot-common-connection-issues
   [Handle transient errors and connect efficiently to Azure Database for PostgreSQL Flexible Server]:
@@ -15713,9 +16162,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [The ÖBB logo.]: media/obb-lobo.png "ÖBB Logo"
   [Most Popular Technogies : Databases]: https://survey.stackoverflow.co/2023/#section-most-popular-technologies-databases
   [Adopting PgCat: A Nextgen Postgres Proxy]: https://www.instacart.com/company/how-its-made/adopting-pgcat-a-nextgen-postgres-proxy/#:~:text=At%20Instacart%2C%20we%20use%20Postgresql,optimization%20and%20vertically%20scaling%20instances
-  [113]: https://azuremarketplace.microsoft.com/marketplace/apps?search=postgres&page=1
+  [117]: https://azuremarketplace.microsoft.com/marketplace/apps?search=postgres&page=1
   [Review homepage]: https://aka.ms/postgresql
-  [114]: https://aka.ms/PostgreSQLdocs
+  [118]: https://aka.ms/PostgreSQLdocs
   [Azure Pricing Calculator, TCO Calculator]: https://azure.microsoft.com/pricing
   [What's new in Flexible Server?]: https://learn.microsoft.com/azure/postgresql/flexible-server/release-notes
   [Tech Community Blog]: https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/bg-p/ADforPostgreSQL
@@ -15786,7 +16235,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Manage firewall rules for Azure Database for PostgreSQL Flexible Server - Flexible Server using Azure CLI]:
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-firewall-cli
   [ARM Reference for Firewall Rules]: https://learn.microsoft.com/azure/templates/microsoft.dbforPostgreSQL/flexibleservers/firewallrules?tabs=json
-  [115]: media/warning.png "warning"
+  [119]: media/warning.png "warning"
   [RFC 1918.]: https://datatracker.ietf.org/doc/html/rfc1918
   [Introduction to Azure]: ../02_IntroToPostgreSQL/02_02_Introduction_to_Azure.md
   [Virtual Network Peering]: https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview
@@ -15798,9 +16247,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [CLI]: https://learn.microsoft.com/azure/virtual-network/quick-create-cli
   [ARM Template]: https://learn.microsoft.com/azure/virtual-network/quick-create-template
   [Private DNS zone overview]: https://learn.microsoft.com/azure/dns/private-dns-overview
-  [116]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-private-endpoint-portal
-  [117]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-cli
-  [118]: #introduction-to-azure-database-for-postgresql-flexible-server-1
+  [120]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-private-endpoint-portal
+  [121]: https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-manage-virtual-network-cli
+  [122]: #introduction-to-azure-database-for-postgresql-flexible-server-1
   [hub and spoke configuration.]: https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
   [Security and Compliance document]: 03_PostgreSQL_Security_Compliance.md
   [General Azure Networking Best Practices]: https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking
@@ -15857,9 +16306,9 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal
   [View service health notifications in the Azure Portal]: https://learn.microsoft.com/azure/service-health/service-notifications
   [Configure resource health alerts using Azure Portal]: https://learn.microsoft.com/azure/service-health/resource-health-alert-monitor-guide
-  [119]: media/warning.png
+  [123]: media/warning.png
   [planned maintenance notification]: https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring#planned-maintenance-notification
-  [120]: #application-modernization-journey
+  [124]: #application-modernization-journey
   [Classic deployment]: #classic-deployment
   [Azure VM deployment]: #azure-vm-deployment
   [Simple App Service deployment with Azure Database for PostgreSQL Flexible Server]:
@@ -15872,21 +16321,21 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [AKS with PostgreSQL Flexible Server]: #aks-with-postgresql-flexible-server
   [Start the application modernization journey]: #start-the-application-modernization-journey
   [Determining the evolutionary waypoint]: #determining-the-evolutionary-waypoint
-  [121]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
-  [122]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
-  [123]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
-  [124]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD
-  [125]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
-  [126]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
-  [127]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
-  [128]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
+  [125]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/01-ClassicDeploy
+  [126]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-01-CloudDeploy-Vm
+  [127]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-02-CloudDeploy-AppSvc
+  [128]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/02-03-CloudDeploy-CICD
+  [129]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-00-Docker
+  [130]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-01-CloudDeploy-ACI
+  [131]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/03-02-CloudDeploy-AppService-Container
+  [132]: https://github.com/azure/azure-postgresql/tree/master/DeveloperGuide/step-2-developer-journey-steps/04-AKS
   [This image shows a sample architecture involving a PHP App Service instance and a Flexible Server instance.]:
     media/sample-app-level-1-architecture.png
     "Basic Azure deployment architecture"
   [This image shows the sample app site map.]: media/sample-app-site-map.png
     "Sample app site map"
-  [129]: https://github.com/Azure-App-Service/nginx-fpm
-  [130]: https://github.com/Azure-App-Service/php
+  [133]: https://github.com/Azure-App-Service/nginx-fpm
+  [134]: https://github.com/Azure-App-Service/php
   [Displays the Marketplace button.]: media/market-place-button.png
     "Marketplace button"
   [Web app + database search result.]: media/microsoft-web-app-database-marketplace.png
@@ -15916,7 +16365,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This image shows how to create a sample order from the Laravel app.]:
     media/sample-order.png
     "Creating a sample order from the Laravel app"
-  [131]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues
+  [135]: https://learn.microsoft.com/azure/postgresql/flexible-server/howto-troubleshoot-common-connection-issues
   [Configure a PHP app for Azure App Service - Access diagnostic logs]: https://learn.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#access-diagnostic-logs
   [Deploying a Laravel application to Nginx server.]: https://laravel.com/docs/8.x/deployment#nginx
   [Local Git deployment to Azure App Service]: https://learn.microsoft.com/azure/app-service/deploy-local-git?tabs=cli
@@ -15924,7 +16373,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [Apache Maven:]: https://maven.apache.org/
   [Docker Desktop:]: https://docs.docker.com/desktop/
   [kubectl:]: https://kubernetes.io/docs/reference/kubectl/kubectl/
-  [132]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-deploy-springboot-on-aks-vnet
+  [136]: https://learn.microsoft.com/azure/postgresql/flexible-server/flexible-server/tutorial-deploy-springboot-on-aks-vnet
   [This image demonstrates the IP address of the LoadBalancer service for the Laravel app.]:
     ./media/laravel-service-ip.png "Laravel service IP address"
   [This image demonstrates that the Laravel app functions without a problem when deployed to AKS.]:
@@ -15938,6 +16387,7 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [This image demonstrates the loading screen for the Contoso NoshNow app.]:
     ./media/noshnow-app-load.png "Loading screen with random user"
   [Push Images to Acr]: ./../Misc/01_PushImagesToAcr.md
+  [Classic Deploy]: ../11-01-ClassicDeploy/README.md
   [This image demonstrates the VM IP address in the Overview tab.]: ./media/vm-ip-address.png
     "VM IP address"
   [This image demonstrates the Create port rule button.]: ./media/create-port-rule.png
@@ -15955,8 +16405,8 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
     "ContosoNow certificate"
   [This image demonstrates an HTTPS binding in IIS.]: ./media/site-binding-iis.png
     "IIS HTTPS binding"
-  [133]: ./media/nsg-rule-443.png "New inbound security rule"
-  [134]: ./media/app-running.png "Application running"
+  [137]: ./media/nsg-rule-443.png "New inbound security rule"
+  [138]: ./media/app-running.png "Application running"
   [The app service overview screen displays with the default domain link highlighted.]:
     media/app_service_url.png "default domain URL"
   [This image demonstrates the changes made to the /home/site/default file in the SSH session.]:
@@ -15981,13 +16431,19 @@ az deployment group create --resource-group [RESOURCE GROUP] --template-file ./P
   [whitepaper GitHub repository]: https://github.com/solliancenet/microsoft-PostgreSQL-developer-guide.git
   [PowerShell Azure module]: https://learn.microsoft.com/powershell/azure/install-az-ps
   [PowerShell Core]: https://github.com/PowerShell/PowerShell
+  [Resolve capacity errors for Azure Database for PostgreSQL Flexible Server]:
+    https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-resolve-capacity-errors?tabs=portal
   [secure ARM template]: ../Artifacts/template-secure.json
   [parameters file]: ../Artifacts/template-secure.parameters.json
   [insecure ARM template]: ../Artifacts/template.json
-  [135]: ../Artifacts/template.parameters.json
+  [139]: ../Artifacts/template.parameters.json
   [The Preferences screen displays with the PostgreSQL 16 pth highlighted.]:
     media/set_binary_path.png "Binary path for PostgreSQL 16"
   [The Register Server dialog displays on the Connection tab and is populated with the preceding information.]:
     media/register_azure_server.png "Register Server Connection tab"
   [The pgAdmin Restore dialog displays the preceding information.]: media/pgadmin_restore.png
     "pgAdmin Restore dialog"
+  [Resource groups are highlighted under Azure services in the Azure portal.]:
+    media/azure-portal-home-azure-services-resource-groups.png
+  [On the Overview blade of the resource group. The Delete resource group button is highlighted.]:
+    media/resource-group-delete.png
